@@ -84,7 +84,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
             const t = topics.find((x) => `${x.domain}/${x.topic}` === key);
             const n = preview.filter((q) => `${q.domain}/${q.topic}` === key).length;
             return (
-              <li key={key} className="inline-flex items-center gap-2 rounded-full border border-line bg-bg py-1 pl-1 pr-3 text-ink-2">
+              <li key={key} className="chip chip-icon text-ink-2">
                 {t && <DomainIcon domain={t.domain} size={22} />}
                 {t?.title ?? key} <span className="text-ink-3">×{n}</span>
               </li>
@@ -100,7 +100,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         type="button"
         onClick={start}
         disabled={preview.length === 0}
-        className="tap btn-primary rounded-xl px-6 py-3 text-sm font-semibold disabled:opacity-40"
+        className="btn btn-primary"
       >
         Start round · {preview.length} questions
       </button>

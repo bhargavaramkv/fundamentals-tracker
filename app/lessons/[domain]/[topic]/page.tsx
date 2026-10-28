@@ -45,7 +45,7 @@ export default async function LessonPage(props: PageProps<"/lessons/[domain]/[to
         <div className="mt-3 flex flex-wrap items-center gap-4">
           <Link
             href={`/practice/?topic=${lesson.domain}/${lesson.topic}`}
-            className="tap btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold"
+            className="btn btn-primary"
           >
             Drill this topic · {count} q
           </Link>

@@ -151,7 +151,7 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
     if (!ok) setError("Incorrect username or password.");
   };
 
-  const input = "mt-1 min-h-11 w-full rounded-md border border-line bg-bg px-3 py-2 text-sm outline-none focus:border-accent";
+  const input = "field mt-1 text-sm";
 
   return (
     <div className="flex flex-1 items-center justify-center px-[max(1rem,env(safe-area-inset-left))] pt-[calc(env(safe-area-inset-top)+2rem)] pb-[calc(env(safe-area-inset-bottom)+2rem)]">
@@ -193,7 +193,7 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
         <button
           type="submit"
           disabled={busy}
-          className="btn-primary mt-6 min-h-12 w-full rounded-xl px-4 text-base font-semibold disabled:opacity-50 sm:min-h-0 sm:py-3 sm:text-sm"
+          className="btn btn-primary btn-lg btn-block mt-6"
         >
           {busy ? "Signing in…" : "Sign in"}
         </button>

@@ -59,17 +59,17 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
           {(Object.keys(DOMAIN_LABELS) as (keyof typeof DOMAIN_LABELS)[]).map((d) => (
-            <span key={d} className="inline-flex items-center gap-2 rounded-full border border-line bg-bg py-1 pl-1 pr-3 text-sm">
+            <span key={d} className="chip chip-icon">
               <DomainIcon domain={d} size={26} />
               {DOMAIN_LABELS[d]}
             </span>
           ))}
         </div>
         <div className="mt-7 flex flex-wrap gap-3">
-          <Link href="/assess/" className="tap btn-primary rounded-xl px-6 py-3 text-sm font-semibold">
+          <Link href="/assess/" className="btn btn-primary">
             Start the assessment →
           </Link>
-          <Link href="/lessons/" className="tap rounded-xl border border-line bg-surface px-6 py-3 text-sm font-medium">
+          <Link href="/lessons/" className="btn btn-secondary">
             Browse lessons
           </Link>
         </div>
@@ -126,13 +126,13 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
             {covered} of {rec.profile.domains.flatMap((d) => d.topics).length} topics tried
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/practice/" className="tap btn-primary rounded-xl px-6 py-3 text-sm font-semibold">
+            <Link href="/practice/" className="btn btn-primary">
               Continue practice →
             </Link>
             {next && (
               <Link
                 href={`/lessons/${next.meta.domain}/${next.meta.topic}/`}
-                className="tap rounded-xl border border-line bg-surface px-5 py-3 text-sm font-medium"
+                className="btn btn-secondary"
               >
                 Read the lesson
               </Link>
@@ -225,13 +225,13 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
                 </div>
                 <Link
                   href={`/lessons/${f.meta.domain}/${f.meta.topic}/`}
-                  className="tap rounded-lg px-3 text-sm font-medium text-accent hover:bg-surface-2 max-sm:ml-11"
+                  className="btn btn-ghost max-sm:ml-11"
                 >
                   Lesson
                 </Link>
                 <Link
                   href={`/practice/?topic=${f.meta.domain}/${f.meta.topic}`}
-                  className="tap rounded-lg px-3 text-sm font-medium text-accent hover:bg-surface-2"
+                  className="btn btn-ghost"
                 >
                   Drill
                 </Link>

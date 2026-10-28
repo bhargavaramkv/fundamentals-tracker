@@ -133,7 +133,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           type="button"
           onClick={() => void finish(answers)}
           disabled={saving}
-          className="-mr-2 min-h-11 rounded-md px-3 text-ink-3 hover:text-ink disabled:opacity-50"
+          className="btn btn-ghost btn-muted -mr-2"
         >
           {answers.length > 0 ? "End & save" : "Exit"}
         </button>
@@ -151,8 +151,8 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
             <DomainIcon domain={question.domain} size={28} />
             {DOMAIN_LABELS[question.domain]}
           </span>
-          <span className="rounded-full bg-surface-2 px-2.5 py-1">{question.topic.replace(/-/g, " ")}</span>
-          <span className="rounded-full bg-surface-2 px-2.5 py-1">
+          <span className="chip">{question.topic.replace(/-/g, " ")}</span>
+          <span className="chip">
             {"●".repeat(question.difficulty)}
             <span className="text-ink-3">{"○".repeat(3 - question.difficulty)}</span> {DIFFICULTY_LABEL[question.difficulty]}
           </span>
@@ -229,7 +229,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
             type="button"
             onClick={next}
             disabled={picked === null || saving}
-            className="btn-primary min-h-12 w-full rounded-xl px-6 text-base font-semibold disabled:opacity-40 disabled:shadow-none sm:min-h-0 sm:w-auto sm:py-2.5 sm:text-sm"
+            className="btn btn-primary btn-lg btn-block"
           >
             {saving ? "Saving…" : index + 1 >= questions.length ? "Finish" : "Next"}
           </button>
@@ -310,15 +310,15 @@ function QuizResult({
       )}
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/" className="tap btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold">
+        <Link href="/" className="btn btn-primary">
           See updated profile
         </Link>
         {onRestart ? (
-          <button type="button" onClick={onRestart} className="tap rounded-lg border border-line px-5 py-2.5 text-sm">
+          <button type="button" onClick={onRestart} className="btn btn-secondary">
             Another adaptive round
           </button>
         ) : (
-          <Link href="/practice/" className="tap rounded-lg border border-line px-5 py-2.5 text-sm">
+          <Link href="/practice/" className="btn btn-secondary">
             Practice weak spots
           </Link>
         )}

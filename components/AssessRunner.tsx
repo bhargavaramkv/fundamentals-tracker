@@ -77,7 +77,7 @@ export function AssessRunner({ questions }: { questions: Question[] }) {
           setRound((r) => r + 1);
           setRunning(orderForAssessment(scope === "all" ? questions : questions.filter((q) => q.domain === scope)));
         }}
-        className="tap btn-primary rounded-xl px-6 py-3 text-sm font-semibold"
+        className="btn btn-primary"
       >
         Start · {count} questions (~{Math.ceil(count * 0.75)} min)
       </button>

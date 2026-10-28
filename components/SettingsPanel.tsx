@@ -132,7 +132,7 @@ export function SettingsPanel() {
             onChange={(e) => setToken(e.target.value)}
             autoComplete="off"
             spellCheck={false}
-            className="mt-1 w-full rounded-md border border-line bg-bg px-3 py-2 font-mono text-sm"
+            className="field mt-1 font-mono text-sm"
           />
         </label>
         <div className="mt-4 flex flex-wrap gap-3">
@@ -140,12 +140,12 @@ export function SettingsPanel() {
             type="button"
             onClick={() => void connect()}
             disabled={busy || token.trim().length < 20}
-            className="tap btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold disabled:opacity-40 disabled:shadow-none"
+            className="btn btn-primary"
           >
             {busy ? "Connecting…" : syncToken ? "Save & resync" : "Test & enable sync"}
           </button>
           {syncToken && (
-            <button type="button" onClick={() => void disconnect()} className="tap rounded-lg border border-line px-4 py-2 text-sm">
+            <button type="button" onClick={() => void disconnect()} className="btn btn-secondary">
               Turn off sync
             </button>
           )}
@@ -157,10 +157,10 @@ export function SettingsPanel() {
         <h2 className="font-medium">Backup</h2>
         <p className="mt-1 text-sm text-ink-2">Export everything as JSON, or import a backup. Imports merge, so they never delete answers.</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <button type="button" onClick={exportJson} className="tap rounded-lg border border-line px-4 py-2 text-sm">
+          <button type="button" onClick={exportJson} className="btn btn-secondary">
             Export JSON
           </button>
-          <label className="tap cursor-pointer rounded-lg border border-line px-4 py-2 text-sm">
+          <label className="btn btn-secondary">
             Import JSON
             <input
               type="file"
@@ -180,7 +180,7 @@ export function SettingsPanel() {
       <section className="card p-5">
         <h2 className="font-medium">Account</h2>
         <p className="mt-1 text-sm text-ink-2">You stay signed in on this device for 30 days.</p>
-        <button type="button" onClick={signOut} className="tap mt-4 rounded-lg border border-line px-4 py-2 text-sm text-bad">
+        <button type="button" onClick={signOut} className="btn btn-secondary btn-danger mt-4">
           Sign out
         </button>
       </section>
