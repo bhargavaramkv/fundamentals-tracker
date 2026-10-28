@@ -1,0 +1,115 @@
+export const DOMAINS = [
+  "dsa",
+  "oop",
+  "databases",
+  "system-design",
+  "web",
+] as const;
+
+export type Domain = (typeof DOMAINS)[number];
+
+export const DOMAIN_LABELS: Record<Domain, string> = {
+  dsa: "Data structures & algorithms",
+  oop: "OOP & design principles",
+  databases: "Databases",
+  "system-design": "System design",
+  web: "Web & networking",
+};
+
+export type Difficulty = 1 | 2 | 3;
+
+export interface Question {
+  id: string;
+  domain: Domain;
+  topic: string;
+  difficulty: Difficulty;
+  prompt: string;
+  /** Optional code shown under the prompt. */
+  code?: string;
+  options: string[];
+  /** Index into options. */
+  answer: number;
+  explanation: string;
+}
+
+export interface TopicMeta {
+  domain: Domain;
+  topic: string;
+  title: string;
+  summary: string;
+}
+
+export interface Lesson extends TopicMeta {
+  html: string;
+}
+
+export type SessionMode = "assessment" | "practice";
+
+export interface AnswerLog {
+  id: string;
+  sessionId: string;
+  mode: SessionMode;
+  questionId: string;
+  domain: Domain;
+  topic: string;
+  difficulty: Difficulty;
+  correct: boolean;
+  selected: number;
+  timeMs: number;
+  answeredAt: string;
+}
+
+export interface SessionRecord {
+  id: string;
+  mode: SessionMode;
+  startedAt: string;
+  finishedAt: string;
+  total: number;
+  correct: number;
+  /** 0-100 per domain answered in this session. */
+  domainScores: Partial<Record<Domain, number>>;
+}
+
+/** Leitner-style spaced repetition state for one question. */
+export interface ReviewState {
+  questionId: string;
+  box: number;
+  dueAt: string;
+  lapses: number;
+  lastAnsweredAt: string;
+}
+
+export interface ProgressData {
+  version: 1;
+  updatedAt: string;
+  answers: AnswerLog[];
+  sessions: SessionRecord[];
+  reviews: Record<string, ReviewState>;
+}
+
+export type Confidence = "low" | "medium" | "high";
+
+export interface TopicStat {
+  domain: Domain;
+  topic: string;
+  attempts: number;
+  correct: number;
+  /** Recency- and difficulty-weighted accuracy, 0-100. */
+  score: number;
+  /** Wrong answers among the last 5 attempts. */
+  recentMisses: number;
+}
+
+export interface DomainStat {
+  domain: Domain;
+  attempts: number;
+  score: number;
+  confidence: Confidence;
+  topics: TopicStat[];
+}
+
+export interface SkillProfile {
+  domains: DomainStat[];
+  weakTopics: TopicStat[];
+  strongTopics: TopicStat[];
+}

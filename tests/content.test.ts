@@ -1,0 +1,62 @@
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
+import { describe, expect, it } from "vitest";
+import { validateQuestions } from "@/lib/validate";
+import { DOMAINS } from "@/lib/types";
+
+const root = path.resolve(import.meta.dirname, "..", "content");
+
+function rawQuestions(): unknown[] {
+  return DOMAINS.flatMap((d) => JSON.parse(fs.readFileSync(path.join(root, "questions", `${d}.json`), "utf8")) as unknown[]);
+}
+
+function lessonKeys(): string[] {
+  return DOMAINS.flatMap((d) =>
+    fs
+      .readdirSync(path.join(root, "lessons", d))
+      .filter((f) => f.endsWith(".md"))
+      .map((f) => `${d}/${f.replace(/\.md$/, "")}`),
+  );
+}
+
+describe("content", () => {
+  it("every question passes validation", () => {
+    const { errors } = validateQuestions(rawQuestions());
+    expect(errors).toEqual([]);
+  });
+
+  it("questions in each file belong to that file's domain", () => {
+    for (const d of DOMAINS) {
+      const list = JSON.parse(fs.readFileSync(path.join(root, "questions", `${d}.json`), "utf8")) as { domain: string }[];
+      expect(list.every((q) => q.domain === d)).toBe(true);
+    }
+  });
+
+  it("every question topic has a lesson, and every lesson has at least 3 questions", () => {
+    const { questions } = validateQuestions(rawQuestions());
+    const lessons = new Set(lessonKeys());
+    for (const q of questions) expect(lessons.has(`${q.domain}/${q.topic}`), `${q.id} has no lesson`).toBe(true);
+    for (const key of lessons) {
+      const count = questions.filter((q) => `${q.domain}/${q.topic}` === key).length;
+      expect(count, `${key} has ${count} questions`).toBeGreaterThanOrEqual(3);
+    }
+  });
+
+  it("every lesson has a title and summary in frontmatter", () => {
+    for (const key of lessonKeys()) {
+      const { data, content } = matter(fs.readFileSync(path.join(root, "lessons", `${key}.md`), "utf8"));
+      expect(typeof data.title, key).toBe("string");
+      expect(typeof data.summary, key).toBe("string");
+      expect(content.trim().length, key).toBeGreaterThan(200);
+    }
+  });
+
+  it("covers all five domains with mixed difficulty", () => {
+    const { questions } = validateQuestions(rawQuestions());
+    for (const d of DOMAINS) {
+      const diffs = new Set(questions.filter((q) => q.domain === d).map((q) => q.difficulty));
+      expect(diffs.size, d).toBe(3);
+    }
+  });
+});
