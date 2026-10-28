@@ -145,3 +145,16 @@ describe("reading activity", () => {
     expect(normalizeProgress({ version: 1, answers: [], sessions: [], reviews: {} }).reads).toEqual([]);
   });
 });
+
+describe("picked option text", () => {
+  it("survives options being reordered after the answer was given", async () => {
+    const { pickedOptionText } = await import("@/lib/answer-text");
+    const question = { ...q("x1", "oop", "solid"), options: ["right now", "wrong now"], answer: 0 };
+    const legacy = [{ replacedAt: "2026-10-28T04:55:06Z", options: { x1: ["was wrong", "was right"] } }];
+    const before = answer({ questionId: "x1", correct: false, selected: 0, answeredAt: "2026-10-28T04:19:00.000Z" });
+    const after = answer({ questionId: "x1", correct: false, selected: 1, answeredAt: "2026-10-28T06:00:00.000Z" });
+    expect(pickedOptionText(before, question, legacy)).toBe("was wrong");
+    expect(pickedOptionText(after, question, legacy)).toBe("wrong now");
+    expect(pickedOptionText({ ...before, selectedText: "stored text" }, question, legacy)).toBe("stored text");
+  });
+});

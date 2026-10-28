@@ -10,6 +10,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { computeActivity } from "../lib/activity";
+import { pickedOptionText, type LegacyOptions } from "../lib/answer-text";
 import { emptyProgress, latestActivityAt, mergeProgress, normalizeProgress } from "../lib/progress";
 import { recommend } from "../lib/recommend";
 import { DOMAINS, DOMAIN_LABELS, type ProgressData, type Question, type TopicMeta } from "../lib/types";
@@ -21,6 +22,15 @@ const root = path.resolve(import.meta.dirname, "..");
 function arg(name: string): string | undefined {
   const i = process.argv.indexOf(`--${name}`);
   return i >= 0 ? process.argv[i + 1] : undefined;
+}
+
+function loadLegacy(): LegacyOptions[] {
+  const dir = path.join(root, "content/questions/legacy");
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")) as LegacyOptions);
 }
 
 function loadContent(): { questions: Question[]; topics: TopicMeta[] } {
@@ -46,7 +56,14 @@ function loadProgress(file: string | undefined): ProgressData {
   return mergeProgress(normalizeProgress(JSON.parse(fs.readFileSync(file, "utf8"))), emptyProgress());
 }
 
-export function buildReport(data: ProgressData, questions: Question[], topics: TopicMeta[], now: Date, since: string | null = null) {
+export function buildReport(
+  data: ProgressData,
+  questions: Question[],
+  topics: TopicMeta[],
+  now: Date,
+  since: string | null = null,
+  legacy: LegacyOptions[] = [],
+) {
   const nowMs = now.getTime();
   const latest = latestActivityAt(data);
   const titleOf = (domain: string, topic: string) => topics.find((t) => t.domain === domain && t.topic === topic)?.title ?? topic;
@@ -67,7 +84,9 @@ export function buildReport(data: ProgressData, questions: Question[], topics: T
     .sort((a, b) => b[1] - a[1])
     .map(([id, misses]) => {
       const q = byId.get(id);
-      const wrongPicks = data.answers.filter((a) => a.questionId === id && !a.correct).map((a) => q?.options[a.selected] ?? "?");
+      const wrongPicks = data.answers
+        .filter((a) => a.questionId === id && !a.correct)
+        .map((a) => pickedOptionText(a, q, legacy));
       return { id, misses, topic: q ? `${q.domain}/${q.topic}` : "unknown", prompt: q?.prompt ?? "(question removed)", wrongPicks };
     });
 
@@ -102,6 +121,19 @@ export function buildReport(data: ProgressData, questions: Question[], topics: T
       sessions: newSessions.map((x) => ({ mode: x.mode, total: x.total, correct: x.correct, finishedAt: x.finishedAt })),
       reads: newReads.map((r) => ({ topic: `${r.domain}/${r.topic}`, title: titleOf(r.domain, r.topic), minutes: Math.round(r.durationMs / 6000) / 10 })),
       topicsPracticed: [...new Set(newAnswers.map((a) => `${a.domain}/${a.topic}`))],
+      // Use these rather than raw indexes: options can be reordered after an answer was given.
+      misses: newAnswers
+        .filter((a) => !a.correct)
+        .map((a) => {
+          const q = byId.get(a.questionId);
+          return {
+            questionId: a.questionId,
+            prompt: q?.prompt ?? "(question removed)",
+            picked: pickedOptionText(a, q, legacy),
+            correct: q ? q.options[q.answer] : "?",
+            seconds: Math.round(a.timeMs / 100) / 10,
+          };
+        }),
     },
   };
 }
@@ -148,6 +180,9 @@ function toMarkdown(r: Report): string {
     else {
       lines.push(`- ${s.answers} answers (${s.correct} correct) in ${s.sessions.length} session(s); topics: ${s.topicsPracticed.join(", ") || "none"}`);
       for (const rd of s.reads) lines.push(`- read \`${rd.topic}\` (${rd.title}) for ${rd.minutes} min`);
+      for (const m of s.misses) {
+        lines.push(`- missed \`${m.questionId}\` in ${m.seconds}s: picked "${m.picked}"; correct is "${m.correct}"`);
+      }
     }
   }
   return lines.join("\n");
@@ -158,7 +193,7 @@ if (isMain) {
   const { questions, topics } = loadContent();
   const data = loadProgress(arg("data"));
   const now = arg("now") ? new Date(arg("now") as string) : new Date();
-  const report = buildReport(data, questions, topics, now, arg("since") ?? null);
+  const report = buildReport(data, questions, topics, now, arg("since") ?? null, loadLegacy());
   if (process.argv.includes("--check")) {
     // Cheap gate for the hourly check: one line, no analysis needed to read it.
     const { newActivity, latestActivityAt: latest, since } = report;

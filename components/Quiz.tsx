@@ -70,6 +70,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           difficulty: question.difficulty,
           correct: selected === question.answer,
           selected,
+          selectedText: question.options[selected],
           timeMs: Math.round(performance.now() - shownAt.current),
           answeredAt: new Date().toISOString(),
         },

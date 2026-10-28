@@ -54,7 +54,10 @@ export interface AnswerLog {
   topic: string;
   difficulty: Difficulty;
   correct: boolean;
+  /** Index into the options as stored at answer time (options may be reordered later). */
   selected: number;
+  /** Text of the picked option, so analysis survives later rewrites of the question. */
+  selectedText?: string;
   timeMs: number;
   answeredAt: string;
 }

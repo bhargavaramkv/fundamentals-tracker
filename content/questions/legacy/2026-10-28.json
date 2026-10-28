@@ -1,0 +1,366 @@
+{
+ "replacedAt": "2026-10-28T04:55:06Z",
+ "note": "Option sets as shown before the 2026-10-28 rewrite. Answers given before replacedAt that lack selectedText index into these.",
+ "options": {
+  "dsa-complexity-1": [
+   "O(log n)",
+   "O(1)",
+   "O(n)",
+   "O(n log n)"
+  ],
+  "dsa-complexity-2": [
+   "O(n log n)",
+   "O(log n)",
+   "O(n)",
+   "O(n²)"
+  ],
+  "dsa-complexity-3": [
+   "Θ(n log n)",
+   "Θ(n²)",
+   "Θ(n log² n)",
+   "Θ(n)"
+  ],
+  "dsa-hashing-1": [
+   "O(1)",
+   "O(log n)",
+   "O(n)",
+   "O(n²)"
+  ],
+  "dsa-hashing-2": [
+   "A compile error, because the two must be overridden together",
+   "Lookups by a logically equal (but different) instance usually fail",
+   "Everything works, since Dictionary only calls Equals()",
+   "Lookups always succeed but get slower"
+  ],
+  "dsa-hashing-3": [
+   "Sliding window with two pointers",
+   "Sort the array, then binary search",
+   "Keep running prefix sums in a hash set and check whether (prefix − k) was seen before",
+   "It can't be done faster than O(n²) when negatives are allowed"
+  ],
+  "dsa-trees-graphs-1": [
+   "Keys in level order",
+   "Keys in sorted order",
+   "Keys in insertion order",
+   "The root first, then subtrees"
+  ],
+  "dsa-trees-graphs-2": [
+   "It fails on graphs with cycles",
+   "It fails when edge weights are negative",
+   "It fails on undirected graphs",
+   "It fails when two paths have equal length"
+  ],
+  "dsa-trees-graphs-3": [
+   "Union-Find over all edges",
+   "BFS, flagging any node seen twice",
+   "DFS that tracks nodes on the current recursion stack (gray/black coloring), or Kahn's algorithm leaving nodes unprocessed",
+   "Check whether |E| ≥ |V|"
+  ],
+  "dsa-dynamic-programming-1": [
+   "Greedy choice property and a sorted input",
+   "Overlapping subproblems and optimal substructure",
+   "Divide and conquer with independent subproblems",
+   "Input small enough to brute-force"
+  ],
+  "dsa-dynamic-programming-2": [
+   "O(n + A)",
+   "O(n · A)",
+   "O(2^n)",
+   "O(A log A)"
+  ],
+  "dsa-dynamic-programming-3": [
+   "O(n²)",
+   "O(n log n)",
+   "O(n)",
+   "O(2^n)"
+  ],
+  "oop-solid-1": [
+   "Liskov Substitution",
+   "Interface Segregation",
+   "Single Responsibility",
+   "Open/Closed"
+  ],
+  "oop-solid-2": [
+   "Dependency Inversion",
+   "Liskov Substitution",
+   "Single Responsibility",
+   "Interface Segregation"
+  ],
+  "oop-solid-3": [
+   "Move all the switches into a single static helper",
+   "Introduce an IPaymentMethod abstraction with one implementation per type, resolved via DI or a registry",
+   "Replace the enum with string constants",
+   "Add a default branch that throws NotSupportedException"
+  ],
+  "oop-design-patterns-1": [
+   "Adapter",
+   "Decorator",
+   "Factory Method",
+   "Observer"
+  ],
+  "oop-design-patterns-2": [
+   "Chain of Responsibility",
+   "Mediator",
+   "Composite",
+   "Template Method"
+  ],
+  "oop-design-patterns-3": [
+   "It always causes memory leaks",
+   "It can't be thread-safe",
+   "It creates hidden global state and hard-wires consumers to a concrete type, which hurts testing and substitution",
+   "It is slower than creating new instances"
+  ],
+  "oop-composition-encapsulation-1": [
+   "Inheritance is slower at runtime",
+   "Inheritance couples a subclass to its parent's implementation details, so base-class changes can break subclasses",
+   "Composition allows multiple inheritance in C#",
+   "Composition uses less memory"
+  ],
+  "oop-composition-encapsulation-2": [
+   "List<T> isn't serializable",
+   "Callers can Add/Remove lines directly, bypassing invariants such as recalculating totals or enforcing a max quantity",
+   "Properties should always be fields",
+   "It isn't a problem, because the property has no setter"
+  ],
+  "oop-composition-encapsulation-3": [
+   "The base implementation runs, because the derived object doesn't exist yet",
+   "A compile-time error",
+   "The derived override runs before the derived constructor body has executed, so it can see uninitialized state",
+   "A runtime InvalidOperationException"
+  ],
+  "oop-dependency-injection-1": [
+   "Low-level modules should create their own dependencies",
+   "High-level modules should depend on abstractions, not concrete low-level modules",
+   "Every class needs an interface",
+   "Dependencies should be resolved via a service locator"
+  ],
+  "oop-dependency-injection-2": [
+   "None; the container creates a new DbContext per request",
+   "It's a captive dependency: one DbContext instance is shared across all requests and threads for the app's lifetime",
+   "DbContext becomes transient",
+   "It only fails in unit tests"
+  ],
+  "oop-dependency-injection-3": [
+   "The root singleton; route providers are ignored",
+   "A separate instance from the route's environment injector, distinct from the root one",
+   "An error for providing the service twice",
+   "A new instance per component"
+  ],
+  "databases-indexing-1": [
+   "WHERE first_name = 'Ada'",
+   "WHERE last_name = 'Lovelace'",
+   "WHERE first_name LIKE '%da'",
+   "None; composite indexes need every column"
+  ],
+  "databases-indexing-2": [
+   "{ createdAt: 1, status: 1, priority: -1 }",
+   "{ priority: -1, createdAt: 1, status: 1 }",
+   "{ status: 1, priority: -1, createdAt: 1 }",
+   "{ status: 1, createdAt: 1, priority: -1 }"
+  ],
+  "databases-indexing-3": [
+   "Add an index hint",
+   "Use a function-based or computed-column index on LOWER(email), or store a normalized column and index that",
+   "Increase the buffer pool size",
+   "Switch to a hash index"
+  ],
+  "databases-transactions-1": [
+   "Committed data survives crashes",
+   "Concurrent transactions don't see each other's intermediate state, to the degree the isolation level defines",
+   "All operations in a transaction succeed or none do",
+   "Data always satisfies constraints"
+  ],
+  "databases-transactions-2": [
+   "Dirty read",
+   "Non-repeatable read",
+   "Lost update on a single row in every engine",
+   "Phantom reads in every engine"
+  ],
+  "databases-transactions-3": [
+   "Dirty read; prevented by READ COMMITTED",
+   "Write skew; prevented by SERIALIZABLE isolation or by explicitly locking the rows read (SELECT … FOR UPDATE)",
+   "Lost update; prevented by an index",
+   "Phantom read; prevented by REPEATABLE READ"
+  ],
+  "databases-data-modeling-1": [
+   "Repeating groups",
+   "Partial dependencies on part of a composite key",
+   "Transitive dependencies, where a non-key column depends on another non-key column",
+   "All redundancy, including derived columns"
+  ],
+  "databases-data-modeling-2": [
+   "Embed them all as an array in the post document",
+   "Put comments in their own collection that references postId, optionally embedding the latest N on the post",
+   "Store them as a JSON string field",
+   "Create one collection per post"
+  ],
+  "databases-data-modeling-3": [
+   "Reads become slower",
+   "Update fan-out and consistency: a rename must be propagated to every order (or you accept stale snapshots)",
+   "You can no longer index orders",
+   "Transactions stop working"
+  ],
+  "databases-replication-sharding-1": [
+   "Index corruption",
+   "Replication lag, so the replica hasn't applied the write yet",
+   "A deadlock",
+   "Connection pool exhaustion"
+  ],
+  "databases-replication-sharding-2": [
+   "Inserts spread evenly across shards",
+   "All new inserts land on the shard owning the max chunk, creating a hot shard",
+   "The balancer rejects writes",
+   "Queries by createdAt become impossible"
+  ],
+  "databases-replication-sharding-3": [
+   "readPreference: secondary",
+   "readConcern: \"majority\"",
+   "writeConcern: { w: 1 }",
+   "readConcern: \"local\""
+  ],
+  "system-design-caching-1": [
+   "The cache fetches from the database by itself",
+   "The application reads from the database, then writes the result into the cache",
+   "The request fails and the client retries",
+   "The database pushes the value to the cache"
+  ],
+  "system-design-caching-2": [
+   "Cache penetration; use a Bloom filter",
+   "Cache stampede (thundering herd); use request coalescing or a per-key lock, jittered TTLs, or stale-while-revalidate",
+   "Cache poisoning; use TLS",
+   "Write amplification; use a larger cache"
+  ],
+  "system-design-caching-3": [
+   "Write the new value to the cache, then to the DB",
+   "Update the DB, then write the new value into the cache",
+   "Update the DB, then delete the cache key (let the next read repopulate it)",
+   "Delete the cache key, then update the DB"
+  ],
+  "system-design-scalability-1": [
+   "Every instance has its own database",
+   "Instances are stateless: session or state lives in a shared store (Redis, DB) or in the token",
+   "The load balancer uses sticky sessions",
+   "Each instance has more CPU"
+  ],
+  "system-design-scalability-2": [
+   "It's faster to compute",
+   "Adding or removing a node remaps only about 1/N of the keys instead of nearly all of them",
+   "It guarantees perfectly even load",
+   "It removes the need for replication"
+  ],
+  "system-design-scalability-3": [
+   "Lower the CPU target to 20%",
+   "Scale on a signal that tracks saturation (in-flight requests or queue depth via custom metrics), and investigate the DB/connection pool as the real bottleneck",
+   "Increase the pod memory limit",
+   "Disable the HPA and run 50 replicas"
+  ],
+  "system-design-consistency-1": [
+   "Latency and throughput",
+   "Consistency (refuse or delay some requests) and availability (answer with possibly stale data)",
+   "Durability and atomicity",
+   "Sharding and replication"
+  ],
+  "system-design-consistency-2": [
+   "Use PUT instead of POST",
+   "The client sends an Idempotency-Key; the server stores the key with the result and returns the stored result for a repeat key",
+   "Increase the timeout",
+   "Add a database transaction"
+  ],
+  "system-design-consistency-3": [
+   "Two-phase commit across the DB and Kafka",
+   "Transactional outbox: write the event to an outbox table in the same DB transaction, and have a relay (poller or CDC) publish it",
+   "Publish first, then save",
+   "Retry the publish three times in a loop"
+  ],
+  "system-design-messaging-1": [
+   "Queues are faster",
+   "In a queue each message goes to one of the competing consumers; in pub/sub every subscriber gets its own copy",
+   "Pub/sub guarantees ordering and queues don't",
+   "Queues need Kafka"
+  ],
+  "system-design-messaging-2": [
+   "Stateless",
+   "Idempotent: processing the same message twice has the same effect as processing it once",
+   "Single-threaded",
+   "Transactional with the broker"
+  ],
+  "system-design-messaging-3": [
+   "Global ordering across the topic",
+   "Ordering only within a partition; use orderId as the message key so all its events go to the same partition",
+   "No ordering at all",
+   "Ordering per consumer group"
+  ],
+  "web-http-1": [
+   "GET",
+   "POST",
+   "PUT",
+   "PATCH (by definition)"
+  ],
+  "web-http-2": [
+   "400 Bad Request",
+   "401 Unauthorized",
+   "403 Forbidden",
+   "404 Not Found (always)"
+  ],
+  "web-http-3": [
+   "None remains",
+   "TCP-level HOL: one lost packet stalls every stream until it's retransmitted. HTTP/3 over QUIC (UDP) fixes it with independent streams",
+   "Application-level HOL: responses must come back in request order. HTTP/1.1 pipelining fixes it",
+   "DNS HOL; fixed by DoH"
+  ],
+  "web-security-1": [
+   "Sends the cookie only over HTTPS",
+   "Stops JavaScript (document.cookie) from reading the cookie, which limits token theft through XSS",
+   "Stops the cookie from being sent cross-site",
+   "Makes the cookie expire when the browser closes"
+  ],
+  "web-security-2": [
+   "JWTs can't be longer than 1 KB",
+   "Self-contained JWTs are validated without a server lookup, so they can't easily be revoked; a short expiry limits the damage if one leaks",
+   "Browsers delete them after 15 minutes",
+   "Signature verification gets slower over time"
+  ],
+  "web-security-3": [
+   "A cross-site form POST",
+   "A fetch() from another origin with credentials: 'include'",
+   "A top-level GET navigation, such as clicking a link from another site",
+   "An <img> tag on another site"
+  ],
+  "web-networking-1": [
+   "DNS changes need a server reboot",
+   "Resolvers and clients cache the old record until its TTL expires",
+   "The registrar is still processing the change",
+   "Browsers ignore DNS"
+  ],
+  "web-networking-2": [
+   "0",
+   "1",
+   "2",
+   "3"
+  ],
+  "web-networking-3": [
+   "A proxy process listens on the ClusterIP and forwards connections",
+   "kube-proxy programs iptables/IPVS (or eBPF via a CNI) rules on each node that DNAT the virtual IP to a ready pod endpoint",
+   "CoreDNS returns a pod IP directly for every Service",
+   "The Ingress controller handles all Service traffic"
+  ],
+  "web-browser-1": [
+   "The API server, which rejects disallowed origins",
+   "The browser, which uses the server's Access-Control-* response headers to decide whether page JavaScript may read the response",
+   "The load balancer",
+   "The DNS resolver"
+  ],
+  "web-browser-2": [
+   "Sends the request directly",
+   "Sends a preflight OPTIONS request, because the custom header and non-simple content type make it a non-simple request",
+   "Blocks the request",
+   "Downgrades it to a simple GET"
+  ],
+  "web-browser-3": [
+   "They're synonyms",
+   "no-cache may store the response but must revalidate with the origin before each use; no-store must not store it at all",
+   "no-store allows a CDN to cache but not the browser",
+   "no-cache disables ETags"
+  ]
+ }
+}

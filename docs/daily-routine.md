@@ -108,6 +108,11 @@ Content conventions:
   and `summary` frontmatter. Keep them short and scannable: tables, small code
   samples, "when it breaks".
 - A new topic needs a lesson and at least 3 questions (the tests enforce this).
+- **Reordering or rewriting options of an existing question** breaks old answers'
+  `selected` indexes. Before changing them, snapshot the current option sets into
+  `content/questions/legacy/<date>.json` (`replacedAt` + `options`), as was done
+  on 2026-10-28. Always read misses from the report's `misses` list, never from
+  raw `selected` indexes.
 - Verify technical claims. Don't add a question you aren't certain about.
 
 ### Escalate instead of doing it yourself
