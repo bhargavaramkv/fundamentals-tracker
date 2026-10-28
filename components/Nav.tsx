@@ -98,19 +98,18 @@ export function Nav() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-line bg-surface/95 pt-[env(safe-area-inset-top)]">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-5 px-[max(1.25rem,env(safe-area-inset-left))] py-2 sm:py-4 sm:pr-[max(1.25rem,env(safe-area-inset-right))]">
+      <header className="sticky top-0 z-30 border-b border-line bg-surface/95 pt-[env(safe-area-inset-top)] backdrop-blur">
+        <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-6 px-[max(1rem,env(safe-area-inset-left))] py-1 sm:py-3 sm:pr-[max(1rem,env(safe-area-inset-right))]">
           <Link href="/" className="tap -ml-1 px-1 font-semibold tracking-tight sm:ml-0 sm:px-0 sm:py-1">
             <BrandMark />
           </Link>
-          <nav className="hidden flex-1 items-center gap-1 pl-6 text-sm sm:flex">
+          <nav className="hidden flex-1 gap-1 text-sm sm:flex">
             {LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                aria-current={isActive(pathname, l.href) ? "page" : undefined}
-                className={`relative rounded-sm px-3 py-2 transition-colors ${
-                  isActive(pathname, l.href) ? "font-semibold text-ink after:absolute after:inset-x-3 after:-bottom-4 after:h-0.5 after:bg-accent" : "text-ink-2 hover:bg-surface-2 hover:text-ink"
+                className={`rounded-md px-2.5 py-1.5 ${
+                  isActive(pathname, l.href) ? "bg-accent/10 font-semibold text-accent" : "text-ink-2 hover:bg-surface-2 hover:text-ink"
                 }`}
               >
                 {l.label}
@@ -129,7 +128,7 @@ export function Nav() {
 
       <nav
         aria-label="Primary"
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] sm:hidden"
+        className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden"
       >
         <ul className="mx-auto flex h-[var(--tabbar-h)] max-w-md items-stretch px-[env(safe-area-inset-left)]">
           {LINKS.map((l) => {
@@ -140,7 +139,7 @@ export function Nav() {
                   href={l.href}
                   aria-current={active ? "page" : undefined}
                   className={`flex h-full flex-col items-center justify-center gap-0.5 text-[11px] ${
-                    active ? "font-semibold text-accent" : "text-ink-3 hover:text-ink"
+                    active ? "font-medium text-accent" : "text-ink-3"
                   }`}
                 >
                   {l.icon}
