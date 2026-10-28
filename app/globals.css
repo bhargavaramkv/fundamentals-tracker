@@ -85,10 +85,41 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
+/* Height of the phone bottom tab bar (0 on larger screens), used to keep content and sticky bars clear of it. */
+:root {
+  --tabbar-h: 3.75rem;
+}
+@media (min-width: 640px) {
+  :root {
+    --tabbar-h: 0rem;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+label,
+input {
+  touch-action: manipulation;
+}
+
+/* iOS Safari zooms into any focused field under 16px. */
+@media (max-width: 639px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* Lesson markdown */
@@ -165,4 +196,14 @@ body {
 }
 .prose-lesson strong {
   font-weight: 600;
+}
+
+/* Phone-sized tap targets (Apple HIG: 44pt). */
+@media (max-width: 639px) {
+  .tap {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

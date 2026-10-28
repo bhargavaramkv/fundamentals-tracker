@@ -62,7 +62,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
             : `A ${SESSION_SIZE}-question round built from your data: questions due for spaced review first, then your weakest topics, then topics you haven't tried yet.`}
         </p>
         {focusTopic && (
-          <Link href="/practice/" className="mt-2 inline-block text-sm text-accent hover:underline">
+          <Link href="/practice/" className="tap mt-2 inline-block text-sm text-accent hover:underline">
             ← Back to adaptive practice
           </Link>
         )}
@@ -98,7 +98,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         type="button"
         onClick={start}
         disabled={preview.length === 0}
-        className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink disabled:opacity-40"
+        className="tap rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink disabled:opacity-40"
       >
         Start round · {preview.length} questions
       </button>

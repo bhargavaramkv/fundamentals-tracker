@@ -123,12 +123,12 @@ export function SettingsPanel() {
             type="button"
             onClick={() => void connect()}
             disabled={busy || token.trim().length < 20}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink disabled:opacity-40"
+            className="tap rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink disabled:opacity-40"
           >
             {busy ? "Connecting…" : syncToken ? "Save & resync" : "Test & enable sync"}
           </button>
           {syncToken && (
-            <button type="button" onClick={() => void disconnect()} className="rounded-lg border border-line px-4 py-2 text-sm">
+            <button type="button" onClick={() => void disconnect()} className="tap rounded-lg border border-line px-4 py-2 text-sm">
               Disable sync on this device
             </button>
           )}
@@ -140,10 +140,10 @@ export function SettingsPanel() {
         <h2 className="font-medium">Backup</h2>
         <p className="mt-1 text-sm text-ink-2">Export everything as JSON, or import a backup. Imports merge, so they never delete answers.</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <button type="button" onClick={exportJson} className="rounded-lg border border-line px-4 py-2 text-sm">
+          <button type="button" onClick={exportJson} className="tap rounded-lg border border-line px-4 py-2 text-sm">
             Export JSON
           </button>
-          <label className="cursor-pointer rounded-lg border border-line px-4 py-2 text-sm">
+          <label className="tap cursor-pointer rounded-lg border border-line px-4 py-2 text-sm">
             Import JSON
             <input
               type="file"
@@ -163,7 +163,7 @@ export function SettingsPanel() {
       <section className="rounded-xl border border-line bg-surface p-5">
         <h2 className="font-medium">Account</h2>
         <p className="mt-1 text-sm text-ink-2">You stay signed in on this device for 30 days.</p>
-        <button type="button" onClick={signOut} className="mt-4 rounded-lg border border-line px-4 py-2 text-sm text-bad">
+        <button type="button" onClick={signOut} className="tap mt-4 rounded-lg border border-line px-4 py-2 text-sm text-bad">
           Sign out
         </button>
       </section>

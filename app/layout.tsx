@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AuthGate } from "@/components/AuthGate";
 import { Nav } from "@/components/Nav";
@@ -21,15 +21,28 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // Draw under the notch / Dynamic Island and home indicator; safe-area insets keep content clear.
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fcfcfb" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1a19" },
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-dvh flex-col">
         <AuthGate>
           <ProgressProvider>
             <Nav />
-            <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:py-8">{children}</main>
-            <footer className="mx-auto w-full max-w-5xl px-4 pb-8 text-xs text-ink-3">
+            <main className="mx-auto w-full max-w-5xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-5 sm:py-8">
+              {children}
+            </main>
+            <footer className="mx-auto w-full max-w-5xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8">
               Lessons and questions live in <code>/content</code>. Progress stays in your browser unless you enable sync.
             </footer>
           </ProgressProvider>

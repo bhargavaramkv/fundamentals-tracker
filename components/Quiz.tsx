@@ -130,7 +130,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           type="button"
           onClick={() => void finish(answers)}
           disabled={saving}
-          className="rounded-md px-2 py-1 text-ink-3 hover:text-ink disabled:opacity-50"
+          className="-mr-2 min-h-11 rounded-md px-3 text-ink-3 hover:text-ink disabled:opacity-50"
         >
           {answers.length > 0 ? "End & save" : "Exit"}
         </button>
@@ -168,12 +168,17 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
                   type="button"
                   onClick={() => choose(displayIdx)}
                   disabled={picked !== null}
-                  className={`flex w-full items-start gap-3 rounded-lg border px-4 py-3 text-left text-[15px] transition-colors ${tone}`}
+                  className={`flex min-h-12 w-full flex-wrap items-start gap-x-3 gap-y-1 rounded-lg border px-4 py-3 text-left text-[15px] transition-colors ${tone}`}
                 >
-                  <span className="mt-0.5 font-mono text-xs text-ink-3">{displayIdx + 1}</span>
-                  <span className="flex-1">{question.options[optIdx]}</span>
-                  {picked !== null && isCorrect && <span className="text-sm font-medium text-good">✓ Correct</span>}
-                  {picked !== null && isPicked && !isCorrect && <span className="text-sm font-medium text-bad">✗ Your answer</span>}
+                  <span className="mt-0.5 hidden font-mono text-xs text-ink-3 sm:inline">{displayIdx + 1}</span>
+                  <span className="min-w-0 flex-1 basis-0">{question.options[optIdx]}</span>
+                  {/* On phones the verdict drops under the option text instead of squeezing it. */}
+                  {picked !== null && isCorrect && (
+                    <span className="w-full text-sm font-medium text-good sm:w-auto">✓ Correct</span>
+                  )}
+                  {picked !== null && isPicked && !isCorrect && (
+                    <span className="w-full text-sm font-medium text-bad sm:w-auto">✗ Your answer</span>
+                  )}
                 </button>
               </li>
             );
@@ -188,7 +193,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
             <p className="text-ink-2">{question.explanation}</p>
             <Link
               href={`/lessons/${question.domain}/${question.topic}/`}
-              className="mt-2 inline-block text-accent hover:underline"
+              className="-mx-1 mt-1 inline-flex min-h-11 items-center px-1 text-accent hover:underline"
               target="_blank"
             >
               Read the lesson ↗
@@ -197,17 +202,20 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
         )}
       </article>
 
-      <div className="flex justify-end">
-        <button
-          type="button"
-          onClick={next}
-          disabled={picked === null || saving}
-          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink disabled:opacity-40"
-        >
-          {saving ? "Saving…" : index + 1 >= questions.length ? "Finish" : "Next"}
-        </button>
+      {/* Sticky on phones so Next is always within reach without scrolling past the explanation. */}
+      <div className="sticky bottom-[calc(var(--tabbar-h)+env(safe-area-inset-bottom))] z-20 -mx-4 border-t border-line bg-bg/95 px-4 py-3 backdrop-blur sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
+        <div className="flex justify-end">
+          <button
+            type="button"
+            onClick={next}
+            disabled={picked === null || saving}
+            className="min-h-12 w-full rounded-lg bg-accent px-5 text-base font-medium text-accent-ink disabled:opacity-40 sm:min-h-0 sm:w-auto sm:py-2.5 sm:text-sm"
+          >
+            {saving ? "Saving…" : index + 1 >= questions.length ? "Finish" : "Next"}
+          </button>
+        </div>
       </div>
-      <p className="text-right text-xs text-ink-3">Keys: 1–{order.length} to answer, Enter for next</p>
+      <p className="hidden text-right text-xs text-ink-3 sm:block">Keys: 1–{order.length} to answer, Enter for next</p>
     </div>
   );
 }
@@ -272,15 +280,15 @@ function QuizResult({
       )}
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/" className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink">
+        <Link href="/" className="tap rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink">
           See updated profile
         </Link>
         {onRestart ? (
-          <button type="button" onClick={onRestart} className="rounded-lg border border-line px-5 py-2.5 text-sm">
+          <button type="button" onClick={onRestart} className="tap rounded-lg border border-line px-5 py-2.5 text-sm">
             Another adaptive round
           </button>
         ) : (
-          <Link href="/practice/" className="rounded-lg border border-line px-5 py-2.5 text-sm">
+          <Link href="/practice/" className="tap rounded-lg border border-line px-5 py-2.5 text-sm">
             Practice weak spots
           </Link>
         )}

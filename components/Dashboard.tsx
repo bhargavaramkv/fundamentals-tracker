@@ -45,10 +45,10 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
             and lessons to your weakest topics.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/assess/" className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink">
+            <Link href="/assess/" className="tap rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink">
               Take the assessment
             </Link>
-            <Link href="/lessons/" className="rounded-lg border border-line px-5 py-2.5 text-sm">
+            <Link href="/lessons/" className="tap rounded-lg border border-line px-5 py-2.5 text-sm">
               Browse lessons
             </Link>
           </div>
@@ -89,7 +89,7 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
       <section className="rounded-xl border border-line bg-surface p-5">
         <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
           <h2 className="font-medium">Next up</h2>
-          <Link href="/practice/" className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink">
+          <Link href="/practice/" className="tap rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink">
             Start adaptive round
           </Link>
         </div>
@@ -98,21 +98,26 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
         ) : (
           <ul className="divide-y divide-line">
             {rec.focus.slice(0, 5).map((f) => (
-              <li key={`${f.meta.domain}/${f.meta.topic}`} className="flex flex-wrap items-center gap-x-4 gap-y-1 py-3">
-                <div className="min-w-0 flex-1">
+              <li key={`${f.meta.domain}/${f.meta.topic}`} className="flex flex-wrap items-center gap-x-4 gap-y-1 py-3 max-sm:gap-x-2">
+                <div className="min-w-0 basis-full sm:basis-0 sm:flex-1">
                   <p className="font-medium">{f.meta.title}</p>
                   <p className="text-xs text-ink-3">
                     {DOMAIN_LABELS[f.meta.domain]} · {REASON_LABEL[f.reason]}
-                    {f.stat && f.stat.attempts > 0 ? ` · ${f.stat.score}% over ${f.stat.attempts} answers` : ""}
+                    {f.stat && f.stat.attempts > 0
+                      ? ` · ${f.stat.score}% over ${f.stat.attempts} answer${f.stat.attempts === 1 ? "" : "s"}`
+                      : ""}
                     {f.dueCount > 0 ? ` · ${f.dueCount} due` : ""}
                   </p>
                 </div>
-                <Link href={`/lessons/${f.meta.domain}/${f.meta.topic}/`} className="text-sm text-accent hover:underline">
+                <Link
+                  href={`/lessons/${f.meta.domain}/${f.meta.topic}/`}
+                  className="tap -ml-2 px-2 text-sm text-accent hover:underline max-sm:-my-1 sm:ml-0 sm:px-0"
+                >
                   Lesson
                 </Link>
                 <Link
                   href={`/practice/?topic=${f.meta.domain}/${f.meta.topic}`}
-                  className="text-sm text-accent hover:underline"
+                  className="tap -ml-2 px-2 text-sm text-accent hover:underline max-sm:-my-1 sm:ml-0 sm:px-0"
                 >
                   Drill
                 </Link>
@@ -211,7 +216,7 @@ function TopicList({
         <ul className="space-y-2 text-sm">
           {items.map((t) => (
             <li key={`${t.domain}/${t.topic}`} className="flex items-center justify-between gap-3">
-              <Link href={`/lessons/${t.domain}/${t.topic}/`} className="truncate hover:underline">
+              <Link href={`/lessons/${t.domain}/${t.topic}/`} className="tap min-w-0 justify-start truncate hover:underline">
                 {titleOf(t)}
               </Link>
               <span className="shrink-0 tabular-nums text-ink-2">

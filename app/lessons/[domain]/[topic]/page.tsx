@@ -30,7 +30,7 @@ export default async function LessonPage(props: PageProps<"/lessons/[domain]/[to
 
   return (
     <article className="mx-auto max-w-3xl">
-      <Link href="/lessons/" className="text-sm text-ink-3 hover:text-ink">
+      <Link href="/lessons/" className="tap text-sm text-ink-3 hover:text-ink">
         ← {DOMAIN_LABELS[lesson.domain]}
       </Link>
       <header className="mt-2 mb-6 border-b border-line pb-4">
@@ -39,7 +39,7 @@ export default async function LessonPage(props: PageProps<"/lessons/[domain]/[to
         <div className="mt-3 flex flex-wrap items-center gap-4">
           <Link
             href={`/practice/?topic=${lesson.domain}/${lesson.topic}`}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink"
+            className="tap rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink"
           >
             Drill this topic · {count} q
           </Link>

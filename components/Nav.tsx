@@ -2,14 +2,73 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
 import { useProgress } from "./ProgressProvider";
 
-const LINKS = [
-  { href: "/", label: "Dashboard" },
-  { href: "/practice/", label: "Practice" },
-  { href: "/assess/", label: "Assessment" },
-  { href: "/lessons/", label: "Lessons" },
-  { href: "/settings/", label: "Settings" },
+const ICON = "h-5 w-5";
+
+function Icon({ children }: { children: ReactNode }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className={ICON} aria-hidden>
+      {children}
+    </svg>
+  );
+}
+
+const LINKS: { href: string; label: string; short: string; icon: ReactNode }[] = [
+  {
+    href: "/",
+    label: "Dashboard",
+    short: "Home",
+    icon: (
+      <Icon>
+        <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/practice/",
+    label: "Practice",
+    short: "Practice",
+    icon: (
+      <Icon>
+        <path d="M13 2 4 14h7l-1 8 9-12h-7z" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/assess/",
+    label: "Assessment",
+    short: "Assess",
+    icon: (
+      <Icon>
+        <path d="M9 4h6M9 4a2 2 0 0 0-2 2H5v15h14V6h-2a2 2 0 0 0-2-2M9 4a2 2 0 0 1 2-1h2a2 2 0 0 1 2 1" />
+        <path d="m9 13 2 2 4-4" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/lessons/",
+    label: "Lessons",
+    short: "Lessons",
+    icon: (
+      <Icon>
+        <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
+        <path d="M4 21V5M8 7h7" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/settings/",
+    label: "Settings",
+    short: "Settings",
+    icon: (
+      <Icon>
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" />
+      </Icon>
+    ),
+  },
 ];
 
 function isActive(pathname: string, href: string): boolean {
@@ -17,6 +76,7 @@ function isActive(pathname: string, href: string): boolean {
   return pathname.startsWith(href.replace(/\/$/, ""));
 }
 
+/** Top bar everywhere; on phones the links move to a bottom tab bar within thumb reach. */
 export function Nav() {
   const pathname = usePathname();
   const { storeKind, syncState } = useProgress();
@@ -25,32 +85,59 @@ export function Nav() {
     storeKind === "local" ? "Local only" : syncState === "syncing" ? "Syncing…" : syncState === "error" ? "Sync error" : "Synced";
 
   return (
-    <header className="border-b border-line bg-surface">
-      <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3">
-        <Link href="/" className="font-semibold tracking-tight">
-          Fundamentals<span className="text-accent">.</span>
-        </Link>
-        <nav className="-mx-1 order-last flex w-full gap-1 overflow-x-auto text-sm sm:order-none sm:mx-0 sm:w-auto sm:flex-1">
-          {LINKS.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={`shrink-0 rounded-md px-2.5 py-1.5 ${
-                isActive(pathname, l.href) ? "bg-surface-2 font-medium text-ink" : "text-ink-2 hover:text-ink"
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-        <Link
-          href="/settings/"
-          className={`text-xs ${syncState === "error" ? "text-bad" : "text-ink-3"}`}
-          title="Where your progress is stored"
-        >
-          ● {syncLabel}
-        </Link>
-      </div>
-    </header>
+    <>
+      <header className="sticky top-0 z-30 border-b border-line bg-surface/95 pt-[env(safe-area-inset-top)] backdrop-blur">
+        <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-6 px-[max(1rem,env(safe-area-inset-left))] py-1 sm:py-3 sm:pr-[max(1rem,env(safe-area-inset-right))]">
+          <Link href="/" className="tap -ml-1 px-1 font-semibold tracking-tight sm:ml-0 sm:px-0 sm:py-1">
+            Fundamentals<span className="text-accent">.</span>
+          </Link>
+          <nav className="hidden flex-1 gap-1 text-sm sm:flex">
+            {LINKS.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`rounded-md px-2.5 py-1.5 ${
+                  isActive(pathname, l.href) ? "bg-surface-2 font-medium text-ink" : "text-ink-2 hover:text-ink"
+                }`}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+          <Link
+            href="/settings/"
+            className={`tap -mr-1 px-1 text-xs sm:mr-0 sm:px-0 sm:py-1 ${syncState === "error" ? "text-bad" : "text-ink-3"}`}
+            title="Where your progress is stored"
+          >
+            ● {syncLabel}
+          </Link>
+        </div>
+      </header>
+
+      <nav
+        aria-label="Primary"
+        className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden"
+      >
+        <ul className="mx-auto flex h-[var(--tabbar-h)] max-w-md items-stretch px-[env(safe-area-inset-left)]">
+          {LINKS.map((l) => {
+            const active = isActive(pathname, l.href);
+            return (
+              <li key={l.href} className="flex-1">
+                <Link
+                  href={l.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`flex h-full flex-col items-center justify-center gap-0.5 text-[11px] ${
+                    active ? "font-medium text-accent" : "text-ink-3"
+                  }`}
+                >
+                  {l.icon}
+                  {l.short}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </>
   );
 }
