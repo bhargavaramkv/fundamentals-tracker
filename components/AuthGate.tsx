@@ -156,7 +156,7 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
   return (
     <div className="flex flex-1 items-center justify-center px-[max(1rem,env(safe-area-inset-left))] pt-[calc(env(safe-area-inset-top)+2rem)] pb-[calc(env(safe-area-inset-bottom)+2rem)]">
       <form onSubmit={submit} className="card w-full max-w-sm p-7">
-        <BrandMark size={34} />
+        <BrandMark className="text-lg" />
         <h1 className="mt-6 text-2xl font-bold tracking-tight">Welcome back</h1>
         <p className="mt-1 text-sm text-ink-2">Sign in to continue your practice. This tracker is private.</p>
 
