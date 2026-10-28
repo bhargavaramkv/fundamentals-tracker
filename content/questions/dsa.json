@@ -1,0 +1,147 @@
+[
+  {
+    "id": "dsa-complexity-1",
+    "domain": "dsa",
+    "topic": "complexity",
+    "difficulty": 1,
+    "prompt": "A dynamic array (C# List<T>, JS Array) doubles its capacity when full. What is the amortized cost of Add/push?",
+    "options": ["O(log n)", "O(1)", "O(n)", "O(n log n)"],
+    "answer": 1,
+    "explanation": "Each resize copies n elements, but resizes happen at sizes 1, 2, 4, ... so the total copy work over n appends is < 2n. Spread over n operations that is O(1) amortized, even though a single append can cost O(n)."
+  },
+  {
+    "id": "dsa-complexity-2",
+    "domain": "dsa",
+    "topic": "complexity",
+    "difficulty": 2,
+    "prompt": "What is the time complexity of building a binary heap from n unsorted elements using bottom-up heapify (sift-down from the last internal node to the root)?",
+    "options": ["O(n log n)", "O(log n)", "O(n)", "O(n²)"],
+    "answer": 2,
+    "explanation": "Most nodes are near the leaves and sift down only a short distance. Summing n/2^(h+1) nodes × h work over all heights h gives a convergent series, so the total is O(n). Inserting elements one by one would be O(n log n)."
+  },
+  {
+    "id": "dsa-complexity-3",
+    "domain": "dsa",
+    "topic": "complexity",
+    "difficulty": 3,
+    "prompt": "Solve the recurrence T(n) = 2T(n/2) + Θ(n log n).",
+    "options": ["Θ(n log n)", "Θ(n²)", "Θ(n log² n)", "Θ(n)"],
+    "answer": 2,
+    "explanation": "Each of the log n levels of the recursion tree does about n·log(n/2^i) work. Summing log n + log n − 1 + ... gives Θ(log² n) per n, so Θ(n log² n). Plain Master theorem case 2 doesn't apply directly; the extended case 2 (k = 1) gives n log^(k+1) n."
+  },
+  {
+    "id": "dsa-hashing-1",
+    "domain": "dsa",
+    "topic": "hashing",
+    "difficulty": 1,
+    "prompt": "In a hash table using separate chaining, what is the worst-case lookup time if every key hashes to the same bucket?",
+    "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    "answer": 2,
+    "explanation": "All keys land in one chain, so lookup degrades to a linear scan. This is why hash-flooding attacks exist, and why runtimes like .NET randomize string hashing and Java converts long chains into balanced trees (O(log n))."
+  },
+  {
+    "id": "dsa-hashing-2",
+    "domain": "dsa",
+    "topic": "hashing",
+    "difficulty": 2,
+    "prompt": "In C#, a class used as a Dictionary key overrides Equals() but not GetHashCode(). What is the most likely outcome?",
+    "options": [
+      "A compile error, because the two must be overridden together",
+      "Lookups by a logically equal (but different) instance usually fail",
+      "Everything works, since Dictionary only calls Equals()",
+      "Lookups always succeed but get slower"
+    ],
+    "answer": 1,
+    "explanation": "Dictionary first picks a bucket using GetHashCode(). The default is reference-based, so two equal-by-value instances land in different buckets and Equals() is never consulted. The compiler only warns (CS0659). Records and value tuples generate both correctly."
+  },
+  {
+    "id": "dsa-hashing-3",
+    "domain": "dsa",
+    "topic": "hashing",
+    "difficulty": 3,
+    "prompt": "Given an integer array that may contain negatives, how do you check in O(n) whether any contiguous subarray sums to k?",
+    "options": [
+      "Sliding window with two pointers",
+      "Sort the array, then binary search",
+      "Keep running prefix sums in a hash set and check whether (prefix − k) was seen before",
+      "It can't be done faster than O(n²) when negatives are allowed"
+    ],
+    "answer": 2,
+    "explanation": "sum(i..j) = prefix[j] − prefix[i−1], so you need some earlier prefix equal to prefix[j] − k. Seed the set with 0. A sliding window only works when all numbers are non-negative, because the window sum then changes monotonically."
+  },
+  {
+    "id": "dsa-trees-graphs-1",
+    "domain": "dsa",
+    "topic": "trees-graphs",
+    "difficulty": 1,
+    "prompt": "What does an in-order traversal of a binary search tree produce?",
+    "options": ["Keys in level order", "Keys in sorted order", "Keys in insertion order", "The root first, then subtrees"],
+    "answer": 1,
+    "explanation": "In-order visits left subtree, node, then right subtree. The BST invariant (left < node < right) makes that ascending order, which is also how you validate a BST in O(n)."
+  },
+  {
+    "id": "dsa-trees-graphs-2",
+    "domain": "dsa",
+    "topic": "trees-graphs",
+    "difficulty": 2,
+    "prompt": "Why can Dijkstra's algorithm return wrong answers on some graphs?",
+    "options": [
+      "It fails on graphs with cycles",
+      "It fails when edge weights are negative",
+      "It fails on undirected graphs",
+      "It fails when two paths have equal length"
+    ],
+    "answer": 1,
+    "explanation": "Dijkstra finalizes a node when it is popped, assuming no later path can be shorter. A negative edge can break that assumption. Use Bellman-Ford (O(VE)), which also detects negative cycles."
+  },
+  {
+    "id": "dsa-trees-graphs-3",
+    "domain": "dsa",
+    "topic": "trees-graphs",
+    "difficulty": 3,
+    "prompt": "Which method reliably detects a cycle in a directed graph (for example, circular dependencies between services)?",
+    "options": [
+      "Union-Find over all edges",
+      "BFS, flagging any node seen twice",
+      "DFS that tracks nodes on the current recursion stack (gray/black coloring), or Kahn's algorithm leaving nodes unprocessed",
+      "Check whether |E| ≥ |V|"
+    ],
+    "answer": 2,
+    "explanation": "A directed cycle exists exactly when DFS finds a back edge to a node still on the stack (gray). Kahn's topological sort detects the same thing when it can't consume every node. Union-Find and \"seen twice\" only work for undirected graphs: a diamond A→B, A→C, B→D, C→D reaches D twice with no cycle."
+  },
+  {
+    "id": "dsa-dynamic-programming-1",
+    "domain": "dsa",
+    "topic": "dynamic-programming",
+    "difficulty": 1,
+    "prompt": "Which two properties make a problem a good fit for dynamic programming?",
+    "options": [
+      "Greedy choice property and a sorted input",
+      "Overlapping subproblems and optimal substructure",
+      "Divide and conquer with independent subproblems",
+      "Input small enough to brute-force"
+    ],
+    "answer": 1,
+    "explanation": "Optimal substructure means you can build the optimal answer from optimal sub-answers. Overlapping subproblems means the same sub-answers recur, so memoizing them pays off. Merge sort has the first property but not the second."
+  },
+  {
+    "id": "dsa-dynamic-programming-2",
+    "domain": "dsa",
+    "topic": "dynamic-programming",
+    "difficulty": 2,
+    "prompt": "What is the time complexity of the classic DP for minimum-coin change with n coin denominations and target amount A?",
+    "options": ["O(n + A)", "O(n · A)", "O(2^n)", "O(A log A)"],
+    "answer": 1,
+    "explanation": "dp[a] = min over coins c of dp[a − c] + 1. That is A states × n transitions, using O(A) space. This is pseudo-polynomial: it is polynomial in the value of A, not in the number of bits needed to write A."
+  },
+  {
+    "id": "dsa-dynamic-programming-3",
+    "domain": "dsa",
+    "topic": "dynamic-programming",
+    "difficulty": 3,
+    "prompt": "What is the best-known time complexity for finding the length of the longest increasing subsequence?",
+    "options": ["O(n²)", "O(n log n)", "O(n)", "O(2^n)"],
+    "answer": 1,
+    "explanation": "Keep tails[k] = the smallest tail of any increasing subsequence of length k+1. For each element, binary-search tails and replace (or append). tails stays sorted, so each step is O(log n). The simple DP is O(n²)."
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "web-http-1",
+    "domain": "web",
+    "topic": "http",
+    "difficulty": 1,
+    "prompt": "Which HTTP method is idempotent but not safe?",
+    "options": ["GET", "POST", "PUT", "PATCH (by definition)"],
+    "answer": 2,
+    "explanation": "Safe means no server-side effect (GET, HEAD). Idempotent means repeating the request has the same effect as sending it once: PUT and DELETE. POST isn't idempotent, and PATCH isn't guaranteed to be (\"increment by 1\" is a valid patch)."
+  },
+  {
+    "id": "web-http-2",
+    "domain": "web",
+    "topic": "http",
+    "difficulty": 1,
+    "prompt": "An authenticated user calls an admin-only endpoint. What status code fits?",
+    "options": ["400 Bad Request", "401 Unauthorized", "403 Forbidden", "404 Not Found (always)"],
+    "answer": 2,
+    "explanation": "401 means \"I don't know who you are\": credentials are missing or invalid, and the response should include WWW-Authenticate. 403 means \"I know who you are, and you're not allowed\". Some APIs return 404 deliberately to hide that a resource exists, but that's a choice, not the default."
+  },
+  {
+    "id": "web-http-3",
+    "domain": "web",
+    "topic": "http",
+    "difficulty": 3,
+    "prompt": "HTTP/2 multiplexes many streams over one TCP connection. What head-of-line blocking remains, and what fixes it?",
+    "options": [
+      "None remains",
+      "TCP-level HOL: one lost packet stalls every stream until it's retransmitted. HTTP/3 over QUIC (UDP) fixes it with independent streams",
+      "Application-level HOL: responses must come back in request order. HTTP/1.1 pipelining fixes it",
+      "DNS HOL; fixed by DoH"
+    ],
+    "answer": 1,
+    "explanation": "HTTP/2 removed HTTP/1.1's in-order responses per connection, but TCP delivers bytes strictly in order, so a single loss blocks every stream. QUIC handles loss per stream and also merges the transport and TLS handshakes."
+  },
+  {
+    "id": "web-security-1",
+    "domain": "web",
+    "topic": "security",
+    "difficulty": 1,
+    "prompt": "What does the HttpOnly cookie attribute do?",
+    "options": [
+      "Sends the cookie only over HTTPS",
+      "Stops JavaScript (document.cookie) from reading the cookie, which limits token theft through XSS",
+      "Stops the cookie from being sent cross-site",
+      "Makes the cookie expire when the browser closes"
+    ],
+    "answer": 1,
+    "explanation": "HTTPS-only is the Secure attribute, and cross-site behavior is SameSite. HttpOnly doesn't prevent XSS itself: injected script can still make requests that carry the cookie, it just can't steal it."
+  },
+  {
+    "id": "web-security-2",
+    "domain": "web",
+    "topic": "security",
+    "difficulty": 2,
+    "prompt": "Why are JWT access tokens usually short-lived (around 5–15 minutes) and paired with refresh tokens?",
+    "options": [
+      "JWTs can't be longer than 1 KB",
+      "Self-contained JWTs are validated without a server lookup, so they can't easily be revoked; a short expiry limits the damage if one leaks",
+      "Browsers delete them after 15 minutes",
+      "Signature verification gets slower over time"
+    ],
+    "answer": 1,
+    "explanation": "Statelessness is the point of a JWT and also its weakness. Refresh tokens are stored server-side or rotated, so they can be revoked, and they mint new access tokens. Alternatives are opaque tokens with introspection, or a denylist keyed by jti."
+  },
+  {
+    "id": "web-security-3",
+    "domain": "web",
+    "topic": "security",
+    "difficulty": 3,
+    "prompt": "A session cookie has SameSite=Lax. Which cross-site request still carries it?",
+    "options": [
+      "A cross-site form POST",
+      "A fetch() from another origin with credentials: 'include'",
+      "A top-level GET navigation, such as clicking a link from another site",
+      "An <img> tag on another site"
+    ],
+    "answer": 2,
+    "explanation": "Lax sends cookies on top-level navigations that use safe methods, which is why a state-changing GET is still CSRF-able. Subresource requests and cross-site POSTs don't carry the cookie. Strict blocks even link navigations, so users arrive logged out."
+  },
+  {
+    "id": "web-networking-1",
+    "domain": "web",
+    "topic": "networking",
+    "difficulty": 1,
+    "prompt": "You change a DNS A record, but some users reach the old IP for hours. Why?",
+    "options": [
+      "DNS changes need a server reboot",
+      "Resolvers and clients cache the old record until its TTL expires",
+      "The registrar is still processing the change",
+      "Browsers ignore DNS"
+    ],
+    "answer": 1,
+    "explanation": "TTL controls how long caches may keep a record. Lower the TTL well before a planned migration (at least one old-TTL period earlier), make the switch, then raise it again. Some resolvers also enforce their own minimum TTL."
+  },
+  {
+    "id": "web-networking-2",
+    "domain": "web",
+    "topic": "networking",
+    "difficulty": 2,
+    "prompt": "On a new HTTPS connection (TCP + TLS 1.3, no session resumption), how many round trips happen before the client can send its first HTTP request?",
+    "options": ["0", "1", "2", "3"],
+    "answer": 2,
+    "explanation": "One RTT for the TCP handshake and one for the TLS 1.3 handshake (TLS 1.2 needs two). That's why connection reuse, keep-alive and HTTP/3 (which combines both into one RTT, or zero with resumption) matter so much for latency."
+  },
+  {
+    "id": "web-networking-3",
+    "domain": "web",
+    "topic": "networking",
+    "difficulty": 3,
+    "prompt": "How does traffic sent to a Kubernetes ClusterIP Service actually reach a pod?",
+    "options": [
+      "A proxy process listens on the ClusterIP and forwards connections",
+      "kube-proxy programs iptables/IPVS (or eBPF via a CNI) rules on each node that DNAT the virtual IP to a ready pod endpoint",
+      "CoreDNS returns a pod IP directly for every Service",
+      "The Ingress controller handles all Service traffic"
+    ],
+    "answer": 1,
+    "explanation": "The ClusterIP is virtual: nothing listens on it. The rules are rewritten from EndpointSlices, and only pods that pass their readiness probe are included. Headless Services (clusterIP: None) are the case where DNS returns pod IPs directly."
+  },
+  {
+    "id": "web-browser-1",
+    "domain": "web",
+    "topic": "browser",
+    "difficulty": 1,
+    "prompt": "Who enforces CORS?",
+    "options": [
+      "The API server, which rejects disallowed origins",
+      "The browser, which uses the server's Access-Control-* response headers to decide whether page JavaScript may read the response",
+      "The load balancer",
+      "The DNS resolver"
+    ],
+    "answer": 1,
+    "explanation": "CORS relaxes the browser's same-origin policy. It isn't server-side access control: curl and other servers ignore it entirely, and a simple request may still reach the server and run. Real authorization still has to happen on the server."
+  },
+  {
+    "id": "web-browser-2",
+    "domain": "web",
+    "topic": "browser",
+    "difficulty": 2,
+    "prompt": "An Angular app calls an API on another origin with an Authorization header and Content-Type: application/json. What does the browser do first?",
+    "options": [
+      "Sends the request directly",
+      "Sends a preflight OPTIONS request, because the custom header and non-simple content type make it a non-simple request",
+      "Blocks the request",
+      "Downgrades it to a simple GET"
+    ],
+    "answer": 1,
+    "explanation": "Simple requests use only GET/HEAD/POST, CORS-safelisted headers, and form or text content types. Anything else triggers a preflight, and the server must answer with Allow-Origin, Allow-Methods and Allow-Headers. Access-Control-Max-Age caches the preflight result."
+  },
+  {
+    "id": "web-browser-3",
+    "domain": "web",
+    "topic": "browser",
+    "difficulty": 3,
+    "prompt": "What is the difference between Cache-Control: no-cache and no-store?",
+    "options": [
+      "They're synonyms",
+      "no-cache may store the response but must revalidate with the origin before each use; no-store must not store it at all",
+      "no-store allows a CDN to cache but not the browser",
+      "no-cache disables ETags"
+    ],
+    "answer": 1,
+    "explanation": "no-cache plus an ETag is the usual setup for index.html: the browser always checks, and an unchanged page costs only a cheap 304. no-store is for sensitive responses. Hashed static assets should use max-age=31536000, immutable."
+  }
+]

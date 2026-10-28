@@ -1,0 +1,162 @@
+[
+  {
+    "id": "oop-solid-1",
+    "domain": "oop",
+    "topic": "solid",
+    "difficulty": 1,
+    "prompt": "A ReportService queries the database, renders a PDF, and emails it to stakeholders. Which principle does it most directly violate?",
+    "options": ["Liskov Substitution", "Interface Segregation", "Single Responsibility", "Open/Closed"],
+    "answer": 2,
+    "explanation": "It has three reasons to change (data access, rendering, delivery) that are owned by different concerns. Split it into a repository, a renderer and a notifier, then compose them."
+  },
+  {
+    "id": "oop-solid-2",
+    "domain": "oop",
+    "topic": "solid",
+    "difficulty": 2,
+    "prompt": "Square inherits from Rectangle, and setting Width on a Square also changes its Height. Code that sets width = 5, height = 4 and expects area 20 breaks. Which principle is violated?",
+    "options": ["Dependency Inversion", "Liskov Substitution", "Single Responsibility", "Interface Segregation"],
+    "answer": 1,
+    "explanation": "A subtype must honor the base type's contract: here, that width and height can be set independently. Square strengthens the invariant, so it can't be substituted for Rectangle. \"Is-a\" in the real world doesn't guarantee behavioral subtyping."
+  },
+  {
+    "id": "oop-solid-3",
+    "domain": "oop",
+    "topic": "solid",
+    "difficulty": 3,
+    "prompt": "Adding a new payment method means editing a switch(paymentType) statement in six classes. Which refactor best satisfies Open/Closed?",
+    "options": [
+      "Move all the switches into a single static helper",
+      "Introduce an IPaymentMethod abstraction with one implementation per type, resolved via DI or a registry",
+      "Replace the enum with string constants",
+      "Add a default branch that throws NotSupportedException"
+    ],
+    "answer": 1,
+    "explanation": "Replace the conditional with polymorphism: each type's behavior lives in its own class, and a new type means adding a class and registering it, with no edits to existing code. Centralizing the switch reduces duplication, but you still modify it for every new type."
+  },
+  {
+    "id": "oop-design-patterns-1",
+    "domain": "oop",
+    "topic": "design-patterns",
+    "difficulty": 1,
+    "prompt": "You want to add caching around an IProductRepository without changing its implementation or its callers. Which pattern fits?",
+    "options": ["Adapter", "Decorator", "Factory Method", "Observer"],
+    "answer": 1,
+    "explanation": "A Decorator implements the same interface, wraps the inner instance, and adds behavior before or after delegating. CachedProductRepository : IProductRepository wraps the real one. Adapter is different: it changes an interface to match another one."
+  },
+  {
+    "id": "oop-design-patterns-2",
+    "domain": "oop",
+    "topic": "design-patterns",
+    "difficulty": 2,
+    "prompt": "The ASP.NET Core middleware pipeline (and Angular HTTP interceptors) is closest to which pattern?",
+    "options": ["Chain of Responsibility", "Mediator", "Composite", "Template Method"],
+    "answer": 0,
+    "explanation": "Each handler gets the request and decides whether to handle it, short-circuit it, or call next() to pass it along the chain. Order matters: auth must come before endpoints, and exception handling comes first."
+  },
+  {
+    "id": "oop-design-patterns-3",
+    "domain": "oop",
+    "topic": "design-patterns",
+    "difficulty": 3,
+    "prompt": "What is the strongest argument against a classic static Singleton (private constructor, static Instance) in a modern .NET or Angular codebase?",
+    "options": [
+      "It always causes memory leaks",
+      "It can't be thread-safe",
+      "It creates hidden global state and hard-wires consumers to a concrete type, which hurts testing and substitution",
+      "It is slower than creating new instances"
+    ],
+    "answer": 2,
+    "explanation": "Consumers reach for Singleton.Instance instead of declaring a dependency, so you can't swap in a fake and state leaks between tests. You still get a single instance by registering a singleton lifetime in the DI container (AddSingleton, providedIn: 'root')."
+  },
+  {
+    "id": "oop-composition-encapsulation-1",
+    "domain": "oop",
+    "topic": "composition-encapsulation",
+    "difficulty": 1,
+    "prompt": "What is the main reason behind \"favor composition over inheritance\"?",
+    "options": [
+      "Inheritance is slower at runtime",
+      "Inheritance couples a subclass to its parent's implementation details, so base-class changes can break subclasses",
+      "Composition allows multiple inheritance in C#",
+      "Composition uses less memory"
+    ],
+    "answer": 1,
+    "explanation": "This is the fragile base class problem: subclasses depend on how the parent calls its own methods. Composition depends only on a collaborator's public contract, and you can swap that collaborator at runtime."
+  },
+  {
+    "id": "oop-composition-encapsulation-2",
+    "domain": "oop",
+    "topic": "composition-encapsulation",
+    "difficulty": 2,
+    "prompt": "An Order aggregate exposes `public List<OrderLine> Lines { get; }`. Why is this an encapsulation problem even though there is no setter?",
+    "options": [
+      "List<T> isn't serializable",
+      "Callers can Add/Remove lines directly, bypassing invariants such as recalculating totals or enforcing a max quantity",
+      "Properties should always be fields",
+      "It isn't a problem, because the property has no setter"
+    ],
+    "answer": 1,
+    "explanation": "Getter-only protects the reference, not the contents. Expose IReadOnlyList<OrderLine> (backed by a private list) plus intention-revealing methods like AddLine(), which enforce the rules."
+  },
+  {
+    "id": "oop-composition-encapsulation-3",
+    "domain": "oop",
+    "topic": "composition-encapsulation",
+    "difficulty": 3,
+    "prompt": "In C#, a base-class constructor calls a virtual method that the derived class overrides. What happens?",
+    "options": [
+      "The base implementation runs, because the derived object doesn't exist yet",
+      "A compile-time error",
+      "The derived override runs before the derived constructor body has executed, so it can see uninitialized state",
+      "A runtime InvalidOperationException"
+    ],
+    "answer": 2,
+    "explanation": "The object's runtime type is the derived type from the start, so virtual dispatch reaches the override. Derived field initializers have run, but the derived constructor body hasn't, which is why analyzers flag virtual calls in constructors (CA2214). C++ behaves differently and dispatches to the base."
+  },
+  {
+    "id": "oop-dependency-injection-1",
+    "domain": "oop",
+    "topic": "dependency-injection",
+    "difficulty": 1,
+    "prompt": "What does the Dependency Inversion Principle state?",
+    "options": [
+      "Low-level modules should create their own dependencies",
+      "High-level modules should depend on abstractions, not concrete low-level modules",
+      "Every class needs an interface",
+      "Dependencies should be resolved via a service locator"
+    ],
+    "answer": 1,
+    "explanation": "Policy code (for example OrderService) owns an abstraction (IOrderRepository) that the infrastructure implements. DI containers are a mechanism for wiring this up; DIP is the design rule, and it doesn't mean adding an interface for every class."
+  },
+  {
+    "id": "oop-dependency-injection-2",
+    "domain": "oop",
+    "topic": "dependency-injection",
+    "difficulty": 2,
+    "prompt": "In ASP.NET Core, a Singleton service takes a Scoped DbContext in its constructor. What is the problem?",
+    "options": [
+      "None; the container creates a new DbContext per request",
+      "It's a captive dependency: one DbContext instance is shared across all requests and threads for the app's lifetime",
+      "DbContext becomes transient",
+      "It only fails in unit tests"
+    ],
+    "answer": 1,
+    "explanation": "A longer-lived service captures a shorter-lived one. DbContext isn't thread-safe and its change tracker grows forever. Scope validation (on by default in Development) throws at startup. Fixes: inject IServiceScopeFactory or IDbContextFactory, or make the consumer scoped."
+  },
+  {
+    "id": "oop-dependency-injection-3",
+    "domain": "oop",
+    "topic": "dependency-injection",
+    "difficulty": 3,
+    "prompt": "An Angular service uses @Injectable({ providedIn: 'root' }), and the same service is also listed in a lazy-loaded route's `providers`. What do components in that route get?",
+    "options": [
+      "The root singleton; route providers are ignored",
+      "A separate instance from the route's environment injector, distinct from the root one",
+      "An error for providing the service twice",
+      "A new instance per component"
+    ],
+    "answer": 1,
+    "explanation": "Lazy routes with providers create a child environment injector. Resolution walks up from the nearest injector, so the route's provider shadows root. That's useful for feature-scoped state, but it's a classic source of \"why is my state not shared?\" bugs."
+  }
+]
