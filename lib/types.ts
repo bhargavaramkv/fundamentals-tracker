@@ -79,12 +79,22 @@ export interface ReviewState {
   lastAnsweredAt: string;
 }
 
+/** One lesson visit that lasted long enough to count as reading. */
+export interface ReadLog {
+  id: string;
+  domain: Domain;
+  topic: string;
+  openedAt: string;
+  durationMs: number;
+}
+
 export interface ProgressData {
   version: 1;
   updatedAt: string;
   answers: AnswerLog[];
   sessions: SessionRecord[];
   reviews: Record<string, ReviewState>;
+  reads: ReadLog[];
 }
 
 export type Confidence = "low" | "medium" | "high";

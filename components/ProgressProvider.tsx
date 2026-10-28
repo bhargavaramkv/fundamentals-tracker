@@ -1,10 +1,10 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { emptyProgress, recordSession } from "@/lib/progress";
+import { emptyProgress, recordRead, recordSession } from "@/lib/progress";
 import { createStore, type ProgressStore } from "@/lib/storage";
 import { useAuth } from "./AuthGate";
-import type { AnswerLog, ProgressData, SessionRecord } from "@/lib/types";
+import type { AnswerLog, ProgressData, ReadLog, SessionRecord } from "@/lib/types";
 
 type SyncState = "idle" | "syncing" | "error";
 
@@ -15,6 +15,7 @@ interface ProgressContextValue {
   syncState: SyncState;
   syncError: string | null;
   commitSession: (session: SessionRecord, answers: AnswerLog[]) => Promise<void>;
+  commitRead: (read: ReadLog) => Promise<void>;
   replaceAll: (data: ProgressData) => Promise<void>;
   reload: () => Promise<void>;
 }
@@ -69,9 +70,17 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [data, persist],
   );
 
+  const commitRead = useCallback(
+    async (read: ReadLog) => {
+      const base = storeRef.current ? await storeRef.current.load() : data;
+      await persist(recordRead(base, read));
+    },
+    [data, persist],
+  );
+
   const value = useMemo<ProgressContextValue>(
-    () => ({ data, ready, storeKind, syncState, syncError, commitSession, replaceAll: persist, reload }),
-    [data, ready, storeKind, syncState, syncError, commitSession, persist, reload],
+    () => ({ data, ready, storeKind, syncState, syncError, commitSession, commitRead, replaceAll: persist, reload }),
+    [data, ready, storeKind, syncState, syncError, commitSession, commitRead, persist, reload],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

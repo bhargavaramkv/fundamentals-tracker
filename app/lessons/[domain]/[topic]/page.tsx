@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DomainIcon, domainColor } from "@/components/DomainIcon";
+import { LessonReadTracker } from "@/components/LessonReadTracker";
 import { TopicScore } from "@/components/TopicScore";
 import { getAllQuestions, getAllTopics, getLesson } from "@/lib/content";
 import { DOMAINS, DOMAIN_LABELS, type Domain } from "@/lib/types";
@@ -52,6 +53,7 @@ export default async function LessonPage(props: PageProps<"/lessons/[domain]/[to
         </div>
       </header>
       <div className="prose-lesson" dangerouslySetInnerHTML={{ __html: lesson.html }} />
+      <LessonReadTracker domain={lesson.domain} topic={lesson.topic} />
     </article>
   );
 }

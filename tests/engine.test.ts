@@ -124,3 +124,24 @@ describe("activity", () => {
     expect(a.daysSinceActive).toBe(4);
   });
 });
+
+describe("reading activity", () => {
+  it("merges reads from two devices and reports the latest activity", async () => {
+    const { latestActivityAt, recordRead } = await import("@/lib/progress");
+    const a = recordRead(emptyProgress(), { id: "r1", domain: "web", topic: "http", openedAt: "2026-10-01T10:00:00.000Z", durationMs: 60_000 });
+    const b = recordRead(
+      { ...emptyProgress(), answers: [answer({ correct: true, answeredAt: "2026-10-01T09:00:00.000Z" })] },
+      { id: "r2", domain: "dsa", topic: "hashing", openedAt: "2026-10-01T11:00:00.000Z", durationMs: 120_000 },
+    );
+    const merged = mergeProgress(a, b);
+    expect(merged.reads.map((r) => r.id)).toEqual(["r1", "r2"]);
+    expect(merged.answers).toHaveLength(1);
+    // A read counts from when it finished, so the analysis sees it as newer than the answer.
+    expect(latestActivityAt(merged)).toBe("2026-10-01T11:02:00.000Z");
+  });
+
+  it("treats progress files without reads (older format) as having none", async () => {
+    const { normalizeProgress } = await import("@/lib/progress");
+    expect(normalizeProgress({ version: 1, answers: [], sessions: [], reviews: {} }).reads).toEqual([]);
+  });
+});
