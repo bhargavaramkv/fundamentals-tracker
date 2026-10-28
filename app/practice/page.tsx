@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { PracticeRunner } from "@/components/PracticeRunner";
 import { getAllQuestions, getAllTopics } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Training · BHARGAVA.DEV" };
+export const metadata: Metadata = { title: "Practice · Fundamentals Tracker" };
 
 export default function PracticePage() {
   return (

@@ -20,7 +20,7 @@ function seededOrder(length: number, seed: string): number[] {
   return order;
 }
 
-const DIFFICULTY_LABEL = { 1: "Level 1 · Core", 2: "Level 2 · Interview", 3: "Level 3 · Deep" } as const;
+const DIFFICULTY_LABEL = { 1: "Core", 2: "Interview", 3: "Deep" } as const;
 
 interface QuizProps {
   questions: Question[];
@@ -136,18 +136,18 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
         </button>
       </div>
       <div className="h-1 overflow-hidden rounded-full bg-surface-2" aria-hidden>
-        <div className="h-full bg-accent shadow-neon transition-all" style={{ width: `${(100 * index) / questions.length}%` }} />
+        <div className="h-full bg-accent transition-all" style={{ width: `${(100 * index) / questions.length}%` }} />
       </div>
 
-      <article className="rounded-xl border border-line bg-surface p-5 shadow-glow sm:p-6">
-        <div className="mb-3 flex flex-wrap gap-2 font-mono text-[10px] tracking-wider text-accent/80 uppercase">
+      <article className="rounded-xl border border-line bg-surface p-5 sm:p-6">
+        <div className="mb-3 flex flex-wrap gap-2 text-xs text-ink-3">
           <span>{DOMAIN_LABELS[question.domain]}</span>
           <span aria-hidden>·</span>
           <span>{question.topic.replace(/-/g, " ")}</span>
           <span aria-hidden>·</span>
           <span>{DIFFICULTY_LABEL[question.difficulty]}</span>
         </div>
-        <h2 className="text-lg font-bold leading-snug text-white sm:text-xl">{question.prompt}</h2>
+        <h2 className="text-lg font-medium leading-snug">{question.prompt}</h2>
         {question.code && (
           <pre className="mt-3 overflow-x-auto rounded-lg bg-surface-2 p-3 font-mono text-sm">{question.code}</pre>
         )}
@@ -156,7 +156,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           {order.map((optIdx, displayIdx) => {
             const isPicked = picked === displayIdx;
             const isCorrect = displayIdx === correctDisplayIdx;
-            let tone = "border-line bg-black/30 hover:border-accent hover:shadow-glow";
+            let tone = "border-line hover:border-accent";
             if (picked !== null) {
               if (isCorrect) tone = "border-good bg-good-bg";
               else if (isPicked) tone = "border-bad bg-bad-bg";
@@ -183,7 +183,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
         {picked !== null && last && (
           <div className="mt-5 rounded-lg bg-surface-2 p-4 text-sm leading-relaxed">
             <p className={`mb-1 font-medium ${last.correct ? "text-good" : "text-bad"}`}>
-              {last.correct ? "Direct hit" : "Missed"} · {(last.timeMs / 1000).toFixed(1)}s
+              {last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s
             </p>
             <p className="text-ink-2">{question.explanation}</p>
             <Link
@@ -191,7 +191,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
               className="mt-2 inline-block text-accent hover:underline"
               target="_blank"
             >
-              Open intel file ↗
+              Read the lesson ↗
             </Link>
           </div>
         )}
@@ -202,9 +202,9 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           type="button"
           onClick={next}
           disabled={picked === null || saving}
-          className="rounded bg-accent px-6 py-2.5 font-comic text-xl text-accent-ink transition hover:bg-white hover:shadow-neon disabled:opacity-40"
+          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink disabled:opacity-40"
         >
-          {saving ? "Saving…" : index + 1 >= questions.length ? "Complete mission" : "Next"}
+          {saving ? "Saving…" : index + 1 >= questions.length ? "Finish" : "Next"}
         </button>
       </div>
       <p className="text-right text-xs text-ink-3">Keys: 1–{order.length} to answer, Enter for next</p>
@@ -231,11 +231,9 @@ function QuizResult({
 
   return (
     <div className="space-y-6">
-      <section className="rounded-xl border border-line bg-surface p-6 shadow-glow">
-        <p className="font-mono text-[10px] tracking-[0.2em] text-accent uppercase">
-          {mode === "assessment" ? "Power scan" : "Training round"} complete · mission debrief
-        </p>
-        <p className="mt-1 font-comic text-6xl text-white tabular-nums">{pct}%</p>
+      <section className="rounded-xl border border-line bg-surface p-6">
+        <p className="text-sm text-ink-2">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
+        <p className="mt-1 text-4xl font-semibold tabular-nums">{pct}%</p>
         <p className="text-sm text-ink-2">
           {session.correct} of {session.total} correct
         </p>
@@ -251,8 +249,8 @@ function QuizResult({
 
       {wrong.length > 0 && (
         <section className="rounded-xl border border-line bg-surface p-6">
-          <h3 className="font-comic text-2xl text-white">Re-engagement scheduled</h3>
-          <p className="mb-3 text-sm text-ink-2">Missed targets return to your training queue in about 4 hours, then at growing intervals.</p>
+          <h3 className="font-medium">Scheduled for review</h3>
+          <p className="mb-3 text-sm text-ink-2">These come back in your practice queue in about 4 hours, then at growing intervals.</p>
           <ul className="space-y-2 text-sm">
             {wrong.map((a) => {
               const q = byId.get(a.questionId);
@@ -263,7 +261,7 @@ function QuizResult({
                   <p className="mt-1 text-ink-2">
                     Answer: <span className="text-ink">{q.options[q.answer]}</span> ·{" "}
                     <Link href={`/lessons/${q.domain}/${q.topic}/`} className="text-accent hover:underline">
-                      intel
+                      lesson
                     </Link>
                   </p>
                 </li>
@@ -274,16 +272,16 @@ function QuizResult({
       )}
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/" className="rounded bg-accent px-5 py-2.5 text-xs font-bold tracking-widest text-accent-ink uppercase hover:bg-white">
-          Return to command
+        <Link href="/" className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink">
+          See updated profile
         </Link>
         {onRestart ? (
-          <button type="button" onClick={onRestart} className="rounded border border-line-strong px-5 py-2.5 text-xs font-bold tracking-widest text-accent uppercase hover:bg-accent/10">
-            Another training round
+          <button type="button" onClick={onRestart} className="rounded-lg border border-line px-5 py-2.5 text-sm">
+            Another adaptive round
           </button>
         ) : (
-          <Link href="/practice/" className="rounded border border-line-strong px-5 py-2.5 text-xs font-bold tracking-widest text-accent uppercase hover:bg-accent/10">
-            Train weak spots
+          <Link href="/practice/" className="rounded-lg border border-line px-5 py-2.5 text-sm">
+            Practice weak spots
           </Link>
         )}
       </div>

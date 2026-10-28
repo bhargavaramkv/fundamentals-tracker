@@ -1,28 +1,68 @@
 @import "tailwindcss";
 
-/* Palette and type follow the bhargava.dev portfolio: near-black base, tech-blue
-   accent with neon glow, gold/red signals, Bangers headings on Roboto Condensed.
-   Like the portfolio, the tracker is dark-only. */
 :root {
+  color-scheme: light;
+  --bg: #f7f7f5;
+  --surface: #fcfcfb;
+  --surface-2: #f0efec;
+  --border: #e2e1dc;
+  --grid: #e9e8e4;
+  --text: #0b0b0b;
+  --text-2: #52514e;
+  --text-3: #7a7974;
+  --accent: #2a78d6;
+  --accent-ink: #ffffff;
+  --series-1: #2a78d6;
+  --good: #1f7a3a;
+  --good-bg: #e6f4ea;
+  --bad: #b42318;
+  --bad-bg: #fdecea;
+  --warn: #8a5a00;
+  --warn-bg: #fdf3dc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121211;
+    --surface: #1a1a19;
+    --surface-2: #232321;
+    --border: #2f2f2c;
+    --grid: #2a2a28;
+    --text: #f0efec;
+    --text-2: #c3c2b7;
+    --text-3: #8f8e86;
+    --accent: #3987e5;
+    --accent-ink: #ffffff;
+    --series-1: #3987e5;
+    --good: #6fcf8a;
+    --good-bg: #16301f;
+    --bad: #f28b82;
+    --bad-bg: #3a1c1a;
+    --warn: #f2c063;
+    --warn-bg: #3a2e14;
+  }
+}
+
+:root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #050505;
-  --surface: #0b0e12;
-  --surface-2: #121820;
-  --border: rgba(0, 195, 255, 0.22);
-  --border-strong: rgba(0, 195, 255, 0.55);
-  --grid: #1a1a1a;
-  --text: #e5e5e5;
-  --text-2: #a3a3a3;
-  --text-3: #6f747b;
-  --accent: #00c3ff;
-  --accent-ink: #050505;
-  --series-1: #00c3ff;
-  --good: #22c55e;
-  --good-bg: rgba(34, 197, 94, 0.12);
-  --bad: #ff3b5f;
-  --bad-bg: rgba(255, 0, 60, 0.12);
-  --warn: #ffd700;
-  --warn-bg: rgba(255, 215, 0, 0.1);
+  --bg: #121211;
+  --surface: #1a1a19;
+  --surface-2: #232321;
+  --border: #2f2f2c;
+  --grid: #2a2a28;
+  --text: #f0efec;
+  --text-2: #c3c2b7;
+  --text-3: #8f8e86;
+  --accent: #3987e5;
+  --accent-ink: #ffffff;
+  --series-1: #3987e5;
+  --good: #6fcf8a;
+  --good-bg: #16301f;
+  --bad: #f28b82;
+  --bad-bg: #3a1c1a;
+  --warn: #f2c063;
+  --warn-bg: #3a2e14;
 }
 
 @theme inline {
@@ -30,7 +70,6 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-line: var(--border);
-  --color-line-strong: var(--border-strong);
   --color-ink: var(--text);
   --color-ink-2: var(--text-2);
   --color-ink-3: var(--text-3);
@@ -42,53 +81,28 @@
   --color-bad-bg: var(--bad-bg);
   --color-warn: var(--warn);
   --color-warn-bg: var(--warn-bg);
-  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --font-comic: var(--font-heading), var(--font-body), sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --shadow-neon: 0 0 10px rgba(0, 195, 255, 0.35), 0 0 22px rgba(0, 195, 255, 0.18);
-  --shadow-glow: 0 0 15px rgba(0, 195, 255, 0.12);
 }
 
 body {
-  background-color: var(--bg);
-  /* The portfolio's faint blueprint grid. */
-  background-image:
-    linear-gradient(to right, rgba(26, 26, 26, 0.55) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(26, 26, 26, 0.55) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-attachment: fixed;
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
-}
-
-::selection {
-  background: rgba(0, 195, 255, 0.3);
-  color: #fff;
-}
-
-/* Bangers display headings, as on the portfolio. */
-.font-comic {
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-weight: 400;
 }
 
 /* Lesson markdown */
 .prose-lesson {
   line-height: 1.7;
-  font-size: 1.05rem;
   color: var(--text);
 }
 .prose-lesson h2 {
-  font-family: var(--font-heading), sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 2rem 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.8rem 0 0.6rem;
 }
 .prose-lesson h3 {
-  font-weight: 700;
+  font-weight: 600;
   margin: 1.4rem 0 0.4rem;
 }
 .prose-lesson p,
@@ -110,31 +124,25 @@ body {
 .prose-lesson li {
   margin: 0.25rem 0;
 }
-.prose-lesson li::marker {
-  color: var(--accent);
-}
 .prose-lesson code {
   font-family: var(--font-mono);
-  font-size: 0.86em;
+  font-size: 0.88em;
   background: var(--surface-2);
-  border: 1px solid var(--border);
-  padding: 0.05em 0.35em;
+  padding: 0.1em 0.35em;
   border-radius: 4px;
 }
 .prose-lesson pre {
   background: var(--surface-2);
-  border: 1px solid var(--border);
   padding: 0.9rem 1rem;
   border-radius: 8px;
   overflow-x: auto;
 }
 .prose-lesson pre code {
   background: none;
-  border: 0;
   padding: 0;
 }
 .prose-lesson blockquote {
-  border-left: 3px solid var(--warn);
+  border-left: 3px solid var(--accent);
   padding-left: 1rem;
   color: var(--text-2);
 }
@@ -142,7 +150,7 @@ body {
   display: block;
   overflow-x: auto;
   border-collapse: collapse;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 .prose-lesson th,
 .prose-lesson td {
@@ -153,10 +161,8 @@ body {
 }
 .prose-lesson th {
   background: var(--surface-2);
-  font-weight: 700;
-  color: var(--accent);
+  font-weight: 600;
 }
 .prose-lesson strong {
-  font-weight: 700;
-  color: #fff;
+  font-weight: 600;
 }

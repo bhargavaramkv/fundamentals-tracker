@@ -101,7 +101,7 @@ function toMarkdown(r: Report): string {
   );
   if (r.nudge) {
     lines.push(
-      `> **J.A.R.V.I.S.:** ${r.activity.daysSinceActive === null ? "Sir, the power scan is still waiting for you" : `Sir, it's been ${r.activity.daysSinceActive} days since your last training session`}. One 10-question round takes about 8 minutes. Suit up.`,
+      `> **Nudge:** ${r.activity.daysSinceActive === null ? "You haven't started yet" : `It's been ${r.activity.daysSinceActive} days since your last practice`}. One 10-question adaptive round takes about 8 minutes.`,
       "",
     );
   }
