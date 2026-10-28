@@ -5,8 +5,9 @@ Read `AGENTS.md` (Next.js version notes) before changing code.
 
 - **Daily run:** follow `docs/daily-routine.md` exactly. It's the source of truth for
   analysis, tech news, PRs and the `routine-state` marker.
-- **Progress data:** private repo `bhargavaramkv/fundamentals-tracker-data`
-  (`progress.json`). Read-only, never write to it. Clone it to `../fundamentals-tracker-data`.
+- **Progress data:** the daily reader chat (which has the private data repo) sends
+  `progress.json` as a `PROGRESS` message; decode it to `../fundamentals-tracker-data/progress.json`.
+  Never write to the data repo.
 - **Checks:** `npm run check` (lint, typecheck, tests, build) before every commit.
 - **Never:** push to `main` from the routine, delete question IDs, or touch
   `lib/login-vault.json`, `vault/`, `lib/auth.ts`, `lib/vault.ts`.

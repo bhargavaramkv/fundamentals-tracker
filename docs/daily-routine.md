@@ -5,11 +5,16 @@ it can be reviewed and changed like code.
 
 ## When it runs
 
-Once a day at **06:47 IST**, in the owner's main Claude chat (one chat, no
-separate analyst). Each run covers everything since the previous analysis:
-quiz answers **and** lesson reads (a lesson open and visible for 20+ seconds).
-Content only reaches the site when the owner merges the PR, so a daily cadence
-loses nothing compared with running more often.
+Two small chats, so no run carries a long history:
+
+| Chat | Model | When | Job |
+|---|---|---|---|
+| **Daily reader** | Haiku | 06:40 IST | Has the private data repo attached. Sends `progress.json` to the writer as `PROGRESS <part>/<total> <base64 gzip>`. Runs no other code. |
+| **Daily writer** | Opus | 06:50 IST | Has this repo attached. Decodes the reader's message, then does steps 1–5 below. |
+
+Each run covers everything since the previous analysis: quiz answers **and**
+lesson reads (a lesson open and visible for 20+ seconds). Content only reaches
+the site when the owner merges the PR, so a daily cadence loses nothing.
 
 ## Hard rules
 
@@ -35,7 +40,10 @@ loses nothing compared with running more often.
 
 ```bash
 cd /home/user/fundamentals-tracker && git fetch -q origin main routine-state && git checkout -q main && git reset -q --hard origin/main
-cd /home/user/fundamentals-tracker-data && git fetch -q origin main && git reset -q --hard origin/main
+# Rebuild the data file from today's reader message(s), in part order:
+#   mkdir -p /home/user/fundamentals-tracker-data
+#   join the base64 payloads of today's PROGRESS parts | base64 -d | gunzip > /home/user/fundamentals-tracker-data/progress.json
+# If no PROGRESS message arrived today, skip the progress analysis (do news only) and say so in the summary.
 cd /home/user/fundamentals-tracker
 SINCE=$(git show origin/routine-state:state.json 2>/dev/null | node -pe 'JSON.parse(require("fs").readFileSync(0)).analyzedThrough' 2>/dev/null || echo 1970-01-01T00:00:00Z)
 npm run --silent report -- --data ../fundamentals-tracker-data/progress.json --since "$SINCE" --check
