@@ -28,6 +28,8 @@ Fixes: make the consumer scoped, inject `IServiceScopeFactory` and create a scop
 
 Resolution walks up from the requesting injector to the nearest provider. If state isn't shared as expected, check for a duplicate provider somewhere in the tree.
 
+**Shadowing:** a route-level or component-level provider for a service that is also `providedIn: 'root'` does not get ignored. It *shadows* root for everything beneath it, so that subtree gets its own instance while the rest of the app keeps the root one.
+
 ## Smells
 
 - Service locator (`provider.GetService<T>()` scattered through code)

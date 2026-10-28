@@ -32,3 +32,18 @@ A static `Instance` hides dependencies and shares state across tests. A DI-regis
 - **Adapter** converts one interface into another.
 - **Facade** simplifies a complex subsystem.
 - **Proxy** has the same interface and controls access (lazy loading, remoting, auth).
+
+## Telling look-alike patterns apart
+
+Most wrong answers come from picking the pattern that sounds right instead of the one that matches the *shape* of the problem.
+
+| You need to... | Pattern | The tell |
+|---|---|---|
+| Add behavior around an existing implementation without touching it or its callers | **Decorator** | Same interface in, same interface out, wraps an inner instance |
+| Decide *which concrete type* to create | **Factory** | The problem is about creation, not about adding behavior |
+| Let a request flow through ordered links that may short-circuit | **Chain of Responsibility** | Each link holds `next` and decides whether to call it |
+| Fix the skeleton of an algorithm and let subclasses fill in steps | **Template Method** | Inheritance with a base-class method calling abstract hooks |
+
+- A caching `IProductRepository` wrapper is a Decorator. A factory would only help choose *which* repository to build.
+- Middleware is not Template Method: there is no base class fixing the steps. Links are composed at runtime, and any link can end the request.
+- "Singleton can't be thread-safe" is wrong. Thread-safe static singletons are easy (`Lazy<T>`). The real objection is hidden global state and a hard-wired concrete type that tests cannot replace.

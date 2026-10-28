@@ -28,3 +28,18 @@ public interface IPaymentMethod { string Key { get; } Task<Result> Charge(Order 
 ## How to talk about SOLID in interviews
 
 Name the principle, show the concrete coupling it removes, and acknowledge the cost: more types and more indirection.
+
+## Which principle is it? Start from the symptom
+
+| Symptom | Principle | Why not the others |
+|---|---|---|
+| Subtype breaks code written against the base type (Square/Rectangle) | **LSP** | The caller's assumptions fail, not the wiring |
+| New feature means editing old, tested classes | **OCP** | Closed for modification, open for extension |
+| Business logic does `new SqlRepository()` | **DIP** | The direction of the dependency is the issue |
+| Implementers stub out methods | **ISP** | The interface is too wide |
+
+**DIP is about who owns the abstraction and which way dependencies point.** It does not explain why a subclass misbehaves; that is LSP.
+
+## Bad OCP fixes
+
+A `default: throw new NotSupportedException()` branch makes a missing case fail loudly, but adding a payment method still means editing the same `switch` in every class. That is not OCP. The OCP fix removes the switch: one `IPaymentMethod` implementation per type, resolved through DI, so new types are *added* without editing existing code.

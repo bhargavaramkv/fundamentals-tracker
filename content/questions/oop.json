@@ -223,5 +223,80 @@
     ],
     "answer": 1,
     "explanation": "An interface type is only a compile-time hint; if the object is really your List<T>, a cast exposes it. ReadOnlyCollection<T> wraps the list: casting it to List<T> throws InvalidCastException, and Add via IList<T> throws NotSupportedException. A readonly field only protects the reference, and IEnumerable<T> has the same cast hole."
+  },
+  {
+    "id": "oop-design-patterns-4",
+    "domain": "oop",
+    "topic": "design-patterns",
+    "difficulty": 2,
+    "prompt": "You must log every call made through an IPaymentGateway, without editing the concrete gateway or any of its callers. Which approach fits best?",
+    "options": [
+      "An abstract factory that chooses between several gateway implementations",
+      "A Template Method base class that every gateway subclass must inherit from",
+      "A static Logger singleton that each caller invokes before using the gateway",
+      "A Decorator implementing IPaymentGateway that logs and delegates to the inner one"
+    ],
+    "answer": 3,
+    "explanation": "A Decorator has the same interface and wraps the real gateway, so callers and the concrete class stay untouched; with DI you swap the registration. A factory only decides which type to create, Template Method would force edits to the gateway's hierarchy, and a static logger requires changing every caller."
+  },
+  {
+    "id": "oop-design-patterns-5",
+    "domain": "oop",
+    "topic": "design-patterns",
+    "difficulty": 3,
+    "prompt": "An Angular HttpInterceptorFn can answer a request from cache and never call next(). Why does this make Template Method the wrong description of interceptors?",
+    "options": [
+      "Template Method cannot be used with functions, only with classes",
+      "Links are composed at runtime and each one may stop the flow, with no base class fixing the steps",
+      "Interceptors always run in a random order, while Template Method requires a fixed one",
+      "Template Method only applies to server code, not to code running in a browser"
+    ],
+    "answer": 1,
+    "explanation": "Template Method fixes the skeleton of an algorithm in a base class and lets subclasses fill in hooks. Interceptors are separate links assembled at runtime, and each decides whether to call next(), which is Chain of Responsibility. Their order is deterministic (registration order), and the pattern has nothing to do with where code runs."
+  },
+  {
+    "id": "oop-solid-4",
+    "domain": "oop",
+    "topic": "solid",
+    "difficulty": 2,
+    "prompt": "ReadOnlyList<T> implements IList<T> but throws NotSupportedException from Add. Callers who accept an IList<T> and call Add now crash. Which principle does this break?",
+    "options": [
+      "Interface Segregation, because the interface has too many methods",
+      "Single Responsibility, because the list both stores and protects items",
+      "Liskov Substitution, because the subtype can't honor the base contract",
+      "Dependency Inversion, because callers depend on an interface not a class"
+    ],
+    "answer": 2,
+    "explanation": "Callers written against IList<T> are entitled to call Add, and the subtype breaks that expectation, which is LSP. ISP is the tempting second answer (the wide interface is what invites the wart), but the symptom described, a substitute that misbehaves, is LSP. Depending on an interface is what DIP recommends, not a violation of it."
+  },
+  {
+    "id": "oop-solid-5",
+    "domain": "oop",
+    "topic": "solid",
+    "difficulty": 3,
+    "prompt": "A ReportExporter has a switch on format (Pdf, Csv, Xlsx). Each new format means editing it, and tests for old formats must be re-run. What best applies Open/Closed?",
+    "options": [
+      "Wrap the switch in try/catch and log unknown formats instead of failing",
+      "Add one IReportFormat implementation per format and resolve it by key via DI",
+      "Move the switch into a static helper so ReportExporter itself never changes",
+      "Make ReportExporter abstract and subclass it once per combination of format"
+    ],
+    "answer": 1,
+    "explanation": "OCP means new behavior is added as new code, not by editing tested code. One IReportFormat per format, resolved through DI, does that. Moving the switch to a helper just relocates the edits, catching unknown formats only changes how failure looks, and subclassing the exporter per format multiplies classes while still coupling creation to the type."
+  },
+  {
+    "id": "oop-dependency-injection-4",
+    "domain": "oop",
+    "topic": "dependency-injection",
+    "difficulty": 3,
+    "prompt": "CartService is providedIn root. A component lists CartService in its own `providers` array. How do its child components resolve CartService?",
+    "options": [
+      "They get the root singleton, because component providers are ignored",
+      "They get a new instance per child, created each time they inject it",
+      "They get the parent component's instance, shadowing the root singleton",
+      "They fail at build time, since two providers for one token conflict"
+    ],
+    "answer": 2,
+    "explanation": "Component-level providers create an instance bound to that component's element injector, and everything beneath it resolves to that nearest provider before reaching root. Children share the parent's one instance (not one each), and the rest of the app keeps the root one. Providing a token at several levels is legal, so there is no conflict error."
   }
 ]
