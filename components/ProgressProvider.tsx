@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { emptyProgress, recordSession } from "@/lib/progress";
 import { createStore, type ProgressStore } from "@/lib/storage";
+import { useAuth } from "./AuthGate";
 import type { AnswerLog, ProgressData, SessionRecord } from "@/lib/types";
 
 type SyncState = "idle" | "syncing" | "error";
@@ -21,6 +22,7 @@ interface ProgressContextValue {
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
+  const { syncToken } = useAuth();
   const storeRef = useRef<ProgressStore | null>(null);
   const [data, setData] = useState<ProgressData>(emptyProgress);
   const [ready, setReady] = useState(false);
@@ -29,14 +31,14 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [syncError, setSyncError] = useState<string | null>(null);
 
   const reload = useCallback(async () => {
-    const store = createStore();
+    const store = createStore(syncToken);
     storeRef.current = store;
     setStoreKind(store.kind);
     setSyncState(store.kind === "github" ? "syncing" : "idle");
     setData(await store.load());
     setSyncState("idle");
     setReady(true);
-  }, []);
+  }, [syncToken]);
 
   useEffect(() => {
     // Loading from localStorage/GitHub is an external-system sync, which is what effects are for.
@@ -46,7 +48,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   const persist = useCallback(async (next: ProgressData) => {
     setData(next);
-    const store = storeRef.current ?? createStore();
+    const store = storeRef.current ?? createStore(syncToken);
     setSyncState(store.kind === "github" ? "syncing" : "idle");
     setSyncError(null);
     try {
@@ -56,7 +58,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       setSyncState("error");
       setSyncError(err instanceof Error ? err.message : "Sync failed");
     }
-  }, []);
+  }, [syncToken]);
 
   const commitSession = useCallback(
     async (session: SessionRecord, answers: AnswerLog[]) => {

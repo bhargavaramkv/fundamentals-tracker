@@ -10,7 +10,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
-    "report": "tsx scripts/progress-report.ts"
+    "report": "tsx scripts/progress-report.ts",
+    "set-password": "tsx scripts/set-password.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

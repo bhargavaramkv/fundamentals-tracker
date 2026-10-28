@@ -21,25 +21,29 @@ function NoticeLine({ notice }: { notice: Notice | null }) {
 }
 
 export function SettingsPanel() {
-  const { data, syncState, syncError, reload, replaceAll } = useProgress();
-  const { signIn, signOut } = useAuth();
+  const { data, storeKind, syncError, replaceAll } = useProgress();
+  const { syncToken, connectSync, disconnectSync, signOut } = useAuth();
   const [token, setToken] = useState("");
   const [busy, setBusy] = useState(false);
-  const [accessNotice, setAccessNotice] = useState<Notice | null>(null);
+  const [syncNotice, setSyncNotice] = useState<Notice | null>(null);
   const [backupNotice, setBackupNotice] = useState<Notice | null>(null);
 
-  const replaceToken = async () => {
+  const connect = async () => {
     setBusy(true);
-    setAccessNotice(null);
-    const error = await signIn(token);
+    setSyncNotice(null);
+    const error = await connectSync(token);
     setBusy(false);
     if (error) {
-      setAccessNotice({ tone: "error", text: error });
+      setSyncNotice({ tone: "error", text: `Couldn't enable sync. ${error}` });
       return;
     }
     setToken("");
-    await reload();
-    setAccessNotice({ tone: "ok", text: "Credential updated and progress resynced." });
+    setSyncNotice({ tone: "ok", text: "Sync enabled. Progress is now saved to the data repo." });
+  };
+
+  const disconnect = async () => {
+    await disconnectSync();
+    setSyncNotice({ tone: "ok", text: "Sync disabled on this device. The remote copy is untouched." });
   };
 
   const exportJson = () => {
@@ -65,73 +69,81 @@ export function SettingsPanel() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <p className="font-mono text-[10px] tracking-[0.2em] text-ink-3">SYSTEMS</p>
-        <h1 className="font-comic text-4xl text-white">Control panel</h1>
-      </div>
+      <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
 
       <section className="rounded-xl border border-line bg-surface p-5">
-        <h2 className="font-comic text-2xl text-white">Data vault</h2>
+        <h2 className="font-medium">Storage</h2>
         <p className="mt-1 text-sm text-ink-2">
-          Progress syncs to <code className="font-mono text-accent">{vault}/{DATA_REPO.path}</code> (private). The daily
-          improvement routine reads it from there.
-        </p>
-        <p className="mt-2 text-sm text-ink-2">
-          {data.answers.length} answers · {data.sessions.length} sessions · {Object.keys(data.reviews).length} questions in
-          review ·{" "}
-          <span className={syncState === "error" ? "text-bad" : "text-good"}>
-            {syncState === "syncing" ? "syncing…" : syncState === "error" ? "sync error" : "in sync"}
-          </span>
+          Currently:{" "}
+          <strong>{storeKind === "github" ? `this browser + ${vault} (private)` : "this browser only"}</strong> ·{" "}
+          {data.answers.length} answers, {data.sessions.length} sessions, {Object.keys(data.reviews).length} questions in
+          review.
         </p>
         {syncError && <p className="mt-2 text-sm text-bad">Last sync error: {syncError}</p>}
       </section>
 
       <section className="rounded-xl border border-line bg-surface p-5">
-        <h2 className="font-comic text-2xl text-white">Access credential</h2>
-        <p className="mt-1 text-sm text-ink-2">
-          Signed in on this device. The token lives only in this browser and is only sent to api.github.com. When it
-          expires you&apos;ll be returned to the sign-in screen. Paste a new one here first to avoid that.
-        </p>
+        <h2 className="font-medium">Sync to GitHub</h2>
+        {syncToken ? (
+          <>
+            <p className="mt-1 text-sm text-ink-2">
+              Progress syncs to <code>{vault}/{DATA_REPO.path}</code>, where the daily routine reads it. If the token expires,
+              paste a new one below.
+            </p>
+          </>
+        ) : (
+          <p className="mt-1 text-sm text-ink-2">
+            One-time setup per device. It lets the daily improvement routine see your results and keeps devices in sync. Create
+            a{" "}
+            <a
+              className="text-accent hover:underline"
+              href="https://github.com/settings/personal-access-tokens/new"
+              target="_blank"
+              rel="noreferrer"
+            >
+              fine-grained token
+            </a>{" "}
+            with access to only <strong>{DATA_REPO.repo}</strong> and <strong>Contents: Read and write</strong>. It&apos;s stored
+            encrypted with your password, so it can&apos;t be used from this browser after you sign out.
+          </p>
+        )}
         <label className="mt-4 block text-sm">
-          <span className="font-mono text-xs tracking-wider text-ink-3 uppercase">Replacement token</span>
+          <span className="text-ink-2">{syncToken ? "Replace token" : "Token"}</span>
           <input
             type="password"
             value={token}
             onChange={(e) => setToken(e.target.value)}
             autoComplete="off"
             spellCheck={false}
-            placeholder="github_pat_…"
-            className="mt-1 w-full rounded-md border border-line bg-black/60 px-3 py-2 font-mono text-sm outline-none focus:border-accent"
+            className="mt-1 w-full rounded-md border border-line bg-bg px-3 py-2 font-mono text-sm"
           />
         </label>
         <div className="mt-4 flex flex-wrap gap-3">
           <button
             type="button"
-            onClick={() => void replaceToken()}
+            onClick={() => void connect()}
             disabled={busy || token.trim().length < 20}
-            className="rounded bg-accent px-4 py-2 text-sm font-bold text-accent-ink uppercase hover:bg-white disabled:opacity-40"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink disabled:opacity-40"
           >
-            {busy ? "Verifying…" : "Replace token"}
+            {busy ? "Connecting…" : syncToken ? "Save & resync" : "Test & enable sync"}
           </button>
-          <button
-            type="button"
-            onClick={signOut}
-            className="rounded border border-bad/50 px-4 py-2 text-sm font-bold text-bad uppercase hover:bg-bad-bg"
-          >
-            Sign out on this device
-          </button>
+          {syncToken && (
+            <button type="button" onClick={() => void disconnect()} className="rounded-lg border border-line px-4 py-2 text-sm">
+              Disable sync on this device
+            </button>
+          )}
         </div>
-        <NoticeLine notice={accessNotice} />
+        <NoticeLine notice={syncNotice} />
       </section>
 
       <section className="rounded-xl border border-line bg-surface p-5">
-        <h2 className="font-comic text-2xl text-white">Backup</h2>
+        <h2 className="font-medium">Backup</h2>
         <p className="mt-1 text-sm text-ink-2">Export everything as JSON, or import a backup. Imports merge, so they never delete answers.</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <button type="button" onClick={exportJson} className="rounded border border-line px-4 py-2 text-sm hover:border-accent">
+          <button type="button" onClick={exportJson} className="rounded-lg border border-line px-4 py-2 text-sm">
             Export JSON
           </button>
-          <label className="cursor-pointer rounded border border-line px-4 py-2 text-sm hover:border-accent">
+          <label className="cursor-pointer rounded-lg border border-line px-4 py-2 text-sm">
             Import JSON
             <input
               type="file"
@@ -146,6 +158,14 @@ export function SettingsPanel() {
           </label>
         </div>
         <NoticeLine notice={backupNotice} />
+      </section>
+
+      <section className="rounded-xl border border-line bg-surface p-5">
+        <h2 className="font-medium">Account</h2>
+        <p className="mt-1 text-sm text-ink-2">You stay signed in on this device for 30 days.</p>
+        <button type="button" onClick={signOut} className="mt-4 rounded-lg border border-line px-4 py-2 text-sm text-bad">
+          Sign out
+        </button>
       </section>
     </div>
   );

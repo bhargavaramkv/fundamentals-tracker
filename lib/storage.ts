@@ -12,7 +12,6 @@ export interface ProgressStore {
 }
 
 const PROGRESS_KEY = "ft.progress.v1";
-const SYNC_KEY = "ft.sync.v1";
 
 /** Always-available store: this browser's localStorage. */
 export class LocalStore implements ProgressStore {
@@ -37,13 +36,13 @@ export interface SyncConfig {
   repo: string;
   branch: string;
   path: string;
-  /** Fine-grained PAT, Contents read/write on the data repo only. Lives only in this browser. */
+  /** Fine-grained PAT, Contents read/write on the data repo only. Stored encrypted in this browser. */
   token: string;
 }
 
 /**
- * The data repo is fixed at build time and can't be changed from the browser,
- * so only someone with access to this private repo can sign in.
+ * The private repo that stores progress.json. Fixed at build time so it can't
+ * be redirected from the browser.
  */
 export const DATA_REPO: Omit<SyncConfig, "token"> = {
   owner: process.env.NEXT_PUBLIC_DATA_OWNER || "bhargavaramkv",
@@ -51,22 +50,6 @@ export const DATA_REPO: Omit<SyncConfig, "token"> = {
   branch: "main",
   path: "progress.json",
 };
-
-export function readSyncConfig(): SyncConfig | null {
-  try {
-    const raw = window.localStorage.getItem(SYNC_KEY);
-    if (!raw) return null;
-    const { token } = JSON.parse(raw) as Partial<SyncConfig>;
-    return token ? { ...DATA_REPO, token } : null;
-  } catch {
-    return null;
-  }
-}
-
-export function writeSyncConfig(token: string | null): void {
-  if (token) window.localStorage.setItem(SYNC_KEY, JSON.stringify({ token }));
-  else window.localStorage.removeItem(SYNC_KEY);
-}
 
 function toBase64(text: string): string {
   const bytes = new TextEncoder().encode(text);
@@ -169,7 +152,6 @@ export class GitHubStore implements ProgressStore {
   }
 }
 
-export function createStore(): ProgressStore {
-  const sync = readSyncConfig();
-  return sync ? new GitHubStore(sync) : new LocalStore();
+export function createStore(syncToken: string | null): ProgressStore {
+  return syncToken ? new GitHubStore({ ...DATA_REPO, token: syncToken }) : new LocalStore();
 }
