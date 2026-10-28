@@ -3,13 +3,14 @@
  * then prints a Markdown report (or JSON with --json) describing activity,
  * recurring failures and which topics need better lessons or more questions.
  *
- * Usage: npm run report -- --data ../fundamentals-tracker-data/progress.json [--json] [--now 2026-10-28T09:00:00Z]
+ * Usage: npm run report -- --data ../fundamentals-tracker-data/progress.json [--json] [--now ISO] [--since ISO]
+ *        npm run report -- --data … --since ISO --check   # one line of JSON: is there anything new to analyse?
  */
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { computeActivity } from "../lib/activity";
-import { emptyProgress, mergeProgress, normalizeProgress } from "../lib/progress";
+import { emptyProgress, latestActivityAt, mergeProgress, normalizeProgress } from "../lib/progress";
 import { recommend } from "../lib/recommend";
 import { DOMAINS, DOMAIN_LABELS, type ProgressData, type Question, type TopicMeta } from "../lib/types";
 import { validateQuestions } from "../lib/validate";
@@ -45,8 +46,14 @@ function loadProgress(file: string | undefined): ProgressData {
   return mergeProgress(normalizeProgress(JSON.parse(fs.readFileSync(file, "utf8"))), emptyProgress());
 }
 
-export function buildReport(data: ProgressData, questions: Question[], topics: TopicMeta[], now: Date) {
+export function buildReport(data: ProgressData, questions: Question[], topics: TopicMeta[], now: Date, since: string | null = null) {
   const nowMs = now.getTime();
+  const latest = latestActivityAt(data);
+  const titleOf = (domain: string, topic: string) => topics.find((t) => t.domain === domain && t.topic === topic)?.title ?? topic;
+  const readsLast24h = data.reads.filter((r) => nowMs - Date.parse(r.openedAt) <= DAY_MS);
+  const newAnswers = since ? data.answers.filter((a) => a.answeredAt > since) : data.answers;
+  const newReads = since ? data.reads.filter((r) => r.openedAt > since) : data.reads;
+  const newSessions = since ? data.sessions.filter((x) => x.finishedAt > since) : data.sessions;
   const activity = computeActivity(data.answers, now);
   const last24h = data.answers.filter((a) => nowMs - Date.parse(a.answeredAt) <= DAY_MS);
   const rec = recommend(data, questions, topics, nowMs);
@@ -82,6 +89,20 @@ export function buildReport(data: ProgressData, questions: Question[], topics: T
     repeatedMisses,
     untestedTopics: rec.focus.filter((f) => f.reason === "untested").map((f) => `${f.meta.domain}/${f.meta.topic}`),
     reviewsDue: rec.dueQuestionIds.length,
+    reading: {
+      last24h: readsLast24h.length,
+      topicsLast24h: [...new Set(readsLast24h.map((r) => `${r.domain}/${r.topic}`))],
+    },
+    latestActivityAt: latest,
+    since,
+    newActivity: latest !== null && (since === null || latest > since),
+    sinceLastAnalysis: {
+      answers: newAnswers.length,
+      correct: newAnswers.filter((a) => a.correct).length,
+      sessions: newSessions.map((x) => ({ mode: x.mode, total: x.total, correct: x.correct, finishedAt: x.finishedAt })),
+      reads: newReads.map((r) => ({ topic: `${r.domain}/${r.topic}`, title: titleOf(r.domain, r.topic), minutes: Math.round(r.durationMs / 6000) / 10 })),
+      topicsPracticed: [...new Set(newAnswers.map((a) => `${a.domain}/${a.topic}`))],
+    },
   };
 }
 
@@ -97,6 +118,7 @@ function toMarkdown(r: Report): string {
     `- Practiced in last 24h: **${r.activity.practicedLast24h ? `yes (${r.activity.answersLast24h} answers)` : "no"}**`,
     `- Last active: ${r.activity.lastActive ?? "never"} · streak ${r.activity.streak} day(s)`,
     `- Totals: ${r.totals.answers} answers in ${r.totals.sessions} sessions · ${r.reviewsDue} reviews due`,
+    `- Reading in last 24h: ${r.reading.last24h ? `${r.reading.last24h} lesson(s): ${r.reading.topicsLast24h.join(", ")}` : "none"}`,
     "",
   );
   if (r.nudge) {
@@ -119,6 +141,15 @@ function toMarkdown(r: Report): string {
     lines.push(`- \`${m.id}\` (${m.topic}), missed ${m.misses}×: ${m.prompt}`, `  - wrong picks: ${m.wrongPicks.map((w) => `"${w}"`).join(", ")}`);
   }
   if (r.untestedTopics.length) lines.push("", `### Untested topics`, r.untestedTopics.map((t) => `\`${t}\``).join(", "));
+  if (r.since) {
+    const s = r.sinceLastAnalysis;
+    lines.push("", `### New since last analysis (${r.since})`);
+    if (!r.newActivity) lines.push("Nothing new.");
+    else {
+      lines.push(`- ${s.answers} answers (${s.correct} correct) in ${s.sessions.length} session(s); topics: ${s.topicsPracticed.join(", ") || "none"}`);
+      for (const rd of s.reads) lines.push(`- read \`${rd.topic}\` (${rd.title}) for ${rd.minutes} min`);
+    }
+  }
   return lines.join("\n");
 }
 
@@ -127,6 +158,12 @@ if (isMain) {
   const { questions, topics } = loadContent();
   const data = loadProgress(arg("data"));
   const now = arg("now") ? new Date(arg("now") as string) : new Date();
-  const report = buildReport(data, questions, topics, now);
-  process.stdout.write(process.argv.includes("--json") ? JSON.stringify(report, null, 2) + "\n" : toMarkdown(report) + "\n");
+  const report = buildReport(data, questions, topics, now, arg("since") ?? null);
+  if (process.argv.includes("--check")) {
+    // Cheap gate for the hourly check: one line, no analysis needed to read it.
+    const { newActivity, latestActivityAt: latest, since } = report;
+    process.stdout.write(JSON.stringify({ newActivity, latestActivityAt: latest, since, nudge: report.nudge }) + "\n");
+  } else {
+    process.stdout.write(process.argv.includes("--json") ? JSON.stringify(report, null, 2) + "\n" : toMarkdown(report) + "\n");
+  }
 }

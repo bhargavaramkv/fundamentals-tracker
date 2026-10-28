@@ -56,7 +56,8 @@ this public repo and ships in the static bundle, so treat content as public.
 - **Lessons:** short markdown guides in `content/lessons/<domain>/<topic>.md`,
   each linked to a focused drill.
 - **Answer log:** every answer is stored with its timestamp, question, topic,
-  difficulty, correctness, the option picked, and time taken.
+  difficulty, correctness, the option picked, and time taken. Lesson reads
+  (20+ seconds visible) are logged too.
 
 ## Architecture
 
@@ -161,28 +162,31 @@ offline.
 If the token can only access the data repo, sync still works on that device,
 and Settings tells you to add `fundamentals-tracker` to the token's access.
 
-## Daily improvement routine
+## Improvement routine (activity-driven)
 
-A scheduled Claude task runs once a day and follows `docs/daily-routine.md`:
+Claude reviews your progress and improves the content, following
+`docs/daily-routine.md`:
 
-1. Reads `progress.json` from the private data repo (read-only).
-2. Runs `npm run report` to check whether you practiced in the last 24h, find
-   weak topics, and find questions you keep missing (including which wrong
-   options you picked).
-3. Improves lessons and explanations to target those misconceptions, and adds
-   new questions for weak topics.
-4. Runs `npm run check`, commits to a `routine/YYYY-MM-DD` branch, and opens a
-   PR labelled `daily-routine` with a short summary, plus a nudge if you've been
-   inactive for 2+ days.
+- **Every hour**, an analyst session running **Sonnet** runs a one-line check
+  (`npm run report -- --since … --check`). If you haven't answered anything or
+  read a lesson since the last analysis, it stops right there.
+- **When there is new activity** (quiz answers, or a lesson open 20+ seconds),
+  and once a day as a daily review, it analyses it. It reads the wrong options
+  you picked and the lessons you read, improves the relevant lessons and
+  explanations, adds questions, and opens a PR labelled `daily-routine` with
+  a summary (and a nudge if you've been inactive 2+ days).
+- **Bigger changes** (new topics, several weak domains at once, a lesson that
+  still isn't landing) are escalated to the owner's main **Opus** session.
+- The "analysed up to" marker lives on the `routine-state` branch, so nothing
+  is analysed twice.
 
-It never pushes to `main`, never writes to the data repo, and never deletes
-question IDs that your history references.
+Latency is up to an hour after you finish, because GitHub Pages can't push
+events to Claude directly. It never pushes to `main`, never writes to the data
+repo, and never deletes question IDs that your history references.
 
-**How it reads your data without secrets in the repo:** the scheduled task runs
-as a Claude Code cloud session that uses your account's GitHub connection (the
-Claude GitHub App). That connection grants repo access per session and is never
-written to disk in this repo. Your browser token is separate: it lives only in
-your browser and only writes the data repo. Neither repo contains a credential.
+**How it reads your data without secrets in the repo:** the analyst runs as a
+Claude Code cloud session that uses your account's GitHub connection, which
+grants repo access per session and is never written to this repo.
 
 ## Editing content
 

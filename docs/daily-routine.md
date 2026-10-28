@@ -1,12 +1,27 @@
-# Daily improvement routine
+# Activity-driven improvement routine
 
-This is the playbook the scheduled Claude task follows once a day. It is kept in
-the repo so it can be reviewed and changed like code. The scheduled task's
-prompt just says "follow `docs/daily-routine.md`".
+This is the playbook the scheduled Claude tasks follow. It lives in the repo so
+it can be reviewed and changed like code. The tasks' prompts just say "follow
+`docs/daily-routine.md`".
+
+## How it's triggered, and which model does what
+
+GitHub Pages can't run code, so nothing can push an event to Claude the moment
+you finish a quiz or a lesson. Instead:
+
+| Tier | Model | When | Job |
+|---|---|---|---|
+| **Check** | Sonnet (analyst session) | every hour | Run the one-line `--check`. If nothing is new, stop immediately. |
+| **Analysis** | Sonnet (same session) | when the check finds new activity, and once a day | Steps 2–4 below: report, small content improvements, PR. |
+| **Escalation** | Opus (the owner's main session) | only when needed | Bigger restructuring the analyst flags (see "Escalate"). |
+
+Activity means quiz answers **and** lesson reads (a lesson open and visible for
+20+ seconds). The app syncs both to `progress.json` as soon as they happen, so
+the next hourly check picks them up.
 
 ## Hard rules
 
-1. **Never push to `main`.** All changes go through a pull request.
+1. **Never push to `main`.** All content changes go through a pull request.
 2. **Never modify or delete progress data.** The data repo
    (`bhargavaramkv/fundamentals-tracker-data`) is read-only for this routine.
    Don't push to it, open PRs against it, or rewrite it.
@@ -19,27 +34,39 @@ prompt just says "follow `docs/daily-routine.md`".
 5. **Never modify `lib/login-vault.json`, `vault/`** or anything under
    `lib/auth.ts` / `lib/vault.ts`. The login and sync credentials are the owner's to change.
 6. `npm run check` (lint, typecheck, tests, build) must pass before every commit.
+7. The only branch the routine may push outside PR branches is `routine-state`
+   (step 5).
 
 ## Steps
 
-### 1. Get the repos
-
-- Attach `bhargavaramkv/fundamentals-tracker` with push access and
-  `bhargavaramkv/fundamentals-tracker-data` with read access, then clone both.
-- If the data repo or `progress.json` doesn't exist yet, continue with empty
-  progress. The report handles that.
-
-### 2. Analyse progress
+### 1. Sync and check (every run, cheap)
 
 ```bash
-npm ci
-npm run --silent report -- --data ../fundamentals-tracker-data/progress.json
-npm run --silent report -- --data ../fundamentals-tracker-data/progress.json --json
+cd /home/user/fundamentals-tracker && git fetch -q origin main routine-state
+cd /home/user/fundamentals-tracker-data && git fetch -q origin main && git reset -q --hard origin/main
+cd /home/user/fundamentals-tracker
+SINCE=$(git show origin/routine-state:state.json 2>/dev/null | node -pe 'JSON.parse(require("fs").readFileSync(0)).analyzedThrough' 2>/dev/null || echo 1970-01-01T00:00:00Z)
+npm run --silent report -- --data ../fundamentals-tracker-data/progress.json --since "$SINCE" --check
 ```
 
-The report says whether there was practice in the last 24h, days since last
+- `newActivity: false` and this isn't the **daily review** (the first run after
+  06:30 IST, when `state.json`'s `lastDailyReview` isn't today): reply
+  "No new activity since <SINCE>." and **stop**. Don't install, build or analyse.
+- Otherwise continue. Run `npm ci` only if `node_modules` is missing or
+  `package-lock.json` changed.
+
+### 2. Analyse
+
+```bash
+npm run --silent report -- --data ../fundamentals-tracker-data/progress.json --since "$SINCE"
+npm run --silent report -- --data ../fundamentals-tracker-data/progress.json --since "$SINCE" --json
+```
+
+The report covers practice and reading in the last 24h, days since last
 activity, weak topics, repeatedly missed questions (with the wrong options that
-were picked), untested topics and reviews due.
+were picked), untested topics, reviews due, and exactly what's new since the
+last analysis. Look closely at the new answers: wrong picks reveal the
+misconception, and very fast answers (under ~5s) suggest guessing.
 
 ### 3. Decide what to improve (keep it small)
 
@@ -52,10 +79,12 @@ Work on at most **3 topics** per run, in this priority order:
 2. **Weak topics.** Add 2–3 new questions per topic that approach the concept
    from a different angle (a scenario, a code snippet, "what breaks if…"), with
    mixed difficulty. Improve the lesson where the misses suggest a gap.
-3. **No data, or no weak topics.** Add 1–2 questions to the topic with the
-   fewest questions, or deepen a lesson. Stay at interview and real-work
-   level for a full-stack C#/.NET, Angular, TypeScript, MongoDB and Kubernetes
-   engineer.
+3. **Lessons read but then still missed.** The lesson isn't landing. Rewrite
+   the section that covers the missed concept.
+4. **Daily review with no data, or no weak topics.** Add 1–2 questions to the
+   topic with the fewest questions, or deepen a lesson. Stay at interview and
+   real-work level for a full-stack C#/.NET, Angular, TypeScript, MongoDB and
+   Kubernetes engineer.
 
 Content conventions:
 
@@ -63,13 +92,27 @@ Content conventions:
   `<domain>-<topic>-<n>`. Write 4 options, one clearly correct, with plausible
   distractors. **No length tell:** every distractor must be as specific and as
   long as the correct answer, and the correct one should often not be the
-  longest. `tests/content.test.ts` fails the build if a pattern appears. Explanations say why the answer is right *and* why the tempting
-  wrong answer is wrong.
+  longest. `tests/content.test.ts` fails the build if a pattern appears.
+  Explanations say why the answer is right *and* why the tempting wrong answer
+  is wrong.
 - Lessons live in `content/lessons/<domain>/<topic>.md`, with quoted `title`
   and `summary` frontmatter. Keep them short and scannable: tables, small code
   samples, "when it breaks".
 - A new topic needs a lesson and at least 3 questions (the tests enforce this).
 - Verify technical claims. Don't add a question you aren't certain about.
+
+### Escalate instead of doing it yourself
+
+Send one short message to the owner's main session (Opus) and do only the
+small, safe part yourself when the right fix is bigger than a content tweak:
+
+- a **new topic or domain** is needed, or an existing topic should be split;
+- **3+ domains** are weak at once, so the curriculum or the assessment needs rethinking;
+- the same question keeps being missed after its lesson was already improved;
+- an app bug or a data problem (for example sync errors, or answers that don't match questions).
+
+Use `send_message` to the session id given in your task prompt. Include the
+report excerpt and what you'd change.
 
 ### 4. Branch, commit, PR
 
@@ -82,11 +125,13 @@ Content conventions:
   missing), using this body:
 
 ```markdown
-## Daily routine · YYYY-MM-DD
+## Routine · YYYY-MM-DD HH:MM IST (triggered by: new activity | daily review)
 
-**Activity:** practiced in last 24h: yes/no · last active: … · streak: …
+**Activity:** practiced in last 24h: yes/no · read: N lessons · last active: … · streak: …
 
 > Nudge (only if 2+ days inactive): …
+
+**What's new since last analysis:** answers, sessions, lessons read
 
 **What I saw:** weak topics, repeated misses, and the misconception each one suggests
 
@@ -99,3 +144,16 @@ Content conventions:
 
 - If there is truly nothing meaningful to change, don't open a PR. End the
   run with the report summary instead.
+
+### 5. Record what was analysed
+
+Always, even when no PR was needed, move the marker forward so the same
+activity isn't analysed twice:
+
+```bash
+TMP=$(mktemp -d) && git worktree add -q "$TMP" origin/routine-state 2>/dev/null \
+  || { git worktree add -q --detach "$TMP" && (cd "$TMP" && git checkout -q --orphan routine-state && git rm -rqf .); }
+# write {"analyzedThrough": "<latestActivityAt from the check>", "lastDailyReview": "<YYYY-MM-DD if this was the daily review, else keep the old value>"}
+(cd "$TMP" && git add state.json && git commit -qm "state: analysed through <timestamp>" && git push -q origin HEAD:routine-state)
+git worktree remove --force "$TMP"
+```
