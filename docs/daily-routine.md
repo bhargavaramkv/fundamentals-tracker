@@ -57,6 +57,8 @@ Work on at most **3 topics** per run, in this priority order:
 
 Content conventions:
 
+- Keep the app's tone: Marvel / J.A.R.V.I.S. flavour in UI copy and PR summaries,
+  but lessons, questions and explanations stay plain and technically precise.
 - Questions live in `content/questions/<domain>.json`, with the next free ID
   `<domain>-<topic>-<n>`. Write 4 options, one clearly correct, with plausible
   distractors. Explanations say why the answer is right *and* why the tempting
@@ -82,7 +84,7 @@ Content conventions:
 
 **Activity:** practiced in last 24h: yes/no · last active: … · streak: …
 
-> Nudge (only if 2+ days inactive): …
+> J.A.R.V.I.S. nudge (only if 2+ days inactive), in the app's Marvel / J.A.R.V.I.S. voice: …
 
 **What I saw:** weak topics, repeated misses, and the misconception each one suggests
 

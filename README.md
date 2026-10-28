@@ -1,12 +1,38 @@
-# Fundamentals Tracker
+# Fundamentals Tracker · BHARGAVA.DEV Training Facility
 
-A personal, adaptive tracker for software-engineering fundamentals at interview and
+A private, adaptive tracker for software-engineering fundamentals at interview and
 real-work level: DSA, OOP and design principles, databases, system design, and
-web/networking. It finds weak areas from your answers and keeps practice focused
+web/networking. Styled to match the [bhargava.dev portfolio](https://github.com/bhargavaramkv/bhargavaram-portfolio):
+dark Marvel / J.A.R.V.I.S. theme, tech-blue accent, Bangers headings on Roboto
+Condensed. It finds weak areas from your answers and keeps practice focused
 on them. A daily Claude routine also improves the lessons and questions based on
 where you keep failing.
 
 **Live site:** https://bhargavaramkv.github.io/fundamentals-tracker/
+
+## Access control
+
+The site is locked behind a sign-in screen. GitHub Pages can't run server-side
+auth, so instead of a fake client-side password, sign-in proves something only
+you control:
+
+- You paste a fine-grained GitHub token. The app calls the GitHub API and unlocks
+  only if that token can read the **private** repo
+  `bhargavaramkv/fundamentals-tracker-data`.
+- That repo is fixed at build time (`NEXT_PUBLIC_DATA_OWNER` / `NEXT_PUBLIC_DATA_REPO`),
+  so a visitor can't point the check at their own repo. The app also refuses to
+  unlock if the data repo is ever made public.
+- The token is re-verified on every load (with a 7-day offline grace). An
+  expired or revoked token sends you back to the sign-in screen. Use
+  **Systems → Sign out on this device** on shared machines.
+- Signing in also turns on sync, so the daily routine always sees your data.
+- Pages are marked `noindex`.
+
+**What this does and doesn't protect.** Your progress data and the app UI are
+gated. The lessons and questions themselves are open source in this public repo,
+and their text ships in the static bundle, so treat content as public. If the
+content itself must be private, the options are a private repo with Pages on a
+paid plan, or hosting behind an access proxy (e.g. Cloudflare Access).
 
 ## Features
 
@@ -55,7 +81,7 @@ routes and no server-side database connections. So:
   build time.
 - Progress lives in **localStorage**, behind the `ProgressStore` interface in
   `lib/storage.ts`.
-- **Optional sync** mirrors progress to `progress.json` in a **private** repo,
+- **Sync** (on whenever you're signed in) mirrors progress to `progress.json` in a **private** repo,
   `bhargavaramkv/fundamentals-tracker-data`, through the GitHub REST API. That
   gives you multi-device use and lets the daily routine read your data.
   Merges are append-only unions by answer ID, so no device or merge can delete
@@ -90,9 +116,10 @@ See `.env.example`. There are **no secrets**:
 | Variable | Where | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_BASE_PATH` | set by the deploy workflow | `/fundamentals-tracker` on Pages; empty locally |
+| `NEXT_PUBLIC_DATA_OWNER` / `NEXT_PUBLIC_DATA_REPO` | optional build-time override | private repo that unlocks the app and stores progress (defaults: `bhargavaramkv` / `fundamentals-tracker-data`) |
 
-The sync token is **not** an environment variable. You paste it into the app's
-Settings page, and it stays in that browser's localStorage. It is only ever sent
+The access token is **not** an environment variable. You paste it into the app's
+sign-in screen, and it stays in that browser's localStorage. It is only ever sent
 to `api.github.com`.
 
 ## Deployment (GitHub Pages)
@@ -104,13 +131,14 @@ One-time setup: **Settings → Pages → Source: GitHub Actions**. Pages on a fr
 plan requires the repo to be public. The code and lessons hold nothing private;
 your progress lives in the separate private data repo.
 
-## Enabling progress sync
+## Signing in (and sync)
 
 1. Create a fine-grained token at
    https://github.com/settings/personal-access-tokens/new:
    - Repository access: **only** `fundamentals-tracker-data`
-   - Permissions: **Contents: Read and write** (nothing else)
-2. In the app, open **Settings → Sync**, paste the token, then **Test & enable sync**.
+   - Permissions: **Contents: Read and write** (Metadata: read-only is added automatically)
+   - Expiration: 90 days or more. Replace it before then under **Systems → Replace token**.
+2. Open the site, paste the token on the sign-in screen, and press **Initiate**.
 3. Repeat on each device or browser you use.
 
 ## Daily improvement routine
