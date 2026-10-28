@@ -193,7 +193,7 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
         <button
           type="submit"
           disabled={busy}
-          className="btn btn-primary btn-lg btn-block mt-6"
+          className="btn btn-primary btn-lg mt-6 w-full"
         >
           {busy ? "Signing in…" : "Sign in"}
         </button>

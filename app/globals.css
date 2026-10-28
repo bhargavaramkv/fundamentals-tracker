@@ -322,9 +322,9 @@ input {
   background: color-mix(in oklab, var(--bad) 10%, var(--surface-2));
 }
 
-/* Ghost: text-only actions (row links, "End & save"). */
+/* Ghost: text-only actions (row links, "End & save"). 44px on phones, compact on larger screens. */
 .btn-ghost {
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 0.85rem;
   color: var(--accent);
   background: transparent;
@@ -338,6 +338,11 @@ input {
 .btn-ghost.btn-muted:hover:not(:disabled) {
   color: var(--text);
   background: var(--surface-2);
+}
+@media (min-width: 640px) {
+  .btn-ghost {
+    min-height: 40px;
+  }
 }
 
 /* Pills: static labels and chips. */

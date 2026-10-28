@@ -42,7 +42,7 @@ export function ScoreChart({ points }: { points: HistoryPoint[] }) {
   return (
     <div>
       <div className="mb-2 flex justify-end">
-        <button type="button" onClick={() => setAsTable((v) => !v)} className="btn btn-ghost btn-muted -mr-2 !min-h-9 !px-2 !text-xs">
+        <button type="button" onClick={() => setAsTable((v) => !v)} className="btn btn-ghost btn-muted -mr-2 !px-2 !text-xs sm:!min-h-9">
           {asTable ? "Show chart" : "Show table"}
         </button>
       </div>
