@@ -8,8 +8,8 @@
     "options": [
       "WHERE first_name = 'Ada'",
       "WHERE last_name = 'Lovelace'",
-      "WHERE first_name LIKE '%da'",
-      "None; composite indexes need every column"
+      "WHERE first_name LIKE 'Ad%'",
+      "WHERE last_name LIKE '%lace'"
     ],
     "answer": 1,
     "explanation": "This is the leftmost-prefix rule: the index is sorted by last_name first, so seeks need the leading column. Filtering only on first_name means scanning the whole index (or a skip-scan, on engines that support it)."
@@ -36,10 +36,10 @@
     "difficulty": 3,
     "prompt": "users.email has an index, but `WHERE LOWER(email) = @e` does a full scan. What is the best fix?",
     "options": [
-      "Add an index hint",
-      "Use a function-based or computed-column index on LOWER(email), or store a normalized column and index that",
-      "Increase the buffer pool size",
-      "Switch to a hash index"
+      "Add an index hint so the optimizer is forced to use the email index",
+      "Index the expression LOWER(email), or store a normalized column",
+      "Rebuild the email index and refresh statistics on the users table",
+      "Switch the email index from a B-tree to a hash-based index type"
     ],
     "answer": 1,
     "explanation": "Wrapping an indexed column in a function makes the predicate non-sargable: the index stores email, not LOWER(email). Index the expression (Postgres expression index, SQL Server persisted computed column) or normalize on write. In MongoDB, use a collation index."
@@ -51,10 +51,10 @@
     "difficulty": 1,
     "prompt": "What does the I in ACID guarantee?",
     "options": [
-      "Committed data survives crashes",
-      "Concurrent transactions don't see each other's intermediate state, to the degree the isolation level defines",
-      "All operations in a transaction succeed or none do",
-      "Data always satisfies constraints"
+      "Committed changes survive a crash, restart or power loss",
+      "Concurrent transactions don't see each other's partial work",
+      "All statements in a transaction succeed, or none of them do",
+      "Every committed state satisfies all declared constraints"
     ],
     "answer": 1,
     "explanation": "Isolation is about concurrency. The options above are durability, atomicity and consistency respectively. Most databases default to weaker-than-serializable isolation (READ COMMITTED in Postgres and SQL Server), so the anomaly table matters."
@@ -65,9 +65,14 @@
     "topic": "transactions",
     "difficulty": 2,
     "prompt": "Which anomaly is allowed under READ COMMITTED but prevented under REPEATABLE READ?",
-    "options": ["Dirty read", "Non-repeatable read", "Lost update on a single row in every engine", "Phantom reads in every engine"],
+    "options": [
+      "Dirty read: seeing another transaction's uncommitted write",
+      "Non-repeatable read: re-reading a row returns a new value",
+      "Dirty write: overwriting another transaction's uncommitted row",
+      "Read skew across tables is prevented by both of these levels"
+    ],
     "answer": 1,
-    "explanation": "READ COMMITTED prevents dirty reads, but rereading the same row in one transaction can return a different committed value. REPEATABLE READ pins rows you've read. Whether phantoms are prevented depends on the engine (Postgres and MySQL InnoDB largely prevent them; the SQL standard allows them)."
+    "explanation": "READ COMMITTED prevents dirty reads, but rereading the same row in one transaction can return a different committed value. REPEATABLE READ pins the rows you've read. Dirty reads and dirty writes are already prevented at READ COMMITTED, so they don't separate the two levels."
   },
   {
     "id": "databases-transactions-3",
@@ -76,12 +81,12 @@
     "difficulty": 3,
     "prompt": "Under snapshot isolation, two on-call doctors each check \"at least 2 doctors on call\", see 2, and each remove themselves in their own transaction. Both commit, and 0 remain. What is this anomaly and what prevents it?",
     "options": [
-      "Dirty read; prevented by READ COMMITTED",
-      "Write skew; prevented by SERIALIZABLE isolation or by explicitly locking the rows read (SELECT … FOR UPDATE)",
-      "Lost update; prevented by an index",
-      "Phantom read; prevented by REPEATABLE READ"
+      "Write skew; prevented by SERIALIZABLE or locking the rows read",
+      "Lost update; prevented by an optimistic version-column check",
+      "Dirty read; prevented by switching to READ COMMITTED isolation",
+      "Phantom read; prevented by switching to REPEATABLE READ instead"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Each transaction writes different rows based on a premise that the other invalidates. Snapshot isolation only detects write-write conflicts on the same row. You need SSI or serializable isolation, locks on the rows read, or a constraint that materializes the conflict."
   },
   {
@@ -91,12 +96,12 @@
     "difficulty": 1,
     "prompt": "What does Third Normal Form specifically remove?",
     "options": [
-      "Repeating groups",
+      "Transitive dependencies between non-key columns",
+      "Repeating groups and multi-valued columns",
       "Partial dependencies on part of a composite key",
-      "Transitive dependencies, where a non-key column depends on another non-key column",
-      "All redundancy, including derived columns"
+      "All redundancy, including derived and cached columns"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "1NF has atomic values, 2NF removes partial-key dependencies, and 3NF removes non-key → non-key dependencies. Example: storing zip and city in Orders, where city depends on zip rather than the order key."
   },
   {
@@ -106,10 +111,10 @@
     "difficulty": 2,
     "prompt": "In MongoDB, a blog post can collect an unbounded number of comments (popular posts get 100k+). How should comments be modeled?",
     "options": [
-      "Embed them all as an array in the post document",
-      "Put comments in their own collection that references postId, optionally embedding the latest N on the post",
-      "Store them as a JSON string field",
-      "Create one collection per post"
+      "Embed every comment as an array inside the post document",
+      "A comments collection keyed by postId, with the latest few embedded",
+      "Store all comments as one serialized JSON string field on the post",
+      "Create a separate comments collection for each individual post"
     ],
     "answer": 1,
     "explanation": "Unbounded arrays grow documents toward the 16 MB limit, make updates expensive, and bloat the working set. Reference by postId with an index on {postId, createdAt}. The subset pattern (embedding the latest few) keeps the common read to one document."
@@ -121,10 +126,10 @@
     "difficulty": 3,
     "prompt": "You denormalize customerName into every order document to avoid joins/$lookup on the hot read path. What cost do you take on?",
     "options": [
-      "Reads become slower",
-      "Update fan-out and consistency: a rename must be propagated to every order (or you accept stale snapshots)",
-      "You can no longer index orders",
-      "Transactions stop working"
+      "Reads slow down, because the order documents become larger",
+      "Renames must fan out to every order, or you accept stale names",
+      "Orders can no longer be indexed by customer once names are copied",
+      "Multi-document transactions stop working on that collection"
     ],
     "answer": 1,
     "explanation": "Denormalization trades write complexity for read speed. Decide per field whether staleness is fine (for an order, the name at purchase time may even be correct) or whether you need a sync job or change stream to propagate updates."
@@ -135,8 +140,13 @@
     "topic": "replication-sharding",
     "difficulty": 1,
     "prompt": "A user updates their profile, the page reloads, and the old data shows up. Reads go to an asynchronous read replica. Why?",
-    "options": ["Index corruption", "Replication lag, so the replica hasn't applied the write yet", "A deadlock", "Connection pool exhaustion"],
-    "answer": 1,
+    "options": [
+      "Replication lag on the asynchronous read replica",
+      "A deadlock between the two concurrent update statements",
+      "Index corruption on the profile table after the write",
+      "Connection pool exhaustion on the primary database"
+    ],
+    "answer": 0,
     "explanation": "This breaks read-your-writes consistency. Mitigations: read from the primary for a short time after the user's own write, use sticky sessions or causal tokens (MongoDB causally consistent sessions), or wait for replication on the write."
   },
   {
@@ -146,12 +156,12 @@
     "difficulty": 2,
     "prompt": "A MongoDB collection is range-sharded on createdAt (monotonically increasing). What happens under heavy insert load?",
     "options": [
-      "Inserts spread evenly across shards",
-      "All new inserts land on the shard owning the max chunk, creating a hot shard",
-      "The balancer rejects writes",
-      "Queries by createdAt become impossible"
+      "Every insert hits the shard owning the top chunk: a hot shard",
+      "Inserts spread evenly, since the balancer splits chunks continuously",
+      "The balancer rejects writes until chunks are rebalanced by hand",
+      "Range queries on createdAt must now scatter to every shard"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Every new key is greater than all existing keys, so it goes into the last chunk. Use a hashed shard key for write distribution, or a compound key like {tenantId, createdAt} that also keeps range queries targeted to one shard."
   },
   {
@@ -160,7 +170,12 @@
     "topic": "replication-sharding",
     "difficulty": 3,
     "prompt": "In a MongoDB replica set, which setting ensures you never read data that might later be rolled back after a primary failover?",
-    "options": ["readPreference: secondary", "readConcern: \"majority\"", "writeConcern: { w: 1 }", "readConcern: \"local\""],
+    "options": [
+      "readPreference: secondary",
+      "readConcern: \"majority\"",
+      "writeConcern: { w: 1 }",
+      "readConcern: \"local\""
+    ],
     "answer": 1,
     "explanation": "readConcern \"majority\" returns only data acknowledged by a majority of members, which survives an election. \"local\" can return writes that are rolled back if the old primary loses its seat. Pair it with writeConcern \"majority\" for durable writes."
   }

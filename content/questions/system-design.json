@@ -6,12 +6,12 @@
     "difficulty": 1,
     "prompt": "In the cache-aside (lazy loading) pattern, what happens on a cache miss?",
     "options": [
-      "The cache fetches from the database by itself",
-      "The application reads from the database, then writes the result into the cache",
-      "The request fails and the client retries",
-      "The database pushes the value to the cache"
+      "The app loads from the database, then writes the value into the cache",
+      "The cache layer fetches from the database on the app's behalf",
+      "The request fails fast, and the client retries after a backoff",
+      "The database pushes the missing value into the cache using a trigger"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "The application owns the logic: check the cache, on a miss load from the database, then populate the cache with a TTL. Read-through is the variant where the cache library loads the data itself."
   },
   {
@@ -21,10 +21,10 @@
     "difficulty": 2,
     "prompt": "A very hot cache key expires, and thousands of concurrent requests miss at once and hit the database. What is this, and what is the standard mitigation?",
     "options": [
-      "Cache penetration; use a Bloom filter",
-      "Cache stampede (thundering herd); use request coalescing or a per-key lock, jittered TTLs, or stale-while-revalidate",
-      "Cache poisoning; use TLS",
-      "Write amplification; use a larger cache"
+      "Cache penetration; add a Bloom filter in front of the database",
+      "Cache stampede; coalesce requests per key and jitter the TTLs",
+      "Cache poisoning; sign cached values and serve them only over TLS",
+      "Write amplification; give the cache more memory and more shards"
     ],
     "answer": 1,
     "explanation": "Let one request recompute the value while the others wait or get the stale value. Add jitter so many keys don't expire together. Penetration is a different problem: repeated lookups for keys that don't exist."
@@ -36,10 +36,10 @@
     "difficulty": 3,
     "prompt": "With cache-aside and concurrent writers, which write path leaves stale cache entries least often?",
     "options": [
-      "Write the new value to the cache, then to the DB",
-      "Update the DB, then write the new value into the cache",
-      "Update the DB, then delete the cache key (let the next read repopulate it)",
-      "Delete the cache key, then update the DB"
+      "Write the new value to the cache, then update the database",
+      "Update the database, then write the new value into the cache",
+      "Update the database, then delete the key from the cache",
+      "Delete the key from the cache, then update the database"
     ],
     "answer": 2,
     "explanation": "If two writers both set the cache, they can interleave so the older value is written last and stays there until the TTL expires. Deleting after the DB commit leaves only a narrow race (a read that started before the commit repopulating the old value). A short TTL or a delayed second delete covers that."
@@ -51,12 +51,12 @@
     "difficulty": 1,
     "prompt": "What must be true before you can scale a web API horizontally behind a round-robin load balancer?",
     "options": [
-      "Every instance has its own database",
-      "Instances are stateless: session or state lives in a shared store (Redis, DB) or in the token",
-      "The load balancer uses sticky sessions",
-      "Each instance has more CPU"
+      "Instances keep no local state; sessions live in a shared store",
+      "Every instance gets its own database to avoid write contention",
+      "The load balancer pins each user to one instance (sticky sessions)",
+      "Each instance is sized with enough CPU to absorb peak load alone"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "If instance A keeps a user's session in memory, the next request routed to B loses it. Sticky sessions hide the problem but break on scale-in or crashes and make load uneven. Externalize the state."
   },
   {
@@ -66,12 +66,12 @@
     "difficulty": 2,
     "prompt": "Why use consistent hashing instead of hash(key) % N to assign keys to cache nodes?",
     "options": [
-      "It's faster to compute",
-      "Adding or removing a node remaps only about 1/N of the keys instead of nearly all of them",
-      "It guarantees perfectly even load",
-      "It removes the need for replication"
+      "Adding a node remaps only about 1/N of keys, not nearly all of them",
+      "It's cheaper to compute than a modulo on every single key lookup",
+      "It guarantees a perfectly even key distribution across all nodes",
+      "It removes the need to replicate cached data between the nodes"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "With modulo, changing N changes almost every key's bucket, which means a cold-cache storm. On a hash ring, a key moves only when its neighboring node changes. Virtual nodes smooth out the uneven load a plain ring produces."
   },
   {
@@ -81,10 +81,10 @@
     "difficulty": 3,
     "prompt": "A Kubernetes HPA scales a .NET API on CPU at 70%. Under load, p99 latency triples but CPU stays at 30%, because pods are waiting on a downstream DB. What is the best response?",
     "options": [
-      "Lower the CPU target to 20%",
-      "Scale on a signal that tracks saturation (in-flight requests or queue depth via custom metrics), and investigate the DB/connection pool as the real bottleneck",
-      "Increase the pod memory limit",
-      "Disable the HPA and run 50 replicas"
+      "Lower the HPA CPU target to 20% so it scales out much sooner",
+      "Scale on in-flight requests, and fix the DB or pool bottleneck",
+      "Raise each pod's memory limit so requests can queue in memory",
+      "Disable the HPA and run a fixed 50 replicas at all times instead"
     ],
     "answer": 1,
     "explanation": "CPU is the wrong signal for I/O-bound work. More pods may not help at all if the database or connection pool is the constraint; they can make it worse. Measure the bottleneck first (USE/RED), then scale whatever is actually saturated."
@@ -96,10 +96,10 @@
     "difficulty": 1,
     "prompt": "According to CAP, what must a distributed data store choose between during a network partition?",
     "options": [
-      "Latency and throughput",
-      "Consistency (refuse or delay some requests) and availability (answer with possibly stale data)",
-      "Durability and atomicity",
-      "Sharding and replication"
+      "Low latency versus high throughput",
+      "Consistency versus availability",
+      "Durability versus atomicity of writes",
+      "Horizontal sharding versus replication"
     ],
     "answer": 1,
     "explanation": "Partitions will happen, so the real choice is C vs A while one is in progress. PACELC adds the other half: when there's no partition (Else), you trade Latency against Consistency."
@@ -111,10 +111,10 @@
     "difficulty": 2,
     "prompt": "A client times out on POST /payments and retries. How do you avoid charging the customer twice?",
     "options": [
-      "Use PUT instead of POST",
-      "The client sends an Idempotency-Key; the server stores the key with the result and returns the stored result for a repeat key",
-      "Increase the timeout",
-      "Add a database transaction"
+      "Switch the endpoint from POST to PUT so retries become harmless",
+      "Store an Idempotency-Key with the result, and replay it on retry",
+      "Raise the client timeout so the first request can always finish",
+      "Wrap the charge and the order insert in one database transaction"
     ],
     "answer": 1,
     "explanation": "The server can't distinguish \"the first request failed\" from \"the response was lost\". With an idempotency key (unique constraint on key + stored response) retries are safe. This is how Stripe's API works."
@@ -126,10 +126,10 @@
     "difficulty": 3,
     "prompt": "A service saves an order to its DB and then publishes OrderCreated to Kafka. If the publish fails after the commit, downstream services never hear about the order. What is the standard pattern?",
     "options": [
-      "Two-phase commit across the DB and Kafka",
-      "Transactional outbox: write the event to an outbox table in the same DB transaction, and have a relay (poller or CDC) publish it",
-      "Publish first, then save",
-      "Retry the publish three times in a loop"
+      "Two-phase commit spanning the database and the Kafka cluster",
+      "Write the event to an outbox table in the same DB transaction",
+      "Publish the event first, then save the order if publish succeeds",
+      "Retry the Kafka publish three times in a loop before giving up"
     ],
     "answer": 1,
     "explanation": "This is the dual-write problem. The outbox makes state change and event atomic, and the relay gives at-least-once delivery, so consumers must be idempotent. 2PC is rarely available or desirable with brokers."
@@ -141,12 +141,12 @@
     "difficulty": 1,
     "prompt": "What is the key difference between a work queue and publish/subscribe?",
     "options": [
-      "Queues are faster",
-      "In a queue each message goes to one of the competing consumers; in pub/sub every subscriber gets its own copy",
-      "Pub/sub guarantees ordering and queues don't",
-      "Queues need Kafka"
+      "Queue: one consumer per message; pub/sub: a copy per subscriber",
+      "Queues are faster, because messages skip the broker's disk entirely",
+      "Pub/sub guarantees ordering, while queues deliver in any order",
+      "Queues require Kafka, while pub/sub requires a Redis-style broker"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Queues spread work across consumers (for example, image-resize workers). Pub/sub fans out an event to independent consumers (billing, email, analytics). Kafka consumer groups do both: a queue within a group, pub/sub across groups."
   },
   {
@@ -155,8 +155,13 @@
     "topic": "messaging",
     "difficulty": 2,
     "prompt": "Your broker offers at-least-once delivery. What must consumers be?",
-    "options": ["Stateless", "Idempotent: processing the same message twice has the same effect as processing it once", "Single-threaded", "Transactional with the broker"],
-    "answer": 1,
+    "options": [
+      "Idempotent, so a redelivered message has no extra effect",
+      "Stateless, so any instance can take over any message mid-flight",
+      "Single-threaded, so messages are never handled concurrently",
+      "Transactional with the broker, so acks and writes commit together"
+    ],
+    "answer": 0,
     "explanation": "Redelivery happens when acks are lost or consumers crash mid-processing. Use natural idempotency (upserts, set-state operations) or a processed-message-ID table. \"Exactly-once\" in practice means at-least-once delivery plus idempotent processing."
   },
   {
@@ -166,10 +171,10 @@
     "difficulty": 3,
     "prompt": "What ordering does Kafka guarantee, and how do you keep all events for one order in sequence?",
     "options": [
-      "Global ordering across the topic",
-      "Ordering only within a partition; use orderId as the message key so all its events go to the same partition",
-      "No ordering at all",
-      "Ordering per consumer group"
+      "Global order across the topic, preserved for every consumer",
+      "Order within a partition; key by orderId to keep an order together",
+      "No ordering guarantees at all; consumers must sort by timestamp",
+      "Order per consumer group, regardless of how messages are keyed"
     ],
     "answer": 1,
     "explanation": "The partition is the unit of order and parallelism. Keying by entity keeps one entity's events in order while different entities run in parallel. Watch out: changing the partition count remaps keys, and retries with max.in.flight > 1 need idempotent producers to stay ordered."

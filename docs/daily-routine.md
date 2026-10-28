@@ -61,7 +61,9 @@ Content conventions:
 
 - Questions live in `content/questions/<domain>.json`, with the next free ID
   `<domain>-<topic>-<n>`. Write 4 options, one clearly correct, with plausible
-  distractors. Explanations say why the answer is right *and* why the tempting
+  distractors. **No length tell:** every distractor must be as specific and as
+  long as the correct answer, and the correct one should often not be the
+  longest. `tests/content.test.ts` fails the build if a pattern appears. Explanations say why the answer is right *and* why the tempting
   wrong answer is wrong.
 - Lessons live in `content/lessons/<domain>/<topic>.md`, with quoted `title`
   and `summary` frontmatter. Keep them short and scannable: tables, small code

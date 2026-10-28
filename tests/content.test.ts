@@ -59,4 +59,27 @@ describe("content", () => {
       expect(diffs.size, d).toBe(3);
     }
   });
+
+  it("gives no length tell: the correct option isn't systematically the longest", () => {
+    const { questions } = validateQuestions(rawQuestions());
+    const uniqueLongest = (q: (typeof questions)[number]) => {
+      const lens = q.options.map((o) => o.length);
+      const c = lens[q.answer];
+      return c === Math.max(...lens) && lens.filter((l) => l === c).length === 1;
+    };
+    // With 4 options, chance is 25%. Allow some slack, but not a pattern you can exploit.
+    const overall = questions.filter(uniqueLongest).length / questions.length;
+    expect(overall, `correct answer is the unique longest option in ${Math.round(overall * 100)}% of questions`).toBeLessThanOrEqual(0.3);
+    for (const d of DOMAINS) {
+      const qs = questions.filter((q) => q.domain === d);
+      const share = qs.filter(uniqueLongest).length / qs.length;
+      expect(share, `${d}: ${Math.round(share * 100)}% unique-longest`).toBeLessThanOrEqual(0.4);
+    }
+    const ratio =
+      questions.reduce((sum, q) => {
+        const mean = q.options.reduce((a, o) => a + o.length, 0) / q.options.length;
+        return sum + q.options[q.answer].length / mean;
+      }, 0) / questions.length;
+    expect(ratio, "mean correct-option length relative to its question's mean").toBeLessThanOrEqual(1.1);
+  });
 });

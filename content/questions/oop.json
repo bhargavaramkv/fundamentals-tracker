@@ -6,12 +6,12 @@
     "difficulty": 1,
     "prompt": "A ReportService queries the database, renders a PDF, and emails it to stakeholders. Which principle does it most directly violate?",
     "options": [
+      "Single Responsibility",
       "Liskov Substitution",
       "Interface Segregation",
-      "Single Responsibility",
       "Open/Closed"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "It has three reasons to change (data access, rendering, delivery) that are owned by different concerns. Split it into a repository, a renderer and a notifier, then compose them."
   },
   {
@@ -21,10 +21,10 @@
     "difficulty": 2,
     "prompt": "Square inherits from Rectangle, and setting Width on a Square also changes its Height. Code that sets width = 5, height = 4 and expects area 20 breaks. Which principle is violated?",
     "options": [
-      "Dependency Inversion",
-      "Liskov Substitution",
       "Single Responsibility",
-      "Interface Segregation"
+      "Liskov Substitution",
+      "Interface Segregation",
+      "Dependency Inversion"
     ],
     "answer": 1,
     "explanation": "A subtype must honor the base type's contract: here, that width and height can be set independently. Square strengthens the invariant, so it can't be substituted for Rectangle. \"Is-a\" in the real world doesn't guarantee behavioral subtyping."
@@ -36,10 +36,10 @@
     "difficulty": 3,
     "prompt": "Adding a new payment method means editing a switch(paymentType) statement in six classes. Which refactor best satisfies Open/Closed?",
     "options": [
-      "Move all the switches into a single static helper",
-      "Introduce an IPaymentMethod abstraction with one implementation per type, resolved via DI or a registry",
-      "Replace the enum with string constants",
-      "Add a default branch that throws NotSupportedException"
+      "Move all six switches into one static PaymentHelper class",
+      "Add an IPaymentMethod implementation per type, resolved via DI",
+      "Replace the PaymentType enum with string constants from config",
+      "Add a default branch to each switch that throws NotSupported"
     ],
     "answer": 1,
     "explanation": "Replace the conditional with polymorphism: each type's behavior lives in its own class, and a new type means adding a class and registering it, with no edits to existing code. Centralizing the switch reduces duplication, but you still modify it for every new type."
@@ -51,12 +51,12 @@
     "difficulty": 1,
     "prompt": "You want to add caching around an IProductRepository without changing its implementation or its callers. Which pattern fits?",
     "options": [
-      "Adapter",
       "Decorator",
+      "Adapter",
       "Factory Method",
       "Observer"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "A Decorator implements the same interface, wraps the inner instance, and adds behavior before or after delegating. CachedProductRepository : IProductRepository wraps the real one. Adapter is different: it changes an interface to match another one."
   },
   {
@@ -67,9 +67,9 @@
     "prompt": "The ASP.NET Core middleware pipeline (and Angular HTTP interceptors) is closest to which pattern?",
     "options": [
       "Chain of Responsibility",
-      "Mediator",
-      "Composite",
-      "Template Method"
+      "Template Method pattern",
+      "Mediator with handlers",
+      "Composite of handlers"
     ],
     "answer": 0,
     "explanation": "Each handler gets the request and decides whether to handle it, short-circuit it, or call next() to pass it along the chain. Order matters: auth must come before endpoints, and exception handling comes first."
@@ -81,12 +81,12 @@
     "difficulty": 3,
     "prompt": "What is the strongest argument against a classic static Singleton (private constructor, static Instance) in a modern .NET or Angular codebase?",
     "options": [
-      "It always causes memory leaks",
-      "It can't be thread-safe",
-      "It creates hidden global state and hard-wires consumers to a concrete type, which hurts testing and substitution",
-      "It is slower than creating new instances"
+      "Hidden global state and a hard-wired concrete dependency",
+      "It can't be made thread-safe without one global lock",
+      "It always leaks memory, since the instance is never freed",
+      "Static access is noticeably slower than instance method calls"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "Consumers reach for Singleton.Instance instead of declaring a dependency, so you can't swap in a fake and state leaks between tests. You still get a single instance by registering a singleton lifetime in the DI container (AddSingleton, providedIn: 'root')."
   },
   {
@@ -96,12 +96,12 @@
     "difficulty": 1,
     "prompt": "What is the main reason behind \"favor composition over inheritance\"?",
     "options": [
-      "Inheritance is slower at runtime",
-      "Inheritance couples a subclass to its parent's implementation details, so base-class changes can break subclasses",
-      "Composition allows multiple inheritance in C#",
-      "Composition uses less memory"
+      "Subclasses couple to the parent's internals, so base changes break them",
+      "Inheritance adds virtual-call overhead that composition avoids entirely",
+      "Composition lets a C# class inherit behavior from several base classes",
+      "Composed objects use less memory than deep inheritance hierarchies do"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "This is the fragile base class problem: subclasses depend on how the parent calls its own methods. Composition depends only on a collaborator's public contract, and you can swap that collaborator at runtime. It is not a performance argument: virtual dispatch and an extra object reference cost about the same either way."
   },
   {
@@ -111,12 +111,12 @@
     "difficulty": 2,
     "prompt": "An Order aggregate exposes `public List<OrderLine> Lines { get; }`. Why is this an encapsulation problem even though there is no setter?",
     "options": [
-      "List<T> isn't serializable",
-      "Callers can Add/Remove lines directly, bypassing invariants such as recalculating totals or enforcing a max quantity",
-      "Properties should always be fields",
-      "It isn't a problem, because the property has no setter"
+      "Callers can still Add/Remove lines, bypassing invariants like Total",
+      "It should be a public field, since properties add needless overhead",
+      "List<T> can't be serialized, so the aggregate can't be persisted",
+      "Nothing: with no setter, the collection is effectively immutable"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Getter-only protects the reference, not the contents. Expose IReadOnlyList<OrderLine> (backed by a private list, ideally via AsReadOnly()) plus intention-revealing methods like AddLine(), which enforce the rules. Fields vs properties isn't the issue: a public field would be even worse."
   },
   {
@@ -126,12 +126,12 @@
     "difficulty": 3,
     "prompt": "In C#, a base-class constructor calls a virtual method that the derived class overrides. What happens?",
     "options": [
-      "The base implementation runs, because the derived object doesn't exist yet",
-      "A compile-time error",
-      "The derived override runs before the derived constructor body has executed, so it can see uninitialized state",
-      "A runtime InvalidOperationException"
+      "The derived override runs before the derived constructor body does",
+      "The base implementation runs, since the derived part isn't built yet",
+      "It throws InvalidOperationException at runtime during construction",
+      "It fails to compile, because constructors can't make virtual calls"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "The object's runtime type is the derived type from the start, so virtual dispatch reaches the override. Derived field initializers have run, but the derived constructor body hasn't. Nothing throws: it compiles and runs with half-initialized state, which is why analyzers flag virtual calls in constructors (CA2214). C++ behaves differently and dispatches to the base."
   },
   {
@@ -141,12 +141,12 @@
     "difficulty": 1,
     "prompt": "What does the Dependency Inversion Principle state?",
     "options": [
-      "Low-level modules should create their own dependencies",
-      "High-level modules should depend on abstractions, not concrete low-level modules",
-      "Every class needs an interface",
-      "Dependencies should be resolved via a service locator"
+      "High-level modules depend on abstractions, not concrete modules",
+      "Every class must be resolved from a DI container, never new-ed",
+      "Low-level modules should construct the dependencies they need",
+      "Every concrete class needs a matching interface for testability"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Policy code (for example OrderService) owns an abstraction (IOrderRepository) that the infrastructure implements. DI containers are a mechanism for wiring this up; DIP is the design rule, and it doesn't mean adding an interface for every class."
   },
   {
@@ -156,12 +156,12 @@
     "difficulty": 2,
     "prompt": "In ASP.NET Core, a Singleton service takes a Scoped DbContext in its constructor. What is the problem?",
     "options": [
-      "None; the container creates a new DbContext per request",
-      "It's a captive dependency: one DbContext instance is shared across all requests and threads for the app's lifetime",
-      "DbContext becomes transient",
-      "It only fails in unit tests"
+      "A captive dependency: one DbContext is shared across all requests",
+      "Nothing: the container still creates a new DbContext per request",
+      "The DbContext silently becomes transient inside the singleton",
+      "It only matters in unit tests, where no request scope is created"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "A longer-lived service captures a shorter-lived one. DbContext isn't thread-safe and its change tracker grows forever. Scope validation (on by default in Development) throws at startup. Fixes: inject IServiceScopeFactory or IDbContextFactory, or make the consumer scoped."
   },
   {
@@ -171,10 +171,10 @@
     "difficulty": 3,
     "prompt": "An Angular service uses @Injectable({ providedIn: 'root' }), and the same service is also listed in a lazy-loaded route's `providers`. What do components in that route get?",
     "options": [
-      "The root singleton; route providers are ignored",
-      "A separate instance from the route's environment injector, distinct from the root one",
-      "An error for providing the service twice",
-      "A new instance per component"
+      "The root singleton, because route-level providers are ignored",
+      "A separate instance from the lazy route's environment injector",
+      "A compile-time error for providing the same service twice",
+      "A fresh instance for every component that injects the service"
     ],
     "answer": 1,
     "explanation": "Lazy routes with providers create a child environment injector. Resolution walks up from the nearest injector, so the route's provider shadows root. That's useful for feature-scoped state, but it's a classic source of \"why is my state not shared?\" bugs."
@@ -186,12 +186,12 @@
     "difficulty": 1,
     "prompt": "A Stack<T> class inherits from List<T> to reuse its storage. What's the main design problem?",
     "options": [
-      "Stack<T> will be slower than a hand-written array stack",
-      "Callers inherit Insert/RemoveAt/indexer access and can break LIFO order; the class exposes an interface it can't honor",
-      "C# doesn't allow inheriting from List<T>",
-      "There's no problem; it's a textbook is-a relationship"
+      "Callers inherit Insert/RemoveAt and can break the LIFO invariant",
+      "It's slower than a stack written directly over a raw array",
+      "It won't compile, because List<T> is a sealed class in .NET",
+      "Nothing: a stack is a list, so this is a valid is-a relationship"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Inheritance brings the parent's whole public surface. Java's Stack extends Vector is the famous example: you can insert into the middle of a stack. Wrapping a private List<T> and exposing only Push/Pop/Peek keeps the invariant. Speed isn't the issue, and List<T> isn't sealed, so it compiles."
   },
   {
@@ -201,10 +201,10 @@
     "difficulty": 2,
     "prompt": "In TypeScript: class Cart { readonly items: Item[] = []; } What happens with cart.items.push(item) from outside the class?",
     "options": [
-      "Compile error: items is readonly",
-      "It compiles and mutates the array; readonly only prevents reassigning cart.items",
-      "Runtime TypeError because the array is frozen",
-      "It compiles but push is silently ignored"
+      "Compile error: items is readonly, so the push call is rejected",
+      "It compiles and mutates: readonly only blocks reassigning items",
+      "It throws a TypeError at runtime, because the array is frozen",
+      "It compiles, but push is silently ignored on readonly members"
     ],
     "answer": 1,
     "explanation": "The readonly modifier applies to the property binding, not the array. To block mutation through the type, declare items: readonly Item[] (or ReadonlyArray<Item>) and change it through methods like addItem(). Nothing is frozen at runtime unless you call Object.freeze."
@@ -216,10 +216,10 @@
     "difficulty": 3,
     "prompt": "An aggregate exposes public IReadOnlyList<OrderLine> Lines => _lines; where _lines is a private List<OrderLine>. A caller writes ((List<OrderLine>)order.Lines).Add(line). What's the best fix?",
     "options": [
-      "Make _lines a readonly field",
-      "Return a wrapper such as _lines.AsReadOnly() (cached), so the cast fails and mutation through IList<T> throws",
-      "Change the property type to IEnumerable<OrderLine>",
-      "Mark the property virtual"
+      "Make _lines a readonly field so its contents can't be changed",
+      "Return a cached _lines.AsReadOnly() wrapper instead of the list",
+      "Expose it as IEnumerable<OrderLine>, which has no Add method at all",
+      "Mark Lines as virtual so derived classes can guard any writes"
     ],
     "answer": 1,
     "explanation": "An interface type is only a compile-time hint; if the object is really your List<T>, a cast exposes it. ReadOnlyCollection<T> wraps the list: casting it to List<T> throws InvalidCastException, and Add via IList<T> throws NotSupportedException. A readonly field only protects the reference, and IEnumerable<T> has the same cast hole."
