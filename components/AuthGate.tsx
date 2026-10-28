@@ -4,20 +4,35 @@ import { createContext, useCallback, useContext, useEffect, useState, type FormE
 import {
   describeTokenError,
   endSession,
+  fetchSharedToken,
   loadSyncToken,
+  publishSharedToken,
+  removeSharedToken,
   restoreSession,
   saveSyncToken,
+  SHARED_TOKEN,
   signInWithPassword,
   verifyToken,
 } from "@/lib/auth";
 import { DATA_REPO, GitHubStore } from "@/lib/storage";
 
-type GateState = { phase: "checking" } | { phase: "locked" } | { phase: "unlocked"; key: CryptoKey; syncToken: string | null };
+type GateState =
+  | { phase: "checking" }
+  | { phase: "locked" }
+  | { phase: "unlocked"; key: CryptoKey; syncToken: string | null; shared: boolean };
+
+export interface ConnectResult {
+  error: string | null;
+  /** Set when sync works on this device but couldn't be saved for the whole account. */
+  warning: string | null;
+}
 
 interface AuthContextValue {
   syncToken: string | null;
-  /** Verifies a GitHub token, does a first sync, and stores it encrypted. Resolves to an error message or null. */
-  connectSync: (token: string) => Promise<string | null>;
+  /** True when the token comes from (or was saved to) the account-wide encrypted copy. */
+  sharedAcrossDevices: boolean;
+  /** Verifies a GitHub token, does a first sync, and saves it encrypted for this account. */
+  connectSync: (token: string) => Promise<ConnectResult>;
   disconnectSync: () => Promise<void>;
   signOut: () => void;
 }
@@ -34,7 +49,10 @@ export function AuthGate({ children }: { children: ReactNode }) {
   const [state, setState] = useState<GateState>({ phase: "checking" });
 
   const unlock = useCallback(async (key: CryptoKey) => {
-    setState({ phase: "unlocked", key, syncToken: await loadSyncToken(key) });
+    // The account-wide copy wins, so a token replaced on one device reaches every other device.
+    const [shared, local] = await Promise.all([fetchSharedToken(key), loadSyncToken(key)]);
+    if (shared && shared !== local) await saveSyncToken(key, shared);
+    setState({ phase: "unlocked", key, syncToken: shared ?? local, shared: shared !== null });
   }, []);
 
   useEffect(() => {
@@ -60,31 +78,42 @@ export function AuthGate({ children }: { children: ReactNode }) {
   );
 
   const connectSync = useCallback(
-    async (raw: string) => {
-      if (state.phase !== "unlocked") return "Sign in first.";
+    async (raw: string): Promise<ConnectResult> => {
+      if (state.phase !== "unlocked") return { error: "Sign in first.", warning: null };
       const token = raw.trim();
       const check = await verifyToken(token);
-      if (!check.ok) return describeTokenError(check);
+      if (!check.ok) return { error: describeTokenError(check), warning: null };
       const store = new GitHubStore({ ...DATA_REPO, token });
       try {
         // Merge this browser's copy with the remote file and write it back (creates it on first connect).
         await store.save(await store.load());
       } catch (err) {
-        return `The token can read ${DATA_REPO.repo} but can't write to it. Set Contents to "Read and write". (${
-          err instanceof Error ? err.message : String(err)
-        })`;
+        return {
+          error: `The token can read ${DATA_REPO.repo} but can't write to it. Set Contents to "Read and write". (${
+            err instanceof Error ? err.message : String(err)
+          })`,
+          warning: null,
+        };
       }
       await saveSyncToken(state.key, token);
-      setState({ ...state, syncToken: token });
-      return null;
+      const published = await publishSharedToken(state.key, token);
+      setState({ ...state, syncToken: token, shared: published.ok });
+      return {
+        error: null,
+        warning: published.ok
+          ? null
+          : `Sync works on this device, but couldn't be saved for your other devices (HTTP ${published.status ?? "?"}). ` +
+            `Give the token access to ${SHARED_TOKEN.repo} as well (Contents: Read and write) and save it again.`,
+      };
     },
     [state],
   );
 
   const disconnectSync = useCallback(async () => {
     if (state.phase !== "unlocked") return;
+    if (state.syncToken) await removeSharedToken(state.syncToken);
     await saveSyncToken(state.key, null);
-    setState({ ...state, syncToken: null });
+    setState({ ...state, syncToken: null, shared: false });
   }, [state]);
 
   const signOut = useCallback(() => {
@@ -98,7 +127,9 @@ export function AuthGate({ children }: { children: ReactNode }) {
   if (state.phase === "locked") return <LoginScreen onSubmit={signIn} />;
 
   return (
-    <AuthContext.Provider value={{ syncToken: state.syncToken, connectSync, disconnectSync, signOut }}>
+    <AuthContext.Provider
+      value={{ syncToken: state.syncToken, sharedAcrossDevices: state.shared, connectSync, disconnectSync, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   );

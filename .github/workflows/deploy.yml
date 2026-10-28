@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    # The encrypted sync credential is read at runtime, so updating it needs no rebuild.
+    paths-ignore: ["vault/**"]
   workflow_dispatch:
 
 permissions:

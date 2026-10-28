@@ -58,6 +58,88 @@ export async function saveSyncToken(key: CryptoKey, token: string | null): Promi
   else window.localStorage.removeItem(TOKEN_KEY);
 }
 
+/**
+ * Account-wide copy of the sync token, so it's set up once rather than per
+ * device. It lives in this (public) app repo, sealed with the password-derived
+ * key: without the password it's an opaque AES-GCM blob.
+ */
+export const SHARED_TOKEN = {
+  owner: DATA_REPO.owner,
+  repo: process.env.NEXT_PUBLIC_APP_REPO || "fundamentals-tracker",
+  branch: "main",
+  path: "vault/sync-token.json",
+};
+
+const sharedUrl = () =>
+  `https://api.github.com/repos/${SHARED_TOKEN.owner}/${SHARED_TOKEN.repo}/contents/${SHARED_TOKEN.path}`;
+
+function githubHeaders(token?: string, accept = "application/vnd.github+json"): HeadersInit {
+  return {
+    Accept: accept,
+    "X-GitHub-Api-Version": "2022-11-28",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+  };
+}
+
+/** Downloads and decrypts the account-wide token; null if there isn't one or it can't be read. */
+export async function fetchSharedToken(key: CryptoKey): Promise<string | null> {
+  try {
+    const res = await fetch(`${sharedUrl()}?ref=${SHARED_TOKEN.branch}`, {
+      headers: githubHeaders(undefined, "application/vnd.github.raw+json"),
+      cache: "no-store",
+    });
+    if (!res.ok) return null;
+    return await unseal(key, (await res.json()) as Sealed);
+  } catch {
+    return null;
+  }
+}
+
+async function sharedSha(token: string): Promise<{ sha: string | null; status: number }> {
+  const res = await fetch(`${sharedUrl()}?ref=${SHARED_TOKEN.branch}`, { headers: githubHeaders(token), cache: "no-store" });
+  if (res.status === 404) return { sha: null, status: 404 };
+  if (!res.ok) return { sha: null, status: res.status };
+  return { sha: ((await res.json()) as { sha: string }).sha, status: 200 };
+}
+
+/** Seals the token and commits it to the app repo. Needs Contents: write on that repo. */
+export async function publishSharedToken(key: CryptoKey, token: string): Promise<{ ok: boolean; status?: number }> {
+  try {
+    const { sha, status } = await sharedSha(token);
+    if (status !== 200 && status !== 404) return { ok: false, status };
+    const sealed = await seal(key, token);
+    const res = await fetch(sharedUrl(), {
+      method: "PUT",
+      headers: { ...githubHeaders(token), "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: "chore(vault): update encrypted sync credential",
+        content: btoa(JSON.stringify(sealed, null, 2) + "\n"),
+        branch: SHARED_TOKEN.branch,
+        ...(sha ? { sha } : {}),
+      }),
+    });
+    return res.ok ? { ok: true } : { ok: false, status: res.status };
+  } catch {
+    return { ok: false };
+  }
+}
+
+/** Removes the account-wide copy so no device picks the token up again. */
+export async function removeSharedToken(token: string): Promise<boolean> {
+  try {
+    const { sha } = await sharedSha(token);
+    if (!sha) return true;
+    const res = await fetch(sharedUrl(), {
+      method: "DELETE",
+      headers: { ...githubHeaders(token), "Content-Type": "application/json" },
+      body: JSON.stringify({ message: "chore(vault): remove encrypted sync credential", sha, branch: SHARED_TOKEN.branch }),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 export type TokenCheck =
   | { ok: true }
   | { ok: false; reason: "invalid" | "no-access" | "not-private" | "offline" | "error"; status?: number };

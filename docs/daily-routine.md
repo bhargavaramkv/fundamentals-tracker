@@ -16,8 +16,8 @@ prompt just says "follow `docs/daily-routine.md`".
    with a new ID instead.
 4. **No secrets in the repo.** Access comes from the session's GitHub
    connection, not from tokens in files.
-5. **Never modify `lib/login-vault.json`** or anything under `lib/auth.ts` /
-   `lib/vault.ts`. The login is the owner's to change.
+5. **Never modify `lib/login-vault.json`, `vault/`** or anything under
+   `lib/auth.ts` / `lib/vault.ts`. The login and sync credentials are the owner's to change.
 6. `npm run check` (lint, typecheck, tests, build) must pass before every commit.
 
 ## Steps

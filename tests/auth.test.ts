@@ -81,3 +81,45 @@ describe("verifyToken (sync)", () => {
     expect(await verifyToken("t")).toMatchObject({ ok: false, reason: "offline" });
   });
 });
+
+describe("account-wide sync token", () => {
+  it("publishes a sealed token that only the right key can read back", async () => {
+    const { publishSharedToken, fetchSharedToken } = await import("@/lib/auth");
+    const vault = await createLoginVault("bhargav", "pass-one-123456", ITER);
+    const key = (await login(vault, "bhargav", "pass-one-123456"))!;
+    let stored: string | null = null;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (_url: string, init?: RequestInit) => {
+        if (init?.method === "PUT") {
+          stored = atob(JSON.parse(String(init.body)).content);
+          return new Response("{}", { status: 201 });
+        }
+        if (!stored) return new Response("{}", { status: 404 });
+        return new Response(stored, { status: 200 });
+      }),
+    );
+
+    expect(await publishSharedToken(key, "github_pat_shared_example")).toEqual({ ok: true });
+    expect(stored).not.toContain("github_pat_shared_example");
+    expect(await fetchSharedToken(key)).toBe("github_pat_shared_example");
+
+    const otherKey = (await login(await createLoginVault("bhargav", "pass-two-123456", ITER), "bhargav", "pass-two-123456"))!;
+    expect(await fetchSharedToken(otherKey)).toBeNull();
+  });
+
+  it("reports the status when the token can't write the app repo", async () => {
+    const { publishSharedToken } = await import("@/lib/auth");
+    const vault = await createLoginVault("bhargav", "pass-one-123456", ITER);
+    const key = (await login(vault, "bhargav", "pass-one-123456"))!;
+    mockFetch(async () => new Response("{}", { status: 403 }));
+    expect(await publishSharedToken(key, "t")).toEqual({ ok: false, status: 403 });
+  });
+
+  it("returns null when there is no shared copy yet", async () => {
+    const { fetchSharedToken } = await import("@/lib/auth");
+    const key = (await login(await createLoginVault("b", "pass-one-123456", ITER), "b", "pass-one-123456"))!;
+    mockFetch(async () => new Response("{}", { status: 404 }));
+    expect(await fetchSharedToken(key)).toBeNull();
+  });
+});

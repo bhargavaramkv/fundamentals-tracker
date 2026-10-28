@@ -21,13 +21,16 @@ rather than being a string compared in JavaScript:
 - You stay signed in for 30 days per device. The saved session is the derived
   key, and it's re-checked against the vault on every load, so a forged session
   doesn't unlock anything.
-- The GitHub sync token is stored **encrypted with that key**, so after
-  **Settings → Sign out** it can't be recovered from the browser.
+- The GitHub sync token is stored **encrypted with that key**, both in the browser
+  and as one account-wide copy in `vault/sync-token.json`. Without the password
+  it's an opaque blob, and after **Settings → Sign out** nothing usable is left
+  in the browser.
 - Pages are marked `noindex`.
 
 **Changing the password:** `LOGIN_USERNAME=bhargav LOGIN_PASSWORD='new-pass' npm run set-password`
 (or `npm run set-password -- --generate` for a random one), then commit
-`lib/login-vault.json`. Devices that were signed in are signed out.
+`lib/login-vault.json`. Devices that were signed in are signed out, and the
+shared sync token must be pasted once more (it was encrypted with the old password).
 
 **What this protects:** your progress data (it also needs the sync token, which
 GitHub enforces) and the app UI. The lesson and question text is open source in
@@ -134,15 +137,29 @@ your progress lives in the separate private data repo.
 
 ## Enabling progress sync
 
-Sync is a one-time step per device, done after signing in. It lets the daily
-routine read your results and keeps devices in step.
+Sync is set up **once for your account**, not per device. It lets the daily
+routine read your results and keeps every device in step.
 
 1. Create a fine-grained token at
    https://github.com/settings/personal-access-tokens/new:
-   - Repository access: **only** `fundamentals-tracker-data`
+   - Repository access: **only** `fundamentals-tracker-data` **and** `fundamentals-tracker`
    - Permissions: **Contents: Read and write** (Metadata: read-only is added automatically)
-   - Expiration: 90 days or more. When it expires, paste a new one in Settings.
-2. In the app, open **Settings → Sync to GitHub**, paste it, and click **Test & enable sync**.
+   - Expiration: 90 days or more
+2. Sign in, open **Settings → Sync to GitHub**, paste it, and click **Test & enable sync**.
+
+The app commits the token to `vault/sync-token.json` in this repo, **encrypted
+with your password-derived key** (AES-256-GCM, PBKDF2-SHA256 600k). Every device
+you sign in on downloads and decrypts it, so you never paste it again. When it
+expires, paste a new one once and every device picks it up. **Turn off sync**
+removes the shared copy. Changes under `vault/` don't trigger a rebuild.
+
+**Trade-off:** the encrypted file is public, so its safety rests on the password.
+Keep a long random password (the generated one has ~116 bits of entropy). With
+a weak password the token, which can write to both repos, could be brute-forced
+offline.
+
+If the token can only access the data repo, sync still works on that device,
+and Settings tells you to add `fundamentals-tracker` to the token's access.
 
 ## Daily improvement routine
 

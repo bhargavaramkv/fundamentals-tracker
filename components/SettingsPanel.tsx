@@ -2,18 +2,21 @@
 
 import { useState } from "react";
 import { mergeProgress, normalizeProgress } from "@/lib/progress";
+import { SHARED_TOKEN } from "@/lib/auth";
 import { DATA_REPO } from "@/lib/storage";
 import { useAuth } from "./AuthGate";
 import { useProgress } from "./ProgressProvider";
 
-type Notice = { tone: "ok" | "error"; text: string };
+type Notice = { tone: "ok" | "warn" | "error"; text: string };
 
 function NoticeLine({ notice }: { notice: Notice | null }) {
   if (!notice) return null;
   return (
     <p
       role="status"
-      className={`mt-3 rounded-lg px-4 py-3 text-sm ${notice.tone === "ok" ? "bg-good-bg text-good" : "bg-bad-bg text-bad"}`}
+      className={`mt-3 rounded-lg px-4 py-3 text-sm ${
+        notice.tone === "ok" ? "bg-good-bg text-good" : notice.tone === "warn" ? "bg-warn-bg text-warn" : "bg-bad-bg text-bad"
+      }`}
     >
       {notice.text}
     </p>
@@ -22,7 +25,7 @@ function NoticeLine({ notice }: { notice: Notice | null }) {
 
 export function SettingsPanel() {
   const { data, storeKind, syncError, replaceAll } = useProgress();
-  const { syncToken, connectSync, disconnectSync, signOut } = useAuth();
+  const { syncToken, sharedAcrossDevices, connectSync, disconnectSync, signOut } = useAuth();
   const [token, setToken] = useState("");
   const [busy, setBusy] = useState(false);
   const [syncNotice, setSyncNotice] = useState<Notice | null>(null);
@@ -31,19 +34,23 @@ export function SettingsPanel() {
   const connect = async () => {
     setBusy(true);
     setSyncNotice(null);
-    const error = await connectSync(token);
+    const { error, warning } = await connectSync(token);
     setBusy(false);
     if (error) {
       setSyncNotice({ tone: "error", text: `Couldn't enable sync. ${error}` });
       return;
     }
     setToken("");
-    setSyncNotice({ tone: "ok", text: "Sync enabled. Progress is now saved to the data repo." });
+    setSyncNotice(
+      warning
+        ? { tone: "warn", text: warning }
+        : { tone: "ok", text: "Sync enabled for your account. Every device picks it up automatically when you sign in." },
+    );
   };
 
   const disconnect = async () => {
     await disconnectSync();
-    setSyncNotice({ tone: "ok", text: "Sync disabled on this device. The remote copy is untouched." });
+    setSyncNotice({ tone: "ok", text: "Sync turned off for your account. Your progress file in the data repo is untouched." });
   };
 
   const exportJson = () => {
@@ -87,14 +94,17 @@ export function SettingsPanel() {
         {syncToken ? (
           <>
             <p className="mt-1 text-sm text-ink-2">
-              Progress syncs to <code>{vault}/{DATA_REPO.path}</code>, where the daily routine reads it. If the token expires,
-              paste a new one below.
+              Progress syncs to <code>{vault}/{DATA_REPO.path}</code>, where the daily routine reads it.{" "}
+              {sharedAcrossDevices
+                ? "Set up for your account: every device you sign in on syncs automatically."
+                : "Set up on this device only. Save the token again with access to both repos to enable it everywhere."}{" "}
+              If the token expires, paste a new one below. That updates every device.
             </p>
           </>
         ) : (
           <p className="mt-1 text-sm text-ink-2">
-            One-time setup per device. It lets the daily improvement routine see your results and keeps devices in sync. Create
-            a{" "}
+            One-time setup for your account; every device you sign in on picks it up automatically. It lets the daily
+            improvement routine see your results and keeps devices in sync. Create a{" "}
             <a
               className="text-accent hover:underline"
               href="https://github.com/settings/personal-access-tokens/new"
@@ -103,8 +113,9 @@ export function SettingsPanel() {
             >
               fine-grained token
             </a>{" "}
-            with access to only <strong>{DATA_REPO.repo}</strong> and <strong>Contents: Read and write</strong>. It&apos;s stored
-            encrypted with your password, so it can&apos;t be used from this browser after you sign out.
+            with access to only <strong>{DATA_REPO.repo}</strong> and <strong>{SHARED_TOKEN.repo}</strong>, permission{" "}
+            <strong>Contents: Read and write</strong>. It&apos;s saved encrypted with your password, so it&apos;s useless to
+            anyone without it.
           </p>
         )}
         <label className="mt-4 block text-sm">
@@ -129,7 +140,7 @@ export function SettingsPanel() {
           </button>
           {syncToken && (
             <button type="button" onClick={() => void disconnect()} className="tap rounded-lg border border-line px-4 py-2 text-sm">
-              Disable sync on this device
+              Turn off sync
             </button>
           )}
         </div>
