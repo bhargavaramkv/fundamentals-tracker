@@ -1,0 +1,12 @@
+[
+  { "id": "first-bug", "fact": "The first literal computer 'bug' was a moth taped into the Harvard Mark II logbook in 1947, labelled 'first actual case of bug being found'." },
+  { "id": "hash-dos", "fact": "In 2011, researchers took down web servers in many languages by posting form fields whose keys all hashed to the same bucket. That's why .NET now randomizes string hash codes per process." },
+  { "id": "null-billion", "fact": "Tony Hoare called inventing the null reference in 1965 his 'billion-dollar mistake'. C#'s nullable reference types are a decades-later fix." },
+  { "id": "tcp-3way", "fact": "A TCP handshake is SYN, SYN-ACK, ACK. With TLS 1.3 on top, the first HTTP request goes out after just 2 round trips. HTTP/3 over QUIC can do it in 1." },
+  { "id": "git-name", "fact": "Linus Torvalds wrote the first version of Git in about two weeks in 2005, after the Linux kernel lost free access to BitKeeper." },
+  { "id": "mongo-16mb", "fact": "MongoDB documents are capped at 16 MB. If you're near that, your model is telling you to reference instead of embed." },
+  { "id": "k8s-greek", "fact": "Kubernetes is Greek for 'helmsman' or 'pilot'. The 7 spokes on its logo nod to its Google codename, Project Seven of Nine." },
+  { "id": "javascript-10-days", "fact": "Brendan Eich created the first version of JavaScript in about 10 days in 1995. Some of its quirks (typeof null === 'object') date from then." },
+  { "id": "leap-second-2012", "fact": "The leap second on 30 June 2012 sent many Linux servers into CPU spins through a kernel timer bug, hitting sites like Reddit and LinkedIn." },
+  { "id": "sql-injection-bobby", "fact": "xkcd's 'Little Bobby Tables' (Robert'); DROP TABLE Students;--) is still the best one-line explanation of why you parameterize queries." }
+]

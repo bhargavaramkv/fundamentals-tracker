@@ -1,0 +1,92 @@
+[
+  {
+    "id": "knight-capital-2012",
+    "title": "The $440 million deploy",
+    "year": 2012,
+    "hook": "A trading firm lost about $440M in 45 minutes. The culprit was an old feature flag.",
+    "story": "Knight Capital deployed new trading code to 8 servers, but one server didn't get it. A reused feature flag woke up long-dead 'Power Peg' test code on that server, which fired millions of real orders. With no kill switch, it ran for 45 minutes. The firm needed a rescue days later.",
+    "lesson": "Never reuse feature flags, remove dead code, automate deploys so every node gets the same build, and have a kill switch you can hit in seconds.",
+    "relatesTo": "system-design/scalability"
+  },
+  {
+    "id": "cloudflare-regex-2019",
+    "title": "One regex took down a chunk of the internet",
+    "year": 2019,
+    "hook": "On 2 July 2019, a single WAF rule pinned CPUs at 100% across Cloudflare's network.",
+    "story": "A new firewall rule contained a regular expression with nested quantifiers like .*(?:.*=.*). On certain inputs the regex engine backtracked catastrophically, so every edge server burned CPU on it. Sites behind Cloudflare returned 502s for about 27 minutes, until the rule was globally killed.",
+    "lesson": "Backtracking regexes can be exponential (ReDoS). Use linear-time engines (RE2, or .NET's RegexOptions.NonBacktracking), add timeouts, and roll out config changes gradually like code.",
+    "relatesTo": "dsa/complexity"
+  },
+  {
+    "id": "left-pad-2016",
+    "title": "11 lines of code broke the JavaScript world",
+    "year": 2016,
+    "hook": "Thousands of builds failed because someone unpublished a tiny npm package.",
+    "story": "After a naming dispute, a developer unpublished all of their packages from npm, including left-pad: about 11 lines that pad a string. Babel, React and countless projects depended on it transitively, so installs failed everywhere. npm restored the package and later changed its rules on unpublishing.",
+    "lesson": "Every dependency is part of your supply chain. Use lockfiles, a private registry or proxy cache, and think twice before pulling in a package for a one-liner.",
+    "relatesTo": "system-design/consistency"
+  },
+  {
+    "id": "gitlab-db-2017",
+    "title": "rm -rf on the wrong database",
+    "year": 2017,
+    "hook": "Late at night, an exhausted engineer deleted the production database directory. Then the backups didn't work.",
+    "story": "While fighting replication lag, a GitLab engineer ran a delete on what they thought was the secondary. It was the primary: about 300 GB gone. Of five backup and replication methods, none worked cleanly, and about six hours of data was lost. GitLab live-streamed the recovery and published a famously honest postmortem.",
+    "lesson": "A backup you haven't restored is a hope, not a backup. Test restores regularly, make destructive commands confirm the host, and make prod visibly different from staging.",
+    "relatesTo": "databases/replication-sharding"
+  },
+  {
+    "id": "aws-s3-2017",
+    "title": "The typo that broke S3",
+    "year": 2017,
+    "hook": "A mistyped command argument took Amazon S3 in us-east-1 offline for hours.",
+    "story": "During routine debugging, an engineer ran a playbook command meant to remove a few servers. A typo removed far more, including capacity for S3's index and placement subsystems. Restarting them took hours, and much of the web went down with them. Even AWS's own status page depended on S3.",
+    "lesson": "Tools should limit blast radius: rate-limit removals, enforce minimum capacity, and don't host your status page on the thing it reports on.",
+    "relatesTo": "system-design/scalability"
+  },
+  {
+    "id": "crowdstrike-2024",
+    "title": "8.5 million blue screens",
+    "year": 2024,
+    "hook": "A security update crashed millions of Windows machines worldwide at once.",
+    "story": "On 19 July 2024, CrowdStrike pushed a content update (a 'channel file') to its Falcon sensor, which runs in the Windows kernel. A malformed file triggered an out-of-bounds read, and about 8.5 million machines blue-screened, grounding flights and disrupting hospitals and banks. Many needed someone to physically boot them into safe mode.",
+    "lesson": "Config and content are code: validate them, roll out in rings (canary first) and keep a fast rollback. Kernel-level code has no safety net.",
+    "relatesTo": "system-design/consistency"
+  },
+  {
+    "id": "mars-climate-orbiter-1999",
+    "title": "Lost in unit conversion",
+    "year": 1999,
+    "hook": "A $125M spacecraft was lost because one team used pound-force and the other used newtons.",
+    "story": "Ground software from one contractor reported thruster impulse in pound-force seconds, while NASA's navigation software expected newton-seconds. The small error accumulated over months of flight, and the orbiter went far too deep into the Martian atmosphere and was lost.",
+    "lesson": "Interfaces need explicit contracts, units included. Encode units in types (value objects) rather than bare doubles.",
+    "relatesTo": "oop/composition-encapsulation"
+  },
+  {
+    "id": "ariane-5-1996",
+    "title": "The rocket that overflowed",
+    "year": 1996,
+    "hook": "Ariane 5's first flight self-destructed 37 seconds after launch, because of a number conversion.",
+    "story": "Navigation code reused from Ariane 4 converted a 64-bit float (horizontal velocity) to a 16-bit signed integer. Ariane 5 flew faster, the value overflowed, and the unhandled exception shut down both inertial reference units (they ran identical code). The rocket veered off course and was destroyed.",
+    "lesson": "Reused code carries its old assumptions. Redundancy doesn't help if both copies share the same bug; it needs diversity.",
+    "relatesTo": "dsa/complexity"
+  },
+  {
+    "id": "facebook-bgp-2021",
+    "title": "Facebook disappeared from the internet",
+    "year": 2021,
+    "hook": "On 4 Oct 2021, Facebook, Instagram and WhatsApp vanished for about six hours.",
+    "story": "A maintenance command meant to assess backbone capacity accidentally took down all of Facebook's backbone connections. Its DNS servers then withdrew their BGP routes, so the rest of the internet couldn't even find facebook.com. Internal tools were down too, so engineers reportedly had to get physical access to data centres to fix it.",
+    "lesson": "Make sure the tools you need to fix an outage don't depend on the system that's out. Also remember that DNS is a dependency of everything.",
+    "relatesTo": "web/networking"
+  },
+  {
+    "id": "y2038",
+    "title": "The bug with a date: 19 Jan 2038",
+    "year": 2038,
+    "hook": "At 03:14:07 UTC on 19 Jan 2038, 32-bit Unix time overflows.",
+    "story": "Unix time counts seconds since 1970. In a signed 32-bit integer, the maximum is 2,147,483,647, which is reached on 19 January 2038. One second later it wraps negative, to December 1901. Most systems now use 64-bit time, but embedded devices, old file formats and database columns may not.",
+    "lesson": "Know your integer ranges. Check stored timestamps (e.g. INT columns) and binary formats, not just the language runtime.",
+    "relatesTo": "dsa/complexity"
+  }
+]
