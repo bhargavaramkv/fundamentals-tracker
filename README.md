@@ -162,32 +162,27 @@ offline.
 If the token can only access the data repo, sync still works on that device,
 and Settings tells you to add `fundamentals-tracker` to the token's access.
 
-## Improvement routine (activity-driven)
+## Daily improvement routine
 
-Claude reviews your progress and improves the content, following
-`docs/daily-routine.md`:
+Once a day at **06:47 IST**, Claude reviews your progress and improves the
+content, following `docs/daily-routine.md`, in a single chat:
 
-- **Every hour**, an analyst session running **Sonnet** runs a one-line check
-  (`npm run report -- --since … --check`). If you haven't answered anything or
-  read a lesson since the last analysis, it stops right there.
-- **When there is new activity** (quiz answers, or a lesson open 20+ seconds),
-  and once a day as a daily review, it analyses it. It reads the wrong options
-  you picked and the lessons you read, improves the relevant lessons and
-  explanations, adds questions, and opens a PR labelled `daily-routine` with
-  a summary (and a nudge if you've been inactive 2+ days).
-- The analyst has your private data attached read-only and can't push, so it
-  hands finished commits to the owner's main **Opus** session as a patch. Opus
-  reviews it, runs the checks, and opens the PR. Opus is only woken when there's
-  something to publish, or for bigger changes the analyst escalates (new topics,
-  several weak domains at once, a lesson that still isn't landing).
-- The "analysed up to" marker lives on the `routine-state` branch, so nothing
-  is analysed twice.
+1. Reads `progress.json` from the private data repo (read-only) and runs
+   `npm run report -- --since <last analysis>`. That covers answers, the options
+   you picked when wrong, time per answer, and lessons you read.
+2. Improves the lessons and explanations behind your misses and adds questions
+   for weak topics (at most 3 topics per run).
+3. Runs `npm run check`, pushes a `routine/YYYY-MM-DD` branch, and opens a PR
+   labelled `daily-routine` with a summary, plus a nudge if you've been
+   inactive for 2+ days.
+4. Moves the "analysed up to" marker on the `routine-state` branch so nothing
+   is analysed twice.
 
-Latency is up to an hour after you finish, because GitHub Pages can't push
-events to Claude directly. It never pushes to `main`, never writes to the data
-repo, and never deletes question IDs that your history references.
+It never pushes to `main`, never writes to the data repo, and never deletes
+question IDs that your history references. Answers from before the 2026-10-28
+question rewrite are archived: kept in the file, but not counted.
 
-**How it reads your data without secrets in the repo:** the analyst runs as a
+**How it reads your data without secrets in the repo:** the routine runs in a
 Claude Code cloud session that uses your account's GitHub connection, which
 grants repo access per session and is never written to this repo.
 

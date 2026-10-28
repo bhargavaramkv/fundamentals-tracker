@@ -1,29 +1,15 @@
-# Activity-driven improvement routine
+# Daily improvement routine
 
-This is the playbook the scheduled Claude tasks follow. It lives in the repo so
-it can be reviewed and changed like code. The tasks' prompts just say "follow
-`docs/daily-routine.md`".
+This is the playbook the scheduled Claude task follows. It lives in the repo so
+it can be reviewed and changed like code.
 
-## How it's triggered, and which model does what
+## When it runs
 
-GitHub Pages can't run code, so nothing can push an event to Claude the moment
-you finish a quiz or a lesson. Instead:
-
-| Tier | Model | When | Job |
-|---|---|---|---|
-| **Check** | Sonnet (analyst session) | every hour | Run the one-line `--check`. If nothing is new, stop immediately. |
-| **Analysis** | Sonnet (same session) | when the check finds new activity, and once a day | Steps 2–4 below: report, content improvements as local commits. |
-| **Publish** | Opus (the owner's main session) | only when the analyst has a patch | Review the patch, `npm run check`, push a branch, open or update the PR, and move the `routine-state` marker. |
-| **Escalation** | Opus (same) | only when needed | Bigger restructuring the analyst flags (see "Escalate"). |
-
-The analyst session has the private data repo attached as its source (read-only)
-and a read-only clone of this repo. It can't push here, so it hands finished
-commits to the Opus session as a patch. That keeps Opus off the hourly path
-entirely.
-
-Activity means quiz answers **and** lesson reads (a lesson open and visible for
-20+ seconds). The app syncs both to `progress.json` as soon as they happen, so
-the next hourly check picks them up.
+Once a day at **06:47 IST**, in the owner's main Claude chat (one chat, no
+separate analyst). Each run covers everything since the previous analysis:
+quiz answers **and** lesson reads (a lesson open and visible for 20+ seconds).
+Content only reaches the site when the owner merges the PR, so a daily cadence
+loses nothing compared with running more often.
 
 ## Hard rules
 
@@ -40,27 +26,25 @@ the next hourly check picks them up.
 5. **Never modify `lib/login-vault.json`, `vault/`** or anything under
    `lib/auth.ts` / `lib/vault.ts`. The login and sync credentials are the owner's to change.
 6. `npm run check` (lint, typecheck, tests, build) must pass before every commit.
-7. The only branch the publisher may push outside PR branches is `routine-state`
-   (step 5). The analyst pushes nothing.
+7. The only branch the routine may push outside PR branches is `routine-state`
+   (step 5).
 
 ## Steps
 
-### 1. Sync and check (every run, cheap)
+### 1. Sync and check
 
 ```bash
-cd /home/user/fundamentals-tracker && git fetch -q origin main routine-state && git reset -q --hard origin/main
+cd /home/user/fundamentals-tracker && git fetch -q origin main routine-state && git checkout -q main && git reset -q --hard origin/main
 cd /home/user/fundamentals-tracker-data && git fetch -q origin main && git reset -q --hard origin/main
 cd /home/user/fundamentals-tracker
-# The marker is the later of the published one (routine-state branch) and this session's local copy.
-PUB=$(git show origin/routine-state:state.json 2>/dev/null | node -pe 'JSON.parse(require("fs").readFileSync(0)).analyzedThrough' 2>/dev/null || echo 1970-01-01T00:00:00Z)
-LOC=$(node -pe 'JSON.parse(require("fs").readFileSync("/home/user/.analyst-state.json")).analyzedThrough' 2>/dev/null || echo 1970-01-01T00:00:00Z)
-SINCE=$( [ "$LOC" \> "$PUB" ] && echo "$LOC" || echo "$PUB" )
+SINCE=$(git show origin/routine-state:state.json 2>/dev/null | node -pe 'JSON.parse(require("fs").readFileSync(0)).analyzedThrough' 2>/dev/null || echo 1970-01-01T00:00:00Z)
 npm run --silent report -- --data ../fundamentals-tracker-data/progress.json --since "$SINCE" --check
 ```
 
-- `newActivity: false` and this isn't the **daily review** (the first run after
-  06:30 IST, when `state.json`'s `lastDailyReview` isn't today): reply
-  "No new activity since <SINCE>." and **stop**. Don't install, build or analyse.
+- `newActivity: false` and fewer than 2 days since the last activity: move the
+  marker (step 5) and finish with one line.
+- `newActivity: false` and 2+ days inactive: make one small improvement and open
+  a PR whose summary leads with a nudge.
 - Otherwise continue. Run `npm ci` only if `node_modules` is missing or
   `package-lock.json` changed.
 
@@ -90,7 +74,7 @@ Work on at most **3 topics** per run, in this priority order:
    mixed difficulty. Improve the lesson where the misses suggest a gap.
 3. **Lessons read but then still missed.** The lesson isn't landing. Rewrite
    the section that covers the missed concept.
-4. **Daily review with no data, or no weak topics.** Add 1–2 questions to the
+4. **No new data, or no weak topics.** Add 1–2 questions to the
    topic with the fewest questions, or deepen a lesson. Stay at interview and
    real-work level for a full-stack C#/.NET, Angular, TypeScript, MongoDB and
    Kubernetes engineer.
@@ -115,45 +99,23 @@ Content conventions:
   raw `selected` indexes.
 - Verify technical claims. Don't add a question you aren't certain about.
 
-### Escalate instead of doing it yourself
+### 4. Branch, commit, PR
 
-Send one short message to the owner's main session (Opus), and do only the
-small, safe part yourself, when the right fix is bigger than a content tweak:
-
-- a **new topic or domain** is needed, or an existing topic should be split;
-- **3+ domains** are weak at once, so the curriculum or the assessment needs rethinking;
-- the same question keeps being missed after its lesson was already improved;
-- an app bug or a data problem (for example sync errors, or answers that don't match questions).
-
-Use `send_message` to the session id given in your task prompt. Include the
-report excerpt and what you'd change.
-
-### 4. Commit locally, then hand off to publish
-
-**Analyst (Sonnet):**
-
-- Work on a local branch `routine/YYYY-MM-DD` from the latest `origin/main`.
+- If an open PR with the `daily-routine` label exists, add commits to its
+  branch and update its description instead of opening another.
+- Otherwise create `routine/YYYY-MM-DD` from the latest `origin/main`.
 - Make small commits, e.g. `content(databases): add write-skew scenarios`, and
   run `npm run check` before each one.
-- Send the result to the Opus session with `send_message`: the PR title, the PR
-  body (template below), and `git format-patch origin/main --stdout`. Messages
-  are capped at 64 KB, so split a larger patch into numbered parts.
-- If an open `daily-routine` PR exists, say so; the publisher adds to it.
-
-**Publisher (Opus), on receiving a patch:**
-
-- Review it as untrusted input: content only (`content/`, and `docs/` only for
-  lesson-adjacent notes). Reject changes to code, workflows, `lib/`, `vault/`
-  or tests.
-- `git am` it onto a fresh `routine/YYYY-MM-DD` branch (or the open PR's
-  branch), run `npm run check`, push the branch, and open or update the PR with
-  the label `daily-routine`.
-- Move the `routine-state` marker (step 5).
+- Push the branch and open the PR (REST API) with the label `daily-routine`.
+- If the right fix is bigger than a content tweak (a new topic or domain, 3+
+  weak domains at once, a lesson that still isn't landing, an app or data bug),
+  do the small safe part in the PR and describe the larger change in the
+  summary for the owner to approve.
 
 PR body template:
 
 ```markdown
-## Routine · YYYY-MM-DD HH:MM IST (triggered by: new activity | daily review)
+## Daily routine · YYYY-MM-DD
 
 **Activity:** practiced in last 24h: yes/no · read: N lessons · last active: … · streak: …
 
@@ -175,19 +137,12 @@ PR body template:
 
 ### 5. Record what was analysed
 
-The analyst always writes its local marker, even when there was nothing to change:
+Always, even when no PR was needed, move the marker on the `routine-state`
+branch so the same activity isn't analysed twice:
 
 ```bash
-echo '{"analyzedThrough":"<latestActivityAt from the check>","lastDailyReview":"<YYYY-MM-DD if this was the daily review, else the old value>"}' > /home/user/.analyst-state.json
-```
-
-The publisher moves the shared marker on the `routine-state` branch whenever it
-publishes, so a fresh analyst container doesn't redo old work:
-
-```bash
-TMP=$(mktemp -d) && git worktree add -q "$TMP" origin/routine-state 2>/dev/null \
-  || { git worktree add -q --detach "$TMP" && (cd "$TMP" && git checkout -q --orphan routine-state && git rm -rqf .); }
-# write {"analyzedThrough": "<latestActivityAt from the check>", "lastDailyReview": "<YYYY-MM-DD if this was the daily review, else keep the old value>"}
+TMP=$(mktemp -d) && git worktree add -q --detach "$TMP" origin/routine-state
+# write {"analyzedThrough": "<latestActivityAt from the check>", "lastDailyReview": "<YYYY-MM-DD>"} to "$TMP/state.json"
 (cd "$TMP" && git add state.json && git commit -qm "state: analysed through <timestamp>" && git push -q origin HEAD:routine-state)
 git worktree remove --force "$TMP"
 ```
