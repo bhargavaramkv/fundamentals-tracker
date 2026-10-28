@@ -24,7 +24,7 @@ function NoticeLine({ notice }: { notice: Notice | null }) {
 }
 
 export function SettingsPanel() {
-  const { data, storeKind, syncError, replaceAll } = useProgress();
+  const { data, raw, archivedCount, storeKind, syncError, replaceAll } = useProgress();
   const { syncToken, sharedAcrossDevices, connectSync, disconnectSync, signOut } = useAuth();
   const [token, setToken] = useState("");
   const [busy, setBusy] = useState(false);
@@ -54,7 +54,7 @@ export function SettingsPanel() {
   };
 
   const exportJson = () => {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const blob = new Blob([JSON.stringify(raw, null, 2)], { type: "application/json" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = `fundamentals-progress-${new Date().toISOString().slice(0, 10)}.json`;
@@ -65,7 +65,7 @@ export function SettingsPanel() {
   const importJson = async (file: File) => {
     try {
       const incoming = normalizeProgress(JSON.parse(await file.text()));
-      await replaceAll(mergeProgress(data, incoming));
+      await replaceAll(mergeProgress(raw, incoming));
       setBackupNotice({ tone: "ok", text: `Imported ${incoming.answers.length} answers (merged; nothing was removed).` });
     } catch {
       setBackupNotice({ tone: "error", text: "That file isn't valid progress JSON." });
@@ -86,6 +86,12 @@ export function SettingsPanel() {
           {data.answers.length} answers, {data.sessions.length} sessions, {Object.keys(data.reviews).length} questions in
           review.
         </p>
+        {archivedCount > 0 && (
+          <p className="mt-2 text-sm text-ink-3">
+            {archivedCount} earlier answer{archivedCount === 1 ? " was" : "s were"} given before the question rewrite on 28 Oct
+            and {archivedCount === 1 ? "is" : "are"} archived: kept in your file and exports, but not counted in scores.
+          </p>
+        )}
         {syncError && <p className="mt-2 text-sm text-bad">Last sync error: {syncError}</p>}
       </section>
 

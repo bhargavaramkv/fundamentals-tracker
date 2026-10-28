@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { emptyProgress, recordRead, recordSession } from "@/lib/progress";
+import { activeProgress, archivedAnswerCount, emptyProgress, recordRead, recordSession } from "@/lib/progress";
 import { createStore, type ProgressStore } from "@/lib/storage";
 import { useAuth } from "./AuthGate";
 import type { AnswerLog, ProgressData, ReadLog, SessionRecord } from "@/lib/types";
@@ -9,7 +9,11 @@ import type { AnswerLog, ProgressData, ReadLog, SessionRecord } from "@/lib/type
 type SyncState = "idle" | "syncing" | "error";
 
 interface ProgressContextValue {
+  /** What counts for scores and recommendations (since the content epoch). */
   data: ProgressData;
+  /** Everything stored, including archived answers. Use for export, import and merges. */
+  raw: ProgressData;
+  archivedCount: number;
   ready: boolean;
   storeKind: ProgressStore["kind"];
   syncState: SyncState;
@@ -78,9 +82,24 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [data, persist],
   );
 
+  const active = useMemo(() => activeProgress(data), [data]);
+  const archivedCount = useMemo(() => archivedAnswerCount(data), [data]);
+
   const value = useMemo<ProgressContextValue>(
-    () => ({ data, ready, storeKind, syncState, syncError, commitSession, commitRead, replaceAll: persist, reload }),
-    [data, ready, storeKind, syncState, syncError, commitSession, commitRead, persist, reload],
+    () => ({
+      data: active,
+      raw: data,
+      archivedCount,
+      ready,
+      storeKind,
+      syncState,
+      syncError,
+      commitSession,
+      commitRead,
+      replaceAll: persist,
+      reload,
+    }),
+    [active, data, archivedCount, ready, storeKind, syncState, syncError, commitSession, commitRead, persist, reload],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

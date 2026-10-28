@@ -1,6 +1,29 @@
 import { applyAnswers } from "./srs";
 import type { AnswerLog, Domain, ProgressData, ReadLog, ReviewState, SessionRecord } from "./types";
 
+/**
+ * Answers given before this moment were on question sets that have since been
+ * rewritten (on 2026-10-28 the correct option was usually the longest, so they
+ * could be guessed). They stay in the progress file, but no score, review or
+ * recommendation counts them. Bump this only for a full question rewrite.
+ */
+export const CONTENT_EPOCH = "2026-10-28T04:55:06Z";
+
+/** The progress that counts: answers and sessions since the content epoch, with reviews rebuilt from them. */
+export function activeProgress(data: ProgressData, epoch: string = CONTENT_EPOCH): ProgressData {
+  const answers = data.answers.filter((a) => a.answeredAt >= epoch);
+  return {
+    ...data,
+    answers,
+    sessions: data.sessions.filter((s) => s.finishedAt >= epoch),
+    reviews: applyAnswers({}, answers),
+  };
+}
+
+export function archivedAnswerCount(data: ProgressData, epoch: string = CONTENT_EPOCH): number {
+  return data.answers.filter((a) => a.answeredAt < epoch).length;
+}
+
 export function emptyProgress(): ProgressData {
   return { version: 1, updatedAt: new Date(0).toISOString(), answers: [], sessions: [], reviews: {}, reads: [] };
 }

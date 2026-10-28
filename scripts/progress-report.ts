@@ -11,7 +11,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { computeActivity } from "../lib/activity";
 import { pickedOptionText, type LegacyOptions } from "../lib/answer-text";
-import { emptyProgress, latestActivityAt, mergeProgress, normalizeProgress } from "../lib/progress";
+import { activeProgress, archivedAnswerCount, emptyProgress, latestActivityAt, mergeProgress, normalizeProgress } from "../lib/progress";
 import { recommend } from "../lib/recommend";
 import { DOMAINS, DOMAIN_LABELS, type ProgressData, type Question, type TopicMeta } from "../lib/types";
 import { validateQuestions } from "../lib/validate";
@@ -140,7 +140,7 @@ export function buildReport(
 
 type Report = ReturnType<typeof buildReport>;
 
-function toMarkdown(r: Report): string {
+function toMarkdown(r: Report & { archivedAnswers?: number }): string {
   const lines: string[] = [];
   lines.push(`## Progress report · ${r.generatedAt.slice(0, 10)}`, "");
   if (r.totals.answers === 0) {
@@ -149,7 +149,8 @@ function toMarkdown(r: Report): string {
   lines.push(
     `- Practiced in last 24h: **${r.activity.practicedLast24h ? `yes (${r.activity.answersLast24h} answers)` : "no"}**`,
     `- Last active: ${r.activity.lastActive ?? "never"} · streak ${r.activity.streak} day(s)`,
-    `- Totals: ${r.totals.answers} answers in ${r.totals.sessions} sessions · ${r.reviewsDue} reviews due`,
+    `- Totals: ${r.totals.answers} answers in ${r.totals.sessions} sessions · ${r.reviewsDue} reviews due` +
+      (r.archivedAnswers ? ` · ${r.archivedAnswers} archived (before the question rewrite, not counted)` : ""),
     `- Reading in last 24h: ${r.reading.last24h ? `${r.reading.last24h} lesson(s): ${r.reading.topicsLast24h.join(", ")}` : "none"}`,
     "",
   );
@@ -193,7 +194,8 @@ if (isMain) {
   const { questions, topics } = loadContent();
   const data = loadProgress(arg("data"));
   const now = arg("now") ? new Date(arg("now") as string) : new Date();
-  const report = buildReport(data, questions, topics, now, arg("since") ?? null, loadLegacy());
+  // Analyse only answers since the content epoch; archived ones are reported as a count.
+  const report = { ...buildReport(activeProgress(data), questions, topics, now, arg("since") ?? null, loadLegacy()), archivedAnswers: archivedAnswerCount(data) };
   if (process.argv.includes("--check")) {
     // Cheap gate for the hourly check: one line, no analysis needed to read it.
     const { newActivity, latestActivityAt: latest, since } = report;

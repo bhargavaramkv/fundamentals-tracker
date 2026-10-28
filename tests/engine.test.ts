@@ -158,3 +158,17 @@ describe("picked option text", () => {
     expect(pickedOptionText({ ...before, selectedText: "stored text" }, question, legacy)).toBe("stored text");
   });
 });
+
+describe("content epoch", () => {
+  it("keeps archived answers in the data but out of scoring and reviews", async () => {
+    const { activeProgress, archivedAnswerCount } = await import("@/lib/progress");
+    const old = answer({ questionId: "o1", correct: false, answeredAt: "2026-10-28T04:19:00.000Z" });
+    const fresh = answer({ questionId: "n1", correct: false, answeredAt: "2026-10-28T06:00:00.000Z" });
+    const data = { ...emptyProgress(), answers: [old, fresh], reviews: applyAnswers({}, [old, fresh]) };
+    const active = activeProgress(data, "2026-10-28T04:55:06Z");
+    expect(active.answers.map((a) => a.questionId)).toEqual(["n1"]);
+    expect(Object.keys(active.reviews)).toEqual(["n1"]);
+    expect(data.answers).toHaveLength(2);
+    expect(archivedAnswerCount(data, "2026-10-28T04:55:06Z")).toBe(1);
+  });
+});
