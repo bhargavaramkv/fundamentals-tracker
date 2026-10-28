@@ -2,14 +2,56 @@
 
 import { useState } from "react";
 import { mergeProgress, normalizeProgress } from "@/lib/progress";
-import { DEFAULT_SYNC, GitHubStore, LocalStore, readSyncConfig, writeSyncConfig, type SyncConfig } from "@/lib/storage";
+import {
+  DEFAULT_SYNC,
+  GitHubStore,
+  GitHubSyncError,
+  LocalStore,
+  readSyncConfig,
+  writeSyncConfig,
+  type SyncConfig,
+} from "@/lib/storage";
 import { useProgress } from "./ProgressProvider";
+
+/** Turns a sync failure into the specific token setting to fix. */
+function explainSyncError(err: unknown, repo: string): string {
+  if (err instanceof GitHubSyncError) {
+    switch (err.status) {
+      case 401:
+        return "GitHub rejected the token (401). It's invalid, expired, or was copied incompletely. Generate a new one.";
+      case 403:
+        return `The token can see ${repo} but can't write to it (403). Set Repository permissions → Contents to "Read and write".`;
+      case 404:
+        return `The token can't see ${repo} (404). Under Repository access choose "Only select repositories" and add ${repo}, make sure Resource owner is your account, and check the owner/repo fields above.`;
+    }
+    return err.message;
+  }
+  if (err instanceof TypeError) {
+    return "Couldn't reach api.github.com. Check your connection or any extension blocking requests.";
+  }
+  return err instanceof Error ? err.message : String(err);
+}
+
+type Notice = { tone: "ok" | "error"; text: string };
+
+function NoticeLine({ notice }: { notice: Notice | null }) {
+  if (!notice) return null;
+  return (
+    <p
+      role="status"
+      className={`mt-3 rounded-lg px-4 py-3 text-sm ${notice.tone === "ok" ? "bg-good-bg text-good" : "bg-bad-bg text-bad"}`}
+    >
+      {notice.text}
+    </p>
+  );
+}
 
 export function SettingsPanel() {
   const { data, storeKind, syncError, reload, replaceAll } = useProgress();
   const existing = typeof window === "undefined" ? null : readSyncConfig();
   const [form, setForm] = useState<SyncConfig>(() => existing ?? { ...DEFAULT_SYNC, token: "" });
-  const [status, setStatus] = useState<string | null>(null);
+  const [syncNotice, setSyncNotice] = useState<Notice | null>(null);
+  const [backupNotice, setBackupNotice] = useState<Notice | null>(null);
   const [busy, setBusy] = useState(false);
 
   const field = (key: keyof SyncConfig, label: string, type = "text") => (
@@ -28,7 +70,7 @@ export function SettingsPanel() {
 
   const enableSync = async () => {
     setBusy(true);
-    setStatus(null);
+    setSyncNotice(null);
     try {
       const store = new GitHubStore(form);
       const remote = await store.fetchRemote();
@@ -37,9 +79,12 @@ export function SettingsPanel() {
       await store.save(mergeProgress(local, remote.data));
       writeSyncConfig(form);
       await reload();
-      setStatus(`Sync enabled. ${remote.sha ? "Merged with existing remote data." : "Created progress.json in the data repo."}`);
+      setSyncNotice({
+        tone: "ok",
+        text: `Sync enabled. ${remote.sha ? "Merged with existing remote data." : "Created progress.json in the data repo."}`,
+      });
     } catch (err) {
-      setStatus(`Couldn't enable sync: ${err instanceof Error ? err.message : String(err)}. Check the token's repo access and Contents permission.`);
+      setSyncNotice({ tone: "error", text: `Couldn't enable sync. ${explainSyncError(err, form.repo)}` });
     } finally {
       setBusy(false);
     }
@@ -49,7 +94,7 @@ export function SettingsPanel() {
     writeSyncConfig(null);
     await reload();
     setForm({ ...form, token: "" });
-    setStatus("Sync disabled. Progress stays in this browser, and the remote copy is untouched.");
+    setSyncNotice({ tone: "ok", text: "Sync disabled. Progress stays in this browser, and the remote copy is untouched." });
   };
 
   const exportJson = () => {
@@ -65,17 +110,15 @@ export function SettingsPanel() {
     try {
       const incoming = normalizeProgress(JSON.parse(await file.text()));
       await replaceAll(mergeProgress(data, incoming));
-      setStatus(`Imported ${incoming.answers.length} answers (merged; nothing was removed).`);
+      setBackupNotice({ tone: "ok", text: `Imported ${incoming.answers.length} answers (merged; nothing was removed).` });
     } catch {
-      setStatus("That file isn't valid progress JSON.");
+      setBackupNotice({ tone: "error", text: "That file isn't valid progress JSON." });
     }
   };
 
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
-
-      {status && <p className="rounded-lg bg-surface-2 px-4 py-3 text-sm" role="status">{status}</p>}
 
       <section className="rounded-xl border border-line bg-surface p-5">
         <h2 className="font-medium">Storage</h2>
@@ -124,6 +167,7 @@ export function SettingsPanel() {
             </button>
           )}
         </div>
+        <NoticeLine notice={syncNotice} />
       </section>
 
       <section className="rounded-xl border border-line bg-surface p-5">
@@ -147,6 +191,7 @@ export function SettingsPanel() {
             />
           </label>
         </div>
+        <NoticeLine notice={backupNotice} />
       </section>
     </div>
   );
