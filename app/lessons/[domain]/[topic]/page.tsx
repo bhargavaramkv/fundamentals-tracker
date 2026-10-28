@@ -19,7 +19,7 @@ function load(domain: string, topic: string) {
 export async function generateMetadata(props: PageProps<"/lessons/[domain]/[topic]">): Promise<Metadata> {
   const { domain, topic } = await props.params;
   const lesson = load(domain, topic);
-  return { title: lesson ? `${lesson.title} · Fundamentals Tracker` : "Lesson" };
+  return { title: lesson ? `${lesson.title} · Intel files` : "Intel file" };
 }
 
 export default async function LessonPage(props: PageProps<"/lessons/[domain]/[topic]">) {
@@ -34,12 +34,13 @@ export default async function LessonPage(props: PageProps<"/lessons/[domain]/[to
         ← {DOMAIN_LABELS[lesson.domain]}
       </Link>
       <header className="mt-2 mb-6 border-b border-line pb-4">
-        <h1 className="text-2xl font-semibold tracking-tight">{lesson.title}</h1>
+        <p className="font-mono text-[10px] tracking-[0.2em] text-accent">INTEL FILE · {DOMAIN_LABELS[lesson.domain].toUpperCase()}</p>
+        <h1 className="font-comic text-4xl text-white sm:text-5xl">{lesson.title}</h1>
         <p className="mt-1 text-ink-2">{lesson.summary}</p>
         <div className="mt-3 flex flex-wrap items-center gap-4">
           <Link
             href={`/practice/?topic=${lesson.domain}/${lesson.topic}`}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink"
+            className="rounded bg-accent px-4 py-2 text-xs font-bold tracking-widest text-accent-ink uppercase transition hover:bg-white hover:shadow-neon"
           >
             Drill this topic · {count} q
           </Link>

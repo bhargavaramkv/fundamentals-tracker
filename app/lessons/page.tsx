@@ -4,7 +4,7 @@ import { TopicScore } from "@/components/TopicScore";
 import { getAllQuestions, getAllTopics } from "@/lib/content";
 import { DOMAINS, DOMAIN_LABELS } from "@/lib/types";
 
-export const metadata: Metadata = { title: "Lessons · Fundamentals Tracker" };
+export const metadata: Metadata = { title: "Intel files · BHARGAVA.DEV" };
 
 export default function LessonsPage() {
   const topics = getAllTopics();
@@ -12,12 +12,13 @@ export default function LessonsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Lessons</h1>
-        <p className="mt-1 text-ink-2">Short, interview-level guides. Each topic links to a focused drill.</p>
+        <p className="font-mono text-[10px] tracking-[0.2em] text-accent">THE ARCHIVES</p>
+        <h1 className="font-comic text-5xl text-white">Intel files</h1>
+        <p className="mt-1 text-ink-2">Short, interview-level briefings. Every file links to a targeted drill.</p>
       </div>
       {DOMAINS.map((domain) => (
         <section key={domain}>
-          <h2 className="mb-3 text-sm font-medium uppercase tracking-wide text-ink-3">{DOMAIN_LABELS[domain]}</h2>
+          <h2 className="mb-3 font-comic text-2xl text-accent">{DOMAIN_LABELS[domain]}</h2>
           <ul className="grid gap-3 sm:grid-cols-2">
             {topics
               .filter((t) => t.domain === domain)
@@ -25,14 +26,14 @@ export default function LessonsPage() {
                 <li key={t.topic}>
                   <Link
                     href={`/lessons/${t.domain}/${t.topic}/`}
-                    className="block h-full rounded-xl border border-line bg-surface p-4 hover:border-ink-3"
+                    className="block h-full rounded-xl border border-line bg-surface p-4 transition hover:-translate-y-0.5 hover:border-line-strong hover:shadow-neon"
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <p className="font-medium">{t.title}</p>
+                      <p className="font-bold text-white">{t.title}</p>
                       <TopicScore domain={t.domain} topic={t.topic} />
                     </div>
                     <p className="mt-1 text-sm text-ink-2">{t.summary}</p>
-                    <p className="mt-2 text-xs text-ink-3">
+                    <p className="mt-2 font-mono text-[10px] tracking-wider text-ink-3 uppercase">
                       {questions.filter((q) => q.domain === t.domain && q.topic === t.topic).length} questions
                     </p>
                   </Link>
