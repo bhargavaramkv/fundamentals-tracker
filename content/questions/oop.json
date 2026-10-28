@@ -5,7 +5,12 @@
     "topic": "solid",
     "difficulty": 1,
     "prompt": "A ReportService queries the database, renders a PDF, and emails it to stakeholders. Which principle does it most directly violate?",
-    "options": ["Liskov Substitution", "Interface Segregation", "Single Responsibility", "Open/Closed"],
+    "options": [
+      "Liskov Substitution",
+      "Interface Segregation",
+      "Single Responsibility",
+      "Open/Closed"
+    ],
     "answer": 2,
     "explanation": "It has three reasons to change (data access, rendering, delivery) that are owned by different concerns. Split it into a repository, a renderer and a notifier, then compose them."
   },
@@ -15,7 +20,12 @@
     "topic": "solid",
     "difficulty": 2,
     "prompt": "Square inherits from Rectangle, and setting Width on a Square also changes its Height. Code that sets width = 5, height = 4 and expects area 20 breaks. Which principle is violated?",
-    "options": ["Dependency Inversion", "Liskov Substitution", "Single Responsibility", "Interface Segregation"],
+    "options": [
+      "Dependency Inversion",
+      "Liskov Substitution",
+      "Single Responsibility",
+      "Interface Segregation"
+    ],
     "answer": 1,
     "explanation": "A subtype must honor the base type's contract: here, that width and height can be set independently. Square strengthens the invariant, so it can't be substituted for Rectangle. \"Is-a\" in the real world doesn't guarantee behavioral subtyping."
   },
@@ -40,7 +50,12 @@
     "topic": "design-patterns",
     "difficulty": 1,
     "prompt": "You want to add caching around an IProductRepository without changing its implementation or its callers. Which pattern fits?",
-    "options": ["Adapter", "Decorator", "Factory Method", "Observer"],
+    "options": [
+      "Adapter",
+      "Decorator",
+      "Factory Method",
+      "Observer"
+    ],
     "answer": 1,
     "explanation": "A Decorator implements the same interface, wraps the inner instance, and adds behavior before or after delegating. CachedProductRepository : IProductRepository wraps the real one. Adapter is different: it changes an interface to match another one."
   },
@@ -50,7 +65,12 @@
     "topic": "design-patterns",
     "difficulty": 2,
     "prompt": "The ASP.NET Core middleware pipeline (and Angular HTTP interceptors) is closest to which pattern?",
-    "options": ["Chain of Responsibility", "Mediator", "Composite", "Template Method"],
+    "options": [
+      "Chain of Responsibility",
+      "Mediator",
+      "Composite",
+      "Template Method"
+    ],
     "answer": 0,
     "explanation": "Each handler gets the request and decides whether to handle it, short-circuit it, or call next() to pass it along the chain. Order matters: auth must come before endpoints, and exception handling comes first."
   },
@@ -82,7 +102,7 @@
       "Composition uses less memory"
     ],
     "answer": 1,
-    "explanation": "This is the fragile base class problem: subclasses depend on how the parent calls its own methods. Composition depends only on a collaborator's public contract, and you can swap that collaborator at runtime."
+    "explanation": "This is the fragile base class problem: subclasses depend on how the parent calls its own methods. Composition depends only on a collaborator's public contract, and you can swap that collaborator at runtime. It is not a performance argument: virtual dispatch and an extra object reference cost about the same either way."
   },
   {
     "id": "oop-composition-encapsulation-2",
@@ -97,7 +117,7 @@
       "It isn't a problem, because the property has no setter"
     ],
     "answer": 1,
-    "explanation": "Getter-only protects the reference, not the contents. Expose IReadOnlyList<OrderLine> (backed by a private list) plus intention-revealing methods like AddLine(), which enforce the rules."
+    "explanation": "Getter-only protects the reference, not the contents. Expose IReadOnlyList<OrderLine> (backed by a private list, ideally via AsReadOnly()) plus intention-revealing methods like AddLine(), which enforce the rules. Fields vs properties isn't the issue: a public field would be even worse."
   },
   {
     "id": "oop-composition-encapsulation-3",
@@ -112,7 +132,7 @@
       "A runtime InvalidOperationException"
     ],
     "answer": 2,
-    "explanation": "The object's runtime type is the derived type from the start, so virtual dispatch reaches the override. Derived field initializers have run, but the derived constructor body hasn't, which is why analyzers flag virtual calls in constructors (CA2214). C++ behaves differently and dispatches to the base."
+    "explanation": "The object's runtime type is the derived type from the start, so virtual dispatch reaches the override. Derived field initializers have run, but the derived constructor body hasn't. Nothing throws: it compiles and runs with half-initialized state, which is why analyzers flag virtual calls in constructors (CA2214). C++ behaves differently and dispatches to the base."
   },
   {
     "id": "oop-dependency-injection-1",
@@ -158,5 +178,50 @@
     ],
     "answer": 1,
     "explanation": "Lazy routes with providers create a child environment injector. Resolution walks up from the nearest injector, so the route's provider shadows root. That's useful for feature-scoped state, but it's a classic source of \"why is my state not shared?\" bugs."
+  },
+  {
+    "id": "oop-composition-encapsulation-4",
+    "domain": "oop",
+    "topic": "composition-encapsulation",
+    "difficulty": 1,
+    "prompt": "A Stack<T> class inherits from List<T> to reuse its storage. What's the main design problem?",
+    "options": [
+      "Stack<T> will be slower than a hand-written array stack",
+      "Callers inherit Insert/RemoveAt/indexer access and can break LIFO order; the class exposes an interface it can't honor",
+      "C# doesn't allow inheriting from List<T>",
+      "There's no problem; it's a textbook is-a relationship"
+    ],
+    "answer": 1,
+    "explanation": "Inheritance brings the parent's whole public surface. Java's Stack extends Vector is the famous example: you can insert into the middle of a stack. Wrapping a private List<T> and exposing only Push/Pop/Peek keeps the invariant. Speed isn't the issue, and List<T> isn't sealed, so it compiles."
+  },
+  {
+    "id": "oop-composition-encapsulation-5",
+    "domain": "oop",
+    "topic": "composition-encapsulation",
+    "difficulty": 2,
+    "prompt": "In TypeScript: class Cart { readonly items: Item[] = []; } What happens with cart.items.push(item) from outside the class?",
+    "options": [
+      "Compile error: items is readonly",
+      "It compiles and mutates the array; readonly only prevents reassigning cart.items",
+      "Runtime TypeError because the array is frozen",
+      "It compiles but push is silently ignored"
+    ],
+    "answer": 1,
+    "explanation": "The readonly modifier applies to the property binding, not the array. To block mutation through the type, declare items: readonly Item[] (or ReadonlyArray<Item>) and change it through methods like addItem(). Nothing is frozen at runtime unless you call Object.freeze."
+  },
+  {
+    "id": "oop-composition-encapsulation-6",
+    "domain": "oop",
+    "topic": "composition-encapsulation",
+    "difficulty": 3,
+    "prompt": "An aggregate exposes public IReadOnlyList<OrderLine> Lines => _lines; where _lines is a private List<OrderLine>. A caller writes ((List<OrderLine>)order.Lines).Add(line). What's the best fix?",
+    "options": [
+      "Make _lines a readonly field",
+      "Return a wrapper such as _lines.AsReadOnly() (cached), so the cast fails and mutation through IList<T> throws",
+      "Change the property type to IEnumerable<OrderLine>",
+      "Mark the property virtual"
+    ],
+    "answer": 1,
+    "explanation": "An interface type is only a compile-time hint; if the object is really your List<T>, a cast exposes it. ReadOnlyCollection<T> wraps the list: casting it to List<T> throws InvalidCastException, and Add via IList<T> throws NotSupportedException. A readonly field only protects the reference, and IEnumerable<T> has the same cast hole."
   }
 ]
