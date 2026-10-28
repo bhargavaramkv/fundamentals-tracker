@@ -60,6 +60,17 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode }[] =
     ),
   },
   {
+    href: "/news/",
+    label: "News",
+    short: "News",
+    icon: (
+      <Icon>
+        <path d="M5 4h12v15a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1z" />
+        <path d="M17 8h2a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2M8 8h5M8 12h5M8 16h3" />
+      </Icon>
+    ),
+  },
+  {
     href: "/settings/",
     label: "Settings",
     short: "Settings",

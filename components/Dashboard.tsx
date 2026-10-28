@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { computeActivity, dayKey, scoreHistory } from "@/lib/activity";
 import { recommend, type FocusTopic } from "@/lib/recommend";
-import { DOMAIN_LABELS, type Confidence, type Question, type TopicMeta, type TopicStat } from "@/lib/types";
+import { DOMAIN_LABELS, type Confidence, type NewsItem, type Question, type TopicMeta, type TopicStat } from "@/lib/types";
 import loginVault from "@/lib/login-vault.json";
 import { DomainIcon, domainColor } from "./DomainIcon";
 import { ProgressRing } from "./ProgressRing";
@@ -39,7 +39,17 @@ function relativeDay(days: number | null): string {
   return `${days} days ago`;
 }
 
-export function Dashboard({ questions, topics }: { questions: Question[]; topics: TopicMeta[] }) {
+export type NewsHeadline = Pick<NewsItem, "slug" | "title" | "date" | "updated" | "severity" | "summary">;
+
+export function Dashboard({
+  questions,
+  topics,
+  news,
+}: {
+  questions: Question[];
+  topics: TopicMeta[];
+  news: NewsHeadline[];
+}) {
   const { data, ready } = useProgress();
   if (!ready) return <p className="text-ink-2">Loading your progress…</p>;
 
@@ -48,32 +58,35 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
 
   if (data.answers.length === 0) {
     return (
-      <section className="card relative overflow-hidden p-6 sm:p-10">
-        <p className="text-sm font-medium text-accent">
-          {greeting()}, {NAME}
-        </p>
-        <h1 className="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">Let&apos;s find your gaps.</h1>
-        <p className="mt-3 max-w-xl text-ink-2">
-          One baseline assessment ({questions.length} interview-level questions) maps where you&apos;re strong and where
-          you&apos;re guessing. After that, every practice round aims at your weakest topics.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {(Object.keys(DOMAIN_LABELS) as (keyof typeof DOMAIN_LABELS)[]).map((d) => (
-            <span key={d} className="chip chip-icon">
-              <DomainIcon domain={d} size={26} />
-              {DOMAIN_LABELS[d]}
-            </span>
-          ))}
-        </div>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <Link href="/assess/" className="btn btn-primary">
-            Start the assessment →
-          </Link>
-          <Link href="/lessons/" className="btn btn-secondary">
-            Browse lessons
-          </Link>
-        </div>
-      </section>
+      <div className="space-y-6">
+        <section className="card relative overflow-hidden p-6 sm:p-10">
+          <p className="text-sm font-medium text-accent">
+            {greeting()}, {NAME}
+          </p>
+          <h1 className="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">Let&apos;s find your gaps.</h1>
+          <p className="mt-3 max-w-xl text-ink-2">
+            One baseline assessment ({questions.length} interview-level questions) maps where you&apos;re strong and where
+            you&apos;re guessing. After that, every practice round aims at your weakest topics.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {(Object.keys(DOMAIN_LABELS) as (keyof typeof DOMAIN_LABELS)[]).map((d) => (
+              <span key={d} className="chip chip-icon">
+                <DomainIcon domain={d} size={26} />
+                {DOMAIN_LABELS[d]}
+              </span>
+            ))}
+          </div>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link href="/assess/" className="btn btn-primary">
+              Start the assessment →
+            </Link>
+            <Link href="/lessons/" className="btn btn-secondary">
+              Browse lessons
+            </Link>
+          </div>
+        </section>
+        <NewsCard news={news} />
+      </div>
     );
   }
 
@@ -97,10 +110,15 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
         <div className="flex items-center gap-3 rounded-2xl border border-warn/40 bg-warn-bg px-4 py-3 text-sm text-warn" role="status">
           <span aria-hidden className="text-lg">⏰</span>
           <span>
-            Last practice was {relativeDay(activity.daysSinceActive)}. A 10-question round takes about 8 minutes.{" "}
-            <Link href="/practice/" className="font-semibold underline">
-              Start one
+            Last practice was {relativeDay(activity.daysSinceActive)}. No energy for a full round? Read a{" "}
+            <Link href="/fun/" className="font-semibold underline">
+              2-minute bug story
+            </Link>{" "}
+            or do a{" "}
+            <Link href="/practice/?mode=warmup" className="font-semibold underline">
+              5-question warm-up
             </Link>
+            .
           </span>
         </div>
       )}
@@ -138,6 +156,12 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
               </Link>
             )}
           </div>
+          <p className="mt-3 text-sm text-ink-3">
+            Low on energy?{" "}
+            <Link href="/fun/" className="tap font-medium text-accent hover:underline">
+              Try the fun corner
+            </Link>
+          </p>
         </div>
         <div className="flex items-center gap-5 sm:gap-6">
           <ProgressRing value={mastery} size={104} stroke={10} label={`Overall mastery ${mastery}%`}>
@@ -167,6 +191,8 @@ export function Dashboard({ questions, topics }: { questions: Question[]; topics
           </div>
         </div>
       </section>
+
+      <NewsCard news={news} />
 
       <section>
         <h2 className="mb-3 text-lg font-bold tracking-tight">Skill profile</h2>
@@ -303,5 +329,35 @@ function TopicList({
         </ul>
       )}
     </div>
+  );
+}
+
+function NewsCard({ news }: { news: NewsHeadline[] }) {
+  if (news.length === 0) return null;
+  return (
+    <section className="card p-5">
+      <div className="flex items-baseline justify-between gap-3">
+        <h2 className="text-lg font-bold tracking-tight">In the news</h2>
+        <Link href="/news/" className="tap text-sm font-medium text-accent hover:underline">
+          All stories
+        </Link>
+      </div>
+      <ul className="mt-2 divide-y divide-line">
+        {news.slice(0, 3).map((n) => (
+          <li key={n.slug}>
+            <Link href={`/news/${n.slug}/`} className="block py-3 hover:opacity-80">
+              <p className="flex flex-wrap items-center gap-2 text-xs text-ink-3">
+                {n.severity === "critical" && (
+                  <span className="rounded-full bg-bad-bg px-2 py-0.5 font-semibold text-bad">Critical</span>
+                )}
+                {n.updated ?? n.date}
+              </p>
+              <p className="mt-1 font-semibold leading-snug">{n.title}</p>
+              <p className="mt-0.5 line-clamp-2 text-sm text-ink-2">{n.summary}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

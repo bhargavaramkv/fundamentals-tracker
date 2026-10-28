@@ -15,6 +15,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
   const { data, ready } = useProgress();
   const params = useSearchParams();
   const topicParam = params.get("topic");
+  const warmup = params.get("mode") === "warmup";
   const [running, setRunning] = useState<Question[] | null>(null);
   const [round, setRound] = useState(0);
 
@@ -23,6 +24,15 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
   const focusTopic = topicParam ? topics.find((t) => `${t.domain}/${t.topic}` === topicParam) : undefined;
 
   const build = (): Question[] => {
+    if (warmup) {
+      // Easy wins: core-level questions you haven't got right yet, never-seen first.
+      const correct = new Set(data.answers.filter((a) => a.correct).map((a) => a.questionId));
+      const seen = new Set(data.answers.map((a) => a.questionId));
+      return questions
+        .filter((q) => q.difficulty === 1 && !correct.has(q.id))
+        .sort((a, b) => Number(seen.has(a.id)) - Number(seen.has(b.id)) || a.id.localeCompare(b.id))
+        .slice(0, 5);
+    }
     if (focusTopic) {
       return questions
         .filter((q) => q.domain === focusTopic.domain && q.topic === focusTopic.topic)
@@ -43,7 +53,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         questions={running}
         mode="practice"
         onExit={() => setRunning(null)}
-        onRestart={focusTopic ? undefined : start}
+        onRestart={focusTopic || warmup ? undefined : start}
       />
     );
   }
@@ -55,26 +65,42 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold tracking-tight">
-          {focusTopic ? `Practice: ${focusTopic.title}` : "Adaptive practice"}
+          {warmup ? "Warm-up" : focusTopic ? `Practice: ${focusTopic.title}` : "Adaptive practice"}
         </h1>
         <p className="mt-1 max-w-2xl text-ink-2">
-          {focusTopic
+          {warmup
+            ? "Five core-level questions you haven't answered correctly yet. No pressure: just get moving."
+            : focusTopic
             ? `Every question for this topic, easiest first.`
             : `A ${SESSION_SIZE}-question round built from your data: questions due for spaced review first, then your weakest topics, then topics you haven't tried yet.`}
         </p>
-        {focusTopic && (
+        {(focusTopic || warmup) && (
           <Link href="/practice/" className="tap mt-2 inline-block text-sm text-accent hover:underline">
             ← Back to adaptive practice
           </Link>
         )}
       </div>
 
-      {!focusTopic && (
+      {!focusTopic && !warmup && (
         <div className="grid gap-3 sm:grid-cols-3">
           <Stat label="Reviews due" value={rec.dueQuestionIds.length} />
           <Stat label="Weak or shaky topics" value={rec.focus.filter((f) => f.reason === "weak" || f.reason === "shaky").length} />
           <Stat label="Untested topics" value={rec.focus.filter((f) => f.reason === "untested").length} />
         </div>
+      )}
+
+      {!warmup && !focusTopic && (
+        <p className="text-sm text-ink-2">
+          Low on energy?{" "}
+          <Link href="/fun/" className="tap font-medium text-accent hover:underline">
+            Try the fun corner
+          </Link>{" "}
+          or a{" "}
+          <Link href="/practice/?mode=warmup" className="tap font-medium text-accent hover:underline">
+            5-question warm-up
+          </Link>
+          .
+        </p>
       )}
 
       <section className="card p-5">

@@ -126,3 +126,45 @@ export interface SkillProfile {
   weakTopics: TopicStat[];
   strongTopics: TopicStat[];
 }
+
+export interface SourceLink {
+  title: string;
+  url: string;
+}
+
+export interface CheckQuestion {
+  prompt: string;
+  options: string[];
+  answer: number;
+  explanation: string;
+}
+
+export interface NewsItem {
+  slug: string;
+  title: string;
+  date: string;
+  updated?: string;
+  severity: "critical" | "notable";
+  tags: string[];
+  /** "domain/topic" keys of lessons this story connects to. */
+  relatesTo: string[];
+  summary: string;
+  sources: SourceLink[];
+  check?: CheckQuestion;
+  html: string;
+}
+
+export interface FunStory {
+  id: string;
+  title: string;
+  year: number;
+  hook: string;
+  story: string;
+  lesson: string;
+  relatesTo: string;
+}
+
+export interface FunFact {
+  id: string;
+  fact: string;
+}
