@@ -41,9 +41,13 @@ export interface SyncConfig {
   token: string;
 }
 
-export const DEFAULT_SYNC: Omit<SyncConfig, "token"> = {
-  owner: "bhargavaramkv",
-  repo: "fundamentals-tracker-data",
+/**
+ * The data repo is fixed at build time and can't be changed from the browser,
+ * so only someone with access to this private repo can sign in.
+ */
+export const DATA_REPO: Omit<SyncConfig, "token"> = {
+  owner: process.env.NEXT_PUBLIC_DATA_OWNER || "bhargavaramkv",
+  repo: process.env.NEXT_PUBLIC_DATA_REPO || "fundamentals-tracker-data",
   branch: "main",
   path: "progress.json",
 };
@@ -52,16 +56,15 @@ export function readSyncConfig(): SyncConfig | null {
   try {
     const raw = window.localStorage.getItem(SYNC_KEY);
     if (!raw) return null;
-    const c = JSON.parse(raw) as Partial<SyncConfig>;
-    if (!c.token || !c.owner || !c.repo) return null;
-    return { ...DEFAULT_SYNC, ...c } as SyncConfig;
+    const { token } = JSON.parse(raw) as Partial<SyncConfig>;
+    return token ? { ...DATA_REPO, token } : null;
   } catch {
     return null;
   }
 }
 
-export function writeSyncConfig(config: SyncConfig | null): void {
-  if (config) window.localStorage.setItem(SYNC_KEY, JSON.stringify(config));
+export function writeSyncConfig(token: string | null): void {
+  if (token) window.localStorage.setItem(SYNC_KEY, JSON.stringify({ token }));
   else window.localStorage.removeItem(SYNC_KEY);
 }
 

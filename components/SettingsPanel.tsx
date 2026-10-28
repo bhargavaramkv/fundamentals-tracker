@@ -2,35 +2,9 @@
 
 import { useState } from "react";
 import { mergeProgress, normalizeProgress } from "@/lib/progress";
-import {
-  DEFAULT_SYNC,
-  GitHubStore,
-  GitHubSyncError,
-  LocalStore,
-  readSyncConfig,
-  writeSyncConfig,
-  type SyncConfig,
-} from "@/lib/storage";
+import { DATA_REPO } from "@/lib/storage";
+import { useAuth } from "./AuthGate";
 import { useProgress } from "./ProgressProvider";
-
-/** Turns a sync failure into the specific token setting to fix. */
-function explainSyncError(err: unknown, repo: string): string {
-  if (err instanceof GitHubSyncError) {
-    switch (err.status) {
-      case 401:
-        return "GitHub rejected the token (401). It's invalid, expired, or was copied incompletely. Generate a new one.";
-      case 403:
-        return `The token can see ${repo} but can't write to it (403). Set Repository permissions → Contents to "Read and write".`;
-      case 404:
-        return `The token can't see ${repo} (404). Under Repository access choose "Only select repositories" and add ${repo}, make sure Resource owner is your account, and check the owner/repo fields above.`;
-    }
-    return err.message;
-  }
-  if (err instanceof TypeError) {
-    return "Couldn't reach api.github.com. Check your connection or any extension blocking requests.";
-  }
-  return err instanceof Error ? err.message : String(err);
-}
 
 type Notice = { tone: "ok" | "error"; text: string };
 
@@ -47,54 +21,25 @@ function NoticeLine({ notice }: { notice: Notice | null }) {
 }
 
 export function SettingsPanel() {
-  const { data, storeKind, syncError, reload, replaceAll } = useProgress();
-  const existing = typeof window === "undefined" ? null : readSyncConfig();
-  const [form, setForm] = useState<SyncConfig>(() => existing ?? { ...DEFAULT_SYNC, token: "" });
-  const [syncNotice, setSyncNotice] = useState<Notice | null>(null);
-  const [backupNotice, setBackupNotice] = useState<Notice | null>(null);
+  const { data, syncState, syncError, reload, replaceAll } = useProgress();
+  const { signIn, signOut } = useAuth();
+  const [token, setToken] = useState("");
   const [busy, setBusy] = useState(false);
+  const [accessNotice, setAccessNotice] = useState<Notice | null>(null);
+  const [backupNotice, setBackupNotice] = useState<Notice | null>(null);
 
-  const field = (key: keyof SyncConfig, label: string, type = "text") => (
-    <label className="block text-sm">
-      <span className="text-ink-2">{label}</span>
-      <input
-        type={type}
-        value={form[key]}
-        onChange={(e) => setForm({ ...form, [key]: e.target.value.trim() })}
-        autoComplete="off"
-        spellCheck={false}
-        className="mt-1 w-full rounded-md border border-line bg-bg px-3 py-2 font-mono text-sm"
-      />
-    </label>
-  );
-
-  const enableSync = async () => {
+  const replaceToken = async () => {
     setBusy(true);
-    setSyncNotice(null);
-    try {
-      const store = new GitHubStore(form);
-      const remote = await store.fetchRemote();
-      const local = await new LocalStore().load();
-      // First sync pushes the merged copy, which also creates the file if it doesn't exist.
-      await store.save(mergeProgress(local, remote.data));
-      writeSyncConfig(form);
-      await reload();
-      setSyncNotice({
-        tone: "ok",
-        text: `Sync enabled. ${remote.sha ? "Merged with existing remote data." : "Created progress.json in the data repo."}`,
-      });
-    } catch (err) {
-      setSyncNotice({ tone: "error", text: `Couldn't enable sync. ${explainSyncError(err, form.repo)}` });
-    } finally {
-      setBusy(false);
+    setAccessNotice(null);
+    const error = await signIn(token);
+    setBusy(false);
+    if (error) {
+      setAccessNotice({ tone: "error", text: error });
+      return;
     }
-  };
-
-  const disableSync = async () => {
-    writeSyncConfig(null);
+    setToken("");
     await reload();
-    setForm({ ...form, token: "" });
-    setSyncNotice({ tone: "ok", text: "Sync disabled. Progress stays in this browser, and the remote copy is untouched." });
+    setAccessNotice({ tone: "ok", text: "Credential updated and progress resynced." });
   };
 
   const exportJson = () => {
@@ -116,68 +61,77 @@ export function SettingsPanel() {
     }
   };
 
+  const vault = `${DATA_REPO.owner}/${DATA_REPO.repo}`;
+
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
+      <div>
+        <p className="font-mono text-[10px] tracking-[0.2em] text-ink-3">SYSTEMS</p>
+        <h1 className="font-comic text-4xl text-white">Control panel</h1>
+      </div>
 
       <section className="rounded-xl border border-line bg-surface p-5">
-        <h2 className="font-medium">Storage</h2>
+        <h2 className="font-comic text-2xl text-white">Data vault</h2>
         <p className="mt-1 text-sm text-ink-2">
-          Currently: <strong>{storeKind === "github" ? "this browser + private GitHub repo" : "this browser only (localStorage)"}</strong>
-          {" · "}
-          {data.answers.length} answers, {data.sessions.length} sessions, {Object.keys(data.reviews).length} questions in review.
+          Progress syncs to <code className="font-mono text-accent">{vault}/{DATA_REPO.path}</code> (private). The daily
+          improvement routine reads it from there.
+        </p>
+        <p className="mt-2 text-sm text-ink-2">
+          {data.answers.length} answers · {data.sessions.length} sessions · {Object.keys(data.reviews).length} questions in
+          review ·{" "}
+          <span className={syncState === "error" ? "text-bad" : "text-good"}>
+            {syncState === "syncing" ? "syncing…" : syncState === "error" ? "sync error" : "in sync"}
+          </span>
         </p>
         {syncError && <p className="mt-2 text-sm text-bad">Last sync error: {syncError}</p>}
       </section>
 
       <section className="rounded-xl border border-line bg-surface p-5">
-        <h2 className="font-medium">Sync to a private GitHub repo</h2>
+        <h2 className="font-comic text-2xl text-white">Access credential</h2>
         <p className="mt-1 text-sm text-ink-2">
-          Syncing lets you use several devices and lets the daily improvement routine read your results. Create a{" "}
-          <a
-            className="text-accent hover:underline"
-            href="https://github.com/settings/personal-access-tokens/new"
-            target="_blank"
-            rel="noreferrer"
-          >
-            fine-grained token
-          </a>{" "}
-          with access to <strong>only</strong> the data repo and <strong>Contents: Read and write</strong>. The token is
-          stored only in this browser&apos;s localStorage and is sent only to api.github.com.
+          Signed in on this device. The token lives only in this browser and is only sent to api.github.com. When it
+          expires you&apos;ll be returned to the sign-in screen. Paste a new one here first to avoid that.
         </p>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {field("owner", "Owner")}
-          {field("repo", "Data repo")}
-          {field("branch", "Branch")}
-          {field("path", "File path")}
-        </div>
-        <div className="mt-3">{field("token", "Fine-grained token", "password")}</div>
+        <label className="mt-4 block text-sm">
+          <span className="font-mono text-xs tracking-wider text-ink-3 uppercase">Replacement token</span>
+          <input
+            type="password"
+            value={token}
+            onChange={(e) => setToken(e.target.value)}
+            autoComplete="off"
+            spellCheck={false}
+            placeholder="github_pat_…"
+            className="mt-1 w-full rounded-md border border-line bg-black/60 px-3 py-2 font-mono text-sm outline-none focus:border-accent"
+          />
+        </label>
         <div className="mt-4 flex flex-wrap gap-3">
           <button
             type="button"
-            onClick={() => void enableSync()}
-            disabled={busy || !form.token}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink disabled:opacity-40"
+            onClick={() => void replaceToken()}
+            disabled={busy || token.trim().length < 20}
+            className="rounded bg-accent px-4 py-2 text-sm font-bold text-accent-ink uppercase hover:bg-white disabled:opacity-40"
           >
-            {busy ? "Connecting…" : storeKind === "github" ? "Save & resync" : "Test & enable sync"}
+            {busy ? "Verifying…" : "Replace token"}
           </button>
-          {storeKind === "github" && (
-            <button type="button" onClick={() => void disableSync()} className="rounded-lg border border-line px-4 py-2 text-sm">
-              Disable sync on this device
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={signOut}
+            className="rounded border border-bad/50 px-4 py-2 text-sm font-bold text-bad uppercase hover:bg-bad-bg"
+          >
+            Sign out on this device
+          </button>
         </div>
-        <NoticeLine notice={syncNotice} />
+        <NoticeLine notice={accessNotice} />
       </section>
 
       <section className="rounded-xl border border-line bg-surface p-5">
-        <h2 className="font-medium">Backup</h2>
+        <h2 className="font-comic text-2xl text-white">Backup</h2>
         <p className="mt-1 text-sm text-ink-2">Export everything as JSON, or import a backup. Imports merge, so they never delete answers.</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <button type="button" onClick={exportJson} className="rounded-lg border border-line px-4 py-2 text-sm">
+          <button type="button" onClick={exportJson} className="rounded border border-line px-4 py-2 text-sm hover:border-accent">
             Export JSON
           </button>
-          <label className="cursor-pointer rounded-lg border border-line px-4 py-2 text-sm">
+          <label className="cursor-pointer rounded border border-line px-4 py-2 text-sm hover:border-accent">
             Import JSON
             <input
               type="file"
