@@ -259,7 +259,7 @@
     "domain": "oop",
     "topic": "solid",
     "difficulty": 2,
-    "prompt": "ReadOnlyList<T> implements IList<T> but throws NotSupportedException from Add. Callers who accept an IList<T> and call Add now crash. Which principle does this break?",
+    "prompt": "ReadOnlyCollection<T> implements IList<T> but throws NotSupportedException from Add. Callers who accept an IList<T> and call Add now crash. Which principle does this break?",
     "options": [
       "Interface Segregation, because the interface has too many methods",
       "Single Responsibility, because the list both stores and protects items",
