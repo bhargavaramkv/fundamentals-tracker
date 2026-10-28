@@ -1,10 +1,8 @@
-# Fundamentals Tracker · BHARGAVA.DEV Training Facility
+# Fundamentals Tracker
 
 A private, adaptive tracker for software-engineering fundamentals at interview and
 real-work level: DSA, OOP and design principles, databases, system design, and
-web/networking. Styled to match the [bhargava.dev portfolio](https://github.com/bhargavaramkv/bhargavaram-portfolio):
-dark Marvel / J.A.R.V.I.S. theme, tech-blue accent, Bangers headings on Roboto
-Condensed. It finds weak areas from your answers and keeps practice focused
+web/networking. It finds weak areas from your answers and keeps practice focused
 on them. A daily Claude routine also improves the lessons and questions based on
 where you keep failing.
 
@@ -12,27 +10,28 @@ where you keep failing.
 
 ## Access control
 
-The site is locked behind a sign-in screen. GitHub Pages can't run server-side
-auth, so instead of a fake client-side password, sign-in proves something only
-you control:
+The site opens on a **username + password** sign-in screen. GitHub Pages can't
+run a server, so the check is built so the password does real cryptographic work
+rather than being a string compared in JavaScript:
 
-- You paste a fine-grained GitHub token. The app calls the GitHub API and unlocks
-  only if that token can read the **private** repo
-  `bhargavaramkv/fundamentals-tracker-data`.
-- That repo is fixed at build time (`NEXT_PUBLIC_DATA_OWNER` / `NEXT_PUBLIC_DATA_REPO`),
-  so a visitor can't point the check at their own repo. The app also refuses to
-  unlock if the data repo is ever made public.
-- The token is re-verified on every load (with a 7-day offline grace). An
-  expired or revoked token sends you back to the sign-in screen. Use
-  **Systems → Sign out on this device** on shared machines.
-- Signing in also turns on sync, so the daily routine always sees your data.
+- `lib/login-vault.json` holds only a random salt and an AES-GCM ciphertext of a
+  marker. Signing in derives a key from `username + password` with PBKDF2-SHA256
+  (600,000 iterations), and only the right pair decrypts the marker. The password
+  is never stored anywhere.
+- You stay signed in for 30 days per device. The saved session is the derived
+  key, and it's re-checked against the vault on every load, so a forged session
+  doesn't unlock anything.
+- The GitHub sync token is stored **encrypted with that key**, so after
+  **Settings → Sign out** it can't be recovered from the browser.
 - Pages are marked `noindex`.
 
-**What this does and doesn't protect.** Your progress data and the app UI are
-gated. The lessons and questions themselves are open source in this public repo,
-and their text ships in the static bundle, so treat content as public. If the
-content itself must be private, the options are a private repo with Pages on a
-paid plan, or hosting behind an access proxy (e.g. Cloudflare Access).
+**Changing the password:** `LOGIN_USERNAME=bhargav LOGIN_PASSWORD='new-pass' npm run set-password`
+(or `npm run set-password -- --generate` for a random one), then commit
+`lib/login-vault.json`. Devices that were signed in are signed out.
+
+**What this protects:** your progress data (it also needs the sync token, which
+GitHub enforces) and the app UI. The lesson and question text is open source in
+this public repo and ships in the static bundle, so treat content as public.
 
 ## Features
 
@@ -81,7 +80,7 @@ routes and no server-side database connections. So:
   build time.
 - Progress lives in **localStorage**, behind the `ProgressStore` interface in
   `lib/storage.ts`.
-- **Sync** (on whenever you're signed in) mirrors progress to `progress.json` in a **private** repo,
+- **Optional sync** mirrors progress to `progress.json` in a **private** repo,
   `bhargavaramkv/fundamentals-tracker-data`, through the GitHub REST API. That
   gives you multi-device use and lets the daily routine read your data.
   Merges are append-only unions by answer ID, so no device or merge can delete
@@ -108,6 +107,7 @@ npm run dev          # http://localhost:3000
 | `npm run build` | Static export to `out/` |
 | `npm run check` | All of the above; run before every commit |
 | `npm run report -- --data <progress.json>` | Markdown progress report (`--json` for JSON) |
+| `npm run set-password` | Regenerate `lib/login-vault.json` (see Access control) |
 
 ## Environment variables
 
@@ -116,11 +116,12 @@ See `.env.example`. There are **no secrets**:
 | Variable | Where | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_BASE_PATH` | set by the deploy workflow | `/fundamentals-tracker` on Pages; empty locally |
-| `NEXT_PUBLIC_DATA_OWNER` / `NEXT_PUBLIC_DATA_REPO` | optional build-time override | private repo that unlocks the app and stores progress (defaults: `bhargavaramkv` / `fundamentals-tracker-data`) |
+| `NEXT_PUBLIC_DATA_OWNER` / `NEXT_PUBLIC_DATA_REPO` | optional build-time override | private repo that stores progress (defaults: `bhargavaramkv` / `fundamentals-tracker-data`) |
 
-The access token is **not** an environment variable. You paste it into the app's
-sign-in screen, and it stays in that browser's localStorage. It is only ever sent
-to `api.github.com`.
+Neither the password nor the sync token is an environment variable. The password
+exists only as the PBKDF2 vault in `lib/login-vault.json`. The sync token is
+pasted into Settings, stored encrypted in that browser, and only ever sent to
+`api.github.com`.
 
 ## Deployment (GitHub Pages)
 
@@ -131,15 +132,17 @@ One-time setup: **Settings → Pages → Source: GitHub Actions**. Pages on a fr
 plan requires the repo to be public. The code and lessons hold nothing private;
 your progress lives in the separate private data repo.
 
-## Signing in (and sync)
+## Enabling progress sync
+
+Sync is a one-time step per device, done after signing in. It lets the daily
+routine read your results and keeps devices in step.
 
 1. Create a fine-grained token at
    https://github.com/settings/personal-access-tokens/new:
    - Repository access: **only** `fundamentals-tracker-data`
    - Permissions: **Contents: Read and write** (Metadata: read-only is added automatically)
-   - Expiration: 90 days or more. Replace it before then under **Systems → Replace token**.
-2. Open the site, paste the token on the sign-in screen, and press **Initiate**.
-3. Repeat on each device or browser you use.
+   - Expiration: 90 days or more. When it expires, paste a new one in Settings.
+2. In the app, open **Settings → Sync to GitHub**, paste it, and click **Test & enable sync**.
 
 ## Daily improvement routine
 

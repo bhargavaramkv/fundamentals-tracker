@@ -16,7 +16,9 @@ prompt just says "follow `docs/daily-routine.md`".
    with a new ID instead.
 4. **No secrets in the repo.** Access comes from the session's GitHub
    connection, not from tokens in files.
-5. `npm run check` (lint, typecheck, tests, build) must pass before every commit.
+5. **Never modify `lib/login-vault.json`** or anything under `lib/auth.ts` /
+   `lib/vault.ts`. The login is the owner's to change.
+6. `npm run check` (lint, typecheck, tests, build) must pass before every commit.
 
 ## Steps
 
@@ -57,8 +59,6 @@ Work on at most **3 topics** per run, in this priority order:
 
 Content conventions:
 
-- Keep the app's tone: Marvel / J.A.R.V.I.S. flavour in UI copy and PR summaries,
-  but lessons, questions and explanations stay plain and technically precise.
 - Questions live in `content/questions/<domain>.json`, with the next free ID
   `<domain>-<topic>-<n>`. Write 4 options, one clearly correct, with plausible
   distractors. Explanations say why the answer is right *and* why the tempting
@@ -84,7 +84,7 @@ Content conventions:
 
 **Activity:** practiced in last 24h: yes/no · last active: … · streak: …
 
-> J.A.R.V.I.S. nudge (only if 2+ days inactive), in the app's Marvel / J.A.R.V.I.S. voice: …
+> Nudge (only if 2+ days inactive): …
 
 **What I saw:** weak topics, repeated misses, and the misconception each one suggests
 
