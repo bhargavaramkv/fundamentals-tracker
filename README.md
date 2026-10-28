@@ -175,8 +175,11 @@ Claude reviews your progress and improves the content, following
   you picked and the lessons you read, improves the relevant lessons and
   explanations, adds questions, and opens a PR labelled `daily-routine` with
   a summary (and a nudge if you've been inactive 2+ days).
-- **Bigger changes** (new topics, several weak domains at once, a lesson that
-  still isn't landing) are escalated to the owner's main **Opus** session.
+- The analyst has your private data attached read-only and can't push, so it
+  hands finished commits to the owner's main **Opus** session as a patch. Opus
+  reviews it, runs the checks, and opens the PR. Opus is only woken when there's
+  something to publish, or for bigger changes the analyst escalates (new topics,
+  several weak domains at once, a lesson that still isn't landing).
 - The "analysed up to" marker lives on the `routine-state` branch, so nothing
   is analysed twice.
 
