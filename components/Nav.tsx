@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { BrandMark } from "./BrandMark";
 import { useProgress } from "./ProgressProvider";
 
 const ICON = "h-5 w-5";
@@ -89,7 +90,7 @@ export function Nav() {
       <header className="sticky top-0 z-30 border-b border-line bg-surface/95 pt-[env(safe-area-inset-top)] backdrop-blur">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-6 px-[max(1rem,env(safe-area-inset-left))] py-1 sm:py-3 sm:pr-[max(1rem,env(safe-area-inset-right))]">
           <Link href="/" className="tap -ml-1 px-1 font-semibold tracking-tight sm:ml-0 sm:px-0 sm:py-1">
-            Fundamentals<span className="text-accent">.</span>
+            <BrandMark />
           </Link>
           <nav className="hidden flex-1 gap-1 text-sm sm:flex">
             {LINKS.map((l) => (
@@ -97,7 +98,7 @@ export function Nav() {
                 key={l.href}
                 href={l.href}
                 className={`rounded-md px-2.5 py-1.5 ${
-                  isActive(pathname, l.href) ? "bg-surface-2 font-medium text-ink" : "text-ink-2 hover:text-ink"
+                  isActive(pathname, l.href) ? "bg-accent/10 font-semibold text-accent" : "text-ink-2 hover:bg-surface-2 hover:text-ink"
                 }`}
               >
                 {l.label}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { DomainIcon, domainColor } from "@/components/DomainIcon";
 import { TopicScore } from "@/components/TopicScore";
 import { getAllQuestions, getAllTopics } from "@/lib/content";
 import { DOMAINS, DOMAIN_LABELS } from "@/lib/types";
@@ -12,12 +13,15 @@ export default function LessonsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Lessons</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Lessons</h1>
         <p className="mt-1 text-ink-2">Short, interview-level guides. Each topic links to a focused drill.</p>
       </div>
       {DOMAINS.map((domain) => (
         <section key={domain}>
-          <h2 className="mb-3 text-sm font-medium uppercase tracking-wide text-ink-3">{DOMAIN_LABELS[domain]}</h2>
+          <h2 className="mb-3 flex items-center gap-3 text-lg font-bold tracking-tight">
+            <DomainIcon domain={domain} size={32} />
+            {DOMAIN_LABELS[domain]}
+          </h2>
           <ul className="grid gap-3 sm:grid-cols-2">
             {topics
               .filter((t) => t.domain === domain)
@@ -25,10 +29,11 @@ export default function LessonsPage() {
                 <li key={t.topic}>
                   <Link
                     href={`/lessons/${t.domain}/${t.topic}/`}
-                    className="block h-full rounded-xl border border-line bg-surface p-4 hover:border-ink-3"
+                    className="card block h-full p-4 transition-all hover:-translate-y-0.5 hover:border-ink-3"
+                    style={{ borderLeft: `4px solid ${domainColor(t.domain)}` }}
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <p className="font-medium">{t.title}</p>
+                      <p className="font-semibold">{t.title}</p>
                       <TopicScore domain={t.domain} topic={t.topic} />
                     </div>
                     <p className="mt-1 text-sm text-ink-2">{t.summary}</p>

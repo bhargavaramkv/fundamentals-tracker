@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { summarizeSession } from "@/lib/progress";
 import { DOMAIN_LABELS, type AnswerLog, type Question, type SessionMode, type SessionRecord } from "@/lib/types";
+import { DomainIcon, domainColor } from "./DomainIcon";
+import { ProgressRing } from "./ProgressRing";
 import { useProgress } from "./ProgressProvider";
 
 /** Deterministic shuffle so option order is stable within a session but varies across sessions. */
@@ -124,7 +126,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
     <div className="space-y-5">
       <div className="flex items-center justify-between gap-4 text-sm text-ink-2">
         <span>
-          Question {index + 1} of {questions.length}
+          Question <span className="font-semibold text-ink">{index + 1}</span> of {questions.length}
         </span>
         <button
           type="button"
@@ -135,19 +137,26 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           {answers.length > 0 ? "End & save" : "Exit"}
         </button>
       </div>
-      <div className="h-1 overflow-hidden rounded-full bg-surface-2" aria-hidden>
-        <div className="h-full bg-accent transition-all" style={{ width: `${(100 * index) / questions.length}%` }} />
+      <div className="h-2 overflow-hidden rounded-full bg-surface-2" aria-hidden>
+        <div
+          className="h-full rounded-full transition-all duration-500"
+          style={{ width: `${(100 * index) / questions.length}%`, background: domainColor(question.domain) }}
+        />
       </div>
 
-      <article className="rounded-xl border border-line bg-surface p-5 sm:p-6">
-        <div className="mb-3 flex flex-wrap gap-2 text-xs text-ink-3">
-          <span>{DOMAIN_LABELS[question.domain]}</span>
-          <span aria-hidden>·</span>
-          <span>{question.topic.replace(/-/g, " ")}</span>
-          <span aria-hidden>·</span>
-          <span>{DIFFICULTY_LABEL[question.difficulty]}</span>
+      <article className="card p-5 sm:p-7" style={{ borderTop: `4px solid ${domainColor(question.domain)}` }}>
+        <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-ink-2">
+          <span className="inline-flex items-center gap-2 font-medium text-ink">
+            <DomainIcon domain={question.domain} size={28} />
+            {DOMAIN_LABELS[question.domain]}
+          </span>
+          <span className="rounded-full bg-surface-2 px-2.5 py-1">{question.topic.replace(/-/g, " ")}</span>
+          <span className="rounded-full bg-surface-2 px-2.5 py-1">
+            {"●".repeat(question.difficulty)}
+            <span className="text-ink-3">{"○".repeat(3 - question.difficulty)}</span> {DIFFICULTY_LABEL[question.difficulty]}
+          </span>
         </div>
-        <h2 className="text-lg font-medium leading-snug">{question.prompt}</h2>
+        <h2 className="text-lg font-semibold leading-snug sm:text-xl">{question.prompt}</h2>
         {question.code && (
           <pre className="mt-3 overflow-x-auto rounded-lg bg-surface-2 p-3 font-mono text-sm">{question.code}</pre>
         )}
@@ -156,21 +165,31 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           {order.map((optIdx, displayIdx) => {
             const isPicked = picked === displayIdx;
             const isCorrect = displayIdx === correctDisplayIdx;
-            let tone = "border-line hover:border-accent";
+            let tone = "border-line bg-bg hover:-translate-y-px hover:border-accent hover:shadow-[var(--shadow)]";
+            let badge = "bg-surface-2 text-ink-2";
             if (picked !== null) {
-              if (isCorrect) tone = "border-good bg-good-bg";
-              else if (isPicked) tone = "border-bad bg-bad-bg";
-              else tone = "border-line opacity-60";
+              if (isCorrect) {
+                tone = "border-good bg-good-bg animate-pop";
+                badge = "bg-good text-white";
+              } else if (isPicked) {
+                tone = "border-bad bg-bad-bg animate-pop";
+                badge = "bg-bad text-white";
+              } else tone = "border-line opacity-55";
             }
             return (
-              <li key={optIdx}>
+              <li key={`${question.id}-${optIdx}`}>
                 <button
                   type="button"
                   onClick={() => choose(displayIdx)}
                   disabled={picked !== null}
-                  className={`flex min-h-12 w-full flex-wrap items-start gap-x-3 gap-y-1 rounded-lg border px-4 py-3 text-left text-[15px] transition-colors ${tone}`}
+                  className={`flex min-h-12 w-full flex-wrap items-start gap-x-3 gap-y-1 rounded-xl border-2 px-4 py-3 text-left text-[15px] transition-all ${tone}`}
                 >
-                  <span className="mt-0.5 hidden font-mono text-xs text-ink-3 sm:inline">{displayIdx + 1}</span>
+                  <span
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${badge}`}
+                    aria-hidden
+                  >
+                    {String.fromCharCode(65 + displayIdx)}
+                  </span>
                   <span className="min-w-0 flex-1 basis-0">{question.options[optIdx]}</span>
                   {/* On phones the verdict drops under the option text instead of squeezing it. */}
                   {picked !== null && isCorrect && (
@@ -186,7 +205,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
         </ol>
 
         {picked !== null && last && (
-          <div className="mt-5 rounded-lg bg-surface-2 p-4 text-sm leading-relaxed">
+          <div className={`mt-5 rounded-xl border-l-4 p-4 text-sm leading-relaxed ${last.correct ? "border-good bg-good-bg/50" : "border-bad bg-bad-bg/50"}`}>
             <p className={`mb-1 font-medium ${last.correct ? "text-good" : "text-bad"}`}>
               {last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s
             </p>
@@ -209,7 +228,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
             type="button"
             onClick={next}
             disabled={picked === null || saving}
-            className="min-h-12 w-full rounded-lg bg-accent px-5 text-base font-medium text-accent-ink disabled:opacity-40 sm:min-h-0 sm:w-auto sm:py-2.5 sm:text-sm"
+            className="btn-primary min-h-12 w-full rounded-xl px-6 text-base font-semibold disabled:opacity-40 disabled:shadow-none sm:min-h-0 sm:w-auto sm:py-2.5 sm:text-sm"
           >
             {saving ? "Saving…" : index + 1 >= questions.length ? "Finish" : "Next"}
           </button>
@@ -239,25 +258,35 @@ function QuizResult({
 
   return (
     <div className="space-y-6">
-      <section className="rounded-xl border border-line bg-surface p-6">
-        <p className="text-sm text-ink-2">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
-        <p className="mt-1 text-4xl font-semibold tabular-nums">{pct}%</p>
-        <p className="text-sm text-ink-2">
-          {session.correct} of {session.total} correct
-        </p>
-        <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+      <section className="card p-6 sm:p-8">
+        <div className="flex flex-wrap items-center gap-6">
+          <ProgressRing value={pct} size={120} stroke={12} color={pct >= 70 ? "var(--good)" : pct >= 40 ? "var(--warn)" : "var(--bad)"} label={`Score ${pct}%`}>
+            <span className="text-3xl font-bold tabular-nums">{pct}%</span>
+          </ProgressRing>
+          <div>
+            <p className="text-sm font-medium text-accent">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
+            <p className="mt-1 text-2xl font-bold tracking-tight">
+              {pct >= 80 ? "Excellent work" : pct >= 60 ? "Solid round" : pct >= 40 ? "Good practice" : "Lots to learn here, which is the point"}
+            </p>
+            <p className="text-sm text-ink-2">
+              {session.correct} of {session.total} correct
+            </p>
+          </div>
+        </div>
+        <ul className="mt-6 grid gap-2 sm:grid-cols-2">
           {Object.entries(session.domainScores).map(([d, s]) => (
-            <li key={d} className="flex justify-between rounded-md bg-surface-2 px-3 py-2 text-sm">
-              <span className="text-ink-2">{DOMAIN_LABELS[d as keyof typeof DOMAIN_LABELS]}</span>
-              <span className="font-medium tabular-nums">{s}%</span>
+            <li key={d} className="flex items-center gap-3 rounded-xl bg-surface-2 px-3 py-2 text-sm">
+              <DomainIcon domain={d as keyof typeof DOMAIN_LABELS} size={26} />
+              <span className="flex-1 text-ink-2">{DOMAIN_LABELS[d as keyof typeof DOMAIN_LABELS]}</span>
+              <span className="font-semibold tabular-nums">{s}%</span>
             </li>
           ))}
         </ul>
       </section>
 
       {wrong.length > 0 && (
-        <section className="rounded-xl border border-line bg-surface p-6">
-          <h3 className="font-medium">Scheduled for review</h3>
+        <section className="card p-6">
+          <h3 className="text-lg font-bold tracking-tight">Scheduled for review</h3>
           <p className="mb-3 text-sm text-ink-2">These come back in your practice queue in about 4 hours, then at growing intervals.</p>
           <ul className="space-y-2 text-sm">
             {wrong.map((a) => {
@@ -280,7 +309,7 @@ function QuizResult({
       )}
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/" className="tap rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink">
+        <Link href="/" className="tap btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold">
           See updated profile
         </Link>
         {onRestart ? (

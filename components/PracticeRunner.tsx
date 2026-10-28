@@ -6,6 +6,7 @@ import { useState } from "react";
 import { buildPracticeSet, recommend } from "@/lib/recommend";
 import { DOMAIN_LABELS, type Question, type TopicMeta } from "@/lib/types";
 import { useProgress } from "./ProgressProvider";
+import { DomainIcon } from "./DomainIcon";
 import { Quiz } from "./Quiz";
 
 const SESSION_SIZE = 10;
@@ -53,7 +54,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">
+        <h1 className="text-3xl font-bold tracking-tight">
           {focusTopic ? `Practice: ${focusTopic.title}` : "Adaptive practice"}
         </h1>
         <p className="mt-1 max-w-2xl text-ink-2">
@@ -76,14 +77,15 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         </div>
       )}
 
-      <section className="rounded-xl border border-line bg-surface p-5">
-        <h2 className="mb-3 text-sm font-medium">This round covers</h2>
+      <section className="card p-5">
+        <h2 className="mb-3 font-bold tracking-tight">This round covers</h2>
         <ul className="flex flex-wrap gap-2 text-xs">
           {[...new Set(preview.map((q) => `${q.domain}/${q.topic}`))].map((key) => {
             const t = topics.find((x) => `${x.domain}/${x.topic}` === key);
             const n = preview.filter((q) => `${q.domain}/${q.topic}` === key).length;
             return (
-              <li key={key} className="rounded-full bg-surface-2 px-3 py-1 text-ink-2">
+              <li key={key} className="inline-flex items-center gap-2 rounded-full border border-line bg-bg py-1 pl-1 pr-3 text-ink-2">
+                {t && <DomainIcon domain={t.domain} size={22} />}
                 {t?.title ?? key} <span className="text-ink-3">×{n}</span>
               </li>
             );
@@ -98,7 +100,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         type="button"
         onClick={start}
         disabled={preview.length === 0}
-        className="tap rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink disabled:opacity-40"
+        className="tap btn-primary rounded-xl px-6 py-3 text-sm font-semibold disabled:opacity-40"
       >
         Start round · {preview.length} questions
       </button>
@@ -108,9 +110,9 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-xl border border-line bg-surface px-4 py-3">
+    <div className="card px-4 py-3">
       <p className="text-xs text-ink-3">{label}</p>
-      <p className="text-2xl font-semibold tabular-nums">{value}</p>
+      <p className="text-2xl font-bold tabular-nums">{value}</p>
     </div>
   );
 }

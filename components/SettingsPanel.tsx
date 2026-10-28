@@ -76,9 +76,9 @@ export function SettingsPanel() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
+      <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
 
-      <section className="rounded-xl border border-line bg-surface p-5">
+      <section className="card p-5">
         <h2 className="font-medium">Storage</h2>
         <p className="mt-1 text-sm text-ink-2">
           Currently:{" "}
@@ -89,7 +89,7 @@ export function SettingsPanel() {
         {syncError && <p className="mt-2 text-sm text-bad">Last sync error: {syncError}</p>}
       </section>
 
-      <section className="rounded-xl border border-line bg-surface p-5">
+      <section className="card p-5">
         <h2 className="font-medium">Sync to GitHub</h2>
         {syncToken ? (
           <>
@@ -134,7 +134,7 @@ export function SettingsPanel() {
             type="button"
             onClick={() => void connect()}
             disabled={busy || token.trim().length < 20}
-            className="tap rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink disabled:opacity-40"
+            className="tap btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold disabled:opacity-40 disabled:shadow-none"
           >
             {busy ? "Connecting…" : syncToken ? "Save & resync" : "Test & enable sync"}
           </button>
@@ -147,7 +147,7 @@ export function SettingsPanel() {
         <NoticeLine notice={syncNotice} />
       </section>
 
-      <section className="rounded-xl border border-line bg-surface p-5">
+      <section className="card p-5">
         <h2 className="font-medium">Backup</h2>
         <p className="mt-1 text-sm text-ink-2">Export everything as JSON, or import a backup. Imports merge, so they never delete answers.</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -171,7 +171,7 @@ export function SettingsPanel() {
         <NoticeLine notice={backupNotice} />
       </section>
 
-      <section className="rounded-xl border border-line bg-surface p-5">
+      <section className="card p-5">
         <h2 className="font-medium">Account</h2>
         <p className="mt-1 text-sm text-ink-2">You stay signed in on this device for 30 days.</p>
         <button type="button" onClick={signOut} className="tap mt-4 rounded-lg border border-line px-4 py-2 text-sm text-bad">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DomainIcon, domainColor } from "@/components/DomainIcon";
 import { TopicScore } from "@/components/TopicScore";
 import { getAllQuestions, getAllTopics, getLesson } from "@/lib/content";
 import { DOMAINS, DOMAIN_LABELS, type Domain } from "@/lib/types";
@@ -33,13 +34,17 @@ export default async function LessonPage(props: PageProps<"/lessons/[domain]/[to
       <Link href="/lessons/" className="tap text-sm text-ink-3 hover:text-ink">
         ← {DOMAIN_LABELS[lesson.domain]}
       </Link>
-      <header className="mt-2 mb-6 border-b border-line pb-4">
-        <h1 className="text-2xl font-semibold tracking-tight">{lesson.title}</h1>
+      <header className="card mt-2 mb-8 p-5 sm:p-7" style={{ borderTop: `4px solid ${domainColor(lesson.domain)}` }}>
+        <p className="flex items-center gap-2 text-sm font-medium text-ink-2">
+          <DomainIcon domain={lesson.domain} size={28} />
+          {DOMAIN_LABELS[lesson.domain]}
+        </p>
+        <h1 className="mt-3 text-3xl font-bold tracking-tight">{lesson.title}</h1>
         <p className="mt-1 text-ink-2">{lesson.summary}</p>
         <div className="mt-3 flex flex-wrap items-center gap-4">
           <Link
             href={`/practice/?topic=${lesson.domain}/${lesson.topic}`}
-            className="tap rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink"
+            className="tap btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold"
           >
             Drill this topic · {count} q
           </Link>

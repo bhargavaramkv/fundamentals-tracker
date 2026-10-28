@@ -15,6 +15,7 @@ import {
   verifyToken,
 } from "@/lib/auth";
 import { DATA_REPO, GitHubStore } from "@/lib/storage";
+import { BrandMark } from "./BrandMark";
 
 type GateState =
   | { phase: "checking" }
@@ -154,12 +155,10 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
 
   return (
     <div className="flex flex-1 items-center justify-center px-[max(1rem,env(safe-area-inset-left))] pt-[calc(env(safe-area-inset-top)+2rem)] pb-[calc(env(safe-area-inset-bottom)+2rem)]">
-      <form onSubmit={submit} className="w-full max-w-sm rounded-xl border border-line bg-surface p-6">
-        <p className="font-semibold tracking-tight">
-          Fundamentals<span className="text-accent">.</span>
-        </p>
-        <h1 className="mt-4 text-xl font-semibold">Sign in</h1>
-        <p className="mt-1 text-sm text-ink-2">This tracker is private.</p>
+      <form onSubmit={submit} className="card w-full max-w-sm p-7">
+        <BrandMark size={34} />
+        <h1 className="mt-6 text-2xl font-bold tracking-tight">Welcome back</h1>
+        <p className="mt-1 text-sm text-ink-2">Sign in to continue your practice. This tracker is private.</p>
 
         <label className="mt-5 block text-sm">
           <span className="text-ink-2">Username</span>
@@ -194,7 +193,7 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
         <button
           type="submit"
           disabled={busy}
-          className="mt-5 min-h-12 w-full rounded-lg bg-accent px-4 text-base font-medium text-accent-ink disabled:opacity-50 sm:min-h-0 sm:py-2.5 sm:text-sm"
+          className="btn-primary mt-6 min-h-12 w-full rounded-xl px-4 text-base font-semibold disabled:opacity-50 sm:min-h-0 sm:py-3 sm:text-sm"
         >
           {busy ? "Signing in…" : "Sign in"}
         </button>
