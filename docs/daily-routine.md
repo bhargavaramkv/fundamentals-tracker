@@ -99,6 +99,34 @@ Content conventions:
   raw `selected` indexes.
 - Verify technical claims. Don't add a question you aren't certain about.
 
+### 3b. Tech news (every run)
+
+Keep the owner posted on software news that matters to a full-stack
+.NET / Angular / TypeScript / MongoDB / Kubernetes / Azure engineer:
+
+- **Search** (WebSearch, `standard`; `extended` if results are thin) for the
+  last ~48 hours: critical or actively exploited CVEs in common runtimes and
+  frameworks, supply-chain incidents, CA/PKI and certificate incidents, major
+  cloud or CDN outages with published postmortems, and security-relevant
+  releases of .NET, Node, Angular, TypeScript, MongoDB, Kubernetes or Azure.
+- **Bar for inclusion:** relevant to the stack *or* a clear fundamentals
+  lesson; reported by **2+ independent reputable sources** (vendor advisory,
+  CISA, the project's own post, established security press). Write only facts
+  the sources agree on, say "reportedly" where they differ, and never
+  speculate. At most **2 new stories per run**. Skip the day if nothing
+  qualifies.
+- **Follow-ups:** if a story already in `content/news/` has material new
+  developments, update it and set `updated:` instead of adding a duplicate.
+- **Format:** `content/news/YYYY-MM-DD-slug.md` with frontmatter `title`,
+  `date`, optional `updated`, `severity` (`critical` | `notable`), `tags`,
+  `relatesTo` (existing `domain/topic` lesson keys), `summary`, `sources`
+  (title + https URL) and an optional `check` question (4 options, no length
+  tell). Body sections: **What happened**, **Why it matters to you**, **The
+  fundamentals behind it** (table), **What to do**. Tests enforce the shape.
+- The cloud session may block fetching many news sites directly. Search results
+  are fine as long as 2+ sources corroborate, and the sources are always linked
+  so the owner can verify them.
+
 ### 4. Branch, commit, PR
 
 - If an open PR with the `daily-routine` label exists, add commits to its
@@ -129,11 +157,16 @@ PR body template:
 - lessons: …
 - questions: +N (ids …), explanations improved: …
 
+**In the news:** one line per new or updated story, with the link
+
 **Next focus:** …
 ```
 
 - If there is truly nothing meaningful to change, don't open a PR. End the
   run with the report summary instead.
+- **Always end the run with a short chat summary for the owner**: practice
+  status, the day's news headlines (one line each, with why they matter), and
+  the PR link. That message is how the owner is kept posted.
 
 ### 5. Record what was analysed
 
