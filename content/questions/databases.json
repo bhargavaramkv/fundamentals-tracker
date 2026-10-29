@@ -45,6 +45,36 @@
     "explanation": "Wrapping an indexed column in a function makes the predicate non-sargable: the index stores email, not LOWER(email). Index the expression (Postgres expression index, SQL Server persisted computed column) or normalize on write. In MongoDB, use a collation index."
   },
   {
+    "id": "databases-indexing-4",
+    "domain": "databases",
+    "topic": "indexing",
+    "difficulty": 2,
+    "prompt": "Index { customerId: 1, total: 1 }. Query: find({ customerId: c }, { _id: 0, total: 1 }). explain shows nReturned: 40, totalDocsExamined: 0. Why are no documents examined?",
+    "options": [
+      "The WiredTiger cache already held the pages, so reads skip the counter",
+      "The index holds every filtered and projected field, so it is covered",
+      "Projection runs before FETCH, so documents are counted in another stage",
+      "Excluding _id makes MongoDB stream results straight from the oplog"
+    ],
+    "answer": 1,
+    "explanation": "A covered query is answered from index keys alone: there is no FETCH stage, so totalDocsExamined is 0. Caching affects speed, not this counter: a cached document still counts as examined. Remove the _id: 0 and the query is no longer covered, because _id isn't in this index."
+  },
+  {
+    "id": "databases-indexing-5",
+    "domain": "databases",
+    "topic": "indexing",
+    "difficulty": 3,
+    "prompt": "A collection has the compound index { tags: 1, categories: 1 }. You insert a document where both tags and categories are arrays. What happens?",
+    "options": [
+      "It indexes the cross product of both arrays, so writes just get slower",
+      "It indexes only the first element of each array and skips the rest",
+      "The insert fails: a compound multikey index can't index two arrays",
+      "The insert works, but queries on tags alone stop using this index"
+    ],
+    "answer": 2,
+    "explanation": "A compound multikey index allows at most one array-valued field per document. MongoDB rejects the write (\"cannot index parallel arrays\") because indexing both would take the cross product of the two arrays. That cost is why the rule exists, not what MongoDB does. Model one field differently, or index each field separately."
+  },
+  {
     "id": "databases-transactions-1",
     "domain": "databases",
     "topic": "transactions",
