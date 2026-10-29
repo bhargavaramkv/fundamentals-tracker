@@ -3,10 +3,11 @@
 This branch contains the updated design specifications for the **Developer Playground × Skill Quest** redesign.
 
 ## Start here
-1. Read [UX/UI LLD v2](./docs/design/UX-UI-LLD-v2.md).
-2. Read [HLD v2](./docs/design/HLD-v2.md).
+1. Read [UX/UI LLD v2](./UX-UI-LLD-v2.md).
+2. Read [HLD v2](./HLD-v2.md).
 3. Audit the existing repository and its current behavior before changing code.
 4. Implement the shared design system first, then dashboard and learning flows in phases.
+5. Read [IMPLEMENTATION-NOTES](./IMPLEMENTATION-NOTES.md): decisions where the spec conflicted with the code.
 
 ## Key visual requirements
 - Preserve the exact existing Fundamentals. logo/wordmark and broadly retain the current header.
