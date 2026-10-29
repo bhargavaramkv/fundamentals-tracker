@@ -62,12 +62,13 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
   const preview = build();
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">
+    <div className="space-y-8">
+      <div className="hero-grid pt-2 sm:pt-6">
+        <p className="eyebrow">{warmup ? "Low pressure" : focusTopic ? "Topic drill" : "Recommended session"}</p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.125rem]">
           {warmup ? "Warm-up" : focusTopic ? `Practice: ${focusTopic.title}` : "Adaptive practice"}
         </h1>
-        <p className="mt-1 max-w-2xl text-ink-2">
+        <p className="mt-2 max-w-2xl text-ink-2">
           {warmup
             ? "Five core-level questions you haven't answered correctly yet. No pressure: just get moving."
             : focusTopic
@@ -75,14 +76,14 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
             : `A ${SESSION_SIZE}-question round built from your data: questions due for spaced review first, then your weakest topics, then topics you haven't tried yet.`}
         </p>
         {(focusTopic || warmup) && (
-          <Link href="/practice/" className="tap mt-2 inline-block text-sm text-accent hover:underline">
+          <Link href="/practice/" className="tap mt-2 inline-block text-sm text-accent-text hover:underline">
             ← Back to adaptive practice
           </Link>
         )}
       </div>
 
       {!focusTopic && !warmup && (
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid grid-cols-3 divide-x divide-line border-y border-line">
           <Stat label="Reviews due" value={rec.dueQuestionIds.length} />
           <Stat label="Weak or shaky topics" value={rec.focus.filter((f) => f.reason === "weak" || f.reason === "shaky").length} />
           <Stat label="Untested topics" value={rec.focus.filter((f) => f.reason === "untested").length} />
@@ -92,19 +93,21 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
       {!warmup && !focusTopic && (
         <p className="text-sm text-ink-2">
           Low on energy?{" "}
-          <Link href="/fun/" className="tap font-medium text-accent hover:underline">
+          <Link href="/fun/" className="tap font-medium text-accent-text hover:underline">
             Try the fun corner
           </Link>{" "}
           or a{" "}
-          <Link href="/practice/?mode=warmup" className="tap font-medium text-accent hover:underline">
+          <Link href="/practice/?mode=warmup" className="tap font-medium text-accent-text hover:underline">
             5-question warm-up
           </Link>
           .
         </p>
       )}
 
-      <section className="card p-5">
-        <h2 className="mb-3 font-bold tracking-tight">This round covers</h2>
+      <section>
+        <div className="section-head mb-3">
+          <h2>This round covers</h2>
+        </div>
         <ul className="flex flex-wrap gap-2 text-xs">
           {[...new Set(preview.map((q) => `${q.domain}/${q.topic}`))].map((key) => {
             const t = topics.find((x) => `${x.domain}/${x.topic}` === key);
@@ -128,7 +131,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         disabled={preview.length === 0}
         className="btn btn-primary"
       >
-        Start round · {preview.length} questions
+        Start round · {preview.length} questions <span className="btn-arrow" aria-hidden>→</span>
       </button>
     </div>
   );
@@ -136,9 +139,9 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="card px-4 py-3">
-      <p className="text-xs text-ink-3">{label}</p>
+    <div className="px-3 py-3 first:pl-0 sm:px-5">
       <p className="text-2xl font-bold tabular-nums">{value}</p>
+      <p className="text-xs text-ink-3">{label}</p>
     </div>
   );
 }

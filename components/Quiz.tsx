@@ -104,6 +104,15 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
     setIndex((i) => i + 1);
   }, [answers, finish, index, picked, questions.length]);
 
+  // Answers are only stored when the round ends, so warn before a reload or tab close throws them away.
+  const unsaved = answers.length > 0 && !result;
+  useEffect(() => {
+    if (!unsaved) return;
+    const onBeforeUnload = (e: BeforeUnloadEvent) => e.preventDefault();
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+  }, [unsaved]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (result || saving) return;
@@ -124,8 +133,8 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
   const last = answers[answers.length - 1];
 
   return (
-    <div className="space-y-5">
-      <div className="flex items-center justify-between gap-4 text-sm text-ink-2">
+    <div className="mx-auto max-w-3xl space-y-5">
+      <div className="flex items-center justify-between gap-4 font-mono text-sm text-ink-2">
         <span>
           Question <span className="font-semibold text-ink">{index + 1}</span> of {questions.length}
         </span>
@@ -138,17 +147,17 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           {answers.length > 0 ? "End & save" : "Exit"}
         </button>
       </div>
-      <div className="h-2 overflow-hidden rounded-full bg-surface-2" aria-hidden>
+      <div className="h-1 overflow-hidden rounded-full bg-surface-2" aria-hidden>
         <div
-          className="h-full rounded-full transition-all duration-500"
+          className="h-full rounded-full transition-[width] duration-300 motion-reduce:transition-none"
           style={{ width: `${(100 * index) / questions.length}%`, background: domainColor(question.domain) }}
         />
       </div>
 
-      <article className="card p-5 sm:p-7" style={{ borderTop: `4px solid ${domainColor(question.domain)}` }}>
+      <article className="pt-3">
         <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-ink-2">
           <span className="inline-flex items-center gap-2 font-medium text-ink">
-            <DomainIcon domain={question.domain} size={28} />
+            <DomainIcon domain={question.domain} size={26} />
             {DOMAIN_LABELS[question.domain]}
           </span>
           <span className="chip">{question.topic.replace(/-/g, " ")}</span>
@@ -157,17 +166,17 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
             <span className="text-ink-3">{"○".repeat(3 - question.difficulty)}</span> {DIFFICULTY_LABEL[question.difficulty]}
           </span>
         </div>
-        <h2 className="text-lg font-semibold leading-snug sm:text-xl">{question.prompt}</h2>
+        <h2 className="text-xl font-semibold leading-snug tracking-tight sm:text-2xl">{question.prompt}</h2>
         {question.code && (
-          <pre className="mt-3 overflow-x-auto rounded-lg bg-surface-2 p-3 font-mono text-sm">{question.code}</pre>
+          <pre className="mt-4 overflow-x-auto rounded-lg border border-line bg-surface p-3 font-mono text-sm">{question.code}</pre>
         )}
 
         <ol className="mt-5 space-y-2">
           {order.map((optIdx, displayIdx) => {
             const isPicked = picked === displayIdx;
             const isCorrect = displayIdx === correctDisplayIdx;
-            let tone = "border-line bg-bg hover:-translate-y-px hover:border-accent hover:shadow-[var(--shadow)]";
-            let badge = "bg-surface-2 text-ink-2";
+            let tone = "border-line bg-surface hover:border-accent hover:bg-surface-2";
+            let badge = "border border-line text-ink-2";
             if (picked !== null) {
               if (isCorrect) {
                 tone = "border-good bg-good-bg animate-pop";
@@ -175,7 +184,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
               } else if (isPicked) {
                 tone = "border-bad bg-bad-bg animate-pop";
                 badge = "bg-bad text-white";
-              } else tone = "border-line opacity-55";
+              } else tone = "border-line bg-surface opacity-55";
             }
             return (
               <li key={`${question.id}-${optIdx}`}>
@@ -183,10 +192,10 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
                   type="button"
                   onClick={() => choose(displayIdx)}
                   disabled={picked !== null}
-                  className={`flex min-h-12 w-full flex-wrap items-start gap-x-3 gap-y-1 rounded-xl border-2 px-4 py-3 text-left text-[15px] transition-all ${tone}`}
+                  className={`flex min-h-12 w-full flex-wrap items-start gap-x-3 gap-y-1 rounded-lg border px-4 py-3 text-left text-[15px] transition-colors disabled:cursor-default ${tone}`}
                 >
                   <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${badge}`}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded font-mono text-xs font-bold ${badge}`}
                     aria-hidden
                   >
                     {String.fromCharCode(65 + displayIdx)}
@@ -206,14 +215,17 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
         </ol>
 
         {picked !== null && last && (
-          <div className={`mt-5 rounded-xl border-l-4 p-4 text-sm leading-relaxed ${last.correct ? "border-good bg-good-bg/50" : "border-bad bg-bad-bg/50"}`}>
+          <div
+            role="status"
+            className={`mt-5 rounded-lg border-l-4 p-4 text-sm leading-relaxed ${last.correct ? "border-good bg-good-bg/50" : "border-bad bg-bad-bg/50"}`}
+          >
             <p className={`mb-1 font-medium ${last.correct ? "text-good" : "text-bad"}`}>
               {last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s
             </p>
             <p className="text-ink-2">{question.explanation}</p>
             <Link
               href={`/lessons/${question.domain}/${question.topic}/`}
-              className="-mx-1 mt-1 inline-flex min-h-11 items-center px-1 text-accent hover:underline"
+              className="-mx-1 mt-1 inline-flex min-h-11 items-center px-1 text-accent-text hover:underline"
               target="_blank"
             >
               Read the lesson ↗
@@ -232,10 +244,11 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
             className="btn btn-primary btn-lg btn-block"
           >
             {saving ? "Saving…" : index + 1 >= questions.length ? "Finish" : "Next"}
+            {!saving && <span className="btn-arrow" aria-hidden>→</span>}
           </button>
         </div>
       </div>
-      <p className="hidden text-right text-xs text-ink-3 sm:block">Keys: 1–{order.length} to answer, Enter for next</p>
+      <p className="hidden text-right font-mono text-xs text-ink-3 sm:block">Keys: 1–{order.length} to answer, Enter for next</p>
     </div>
   );
 }
@@ -258,25 +271,31 @@ function QuizResult({
   const pct = Math.round((100 * session.correct) / Math.max(1, session.total));
 
   return (
-    <div className="space-y-6">
-      <section className="card p-6 sm:p-8">
+    <div className="mx-auto max-w-3xl space-y-10">
+      <section className="hero-grid pt-4">
         <div className="flex flex-wrap items-center gap-6">
           <ProgressRing value={pct} size={120} stroke={12} color={pct >= 70 ? "var(--good)" : pct >= 40 ? "var(--warn)" : "var(--bad)"} label={`Score ${pct}%`}>
             <span className="text-3xl font-bold tabular-nums">{pct}%</span>
           </ProgressRing>
           <div>
-            <p className="text-sm font-medium text-accent">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
-            <p className="mt-1 text-2xl font-bold tracking-tight">
+            <p className="eyebrow">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
+            <h1 className="mt-1 text-3xl font-bold tracking-tight">
               {pct >= 80 ? "Excellent work" : pct >= 60 ? "Solid round" : pct >= 40 ? "Good practice" : "Lots to learn here, which is the point"}
-            </p>
+            </h1>
             <p className="text-sm text-ink-2">
               {session.correct} of {session.total} correct
             </p>
           </div>
         </div>
-        <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+        {mode === "assessment" && (
+          <p className="mt-4 max-w-xl text-sm text-ink-3">
+            A baseline shows where to aim practice next. It&apos;s a snapshot from {session.total} questions, not a verdict on
+            your engineering ability.
+          </p>
+        )}
+        <ul className="mt-6 grid gap-x-8 sm:grid-cols-2">
           {Object.entries(session.domainScores).map(([d, s]) => (
-            <li key={d} className="flex items-center gap-3 rounded-xl bg-surface-2 px-3 py-2 text-sm">
+            <li key={d} className="flex items-center gap-3 border-b border-line py-2.5 text-sm">
               <DomainIcon domain={d as keyof typeof DOMAIN_LABELS} size={26} />
               <span className="flex-1 text-ink-2">{DOMAIN_LABELS[d as keyof typeof DOMAIN_LABELS]}</span>
               <span className="font-semibold tabular-nums">{s}%</span>
@@ -286,20 +305,26 @@ function QuizResult({
       </section>
 
       {wrong.length > 0 && (
-        <section className="card p-6">
-          <h3 className="text-lg font-bold tracking-tight">Scheduled for review</h3>
-          <p className="mb-3 text-sm text-ink-2">These come back in your practice queue in about 4 hours, then at growing intervals.</p>
+        <section>
+          <div className="section-head">
+            <h2>Scheduled for review</h2>
+          </div>
+          <p className="mt-2 mb-3 text-sm text-ink-2">These come back in your practice queue in about 4 hours, then at growing intervals.</p>
           <ul className="space-y-2 text-sm">
             {wrong.map((a) => {
               const q = byId.get(a.questionId);
               if (!q) return null;
               return (
-                <li key={a.id} className="rounded-md bg-surface-2 px-3 py-2">
+                <li key={a.id} className="rounded-lg border border-line bg-surface px-3 py-2">
                   <p>{q.prompt}</p>
                   <p className="mt-1 text-ink-2">
                     Answer: <span className="text-ink">{q.options[q.answer]}</span> ·{" "}
-                    <Link href={`/lessons/${q.domain}/${q.topic}/`} className="text-accent hover:underline">
+                    <Link href={`/lessons/${q.domain}/${q.topic}/`} className="text-accent-text hover:underline">
                       lesson
+                    </Link>{" "}
+                    ·{" "}
+                    <Link href={`/practice/?topic=${q.domain}/${q.topic}`} className="text-accent-text hover:underline">
+                      drill
                     </Link>
                   </p>
                 </li>
@@ -311,7 +336,7 @@ function QuizResult({
 
       <div className="flex flex-wrap gap-3">
         <Link href="/" className="btn btn-primary">
-          See updated profile
+          See updated profile <span className="btn-arrow" aria-hidden>→</span>
         </Link>
         {onRestart ? (
           <button type="button" onClick={onRestart} className="btn btn-secondary">
