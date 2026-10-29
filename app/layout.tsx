@@ -27,8 +27,8 @@ export const viewport: Viewport = {
   // Draw under the notch / Dynamic Island and home indicator; safe-area insets keep content clear.
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fcfcfb" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1a19" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f7f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a1016" },
   ],
 };
 
@@ -39,10 +39,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AuthGate>
           <ProgressProvider>
             <Nav />
-            <main className="mx-auto w-full max-w-5xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-5 sm:py-8">
+            <main className="mx-auto w-full max-w-6xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-5 sm:py-8">
               {children}
             </main>
-            <footer className="mx-auto w-full max-w-5xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8">
+            <footer className="mx-auto w-full max-w-6xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8">
               Lessons and questions live in <code>/content</code>. Progress stays in your browser unless you enable sync.
             </footer>
           </ProgressProvider>
