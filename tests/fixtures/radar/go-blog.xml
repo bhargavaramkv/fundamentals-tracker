@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Fixture Atom feed</title>
+  <entry>
+    <title type="html">Fixture: Go 1.30 is released</title>
+    <link rel="alternate" href="https://go.dev/blog/fixture-go1.30"/>
+    <id>tag:go.dev,2026:fixture</id>
+    <published>2026-10-29T08:00:00Z</published>
+    <updated>2026-10-29T08:00:00Z</updated>
+    <summary type="html">Go 1.30 adds a new garbage collector and faster compiler.</summary>
+  </entry>
+</feed>

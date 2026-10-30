@@ -1,0 +1,5 @@
+[
+ {"name": "TypeScript 7.1", "tag_name": "v7.1.0", "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v7.1.0", "published_at": "2026-10-29T18:00:00Z", "body": "Fixture release notes.", "draft": false, "prerelease": false},
+ {"name": "TypeScript 7.1 RC", "tag_name": "v7.1-rc", "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v7.1-rc", "published_at": "2026-10-20T18:00:00Z", "body": "rc", "draft": false, "prerelease": true},
+ {"name": "TypeScript 7.0.3", "tag_name": "v7.0.3", "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v7.0.3", "published_at": "2026-10-28T18:00:00Z", "body": "Fixture patch.", "draft": false, "prerelease": false}
+]
