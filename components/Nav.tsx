@@ -23,7 +23,7 @@ const FUN_ICON = (
   </Icon>
 );
 
-// `tab: false` links live in the header on phones; the bottom bar keeps the five learning destinations.
+// `tab: false` links live in the header on phones; the bottom bar keeps five destinations.
 const LINKS: { href: string; label: string; short: string; icon: ReactNode; tab: boolean }[] = [
   {
     href: "/",
@@ -72,8 +72,22 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode; tab:
     ),
   },
   {
-    href: "/news/",
+    href: "/radar/",
+    label: "Radar",
+    short: "Radar",
     tab: true,
+    icon: (
+      <Icon>
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="5" />
+        <path d="M12 12 18.4 5.6" />
+        <circle cx="16" cy="9.5" r="1" fill="currentColor" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/news/",
+    tab: false,
     label: "News",
     short: "News",
     icon: (
