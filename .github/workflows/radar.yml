@@ -1,0 +1,76 @@
+name: Tech Radar
+
+# Daily ingest at 07:00 IST (01:30 UTC): fetch every source, dedupe, rank, analyse the best new stories,
+# commit the result to the radar-data branch, then rebuild and deploy the site.
+on:
+  schedule:
+    - cron: "30 1 * * *"
+  workflow_dispatch:
+    inputs:
+      max_analyses:
+        description: "Most stories to analyse this run"
+        default: "10"
+      analyze:
+        description: "Run AI analysis (needs the ANTHROPIC_API_KEY secret)"
+        type: boolean
+        default: true
+
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check out radar-data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin radar-data >/dev/null; then
+            git fetch origin radar-data
+            git worktree add content/radar origin/radar-data
+            git -C content/radar checkout -B radar-data
+          else
+            git worktree add --orphan -b radar-data content/radar
+          fi
+      - name: Ingest
+        id: ingest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RADAR_MAX_ANALYSES: ${{ inputs.max_analyses || '10' }}
+        run: |
+          npm run --silent radar -- ingest --data content/radar --summary "$GITHUB_STEP_SUMMARY" \
+            ${{ inputs.analyze == false && '--no-analyze' || '' }}
+      - name: Validate stored stories
+        run: npm run --silent radar -- check --data content/radar
+      - name: Commit to radar-data
+        # Runs even when too many sources failed, so a partial run is never lost (the job still ends red).
+        if: always() && steps.ingest.outcome != 'skipped'
+        run: |
+          cd content/radar
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -qm "radar: $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do git push origin HEAD:radar-data && break; sleep $((i * 5)); done
+          fi
+
+  deploy:
+    needs: ingest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
