@@ -46,6 +46,21 @@ export function SkillPath({ domains, goal }: { domains: DomainStat[]; goal: { hr
         className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
         aria-hidden
       >
+        {/* Decorative ridgeline rising toward the goal: the quest backdrop, drawn rather than a raster image. */}
+        <defs>
+          <linearGradient id="skill-ridge" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="var(--text-3)" stopOpacity={0.16} />
+            <stop offset="1" stopColor="var(--text-3)" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0 176V120L70 96L120 110L190 70L250 92L330 52L390 78L460 30L520 54L560 12L600 34V176Z"
+          fill="url(#skill-ridge)"
+        />
+        <path
+          d="M0 176V150L90 128L160 142L250 112L320 132L410 100L480 118L560 82L600 96V176Z"
+          fill="url(#skill-ridge)"
+        />
         <path d={path} fill="none" stroke="var(--border)" strokeWidth={2} vectorEffect="non-scaling-stroke" />
         <path
           d={path}
