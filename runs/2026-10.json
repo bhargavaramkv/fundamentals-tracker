@@ -17,5 +17,23 @@
    "msrc: malformed XML: boolean attribute 'crossorigin' is not allowed. (line 124)",
    "acm-queue: HTTP 410"
   ]
+ },
+ {
+  "startedAt": "2026-10-30T06:46:35.442Z",
+  "finishedAt": "2026-10-30T06:46:40.905Z",
+  "ok": true,
+  "sourcesOk": 42,
+  "sourcesFailed": 1,
+  "itemsFetched": 179,
+  "newStories": 5,
+  "updatedStories": 0,
+  "corroborated": 0,
+  "unchanged": 121,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "ANTHROPIC_API_KEY is not set; stories are ranked but not analysed",
+  "errors": [
+   "cacm: HTTP 403"
+  ]
  }
 ]
