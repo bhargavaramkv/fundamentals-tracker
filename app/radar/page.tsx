@@ -48,9 +48,6 @@ export default function RadarPage() {
               Monthly archive →
             </Link>
           )}
-          <Link href="/news/" className="tap text-ink-2 hover:text-ink hover:underline">
-            Incident deep-dives
-          </Link>
         </nav>
       </div>
       <RadarFeed

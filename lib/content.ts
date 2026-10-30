@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import { DOMAINS, type Domain, type FunFact, type FunStory, type Lesson, type NewsItem, type Question, type TopicMeta } from "./types";
+import { DOMAINS, type Domain, type FunFact, type FunStory, type Lesson, type Question, type TopicMeta } from "./types";
 import { validateQuestions } from "./validate";
 
 // Content is read at build time only (static export), so plain sync fs is fine.
@@ -63,34 +63,6 @@ export function getLesson(domain: Domain, topic: string): Lesson | null {
     summary: String(data.summary ?? ""),
     html,
   };
-}
-
-const NEWS_DIR = path.join(CONTENT_DIR, "news");
-
-/** News stories, newest first. Slug is the file name without .md. */
-export function getAllNews(): NewsItem[] {
-  if (!fs.existsSync(NEWS_DIR)) return [];
-  return fs
-    .readdirSync(NEWS_DIR)
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => {
-      const { data, content } = matter(fs.readFileSync(path.join(NEWS_DIR, f), "utf8"));
-      return {
-        slug: f.replace(/\.md$/, ""),
-        title: String(data.title),
-        date: String(data.date),
-        updated: data.updated ? String(data.updated) : undefined,
-        severity: data.severity === "critical" ? "critical" : "notable",
-        tags: (data.tags as string[] | undefined) ?? [],
-        relatesTo: (data.relatesTo as string[] | undefined) ?? [],
-        summary: String(data.summary ?? ""),
-        sources: (data.sources as NewsItem["sources"] | undefined) ?? [],
-        check: data.check as NewsItem["check"],
-        // Repo-owned markdown, same as lessons.
-        html: marked.parse(content, { async: false }),
-      } satisfies NewsItem;
-    })
-    .sort((a, b) => (b.updated ?? b.date).localeCompare(a.updated ?? a.date));
 }
 
 export function getFunStories(): FunStory[] {

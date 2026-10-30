@@ -1,7 +1,7 @@
 # Tech Radar
 
 The radar finds important technology developments every day, ranks them, and explains each one through the engineering
-fundamentals behind it. It sits next to **News**, which holds hand-written incident deep-dives and works as before.
+fundamentals behind it. It is the site's only news section (it replaced the hand-written News pages).
 
 ## Architecture
 

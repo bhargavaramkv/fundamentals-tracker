@@ -53,10 +53,6 @@ this public repo and ships in the static bundle, so treat content as public.
   whatever you saw least recently.
 - **Spaced repetition:** every missed question enters a Leitner deck
   (4h → 1d → 3d → 7d → 14d → 30d). A miss resets it to the first box.
-- **Tech news:** software incidents that matter to the stack (critical CVEs,
-  PKI/certificate incidents, major outages), each explained through the
-  fundamentals behind it, with sources and a self-check. Stories live in
-  `content/news/`; the daily routine adds new ones.
 - **Tech Radar:** a daily, automatically discovered feed of important developments
   across AI, developer tools, cloud and databases, security, hardware and research,
   from 43 official blogs, release feeds, advisories, research feeds and publications.
