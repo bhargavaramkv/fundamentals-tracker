@@ -37,17 +37,25 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
   const [sessionId] = useState(() => crypto.randomUUID());
   const [startedAt] = useState(() => new Date().toISOString());
   const [index, setIndex] = useState(0);
-  const [picked, setPicked] = useState<number | null>(null);
-  const [answers, setAnswers] = useState<AnswerLog[]>([]);
+  // One log per question index. Practice locks the first pick and shows feedback; an assessment measures unaided
+  // performance, so it hides correctness until the end and lets you go back and change an answer.
+  const [logs, setLogs] = useState<(AnswerLog | null)[]>(() => questions.map(() => null));
   const [result, setResult] = useState<SessionRecord | null>(null);
   const [saving, setSaving] = useState(false);
   const shownAt = useRef(0);
+  // Assessment: time already spent on each question during earlier visits.
+  const priorMs = useRef<number[]>(questions.map(() => 0));
+  const blind = mode === "assessment";
 
   const question = questions[index];
+  const log = logs[index] ?? null;
+  const answers = useMemo(() => logs.filter((l): l is AnswerLog => l !== null), [logs]);
   const order = useMemo(
     () => (question ? seededOrder(question.options.length, `${sessionId}:${question.id}`) : []),
     [question, sessionId],
   );
+  const picked = log ? order.indexOf(log.selected) : null;
+  const revealed = !blind && picked !== null;
 
   useEffect(() => {
     shownAt.current = performance.now();
@@ -55,13 +63,13 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
 
   const choose = useCallback(
     (displayIdx: number) => {
-      if (!question || picked !== null) return;
+      if (!question || saving || (!blind && log)) return;
       const selected = order[displayIdx];
-      setPicked(displayIdx);
-      setAnswers((prev) => [
-        ...prev,
-        {
-          id: crypto.randomUUID(),
+      const at = index;
+      setLogs((prev) => {
+        const nextLogs = [...prev];
+        nextLogs[at] = {
+          id: prev[at]?.id ?? crypto.randomUUID(),
           sessionId,
           mode,
           questionId: question.id,
@@ -71,16 +79,19 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           correct: selected === question.answer,
           selected,
           selectedText: question.options[selected],
-          timeMs: Math.round(performance.now() - shownAt.current),
+          // Time to the (final) decision, across visits.
+          timeMs: Math.round(priorMs.current[at] + performance.now() - shownAt.current),
           answeredAt: new Date().toISOString(),
-        },
-      ]);
+        };
+        return nextLogs;
+      });
     },
-    [mode, order, picked, question, sessionId],
+    [blind, index, log, mode, order, question, saving, sessionId],
   );
 
   const finish = useCallback(
     async (logged: AnswerLog[]) => {
+      if (saving) return;
       if (logged.length === 0) {
         onExit?.();
         return;
@@ -91,18 +102,51 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
       setSaving(false);
       setResult(session);
     },
-    [commitSession, mode, onExit, sessionId, startedAt],
+    [commitSession, mode, onExit, saving, sessionId, startedAt],
+  );
+
+  const go = useCallback(
+    (to: number) => {
+      priorMs.current[index] += performance.now() - shownAt.current;
+      setIndex(to);
+    },
+    [index],
   );
 
   const next = useCallback(() => {
-    if (picked === null) return;
+    if (picked === null || saving) return;
     if (index + 1 >= questions.length) {
       void finish(answers);
       return;
     }
-    setPicked(null);
-    setIndex((i) => i + 1);
-  }, [answers, finish, index, picked, questions.length]);
+    go(index + 1);
+  }, [answers, finish, go, index, picked, questions.length, saving]);
+
+  const previous = useCallback(() => {
+    if (blind && index > 0 && !saving) go(index - 1);
+  }, [blind, go, index, saving]);
+
+  // Answers are only stored when the round ends, so warn before leaving would throw them away.
+  const unsaved = answers.length > 0 && !result;
+  useEffect(() => {
+    if (!unsaved) return;
+    const onBeforeUnload = (e: BeforeUnloadEvent) => e.preventDefault();
+    // In-app links: capture runs before Next's router sees the click, so cancelling here keeps the round.
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as Element | null)?.closest?.("a[href]");
+      if (!a || a.getAttribute("target") === "_blank" || e.defaultPrevented) return;
+      if (!window.confirm("Leave this round? Answers so far haven't been saved. Use “End & save” to keep them.")) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+    window.addEventListener("beforeunload", onBeforeUnload);
+    document.addEventListener("click", onClick, true);
+    return () => {
+      window.removeEventListener("beforeunload", onBeforeUnload);
+      document.removeEventListener("click", onClick, true);
+    };
+  }, [unsaved]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -110,10 +154,11 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
       const n = Number(e.key);
       if (n >= 1 && n <= order.length) choose(n - 1);
       else if (e.key === "Enter") next();
+      else if (e.key === "ArrowLeft") previous();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [choose, next, order.length, result, saving]);
+  }, [choose, next, order.length, previous, result, saving]);
 
   if (result) {
     return <QuizResult session={result} answers={answers} questions={questions} mode={mode} onRestart={onRestart} />;
@@ -121,11 +166,11 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
   if (!question) return <p className="text-ink-2">No questions to show.</p>;
 
   const correctDisplayIdx = order.indexOf(question.answer);
-  const last = answers[answers.length - 1];
+  const last = log;
 
   return (
-    <div className="space-y-5">
-      <div className="flex items-center justify-between gap-4 text-sm text-ink-2">
+    <div className="mx-auto max-w-3xl space-y-5">
+      <div className="flex items-center justify-between gap-4 font-mono text-sm text-ink-2">
         <span>
           Question <span className="font-semibold text-ink">{index + 1}</span> of {questions.length}
         </span>
@@ -138,17 +183,17 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           {answers.length > 0 ? "End & save" : "Exit"}
         </button>
       </div>
-      <div className="h-2 overflow-hidden rounded-full bg-surface-2" aria-hidden>
+      <div className="h-1 overflow-hidden rounded-full bg-surface-2" aria-hidden>
         <div
-          className="h-full rounded-full transition-all duration-500"
+          className="h-full rounded-full transition-[width] duration-300 motion-reduce:transition-none"
           style={{ width: `${(100 * index) / questions.length}%`, background: domainColor(question.domain) }}
         />
       </div>
 
-      <article className="card p-5 sm:p-7" style={{ borderTop: `4px solid ${domainColor(question.domain)}` }}>
+      <article className="pt-3">
         <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-ink-2">
           <span className="inline-flex items-center gap-2 font-medium text-ink">
-            <DomainIcon domain={question.domain} size={28} />
+            <DomainIcon domain={question.domain} size={26} />
             {DOMAIN_LABELS[question.domain]}
           </span>
           <span className="chip">{question.topic.replace(/-/g, " ")}</span>
@@ -157,46 +202,51 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
             <span className="text-ink-3">{"○".repeat(3 - question.difficulty)}</span> {DIFFICULTY_LABEL[question.difficulty]}
           </span>
         </div>
-        <h2 className="text-lg font-semibold leading-snug sm:text-xl">{question.prompt}</h2>
+        <h2 className="text-xl font-semibold leading-snug tracking-tight sm:text-2xl">{question.prompt}</h2>
         {question.code && (
-          <pre className="mt-3 overflow-x-auto rounded-lg bg-surface-2 p-3 font-mono text-sm">{question.code}</pre>
+          <pre className="mt-4 overflow-x-auto rounded-lg border border-line bg-surface p-3 font-mono text-sm">{question.code}</pre>
         )}
 
         <ol className="mt-5 space-y-2">
           {order.map((optIdx, displayIdx) => {
             const isPicked = picked === displayIdx;
             const isCorrect = displayIdx === correctDisplayIdx;
-            let tone = "border-line bg-bg hover:-translate-y-px hover:border-accent hover:shadow-[var(--shadow)]";
-            let badge = "bg-surface-2 text-ink-2";
-            if (picked !== null) {
+            let tone = "border-line bg-surface hover:border-accent hover:bg-surface-2";
+            let badge = "border border-line text-ink-2";
+            if (blind && isPicked) {
+              tone = "border-accent bg-accent/10 ring-1 ring-accent";
+              badge = "bg-accent text-accent-ink";
+            } else if (revealed) {
               if (isCorrect) {
                 tone = "border-good bg-good-bg animate-pop";
                 badge = "bg-good text-white";
               } else if (isPicked) {
                 tone = "border-bad bg-bad-bg animate-pop";
                 badge = "bg-bad text-white";
-              } else tone = "border-line opacity-55";
+              } else tone = "border-line bg-surface opacity-55";
             }
             return (
               <li key={`${question.id}-${optIdx}`}>
                 <button
                   type="button"
                   onClick={() => choose(displayIdx)}
-                  disabled={picked !== null}
-                  className={`flex min-h-12 w-full flex-wrap items-start gap-x-3 gap-y-1 rounded-xl border-2 px-4 py-3 text-left text-[15px] transition-all ${tone}`}
+                  disabled={revealed}
+                  aria-pressed={blind ? isPicked : undefined}
+                  className={`flex min-h-12 w-full flex-wrap items-start gap-x-3 gap-y-1 rounded-lg border px-4 py-3 text-left text-[15px] transition-colors disabled:cursor-default ${tone}`}
                 >
                   <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${badge}`}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded font-mono text-xs font-bold ${badge}`}
                     aria-hidden
                   >
                     {String.fromCharCode(65 + displayIdx)}
                   </span>
                   <span className="min-w-0 flex-1 basis-0">{question.options[optIdx]}</span>
                   {/* On phones the verdict drops under the option text instead of squeezing it. */}
-                  {picked !== null && isCorrect && (
+                  {blind && isPicked && <span className="w-full text-sm font-medium text-accent-text sm:w-auto">● Selected</span>}
+                  {revealed && isCorrect && (
                     <span className="w-full text-sm font-medium text-good sm:w-auto">✓ Correct</span>
                   )}
-                  {picked !== null && isPicked && !isCorrect && (
+                  {revealed && isPicked && !isCorrect && (
                     <span className="w-full text-sm font-medium text-bad sm:w-auto">✗ Your answer</span>
                   )}
                 </button>
@@ -205,15 +255,18 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           })}
         </ol>
 
-        {picked !== null && last && (
-          <div className={`mt-5 rounded-xl border-l-4 p-4 text-sm leading-relaxed ${last.correct ? "border-good bg-good-bg/50" : "border-bad bg-bad-bg/50"}`}>
+        {revealed && last && (
+          <div
+            role="status"
+            className={`mt-5 rounded-lg border-l-4 p-4 text-sm leading-relaxed ${last.correct ? "border-good bg-good-bg/50" : "border-bad bg-bad-bg/50"}`}
+          >
             <p className={`mb-1 font-medium ${last.correct ? "text-good" : "text-bad"}`}>
               {last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s
             </p>
             <p className="text-ink-2">{question.explanation}</p>
             <Link
               href={`/lessons/${question.domain}/${question.topic}/`}
-              className="-mx-1 mt-1 inline-flex min-h-11 items-center px-1 text-accent hover:underline"
+              className="-mx-1 mt-1 inline-flex min-h-11 items-center px-1 text-accent-text hover:underline"
               target="_blank"
             >
               Read the lesson ↗
@@ -224,18 +277,34 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
 
       {/* Sticky on phones so Next is always within reach without scrolling past the explanation. */}
       <div className="sticky bottom-[calc(var(--tabbar-h)+env(safe-area-inset-bottom))] z-20 -mx-4 border-t border-line bg-bg/95 px-4 py-3 backdrop-blur sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
-        <div className="flex justify-end">
+        <div className="flex items-center justify-between gap-3">
+          {blind ? (
+            <button type="button" onClick={previous} disabled={index === 0 || saving} className="btn btn-secondary btn-lg">
+              <span aria-hidden>←</span> Previous
+            </button>
+          ) : (
+            <span />
+          )}
           <button
             type="button"
             onClick={next}
             disabled={picked === null || saving}
-            className="btn btn-primary btn-lg btn-block"
+            className={`btn btn-primary btn-lg ${blind ? "max-sm:flex-1" : "btn-block"}`}
           >
             {saving ? "Saving…" : index + 1 >= questions.length ? "Finish" : "Next"}
+            {!saving && <span className="btn-arrow" aria-hidden>→</span>}
           </button>
         </div>
       </div>
-      <p className="hidden text-right text-xs text-ink-3 sm:block">Keys: 1–{order.length} to answer, Enter for next</p>
+      {blind && (
+        <p className="text-sm text-ink-3">
+          {answers.length} of {questions.length} answered. Results and explanations come at the end; you can go back and
+          change an answer until then.
+        </p>
+      )}
+      <p className="hidden text-right font-mono text-xs text-ink-3 sm:block">
+        Keys: 1–{order.length} to answer, Enter for next{blind ? ", ← for previous" : ""}
+      </p>
     </div>
   );
 }
@@ -258,25 +327,31 @@ function QuizResult({
   const pct = Math.round((100 * session.correct) / Math.max(1, session.total));
 
   return (
-    <div className="space-y-6">
-      <section className="card p-6 sm:p-8">
+    <div className="mx-auto max-w-3xl space-y-10">
+      <section className="hero-grid pt-4">
         <div className="flex flex-wrap items-center gap-6">
           <ProgressRing value={pct} size={120} stroke={12} color={pct >= 70 ? "var(--good)" : pct >= 40 ? "var(--warn)" : "var(--bad)"} label={`Score ${pct}%`}>
             <span className="text-3xl font-bold tabular-nums">{pct}%</span>
           </ProgressRing>
           <div>
-            <p className="text-sm font-medium text-accent">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
-            <p className="mt-1 text-2xl font-bold tracking-tight">
+            <p className="eyebrow">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
+            <h1 className="mt-1 text-3xl font-bold tracking-tight">
               {pct >= 80 ? "Excellent work" : pct >= 60 ? "Solid round" : pct >= 40 ? "Good practice" : "Lots to learn here, which is the point"}
-            </p>
+            </h1>
             <p className="text-sm text-ink-2">
               {session.correct} of {session.total} correct
             </p>
           </div>
         </div>
-        <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+        {mode === "assessment" && (
+          <p className="mt-4 max-w-xl text-sm text-ink-3">
+            A baseline shows where to aim practice next. It&apos;s a snapshot from {session.total} questions, not a verdict on
+            your engineering ability.
+          </p>
+        )}
+        <ul className="mt-6 grid gap-x-8 sm:grid-cols-2">
           {Object.entries(session.domainScores).map(([d, s]) => (
-            <li key={d} className="flex items-center gap-3 rounded-xl bg-surface-2 px-3 py-2 text-sm">
+            <li key={d} className="flex items-center gap-3 border-b border-line py-2.5 text-sm">
               <DomainIcon domain={d as keyof typeof DOMAIN_LABELS} size={26} />
               <span className="flex-1 text-ink-2">{DOMAIN_LABELS[d as keyof typeof DOMAIN_LABELS]}</span>
               <span className="font-semibold tabular-nums">{s}%</span>
@@ -286,20 +361,26 @@ function QuizResult({
       </section>
 
       {wrong.length > 0 && (
-        <section className="card p-6">
-          <h3 className="text-lg font-bold tracking-tight">Scheduled for review</h3>
-          <p className="mb-3 text-sm text-ink-2">These come back in your practice queue in about 4 hours, then at growing intervals.</p>
+        <section>
+          <div className="section-head">
+            <h2>Scheduled for review</h2>
+          </div>
+          <p className="mt-2 mb-3 text-sm text-ink-2">These come back in your practice queue in about 4 hours, then at growing intervals.</p>
           <ul className="space-y-2 text-sm">
             {wrong.map((a) => {
               const q = byId.get(a.questionId);
               if (!q) return null;
               return (
-                <li key={a.id} className="rounded-md bg-surface-2 px-3 py-2">
+                <li key={a.id} className="rounded-lg border border-line bg-surface px-3 py-2">
                   <p>{q.prompt}</p>
                   <p className="mt-1 text-ink-2">
                     Answer: <span className="text-ink">{q.options[q.answer]}</span> ·{" "}
-                    <Link href={`/lessons/${q.domain}/${q.topic}/`} className="text-accent hover:underline">
+                    <Link href={`/lessons/${q.domain}/${q.topic}/`} className="text-accent-text hover:underline">
                       lesson
+                    </Link>{" "}
+                    ·{" "}
+                    <Link href={`/practice/?topic=${q.domain}/${q.topic}`} className="text-accent-text hover:underline">
+                      drill
                     </Link>
                   </p>
                 </li>
@@ -311,7 +392,7 @@ function QuizResult({
 
       <div className="flex flex-wrap gap-3">
         <Link href="/" className="btn btn-primary">
-          See updated profile
+          See updated profile <span className="btn-arrow" aria-hidden>→</span>
         </Link>
         {onRestart ? (
           <button type="button" onClick={onRestart} className="btn btn-secondary">
