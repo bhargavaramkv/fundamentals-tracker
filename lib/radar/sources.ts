@@ -41,7 +41,7 @@ export const SOURCES: SourceDef[] = [
   // Cybersecurity
   { id: "cisa-kev", name: "CISA Known Exploited Vulnerabilities", kind: "cisa-kev", url: "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", homepage: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", category: "security", credibility: 3, maxItems: 8 },
   { id: "cisa-advisories", name: "CISA Cybersecurity Advisories", kind: "feed", url: "https://www.cisa.gov/cybersecurity-advisories/all.xml", homepage: "https://www.cisa.gov/news-events/cybersecurity-advisories", category: "security", credibility: 3, maxItems: 5 },
-  { id: "msrc", name: "Microsoft Security Response Center", kind: "feed", url: "https://msrc.microsoft.com/blog/feed", homepage: "https://msrc.microsoft.com/blog/", category: "security", credibility: 3, maxItems: 3 },
+  { id: "ms-security", name: "Microsoft Security Blog", kind: "feed", url: "https://www.microsoft.com/en-us/security/blog/feed/", homepage: "https://www.microsoft.com/en-us/security/blog/", category: "security", credibility: 3, maxItems: 3 },
   { id: "project-zero", name: "Google Project Zero", kind: "feed", url: "https://googleprojectzero.blogspot.com/feeds/posts/default", homepage: "https://googleprojectzero.blogspot.com/", category: "security", credibility: 3, maxItems: 3 },
   { id: "bleepingcomputer", name: "BleepingComputer", kind: "feed", url: "https://www.bleepingcomputer.com/feed/", homepage: "https://www.bleepingcomputer.com/", category: "security", credibility: 2, maxItems: 8 },
   { id: "krebs", name: "Krebs on Security", kind: "feed", url: "https://krebsonsecurity.com/feed/", homepage: "https://krebsonsecurity.com/", category: "security", credibility: 2, maxItems: 3 },
@@ -57,7 +57,7 @@ export const SOURCES: SourceDef[] = [
   { id: "google-research", name: "Google Research Blog", kind: "feed", url: "https://research.google/blog/rss/", homepage: "https://research.google/blog/", category: "research", credibility: 3, maxItems: 4 },
   { id: "meta-engineering", name: "Engineering at Meta", kind: "feed", url: "https://engineering.fb.com/feed/", homepage: "https://engineering.fb.com/", category: "research", credibility: 3, maxItems: 3 },
   { id: "netflix-tech", name: "Netflix TechBlog", kind: "feed", url: "https://netflixtechblog.com/feed", homepage: "https://netflixtechblog.com/", category: "research", credibility: 3, maxItems: 3 },
-  { id: "acm-queue", name: "ACM Queue", kind: "feed", url: "https://queue.acm.org/rss/feeds/queuecontent.xml", homepage: "https://queue.acm.org/", category: "research", credibility: 2, maxItems: 3 },
+  { id: "cacm", name: "Communications of the ACM", kind: "feed", url: "https://cacm.acm.org/feed/", homepage: "https://cacm.acm.org/", category: "research", credibility: 2, maxItems: 3 },
   { id: "arxiv-dc", name: "arXiv: Distributed Computing", kind: "feed", url: "https://rss.arxiv.org/rss/cs.DC", homepage: "https://arxiv.org/list/cs.DC/new", category: "research", credibility: 2, maxItems: 4 },
   { id: "arxiv-db", name: "arXiv: Databases", kind: "feed", url: "https://rss.arxiv.org/rss/cs.DB", homepage: "https://arxiv.org/list/cs.DB/new", category: "research", credibility: 2, maxItems: 3 },
 ];
