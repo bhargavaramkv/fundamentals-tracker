@@ -1,0 +1,21 @@
+[
+ {
+  "startedAt": "2026-10-30T06:40:03.605Z",
+  "finishedAt": "2026-10-30T06:40:10.153Z",
+  "ok": true,
+  "sourcesOk": 41,
+  "sourcesFailed": 2,
+  "itemsFetched": 176,
+  "newStories": 116,
+  "updatedStories": 0,
+  "corroborated": 3,
+  "unchanged": 2,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "ANTHROPIC_API_KEY is not set; stories are ranked but not analysed",
+  "errors": [
+   "msrc: malformed XML: boolean attribute 'crossorigin' is not allowed. (line 124)",
+   "acm-queue: HTTP 410"
+  ]
+ }
+]

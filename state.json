@@ -1,0 +1,308 @@
+{
+ "version": 1,
+ "lastRunAt": "2026-10-30T06:40:03.605Z",
+ "lastSuccessAt": "2026-10-30T06:40:03.605Z",
+ "sources": {
+  "openai": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 6
+  },
+  "deepmind": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 5
+  },
+  "huggingface": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 5
+  },
+  "typescript-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "github-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 6
+  },
+  "rust-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "nvidia-dev": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 4
+  },
+  "google-ai": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 6
+  },
+  "python-insider": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "nodejs-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 4
+  },
+  "go-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "react-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "angular-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "gh-typescript": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 2
+  },
+  "infoq": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 6
+  },
+  "aws-news": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 5
+  },
+  "dotnet-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 4
+  },
+  "azure-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 5
+  },
+  "cloudflare": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 5
+  },
+  "kubernetes-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "cncf": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 4
+  },
+  "gcp-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 5
+  },
+  "gh-kubernetes": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 2
+  },
+  "cisa-kev": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 8
+  },
+  "mongodb": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "msrc": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": null,
+   "lastError": "malformed XML: boolean attribute 'crossorigin' is not allowed. (line 124)",
+   "consecutiveFailures": 1,
+   "lastItemCount": 0
+  },
+  "postgresql": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "bleepingcomputer": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 8
+  },
+  "project-zero": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "krebs": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "nvidia-blog": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 4
+  },
+  "ieee-spectrum": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 6
+  },
+  "ars-technica": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 6
+  },
+  "mit-tech-review": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 5
+  },
+  "google-research": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 4
+  },
+  "gh-angular": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 2
+  },
+  "cisa-advisories": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 5
+  },
+  "the-register": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 8
+  },
+  "meta-engineering": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "arxiv-dc": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 4
+  },
+  "acm-queue": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": null,
+   "lastError": "HTTP 410",
+   "consecutiveFailures": 1,
+   "lastItemCount": 0
+  },
+  "netflix-tech": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  },
+  "arxiv-db": {
+   "lastAttemptAt": "2026-10-30T06:40:03.605Z",
+   "lastOkAt": "2026-10-30T06:40:03.605Z",
+   "lastError": null,
+   "consecutiveFailures": 0,
+   "lastItemCount": 3
+  }
+ }
+}
