@@ -5,6 +5,7 @@
  *   npm run radar -- pending --data content/radar [--limit 5]           # analysis queue + prompts, as JSON (manual/routine analysis)
  *   npm run radar -- apply   --data content/radar --file analyses.json  # validate and store [{ id, model, analysis }]
  *   npm run radar -- check   --data content/radar                       # validate every stored story
+ *   npm run radar -- top     --data content/radar [--days 1] [--limit 3] # strongest recent stories (daily routine summary)
  *
  * ingest exits 0 when at least half the sources succeeded, 1 when more than half failed, 2 when none did.
  * Data is written in every case where something was fetched, so a partial run is never lost.
@@ -178,10 +179,22 @@ function check(): number {
   return bad ? 1 : 0;
 }
 
-const commands: Record<string, () => number | Promise<number>> = { ingest, pending, apply, check };
+function top(): number {
+  const since = Date.now() - Number(arg("days") ?? 1) * 86_400_000;
+  const state = readState(dataDir);
+  console.log(`last successful update: ${state.lastSuccessAt ?? "never"}`);
+  readStories(dataDir)
+    .filter((s) => !s.minor && Date.parse(s.firstSeenAt) >= since)
+    .sort((a, b) => b.score.total - a.score.total)
+    .slice(0, Number(arg("limit") ?? 3))
+    .forEach((s) => console.log(`- ${s.analysis?.headline ?? s.title} (${s.score.total}) https://bhargavaramkv.github.io/fundamentals-tracker/radar/${s.id}/`));
+  return 0;
+}
+
+const commands: Record<string, () => number | Promise<number>> = { ingest, pending, apply, check, top };
 const run = commands[command ?? ""];
 if (!run) {
-  console.error("usage: radar <ingest|pending|apply|check> --data <dir> [options]");
+  console.error("usage: radar <ingest|pending|apply|check|top> --data <dir> [options]");
   process.exit(64);
 }
 Promise.resolve(run())

@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { computeActivity, dayKey, scoreHistory } from "@/lib/activity";
 import { recommend, type FocusTopic } from "@/lib/recommend";
-import { type NewsItem, type Question, type TopicMeta, type TopicStat } from "@/lib/types";
+import { type Question, type TopicMeta, type TopicStat } from "@/lib/types";
 import loginVault from "@/lib/login-vault.json";
 import { DomainIcon } from "./DomainIcon";
 import { ProgressRing } from "./ProgressRing";
 import { useProgress } from "./ProgressProvider";
 import { ScoreChart } from "./ScoreChart";
 import { SkillPath } from "./SkillPath";
+import { CategoryTag, ImportanceTag } from "./radar/ui";
+import type { RadarListItem } from "@/lib/radar/types";
 
 const DAILY_GOAL = 10;
 
@@ -34,16 +36,14 @@ function relativeDay(days: number | null): string {
   return `${days} days ago`;
 }
 
-export type NewsHeadline = Pick<NewsItem, "slug" | "title" | "date" | "updated" | "severity" | "summary">;
-
 export function Dashboard({
   questions,
   topics,
-  news,
+  radar,
 }: {
   questions: Question[];
   topics: TopicMeta[];
-  news: NewsHeadline[];
+  radar: RadarListItem[];
 }) {
   const { data, ready } = useProgress();
   if (!ready) return <DashboardSkeleton />;
@@ -84,7 +84,7 @@ export function Dashboard({
           <SkillPath domains={rec.profile.domains} goal={{ href: "/assess/", eyebrow: "Start here", label: "Baseline assessment" }} />
         </section>
 
-        <NewsList news={news} />
+        <RadarList stories={radar} />
       </div>
     );
   }
@@ -260,7 +260,7 @@ export function Dashboard({
             items={strengths}
             titleOf={titleOf}
           />
-          <NewsList news={news} />
+          <RadarList stories={radar} />
         </div>
       </div>
     </div>
@@ -339,25 +339,23 @@ function TopicList({
   );
 }
 
-function NewsList({ news }: { news: NewsHeadline[] }) {
-  if (news.length === 0) return null;
+function RadarList({ stories }: { stories: RadarListItem[] }) {
+  if (stories.length === 0) return null;
   return (
-    <section aria-labelledby="news-h">
+    <section aria-labelledby="radar-h">
       <div className="section-head">
-        <h2 id="news-h">In the news</h2>
-        <Link href="/news/" className="tap text-sm font-medium text-accent-text hover:underline">
+        <h2 id="radar-h">On the radar</h2>
+        <Link href="/radar/" className="tap text-sm font-medium text-accent-text hover:underline">
           All stories
         </Link>
       </div>
       <ul className="divide-y divide-line">
-        {news.slice(0, 3).map((n) => (
-          <li key={n.slug}>
-            <Link href={`/news/${n.slug}/`} className="group block py-3">
-              <p className="flex flex-wrap items-center gap-2 text-xs text-ink-3">
-                {n.severity === "critical" && (
-                  <span className="tag bg-bad-bg text-bad">Critical</span>
-                )}
-                {n.updated ?? n.date}
+        {stories.map((n) => (
+          <li key={n.id}>
+            <Link href={`/radar/${n.id}/`} className="group block py-3">
+              <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <CategoryTag category={n.category} short />
+                <ImportanceTag importance={n.importance} score={n.score} />
               </p>
               <p className="mt-1 font-semibold leading-snug group-hover:text-accent-text">{n.title}</p>
               <p className="mt-0.5 line-clamp-2 text-sm text-ink-2">{n.summary}</p>

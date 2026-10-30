@@ -84,33 +84,8 @@ describe("content", () => {
   });
 });
 
-describe("news and fun content", () => {
+describe("fun content", () => {
   const lessonSet = new Set(lessonKeys());
-  const newsDir = path.join(root, "news");
-  const newsFiles = fs.existsSync(newsDir) ? fs.readdirSync(newsDir).filter((f) => f.endsWith(".md")) : [];
-
-  it("every news story is dated, sourced at least twice, and links to real lessons", () => {
-    expect(newsFiles.length).toBeGreaterThan(0);
-    for (const f of newsFiles) {
-      const { data, content } = matter(fs.readFileSync(path.join(newsDir, f), "utf8"));
-      expect(f, f).toMatch(/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+\.md$/);
-      expect(String(data.date), f).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      expect(["critical", "notable"], f).toContain(data.severity);
-      expect(typeof data.title === "string" && typeof data.summary === "string", f).toBe(true);
-      const sources = data.sources as { title: string; url: string }[];
-      expect(sources.length, `${f}: needs 2+ independent sources`).toBeGreaterThanOrEqual(2);
-      for (const s of sources) expect(s.url, f).toMatch(/^https:\/\//);
-      for (const r of data.relatesTo as string[]) expect(lessonSet.has(r), `${f}: unknown lesson ${r}`).toBe(true);
-      if (data.check) {
-        const c = data.check as { options: string[]; answer: number; explanation: string };
-        expect(c.options.length, f).toBeGreaterThanOrEqual(3);
-        expect(c.answer >= 0 && c.answer < c.options.length, f).toBe(true);
-        expect(c.explanation.length, f).toBeGreaterThan(20);
-      }
-      expect(content, f).toContain("## What happened");
-    }
-  });
-
   it("fun stories and facts are well-formed and link to real lessons", () => {
     const stories = JSON.parse(fs.readFileSync(path.join(root, "fun", "stories.json"), "utf8")) as {
       id: string;

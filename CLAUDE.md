@@ -4,7 +4,7 @@ Static Next.js app (GitHub Pages) for the owner's engineering-fundamentals pract
 Read `AGENTS.md` (Next.js version notes) before changing code.
 
 - **Daily run:** follow `docs/daily-routine.md` exactly. It's the source of truth for
-  analysis, tech news, PRs and the `routine-state` marker.
+  analysis, PRs and the `routine-state` marker. News is the automated Tech Radar (no hand-written news).
 - **Progress data:** the daily reader chat (which has the private data repo) sends
   `progress.json` as a `PROGRESS` message; decode it to `../fundamentals-tracker-data/progress.json`.
   Never write to the data repo.
