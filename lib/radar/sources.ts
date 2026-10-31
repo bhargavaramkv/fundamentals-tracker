@@ -39,11 +39,11 @@ export const SOURCES: SourceDef[] = [
   { id: "mongodb", name: "MongoDB Blog", kind: "feed", url: "https://www.mongodb.com/blog/rss", homepage: "https://www.mongodb.com/blog", category: "cloud", credibility: 3, maxItems: 3 },
 
   // Cybersecurity
-  { id: "cisa-kev", name: "CISA Known Exploited Vulnerabilities", kind: "cisa-kev", url: "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", homepage: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", category: "security", credibility: 3, maxItems: 8 },
-  { id: "cisa-advisories", name: "CISA Cybersecurity Advisories", kind: "feed", url: "https://www.cisa.gov/cybersecurity-advisories/all.xml", homepage: "https://www.cisa.gov/news-events/cybersecurity-advisories", category: "security", credibility: 3, maxItems: 5 },
+  { id: "cisa-kev", name: "CISA Known Exploited Vulnerabilities", kind: "cisa-kev", url: "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", homepage: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", category: "security", credibility: 3, maxItems: 3 },
+  { id: "cisa-advisories", name: "CISA Cybersecurity Advisories", kind: "feed", url: "https://www.cisa.gov/cybersecurity-advisories/all.xml", homepage: "https://www.cisa.gov/news-events/cybersecurity-advisories", category: "security", credibility: 3, maxItems: 2 },
   { id: "ms-security", name: "Microsoft Security Blog", kind: "feed", url: "https://www.microsoft.com/en-us/security/blog/feed/", homepage: "https://www.microsoft.com/en-us/security/blog/", category: "security", credibility: 3, maxItems: 3 },
   { id: "project-zero", name: "Google Project Zero", kind: "feed", url: "https://googleprojectzero.blogspot.com/feeds/posts/default", homepage: "https://googleprojectzero.blogspot.com/", category: "security", credibility: 3, maxItems: 3 },
-  { id: "bleepingcomputer", name: "BleepingComputer", kind: "feed", url: "https://www.bleepingcomputer.com/feed/", homepage: "https://www.bleepingcomputer.com/", category: "security", credibility: 2, maxItems: 8 },
+  { id: "bleepingcomputer", name: "BleepingComputer", kind: "feed", url: "https://www.bleepingcomputer.com/feed/", homepage: "https://www.bleepingcomputer.com/", category: "security", credibility: 2, maxItems: 3 },
   { id: "krebs", name: "Krebs on Security", kind: "feed", url: "https://krebsonsecurity.com/feed/", homepage: "https://krebsonsecurity.com/", category: "security", credibility: 2, maxItems: 3 },
 
   // Hardware & Emerging Technology

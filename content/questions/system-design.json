@@ -45,6 +45,21 @@
     "explanation": "If two writers both set the cache, they can interleave so the older value is written last and stays there until the TTL expires. Deleting after the DB commit leaves only a narrow race (a read that started before the commit repopulating the old value). A short TTL or a delayed second delete covers that."
   },
   {
+    "id": "system-design-caching-4",
+    "domain": "system-design",
+    "topic": "caching",
+    "difficulty": 2,
+    "prompt": "A bot requests GET /products/{id} with random ids that don't exist. The cache-aside hit ratio is fine for real ids, yet database load spikes. What is happening, and what fixes it?",
+    "options": [
+      "Cache stampede; add a per-key lock so one request refills each key",
+      "Cache penetration; cache the not-found result briefly or use a Bloom filter",
+      "Hot key; replicate the busiest product keys into an in-process L1 cache",
+      "Eviction churn; raise maxmemory so the real product keys stay resident"
+    ],
+    "answer": 1,
+    "explanation": "Keys that never exist are never cached, so every request falls through to the database. Cache a short-TTL \"not found\" marker, or check a Bloom filter of valid ids first. A per-key lock looks tempting, but it only helps when many requests wait for one real value to be refilled. Here every id is different and none of them ever gets a value."
+  },
+  {
     "id": "system-design-scalability-1",
     "domain": "system-design",
     "topic": "scalability",
