@@ -45,6 +45,21 @@
     "explanation": "HTTP/2 removed HTTP/1.1's in-order responses per connection, but TCP delivers bytes strictly in order, so a single loss blocks every stream. QUIC handles loss per stream and also merges the transport and TLS handshakes."
   },
   {
+    "id": "web-http-4",
+    "domain": "web",
+    "topic": "http",
+    "difficulty": 2,
+    "prompt": "Two admins load the same order (ETag \"v7\") and each sends PUT /orders/42 with If-Match: \"v7\". The first PUT succeeds. What should the server return for the second PUT, and why?",
+    "options": [
+      "304 Not Modified, because the client's cached copy of the order is stale",
+      "409 Conflict, because two clients tried to write the same resource at once",
+      "412 Precondition Failed, because the ETag no longer matches \"v7\"",
+      "200 OK, because PUT is idempotent and the last write simply wins"
+    ],
+    "answer": 2,
+    "explanation": "If-Match makes the write conditional: the first PUT changed the ETag, so the second request's precondition is false and the server returns 412. The client re-fetches, merges, and retries. 304 belongs to conditional GETs (If-None-Match), not writes. Idempotent only means repeating the same request has the same effect. It doesn't stop a lost update."
+  },
+  {
     "id": "web-security-1",
     "domain": "web",
     "topic": "security",
