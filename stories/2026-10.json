@@ -1,5 +1,2256 @@
 [
  {
+  "id": "2026-10-31-google-discloses-pagebreak-ai-security-agent-that-d7f5c2",
+  "title": "Google Discloses PageBreak AI Security Agent That Found 500+ XSS Bugs",
+  "canonicalUrl": "https://infoq.com/news/2026/10/google-pagebreak-security-agent",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-31T06:20:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "73d8ebb44c2f4547",
+  "excerpt": "According to a paper published by Google, its AI-powered security agent has uncovered more than 500 XSS vulnerabilities across its web applications since entering full operation in January. PageBreak uses Gemini models to autonomously investigate potential vulnerabilities, but reports them only after deterministic validators successfully reproduce the exploit against a running application.\nBy Renato Losio",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Google Discloses PageBreak AI Security Agent That Found 500+ XSS Bugs",
+    "url": "https://infoq.com/news/2026/10/google-pagebreak-security-agent",
+    "publishedAt": "2026-10-31T06:20:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-31-inside-a-malicious-claude-code-branded-extension-f634cc",
+  "title": "Inside a malicious Claude Code-branded extension and its persistent SSH backdoor",
+  "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor",
+  "category": "security",
+  "publishedAt": "2026-10-31T01:02:57.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b7ce2c8710e8e9a0",
+  "excerpt": "In this article \nAttack chain overview Attack chain \nHost reconnaissance collection \nSSH authorization and tunnel identities \nProtocol Tunneling (T1572): reverse SSH forwarding \nPlatform-specific startup persistence \nMitigation and protection guidance Immediate actions \nRemediation actions \nFollow-up Investigation and recovery \nMicrosoft Defender XDR detections \nThreat intelligence reports \nMicrosoft Defender XDR Threat analytics \nAdvanced hunting queries \nMITRE ATT&CK techniques \nIndicators of compromise (IOCs) \nLearn More \nOn October 29, 2026, Cursor reported that a tampered copy of Claude Code extension (anthropic.claude-code, versions 2.1.313 and 2.1.312) was available and served in the Cursor extension marketplace for a few hours to attempt a supply-chain attack on Cursor users. Cursor reports that it was live from about 2:27 AM to 1:35 PM Pacific Daylight Time (PDT). We have confirmed that the malicious packages found on Cursor marketplace were never published nor distributed from Microsoft Visual Studio Marketplace and from npm @antropic-ai/claude-code, which were not affected by this incident. Anthropic confirmed to Microsoft that their systems were not compromised and…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "Inside a malicious Claude Code-branded extension and its persistent SSH backdoor",
+    "url": "https://microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor",
+    "publishedAt": "2026-10-31T01:02:57.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-31-e-maj-501-major-security-update-17a84d",
+  "title": "E-Maj 5.0.1 : Major Security Update.",
+  "canonicalUrl": "https://postgresql.org/about/news/e-maj-501-major-security-update-3425",
+  "category": "cloud",
+  "publishedAt": "2026-10-31T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7e1be6b007a18568",
+  "excerpt": "We are very glad to announce the E-Maj 5.0.1 version.\nE-Maj is a PostgreSQL extension which enables fine-grained write logging and time travel on subsets of the database.\nThis version mainly fixes a vulnerability encountered in all previous versions, allowing some users to gain superuser privileges under certain circumstances.\nUsers are strongly encouraged to update their installed version as soon as possible.\nE-Maj 5.0.1 is compatible with Postgres 14 to 19 versions. Emaj_web 5.0 is compatible with emaj extension 3.0 to 5.0 versions.\nThe full documentation is available on line. The core extension is available at pgxn.org for installation or github.org for development.\nThe Emaj_web client is also available at github.org .\nHave fun with E-Maj !",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "E-Maj 5.0.1 : Major Security Update.",
+    "url": "https://postgresql.org/about/news/e-maj-501-major-security-update-3425",
+    "publishedAt": "2026-10-31T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 64,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"5.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches postgresql, database, postgres"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-31-pgadmin-4-v919-released-91541d",
+  "title": "pgAdmin 4 v9.19 Released",
+  "canonicalUrl": "https://postgresql.org/about/news/pgadmin-4-v919-released-3426",
+  "category": "cloud",
+  "publishedAt": "2026-10-31T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "57e19de360892835",
+  "excerpt": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.19. This release of pgAdmin 4 includes 136 bug fixes and new features, including fixes for 15 security vulnerabilities (CVE-2026-116238 through CVE-2026-116252). For more details please see the release notes .\npgAdmin is the leading open-source graphical management tool for PostgreSQL. For more information, please see the website .\nNotable changes in this release include:\nFeatures\nAdd a Statistics node for creating and managing extended statistics.\nAllow data to be edited through simple auto-updatable views in View/Edit Data.\nSave Query Tool results as JSON or XML as well as CSV, with a selectable encoding, an optional byte order mark, and a 'copy with headers' option.\nAdd support for managing pg_timetable chains and tasks.\nReplace free-text Password Exec Commands in server mode with an administrator-defined allowlist, SERVER_PASSEXEC_COMMANDS ; the commands run without a shell and with a reduced environment. Configure SERVER_PASSEXEC_COMMANDS before the first start after upgrading.\nAdd pgEdge Starfleet to the Deploy Cloud Instance wizard.\nAllow the login page to be skipped when OAuth2 is the only…",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "pgAdmin 4 v9.19 Released",
+    "url": "https://postgresql.org/about/news/pgadmin-4-v919-released-3426",
+    "publishedAt": "2026-10-31T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 51,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgresql, node"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-build-a-validated-kubernetes-runtime-for-nvidia-869014",
+  "title": "Build a Validated Kubernetes Runtime for NVIDIA Dynamo",
+  "canonicalUrl": "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T21:35:31.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d575835e3451a648",
+  "excerpt": "Teams building AI applications need a repeatable path from a model configuration to a working inference endpoint. NVIDIA Dynamo is a distributed inference...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Build a Validated Kubernetes Runtime for NVIDIA Dynamo",
+    "url": "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
+    "publishedAt": "2026-10-30T21:35:31.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches kubernetes, runtime, inference, distributed"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-anthropic-vs-code-extension-on-cursor-backdoored-eaad93",
+  "title": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
+  "canonicalUrl": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T21:09:54.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3d8949c0892728fb",
+  "excerpt": "An official extension for Anthropic’s Claude model was backdoored and threatened as many as 5,000 developers' machines, multiple sources reported Friday. Anthropic so far has yet to warn customers of the incident.\nThe compromised package was a VS Code extension available in the marketplace of Cursor, a maker of AI-assisted developer tools, the company said Friday. The malicious version, 2.1.313, subsequently affected “at most 5,000 users,” presumably when they either downloaded it or their systems automatically fetched and installed it. Anthropic pushed version 2.1.314 several hours after the previous version became available on Cursor, according to independent researcher Kevin Beaumont. Both Beaumont and the CTO and co-founder of security firm Phorian said that version 2.1.313 was distributed through Anthropic’s official account on Cursor. So far, neither Cursor nor Anthropic has explained how the attackers gained control of the account.\nIn search of cloud credentials\n“It was a supply-chain compromise where the attacker gained access to the official distribution channel,” Phorian CTO and co-founder Luke Roberts told Ars. “The malicious version 2.1.313 was posted to the official…",
+  "sources": [
+   {
+    "sourceId": "ars-technica",
+    "sourceName": "Ars Technica",
+    "title": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
+    "url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours",
+    "publishedAt": "2026-10-30T21:09:54.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-critical-linux-kernel-flaw-allows-remote-root-a0383c",
+  "title": "Critical Linux kernel flaw allows remote root attacks on MPTCP servers",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers",
+  "category": "security",
+  "publishedAt": "2026-10-30T21:09:46.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a0a9ff312e7d6501",
+  "excerpt": "Security researchers at Anthropic have developed an exploit for a critical Linux kernel vulnerability that allows unauthenticated attackers to remotely execute commands as root on servers running Multipath TCP (MPTCP) listeners. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Critical Linux kernel flaw allows remote root attacks on MPTCP servers",
+    "url": "https://bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers",
+    "publishedAt": "2026-10-30T21:09:46.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-run-ai-models-for-edge-application-development-cfb418",
+  "title": "Run AI Models for Edge Application Development with Just a Few Commands",
+  "canonicalUrl": "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T20:33:18.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0132125b95b0856c",
+  "excerpt": "AI is expanding beyond the data center as developers build a new generation of agents to act at the edge: monitoring driver attention and cabin conditions,...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Run AI Models for Edge Application Development with Just a Few Commands",
+    "url": "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands",
+    "publishedAt": "2026-10-30T20:33:18.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-darkbloom-which-allowed-mac-users-to-rent-out-57dc9d",
+  "title": "Darkbloom, which allowed Mac users to rent out their GPUs for AI inference, warns of low payouts",
+  "canonicalUrl": "https://theregister.com/ai-and-ml/2026/10/30/darkbloom-which-allowed-mac-users-to-rent-out-their-gpus-for-ai-inference-warns-of-low-payouts/5306782",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T20:32:32.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0335addd7c7cde46",
+  "excerpt": "Declining token prices have prompted Darkbloom, a distributed inference network, to reassess its business plans.\nDarkbloom , a project from Seattle-based tech biz Eigen Labs, has developed software that allows anyone with a sufficiently capable macOS device to rent their GPU through the Darkbloom network for interference jobs. In return, they get paid.\nThrough this network, 800 or so participants – including as of two days ago this reporter – have been able to collect a few cents to a few dollars per day by having their hardware handle AI model prompts submitted through OpenRouter , an AI model gateway.\nIn theory, someone running one of Apple's recently released Mac minis with an M5 Pro chip and 64 GB of RAM could earn as much as $192 per month handling incoming inference jobs, per the company's estimate. \nThat assumes full 24/7 utilization during this period on a sought-after model like Qwen3.6 35B A3B, which sells for $0.065/M input tokens, $0.75/M output tokens. But not every network participant has fully surrendered their Mac hardware to the network.\nThe median earnings of the 50 people on the leaderboard amount to about $5.26 per day, $159.86 per month, or $1,918.50 per year.…",
+  "sources": [
+   {
+    "sourceId": "the-register",
+    "sourceName": "The Register",
+    "title": "Darkbloom, which allowed Mac users to rent out their GPUs for AI inference, warns of low payouts",
+    "url": "https://theregister.com/ai-and-ml/2026/10/30/darkbloom-which-allowed-mac-users-to-rent-out-their-gpus-for-ai-inference-warns-of-low-payouts/5306782",
+    "publishedAt": "2026-10-30T20:32:32.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches inference, distributed"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-http-3-is-faster-with-some-work-and-help-from-8bb131",
+  "title": "HTTP/3 is faster with some work and help from Cloudflare",
+  "canonicalUrl": "https://theregister.com/devops/2026/10/30/http/3-is-faster-with-some-work-and-help-from-cloudflare/5306767",
+  "category": "hardware",
+  "publishedAt": "2026-10-30T20:00:29.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e34a8a265d756e47",
+  "excerpt": "When you're ordering food from your phone, even time spent navigating the app is time wasted. At the P99 2026 virtual conference , Elvis Chidera , a staff engineer at Germany-based global delivery service Delivery Hero , explained how the company moved most of its user base to HTTP/3, and consequently cut its apps’ total end-to-end response time of the home screen by 17 percent. \nChidera, who managed the project, explained that, as promised on the tin, HTTP/3 delivers the web faster than HTTP/2, though it has slow bits that need to be adjusted to work properly. \nUber eats Delivery Hero\nDelivery Hero is all but unknown in the US, which is dominated by Uber Eats and DoorDash. But it is a company with global reach outside the US, with an estimated user base of 60 million across Europe, Latin America, Africa, the Middle East, and Asia. Uber is currently acquiring Delivery Hero for $14.8 billion, with plans to unite the company with Uber Eats.\nWith this purchase, Uber would expand the number of markets where it offers both ride-hailing and delivery services, though not necessarily under the Uber Eats nameplate. Delivery Hero centrally manages separate apps for different regions, all of…",
+  "sources": [
+   {
+    "sourceId": "the-register",
+    "sourceName": "The Register",
+    "title": "HTTP/3 is faster with some work and help from Cloudflare",
+    "url": "https://theregister.com/devops/2026/10/30/http/3-is-faster-with-some-work-and-help-from-cloudflare/5306767",
+    "publishedAt": "2026-10-30T20:00:29.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"faster\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-crim-spent-7k-on-ai-services-in-extortion-attacks-b6872f",
+  "title": "Crim spent $7K+ on AI services in extortion attacks, then left evidence for all to see",
+  "canonicalUrl": "https://theregister.com/security/2026/10/30/crim-spent-7k-on-ai-services-in-extortion-attacks-then-left-evidence-for-all-to-see/5306754",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T19:37:12.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4eed57128f7b3ae2",
+  "excerpt": "A n0n ransomware operator tried to break into 23 organizations across 14 countries, but couldn't secure its own front door, leaving its server exposed with all of its methods on view.\nThe criminals used a mix of new (AI) and old (stolen credentials) tooling during their data-theft spree, and in some cases not only stole and encrypted files, but also deleted data and backups, eliminating victims’ ability to recover their information.\nAnd despite the fear and hype around the breachpocalypse , with AI finding and developing exploits for critical vulnerabilities affecting most organizations across the globe , these crooks did not exploit a single bug to gain entry into any of their victims’ IT environments. \n“In every documented compromise in this investigation, access relied on weak or stolen credentials,” said Ensar Seker, chief information security officer of threat intelligence firm SOCRadar.\n“What stands out is the combination of AI-assisted development and very conventional entry points,” Seker told The Register . “We found no evidence of vulnerability exploitation in the cases examined.”\nThe gang breaks into organizations at scale using widespread Remote Desktop Protocol (RDP)…",
+  "sources": [
+   {
+    "sourceId": "the-register",
+    "sourceName": "The Register",
+    "title": "Crim spent $7K+ on AI services in extortion attacks, then left evidence for all to see",
+    "url": "https://theregister.com/security/2026/10/30/crim-spent-7k-on-ai-services-in-extortion-attacks-then-left-evidence-for-all-to-see/5306754",
+    "publishedAt": "2026-10-30T19:37:12.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-nemotron-halloween-037154",
+  "title": "nemotron-halloween",
+  "canonicalUrl": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T17:57:24.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a3b67584aea36565",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "nemotron-halloween",
+    "url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+    "publishedAt": "2026-10-30T17:57:24.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-4-real-tracking-exploitation-and-patching-of-ae464c",
+  "title": "4 real? Tracking exploitation and patching of eMudhra’s weak keys",
+  "canonicalUrl": "https://blog.cloudflare.com/emudhra-patching",
+  "category": "cloud",
+  "publishedAt": "2026-10-30T17:38:50.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5732b1fc2cfdb39f",
+  "excerpt": "On October 19, 2026, we learned about eMudhra’s eight shockingly weak keys: where eMudhra was trusted to pick a 115-digit number for their virtual combination lock protecting the Internet, they picked the number 4. Not even four digits, just the number 4. The other seven keys were similarly weak: 56, 66, 115, 155, 156, 230 and 237.\nThe next day, we wrote a blog post  on the immediate action we took to mitigate this leak, and what customers needed to do  on their end to stay secure. Now, we are sharing a more in-depth follow up on the evidence we’ve seen of exploitation, and the progress seen on visitors patching their systems.\nLet's start with the scale of the problem. A certificate authority (CA) with weak keys this serious is unprecedented, and the potential consequences are significant. While there have been plenty of compromised certification authorities in the past (such as DigiNotar , TÜRKTRUST , and TrustWave ), access to their keys has always been contained to a degree; these incidents gave a limited set of attackers or organizations the ability to issue fraudulent certificates. The eMudhra incident is fundamentally different; the affected intermediate private keys could…",
+  "sources": [
+   {
+    "sourceId": "cloudflare",
+    "sourceName": "Cloudflare Blog",
+    "title": "4 real? Tracking exploitation and patching of eMudhra’s weak keys",
+    "url": "https://blog.cloudflare.com/emudhra-patching",
+    "publishedAt": "2026-10-30T17:38:50.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-gm-cracks-the-petty-cash-box-for-multistate-2ac95b",
+  "title": "GM cracks the petty cash box for multistate driver tracking settlement",
+  "canonicalUrl": "https://theregister.com/security/2026/10/30/gm-cracks-the-petty-cash-box-for-multistate-driver-tracking-settlement/5306721",
+  "category": "hardware",
+  "publishedAt": "2026-10-30T16:48:37.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "dd51d5963d3cee2f",
+  "excerpt": "General Motors is taking what looks like a light slap on the wrist from a coalition of 35 states and the District of Columbia after agreeing to settle allegations that it collected drivers' data without proper consent and sold it to data brokers that supplied insurance companies.\nThe Washington state AG's office said on Thursday that GM had reached a $220 million settlement with 36 attorneys general over the automaker's collection and sharing of driving data, including precise location information, speed, seatbelt use, and other metrics. According to investigators, GM sold that data to brokers, which in turn supplied it to insurance companies that could use it to set customers' premiums, without drivers' informed consent.\nFor reference, the $220 million settlement, which will be distributed among the participating jurisdictions, equates to less than 7 percent of GM's $3.3 billion in net income attributable to stockholders for its third quarter , which ended on September 30, 2026. Don't spend it all in one place, y'all.\nThe settlement comes more than two years after a 2024 New York Times investigation found that GM had been selling the data collected from vehicle owners through its…",
+  "sources": [
+   {
+    "sourceId": "the-register",
+    "sourceName": "The Register",
+    "title": "GM cracks the petty cash box for multistate driver tracking settlement",
+    "url": "https://theregister.com/security/2026/10/30/gm-cracks-the-petty-cash-box-for-multistate-driver-tracking-settlement/5306721",
+    "publishedAt": "2026-10-30T16:48:37.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-anthropic-that-claude-code-extension-compromise-167bf9",
+  "title": "Anthropic: That Claude Code extension compromise… couldn't be us",
+  "canonicalUrl": "https://theregister.com/cyber-crime/2026/10/30/anthropic-that-claude-code-extension-compromise-couldnt-be-us/5306682",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T16:27:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2051602c44fe6b8b",
+  "excerpt": "Anthropic has denied allegations that a malicious version of the official Claude Code extension published to Cursor’s marketplace was linked to any kind of compromise of its own systems.\nThe company was forced to issue a statement after prominent figures in the cybersecurity industry alleged that the extension, which infected up to 5,000 developers, was uploaded to Cursor’s marketplace following a breach at Claudemaker Towers.\nFelix Rieseberg, a member of Anthropic’s technical staff, Xeeted today: \"We're working with Cursor on this incident, but it wasn’t a compromise of Anthropic's systems or employee laptops. \n\"A malicious actor used access to Cursor's marketplace to publish a tampered copy of the Claude Code extension, which we didn't build or publish. The versions on our official channels are not affected, and this only impacts Cursor users.\"\nFirst spotted by EDR vendor Phorion , an unknown party pushed an update to Cursor's official Claude Code extension for Visual Studio Code that contained a persistent SSH backdoor written for Windows, macOS, and Linux.\nAccording to Cursor, the extension – version 2.1.313 – was available to download for around 11 hours between 0227 and 1335…",
+  "sources": [
+   {
+    "sourceId": "the-register",
+    "sourceName": "The Register",
+    "title": "Anthropic: That Claude Code extension compromise… couldn't be us",
+    "url": "https://theregister.com/cyber-crime/2026/10/30/anthropic-that-claude-code-extension-compromise-couldnt-be-us/5306682",
+    "publishedAt": "2026-10-30T16:27:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-from-help-desk-impersonation-to-ad-cs-abuse-2173d6",
+  "title": "From help desk impersonation to AD CS abuse: Investigating ESC1 and ESC8 intrusion paths",
+  "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths",
+  "category": "security",
+  "publishedAt": "2026-10-30T16:11:44.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3153f588cbe0bbc8",
+  "excerpt": "In this article \nActivity overview \nAttack chain overview \nPortable runtime staging and execution variants \nHost discovery and AD CS assessment \nCase 1: ESC1 abuse and the cost of an identity exclusion \nCase 2: PetitPotam and ESC8 turn a workstation into a domain-controller identity \nWhy the response outcomes differed \nActionable investigation methods \nReferences \nLearn More \nMicrosoft Threat Intelligence investigated two human-operated intrusions in which threat actors used Microsoft Teams messages and calls to impersonate IT or help desk personnel and socially engineer users into granting interactive remote access, primarily through Quick Assist. Once connected, the threat actors staged portable Python, Bun, or Java runtimes, performed host and network discovery, and assessed Active Directory Certificate Services (AD CS) for certificate-based authentication paths.\nAlthough the incidents began with the same social-engineering and remote-access pattern, they diverged at the certificate layer. In Case 1, the threat actor abused an Enterprise CA Security Configuration 1 (ESC1) -vulnerable certificate template to obtain authentication certificates for privileged accounts and…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "From help desk impersonation to AD CS abuse: Investigating ESC1 and ESC8 intrusion paths",
+    "url": "https://microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths",
+    "publishedAt": "2026-10-30T16:11:44.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-build-specialized-agents-on-a-stack-you-control-b0afce",
+  "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
+  "canonicalUrl": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d72c46d44c9502ea",
+  "excerpt": "Building an autonomous agent requires a model, a harness, and domain-specific tools. To deploy an agent more securely, developers need a runtime that enforces...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
+    "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw",
+    "publishedAt": "2026-10-30T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, agent, runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-innovate-on-your-own-business-terms-google-cloud-8cea48",
+  "title": "Innovate on your own business terms: Google Cloud spend caps now generally available",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/cost-management/google-cloud-spend-caps-now-generally-available",
+  "category": "cloud",
+  "publishedAt": "2026-10-30T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7db4bfd30f53115d",
+  "excerpt": "Today, we’re announcing that spend caps on Google Cloud Budgets are generally available.  \nWith this release, we’re delivering ways to protect your workloads from runaway costs without risking resource deletion. More importantly, we’re introducing three major updates, directly inspired by your feedback since the initial preview, to bring programmability, real-time visibility, and automated guardrails to your cost-control playbook. \nHow the new spend caps can help your business  \nWe have significantly enhanced the usability and power of spend caps in three ways:  \n1. Automation through spend caps API : Managing guardrails manually across hundreds of projects is a major operational challenge. To address this, we have launched the spend caps API, which can be accessed from the existing Cloud Billing Budgets API. You can now programmatically enforce your financial boundaries for eligible services within each project, without additional overhead. You can automatically lift, update, or delete caps on the fly and instantly apply a spend cap whenever a developer spins up a new sandbox project. \n2. Real-time visibility with live cost reports: Spend caps for AI services trigger within…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Innovate on your own business terms: Google Cloud spend caps now generally available",
+    "url": "https://cloud.google.com/blog/topics/cost-management/google-cloud-spend-caps-now-generally-available",
+    "publishedAt": "2026-10-30T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"generally available\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-what-s-new-in-ai-infrastructure-and-orchestration-72249b",
+  "title": "What’s new in AI infrastructure and orchestration in October",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month",
+  "category": "cloud",
+  "publishedAt": "2026-10-30T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3aa4fc48ef4e6cef",
+  "excerpt": "The Google Cloud AI Infrastructure team had another busy month in October, filled with new product launches and updates to power today’s AI and agentic workloads scalably and efficiently. We were also honored to share our progress with customers, partners, and the broader community at leading industry events, including NVIDIA GTC, PyTorch Conference, and AGNTCon + MCPCon. Let’s dive in! \nProduct, technology, and tools updates \nNew compute service: Agent Compute Engine is a purpose-built compute service providing high-performance, hardware-isolated microVM sandboxes alongside expanded agent governance capabilities like Agent Gateway and Agent Registry, all in the service of securing and scaling autonomous AI agents. Its primary benefits include rapid sub-second activation, extreme workload density through copy-on-write memory sharing, enterprise-grade security and identity management, and cross-cloud observability. \nAI Hypercomputer updates: At NVIDIA GTC Berlin 2026 we announced updates to our agentic infrastructure, including to A5X instances powered by the NVIDIA Vera Rubin NVL72 platform, Virgo Network scale-out fabric, and Managed Lustre storage. These co-engineered…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "What’s new in AI infrastructure and orchestration in October",
+    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month",
+    "publishedAt": "2026-10-30T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launches\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-when-the-kubernetes-api-went-silent-a-three-layer-cecfce",
+  "title": "When the Kubernetes API went silent: A three-layer networking mystery",
+  "canonicalUrl": "https://cloud.google.com/blog/products/networking/the-three-layer-gke-network-mystery",
+  "category": "cloud",
+  "publishedAt": "2026-10-30T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "aae313df199516a0",
+  "excerpt": "Every support engineer has a case that stays with them. The one that comes up at team lunches. The one where, even after it's resolved, you find yourself staring at a packet capture at midnight just to make sure you really understand what happened. This is that case. \nIt started in January 2026 with a support ticket that read deceptively simply: pods are intermittently failing to reach the Kubernetes API server. The error was a familiar-looking timeout. The customer had already ruled out their own operators. What none of us knew yet was that we were looking at three separate bugs — in three different layers of the stack — all conspiring to produce the same symptom at the same time. \nBy the time it was over, around 800 developers had been blocked from deploying to production for weeks on end, and GKE clusters across europe-west had ground to a halt. In a race to fix the problem, we involved engineers across Google Kubernetes Engine (GKE), Private Service Connect, networking, hostnet, kernel, and the Linux upstream community, who together tracked down not one but three distinct root causes. And the final fix landed not as a config change or a feature flag, but as a patch to the…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "When the Kubernetes API went silent: A three-layer networking mystery",
+    "url": "https://cloud.google.com/blog/products/networking/the-three-layer-gke-network-mystery",
+    "publishedAt": "2026-10-30T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches kubernetes, api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-trezor-warns-of-suspected-crypto-theft-implant-in-779aca",
+  "title": "Trezor warns of suspected crypto-theft implant in hardware wallet",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet",
+  "category": "security",
+  "publishedAt": "2026-10-30T15:58:20.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ae7cf28d2850523f",
+  "excerpt": "Hardware wallet device maker Trezor has received credible reports about a suspected hardware crypto-theft implant in a Trezor Safe 5 sold by its reseller CryptoBilis in Southeast Asia. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Trezor warns of suspected crypto-theft implant in hardware wallet",
+    "url": "https://bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet",
+    "publishedAt": "2026-10-30T15:58:20.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-voyager-1-gives-controllers-the-silent-treatment-398f63",
+  "title": "Voyager 1 gives controllers the silent treatment",
+  "canonicalUrl": "https://theregister.com/science/2026/10/30/voyager-1-gives-controllers-the-silent-treatment/5306637",
+  "category": "hardware",
+  "publishedAt": "2026-10-30T15:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6ddec07289ae2c1e",
+  "excerpt": "Voyager 1 gave controllers the silent treatment for a few days this month before resuming communication weeks before the spacecraft reaches the one-light-day milestone.\nThe incident happened on October 18: NASA's Deep Space Network (DSN) couldn't detect a signal from the probe. On October 19, on the next scheduled communication attempt, there was still nothing. Was this it? Had the decades-long galactic venture finally ended? \nThings are operating on a knife's edge for the two veteran spacecraft, which will reach their half-century next year. Voyager 2 suffered an antenna pointing issue in 2023, and a low power condition caused Voyager 1 to unexpectedly turn off one of its two radio transmitters.\nThe good news is that on October 20, the signal reappeared, leaving engineers wondering why Voyager 1 temporarily went silent.\nThus far, it seems a group of thrusters went offline and their backups were turned on. This could indicate onboard computers detected a problem and put the spacecraft into a safe mode.\nKareem Badaruddin, Voyager mission manager at NASA's Jet Propulsion Laboratory, said: \"This is the first time we've seen the spacecraft do something like this, but we are also at a…",
+  "sources": [
+   {
+    "sourceId": "the-register",
+    "sourceName": "The Register",
+    "title": "Voyager 1 gives controllers the silent treatment",
+    "url": "https://theregister.com/science/2026/10/30/voyager-1-gives-controllers-the-silent-treatment/5306637",
+    "publishedAt": "2026-10-30T15:30:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-how-to-check-and-configure-nvidia-gpudirect-457063",
+  "title": "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform",
+  "canonicalUrl": "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T15:01:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "937e8bfd3a14cf08",
+  "excerpt": "NVIDIA GPUDirect Storage (GDS) accelerates GPU storage access in on-premises and cloud environments. It provides a robust, portable, and efficient data path...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform",
+    "url": "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
+    "publishedAt": "2026-10-30T15:01:36.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-things-that-go-beep-in-the-night-agentic-ai-joins-91038b",
+  "title": "Things That Go Beep in the Night: Agentic AI Joins the Search for Extraterrestrial Signals",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals",
+  "category": "hardware",
+  "publishedAt": "2026-10-30T15:00:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2514c8bbbccd6fa6",
+  "excerpt": "While science fiction lore tells us that humans will meet extraterrestrial life in the form of little green men, the detail that should raise hairs this Halloween is this: the search for extraterrestrial intelligence took a major leap forward with AI, and it increasingly focuses on AI agents built by humans listening for AI agents built by aliens. \nSome scientists have suggested that extraterrestrial civilizations, if they exist, could be billions of years older than humanity. Such civilizations might have developed technologies far beyond humanity’s, including forms of AI. \nBreakthrough Listen and the SETI Institute are bringing agentic AI into the daily search for extraterrestrial intelligence. At the Allen Telescope Array in Northern California, agents can now steer the instrument, enhance and correct incoming data, and apply AI models to the incoming stream — all from a single natural language request. The NVIDIA Holoscan platform processes the massive streams of sensor data, giving agents live data to act on. \nThe result is a faster, more adaptable search for potential signals from extraterrestrial life and technologies. \n“As our new agentic observatories reach out into the…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "Things That Go Beep in the Night: Agentic AI Joins the Search for Extraterrestrial Signals",
+    "url": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals",
+    "publishedAt": "2026-10-30T15:00:10.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"breakthrough\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches go, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-alpinebsd-announced-an-ai-free-foss-os-443812",
+  "title": "AlpineBSD announced – an AI-free FOSS OS",
+  "canonicalUrl": "https://theregister.com/os-platforms/2026/10/30/alpinebsd-announced-an-ai-free-foss-os/5306589",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T14:45:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "091d5e017ace3948",
+  "excerpt": "Just days after Daemonarchy, there's another new OS in the BSD family – and one that is heading determinedly in almost the opposite direction.\nAlpineBSD is so new that it barely exists yet. There are no installation media available, though it's possible to manually bootstrap an installation . What AlpineBSD does already have is an AI policy, and the plan is to avoid \"the output of generative AI models (e.g. LLMs)\" as far as possible:\n\"Any software whose code, documentation, binaries, or other assets include, in any part, the output of a generative AI tool such as an LLM, is considered 'tainted' for our purposes.\"\nThe core idea is to combine the kernel of NetBSD with \"a userspace inspired by Alpine Linux and the objective of making it possible to use as little AI-generated software as possible.\"\nBack in 2024 , the NetBSD project made its position on AI plain. Its commit guidelines say that \"code generated by a Large Language Model […] is presumed to be tainted code.\"\nBack in July, Linus Torvalds stated that \"Linux is not one of those anti-AI projects \". Since then, NetBSD has seen a spike in donations and interest .\nFor someone mainly used to Linux, trying to install NetBSD is a…",
+  "sources": [
+   {
+    "sourceId": "the-register",
+    "sourceName": "The Register",
+    "title": "AlpineBSD announced – an AI-free FOSS OS",
+    "url": "https://theregister.com/os-platforms/2026/10/30/alpinebsd-announced-an-ai-free-foss-os/5306589",
+    "publishedAt": "2026-10-30T14:45:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches llm"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-malicious-claude-code-extension-on-cursor-planted-b400bf",
+  "title": "Malicious Claude Code extension on Cursor planted SSH backdoors",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T14:36:54.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a570849691666267",
+  "excerpt": "A malicious version of Anthropic's Claude Code VS Code extension was distributed through Cursor's extension marketplace for approximately 11 hours on October 29, exposing up to 5,000 developers to malware designed to install persistent SSH backdoors. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Malicious Claude Code extension on Cursor planted SSH backdoors",
+    "url": "https://bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors",
+    "publishedAt": "2026-10-30T14:36:54.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches distributed"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-cloudflare-services-for-private-origins-is-now-048232",
+  "title": "Cloudflare services for private origins is now generally available",
+  "canonicalUrl": "https://blog.cloudflare.com/private-origins-public-to-private",
+  "category": "cloud",
+  "publishedAt": "2026-10-30T14:23:43.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "53dda464d60a51a0",
+  "excerpt": "Today, Cloudflare services for private origins is generally available. Point a proxied DNS record at a private IP, and Cloudflare reaches the origin over your existing Cloudflare One connection . Your origin stays private, while web application firewall ( WAF ), caching , bot management , and Workers  work just as they do for public origins.\nIn June, we launched this capability in closed beta  to address a problem we kept hearing from customers: Their internal APIs, AI agent backends, MCP servers, and operational tools weren’t built to face the Internet, but those services still need to accept requests from partners, customers, or agents over the Internet. Before the beta, putting Cloudflare in front of these services meant exposing a public IP, opening a firewall port, or running cloudflared  alongside the origin.\nThose requirements often left private applications without the same protections and controls they used for public applications, including WAF, bot management, rate limiting, caching, traffic acceleration, rewrites, and Workers.\nWhat is generally available today\nDuring the closed beta, eligible customers requested access through their account team. Today, we’re opening…",
+  "sources": [
+   {
+    "sourceId": "cloudflare",
+    "sourceName": "Cloudflare Blog",
+    "title": "Cloudflare services for private origins is now generally available",
+    "url": "https://blog.cloudflare.com/private-origins-public-to-private",
+    "publishedAt": "2026-10-30T14:23:43.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"generally available\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches caching, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-ss7-and-diameter-attacks-how-signaling-flaws-57a589",
+  "title": "SS7 and Diameter Attacks: How Signaling Flaws Expose Your Phone",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/ss7-and-diameter-attacks-how-signaling-flaws-expose-your-phone",
+  "category": "security",
+  "publishedAt": "2026-10-30T14:00:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "36c39aee2841664b",
+  "excerpt": "Flaws in SS7 and Diameter signaling protocols can allow attackers to track phone locations, intercept calls and SMS verification codes, and impersonate subscribers without compromising their devices. Cape explains how these attacks exploit trust between networks and how its security-focused mobile service helps defend against them. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "SS7 and Diameter Attacks: How Signaling Flaws Expose Your Phone",
+    "url": "https://bleepingcomputer.com/news/security/ss7-and-diameter-attacks-how-signaling-flaws-expose-your-phone",
+    "publishedAt": "2026-10-30T14:00:10.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-nasa-ponders-a-hubble-servicing-mission-or-a-0f1605",
+  "title": "NASA ponders a Hubble servicing mission or a controlled deorbit",
+  "canonicalUrl": "https://theregister.com/science/2026/10/30/nasa-ponders-a-hubble-servicing-mission-or-a-controlled-deorbit/5306622",
+  "category": "research",
+  "publishedAt": "2026-10-30T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a8cb503b940f329b",
+  "excerpt": "NASA has posted a contract opportunity notice, also known as a request for information, from commercial space orgs who can service the Hubble Space Telescope.\nHubble was always looked after by NASA astronauts flying on the Space Shuttle, yet the last Hubble Space Telescope (HST) servicing mission was the STS-125 Space Shuttle flight, launched on May 11, 2009. At the time, scientists hoped the mission would add another five years of operational life to the venerable spacecraft. Almost 17 years on, the HST (aka Hubble) is still delivering science.\nHowever, time is running out for the observatory. NASA reckons there is a 10 percent chance it could reenter the Earth's atmosphere by September 2032, rising to 50 percent by December 2033. As the end of the Swift mission showed, increased solar activity can cause greater-than-anticipated atmospheric drag.\nAlso, like Swift, Hubble has no propulsion system, and so when it reenters (as it will, without intervention), the reentry will be uncontrolled. Hubble is sufficiently massive that there is a remote chance somebody on the ground could have a very bad day when that happens.\nAs such, one mission option suggested by NASA is a vehicle to…",
+  "sources": [
+   {
+    "sourceId": "the-register",
+    "sourceName": "The Register",
+    "title": "NASA ponders a Hubble servicing mission or a controlled deorbit",
+    "url": "https://theregister.com/science/2026/10/30/nasa-ponders-a-hubble-servicing-mission-or-a-controlled-deorbit/5306622",
+    "publishedAt": "2026-10-30T14:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-doordash-cuts-grocery-reorder-latency-from-16-to-9d2c57",
+  "title": "DoorDash Cuts Grocery Reorder Latency from 16 to 2 Seconds with AI Agents",
+  "canonicalUrl": "https://infoq.com/news/2026/10/doordash-ai-grocery-reorder",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T13:31:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c27d00531ff602a2",
+  "excerpt": "DoorDash reduced grocery reorder latency from 16 to 2 seconds by precomputing recurring purchase needs using batch LLM inference and deterministic validation. Live catalog resolution keeps product selections current, while an editable shopping interface avoids unnecessary model calls. The company reports that shopping list views doubled and the flow’s order rate increased by approximately 34%\nBy Leela Kumili",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "DoorDash Cuts Grocery Reorder Latency from 16 to 2 Seconds with AI Agents",
+    "url": "https://infoq.com/news/2026/10/doordash-ai-grocery-reorder",
+    "publishedAt": "2026-10-30T13:31:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches latency, agents, llm, inference"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-cisa-says-max-severity-gitlab-flaw-now-exploited-31191d",
+  "title": "CISA says max severity GitLab flaw now exploited in the wild",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks",
+  "category": "security",
+  "publishedAt": "2026-10-30T13:00:32.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2501a63ae9316c9f",
+  "excerpt": "Attackers have started exploiting a maximum-severity GitLab vulnerability patched earlier this month, according to the US Cybersecurity and Infrastructure Security Agency (CISA). [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "CISA says max severity GitLab flaw now exploited in the wild",
+    "url": "https://bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks",
+    "publishedAt": "2026-10-30T13:00:32.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-new-gemini-courses-for-financial-services-and-3bc10f",
+  "title": "New Gemini courses for financial services and legal teams",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/training-certifications/new-gemini-courses-for-financial-services-and-legal-teams",
+  "category": "cloud",
+  "publishedAt": "2026-10-30T13:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "59ac8cfde1b17826",
+  "excerpt": "Today Google Skills is sharing new, industry-specific video learning bundles to get you into Gemini and using agents. One bundle is designed for financial services and one is built specifically for those in the legal profession . You can access all of these videos at no cost on Google Skills today. \nWhether you're managing complex market portfolios or navigating rigorous compliance reviews, these bite-sized video courses show you exactly how to work smarter with agentic AI. They start with use cases you’re probably familiar with, and share how you can jump into Gemini to get work done more efficiently.  \nTurn market complexity into clarity with Gemini for financial services \nFinancial analysts and portfolio managers deal with massive volumes of real-time market data, fluctuating risk profiles, and tight turnarounds. Let’s say you’re a financial advisor preparing for your first session with a client. You’ve got a meeting with a new client in 20 minutes. Reading hundreds of SEC pages manually isn’t possible. But, doing it in two minutes with Gemini for financial services makes it easy. Get a sense of three ways you can start using Gemini in this video, or jump into learning with the…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "New Gemini courses for financial services and legal teams",
+    "url": "https://cloud.google.com/blog/topics/training-certifications/new-gemini-courses-for-financial-services-and-legal-teams",
+    "publishedAt": "2026-10-30T13:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-actively-exploited-ivanti-connect-secure-cve-2026-41d002",
+  "title": "Actively exploited: Ivanti Connect Secure CVE-2026-118527 (Ivanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability)",
+  "canonicalUrl": "https://nvd.nist.gov/vuln/detail/CVE-2026-118527",
+  "category": "security",
+  "publishedAt": "2026-10-30T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6a4191c43c453151",
+  "excerpt": "Ivanti Connect Secure contains a generation of predictable numbers or identifiers vulnerability that allows a remote authenticated attacker to upload files with attacker-controlled content to a known location on disk. This vulnerability can be chained with CVE-2026-104935 and CVE-2026-111357. Required action: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+  "sources": [
+   {
+    "sourceId": "cisa-kev",
+    "sourceName": "CISA Known Exploited Vulnerabilities",
+    "title": "Actively exploited: Ivanti Connect Secure CVE-2026-118527 (Ivanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability)",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118527",
+    "publishedAt": "2026-10-30T12:00:00.000Z",
+    "credibility": 3
+   },
+   {
+    "sourceId": "cisa-advisories",
+    "sourceName": "CISA Cybersecurity Advisories",
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "url": "https://cisa.gov/news-events/alerts/2026/10/30/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "publishedAt": "2026-10-30T12:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 75,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"actively exploited\")"
+    },
+    {
+     "label": "Exploitation",
+     "points": 12,
+     "reason": "Listed by CISA as exploited in the wild"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "high",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-netflix-treats-gpu-reliability-as-a-distributed-42422b",
+  "title": "Netflix Treats GPU Reliability as a Distributed Systems Problem",
+  "canonicalUrl": "https://infoq.com/news/2026/10/netflix-gpu-distributed-systems",
+  "category": "cloud",
+  "publishedAt": "2026-10-30T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ad4a1a788cf61e9d",
+  "excerpt": "Netflix has detailed how it is building a reliability platform for large-scale GPU training and inference, using layered health checks, automated remediation, and fault-tolerant training to keep jobs running despite hardware failures.\nBy Craig Risi",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Netflix Treats GPU Reliability as a Distributed Systems Problem",
+    "url": "https://infoq.com/news/2026/10/netflix-gpu-distributed-systems",
+    "publishedAt": "2026-10-30T12:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches distributed, inference"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-the-download-glp-1s-and-eating-disorders-self-dfb0b9",
+  "title": "The Download: GLP-1s and eating disorders, self-aware cities, and forever chemicals",
+  "canonicalUrl": "https://technologyreview.com/2026/10/30/1147843/the-download-glp-1s-eating-disorders-forever-chemicals",
+  "category": "hardware",
+  "publishedAt": "2026-10-30T11:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cd0e19bfbe8ae072",
+  "excerpt": "This is today’s edition of The Download , our weekday newsletter that provides a daily dose of what’s going on in the world of technology. \nEating disorders are on the rise. GLP-1s could make things worse. \nGLP-1 weight-loss drugs are one of the biggest biotech breakthroughs of the last decade. But to some clinicians, they can represent something sinister—a potential trigger for eating disorders.\nA new report suggests the global incidence of anorexia nervosa and bulimia nervosa shot up by 71% between 1990 and 2023. And clinicians are already seeing GLP-1s exacerbate the issue.\nHere’s how they could make an already growing problem worse .\n—Jessica Hamzelou \nThis story is from The Checkup, our weekly biotech newsletter. Sign up to receive it in your inbox every Thursday. \nLove is infrastructure \n—“Love is Infrastructure” is a short fictional story by Charlie Jane Anders, author of a forthcoming novel titled Good Things Are Coming Your Way . \nMainspring and St. Barnabas are two neighboring cities with different personalities. They’ve never particularly liked each other, but that changes when both develop minds of their own, shaped by the votes of their residents.\nAs the cities begin…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "The Download: GLP-1s and eating disorders, self-aware cities, and forever chemicals",
+    "url": "https://technologyreview.com/2026/10/30/1147843/the-download-glp-1s-eating-disorders-forever-chemicals",
+    "publishedAt": "2026-10-30T11:30:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-microsoft-finally-fixes-vpn-issues-caused-by-470731",
+  "title": "Microsoft finally fixes VPN issues caused by September updates",
+  "canonicalUrl": "https://bleepingcomputer.com/news/microsoft/microsoft-finally-fixes-vpn-issues-caused-by-september-updates",
+  "category": "security",
+  "publishedAt": "2026-10-30T11:20:26.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1e9f890f238b366c",
+  "excerpt": "Microsoft has resolved Always On VPN connection failures triggered after installing the September 2026 Windows 11 security updates. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Microsoft finally fixes VPN issues caused by September updates",
+    "url": "https://bleepingcomputer.com/news/microsoft/microsoft-finally-fixes-vpn-issues-caused-by-september-updates",
+    "publishedAt": "2026-10-30T11:20:26.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-presentation-the-ladder-is-missing-rungs-4af7db",
+  "title": "Presentation: The Ladder Is Missing Rungs: Engineering Progression When AI Ate the Middle",
+  "canonicalUrl": "https://infoq.com/presentations/ai-software-engineering-pipeline",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T11:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "896be564c749e8d4",
+  "excerpt": "Alasdair Allan discusses empirical research from METR and Anthropic on AI coding adoption. He explains the \"supervision paradox,\" where reliance on AI tools disrupts junior skill development, risks institutional context loss, and threatens the long-term engineering pipeline needed to oversee autonomous systems effectively.\nBy Alasdair Allan",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Presentation: The Ladder Is Missing Rungs: Engineering Progression When AI Ate the Middle",
+    "url": "https://infoq.com/presentations/ai-software-engineering-pipeline",
+    "publishedAt": "2026-10-30T11:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-drupal-warns-of-critical-commerce-core-flaw-3cbc97",
+  "title": "Drupal warns of critical Commerce Core flaw exploited in attacks",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/drupal-warns-of-critical-commerce-core-flaw-exploited-in-attacks",
+  "category": "security",
+  "publishedAt": "2026-10-30T10:16:07.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "34c0dcef0a571635",
+  "excerpt": "Drupal warned admins to patch a critical access bypass vulnerability in the Commerce Core module that attackers are exploiting in the wild. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Drupal warns of critical Commerce Core flaw exploited in attacks",
+    "url": "https://bleepingcomputer.com/news/security/drupal-warns-of-critical-commerce-core-flaw-exploited-in-attacks",
+    "publishedAt": "2026-10-30T10:16:07.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-netflix-titus-adds-single-tenant-vm-isolation-for-f2b457",
+  "title": "Netflix Titus Adds Single-Tenant VM Isolation for Containers",
+  "canonicalUrl": "https://infoq.com/news/2026/10/netflix-titus-kubernetes-microvm",
+  "category": "developer",
+  "publishedAt": "2026-10-30T10:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5302ee2273173609",
+  "excerpt": "Netflix has added single-tenant Titus, a mode that runs one task alone on its own right-sized EC2 instance. The Compute/Platform team still owns and patches the host, so application teams keep the same API and deployment path\nBy Claudio Masolo",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Netflix Titus Adds Single-Tenant VM Isolation for Containers",
+    "url": "https://infoq.com/news/2026/10/netflix-titus-kubernetes-microvm",
+    "publishedAt": "2026-10-30T10:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-making-it-easier-for-websites-to-express-ai-84abd1",
+  "title": "Making it easier for websites to express AI training preferences",
+  "canonicalUrl": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T09:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "dce2de355c37800c",
+  "excerpt": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Making it easier for websites to express AI training preferences",
+    "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+    "publishedAt": "2026-10-30T09:30:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-binance-links-63-billion-crypto-theft-to-c8c08f",
+  "title": "Binance links $6.3 billion crypto theft to compromised DevOps laptop",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop",
+  "category": "security",
+  "publishedAt": "2026-10-30T09:18:13.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d5842504debe9d1f",
+  "excerpt": "Binance, the world's largest crypto exchange, has linked the theft of about $6.3 billion in cryptocurrency to a DevOps engineer's compromised laptop. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Binance links $6.3 billion crypto theft to compromised DevOps laptop",
+    "url": "https://bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop",
+    "publishedAt": "2026-10-30T09:18:13.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-article-infoq-ai-ml-and-data-engineering-trends-a9eb8c",
+  "title": "Article: InfoQ AI, ML and Data Engineering Trends Report - 2026",
+  "canonicalUrl": "https://infoq.com/articles/ai-ml-data-engineering-trends-2026",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T09:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "afcd817d2af2fe59",
+  "excerpt": "This InfoQ Trends Report offers readers a comprehensive overview of emerging trends and technologies in the areas of AI, ML, and Data Engineering. This report summarizes the InfoQ editorial team’s and external guests' view on the current trends in AI and ML technologies and what to look out for in the next 12 months.\nBy Srini Penchikala, Chip Huyen, Daniel Dominguez, Hien Luu, Arthur Casals",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Article: InfoQ AI, ML and Data Engineering Trends Report - 2026",
+    "url": "https://infoq.com/articles/ai-ml-data-engineering-trends-2026",
+    "publishedAt": "2026-10-30T09:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-30-community-safety-report-and-new-protections-for-a86d24",
+  "title": "Community safety report and new protections for teens",
+  "canonicalUrl": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T09:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d59c0c5c4c15b712",
+  "excerpt": "OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Community safety report and new protections for teens",
+    "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+    "publishedAt": "2026-10-30T09:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-eating-disorders-are-on-the-rise-glp-1s-could-83eb22",
+  "title": "Eating disorders are on the rise. GLP-1s could make things worse.",
+  "canonicalUrl": "https://technologyreview.com/2026/10/30/1147838/eating-disorders-rise-glp-1s-weight-loss-drugs",
+  "category": "hardware",
+  "publishedAt": "2026-10-30T09:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "292684becfeb689c",
+  "excerpt": "GLP-1 weight-loss drugs are one of the biggest biotech breakthroughs of the last decade. But to some clinical psychologists, they can represent something more sinister—a potential trigger for eating disorders.\nA new report suggests that the global incidence of anorexia nervosa and bulimia nervosa shot up between 1990 and 2023—by a whopping 71%. By 2023, there were an estimated 18.1 million people living with one of these two disorders.\nWhat’s worse is that the number is likely to be much higher than that once we factor in other eating disorders. And, disturbingly, those in the field are already starting to see GLP-1 weight-loss drugs exacerbating the issue.\nCheri Levinson is a clinical psychologist at the University of Louisville in Kentucky who has specialized in eating disorders for almost 20 years. She says she’s now seeing more patients with more severe symptoms than at any other time in her career, and that many of them are misusing GLP-1s. “This is the worst I’ve seen things,” she says.\nEating disorders are mental health conditions in which people’s eating behaviors impact their health. They include anorexia nervosa (defined by a fear of weight gain), bulimia nervosa (in…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "Eating disorders are on the rise. GLP-1s could make things worse.",
+    "url": "https://technologyreview.com/2026/10/30/1147838/eating-disorders-rise-glp-1s-weight-loss-drugs",
+    "publishedAt": "2026-10-30T09:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-10-30-farm-pc-maintained-by-a-14-year-old-dumped-bb2ef1",
   "title": "Farm PC 'maintained' by a 14-year-old dumped support chap in a steaming pile of tech mess",
   "canonicalUrl": "https://theregister.com/systems/2026/10/30/farm-pc-maintained-by-a-14-year-old-dumped-support-chap-in-a-steaming-pile-of-tech-mess/5306217",
@@ -574,7 +2825,7 @@
   "publishedAt": "2026-10-30T00:43:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "211c153ca3a6499d",
@@ -616,6 +2867,53 @@
    ]
   },
   "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-30-fair-use-benefits-everyone-574dba",
+  "title": "Fair use benefits everyone",
+  "canonicalUrl": "https://openai.com/index/fair-use-benefits-everyone",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-30T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "872aa43c1a3200bb",
+  "excerpt": "OpenAI shares excerpts from court briefs by creators, academics, accessibility advocates, and legal experts, among others, on how fair use supports AI training and innovation.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Fair use benefits everyone",
+    "url": "https://openai.com/index/fair-use-benefits-everyone",
+    "publishedAt": "2026-10-30T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
   "status": "pending"
  },
  {
@@ -975,7 +3273,7 @@
   "publishedAt": "2026-10-29T19:52:29.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "56f033cb4333d116",
@@ -1183,7 +3481,7 @@
   "publishedAt": "2026-10-29T19:18:20.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1adff2fed2560e36",
@@ -1339,7 +3637,7 @@
   "publishedAt": "2026-10-29T18:11:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a6ab31f79cb7bd3",
@@ -1391,7 +3689,7 @@
   "publishedAt": "2026-10-29T17:41:23.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "69aab5ebe4fbb945",
@@ -1448,7 +3746,7 @@
   "publishedAt": "2026-10-29T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c908bd6d1b471413",
@@ -1547,7 +3845,7 @@
   "publishedAt": "2026-10-29T16:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b2e382fc45378585",
@@ -1599,7 +3897,7 @@
   "publishedAt": "2026-10-29T16:00:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "84c2d913220395b2",
@@ -1651,7 +3949,7 @@
   "publishedAt": "2026-10-29T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:46:35.442Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ef006aa2ec0bee8c",
@@ -1921,7 +4219,7 @@
   "publishedAt": "2026-10-29T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:46:35.442Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33af644132a8bf02",
@@ -1968,7 +4266,7 @@
   "publishedAt": "2026-10-29T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "562dd8decdd8f9d3",
@@ -2129,7 +4427,7 @@
   "publishedAt": "2026-10-29T13:37:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b22e6103870afaa3",
@@ -2186,7 +4484,7 @@
   "publishedAt": "2026-10-29T13:00:16.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3cc76bc7c52d860e",
@@ -2238,7 +4536,7 @@
   "publishedAt": "2026-10-29T12:55:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6e933a46db91181e",
@@ -2290,7 +4588,7 @@
   "publishedAt": "2026-10-29T12:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "062fdb863993f8fe",
@@ -2347,7 +4645,7 @@
   "publishedAt": "2026-10-29T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "366be4c43d4e0462",
@@ -2404,7 +4702,7 @@
   "publishedAt": "2026-10-29T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22b91bd04bd6ab5b",
@@ -2479,7 +4777,7 @@
   "publishedAt": "2026-10-29T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "51b2fe10c057c976",
@@ -2531,7 +4829,7 @@
   "publishedAt": "2026-10-29T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cd9ade44bd262a4e",
@@ -2583,7 +4881,7 @@
   "publishedAt": "2026-10-29T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07614ebb05e0c0c7",
@@ -2739,7 +5037,7 @@
   "publishedAt": "2026-10-29T10:11:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d5a335ecc5d3a97d",
@@ -2791,7 +5089,7 @@
   "publishedAt": "2026-10-29T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "11c463ae19f47012",
@@ -2942,7 +5240,7 @@
   "publishedAt": "2026-10-29T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "85f45e80e7cd6cba",
@@ -2994,7 +5292,7 @@
   "publishedAt": "2026-10-29T07:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c15802c83348ac6f",
@@ -3041,11 +5339,17 @@
   "publishedAt": "2026-10-29T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "1b890c4e5492c4b6",
-  "excerpt": "In this SIG Architecture spotlight we talked with Janet Kuo (Google)\nand Yuan Tang (Red Hat) about the journey of AI Conformance in\nKubernetes, from the initial Working\nGroup to the\nintegration SIG Architecture \nas a subproject.\nIntroductions \nFrederico Muñoz and Kirti Goyal (FK): Hi Janet, Yuan, and thank you for the opportunity to learn a\nbit more about AI Conformance. Can you tell us a bit about yourselves and how you got involved in\nKubernetes? \nJanet Kuo : I'm a Senior Staff Software Engineer at Google and have been a Kubernetes maintainer\nsince 2015, joining the community just as we were racing toward the 1.0 launch. I started my journey\nwriting the core workload controllers that standardized how applications are orchestrated on\nKubernetes. Today, I lead SIG Apps as a Co-chair & TL, and also lead the\nAI Conformance program .\nMy current focus is to ensure Kubernetes remains the best platform for the next generation of\nworkloads, such as AI.\nYuan Tang : I’m a Senior Principal Software Engineer at Red Hat, where I lead the development of\nour AI platform and drive our upstream open source strategy. I became involved in Kubernetes early\non by fostering collaborations between the…",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": "2026-10-31T07:22:03.319Z",
+  "revisions": [
+   {
+    "at": "2026-10-31T07:22:03.319Z",
+    "reason": "Source text edited",
+    "contentHash": "c8452090ec9110ea"
+   }
+  ],
+  "contentHash": "c8452090ec9110ea",
+  "excerpt": "In this SIG Architecture spotlight we talked with Janet Kuo (Google)\nand Yuan Tang (TensorScale AI) about the journey of AI Conformance in\nKubernetes, from the initial Working\nGroup to the\nintegration SIG Architecture \nas a subproject.\nIntroductions \nFrederico Muñoz and Kirti Goyal (FK): Hi Janet, Yuan, and thank you for the opportunity to learn a\nbit more about AI Conformance. Can you tell us a bit about yourselves and how you got involved in\nKubernetes? \nJanet Kuo : I'm a Senior Staff Software Engineer at Google and have been a Kubernetes maintainer\nsince 2015, joining the community just as we were racing toward the 1.0 launch. I started my journey\nwriting the core workload controllers that standardized how applications are orchestrated on\nKubernetes. Today, I lead SIG Apps as a Co-chair & TL, and also lead the\nAI Conformance program .\nMy current focus is to ensure Kubernetes remains the best platform for the next generation of\nworkloads, such as AI.\nYuan Tang : I'm a co-founder of TensorScale AI where we build AI infrastructure for world models. Prior to that, I was a Senior Principal Software Engineer at Red Hat, where I led the development of Red Hat AI platform and upstream…",
   "sources": [
    {
     "sourceId": "kubernetes-blog",
@@ -3093,7 +5397,7 @@
   "publishedAt": "2026-10-29T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "257c44ca5badd53f",
@@ -3145,7 +5449,7 @@
   "publishedAt": "2026-10-29T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "55be5e63dbfa576e",
@@ -3197,7 +5501,7 @@
   "publishedAt": "2026-10-29T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e13989afbbf8a8f8",
@@ -3244,7 +5548,7 @@
   "publishedAt": "2026-10-28T20:45:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fd23ad2006e3b015",
@@ -3343,7 +5647,7 @@
   "publishedAt": "2026-10-28T18:40:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e5f23f98d7bb385f",
@@ -3400,7 +5704,7 @@
   "publishedAt": "2026-10-28T18:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a602c9aaa01bb1ae",
@@ -3447,7 +5751,7 @@
   "publishedAt": "2026-10-28T17:40:56.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:46:35.442Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "14d4ed5b097ab994",
@@ -3499,7 +5803,7 @@
   "publishedAt": "2026-10-28T17:00:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bd629cbd401630e6",
@@ -3541,7 +5845,7 @@
   "publishedAt": "2026-10-28T16:58:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e18d71a22ae1a0e0",
@@ -3593,7 +5897,7 @@
   "publishedAt": "2026-10-28T16:09:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "df2805f55cb7a6cc",
@@ -3645,7 +5949,7 @@
   "publishedAt": "2026-10-28T16:07:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "007ec1cbddc182a5",
@@ -3692,7 +5996,7 @@
   "publishedAt": "2026-10-28T16:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e49b0846c1db6136",
@@ -3848,7 +6152,7 @@
   "publishedAt": "2026-10-28T15:00:46.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6704f6dd56d1228b",
@@ -3994,7 +6298,7 @@
   "publishedAt": "2026-10-28T13:00:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b797fa5351821511",
@@ -4083,7 +6387,7 @@
   "publishedAt": "2026-10-28T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8479dadfead4d743",
@@ -4232,7 +6536,7 @@
   "publishedAt": "2026-10-28T04:56:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "af217297a50dda7f",
@@ -4284,7 +6588,7 @@
   "publishedAt": "2026-10-28T04:37:53.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "123c814aaa91a1e3",
@@ -4440,7 +6744,7 @@
   "publishedAt": "2026-10-28T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a619201248e6f71d",
@@ -4534,7 +6838,7 @@
   "publishedAt": "2026-10-27T20:25:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a4541396ef6041f7",
@@ -4576,7 +6880,7 @@
   "publishedAt": "2026-10-27T17:35:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "716e86c46d48f61d",
@@ -4660,7 +6964,7 @@
   "publishedAt": "2026-10-27T16:14:39.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "759fd43207b495b0",
@@ -4702,7 +7006,7 @@
   "publishedAt": "2026-10-27T16:01:38.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "493167c3e865cf4b",
@@ -4744,7 +7048,7 @@
   "publishedAt": "2026-10-27T16:00:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0d1be4cb9b5b1d0b",
@@ -4875,7 +7179,7 @@
   "publishedAt": "2026-10-27T15:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "10fdd087e2047cbf",
@@ -4922,7 +7226,7 @@
   "publishedAt": "2026-10-27T13:00:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e2ba13a97570dd12",
@@ -4969,11 +7273,17 @@
   "publishedAt": "2026-10-27T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "737d4fc868af0cbd",
-  "excerpt": "Last week was one for the Internet security history books. First, eight eMudhra intermediate certificates were compromised , creating the possibility of forged certificates that could be used to impersonate servers. Then came php2shell : serious vulnerabilities in PHP, the runtime behind a large portion of the Web.\nCloudflare worked around the clock as these events unfolded to protect our customers and help protect the Internet. We shipped client updates and multiple mitigations , updated our web application firewall (WAF) with new rules to block attackers from exploiting the PHP vulnerabilities, and introduced a new feature called full transaction detection .\nAs always in situations like this, these new capabilities were made available on all plans, including Free.\nPut our WAF to the test\nProtecting systems from vulnerabilities like these is always an ongoing process, not a one-time event. The widespread adoption of AI allows attackers to discover new vectors with unprecedented speed and efficiency, so collecting real-world data to test our assumptions and strengthen defenses is essential.\nThat’s why today we're launching the Cloudflare PHP Capture the Flag challenge , run…",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "updatedAt": "2026-10-31T07:22:03.319Z",
+  "revisions": [
+   {
+    "at": "2026-10-31T07:22:03.319Z",
+    "reason": "Source text edited",
+    "contentHash": "157a878aa96e4214"
+   }
+  ],
+  "contentHash": "157a878aa96e4214",
+  "excerpt": "Update — October 30, 2026: Thank you to everyone who has participated in the PHP Capture the Flag challenge. We have received a strong response from the security research community, and the submissions have helped us harden our existing php2shell WAF protections and create new detections. \nDetails of managed-rule changes are available in the Cloudflare WAF changelog . \nThe CTF remains open. We encourage researchers to continue submitting materially distinct, reproducible bypasses through the Cloudflare HackerOne program. We will share further information and feedback as the challenge progresses. Thank you again for your contributions. \nLast week was one for the Internet security history books. First, eight eMudhra intermediate certificates were compromised , creating the possibility of forged certificates that could be used to impersonate servers. Then came php2shell : serious vulnerabilities in PHP, the runtime behind a large portion of the Web.\nCloudflare worked around the clock as these events unfolded to protect our customers and help protect the Internet. We shipped client updates and multiple mitigations , updated our web application firewall (WAF) with new rules to block…",
   "sources": [
    {
     "sourceId": "cloudflare",
@@ -4986,7 +7296,7 @@
   ],
   "minor": false,
   "score": {
-   "total": 53,
+   "total": 50,
    "parts": [
     {
      "label": "Baseline",
@@ -5002,11 +7312,6 @@
      "label": "Significance",
      "points": 15,
      "reason": "Major development (\"introducing\")"
-    },
-    {
-     "label": "Engineering relevance",
-     "points": 3,
-     "reason": "Touches runtime"
     }
    ]
   },
@@ -5021,7 +7326,7 @@
   "publishedAt": "2026-10-27T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3670107e0704c884",
@@ -5063,7 +7368,7 @@
   "publishedAt": "2026-10-27T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "417f994c0715e722",
@@ -5115,7 +7420,7 @@
   "publishedAt": "2026-10-27T11:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5bcd707fa56fcf6",
@@ -5167,7 +7472,7 @@
   "publishedAt": "2026-10-27T07:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2f8916019927e615",
@@ -5214,7 +7519,7 @@
   "publishedAt": "2026-10-27T04:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a32ae75e347e8480",
@@ -5313,7 +7618,7 @@
   "publishedAt": "2026-10-26T18:00:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e09ba2a4f141f63b",
@@ -5360,7 +7665,7 @@
   "publishedAt": "2026-10-26T17:04:57.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7d8070c8a566a0e",
@@ -5402,7 +7707,7 @@
   "publishedAt": "2026-10-26T16:01:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e592d6656db6b781",
@@ -5444,7 +7749,7 @@
   "publishedAt": "2026-10-26T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6c71eb58316742cf",
@@ -5486,7 +7791,7 @@
   "publishedAt": "2026-10-26T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "71868572ba184d27",
@@ -5533,7 +7838,7 @@
   "publishedAt": "2026-10-26T15:02:24.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "509bef8ab7417a46",
@@ -5585,7 +7890,7 @@
   "publishedAt": "2026-10-26T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0ddbdb8fe91f3c8a",
@@ -5689,7 +7994,7 @@
   "publishedAt": "2026-10-26T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4273a056ebad1350",
@@ -5746,7 +8051,7 @@
   "publishedAt": "2026-10-26T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "654f7aa40b7362d0",
@@ -5803,7 +8108,7 @@
   "publishedAt": "2026-10-26T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ae20bb210af21bde",
@@ -5865,7 +8170,7 @@
   "publishedAt": "2026-10-25T18:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "02da6c4948b8b0f8",
@@ -5935,7 +8240,7 @@
   "publishedAt": "2026-10-23T18:51:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43207998bf28fdaa",
@@ -5982,7 +8287,7 @@
   "publishedAt": "2026-10-23T18:32:51.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "280de2f8f0604c7d",
@@ -6091,7 +8396,7 @@
   "publishedAt": "2026-10-23T14:58:56.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-30T06:46:35.442Z",
+  "lastSeenAt": "2026-10-31T07:22:03.319Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33f93135af54b76f",

@@ -35,5 +35,23 @@
   "errors": [
    "cacm: HTTP 403"
   ]
+ },
+ {
+  "startedAt": "2026-10-31T07:22:03.319Z",
+  "finishedAt": "2026-10-31T07:22:08.899Z",
+  "ok": true,
+  "sourcesOk": 42,
+  "sourcesFailed": 1,
+  "itemsFetched": 172,
+  "newStories": 45,
+  "updatedStories": 2,
+  "corroborated": 1,
+  "unchanged": 72,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "--no-analyze",
+  "errors": [
+   "cacm: HTTP 403"
+  ]
  }
 ]
