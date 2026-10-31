@@ -6,6 +6,8 @@ on:
     # The encrypted sync credential is read at runtime, so updating it needs no rebuild.
     paths-ignore: ["vault/**"]
   workflow_dispatch:
+  # Called by radar.yml after the daily Tech Radar ingest, so new stories go live without a push to main.
+  workflow_call:
 
 permissions:
   contents: read
@@ -26,6 +28,17 @@ jobs:
           node-version: 22
           cache: npm
       - uses: actions/configure-pages@v5
+      - name: Fetch Tech Radar data
+        # Stories live on the radar-data branch (written by radar.yml); absent before the first run.
+        run: |
+          if git ls-remote --exit-code --heads origin radar-data >/dev/null; then
+            git fetch --depth=1 origin radar-data
+            mkdir -p content/radar
+            git archive FETCH_HEAD | tar -x -C content/radar
+            echo "Radar stories: $(ls content/radar/stories 2>/dev/null | wc -l) month file(s)"
+          else
+            echo "::notice title=Tech Radar::no radar-data branch yet; the radar pages will show their empty state"
+          fi
       - run: npm ci
       - run: npm test
       - run: npm run build

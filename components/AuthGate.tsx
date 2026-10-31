@@ -141,6 +141,7 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
@@ -148,14 +149,18 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
     setError(null);
     const ok = await onSubmit(username, password);
     setBusy(false);
-    if (!ok) setError("Incorrect username or password.");
+    if (!ok) {
+      // Keep the username; never keep a rejected password around.
+      setPassword("");
+      setError("Incorrect username or password.");
+    }
   };
 
   const input = "field mt-1 text-sm";
 
   return (
     <div className="flex flex-1 items-center justify-center px-[max(1rem,env(safe-area-inset-left))] pt-[calc(env(safe-area-inset-top)+2rem)] pb-[calc(env(safe-area-inset-bottom)+2rem)]">
-      <form onSubmit={submit} className="card w-full max-w-sm p-7">
+      <form onSubmit={submit} className="w-full max-w-sm rounded-lg border border-line bg-surface p-7">
         <BrandMark className="text-lg" />
         <h1 className="mt-6 text-2xl font-bold tracking-tight">Welcome back</h1>
         <p className="mt-1 text-sm text-ink-2">Sign in to continue your practice. This tracker is private.</p>
@@ -169,23 +174,38 @@ function LoginScreen({ onSubmit }: { onSubmit: (username: string, password: stri
             autoCapitalize="none"
             spellCheck={false}
             required
+            aria-invalid={error ? true : undefined}
+            aria-describedby={error ? "login-error" : undefined}
             className={input}
           />
         </label>
         <label className="mt-3 block text-sm">
           <span className="text-ink-2">Password</span>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-            required
-            className={input}
-          />
+          <span className="relative mt-1 block">
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+              required
+              aria-invalid={error ? true : undefined}
+              aria-describedby={error ? "login-error" : undefined}
+              className="field pr-16 text-sm"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((v) => !v)}
+              aria-pressed={showPassword}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              className="absolute inset-y-0 right-0 px-3 text-xs font-medium text-ink-2 hover:text-ink"
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </span>
         </label>
 
         {error && (
-          <p role="alert" className="mt-3 rounded-md bg-bad-bg px-3 py-2 text-sm text-bad">
+          <p id="login-error" role="alert" className="mt-3 rounded-md bg-bad-bg px-3 py-2 text-sm text-bad">
             {error}
           </p>
         )}

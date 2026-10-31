@@ -16,9 +16,18 @@ function Icon({ children }: { children: ReactNode }) {
   );
 }
 
-const LINKS: { href: string; label: string; short: string; icon: ReactNode }[] = [
+const FUN_ICON = (
+  <Icon>
+    <path d="M12 3c-3.9 0-7 3-7 6.8 0 2.4 1.2 4.3 3 5.5V18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.7c1.8-1.2 3-3.1 3-5.5C19 6 15.9 3 12 3z" />
+    <path d="M9.5 22h5" />
+  </Icon>
+);
+
+// `tab: false` links live in the header on phones; the bottom bar keeps five destinations.
+const LINKS: { href: string; label: string; short: string; icon: ReactNode; tab: boolean }[] = [
   {
     href: "/",
+    tab: true,
     label: "Dashboard",
     short: "Home",
     icon: (
@@ -29,6 +38,7 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode }[] =
   },
   {
     href: "/practice/",
+    tab: true,
     label: "Practice",
     short: "Practice",
     icon: (
@@ -39,6 +49,7 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode }[] =
   },
   {
     href: "/assess/",
+    tab: true,
     label: "Assessment",
     short: "Assess",
     icon: (
@@ -50,6 +61,7 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode }[] =
   },
   {
     href: "/lessons/",
+    tab: true,
     label: "Lessons",
     short: "Lessons",
     icon: (
@@ -60,18 +72,23 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode }[] =
     ),
   },
   {
-    href: "/news/",
-    label: "News",
-    short: "News",
+    href: "/radar/",
+    label: "Radar",
+    short: "Radar",
+    tab: true,
     icon: (
       <Icon>
-        <path d="M5 4h12v15a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1z" />
-        <path d="M17 8h2a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2M8 8h5M8 12h5M8 16h3" />
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="5" />
+        <path d="M12 12 18.4 5.6" />
+        <circle cx="16" cy="9.5" r="1" fill="currentColor" />
       </Icon>
     ),
   },
+  { href: "/fun/", label: "Fun corner", short: "Fun", tab: false, icon: FUN_ICON },
   {
     href: "/settings/",
+    tab: false,
     label: "Settings",
     short: "Settings",
     icon: (
@@ -98,48 +115,73 @@ export function Nav() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-line bg-surface/95 pt-[env(safe-area-inset-top)] backdrop-blur">
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-6 px-[max(1rem,env(safe-area-inset-left))] py-1 sm:py-3 sm:pr-[max(1rem,env(safe-area-inset-right))]">
-          <Link href="/" className="tap -ml-1 px-1 font-semibold tracking-tight sm:ml-0 sm:px-0 sm:py-1">
+      <header className="sticky top-0 z-30 border-b border-line bg-bg/90 pt-[env(safe-area-inset-top)] backdrop-blur">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-[max(1rem,env(safe-area-inset-left))] sm:pr-[max(1rem,env(safe-area-inset-right))]">
+          <Link href="/" className="tap -ml-1 px-1 font-semibold tracking-tight sm:ml-0 sm:px-0 sm:py-3">
             <BrandMark />
           </Link>
-          <nav className="hidden flex-1 gap-1 text-sm sm:flex">
-            {LINKS.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={`rounded-md px-2.5 py-1.5 ${
-                  isActive(pathname, l.href) ? "bg-accent/10 font-semibold text-accent" : "text-ink-2 hover:bg-surface-2 hover:text-ink"
-                }`}
-              >
-                {l.label}
-              </Link>
-            ))}
+          <nav aria-label="Main" className="hidden flex-1 gap-1 self-stretch text-sm sm:flex">
+            {LINKS.map((l) => {
+              const active = isActive(pathname, l.href);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative flex items-center px-2.5 transition-colors ${
+                    active
+                      ? "font-semibold text-ink after:absolute after:inset-x-2.5 after:-bottom-px after:h-0.5 after:bg-accent"
+                      : "text-ink-2 hover:text-ink"
+                  }`}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </nav>
-          <Link
-            href="/settings/"
-            className={`tap -mr-1 px-1 text-xs sm:mr-0 sm:px-0 sm:py-1 ${syncState === "error" ? "text-bad" : "text-ink-3"}`}
-            title="Where your progress is stored"
-          >
-            ● {syncLabel}
-          </Link>
+          <div className="-mr-1 flex items-center sm:mr-0">
+            {LINKS.filter((l) => !l.tab).map((l) => {
+              // On phones the settings icon doubles as the sync indicator.
+              const syncIssue = l.href === "/settings/" && syncState === "error";
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  aria-label={syncIssue ? `${l.label} (sync error)` : l.label}
+                  aria-current={isActive(pathname, l.href) ? "page" : undefined}
+                  className={`tap px-2.5 sm:hidden ${
+                    syncIssue ? "text-bad" : isActive(pathname, l.href) ? "text-accent-text" : "text-ink-3"
+                  }`}
+                >
+                  {l.icon}
+                </Link>
+              );
+            })}
+            <Link
+              href="/settings/"
+              className={`hidden py-1 font-mono text-xs sm:inline ${syncState === "error" ? "text-bad" : "text-ink-3"}`}
+              title="Where your progress is stored"
+            >
+              <span aria-hidden>●</span> {syncLabel}
+            </Link>
+          </div>
         </div>
       </header>
 
       <nav
         aria-label="Primary"
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden"
+        className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-bg/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden"
       >
         <ul className="mx-auto flex h-[var(--tabbar-h)] max-w-md items-stretch px-[env(safe-area-inset-left)]">
-          {LINKS.map((l) => {
+          {LINKS.filter((l) => l.tab).map((l) => {
             const active = isActive(pathname, l.href);
             return (
               <li key={l.href} className="flex-1">
                 <Link
                   href={l.href}
                   aria-current={active ? "page" : undefined}
-                  className={`flex h-full flex-col items-center justify-center gap-0.5 text-[11px] ${
-                    active ? "font-medium text-accent" : "text-ink-3"
+                  className={`relative flex h-full flex-col items-center justify-center gap-0.5 text-[11px] ${
+                    active ? "font-medium text-accent-text before:absolute before:inset-x-4 before:top-0 before:h-0.5 before:bg-accent" : "text-ink-3"
                   }`}
                 >
                   {l.icon}

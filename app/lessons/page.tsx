@@ -11,33 +11,36 @@ export default function LessonsPage() {
   const topics = getAllTopics();
   const questions = getAllQuestions();
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">Lessons</h1>
-        <p className="mt-1 text-ink-2">Short, interview-level guides. Each topic links to a focused drill.</p>
+    <div className="space-y-12">
+      <div className="hero-grid pt-2 sm:pt-6">
+        <p className="eyebrow">{topics.length} topics · 5 domains</p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.125rem]">Lessons</h1>
+        <p className="mt-2 text-ink-2">Short, interview-level guides. Each topic links to a focused drill.</p>
       </div>
       {DOMAINS.map((domain) => (
-        <section key={domain}>
-          <h2 className="mb-3 flex items-center gap-3 text-lg font-bold tracking-tight">
-            <DomainIcon domain={domain} size={32} />
-            {DOMAIN_LABELS[domain]}
-          </h2>
-          <ul className="grid gap-3 sm:grid-cols-2">
+        <section key={domain} id={domain} className="scroll-mt-20">
+          <div className="section-head">
+            <h2 className="flex items-center gap-3">
+              <DomainIcon domain={domain} size={30} />
+              {DOMAIN_LABELS[domain]}
+            </h2>
+          </div>
+          <ul className="grid divide-y divide-line sm:grid-cols-2 sm:gap-x-10 sm:divide-y-0">
             {topics
               .filter((t) => t.domain === domain)
               .map((t) => (
-                <li key={t.topic}>
+                <li key={t.topic} className="sm:border-b sm:border-line">
                   <Link
                     href={`/lessons/${t.domain}/${t.topic}/`}
-                    className="card block h-full p-4 transition-all hover:-translate-y-0.5 hover:border-ink-3"
-                    style={{ borderLeft: `4px solid ${domainColor(t.domain)}` }}
+                    className="group block h-full border-l-2 py-3 pl-3"
+                    style={{ borderLeftColor: domainColor(t.domain) }}
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <p className="font-semibold">{t.title}</p>
+                      <p className="font-semibold group-hover:text-accent-text">{t.title}</p>
                       <TopicScore domain={t.domain} topic={t.topic} />
                     </div>
                     <p className="mt-1 text-sm text-ink-2">{t.summary}</p>
-                    <p className="mt-2 text-xs text-ink-3">
+                    <p className="mt-1.5 font-mono text-xs text-ink-3">
                       {questions.filter((q) => q.domain === t.domain && q.topic === t.topic).length} questions
                     </p>
                   </Link>

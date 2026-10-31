@@ -11,6 +11,7 @@
   --text-2: #52514e;
   --text-3: #7a7974;
   --accent: #2a78d6;
+  --accent-text: #1f66bd;
   --accent-ink: #ffffff;
   --series-1: #2a78d6;
   --good: #1f7a3a;
@@ -32,59 +33,61 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #121211;
-    --surface: #1a1a19;
-    --surface-2: #232321;
-    --border: #2f2f2c;
-    --grid: #2a2a28;
-    --text: #f0efec;
-    --text-2: #c3c2b7;
-    --text-3: #8f8e86;
-    --accent: #3987e5;
-    --accent-ink: #ffffff;
-    --series-1: #3987e5;
+    --bg: #0a1016;
+    --surface: #0e171f;
+    --surface-2: #142029;
+    --border: #1f2c38;
+    --grid: #18242f;
+    --text: #e8edf2;
+    --text-2: #a9b5c1;
+    --text-3: #808d9a;
+    --accent: #3b9bff;
+    --accent-text: #6cb4ff;
+    --accent-ink: #04111f;
+    --series-1: #3b9bff;
     --good: #6fcf8a;
-    --good-bg: #16301f;
+    --good-bg: #12291b;
     --bad: #f28b82;
-    --bad-bg: #3a1c1a;
+    --bad-bg: #331a19;
     --warn: #f2c063;
-    --warn-bg: #3a2e14;
+    --warn-bg: #33290f;
     --accent-2: #9085e9;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25);
-    --d-dsa: #3987e5;
-    --d-oop: #d95926;
-    --d-databases: #199e70;
-    --d-system-design: #c98500;
-    --d-web: #d55181;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.25);
+    --d-dsa: #3b9bff;
+    --d-oop: #f07a3c;
+    --d-databases: #22b483;
+    --d-system-design: #e0a21a;
+    --d-web: #e06c9f;
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #121211;
-  --surface: #1a1a19;
-  --surface-2: #232321;
-  --border: #2f2f2c;
-  --grid: #2a2a28;
-  --text: #f0efec;
-  --text-2: #c3c2b7;
-  --text-3: #8f8e86;
-  --accent: #3987e5;
-  --accent-ink: #ffffff;
-  --series-1: #3987e5;
+  --bg: #0a1016;
+  --surface: #0e171f;
+  --surface-2: #142029;
+  --border: #1f2c38;
+  --grid: #18242f;
+  --text: #e8edf2;
+  --text-2: #a9b5c1;
+  --text-3: #808d9a;
+  --accent: #3b9bff;
+  --accent-text: #6cb4ff;
+  --accent-ink: #04111f;
+  --series-1: #3b9bff;
   --good: #6fcf8a;
-  --good-bg: #16301f;
+  --good-bg: #12291b;
   --bad: #f28b82;
-  --bad-bg: #3a1c1a;
+  --bad-bg: #331a19;
   --warn: #f2c063;
-  --warn-bg: #3a2e14;
+  --warn-bg: #33290f;
   --accent-2: #9085e9;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25);
-  --d-dsa: #3987e5;
-  --d-oop: #d95926;
-  --d-databases: #199e70;
-  --d-system-design: #c98500;
-  --d-web: #d55181;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.25);
+  --d-dsa: #3b9bff;
+  --d-oop: #f07a3c;
+  --d-databases: #22b483;
+  --d-system-design: #e0a21a;
+  --d-web: #e06c9f;
 }
 
 @theme inline {
@@ -97,6 +100,7 @@
   --color-ink-3: var(--text-3);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
+  --color-accent-text: var(--accent-text);
   --color-good: var(--good);
   --color-good-bg: var(--good-bg);
   --color-bad: var(--bad);
@@ -124,12 +128,7 @@ html {
 }
 
 body {
-  /* Soft color wash at the top so the app doesn't read as a flat gray page. */
-  background:
-    radial-gradient(900px 360px at 0% -120px, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%),
-    radial-gradient(700px 320px at 100% -80px, color-mix(in oklab, var(--accent-2) 12%, transparent), transparent 70%),
-    var(--bg);
-  background-repeat: no-repeat;
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
   -webkit-tap-highlight-color: transparent;
@@ -140,6 +139,13 @@ button,
 label,
 input {
   touch-action: manipulation;
+}
+
+/* One visible focus treatment for every interactive element. */
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* iOS Safari zooms into any focused field under 16px. */
@@ -244,8 +250,8 @@ input {
   justify-content: center;
   gap: 0.5rem;
   min-height: 44px;
-  padding: 0 1.4rem;
-  border-radius: 0.85rem;
+  padding: 0 1.25rem;
+  border-radius: 0.5rem;
   border: 1px solid transparent;
   font-size: 0.875rem;
   font-weight: 600;
@@ -253,8 +259,7 @@ input {
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease,
-    border-color 0.12s ease, opacity 0.12s ease;
+  transition: color 0.16s ease, background-color 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
 }
 .btn:focus-visible,
 .chip-btn:focus-visible {
@@ -285,34 +290,70 @@ input {
   }
 }
 
-/* Primary call to action. */
+/* Primary call to action: the signature chamfered outline. The shape is drawn by two clipped layers
+   (stroke, then fill) so the button itself is never clipped and its focus outline stays visible.
+   Use for the one dominant action in a region; everything else is secondary or ghost. */
 .btn-primary {
-  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
-  box-shadow: 0 6px 18px color-mix(in oklab, var(--accent) 35%, transparent);
+  --chamfer: 10px;
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  color: var(--accent-text);
+  border: 0;
+  border-radius: 0;
 }
-.btn-primary:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px color-mix(in oklab, var(--accent) 40%, transparent);
+.btn-primary::before,
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  clip-path: polygon(
+    var(--chamfer) 0,
+    100% 0,
+    100% calc(100% - var(--chamfer)),
+    calc(100% - var(--chamfer)) 100%,
+    0 100%,
+    0 var(--chamfer)
+  );
+  transition: background-color 0.16s ease;
 }
-.btn-primary:active:not(:disabled) {
-  transform: translateY(0);
+.btn-primary::before {
+  inset: 0;
+  background: var(--accent);
+}
+.btn-primary::after {
+  inset: 1.5px;
+  background: color-mix(in oklab, var(--accent) 12%, var(--bg));
+}
+.btn-primary:hover:not(:disabled)::after {
+  background: color-mix(in oklab, var(--accent) 22%, var(--bg));
+}
+.btn-primary:active:not(:disabled)::after {
+  background: color-mix(in oklab, var(--accent) 30%, var(--bg));
+}
+.btn-primary:focus-visible {
+  border-radius: 0;
+}
+.btn-arrow {
+  display: inline-block;
+  transition: transform 0.16s ease;
+}
+.btn:hover:not(:disabled) .btn-arrow {
+  transform: translateX(3px);
 }
 
-/* Secondary: same shape as primary, quiet surface. */
+/* Secondary: quiet outline. */
 .btn-secondary {
-  background: var(--surface-2);
+  background: transparent;
   border-color: var(--border);
   color: var(--text);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 .btn-secondary:hover:not(:disabled) {
-  transform: translateY(-1px);
-  border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
-  background: color-mix(in oklab, var(--accent) 8%, var(--surface-2));
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+  background: var(--surface-2);
 }
 .btn-secondary:active:not(:disabled) {
-  transform: translateY(0);
+  background: color-mix(in oklab, var(--accent) 10%, var(--surface-2));
 }
 .btn-secondary.btn-danger {
   color: var(--bad);
@@ -326,7 +367,7 @@ input {
 .btn-ghost {
   min-height: 44px;
   padding: 0 0.85rem;
-  color: var(--accent);
+  color: var(--accent-text);
   background: transparent;
 }
 .btn-ghost:hover:not(:disabled) {
@@ -350,10 +391,10 @@ input {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 9999px;
+  border-radius: 6px;
   border: 1px solid var(--border);
-  background: var(--surface-2);
-  padding: 0.25rem 0.8rem;
+  background: transparent;
+  padding: 0.25rem 0.7rem;
   font-size: 0.8125rem;
   font-weight: 500;
 }
@@ -365,9 +406,9 @@ input {
 .field {
   width: 100%;
   min-height: 44px;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   border: 1px solid var(--border);
-  background: var(--surface-2);
+  background: var(--surface);
   padding: 0 0.9rem;
   color: var(--text);
   transition: border-color 0.12s ease, box-shadow 0.12s ease;
@@ -378,11 +419,89 @@ input {
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
 }
 
+/* Selective grouping only: prefer spacing and section headings over another card. */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 1rem;
-  box-shadow: var(--shadow);
+  border-radius: 0.75rem;
+}
+
+/* Developer-playground backdrop for page heroes: a faint dot grid that fades out. Decorative only. */
+.hero-grid {
+  position: relative;
+  isolation: isolate;
+}
+.hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: -2rem 0 0;
+  z-index: -1;
+  background-image: radial-gradient(color-mix(in oklab, var(--text-3) 35%, transparent) 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  pointer-events: none;
+}
+
+/* Small uppercase label above a heading. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* Section heading with a hairline rule, used instead of wrapping sections in cards. */
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.25rem;
+}
+.section-head h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Status tag: always text + color, never color alone. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 4px;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Skill path: domain nodes connected by a line. Nodes are real links. */
+.skill-node {
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.skill-node:hover,
+.skill-node:focus-visible {
+  transform: translateY(-2px);
+}
+.skill-node:hover .skill-dot,
+.skill-node:focus-visible .skill-dot {
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--node) 25%, transparent);
+}
+.skill-dot {
+  transition: box-shadow 0.16s ease;
+}
+@keyframes path-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+.skill-line-progress {
+  stroke-dasharray: 1;
+  animation: path-draw 0.9s ease-out 0.15s both;
 }
 
 @keyframes pop {
@@ -394,6 +513,11 @@ input {
   animation: pop 0.25s ease-out;
 }
 @media (prefers-reduced-motion: reduce) {
+  .skill-node,
+  .skill-dot,
+  .skill-line-progress,
+  .btn-arrow,
+  .btn-primary::after,
   .animate-pop,
   .btn {
     animation: none;

@@ -1,0 +1,4 @@
+{"title": "Fixture KEV", "vulnerabilities": [
+ {"cveID": "CVE-2026-99999", "vendorProject": "Fixturesoft", "product": "Gateway", "vulnerabilityName": "Fixturesoft Gateway Authentication Bypass", "dateAdded": "2026-10-29", "shortDescription": "Fixture authentication bypass.", "requiredAction": "Apply mitigations.", "knownRansomwareCampaignUse": "Unknown"},
+ {"cveID": "not-a-cve", "vendorProject": "Bad"}
+]}

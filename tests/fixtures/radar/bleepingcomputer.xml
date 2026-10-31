@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel><title>Fixture press</title>
+<item>
+  <title>Fixture: Hackers exploit Fixturesoft Gateway flaw CVE-2026-99999</title>
+  <link>https://www.bleepingcomputer.com/news/security/fixture-gateway-flaw/</link>
+  <pubDate>Thu, 29 Oct 2026 14:00:00 GMT</pubDate>
+  <description>Attackers are exploiting CVE-2026-99999.</description>
+</item>
+<item>
+  <title>Fixture: New Rust compiler release speeds up builds</title>
+  <link>https://www.bleepingcomputer.com/news/software/fixture-rust/</link>
+  <pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
+  <description>A programming language update.</description>
+</item>
+</channel></rss>

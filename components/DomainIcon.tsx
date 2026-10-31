@@ -46,7 +46,7 @@ const PATHS: Record<Domain, React.ReactNode> = {
 };
 
 /** Domain glyph on a tinted tile, so color is always paired with a shape. */
-export function DomainIcon({ domain, size = 36 }: { domain: Domain; size?: number }) {
+export function DomainIcon({ domain, size = 36, round = false }: { domain: Domain; size?: number; round?: boolean }) {
   const color = domainColor(domain);
   const style: CSSProperties = {
     width: size,
@@ -55,7 +55,7 @@ export function DomainIcon({ domain, size = 36 }: { domain: Domain; size?: numbe
     background: `color-mix(in oklab, ${color} 14%, transparent)`,
   };
   return (
-    <span className="inline-flex shrink-0 items-center justify-center rounded-xl" style={style} aria-hidden>
+    <span className={`inline-flex shrink-0 items-center justify-center ${round ? "rounded-full" : "rounded-lg"}`} style={style} aria-hidden>
       <svg
         viewBox="0 0 24 24"
         width={size * 0.58}

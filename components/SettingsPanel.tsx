@@ -24,7 +24,7 @@ function NoticeLine({ notice }: { notice: Notice | null }) {
 }
 
 export function SettingsPanel() {
-  const { data, raw, archivedCount, storeKind, syncError, replaceAll } = useProgress();
+  const { data, raw, archivedCount, storeKind, syncState, syncError, replaceAll } = useProgress();
   const { syncToken, sharedAcrossDevices, connectSync, disconnectSync, signOut } = useAuth();
   const [token, setToken] = useState("");
   const [busy, setBusy] = useState(false);
@@ -75,12 +75,26 @@ export function SettingsPanel() {
   const vault = `${DATA_REPO.owner}/${DATA_REPO.repo}`;
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
+    <div className="mx-auto max-w-3xl space-y-10">
+      <div className="pt-2 sm:pt-6">
+        <p className="eyebrow">Preferences</p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.125rem]">Settings</h1>
+      </div>
 
-      <section className="card p-5">
-        <h2 className="font-medium">Storage</h2>
-        <p className="mt-1 text-sm text-ink-2">
+      <section>
+        <div className="section-head">
+          <h2>Storage</h2>
+          <span className={`font-mono text-xs ${syncState === "error" ? "text-bad" : "text-ink-3"}`} role="status">
+            {storeKind === "local"
+              ? "● Local only"
+              : syncState === "syncing"
+                ? "● Syncing…"
+                : syncState === "error"
+                  ? "● Sync error"
+                  : "● Synced"}
+          </span>
+        </div>
+        <p className="mt-3 text-sm text-ink-2">
           Currently:{" "}
           <strong>{storeKind === "github" ? `this browser + ${vault} (private)` : "this browser only"}</strong> ·{" "}
           {data.answers.length} answers, {data.sessions.length} sessions, {Object.keys(data.reviews).length} questions in
@@ -95,11 +109,13 @@ export function SettingsPanel() {
         {syncError && <p className="mt-2 text-sm text-bad">Last sync error: {syncError}</p>}
       </section>
 
-      <section className="card p-5">
-        <h2 className="font-medium">Sync to GitHub</h2>
+      <section>
+        <div className="section-head">
+          <h2>Sync to GitHub</h2>
+        </div>
         {syncToken ? (
           <>
-            <p className="mt-1 text-sm text-ink-2">
+            <p className="mt-3 text-sm text-ink-2">
               Progress syncs to <code>{vault}/{DATA_REPO.path}</code>, where the daily routine reads it.{" "}
               {sharedAcrossDevices
                 ? "Set up for your account: every device you sign in on syncs automatically."
@@ -108,11 +124,11 @@ export function SettingsPanel() {
             </p>
           </>
         ) : (
-          <p className="mt-1 text-sm text-ink-2">
+          <p className="mt-3 text-sm text-ink-2">
             One-time setup for your account; every device you sign in on picks it up automatically. It lets the daily
             improvement routine see your results and keeps devices in sync. Create a{" "}
             <a
-              className="text-accent hover:underline"
+              className="text-accent-text hover:underline"
               href="https://github.com/settings/personal-access-tokens/new"
               target="_blank"
               rel="noreferrer"
@@ -153,19 +169,21 @@ export function SettingsPanel() {
         <NoticeLine notice={syncNotice} />
       </section>
 
-      <section className="card p-5">
-        <h2 className="font-medium">Backup</h2>
-        <p className="mt-1 text-sm text-ink-2">Export everything as JSON, or import a backup. Imports merge, so they never delete answers.</p>
+      <section>
+        <div className="section-head">
+          <h2>Backup</h2>
+        </div>
+        <p className="mt-3 text-sm text-ink-2">Export everything as JSON, or import a backup. Imports merge, so they never delete answers.</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <button type="button" onClick={exportJson} className="btn btn-secondary">
             Export JSON
           </button>
-          <label className="btn btn-secondary">
+          <label className="btn btn-secondary has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent">
             Import JSON
             <input
               type="file"
               accept="application/json"
-              className="hidden"
+              className="sr-only"
               onChange={(e) => {
                 const f = e.target.files?.[0];
                 if (f) void importJson(f);
@@ -177,9 +195,11 @@ export function SettingsPanel() {
         <NoticeLine notice={backupNotice} />
       </section>
 
-      <section className="card p-5">
-        <h2 className="font-medium">Account</h2>
-        <p className="mt-1 text-sm text-ink-2">You stay signed in on this device for 30 days.</p>
+      <section>
+        <div className="section-head">
+          <h2>Account</h2>
+        </div>
+        <p className="mt-3 text-sm text-ink-2">You stay signed in on this device for 30 days.</p>
         <button type="button" onClick={signOut} className="btn btn-secondary btn-danger mt-4">
           Sign out
         </button>

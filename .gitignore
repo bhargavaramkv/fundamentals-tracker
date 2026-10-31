@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Tech Radar data lives on the radar-data branch; builds check it out here.
+/content/radar/
