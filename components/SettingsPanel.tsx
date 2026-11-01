@@ -76,29 +76,22 @@ export function SettingsPanel() {
 
   return (
     <div className="mx-auto max-w-3xl space-y-10">
-      <div className="pt-2 sm:pt-6">
-        <p className="eyebrow">Preferences</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.125rem]">Settings</h1>
-      </div>
+      <header className="page-head">
+        <h1>Settings</h1>
+      </header>
 
       <section>
         <div className="section-head">
           <h2>Storage</h2>
-          <span className={`font-mono text-xs ${syncState === "error" ? "text-bad" : "text-ink-3"}`} role="status">
-            {storeKind === "local"
-              ? "● Local only"
-              : syncState === "syncing"
-                ? "● Syncing…"
-                : syncState === "error"
-                  ? "● Sync error"
-                  : "● Synced"}
+          <span className={`meta ${syncState === "error" ? "text-bad" : ""}`} role="status">
+            {storeKind === "local" ? "Local only" : syncState === "syncing" ? "Syncing…" : syncState === "error" ? "Sync error" : "Synced"}
           </span>
         </div>
         <p className="mt-3 text-sm text-ink-2">
           Currently:{" "}
           <strong>{storeKind === "github" ? `this browser + ${vault} (private)` : "this browser only"}</strong> ·{" "}
           {data.answers.length} answers, {data.sessions.length} sessions, {Object.keys(data.reviews).length} questions in
-          review.
+          review, {data.activities.length} exercises and readings, {data.codingAttempts.length} coding attempts.
         </p>
         {archivedCount > 0 && (
           <p className="mt-2 text-sm text-ink-3">
@@ -173,7 +166,7 @@ export function SettingsPanel() {
         <div className="section-head">
           <h2>Backup</h2>
         </div>
-        <p className="mt-3 text-sm text-ink-2">Export everything as JSON, or import a backup. Imports merge, so they never delete answers.</p>
+        <p className="mt-3 text-sm text-ink-2">Export everything as JSON, including exercises and coding history, or import a backup. Imports merge, so they never delete anything.</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <button type="button" onClick={exportJson} className="btn btn-secondary">
             Export JSON

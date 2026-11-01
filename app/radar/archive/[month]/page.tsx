@@ -28,15 +28,14 @@ export default async function ArchivePage(props: PageProps<"/radar/archive/[mont
 
   return (
     <div className="mx-auto max-w-3xl space-y-10">
-      <div className="hero-grid pt-2 sm:pt-6">
-        <nav aria-label="Breadcrumb" className="text-sm text-ink-3">
+      <header className="page-head">
+        <nav aria-label="Breadcrumb" className="meta mb-3">
           <Link href="/radar/" className="tap hover:text-ink">
-            ← Tech Radar
+            Tech Radar
           </Link>
         </nav>
-        <p className="eyebrow mt-4">Archive</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.125rem]">{label(month)}</h1>
-        <p className="mt-2 text-ink-2">Every story found this month, including minor updates, newest first.</p>
+        <h1>{label(month)}</h1>
+        <p>Every story found this month, including minor updates, newest first.</p>
         <nav aria-label="Months" className="mt-4 flex flex-wrap gap-2">
           {months.map((m) => (
             <Link key={m} href={`/radar/archive/${m}/`} aria-current={m === month ? "page" : undefined} className={`chip ${m === month ? "border-accent text-ink" : "text-ink-2 hover:text-ink"}`}>
@@ -44,21 +43,21 @@ export default async function ArchivePage(props: PageProps<"/radar/archive/[mont
             </Link>
           ))}
         </nav>
-      </div>
+      </header>
 
       <ul className="divide-y divide-line border-t border-line">
         {stories.map((s) => (
           <li key={s.id} className="py-4">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span className="font-mono text-xs text-ink-3">{formatDay(s.publishedAt)}</span>
+              <span className="meta">{formatDay(s.publishedAt)}</span>
               <CategoryTag category={s.category} short />
               <ImportanceTag importance={s.importance} score={s.score.total} />
-              {s.minor && <span className="text-xs text-ink-3">minor</span>}
+              {s.minor && <span className="meta">minor</span>}
             </div>
-            <Link href={`/radar/${s.id}/`} className="mt-1 block font-semibold leading-snug hover:text-accent-text">
+            <Link href={`/radar/${s.id}/`} className="headline mt-1 block text-xl hover:text-accent-text">
               {s.analysis?.headline ?? s.title}
             </Link>
-            <p className="font-mono text-xs text-ink-3">{s.sources[0].sourceName}</p>
+            <p className="meta">{s.sources[0].sourceName}</p>
           </li>
         ))}
       </ul>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CategoryTag, formatDay, ImportanceTag } from "@/components/radar/ui";
 import { getListedStories, weekStart } from "@/lib/radar/load";
 import { displayExcerpt } from "@/lib/radar/feed";
-import { RADAR_CATEGORIES, type RadarStory } from "@/lib/radar/types";
+import { RADAR_CATEGORIES, RADAR_CATEGORY_LABELS, type RadarStory } from "@/lib/radar/types";
 
 export const metadata: Metadata = { title: "Weekly roundup · Tech Radar" };
 
@@ -20,16 +20,15 @@ export default function WeeklyPage() {
 
   return (
     <div className="mx-auto max-w-3xl space-y-12">
-      <div className="hero-grid pt-2 sm:pt-6">
-        <nav aria-label="Breadcrumb" className="text-sm text-ink-3">
+      <header className="page-head">
+        <nav aria-label="Breadcrumb" className="meta mb-3">
           <Link href="/radar/" className="tap hover:text-ink">
-            ← Tech Radar
+            Tech Radar
           </Link>
         </nav>
-        <p className="eyebrow mt-4">Weekly roundup</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.125rem]">The week in technology</h1>
-        <p className="mt-2 text-ink-2">The highest-ranked stories of each week (Monday to Sunday, UTC), minor updates excluded.</p>
-      </div>
+        <h1>The week in technology</h1>
+        <p>The highest-ranked stories of each week (Monday to Sunday, UTC), minor updates excluded.</p>
+      </header>
 
       {keys.length === 0 && <p className="text-sm text-ink-2">No stories yet. The first scheduled update fills this page.</p>}
 
@@ -43,14 +42,14 @@ export default function WeeklyPage() {
               <h2 id={`w-${w}`}>
                 {formatDay(`${w}T12:00:00Z`)} – {formatDay(end)}
               </h2>
-              <span className="font-mono text-xs text-ink-3">{all.length} stories</span>
+              <span className="meta">{all.length} stories</span>
             </div>
-            <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-3">
+            <p className="meta mt-2 flex flex-wrap gap-x-4 gap-y-1">
               {RADAR_CATEGORIES.map((c) => {
                 const n = all.filter((s) => s.category === c).length;
                 return n > 0 ? (
-                  <span key={c} className="inline-flex items-center gap-1">
-                    <CategoryTag category={c} short /> {n}
+                  <span key={c}>
+                    {RADAR_CATEGORY_LABELS[c]} {n}
                   </span>
                 ) : null;
               })}
@@ -62,7 +61,7 @@ export default function WeeklyPage() {
                     <CategoryTag category={s.category} short />
                     <ImportanceTag importance={s.importance} score={s.score.total} />
                   </div>
-                  <Link href={`/radar/${s.id}/`} className="mt-1 block font-semibold leading-snug hover:text-accent-text">
+                  <Link href={`/radar/${s.id}/`} className="headline mt-1 block text-xl hover:text-accent-text">
                     {s.analysis?.headline ?? s.title}
                   </Link>
                   <p className="mt-0.5 line-clamp-2 text-sm text-ink-2">{s.analysis?.summary ?? displayExcerpt(s)}</p>

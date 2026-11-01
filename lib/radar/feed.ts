@@ -1,4 +1,4 @@
-import { sourceById, SOURCES } from "./sources";
+import { SOURCES } from "./sources";
 import { truncate } from "./text";
 import type { RadarFeed, RadarListItem, RadarState, RadarStory, SourceProblem } from "./types";
 import { whyItMatters } from "./why";
@@ -87,13 +87,11 @@ export function buildFeed(stories: RadarStory[], state: RadarState, now: Date): 
     generatedAt: now.toISOString(),
     lastSuccessAt: state.lastSuccessAt,
     lastRunAt: state.lastRunAt,
-    sourceCount: SOURCES.length,
+    // Only sources that have been tried: one added since the last run isn't unhealthy, just not checked yet.
+    sourceCount: SOURCES.filter((s) => state.sources[s.id]).length,
     healthyCount: SOURCES.filter((s) => state.sources[s.id]?.consecutiveFailures === 0).length,
     problems: sourceProblems(state),
     briefing: selectBriefing(stories, state.lastSuccessAt),
     items,
   };
 }
-
-/** Source default category, used by the classifier for sources still listed. */
-export const sourceDefault = (sourceId: string) => sourceById(sourceId)?.category;

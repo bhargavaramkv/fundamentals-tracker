@@ -135,7 +135,7 @@ export function buildTodayPlan(data: ProgressData, ctx: PlanContext, now: number
       id: "reviews",
       kind: "reviews",
       title: `Review ${plural(dueIds.length, "question")} you missed`,
-      why: "They've reached their review date. Recalling them now is what makes them stick.",
+      why: "Due for review today. Recalling an answer at this point is what makes it stick.",
       href: "/practice/",
       minutes: Math.max(2, Math.ceil(Math.min(dueIds.length, 10) * 0.75)),
       done: dueIds.filter((id) => answered.has(id)).length >= needed,

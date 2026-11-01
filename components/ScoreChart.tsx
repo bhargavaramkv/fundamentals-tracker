@@ -70,7 +70,7 @@ export function ScoreChart({ points }: { points: HistoryPoint[] }) {
           </table>
         </div>
       ) : (
-        <div className="relative" ref={boxRef}>
+        <div className="relative overflow-hidden" ref={boxRef}>
           <svg
             width={W}
             height={H}

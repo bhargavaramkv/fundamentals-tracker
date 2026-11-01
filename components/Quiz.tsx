@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { summarizeSession } from "@/lib/progress";
 import { DOMAIN_LABELS, type AnswerLog, type Question, type SessionMode, type SessionRecord } from "@/lib/types";
-import { DomainIcon, domainColor } from "./DomainIcon";
-import { ProgressRing } from "./ProgressRing";
 import { useProgress } from "./ProgressProvider";
 
 /** Deterministic shuffle so option order is stable within a session but varies across sessions. */
@@ -30,9 +28,12 @@ interface QuizProps {
   onExit?: () => void;
   /** Starts a fresh round from the result screen. */
   onRestart?: () => void;
+  /** Where the result screen's main button goes, when not back to Today. */
+  onBack?: () => void;
+  backLabel?: string;
 }
 
-export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
+export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: QuizProps) {
   const { commitSession } = useProgress();
   const [sessionId] = useState(() => crypto.randomUUID());
   const [startedAt] = useState(() => new Date().toISOString());
@@ -161,7 +162,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
   }, [choose, next, order.length, previous, result, saving]);
 
   if (result) {
-    return <QuizResult session={result} answers={answers} questions={questions} mode={mode} onRestart={onRestart} />;
+    return <QuizResult session={result} answers={answers} questions={questions} mode={mode} onRestart={onRestart} onBack={onBack} backLabel={backLabel} />;
   }
   if (!question) return <p className="text-ink-2">No questions to show.</p>;
 
@@ -170,7 +171,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
 
   return (
     <div className="mx-auto max-w-3xl space-y-5">
-      <div className="flex items-center justify-between gap-4 font-mono text-sm text-ink-2">
+      <div className="flex items-center justify-between gap-4 text-sm text-ink-2">
         <span>
           Question <span className="font-semibold text-ink">{index + 1}</span> of {questions.length}
         </span>
@@ -186,23 +187,15 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
       <div className="h-1 overflow-hidden rounded-full bg-surface-2" aria-hidden>
         <div
           className="h-full rounded-full transition-[width] duration-300 motion-reduce:transition-none"
-          style={{ width: `${(100 * index) / questions.length}%`, background: domainColor(question.domain) }}
+          style={{ width: `${(100 * index) / questions.length}%`, background: "var(--text)" }}
         />
       </div>
 
       <article className="pt-3">
-        <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-ink-2">
-          <span className="inline-flex items-center gap-2 font-medium text-ink">
-            <DomainIcon domain={question.domain} size={26} />
-            {DOMAIN_LABELS[question.domain]}
-          </span>
-          <span className="chip">{question.topic.replace(/-/g, " ")}</span>
-          <span className="chip">
-            {"●".repeat(question.difficulty)}
-            <span className="text-ink-3">{"○".repeat(3 - question.difficulty)}</span> {DIFFICULTY_LABEL[question.difficulty]}
-          </span>
-        </div>
-        <h2 className="text-xl font-semibold leading-snug tracking-tight sm:text-2xl">{question.prompt}</h2>
+        <p className="meta mb-3">
+          {DOMAIN_LABELS[question.domain]} · {question.topic.replace(/-/g, " ")} · {DIFFICULTY_LABEL[question.difficulty]}
+        </p>
+        <h2 className="headline text-2xl sm:text-[1.75rem]">{question.prompt}</h2>
         {question.code && (
           <pre className="mt-4 overflow-x-auto rounded-lg border border-line bg-surface p-3 font-mono text-sm">{question.code}</pre>
         )}
@@ -211,7 +204,7 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
           {order.map((optIdx, displayIdx) => {
             const isPicked = picked === displayIdx;
             const isCorrect = displayIdx === correctDisplayIdx;
-            let tone = "border-line bg-surface hover:border-accent hover:bg-surface-2";
+            let tone = "border-line bg-surface hover:border-ink-3 hover:bg-surface-2";
             let badge = "border border-line text-ink-2";
             if (blind && isPicked) {
               tone = "border-accent bg-accent/10 ring-1 ring-accent";
@@ -264,19 +257,20 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
               {last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s
             </p>
             <p className="text-ink-2">{question.explanation}</p>
+            <p className="meta mt-1">AI-generated explanation. The topic&apos;s sources are the authority.</p>
             <Link
-              href={`/lessons/${question.domain}/${question.topic}/`}
+              href={`/learn/${question.domain}/${question.topic}/`}
               className="-mx-1 mt-1 inline-flex min-h-11 items-center px-1 text-accent-text hover:underline"
               target="_blank"
             >
-              Read the lesson ↗
+              Open this topic ↗
             </Link>
           </div>
         )}
       </article>
 
       {/* Sticky on phones so Next is always within reach without scrolling past the explanation. */}
-      <div className="sticky bottom-[calc(var(--tabbar-h)+env(safe-area-inset-bottom))] z-20 -mx-4 border-t border-line bg-bg/95 px-4 py-3 backdrop-blur sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
+      <div className="sticky bottom-[calc(var(--tabbar-h)+env(safe-area-inset-bottom))] z-20 -mx-4 border-t border-line bg-bg px-4 py-3 sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:p-0">
         <div className="flex items-center justify-between gap-3">
           {blind ? (
             <button type="button" onClick={previous} disabled={index === 0 || saving} className="btn btn-secondary btn-lg">
@@ -297,12 +291,12 @@ export function Quiz({ questions, mode, onExit, onRestart }: QuizProps) {
         </div>
       </div>
       {blind && (
-        <p className="text-sm text-ink-3">
+        <p className="meta">
           {answers.length} of {questions.length} answered. Results and explanations come at the end; you can go back and
           change an answer until then.
         </p>
       )}
-      <p className="hidden text-right font-mono text-xs text-ink-3 sm:block">
+      <p className="meta hidden text-right sm:block">
         Keys: 1–{order.length} to answer, Enter for next{blind ? ", ← for previous" : ""}
       </p>
     </div>
@@ -315,72 +309,66 @@ function QuizResult({
   questions,
   mode,
   onRestart,
+  onBack,
+  backLabel,
 }: {
   session: SessionRecord;
   answers: AnswerLog[];
   questions: Question[];
   mode: SessionMode;
   onRestart?: () => void;
+  onBack?: () => void;
+  backLabel?: string;
 }) {
   const byId = new Map(questions.map((q) => [q.id, q]));
   const wrong = answers.filter((a) => !a.correct);
   const pct = Math.round((100 * session.correct) / Math.max(1, session.total));
+  const domains = Object.entries(session.domainScores);
 
   return (
     <div className="mx-auto max-w-3xl space-y-10">
-      <section className="hero-grid pt-4">
-        <div className="flex flex-wrap items-center gap-6">
-          <ProgressRing value={pct} size={120} stroke={12} color={pct >= 70 ? "var(--good)" : pct >= 40 ? "var(--warn)" : "var(--bad)"} label={`Score ${pct}%`}>
-            <span className="text-3xl font-bold tabular-nums">{pct}%</span>
-          </ProgressRing>
-          <div>
-            <p className="eyebrow">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
-            <h1 className="mt-1 text-3xl font-bold tracking-tight">
-              {pct >= 80 ? "Excellent work" : pct >= 60 ? "Solid round" : pct >= 40 ? "Good practice" : "Lots to learn here, which is the point"}
-            </h1>
-            <p className="text-sm text-ink-2">
-              {session.correct} of {session.total} correct
-            </p>
-          </div>
-        </div>
-        {mode === "assessment" && (
-          <p className="mt-4 max-w-xl text-sm text-ink-3">
-            A baseline shows where to aim practice next. It&apos;s a snapshot from {session.total} questions, not a verdict on
-            your engineering ability.
-          </p>
-        )}
-        <ul className="mt-6 grid gap-x-8 sm:grid-cols-2">
-          {Object.entries(session.domainScores).map(([d, s]) => (
-            <li key={d} className="flex items-center gap-3 border-b border-line py-2.5 text-sm">
-              <DomainIcon domain={d as keyof typeof DOMAIN_LABELS} size={26} />
-              <span className="flex-1 text-ink-2">{DOMAIN_LABELS[d as keyof typeof DOMAIN_LABELS]}</span>
-              <span className="font-semibold tabular-nums">{s}%</span>
+      <header className="page-head">
+        <p className="eyebrow">{mode === "assessment" ? "Assessment" : "Practice"} complete</p>
+        <h1 className="mt-2">
+          {session.correct} of {session.total} correct
+        </h1>
+        <p>
+          {pct}%.{" "}
+          {pct >= 80 ? "Excellent work." : pct >= 60 ? "A solid round." : pct >= 40 ? "Good practice." : "Lots to learn here, which is the point."}
+          {mode === "assessment" && ` This is a snapshot from ${session.total} questions that shows where to aim next, not a verdict on your ability.`}
+        </p>
+      </header>
+
+      {domains.length > 1 && (
+        <ul className="divide-y divide-line border-y border-line">
+          {domains.map(([d, s]) => (
+            <li key={d} className="flex items-baseline justify-between gap-3 py-2.5 text-[15px]">
+              <span className="text-ink-2">{DOMAIN_LABELS[d as keyof typeof DOMAIN_LABELS]}</span>
+              <span className="font-medium tabular-nums">{s}%</span>
             </li>
           ))}
         </ul>
-      </section>
+      )}
 
       {wrong.length > 0 && (
-        <section>
+        <section aria-labelledby="wrong-h">
           <div className="section-head">
-            <h2>Scheduled for review</h2>
+            <h2 id="wrong-h">Scheduled for review</h2>
           </div>
-          <p className="mt-2 mb-3 text-sm text-ink-2">These come back in your practice queue in about 4 hours, then at growing intervals.</p>
-          <ul className="space-y-2 text-sm">
+          <p className="mt-3 text-[15px] text-ink-2">These come back in about 4 hours, then at growing intervals.</p>
+          <ul className="mt-2 divide-y divide-line text-[15px]">
             {wrong.map((a) => {
               const q = byId.get(a.questionId);
               if (!q) return null;
               return (
-                <li key={a.id} className="rounded-lg border border-line bg-surface px-3 py-2">
+                <li key={a.id} className="py-3">
                   <p>{q.prompt}</p>
                   <p className="mt-1 text-ink-2">
-                    Answer: <span className="text-ink">{q.options[q.answer]}</span> ·{" "}
-                    <Link href={`/lessons/${q.domain}/${q.topic}/`} className="text-accent-text hover:underline">
-                      lesson
-                    </Link>{" "}
-                    ·{" "}
-                    <Link href={`/practice/?topic=${q.domain}/${q.topic}`} className="text-accent-text hover:underline">
-                      drill
+                    Answer: <span className="text-ink">{q.options[q.answer]}</span>
+                  </p>
+                  <p className="meta mt-1">
+                    <Link href={`/learn/${q.domain}/${q.topic}/`} className="text-accent-text hover:underline">
+                      Open this topic
                     </Link>
                   </p>
                 </li>
@@ -391,17 +379,19 @@ function QuizResult({
       )}
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/" className="btn btn-primary">
-          See updated profile <span className="btn-arrow" aria-hidden>→</span>
-        </Link>
-        {onRestart ? (
-          <button type="button" onClick={onRestart} className="btn btn-secondary">
-            Another adaptive round
+        {onBack ? (
+          <button type="button" onClick={onBack} className="btn btn-primary">
+            {backLabel ?? "Back"}
           </button>
         ) : (
-          <Link href="/practice/" className="btn btn-secondary">
-            Practice weak spots
+          <Link href="/" className="btn btn-primary">
+            Back to Today <span className="btn-arrow" aria-hidden>→</span>
           </Link>
+        )}
+        {onRestart && (
+          <button type="button" onClick={onRestart} className="btn btn-secondary">
+            Another round
+          </button>
         )}
       </div>
     </div>

@@ -1,15 +1,10 @@
-import { Dashboard } from "@/components/Dashboard";
-import { getAllQuestions, getAllTopics } from "@/lib/content";
-import { getRadarStories, toListItem } from "@/lib/radar/load";
+import { Today } from "@/components/Today";
+import { getAllQuestions, getAllTopics, getWorkspaces } from "@/lib/content";
+import { getBuildFeed } from "@/lib/radar/load";
 
-export default function Home() {
-  // The three strongest non-minor Radar stories from the past week of discovery.
-  const stories = getRadarStories();
-  const newest = stories.reduce((m, s) => Math.max(m, Date.parse(s.firstSeenAt)), 0);
-  const radar = stories
-    .filter((s) => !s.minor && !s.offTopic && !s.duplicateOf && Date.parse(s.firstSeenAt) >= newest - 7 * 86_400_000)
-    .sort((a, b) => b.score.total - a.score.total)
-    .slice(0, 3)
-    .map(toListItem);
-  return <Dashboard questions={getAllQuestions()} topics={getAllTopics()} radar={radar} />;
+export default function TodayRoute() {
+  const feed = getBuildFeed();
+  // A small slice of the feed: Today shows three stories, and the live feed tops this up.
+  const radar = { ...feed, items: feed.items.filter((i) => !i.minor).slice(0, 60) };
+  return <Today ctx={{ questions: getAllQuestions(), topics: getAllTopics(), workspaces: getWorkspaces() }} radar={radar} />;
 }
