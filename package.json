@@ -14,6 +14,7 @@
     "set-password": "tsx scripts/set-password.ts",
     "radar": "tsx scripts/radar.ts",
     "mentor": "tsx scripts/mentor.ts",
+    "leetcode-sync": "tsx scripts/leetcode-sync.ts",
     "resources:verify": "tsx scripts/verify-resources.mts"
   },
   "dependencies": {
