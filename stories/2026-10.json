@@ -1,5 +1,488 @@
 [
  {
+  "id": "2026-10-31-cloudflare-s-post-quantum-geokey-manager-enters-2d3c83",
+  "title": "Cloudflare’s Post-Quantum GeoKey Manager Enters Closed Beta Without Attribute-Based Encryption",
+  "canonicalUrl": "https://infoq.com/news/2026/10/cf-pq-geokey-manager",
+  "category": "hardware",
+  "publishedAt": "2026-10-31T19:56:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2de4775e7272e0f9",
+  "excerpt": "Cloudflare has moved a post-quantum rebuild of GeoKey Manager into closed beta, guarding geo-fenced keys with hybrid ML-KEM-768 and X25519 instead of the attribute-based encryption used since 2022. Keys live only in kernel memory on verified regional servers, and any failed check rejects the request, a fail-closed choice practitioners ask could cause a regional outage. GA is planned for Q1 2027.\nBy Steef-Jan Wiggers",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Cloudflare’s Post-Quantum GeoKey Manager Enters Closed Beta Without Attribute-Based Encryption",
+    "url": "https://infoq.com/news/2026/10/cf-pq-geokey-manager",
+    "publishedAt": "2026-10-31T19:56:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"outage\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-31-northflank-security-breach-leads-to-abuse-of-ca28b4",
+  "title": "Northflank security breach leads to abuse of customers' AI API keys",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys",
+  "category": "security",
+  "publishedAt": "2026-10-31T18:01:12.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "02ca789e5fe02196",
+  "excerpt": "Cloud application hosting platform Northflank is warning customers to rotate all credentials and secrets stored on its platform after a security breach led to unauthorized use of customers' AI API keys. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Northflank security breach leads to abuse of customers' AI API keys",
+    "url": "https://bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys",
+    "publishedAt": "2026-10-31T18:01:12.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-31-openbsd-80-brings-expanded-hardware-support-bade96",
+  "title": "OpenBSD 8.0 Brings Expanded Hardware Support, Security Enhancements, and Virtualization Improvements",
+  "canonicalUrl": "https://infoq.com/news/2026/10/openbsd-8-released",
+  "category": "hardware",
+  "publishedAt": "2026-10-31T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "27413b6b244540d6",
+  "excerpt": "OpenBSD 8.0 is a substantial upgrade bringing broader hardware compatibility, enhanced security, an expanded virtual address space, and support for modern architectures, including Intel Arc A-Series graphics support, ARM64 hibernation, RISC-V improvements, and enhanced virtual machine support.\nBy Sergio De Simone",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "OpenBSD 8.0 Brings Expanded Hardware Support, Security Enhancements, and Virtualization Improvements",
+    "url": "https://infoq.com/news/2026/10/openbsd-8-released",
+    "publishedAt": "2026-10-31T17:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"8.0\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-31-new-android-sms-of-death-exploit-can-remotely-1f959e",
+  "title": "New Android SMS of Death exploit can remotely crash unpatched phones",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/new-android-sms-of-death-exploit-can-remotely-crash-unpatched-phones",
+  "category": "security",
+  "publishedAt": "2026-10-31T15:35:11.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cf1fdd591a15e1c8",
+  "excerpt": "A security researcher has released a proof-of-concept exploit for a recently patched Android vulnerability, dubbed \"SMS of Death\" and tracked as CVE-2026-58882, that lets attackers remotely disrupt cellular service or crash phones by sending a specially crafted text message. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "New Android SMS of Death exploit can remotely crash unpatched phones",
+    "url": "https://bleepingcomputer.com/news/security/new-android-sms-of-death-exploit-can-remotely-crash-unpatched-phones",
+    "publishedAt": "2026-10-31T15:35:11.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-31-reddit-to-lock-content-behind-logins-to-fight-cec9da",
+  "title": "Reddit to lock content behind logins to fight scrapers",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/reddit-to-lock-content-behind-logins-to-fight-scrapers",
+  "category": "security",
+  "publishedAt": "2026-10-31T14:05:15.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "80757ff8de116806",
+  "excerpt": "Reddit announced in a post by co-founder Steve Huffman that the site will gradually become a \"logged-in service,\" offering limited access to visitors without accounts. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Reddit to lock content behind logins to fight scrapers",
+    "url": "https://bleepingcomputer.com/news/security/reddit-to-lock-content-behind-logins-to-fight-scrapers",
+    "publishedAt": "2026-10-31T14:05:15.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-31-spring-news-roundup-first-release-candidates-of-87e611",
+  "title": "Spring News Roundup: First Release Candidates of Boot, Framework, Data, Security, Modulith, AI",
+  "canonicalUrl": "https://infoq.com/news/2026/10/spring-news-roundup-oct19-2026",
+  "category": "ai-ml",
+  "publishedAt": "2026-10-31T13:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7893e7250316097e",
+  "excerpt": "There was a flurry of activity during the week of October 19th, 2026, highlighting: first release candidates of: Spring Boot, Spring Framework, Spring Data, Spring Cloud, Spring Security, Spring for GraphQL, Spring Session, Spring Integration, Spring HATEOS, Spring Modulith, Spring REST Docs, Spring AI, Spring Batch, Spring AMQP, Spring for Apache Kafka, Spring LDAP and Spring Web Services.\nBy Michael Redlich",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Spring News Roundup: First Release Candidates of Boot, Framework, Data, Security, Modulith, AI",
+    "url": "https://infoq.com/news/2026/10/spring-news-roundup-oct19-2026",
+    "publishedAt": "2026-10-31T13:30:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 22,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches kafka"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-31-when-electric-cars-were-for-women-d7bd18",
+  "title": "When Electric Cars Were for Women",
+  "canonicalUrl": "https://spectrum.ieee.org/early-electric-vehicles",
+  "category": "hardware",
+  "publishedAt": "2026-10-31T13:00:02.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "535c5562aee53c54",
+  "excerpt": "At the turn of the last century, the automobile industry was still new and evolving rapidly. In 1898, there were about 50 carmakers in the United States. A decade later, that number had increased fivefold. In 1901, the companies produced 7,000 vehicles. By 1910, production had reached 181,000.\nFor several decades, electric cars vied with those powered by steam and internal combustion, and nobody was sure which technology would come out on top. Steam had the legacy of locomotive technology behind it but came with a risk of fire. Steam-powered vehicles could also become exceedingly hot, depending on the placement of the boiler and the steam piping. Both gasoline and electric cars faced logistical challenges: How far could you travel without refueling or charging? You could always throw an extra can of gasoline in the back of the car, but charging a battery involved more planning. The infrastructure for long-distance travel was not yet in place. \nBefore the invention of the electric starter in 1911, gasoline-powered engines had to be started with a hand crank; once running, they were loud and emitted noxious fumes. Fully electric vehicles, by contrast, were easy to start; you just…",
+  "sources": [
+   {
+    "sourceId": "ieee-spectrum",
+    "sourceName": "IEEE Spectrum",
+    "title": "When Electric Cars Were for Women",
+    "url": "https://spectrum.ieee.org/early-electric-vehicles",
+    "publishedAt": "2026-10-31T13:00:02.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-10-31-kubernetes-confidential-containers-get-fortanix-36a4cb",
+  "title": "Kubernetes Confidential Containers Get Fortanix Attestation and Key Management",
+  "canonicalUrl": "https://infoq.com/news/2026/10/k8s-confidential-containers",
+  "category": "cloud",
+  "publishedAt": "2026-10-31T08:18:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e50f3f0384d45cf8",
+  "excerpt": "Fortanix's CoCo integration connects workload attestation to decryption-key release for Kubernetes AI workloads. GPU-verification settings affect protection, while upstream Trustee and Azure Secure Key Release offer alternative routes to attestation-based key release.\nBy Mark Silvester",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Kubernetes Confidential Containers Get Fortanix Attestation and Key Management",
+    "url": "https://infoq.com/news/2026/10/k8s-confidential-containers",
+    "publishedAt": "2026-10-31T08:18:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches kubernetes, azure"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-10-31-localstack-for-azure-enters-public-preview-with-f381a4",
+  "title": "LocalStack for Azure Enters Public Preview with Security Settings Stored but Not Enforced",
+  "canonicalUrl": "https://infoq.com/news/2026/10/localstack-azure-preview",
+  "category": "cloud",
+  "publishedAt": "2026-10-31T07:57:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T00:04:39.920Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e9387fbb82b60f39",
+  "excerpt": "LocalStack has opened its Azure emulator to a free public preview, running Azure services locally and accepting existing ARM, Bicep, and Terraform without rewrites. Its own documentation reports partial operation coverage per service and a consistent pattern: configuration is stored and returned, while enforcement of access restrictions, TLS, and network rules is not implemented.\nBy Steef-Jan Wiggers",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "LocalStack for Azure Enters Public Preview with Security Settings Stored but Not Enforced",
+    "url": "https://infoq.com/news/2026/10/localstack-azure-preview",
+    "publishedAt": "2026-10-31T07:57:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"preview\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches azure, tls"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-10-31-google-discloses-pagebreak-ai-security-agent-that-d7f5c2",
   "title": "Google Discloses PageBreak AI Security Agent That Found 500+ XSS Bugs",
   "canonicalUrl": "https://infoq.com/news/2026/10/google-pagebreak-security-agent",
@@ -7,7 +490,7 @@
   "publishedAt": "2026-10-31T06:20:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "73d8ebb44c2f4547",
@@ -59,7 +542,7 @@
   "publishedAt": "2026-10-31T01:02:57.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b7ce2c8710e8e9a0",
@@ -106,7 +589,7 @@
   "publishedAt": "2026-10-31T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e1be6b007a18568",
@@ -163,7 +646,7 @@
   "publishedAt": "2026-10-31T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "57e19de360892835",
@@ -220,7 +703,7 @@
   "publishedAt": "2026-10-30T21:35:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d575835e3451a648",
@@ -272,7 +755,7 @@
   "publishedAt": "2026-10-30T21:09:54.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3d8949c0892728fb",
@@ -371,7 +854,7 @@
   "publishedAt": "2026-10-30T20:33:18.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0132125b95b0856c",
@@ -579,7 +1062,7 @@
   "publishedAt": "2026-10-30T17:57:24.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a3b67584aea36565",
@@ -626,7 +1109,7 @@
   "publishedAt": "2026-10-30T17:38:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5732b1fc2cfdb39f",
@@ -767,7 +1250,7 @@
   "publishedAt": "2026-10-30T16:11:44.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3153f588cbe0bbc8",
@@ -819,7 +1302,7 @@
   "publishedAt": "2026-10-30T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d72c46d44c9502ea",
@@ -871,7 +1354,7 @@
   "publishedAt": "2026-10-30T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7db4bfd30f53115d",
@@ -923,7 +1406,7 @@
   "publishedAt": "2026-10-30T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3aa4fc48ef4e6cef",
@@ -980,7 +1463,7 @@
   "publishedAt": "2026-10-30T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aae313df199516a0",
@@ -1126,7 +1609,7 @@
   "publishedAt": "2026-10-30T15:01:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "937e8bfd3a14cf08",
@@ -1173,7 +1656,7 @@
   "publishedAt": "2026-10-30T15:00:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2514c8bbbccd6fa6",
@@ -1339,7 +1822,7 @@
   "publishedAt": "2026-10-30T14:23:43.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "53dda464d60a51a0",
@@ -1594,7 +2077,7 @@
   "publishedAt": "2026-10-30T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "59ac8cfde1b17826",
@@ -1646,7 +2129,7 @@
   "publishedAt": "2026-10-30T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6a4191c43c453151",
@@ -1768,7 +2251,7 @@
   "publishedAt": "2026-10-30T11:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cd0e19bfbe8ae072",
@@ -2023,7 +2506,7 @@
   "publishedAt": "2026-10-30T09:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dce2de355c37800c",
@@ -2164,7 +2647,7 @@
   "publishedAt": "2026-10-30T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d59c0c5c4c15b712",
@@ -2211,7 +2694,7 @@
   "publishedAt": "2026-10-30T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "292684becfeb689c",
@@ -2825,7 +3308,7 @@
   "publishedAt": "2026-10-30T00:43:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "211c153ca3a6499d",
@@ -2877,7 +3360,7 @@
   "publishedAt": "2026-10-30T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-31T07:22:03.319Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "872aa43c1a3200bb",
@@ -3273,7 +3756,7 @@
   "publishedAt": "2026-10-29T19:52:29.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "56f033cb4333d116",
@@ -3481,7 +3964,7 @@
   "publishedAt": "2026-10-29T19:18:20.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1adff2fed2560e36",
@@ -3637,7 +4120,7 @@
   "publishedAt": "2026-10-29T18:11:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a6ab31f79cb7bd3",
@@ -3689,7 +4172,7 @@
   "publishedAt": "2026-10-29T17:41:23.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "69aab5ebe4fbb945",
@@ -3746,7 +4229,7 @@
   "publishedAt": "2026-10-29T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c908bd6d1b471413",
@@ -3845,7 +4328,7 @@
   "publishedAt": "2026-10-29T16:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b2e382fc45378585",
@@ -3897,7 +4380,7 @@
   "publishedAt": "2026-10-29T16:00:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "84c2d913220395b2",
@@ -3949,7 +4432,7 @@
   "publishedAt": "2026-10-29T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:46:35.442Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ef006aa2ec0bee8c",
@@ -4219,7 +4702,7 @@
   "publishedAt": "2026-10-29T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:46:35.442Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33af644132a8bf02",
@@ -4266,7 +4749,7 @@
   "publishedAt": "2026-10-29T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "562dd8decdd8f9d3",
@@ -4427,7 +4910,7 @@
   "publishedAt": "2026-10-29T13:37:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b22e6103870afaa3",
@@ -4484,7 +4967,7 @@
   "publishedAt": "2026-10-29T13:00:16.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3cc76bc7c52d860e",
@@ -4536,7 +5019,7 @@
   "publishedAt": "2026-10-29T12:55:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6e933a46db91181e",
@@ -4588,7 +5071,7 @@
   "publishedAt": "2026-10-29T12:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "062fdb863993f8fe",
@@ -4702,7 +5185,7 @@
   "publishedAt": "2026-10-29T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22b91bd04bd6ab5b",
@@ -4777,7 +5260,7 @@
   "publishedAt": "2026-10-29T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "51b2fe10c057c976",
@@ -5037,7 +5520,7 @@
   "publishedAt": "2026-10-29T10:11:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d5a335ecc5d3a97d",
@@ -5089,7 +5572,7 @@
   "publishedAt": "2026-10-29T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "11c463ae19f47012",
@@ -5240,7 +5723,7 @@
   "publishedAt": "2026-10-29T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "85f45e80e7cd6cba",
@@ -5292,7 +5775,7 @@
   "publishedAt": "2026-10-29T07:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c15802c83348ac6f",
@@ -5339,7 +5822,7 @@
   "publishedAt": "2026-10-29T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": "2026-10-31T07:22:03.319Z",
   "revisions": [
    {
@@ -5397,7 +5880,7 @@
   "publishedAt": "2026-10-29T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "257c44ca5badd53f",
@@ -5449,7 +5932,7 @@
   "publishedAt": "2026-10-29T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "55be5e63dbfa576e",
@@ -5501,7 +5984,7 @@
   "publishedAt": "2026-10-29T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e13989afbbf8a8f8",
@@ -5548,7 +6031,7 @@
   "publishedAt": "2026-10-28T20:45:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fd23ad2006e3b015",
@@ -5647,7 +6130,7 @@
   "publishedAt": "2026-10-28T18:40:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e5f23f98d7bb385f",
@@ -5704,7 +6187,7 @@
   "publishedAt": "2026-10-28T18:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a602c9aaa01bb1ae",
@@ -5751,7 +6234,7 @@
   "publishedAt": "2026-10-28T17:40:56.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:46:35.442Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "14d4ed5b097ab994",
@@ -5803,7 +6286,7 @@
   "publishedAt": "2026-10-28T17:00:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bd629cbd401630e6",
@@ -5845,7 +6328,7 @@
   "publishedAt": "2026-10-28T16:58:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e18d71a22ae1a0e0",
@@ -5897,7 +6380,7 @@
   "publishedAt": "2026-10-28T16:09:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "df2805f55cb7a6cc",
@@ -5949,7 +6432,7 @@
   "publishedAt": "2026-10-28T16:07:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "007ec1cbddc182a5",
@@ -5996,7 +6479,7 @@
   "publishedAt": "2026-10-28T16:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e49b0846c1db6136",
@@ -6152,7 +6635,7 @@
   "publishedAt": "2026-10-28T15:00:46.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6704f6dd56d1228b",
@@ -6298,7 +6781,7 @@
   "publishedAt": "2026-10-28T13:00:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b797fa5351821511",
@@ -6536,7 +7019,7 @@
   "publishedAt": "2026-10-28T04:56:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "af217297a50dda7f",
@@ -6588,7 +7071,7 @@
   "publishedAt": "2026-10-28T04:37:53.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "123c814aaa91a1e3",
@@ -6744,7 +7227,7 @@
   "publishedAt": "2026-10-28T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a619201248e6f71d",
@@ -6838,7 +7321,7 @@
   "publishedAt": "2026-10-27T20:25:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a4541396ef6041f7",
@@ -6880,7 +7363,7 @@
   "publishedAt": "2026-10-27T17:35:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "716e86c46d48f61d",
@@ -6964,7 +7447,7 @@
   "publishedAt": "2026-10-27T16:14:39.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "759fd43207b495b0",
@@ -7006,7 +7489,7 @@
   "publishedAt": "2026-10-27T16:01:38.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "493167c3e865cf4b",
@@ -7048,7 +7531,7 @@
   "publishedAt": "2026-10-27T16:00:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0d1be4cb9b5b1d0b",
@@ -7179,7 +7662,7 @@
   "publishedAt": "2026-10-27T15:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "10fdd087e2047cbf",
@@ -7226,7 +7709,7 @@
   "publishedAt": "2026-10-27T13:00:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e2ba13a97570dd12",
@@ -7273,7 +7756,7 @@
   "publishedAt": "2026-10-27T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": "2026-10-31T07:22:03.319Z",
   "revisions": [
    {
@@ -7326,7 +7809,7 @@
   "publishedAt": "2026-10-27T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3670107e0704c884",
@@ -7420,7 +7903,7 @@
   "publishedAt": "2026-10-27T11:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5bcd707fa56fcf6",
@@ -7472,7 +7955,7 @@
   "publishedAt": "2026-10-27T07:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2f8916019927e615",
@@ -7519,7 +8002,7 @@
   "publishedAt": "2026-10-27T04:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a32ae75e347e8480",
@@ -7665,7 +8148,7 @@
   "publishedAt": "2026-10-26T17:04:57.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7d8070c8a566a0e",
@@ -7707,7 +8190,7 @@
   "publishedAt": "2026-10-26T16:01:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e592d6656db6b781",
@@ -7749,7 +8232,7 @@
   "publishedAt": "2026-10-26T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6c71eb58316742cf",
@@ -7791,7 +8274,7 @@
   "publishedAt": "2026-10-26T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "71868572ba184d27",
@@ -7838,7 +8321,7 @@
   "publishedAt": "2026-10-26T15:02:24.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "509bef8ab7417a46",
@@ -7994,7 +8477,7 @@
   "publishedAt": "2026-10-26T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4273a056ebad1350",
@@ -8051,7 +8534,7 @@
   "publishedAt": "2026-10-26T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "654f7aa40b7362d0",
@@ -8108,7 +8591,7 @@
   "publishedAt": "2026-10-26T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ae20bb210af21bde",
@@ -8170,7 +8653,7 @@
   "publishedAt": "2026-10-25T18:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "02da6c4948b8b0f8",
@@ -8240,7 +8723,7 @@
   "publishedAt": "2026-10-23T18:51:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43207998bf28fdaa",
@@ -8287,7 +8770,7 @@
   "publishedAt": "2026-10-23T18:32:51.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "280de2f8f0604c7d",
@@ -8396,7 +8879,7 @@
   "publishedAt": "2026-10-23T14:58:56.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-10-30T06:40:03.605Z",
-  "lastSeenAt": "2026-10-31T07:22:03.319Z",
+  "lastSeenAt": "2026-11-01T00:04:39.920Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33f93135af54b76f",

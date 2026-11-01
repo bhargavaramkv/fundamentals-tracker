@@ -1,0 +1,21 @@
+[
+ {
+  "startedAt": "2026-11-01T00:04:39.920Z",
+  "finishedAt": "2026-11-01T00:04:45.744Z",
+  "ok": true,
+  "sourcesOk": 41,
+  "sourcesFailed": 2,
+  "itemsFetched": 151,
+  "newStories": 9,
+  "updatedStories": 0,
+  "corroborated": 0,
+  "unchanged": 90,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "ANTHROPIC_API_KEY is not set; stories are ranked but not analysed",
+  "errors": [
+   "the-register: malformed XML: boolean attribute 'defer' is not allowed. (line 7)",
+   "cacm: HTTP 403"
+  ]
+ }
+]
