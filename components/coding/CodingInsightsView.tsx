@@ -144,7 +144,7 @@ export function CodingInsightsView({ stats, analysis, status }: { stats: CodingS
             h.attempts,
             h.acceptedOnTry ?? "Not yet",
             h.failures.map((f) => `${f.count} ${SHORT[f.status] ?? f.status}`).join(", "),
-            h.minutesToAccept === null ? "-" : `${h.minutesToAccept} min`,
+            h.minutesToAccept === null || h.acceptedOnTry === 1 ? "-" : `${h.minutesToAccept} min`,
           ])}
         />
         <p className="meta mt-3">LeetCode doesn&apos;t record time before your first submit, so that time isn&apos;t included.</p>

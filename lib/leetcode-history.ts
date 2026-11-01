@@ -191,12 +191,11 @@ export interface CodingPacket {
   decision: "analyse" | "no-new";
   forDate: string;
   stats: CodingStats;
-  /** The newest unreviewed submissions in full. Older ones are covered by stats. */
+  /** The newest unreviewed submissions in full. Any older backlog comes up on later nights. */
   newSubmissions: LeetCodeSubmission[];
   unreviewedCount: number;
   previous: CodingAnalysis | null;
   knownSlugs: string[];
-  allIds: string[];
 }
 
 const MAX_REVIEWED_PER_NIGHT = 40;
@@ -212,7 +211,6 @@ export function buildCodingPacket(submissions: LeetCodeSubmission[], previous: C
     unreviewedCount: fresh.length,
     previous,
     knownSlugs: [...new Set(submissions.map((s) => s.slug))],
-    allIds: submissions.map((s) => s.id),
   };
 }
 
@@ -253,7 +251,7 @@ export function buildCodingAnalysis(review: CodingReview, packet: CodingPacket, 
     ...review,
     version: 1,
     generatedAt,
-    reviewedIds: packet.allIds,
+    reviewedIds: [...(packet.previous?.reviewedIds ?? []), ...packet.newSubmissions.map((s) => s.id)],
     reviews: [...review.reviews, ...(packet.previous?.reviews ?? []).filter((r) => !touched.has(r.slug))],
   };
 }

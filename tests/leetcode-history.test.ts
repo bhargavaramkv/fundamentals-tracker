@@ -63,13 +63,18 @@ describe("coding review", () => {
     expect(next.newSubmissions.map((s) => s.id)).toEqual(["c"]);
   });
 
-  it("caps the code sent for review but marks everything reviewed", () => {
+  it("reviews a large backlog over several nights, newest first, until none is left", () => {
     const many = Array.from({ length: 60 }, (_, i) => sub({ id: `m${i}`, timestamp: i }));
-    const p = buildCodingPacket(many, null, "2026-11-02");
-    expect(p.newSubmissions).toHaveLength(40);
-    expect(p.newSubmissions[39].id).toBe("m59");
-    expect(p.unreviewedCount).toBe(60);
-    expect(buildCodingAnalysis(review(), p, "t").reviewedIds).toHaveLength(60);
+    const p1 = buildCodingPacket(many, null, "2026-11-02");
+    expect(p1.newSubmissions).toHaveLength(40);
+    expect(p1.newSubmissions[39].id).toBe("m59");
+    expect(p1.unreviewedCount).toBe(60);
+    const a1 = buildCodingAnalysis(review(), p1, "t");
+    const p2 = buildCodingPacket(many, a1, "2026-11-03");
+    expect(p2.decision).toBe("analyse");
+    expect(p2.newSubmissions.map((s) => s.id)).toEqual(Array.from({ length: 20 }, (_, i) => `m${i}`));
+    const a2 = buildCodingAnalysis(review({ forDate: "2026-11-03" }), p2, "t");
+    expect(buildCodingPacket(many, a2, "2026-11-04").decision).toBe("no-new");
   });
 
   it("keeps older problem reviews, and replaces one reviewed again", () => {
