@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CategoryTag, formatDay, ImportanceTag } from "@/components/radar/ui";
-import { getRadarMonths, getRadarStories } from "@/lib/radar/load";
+import { getListedStories, getRadarMonths } from "@/lib/radar/load";
 
 export const dynamicParams = false;
 
@@ -24,7 +24,7 @@ export default async function ArchivePage(props: PageProps<"/radar/archive/[mont
   const { month } = await props.params;
   const months = getRadarMonths();
   if (!months.includes(month)) notFound();
-  const stories = getRadarStories().filter((s) => s.publishedAt.startsWith(month));
+  const stories = getListedStories().filter((s) => s.publishedAt.startsWith(month));
 
   return (
     <div className="mx-auto max-w-3xl space-y-10">

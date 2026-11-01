@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CategoryTag, formatDay, ImportanceTag } from "@/components/radar/ui";
-import { getRadarStories, weekStart } from "@/lib/radar/load";
+import { getListedStories, weekStart } from "@/lib/radar/load";
+import { displayExcerpt } from "@/lib/radar/feed";
 import { RADAR_CATEGORIES, type RadarStory } from "@/lib/radar/types";
 
 export const metadata: Metadata = { title: "Weekly roundup · Tech Radar" };
@@ -11,7 +12,7 @@ const PER_WEEK = 7;
 
 export default function WeeklyPage() {
   const weeks = new Map<string, RadarStory[]>();
-  for (const s of getRadarStories()) {
+  for (const s of getListedStories()) {
     const w = weekStart(s.publishedAt);
     weeks.set(w, [...(weeks.get(w) ?? []), s]);
   }
@@ -34,7 +35,7 @@ export default function WeeklyPage() {
 
       {keys.map((w) => {
         const all = weeks.get(w) ?? [];
-        const top = all.filter((s) => !s.minor).sort((a, b) => b.score.total - a.score.total).slice(0, PER_WEEK);
+        const top = all.filter((s) => !s.minor && !s.offTopic).sort((a, b) => b.score.total - a.score.total).slice(0, PER_WEEK);
         const end = new Date(Date.parse(w) + 6 * 86_400_000).toISOString();
         return (
           <section key={w} aria-labelledby={`w-${w}`}>
@@ -64,7 +65,7 @@ export default function WeeklyPage() {
                   <Link href={`/radar/${s.id}/`} className="mt-1 block font-semibold leading-snug hover:text-accent-text">
                     {s.analysis?.headline ?? s.title}
                   </Link>
-                  <p className="mt-0.5 line-clamp-2 text-sm text-ink-2">{s.analysis?.summary ?? s.excerpt}</p>
+                  <p className="mt-0.5 line-clamp-2 text-sm text-ink-2">{s.analysis?.summary ?? displayExcerpt(s)}</p>
                 </li>
               ))}
             </ol>

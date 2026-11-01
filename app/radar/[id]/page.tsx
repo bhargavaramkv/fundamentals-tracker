@@ -5,7 +5,9 @@ import { StoryActions } from "@/components/radar/StoryActions";
 import { CategoryTag, formatDateTime, formatDay, ImportanceTag } from "@/components/radar/ui";
 import { getAllTopics } from "@/lib/content";
 import { getRadarStories, getRadarStory } from "@/lib/radar/load";
+import { displayExcerpt } from "@/lib/radar/feed";
 import { RADAR_CATEGORY_LABELS, type Credibility } from "@/lib/radar/types";
+import { whyItMatters } from "@/lib/radar/why";
 
 export const dynamicParams = false;
 
@@ -55,6 +57,7 @@ export default async function RadarStoryPage(props: PageProps<"/radar/[id]">) {
   const story = getRadarStory(id);
   if (!story) notFound();
   const a = story.analysis;
+  const why = whyItMatters(story);
   const topics = getAllTopics();
   const related = (a?.relatedTopics ?? [])
     .map((key) => topics.find((t) => `${t.domain}/${t.topic}` === key))
@@ -82,7 +85,15 @@ export default async function RadarStoryPage(props: PageProps<"/radar/[id]">) {
           {story.minor && <span className="tag bg-surface-2 text-ink-2">Minor update</span>}
         </div>
         <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-[2.125rem] sm:leading-tight">{a?.headline ?? story.title}</h1>
-        <p className="mt-3 text-lg text-ink-2">{a?.summary ?? story.excerpt}</p>
+        <p className="mt-3 text-lg text-ink-2">{a?.summary ?? displayExcerpt(story)}</p>
+        {story.duplicateOf && (
+          <p className="mt-3 text-sm text-ink-2">
+            Another report of the same event.{" "}
+            <Link href={`/radar/${story.duplicateOf}/`} className="text-accent-text hover:underline">
+              See the main story
+            </Link>
+          </p>
+        )}
         <p className="mt-4 font-mono text-xs text-ink-3">
           Published {formatDay(story.publishedAt)}
           {story.dateEstimated && " (date estimated: the source gave none)"} · {story.sources[0].sourceName} · found{" "}
@@ -152,10 +163,10 @@ export default async function RadarStoryPage(props: PageProps<"/radar/[id]">) {
               <ul className="mt-2 divide-y divide-line">
                 {related.map((t) => (
                   <li key={`${t.domain}/${t.topic}`} className="flex flex-wrap items-center justify-between gap-2 py-2.5">
-                    <Link href={`/lessons/${t.domain}/${t.topic}/`} className="font-medium hover:text-accent-text">
+                    <Link href={`/learn/${t.domain}/${t.topic}/`} className="font-medium hover:text-accent-text">
                       {t.title}
                     </Link>
-                    <Link href={`/practice/?topic=${t.domain}/${t.topic}`} className="btn btn-ghost">
+                    <Link href={`/learn/${t.domain}/${t.topic}/?tab=practice`} className="btn btn-ghost">
                       Drill
                     </Link>
                   </li>
@@ -168,6 +179,13 @@ export default async function RadarStoryPage(props: PageProps<"/radar/[id]">) {
         </>
       ) : (
         <section className="rounded-lg border border-line bg-surface p-5">
+          {why && (
+            <p className="mb-4 leading-relaxed">
+              <span className="font-semibold">Why it matters: </span>
+              <span className="text-ink-2">{why.text}</span>
+              <span className="meta ml-1.5">Automatic note, chosen from the headline</span>
+            </p>
+          )}
           <p className="eyebrow">Analysis pending</p>
           <p className="mt-2 text-sm text-ink-2">
             {story.status === "below-threshold"
@@ -177,7 +195,7 @@ export default async function RadarStoryPage(props: PageProps<"/radar/[id]">) {
           {story.excerpt && (
             <>
               <h2 className="mt-4 text-sm font-semibold">Feed excerpt (from the source)</h2>
-              <p className="mt-1 text-sm leading-relaxed text-ink-2">{story.excerpt}</p>
+              <p className="mt-1 text-sm leading-relaxed text-ink-2">{displayExcerpt(story)}</p>
             </>
           )}
         </section>

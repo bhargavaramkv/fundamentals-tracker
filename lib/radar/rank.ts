@@ -1,13 +1,30 @@
 import type { Credibility, Importance, RadarAnalysis, RadarCategory, ScorePart, StorySource } from "./types";
 
+// Order matters: the first match wins, so a security flaw in a database is filed under security.
 const CATEGORY_TERMS: [RadarCategory, RegExp][] = [
-  ["security", /\b(cve-\d|vulnerab|exploit|zero-day|0-day|ransomware|breach|malware|phishing|backdoor|patch tuesday|advisory|attack|threat actor|supply[- ]chain attack|leak(ed)?)\b/i],
-  ["ai-ml", /\b(ai|llm|gpt|claude|gemini|llama|model weights|inference|transformer|neural|machine learning|agentic|agents?|diffusion|fine-tun|embedding)\b/i],
-  ["cloud", /\b(aws|azure|google cloud|gcp|kubernetes|k8s|serverless|data ?cent(er|re)|postgres|mysql|mongodb|database|distributed|outage|cdn|terraform|container)\b/i],
-  ["hardware", /\b(chip|cpu|gpu|semiconductor|tsmc|intel|amd|arm|risc-v|quantum|robot|battery|fab|nm process|wafer)\b/i],
-  ["developer", /\b(programming|language|framework|compiler|typescript|javascript|python|rust|golang|java|\.net|c#|npm|open[- ]source|ide|github|release)\b/i],
+  ["security", /\b(cve-\d+|vulnerabilit(y|ies)|exploit(s|ed|ation)?|zero-day|0-day|ransomware|breach(es)?|malware|malicious|phishing|backdoor(s|ed)?|patch tuesday|advisory|hack(s|ed|ers?)?|threat actors?|supply[- ]chain attacks?|leak(s|ed)?|flaws?)\b/i],
+  ["databases", /\b(postgres(ql)?|pgadmin|mysql|mariadb|mongodb|sqlite|redis|valkey|cassandra|clickhouse|duckdb|snowflake|databases?|sql|vector store|data warehouse)\b/i],
+  ["ai-ml", /\b(ai|llms?|gpts?|gpt-\d+|chatgpt|claude|gemini|llama|openai|anthropic|model weights|inference|transformers?|neural|machine learning|agentic|ai agents?|diffusion|fine-tun\w*|embeddings?)\b/i],
+  ["infrastructure", /\b(kubernetes|k8s|docker|containers?|terraform|ansible|prometheus|grafana|observability|service mesh|linux|kernel|bsd|freebsd|openbsd|data ?cent(er|re)s?|cdn|outages?|load balanc\w*|networking|http\/3|quic|tls|dns)\b/i],
+  ["cloud", /\b(aws|amazon web services|azure|google cloud|gcp|cloudflare|serverless|lambda|multi-?cloud|finops)\b/i],
+  ["developer-tools", /\b(vs ?code|visual studio|jetbrains|intellij|cursor|copilot|github|gitlab|git|ide|debugger|linters?|ci\/cd|npm|pnpm|yarn|webpack|vite|developer tools?|devtools|sdk|cli)\b/i],
+  ["programming", /\b(programming|languages?|frameworks?|compilers?|typescript|javascript|python|rust|golang|go \d|java|kotlin|swift|\.net|c#|c\+\+|php|ruby|spring|angular|react|vue|node(\.js)?|webassembly|wasm)\b/i],
+  ["open-source", /\b(open[- ]sourc\w*|apache software foundation|linux foundation|cncf|foss|licen[cs]e|maintainers?)\b/i],
+  ["hardware", /\b(chips?|cpus?|gpus?|semiconductors?|tsmc|intel|amd|nvidia|risc-v|quantum|robots?|wafers?|nm process)\b/i],
   ["research", /\b(paper|research|study|arxiv|benchmark|breakthrough|scientists)\b/i],
 ];
+
+// A story from a general-interest publication counts as on-topic only if it touches software or computing.
+const ENGINEERING = /\b(software|code|coding|developers?|programm\w+|engineers?|engineering|apis?|sdk|cloud|server|servers|databases?|data ?cent(er|re)s?|compute|computing|chips?|cpus?|gpus?|semiconductors?|processors?|ai|llms?|chatgpt|openai|anthropic|machine learning|models?|algorithms?|open[- ]sourc\w*|linux|kernel|kubernetes|docker|security|hack(s|ed|ers?)?|cyber\w*|malware|vulnerabilit(y|ies)|exploit\w*|encrypt\w*|browsers?|web|internet|http(\/\d)?|cloudflare|network(s|ing)?|github|microsoft|google|amazon|aws|azure|apple|meta|nvidia|intel|amd|quantum|robots?|startups?)\b/i;
+
+/** Publications that also run stories with no bearing on software engineering. */
+const GENERAL_INTEREST = new Set(["ieee-spectrum", "the-verge", "ars-technica", "mit-tech-review", "the-register"]);
+
+export function isOffTopic(sourceId: string, title: string, excerpt: string): boolean {
+  if (!GENERAL_INTEREST.has(sourceId)) return false;
+  // The headline must carry it; a passing mention deep in an excerpt isn't an engineering story.
+  return !ENGINEERING.test(title) && !ENGINEERING.test(excerpt.slice(0, 160));
+}
 
 /** Picks a category for stories from mixed-topic publications; falls back to the source's default. */
 export function classifyCategory(title: string, excerpt: string, fallback: RadarCategory): RadarCategory {
@@ -20,10 +37,10 @@ export function classifyCategory(title: string, excerpt: string, fallback: Radar
 /** Patch/maintenance releases and routine housekeeping: kept for history, hidden from the briefing by default. */
 export function isMinor(title: string): boolean {
   if (/\b(v?\d+\.\d+\.(?!0\b)\d+)\b/.test(title) && !/\b(security|cve|critical|vulnerab)/i.test(title)) return true;
-  return /\b(patch release|bug ?fix(es)? release|maintenance release|release candidate|\brc\d*\b|nightly|weekly digest|this week in|newsletter|roundup|webinar|podcast|join us|meetup|recap)\b/i.test(title);
+  return /\b(patch release|bug ?fix(es)? release|maintenance release|release candidate|\brc\d*\b|alpha|insiders|nightly|weekly digest|this week in|newsletter|roundup|webinar|podcast|join us|meetup|recap)\b/i.test(title);
 }
 
-const MAJOR = /\b(launch(es|ed)?|introduc(es|ing|ed)|announc(es|ing|ed)|unveil(s|ed)?|general availability|generally available|now available|open[- ]sourc(es|ed|ing)|acqui(res|red|sition)|partnership|zero-day|actively exploited|critical|breakthrough|new model|\d+\.0\b|deprecat(es|ed|ion)|end of life|outage|postmortem|post-mortem)\b/i;
+const MAJOR = /\b(launch(es|ed)?|introduc(es|ing|ed)|announc(es|ing|ed)|unveil(s|ed)?|general availability|generally available|now available|open[- ]sourc(es|ed|ing)|acqui(res|red|sition)|partnership|zero-day|actively exploited|critical|breakthrough|new model|\d+\.0(?![.\d])|deprecat(es|ed|ion)|end of life|outage|postmortem|post-mortem)\b/i;
 const MODERATE = /\b(preview|beta|release[sd]?|improv(es|ed|ements)|faster|benchmark|study|research|update[sd]?)\b/i;
 const RELEVANCE = /\b(kubernetes|docker|postgres(ql)?|mongodb|redis|kafka|typescript|javascript|node(\.js)?|angular|react|\.net|c#|rust|go|python|azure|aws|database|distributed|consensus|latency|throughput|cache|caching|concurren\w*|compiler|runtime|garbage collect\w*|memory safety|tls|oauth|authentication|api|llm|inference|context window|tool calling|agents?|vector|index(es|ing)?|replication|sharding|observability|ci\/cd|supply chain)\b/gi;
 

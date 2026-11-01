@@ -1,15 +1,16 @@
 name: Tech Radar
 
-# Daily ingest at 07:00 IST (01:30 UTC): fetch every source, dedupe, rank, analyse the best new stories,
-# commit the result to the radar-data branch, then rebuild and deploy the site.
+# Four runs a day (07:00, 13:00, 19:00, 01:00 IST): fetch every source, dedupe, rank, analyse the best new stories,
+# commit the result to the radar-data branch, then rebuild and deploy the site. The site also reads feed.json from
+# that branch at runtime, so a failed deploy doesn't leave readers on old news.
 on:
   schedule:
-    - cron: "30 1 * * *"
+    - cron: "30 1,7,13,19 * * *"
   workflow_dispatch:
     inputs:
       max_analyses:
         description: "Most stories to analyse this run"
-        default: "10"
+        default: "3"
       analyze:
         description: "Run AI analysis (needs the ANTHROPIC_API_KEY secret)"
         type: boolean
@@ -48,7 +49,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RADAR_MAX_ANALYSES: ${{ inputs.max_analyses || '10' }}
+          # Three per run across four runs keeps the daily cost close to the old single run of ten.
+          RADAR_MAX_ANALYSES: ${{ inputs.max_analyses || '3' }}
         run: |
           npm run --silent radar -- ingest --data content/radar --summary "$GITHUB_STEP_SUMMARY" \
             ${{ inputs.analyze == false && '--no-analyze' || '' }}
