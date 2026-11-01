@@ -1,10 +1,10 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { activeProgress, archivedAnswerCount, emptyProgress, recordRead, recordSession } from "@/lib/progress";
+import { activeProgress, archivedAnswerCount, emptyProgress, recordActivity, recordCodingAttempt, recordCodingProblem, recordRead, recordSession } from "@/lib/progress";
 import { createStore, type ProgressStore } from "@/lib/storage";
 import { useAuth } from "./AuthGate";
-import type { AnswerLog, ProgressData, ReadLog, SessionRecord } from "@/lib/types";
+import type { AnswerLog, CodingAttempt, CodingProblem, LearningActivity, ProgressData, ReadLog, SessionRecord } from "@/lib/types";
 
 type SyncState = "idle" | "syncing" | "error";
 
@@ -20,6 +20,9 @@ interface ProgressContextValue {
   syncError: string | null;
   commitSession: (session: SessionRecord, answers: AnswerLog[]) => Promise<void>;
   commitRead: (read: ReadLog) => Promise<void>;
+  commitActivity: (activity: LearningActivity) => Promise<void>;
+  saveCodingProblem: (problem: CodingProblem) => Promise<void>;
+  commitCodingAttempt: (attempt: CodingAttempt) => Promise<void>;
   replaceAll: (data: ProgressData) => Promise<void>;
   reload: () => Promise<void>;
 }
@@ -82,6 +85,19 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [data, persist],
   );
 
+  // Quick actions (ticking an exercise, logging an attempt) show immediately, then persist like everything else.
+  const applyNow = useCallback(
+    async (change: (d: ProgressData) => ProgressData) => {
+      setData(change);
+      const base = storeRef.current ? await storeRef.current.load() : data;
+      await persist(change(base));
+    },
+    [data, persist],
+  );
+  const commitActivity = useCallback((a: LearningActivity) => applyNow((d) => recordActivity(d, a)), [applyNow]);
+  const saveCodingProblem = useCallback((p: CodingProblem) => applyNow((d) => recordCodingProblem(d, p)), [applyNow]);
+  const commitCodingAttempt = useCallback((a: CodingAttempt) => applyNow((d) => recordCodingAttempt(d, a)), [applyNow]);
+
   const active = useMemo(() => activeProgress(data), [data]);
   const archivedCount = useMemo(() => archivedAnswerCount(data), [data]);
 
@@ -96,10 +112,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       syncError,
       commitSession,
       commitRead,
+      commitActivity,
+      saveCodingProblem,
+      commitCodingAttempt,
       replaceAll: persist,
       reload,
     }),
-    [active, data, archivedCount, ready, storeKind, syncState, syncError, commitSession, commitRead, persist, reload],
+    [active, data, archivedCount, ready, storeKind, syncState, syncError, commitSession, commitRead, commitActivity, saveCodingProblem, commitCodingAttempt, persist, reload],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
