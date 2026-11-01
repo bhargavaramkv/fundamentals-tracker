@@ -6,7 +6,7 @@ The current design and its reasoning. This takes precedence over `HLD-v2.md` and
 
 | Section | Route | What's there |
 |---|---|---|
-| Today | `/` | Daily plan, revision reminders, proficient topics, recent activity, three radar stories |
+| Dashboard | `/` | Next activity, mastery, streak and daily goal, skill path, daily plan, focus list, score history, gaps and strengths, revision, proficient topics, recent activity, three radar stories |
 | Learning Path | `/learn/` | 20 topics in suggested order, with level and evidence per topic |
 | Coding | `/coding/` | LeetCode history, notes, retry dates, weak patterns |
 | Tech Radar | `/radar/` | Briefing, all stories, weekly roundup, monthly archive |
@@ -104,12 +104,11 @@ Whether you solved a problem unaided is the most useful signal here, and only yo
 
 ## Visual design
 
-An editorial layout: a serif (Newsreader) for headlines, Geist for everything else, hairline rules instead of cards, and colour kept for links, primary actions and status.
+The home page and shared styling use the original Developer Playground x Skill Quest look, restored after the editorial layout proved less engaging: Geist throughout, domain colours, a dotted hero, a skill trail, a mastery ring, a streak and chamfered primary buttons. The wordmark and its accent dot haven't changed.
 
-- **Removed:** the dot grid, skill path, progress ring, chamfered button and emoji.
-- **Kept:** the wordmark and its accent dot, exactly as they were.
-- **Motion:** one short fade on page arrival and small hover changes. All of it is off under `prefers-reduced-motion`.
-- **Accessibility:** `tests/design.test.ts` checks the tokens against WCAG AA in both themes, and fails on `backdrop-filter` or gradients. Status is always text as well as colour.
+- **Motion:** page fade, skill trail and hover changes. All of it is off under `prefers-reduced-motion`.
+- **Accessibility:** `tests/design.test.ts` checks the tokens and button states against WCAG AA in both themes. Two values differ from the original for this reason: muted light-theme text is darker, and the primary button's label darkens on hover. Status is always text as well as colour.
+- **Gradients:** only the hero's dot grid uses one, and the test enforces that.
 
 ## Testing
 

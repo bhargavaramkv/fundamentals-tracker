@@ -1,34 +1,32 @@
 @import "tailwindcss";
 
 /*
- * Editorial, calm, readable: type and whitespace do the work, rules separate things, and colour is reserved for links,
- * primary actions and status. tests/design.test.ts checks these tokens against WCAG AA in both themes.
+ * The Developer Playground x Skill Quest look: domain colours, a dotted hero, a skill trail and chamfered calls to action.
+ * tests/design.test.ts checks these tokens against WCAG AA in both themes.
  */
 :root {
   color-scheme: light;
-  --bg: #fbfaf7;
-  --surface: #ffffff;
-  --surface-2: #f2f0ea;
-  --border: #e4e1d8;
-  --grid: #ebe8e0;
-  --text: #1c1b18;
-  --text-2: #4d4b45;
-  --text-3: #6a6860;
-  /* The accent is the brand: the dot in the wordmark. */
+  --bg: #f7f7f5;
+  --surface: #fcfcfb;
+  --surface-2: #f0efec;
+  --border: #e2e1dc;
+  --grid: #e9e8e4;
+  --text: #0b0b0b;
+  --text-2: #52514e;
+  --text-3: #6b6a65;
   --accent: #2a78d6;
   --accent-text: #1f66bd;
   --accent-ink: #ffffff;
-  --button: #1f66bd;
-  --button-hover: #19559f;
   --series-1: #2a78d6;
   --good: #1f7a3a;
-  --good-bg: #e8f3ea;
+  --good-bg: #e6f4ea;
   --bad: #b42318;
-  --bad-bg: #fbeceb;
+  --bad-bg: #fdecea;
   --warn: #8a5a00;
-  --warn-bg: #faf1dc;
+  --warn-bg: #fdf3dc;
   --accent-2: #6250d6;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 16px rgba(16, 24, 40, 0.06);
+  /* Domain identity colors (validated categorical palette; always paired with an icon + label). */
   --d-dsa: #2a78d6;
   --d-oop: #eb6834;
   --d-databases: #1baf7a;
@@ -39,28 +37,26 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #101317;
-    --surface: #161a1f;
-    --surface-2: #1d2228;
-    --border: #2a3037;
-    --grid: #22282e;
-    --text: #eceae4;
-    --text-2: #b6b5ae;
-    --text-3: #93928b;
+    --bg: #0a1016;
+    --surface: #0e171f;
+    --surface-2: #142029;
+    --border: #1f2c38;
+    --grid: #18242f;
+    --text: #e8edf2;
+    --text-2: #a9b5c1;
+    --text-3: #808d9a;
     --accent: #3b9bff;
-    --accent-text: #79b8ff;
+    --accent-text: #6cb4ff;
     --accent-ink: #04111f;
-    --button: #79b8ff;
-    --button-hover: #9accff;
     --series-1: #3b9bff;
     --good: #6fcf8a;
-    --good-bg: #16291c;
+    --good-bg: #12291b;
     --bad: #f28b82;
-    --bad-bg: #331c1b;
-    --warn: #e9bb62;
-    --warn-bg: #2f2711;
+    --bad-bg: #331a19;
+    --warn: #f2c063;
+    --warn-bg: #33290f;
     --accent-2: #9085e9;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.25);
     --d-dsa: #3b9bff;
     --d-oop: #f07a3c;
     --d-databases: #22b483;
@@ -71,28 +67,26 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #101317;
-  --surface: #161a1f;
-  --surface-2: #1d2228;
-  --border: #2a3037;
-  --grid: #22282e;
-  --text: #eceae4;
-  --text-2: #b6b5ae;
-  --text-3: #93928b;
+  --bg: #0a1016;
+  --surface: #0e171f;
+  --surface-2: #142029;
+  --border: #1f2c38;
+  --grid: #18242f;
+  --text: #e8edf2;
+  --text-2: #a9b5c1;
+  --text-3: #808d9a;
   --accent: #3b9bff;
-  --accent-text: #79b8ff;
+  --accent-text: #6cb4ff;
   --accent-ink: #04111f;
-  --button: #79b8ff;
-  --button-hover: #9accff;
   --series-1: #3b9bff;
   --good: #6fcf8a;
-  --good-bg: #16291c;
+  --good-bg: #12291b;
   --bad: #f28b82;
-  --bad-bg: #331c1b;
-  --warn: #e9bb62;
-  --warn-bg: #2f2711;
+  --bad-bg: #331a19;
+  --warn: #f2c063;
+  --warn-bg: #33290f;
   --accent-2: #9085e9;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.25);
   --d-dsa: #3b9bff;
   --d-oop: #f07a3c;
   --d-databases: #22b483;
@@ -121,7 +115,6 @@
   --shadow-card: var(--shadow);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
 }
 
 /* Height of the phone bottom tab bar (0 on larger screens), used to keep content and sticky bars clear of it. */
@@ -142,8 +135,6 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.55;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -176,32 +167,29 @@ button {
 
 /* Headings */
 h1 {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  letter-spacing: -0.012em;
-  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 .headline {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  letter-spacing: -0.008em;
-  line-height: 1.22;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
   transition: color 0.14s ease;
 }
 
 /* Page header: one title and one plain sentence. */
 .page-head h1 {
-  font-size: 2.25rem;
+  font-size: 1.875rem;
 }
 .page-head > p {
   margin-top: 0.6rem;
   max-width: 62ch;
   color: var(--text-2);
-  font-size: 1.0625rem;
 }
 @media (min-width: 640px) {
   .page-head h1 {
-    font-size: 2.75rem;
+    font-size: 2.125rem;
   }
 }
 
@@ -212,15 +200,14 @@ h1 {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.75rem;
-  border-bottom: 1px solid var(--text);
-  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
   margin-bottom: 0.25rem;
 }
 .section-head h2 {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 /* Small supporting text: dates, sources, counts. */
@@ -229,29 +216,29 @@ h1 {
   color: var(--text-3);
 }
 
+/* Small uppercase label above a heading. */
 .eyebrow {
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--text-3);
 }
 
 /* Lesson markdown */
 .prose-lesson {
   max-width: 68ch;
-  font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--text);
 }
 .prose-lesson h2 {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.25;
-  margin: 2.25rem 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.8rem 0 0.6rem;
 }
 .prose-lesson h3 {
   font-weight: 600;
-  margin: 1.5rem 0 0.4rem;
+  margin: 1.4rem 0 0.4rem;
 }
 .prose-lesson p,
 .prose-lesson ul,
@@ -324,31 +311,32 @@ h1 {
   }
 }
 
-/* Buttons: one shared shape and size; variants only change colour. */
+/* Buttons: one shared shape and size; variants only change color. */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   min-height: 44px;
-  padding: 0 1.15rem;
-  border-radius: 6px;
+  padding: 0 1.25rem;
+  border-radius: 0.5rem;
   border: 1px solid transparent;
-  font-size: 0.9375rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  transition: color 0.14s ease, background-color 0.14s ease, border-color 0.14s ease, opacity 0.14s ease;
+  transition: color 0.16s ease, background-color 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
 }
 .btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+  box-shadow: none;
 }
 .btn-lg {
   min-height: 48px;
-  padding: 0 1.5rem;
+  padding: 0 1.75rem;
   font-size: 1rem;
 }
 .btn-block {
@@ -357,76 +345,124 @@ h1 {
 @media (min-width: 640px) {
   .btn-lg {
     min-height: 44px;
-    font-size: 0.9375rem;
+    padding: 0 1.4rem;
+    font-size: 0.875rem;
   }
   .btn-block {
     width: auto;
   }
 }
 
+/* Primary call to action: the signature chamfered outline. The shape is drawn by two clipped layers
+   (stroke, then fill) so the button itself is never clipped and its focus outline stays visible.
+   Use for the one dominant action in a region; everything else is secondary or ghost. */
 .btn-primary {
-  background: var(--button);
-  color: var(--accent-ink);
+  --chamfer: 10px;
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  color: var(--accent-text);
+  border: 0;
+  border-radius: 0;
 }
-.btn-primary:hover:not(:disabled) {
-  background: var(--button-hover);
+.btn-primary::before,
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  clip-path: polygon(
+    var(--chamfer) 0,
+    100% 0,
+    100% calc(100% - var(--chamfer)),
+    calc(100% - var(--chamfer)) 100%,
+    0 100%,
+    0 var(--chamfer)
+  );
+  transition: background-color 0.16s ease;
 }
-
+.btn-primary::before {
+  inset: 0;
+  background: var(--accent);
+}
+.btn-primary::after {
+  inset: 1.5px;
+  background: color-mix(in oklab, var(--accent) 12%, var(--bg));
+}
+/* The fill deepens on hover, so the label moves to the main text colour to stay readable. */
+.btn-primary:hover:not(:disabled),
+.btn-primary:active:not(:disabled) {
+  color: var(--text);
+}
+.btn-primary:hover:not(:disabled)::after {
+  background: color-mix(in oklab, var(--accent) 22%, var(--bg));
+}
+.btn-primary:active:not(:disabled)::after {
+  background: color-mix(in oklab, var(--accent) 30%, var(--bg));
+}
+.btn-primary:focus-visible {
+  border-radius: 0;
+}
 .btn-arrow {
   display: inline-block;
-  transition: transform 0.14s ease;
+  transition: transform 0.16s ease;
 }
 .btn:hover:not(:disabled) .btn-arrow {
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
+/* Secondary: quiet outline. */
 .btn-secondary {
   background: transparent;
   border-color: var(--border);
   color: var(--text);
 }
 .btn-secondary:hover:not(:disabled) {
-  border-color: var(--text-3);
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
   background: var(--surface-2);
+}
+.btn-secondary:active:not(:disabled) {
+  background: color-mix(in oklab, var(--accent) 10%, var(--surface-2));
 }
 .btn-secondary.btn-danger {
   color: var(--bad);
 }
 .btn-secondary.btn-danger:hover:not(:disabled) {
-  border-color: var(--bad);
-  background: var(--bad-bg);
+  border-color: color-mix(in oklab, var(--bad) 50%, var(--border));
+  background: color-mix(in oklab, var(--bad) 10%, var(--surface-2));
 }
 
+/* Ghost: text-only actions (row links, "End & save"). 44px on phones, compact on larger screens. */
 .btn-ghost {
   min-height: 44px;
-  padding: 0 0.75rem;
+  padding: 0 0.85rem;
   color: var(--accent-text);
   background: transparent;
 }
 .btn-ghost:hover:not(:disabled) {
-  background: var(--surface-2);
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
 }
 .btn-ghost.btn-muted {
   color: var(--text-2);
 }
 .btn-ghost.btn-muted:hover:not(:disabled) {
   color: var(--text);
+  background: var(--surface-2);
 }
 @media (min-width: 640px) {
   .btn-ghost {
-    min-height: 38px;
+    min-height: 40px;
   }
 }
 
-/* Static labels. */
+/* Pills: static labels and chips. */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid var(--border);
   background: transparent;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.7rem;
   font-size: 0.8125rem;
   font-weight: 500;
 }
@@ -464,21 +500,21 @@ h1 {
 .field {
   width: 100%;
   min-height: 44px;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   border: 1px solid var(--border);
   background: var(--surface);
-  padding: 0 0.8rem;
+  padding: 0 0.9rem;
   color: var(--text);
   transition: border-color 0.12s ease, box-shadow 0.12s ease;
 }
 textarea.field {
-  padding: 0.6rem 0.8rem;
+  padding: 0.6rem 0.9rem;
   line-height: 1.5;
 }
 .field:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
 }
 .field::placeholder {
   color: var(--text-3);
@@ -488,18 +524,59 @@ textarea.field {
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 0.75rem;
 }
 
-/* Status tag: always text + colour, never colour alone. */
+/* Developer-playground backdrop for page heroes: a faint dot grid that fades out. Decorative only. */
+.hero-grid {
+  position: relative;
+  isolation: isolate;
+}
+.hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: -2rem 0 0;
+  z-index: -1;
+  background-image: radial-gradient(color-mix(in oklab, var(--text-3) 35%, transparent) 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  pointer-events: none;
+}
+
+/* Status tag: always text + color, never color alone. */
 .tag {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 0.05rem 0.4rem;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Skill path: domain nodes connected by a line. Nodes are real links. */
+.skill-node {
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.skill-node:hover,
+.skill-node:focus-visible {
+  transform: translateY(-2px);
+}
+.skill-node:hover .skill-dot,
+.skill-node:focus-visible .skill-dot {
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--node) 25%, transparent);
+}
+.skill-dot {
+  transition: box-shadow 0.16s ease;
+}
+@keyframes path-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+.skill-line-progress {
+  stroke-dasharray: 1;
+  animation: path-draw 0.9s ease-out 0.15s both;
 }
 
 /* Marks text written by a model, so it can't be mistaken for an authoritative source. */
@@ -576,16 +653,20 @@ textarea.field {
 
 @keyframes pop {
   0% { transform: scale(1); }
-  40% { transform: scale(1.01); }
+  40% { transform: scale(1.02); }
   100% { transform: scale(1); }
 }
 .animate-pop {
-  animation: pop 0.2s ease-out;
+  animation: pop 0.25s ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .page-enter,
   .animate-pop,
+  .skill-node,
+  .skill-dot,
+  .skill-line-progress,
+  .btn-primary::after,
   .btn,
   .btn-arrow,
   .headline,

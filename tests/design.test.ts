@@ -19,6 +19,12 @@ function luminance(hex: string): number {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
+/** The chamfered button's fill: the accent mixed into the page background. */
+function mix(a: string, b: string, share: number): string {
+  const part = (h: string, i: number) => parseInt(h.slice(i, i + 2), 16);
+  return `#${[1, 3, 5].map((i) => Math.round(part(a, i) * share + part(b, i) * (1 - share)).toString(16).padStart(2, "0")).join("")}`;
+}
+
 function contrast(a: string, b: string): number {
   const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p);
   return (x + 0.05) / (y + 0.05);
@@ -41,8 +47,9 @@ describe.each([
   });
 
   it("primary button text is readable, including on hover", () => {
-    expect(contrast(t["accent-ink"], t.button)).toBeGreaterThanOrEqual(4.5);
-    expect(contrast(t["accent-ink"], t["button-hover"])).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(t["accent-text"], mix(t.accent, t.bg, 0.12))).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(t.text, mix(t.accent, t.bg, 0.22))).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(t.text, mix(t.accent, t.bg, 0.3))).toBeGreaterThanOrEqual(4.5);
   });
 
   it("the focus outline stands out from the page", () => {
@@ -56,9 +63,11 @@ describe("design rules", () => {
     expect(dark.accent).toBe("#3b9bff");
   });
 
-  it("avoids glassmorphism and decorative gradients", () => {
+  it("keeps gradients to the hero's dot grid", () => {
     expect(css).not.toMatch(/backdrop-filter/);
-    expect(css).not.toMatch(/linear-gradient|radial-gradient/);
+    const hero = css.slice(css.indexOf(".hero-grid::before"), css.indexOf("/* Status tag"));
+    expect(hero).toMatch(/radial-gradient/);
+    expect(css.replace(hero, "")).not.toMatch(/linear-gradient|radial-gradient/);
   });
 
   it("the dark definitions agree between the media query and data-theme", () => {
