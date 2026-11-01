@@ -60,7 +60,7 @@ export function scoreStory(input: ScoreInput, now: Date): { total: number; parts
     const moderate = text.match(MODERATE);
     if (moderate) parts.push({ label: "Significance", points: 5, reason: `Incremental development ("${moderate[0].toLowerCase()}")` });
   }
-  if (input.isKev) parts.push({ label: "Exploitation", points: 12, reason: "Listed by CISA as exploited in the wild" });
+  if (input.isKev) parts.push({ label: "Exploitation", points: 4, reason: "Listed by CISA as exploited in the wild" });
 
   const terms = [...new Set((text.match(RELEVANCE) ?? []).map((m) => m.toLowerCase()))];
   if (terms.length > 0) parts.push({ label: "Engineering relevance", points: Math.min(15, terms.length * 3), reason: `Touches ${terms.slice(0, 5).join(", ")}` });
