@@ -15,6 +15,7 @@ import {
   problemStatus,
   type ProblemStatus,
 } from "@/lib/coding";
+import { importRecords, isLeetCodeFeed, planImport, type LeetCodeFeed } from "@/lib/leetcode";
 import type { CodingAttempt, CodingDifficulty, CodingOutcome, CodingProblem } from "@/lib/types";
 import { useProgress } from "./ProgressProvider";
 import { relativeDays, untilDays, useNow } from "./useNow";
@@ -63,6 +64,7 @@ export function CodingTracker() {
       </header>
 
       <AddProblem />
+      <LeetCodeImport />
 
       {!loaded ? (
         <p className="text-ink-2">Loading your history…</p>
@@ -201,9 +203,64 @@ export function CodingTracker() {
       )}
 
       <p className="meta max-w-2xl">
-        Logged by hand on purpose. LeetCode has no public API, and reading your full history would need your account&apos;s session cookie, which should never be put in a website.
+        Recent solves sync from your public LeetCode profile twice a day. LeetCode has no public API and reading your full history would need your account&apos;s session cookie, so older problems and the hint/no-hint outcome are logged by hand.
       </p>
     </div>
+  );
+}
+
+const FEED_URL = process.env.NEXT_PUBLIC_LEETCODE_FEED_URL ?? "https://raw.githubusercontent.com/bhargavaramkv/fundamentals-tracker/leetcode-data/leetcode.json";
+
+/** Recent accepted solves from the leetcode-data branch, offered for import. Hidden until a sync has produced something new. */
+function LeetCodeImport() {
+  const { data, ready, saveCodingProblem, commitCodingAttempt } = useProgress();
+  const [feed, setFeed] = useState<LeetCodeFeed | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [done, setDone] = useState<number | null>(null);
+
+  useEffect(() => {
+    let live = true;
+    fetch(FEED_URL, { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((raw: unknown) => {
+        if (live && isLeetCodeFeed(raw)) setFeed(raw);
+      })
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, []);
+
+  const pending = useMemo(() => (feed && ready ? planImport(data, feed) : []), [feed, data, ready]);
+  if (done !== null && pending.length === 0) {
+    return <p className="meta">Imported {done} from LeetCode. They&apos;re marked &ldquo;solved with help&rdquo; and come back in 7 days. Log another attempt as unaided to correct one.</p>;
+  }
+  if (pending.length === 0) return null;
+
+  const run = async () => {
+    setBusy(true);
+    const now = new Date().toISOString();
+    let n = 0;
+    for (const item of pending) {
+      const { problem, attempt } = importRecords(item, data.codingProblems.find((p) => p.id === `lc-${item.slug}`), now);
+      await saveCodingProblem(problem);
+      await commitCodingAttempt(attempt);
+      n++;
+    }
+    setDone(n);
+    setBusy(false);
+  };
+
+  return (
+    <section aria-label="Import from LeetCode" className="flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-line py-3">
+      <p className="min-w-0 flex-1 text-sm text-ink-2">
+        <strong className="text-ink">{pending.length} new {pending.length === 1 ? "solve" : "solves"}</strong> on your LeetCode profile: {pending.slice(0, 3).map((i) => i.title).join(", ")}
+        {pending.length > 3 ? `, +${pending.length - 3} more` : ""}.
+      </p>
+      <button type="button" className="btn btn-primary" onClick={run} disabled={busy}>
+        {busy ? "Importing…" : "Import"}
+      </button>
+    </section>
   );
 }
 
