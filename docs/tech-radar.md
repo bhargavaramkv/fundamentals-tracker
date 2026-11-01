@@ -1,30 +1,44 @@
 # Tech Radar
 
-The radar finds important technology developments every day, ranks them, and explains each one through the engineering
-fundamentals behind it. It is the site's only news section (it replaced the hand-written News pages).
+The radar finds important technology developments several times a day, ranks them, and says why each matters to a
+developer. It is the site's only news section (it replaced the hand-written News pages).
+
+## Why it used to feel repetitive
+
+The feed has been real data since the hand-written sample stories were removed in #5. Four things still made it read as
+the same few articles, and each is now fixed:
+
+| Cause | Fix |
+|---|---|
+| Different headlines about one event were separate stories | Event-level clustering (`lib/radar/cluster.ts`) folds them into one story with every source |
+| The home page showed the top three by score over seven days, so they stayed for a week | Today picks unread stories, newest day first, one per source. The briefing is limited per source and per category |
+| Pages only changed on deploy, once a day | Four runs a day, and the site reads a public `feed.json` at runtime |
+| With no API key set, no story had any explanation | A labelled automatic note says why it matters, without adding facts (`lib/radar/why.ts`) |
 
 ## Architecture
 
 ```text
-07:00 IST  .github/workflows/radar.yml (cron 30 1 * * *, or Run workflow)
+07:00, 13:00, 19:00, 01:00 IST  .github/workflows/radar.yml (cron 30 1,7,13,19 * * *, or Run workflow)
   ingest job
     checkout main  +  radar-data branch as a worktree at content/radar
     npm run radar -- ingest
-      fetch      43 sources (lib/radar/sources.ts): RSS/Atom/RDF, GitHub releases, CISA KEV JSON
+      fetch      63 sources (lib/radar/sources.ts): RSS/Atom/RDF, GitHub releases, CISA KEV JSON
                  4 at a time, ≥1.5 s between requests to the same host, 20 s timeout, 8 MB cap,
                  2 retries with backoff (Retry-After honoured) on network errors, 429 and 5xx
       parse      lib/radar/feeds.ts (malformed or non-feed documents fail that source only)
       merge      lib/radar/merge.ts  dedupe · update detection · corroboration
+      cluster    lib/radar/cluster.ts  different headlines about one event become one story
       rank       lib/radar/rank.ts   explainable 0-100 score
-      analyse    lib/radar/analyze.ts  Claude (structured JSON output), at most 10 per run
+      analyse    lib/radar/analyze.ts  Claude (structured JSON output), at most 3 per run
       validate   lib/radar/validate.ts  invalid output is never stored
-      store      lib/radar/store.ts  stories/YYYY-MM.json, state.json, runs/YYYY-MM.json
+      store      lib/radar/store.ts  stories/YYYY-MM.json, state.json, feed.json, runs/YYYY-MM.json
     npm run radar -- check  (validates every stored story)
     commit + push to radar-data
   deploy job  →  deploy.yml (workflow_call): fetches radar-data into content/radar, builds, publishes to Pages
 
 Static site (no server)
   /radar/                  briefing, filters, search, date range, bookmarks, read/unread, freshness, source health
+                           also reads feed.json from raw.githubusercontent.com at runtime (public, no credentials)
   /radar/<id>/             full story: source facts, company claims, labelled AI analysis, lessons, sources, score
   /radar/weekly/           weekly roundup (top 7 per week, 26 weeks)
   /radar/archive/YYYY-MM/  every story in a month, for history beyond the feed's 180 days
@@ -64,6 +78,7 @@ Each `RadarStory` stores:
 | Same canonical URL (https, no `www.`, tracking params stripped, sorted query, no trailing slash) and same text | Unchanged. Only `lastSeenAt` moves, and nothing is republished. |
 | Same URL with edited title or text | A revision is recorded, `updatedAt` is set and the story is queued for re-analysis. The old analysis stays visible until the new one is ready. |
 | Different URL, same event (shared CVE/GHSA id, or ≥0.6 title similarity within 3 days) | Added as a corroborating source on the existing story, which earns a corroboration bonus. |
+| Different headlines, same event (rarity-weighted headline overlap within 4 days, from different sources, with no conflicting CVE) | The later or weaker report gets `duplicateOf` and leaves every list, and its source joins the leader. Nothing is deleted, and its page stays reachable. |
 | Published more than 7 days before discovery | Ignored, so a new source doesn't flood the feed with backfill. |
 | Otherwise | New story. Its id is `YYYY-MM-DD-slug-<6 hex of URL hash>`, which is stable. |
 
@@ -84,9 +99,13 @@ The score is the sum of the parts listed below, clamped to the range 0-100. Ever
 | Minor update | −20 for patch releases, release candidates, digests, webinars and similar |
 | AI-rated significance | (technical + practical) × 3 − 12, so −6 to +18, after analysis |
 
-Importance bands: **High** ≥65, **Notable** ≥45, otherwise Routine. Only stories that are not minor and score ≥40 are
-analysed, at most 10 per run, highest score first. The rest are kept for history (`below-threshold`). Minor updates are
-hidden from the feed unless **Include minor updates** is ticked.
+Importance bands: **High** ≥65, **Notable** ≥45, otherwise Routine. Only stories that are not minor, off-topic or duplicates
+and score ≥40 are analysed, at most 3 per run, highest score first. The rest are kept for history (`below-threshold`). Minor updates are
+hidden from the feed unless **Include minor and off-topic** is ticked. Off-topic means a story from a general-interest
+publication with no software or computing angle in its headline.
+
+Categories are recomputed from each story's text and source whenever the store is read, so changing the classifier
+reclassifies history without rewriting it. The retired `developer` category migrates this way.
 
 ## Analysis and truthfulness
 
@@ -101,8 +120,10 @@ hidden from the feed unless **Include minor updates** is ticked.
 - **Validation:** if output is missing sections, has out-of-range ratings, has no facts, gets refused or is truncated, it
   is rejected. The story stays `pending` and is retried on the next run, up to 3 attempts, after which it becomes
   `failed`. A partial analysis is never published.
-- **Without an API key:** stories are still ingested, ranked and published with **Analysis pending**. The run log and a
-  workflow warning say why.
+- **Without an API key:** stories are still ingested, ranked and published. Important ones get an **Automatic note**: a
+  fixed sentence chosen from signals in the headline (exploited, deprecated, generally available, major version and so
+  on). It says what to check and never states anything about the event beyond the source. The run log and a workflow
+  warning say analysis was skipped.
 
 ## Reliability and visibility
 
@@ -114,20 +135,22 @@ hidden from the feed unless **Include minor updates** is ticked.
   - **2:** every source failed. Nothing is written.
 - Every error becomes a `::warning` annotation, and each run writes a summary table to the Actions run page and appends
   an entry to `runs/YYYY-MM.json`.
-- **Freshness:** `/radar/` shows the last successful update. It turns amber and says *stale* when that is more than 30
-  hours old, and shows a failed last attempt in red.
+- **Freshness:** `/radar/` shows the last successful update. It turns amber and says *stale* when that is more than 14
+  hours old (two missed runs), and shows a failed last attempt in red.
+- **Live feed failure:** if `feed.json` is missing, malformed or older than the build, the site shows the build's copy and
+  says so. A story newer than the build has no page yet, so its headline links to the original article.
 
 ## Operating it
 
 One-time setup (owner):
 
 1. **Settings → Secrets and variables → Actions → New repository secret:** add `ANTHROPIC_API_KEY`. Without it the radar
-   runs but doesn't analyse. Cost is roughly 10 analyses a day at about 6k input and 3k output tokens each, around
-   $0.80 per day at Opus 5.5 rates. Lower it with the `max_analyses` input or the `RADAR_MAX_ANALYSES` default in the
+   runs but doesn't analyse. Cost is roughly 12 analyses a day (3 per run, 4 runs) at about 6k input and 3k output tokens each, around
+   $1 per day at Opus 5.5 rates. Lower it with the `max_analyses` input or the `RADAR_MAX_ANALYSES` default in the
    workflow.
 2. **Settings → Actions → General:** make sure Actions may run, and that workflows have **Read and write permissions**.
    The ingest job pushes to `radar-data`.
-3. **Actions → Tech Radar → Run workflow** for the first run. After that it runs daily at 07:00 IST.
+3. **Actions → Tech Radar → Run workflow** for the first run. After that it runs four times a day.
 
 Commands:
 
@@ -164,3 +187,7 @@ synced progress file, so its schema and append-only merge are unchanged. They do
   retry limits;
 - the fetcher: retry, backoff, Retry-After, size cap and per-host spacing;
 - storage round-trip.
+
+`tests/radar-quality.test.ts` covers clustering (including real headlines that used to appear separately, and cases that
+must not merge), classification, off-topic detection, why-it-matters notes, briefing variety, the feed document, and
+merging the live feed with the build's copy.
