@@ -26,7 +26,8 @@ type StatusFilter = "all" | "due" | "struggling" | "solved";
 
 const OUTCOME_TONE: Record<CodingOutcome, string> = { solved: "text-good", "solved-with-help": "text-warn", "not-solved": "text-bad" };
 
-export function CodingTracker() {
+/** Problems logged by hand before LeetCode became the source. `embedded` drops the page header and the import bar. */
+export function CodingTracker({ embedded = false }: { embedded?: boolean }) {
   const { data, ready } = useProgress();
   const now = useNow();
   const params = useSearchParams();
@@ -58,13 +59,15 @@ export function CodingTracker() {
 
   return (
     <div className="space-y-12">
-      <header className="page-head">
-        <h1>Coding</h1>
-        <p>Your LeetCode history: what you solved, what you needed help with, and which patterns to work on next.</p>
-      </header>
+      {!embedded && (
+        <header className="page-head">
+          <h1>Coding</h1>
+          <p>Your LeetCode history: what you solved, what you needed help with, and which patterns to work on next.</p>
+        </header>
+      )}
 
       <AddProblem />
-      <LeetCodeImport />
+      {!embedded && <LeetCodeImport />}
 
       {!loaded ? (
         <p className="text-ink-2">Loading your history…</p>

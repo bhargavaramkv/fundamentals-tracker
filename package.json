@@ -15,6 +15,7 @@
     "radar": "tsx scripts/radar.ts",
     "mentor": "tsx scripts/mentor.ts",
     "leetcode-sync": "tsx scripts/leetcode-sync.ts",
+    "leetcode-history": "tsx scripts/leetcode-history.ts",
     "resources:verify": "tsx scripts/verify-resources.mts"
   },
   "dependencies": {
