@@ -1,5 +1,647 @@
 [
  {
+  "id": "2026-11-01-game-off-2026-the-theme-is-shift-3e4cd1",
+  "title": "Game Off 2026: The theme is SHIFT",
+  "canonicalUrl": "https://github.blog/open-source/gaming/game-off-2026-the-theme-is-shift",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-01T21:36:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "06106e2516aa318d",
+  "excerpt": "It&rsquo;s time to make Shift happen.\nGame Off , GitHub&rsquo;s annual month-long game jam, returns for its 14th year this November. Thousands of developers have joined us over the years to make everything from polished platformers to wonderfully weird experiments.\nWhether you&rsquo;re making your first game or your fiftieth, we&rsquo;d love for you to join us.\nThe theme for Game Off 2026 is SHIFT !\nShift gears. Shift perspectives. Shift dimensions. Shift bits. Work the night shift. Or make a game where the only buttons are the Shift keys.\nHow you interpret the theme is entirely up to you.\nYou have until December 1, 2026, at 13:37 PST to build and submit a game inspired by SHIFT. Strong or loose inspirations apply!\nJoin Game Off 2026 on itch.io \nshift /ʃɪft/ \nNoun \nA change in position, direction, perspective, or reality.\nA period of scheduled work, usually when something breaks.\nA keyboard key used to capitalize letters, sprint in games, and accidentally enable sticky keys.\nIn computing, an operation that moves bits left or right, because apparently bits need exercise too.\nVerb \nTo change gears, direction, or the laws of physics.\nTo move between worlds, dimensions, timelines, or…",
+  "sources": [
+   {
+    "sourceId": "github-blog",
+    "sourceName": "The GitHub Blog",
+    "title": "Game Off 2026: The theme is SHIFT",
+    "url": "https://github.blog/open-source/gaming/game-off-2026-the-theme-is-shift",
+    "publishedAt": "2026-11-01T21:36:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-01-flock-keeps-ignoring-requests-to-cancel-its-fad5fe",
+  "title": "Flock keeps ignoring requests to cancel its contracts",
+  "canonicalUrl": "https://theverge.com/tech/1024232/flock-ignoring-cancel-contracts",
+  "category": "hardware",
+  "publishedAt": "2026-11-01T19:58:02.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2f188d5724a0e38c",
+  "excerpt": "While more cities are canceling their contracts with Flock Safety, just as many are discovering how difficult that can be in some instances. Plymouth, Minnesota's city council voted to terminate its contract with Flock in September, but failed to respond to the city's request. For over a month, the cameras remained up, and the city […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Flock keeps ignoring requests to cancel its contracts",
+    "url": "https://theverge.com/tech/1024232/flock-ignoring-cancel-contracts",
+    "publishedAt": "2026-11-01T19:58:02.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-fbi-links-63-billion-binance-crypto-heist-to-f9c20d",
+  "title": "FBI links $6.3 billion Binance crypto heist to North Korean hackers",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers",
+  "category": "security",
+  "publishedAt": "2026-11-01T19:57:53.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0f167e885e930e39",
+  "excerpt": "The FBI has confirmed that North Korean state-sponsored hackers known as TraderTraitor were behind the $6.3 billion crypto-theft attack on Binance, making it the largest cryptocurrency heist on record. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "FBI links $6.3 billion Binance crypto heist to North Korean hackers",
+    "url": "https://bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers",
+    "publishedAt": "2026-11-01T19:57:53.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-01-north-korea-linked-to-massive-binance-crypto-heist-64fc87"
+ },
+ {
+  "id": "2026-11-01-patrick-stewart-taught-us-what-good-men-do-with-945ca7",
+  "title": "Patrick Stewart taught us what good men do with power",
+  "canonicalUrl": "https://vox.com/politics/508526/patrick-stewart-jean-luc-picard-star-trek-liberalism",
+  "category": "programming",
+  "publishedAt": "2026-11-01T17:28:16.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "51568c5169e81ea3",
+  "excerpt": "Article URL: https://www.vox.com/politics/508526/patrick-stewart-jean-luc-picard-star-trek-liberalism \nComments URL: https://news.ycombinator.com/item?id=50327650 \nPoints: 310\n# Comments: 218",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Patrick Stewart taught us what good men do with power",
+    "url": "https://vox.com/politics/508526/patrick-stewart-jean-luc-picard-star-trek-liberalism",
+    "publishedAt": "2026-11-01T17:28:16.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-apple-s-homeview-could-add-security-camera-a62b45",
+  "title": "Apple’s HomeView could add security camera features",
+  "canonicalUrl": "https://theverge.com/tech/1024219/apples-homeview-could-add-security-camera-features",
+  "category": "hardware",
+  "publishedAt": "2026-11-01T17:16:07.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f17008e45061f48a",
+  "excerpt": "Reddit user pdfu found hints hidden in the HomeView 27.2 code that Apple could be adding security camera features to its smart home hub. The strings describe a security camera mode with motion detection, live streaming, and recording options, as well as privacy functions. According to pdfu, there is a setup page that even explicitly […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Apple’s HomeView could add security camera features",
+    "url": "https://theverge.com/tech/1024219/apples-homeview-could-add-security-camera-features",
+    "publishedAt": "2026-11-01T17:16:07.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-open-source-security-in-the-ai-exploit-era-patch-f465b9",
+  "title": "Open-source security in the AI exploit era: Patch without changing a thing",
+  "canonicalUrl": "https://thenewstack.io/patchmageddon-open-source-security22842502",
+  "category": "security",
+  "publishedAt": "2026-11-01T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "021e6aeb6e32a525",
+  "excerpt": "Here&rsquo;s how a vulnerability in a popular open-source library plays out in 2026: A maintainer merges a fix and publishes an advisory. Within hours, someone points a model at the diff between the old and new versions and gets a working exploit back. Your scanner flags the CVE the next morning, a ticket gets filed, and the fix is scheduled into next week&rsquo;s change window. By then the exploit has been circulating for days.\nThat was a fine enterprise lifestyle choice last year, but it&rsquo;s considered out of fashion nowadays.\nAnd for good reason, as Michael Cembalest goes over in his &ldquo; Patchmageddon &rdquo; report from July 2026, which includes input from J.P. Morgan Asset Management&rsquo;s cybersecurity leadership. Models such as Anthropic&rsquo;s Mythos and OpenAI&rsquo;s GPT&ndash;5.5 now find previously unknown vulnerabilities at a scale no human research team can match. Anthropic and its Project Glasswing partners found more than 10,000 new high- and critical-severity zero-days in the first month alone.\nAt the same time, the exploitation clock shrank. The note puts the median time from disclosure to first exploitation at roughly a year in 2021. Now it&rsquo;s…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Open-source security in the AI exploit era: Patch without changing a thing",
+    "url": "https://thenewstack.io/patchmageddon-open-source-security22842502",
+    "publishedAt": "2026-11-01T16:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-show-hn-hackerbooks-hackertube-but-for-books-6cb137",
+  "title": "Show HN: HackerBooks – HackerTube, but for books mentioned on HN",
+  "canonicalUrl": "https://hackerbooks.org/",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-01T15:58:28.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8c23dc26f438d4e2",
+  "excerpt": "Saw Karpathy's HackerTube and wanted the same thing for books. So I had Claude build one (Opus 5.5). It's ~16.5k books that at least two different HN commenters brought up, from 2007 till now. Each book links back to the comments that mentioned it. Data is downloadable from the about page. To be clear: Claude wrote almost all of it, including the data pipeline and the site. I mostly steered and made calls, bought the domain name, etc. It counts mentions, so it's not perfect (praising a book and trashing it both count). If your favourite book is missing or matched to the wrong thing, tell me.\nComments URL: https://news.ycombinator.com/item?id=50326821 \nPoints: 716\n# Comments: 158",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Show HN: HackerBooks – HackerTube, but for books mentioned on HN",
+    "url": "https://hackerbooks.org/",
+    "publishedAt": "2026-11-01T15:58:28.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-alpine-linux-rebuilds-gitlab-after-attempted-rce-f4828c",
+  "title": "Alpine Linux rebuilds GitLab after attempted RCE attack",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-01T15:11:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "13d1c71c7b958c94",
+  "excerpt": "Hackers attempted to exploit a critical GitLab vulnerability in Alpine Linux's development infrastructure on October 20-21, prompting the open-source project to rebuild its GitLab server and reset all passwords over concerns of a possible compromise. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Alpine Linux rebuilds GitLab after attempted RCE attack",
+    "url": "https://bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack",
+    "publishedAt": "2026-11-01T15:11:21.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-01-final-release-for-the-72-stable-series-dd7ca2",
+  "title": "Final release for the 7.2 stable series",
+  "canonicalUrl": "https://lwn.net/Articles/1104629",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-01T15:03:40.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1adbdb372fa10c23",
+  "excerpt": "Greg Kroah-Hartman has announced the release of the \n7.2.15 kernel, with a handful of updates.\nNote, this is the LAST 7.2.y kernel release. After this one the 7.2.y kernel\ntree is end-of-life. Please move to 7.3.y at this time.\nAnd yes, you aren't imagining things, this one went \"end-of-life\" a bit sooner\nthan normal. But based on the release cycle at the moment, and the number of\npending cc: stable patches in the queue, I figured it was better this way so we\ncan focus on the latest 7.3.y release as it would require us to keep 8\ndifferent branches alive at the same moment, a taxing task under the best of\ntimes.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Final release for the 7.2 stable series",
+    "url": "https://lwn.net/Articles/1104629",
+    "publishedAt": "2026-11-01T15:03:40.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-01-a-step-by-step-guide-for-how-to-kill-the-line-by-407303",
+  "title": "A step-by-step guide for how to kill the line-by-line code review",
+  "canonicalUrl": "https://thenewstack.io/ai-code-review-invariants",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-01T15:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9090da97698cf308",
+  "excerpt": "Agents verify; people decide. Most teams running AI code review today have it the other way around. They point a model at the diff, ask it whether the change is good, and leave a human to skim the result and click approve.\nThe model reads every line, never gets tired, and holds the same standard on every PR. What it doesn’t have is your codebase’s standards. It doesn’t know them, and no matter how well you instruct it, it doesn’t always follow the ones you write down. \n&ldquo;Judgment needs intent, and accountability needs a person.&rdquo;\nIt never saw what was decided, has no context for previous decisions, can’t tell you not to build the thing, and can’t be held accountable. A diff can’t give it any of that. Judgment needs intent, and accountability needs a person.\nSo what does a code review look like when verification goes to agents and judgment stays with people? At Aviator, we’ve been building that review into Aviator Verify . Below are its seven parts, in order.\nThe anatomy of an intent-driven review\nClick to enlarge image. \nEvery change gets checked against two layers . Acceptance criteria describe what this change should do. Invariants are the codified rules of your…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "A step-by-step guide for how to kill the line-by-line code review",
+    "url": "https://thenewstack.io/ai-code-review-invariants",
+    "publishedAt": "2026-11-01T15:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-lenovo-s-encrypted-fingerprint-usb-is-just-an-a12d97",
+  "title": "Lenovo's 'encrypted' fingerprint USB is just an unencrypted SD card in a case",
+  "canonicalUrl": "https://reddit.com/r/technology/comments/1xl2pr3/lenovos_encrypted_fingerprint_usb_drive_is_just",
+  "category": "programming",
+  "publishedAt": "2026-11-01T14:34:43.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8ee56030fe1fbe09",
+  "excerpt": "Article URL: https://www.reddit.com/r/technology/comments/1xl2pr3/lenovos_encrypted_fingerprint_usb_drive_is_just/ \nComments URL: https://news.ycombinator.com/item?id=50326099 \nPoints: 349\n# Comments: 117",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Lenovo's 'encrypted' fingerprint USB is just an unencrypted SD card in a case",
+    "url": "https://reddit.com/r/technology/comments/1xl2pr3/lenovos_encrypted_fingerprint_usb_drive_is_just",
+    "publishedAt": "2026-11-01T14:34:43.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-north-korea-linked-to-massive-binance-crypto-heist-64fc87",
+  "title": "North Korea linked to massive Binance crypto heist",
+  "canonicalUrl": "https://theverge.com/tech/1024176/north-korea-binance-crypto-heist",
+  "category": "security",
+  "publishedAt": "2026-11-01T14:33:11.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7de07f273e55ade0",
+  "excerpt": "The FBI says North Korea was behind the massive $6.3 billion crypto heist that hit Binance on October 29th. The FBI labeled the activity \"TraderTraitor\" and said that it had observed actors it has connected to hack converting the tokens to Ethereum and preparing for further laundering of the funds. The agency offered few other […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "North Korea linked to massive Binance crypto heist",
+    "url": "https://theverge.com/tech/1024176/north-korea-binance-crypto-heist",
+    "publishedAt": "2026-11-01T14:33:11.000Z",
+    "credibility": 2
+   },
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "FBI links $6.3 billion Binance crypto heist to North Korean hackers",
+    "url": "https://bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers",
+    "publishedAt": "2026-11-01T19:57:53.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-guarding-the-gates-of-knowledge-4c9800",
+  "title": "Guarding the Gates of Knowledge",
+  "canonicalUrl": "https://spectrum.ieee.org/ai-slop-trust-science",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-01T14:00:01.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a1ca446e5d6101ff",
+  "excerpt": "A recent scroll through social media got me thinking about trust. About half my feed was filled with AI slop that astute users would call out as being machine-generated, often to the embarrassment of the rube who unknowingly spread it and sometimes to the delight of the poster who shared it deliberately because they found it amusing or useful for sowing confusion.\nRemember the good old days of GPT-3 when we could ask the chatbot anything and it would almost instantly and very confidently spit back a plausible but false answer? That’s when the word “hallucination” as applied to AI answers entered the lexicon. Six years and several versions of a few different chatbots later, I still can’t trust the answers I get, even though Claude or Gemini often do useful work for me. That’s the thing about current AI: Trust but verify. And verify you must.\nApply that maxim at scale to maintain the integrity of the scientific record and you get an idea of the challenge facing publishers of peer-reviewed scholarship. In “ I Used AI to Fake a Scientific Paper ,” freelance writer and doctor of applied mathematics Benjamin Skuse tells the story of the human gatekeepers trying to beat back the rising…",
+  "sources": [
+   {
+    "sourceId": "ieee-spectrum",
+    "sourceName": "IEEE Spectrum",
+    "title": "Guarding the Gates of Knowledge",
+    "url": "https://spectrum.ieee.org/ai-slop-trust-science",
+    "publishedAt": "2026-11-01T14:00:01.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-01-christophe-pettus-all-your-gucs-in-a-row-row-fbe2e5",
   "title": "Christophe Pettus: All Your GUCs in a Row: row_security",
   "canonicalUrl": "https://postgr.es/p/9AL",
@@ -7,7 +649,7 @@
   "publishedAt": "2026-11-01T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "03e21f4984c07421",
@@ -59,7 +701,7 @@
   "publishedAt": "2026-11-01T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "90f3e879d158f179",
@@ -111,7 +753,7 @@
   "publishedAt": "2026-11-01T13:53:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "34be90a4340a1780",
@@ -205,7 +847,7 @@
   "publishedAt": "2026-11-01T08:37:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c8bb58867fbd62d5",
@@ -252,7 +894,7 @@
   "publishedAt": "2026-11-01T08:03:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "59cbd6cb69d73824",
@@ -304,7 +946,7 @@
   "publishedAt": "2026-11-01T06:32:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6f090755fb954104",
@@ -352,5 +994,104 @@
   },
   "importance": "notable",
   "status": "pending"
+ },
+ {
+  "id": "2026-11-01-the-ai-cost-of-javascript-frameworks-967be9",
+  "title": "The AI cost of JavaScript frameworks",
+  "canonicalUrl": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-01T06:06:19.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a576327db2c888a2",
+  "excerpt": "Article URL: https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/ \nComments URL: https://news.ycombinator.com/item?id=50323088 \nPoints: 270\n# Comments: 208",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "The AI cost of JavaScript frameworks",
+    "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks",
+    "publishedAt": "2026-11-01T06:06:19.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches javascript"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-brazilian-court-sanctions-lawyers-for-prompt-c80473",
+  "title": "Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing",
+  "canonicalUrl": "https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing",
+  "category": "programming",
+  "publishedAt": "2026-11-01T02:19:53.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "34469b7d495cb4d5",
+  "excerpt": "Article URL: https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing/ \nComments URL: https://news.ycombinator.com/item?id=50322173 \nPoints: 302\n# Comments: 187",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing",
+    "url": "https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing",
+    "publishedAt": "2026-11-01T02:19:53.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
  }
 ]
