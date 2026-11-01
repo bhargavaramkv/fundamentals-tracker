@@ -1,0 +1,356 @@
+[
+ {
+  "id": "2026-11-01-christophe-pettus-all-your-gucs-in-a-row-row-fbe2e5",
+  "title": "Christophe Pettus: All Your GUCs in a Row: row_security",
+  "canonicalUrl": "https://postgr.es/p/9AL",
+  "category": "databases",
+  "publishedAt": "2026-11-01T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "03e21f4984c07421",
+  "excerpt": "`row_security = off` doesn't disable row-level security—it triggers an error when a policy would apply.\n(I consult on PostgreSQL through PGX Inc..)",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Christophe Pettus: All Your GUCs in a Row: row_security",
+    "url": "https://postgr.es/p/9AL",
+    "publishedAt": "2026-11-01T14:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-homepod-mini-2-first-look-three-things-i-love-and-5a1d39",
+  "title": "HomePod Mini 2 first look: Three things I love and one disappointment",
+  "canonicalUrl": "https://theverge.com/tech/1024108/homepod-mini-2-hands-on-siri-smart-home-mac-speaker",
+  "category": "hardware",
+  "publishedAt": "2026-11-01T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "90f3e879d158f179",
+  "excerpt": "When I first heard about the new $149 HomePod Mini 2 at Apple's Welcome Home event last month, I was disappointed. It's been six years since Apple launched its entry-level smart speaker, and all it got in the second gen was a chip bump, some color glowy stuff, and better AirPlay? For $50 more than […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "HomePod Mini 2 first look: Three things I love and one disappointment",
+    "url": "https://theverge.com/tech/1024108/homepod-mini-2-hands-on-siri-smart-home-mac-speaker",
+    "publishedAt": "2026-11-01T14:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-01-openai-says-it-s-doubling-pro-usage-limits-and-a0b417",
+  "title": "OpenAI says it's doubling Pro usage limits and bringing Work features to Chat",
+  "canonicalUrl": "https://bleepingcomputer.com/news/artificial-intelligence/openai-says-its-doubling-pro-usage-limits-and-bringing-work-features-to-chat",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-01T13:53:11.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "34be90a4340a1780",
+  "excerpt": "OpenAI has just confirmed that it's rolling out ChatGPT Work capabilities directly into regular Chat, while also combining usage allowances across ChatGPT and Codex. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "OpenAI says it's doubling Pro usage limits and bringing Work features to Chat",
+    "url": "https://bleepingcomputer.com/news/artificial-intelligence/openai-says-its-doubling-pro-usage-limits-and-bringing-work-features-to-chat",
+    "publishedAt": "2026-11-01T13:53:11.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-norway-makes-shithouses-great-again-92f870",
+  "title": "Norway makes shithouses great again",
+  "canonicalUrl": "https://visitnorway.com/plan-your-trip/travel-tips-a-z/norwegian-scenic-routes/worlds-best-toilets",
+  "category": "programming",
+  "publishedAt": "2026-11-01T10:47:58.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a29a6f5e9effcd6a",
+  "excerpt": "Article URL: https://www.visitnorway.com/plan-your-trip/travel-tips-a-z/norwegian-scenic-routes/worlds-best-toilets/ \nComments URL: https://news.ycombinator.com/item?id=50324388 \nPoints: 448\n# Comments: 224",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Norway makes shithouses great again",
+    "url": "https://visitnorway.com/plan-your-trip/travel-tips-a-z/norwegian-scenic-routes/worlds-best-toilets",
+    "publishedAt": "2026-11-01T10:47:58.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-vadim-yatsenko-splitting-the-read-only-e78e55",
+  "title": "Vadim Yatsenko: Splitting the Read-Only Transaction: Replica Reads Inside an Open Transaction",
+  "canonicalUrl": "https://postgr.es/p/9AK",
+  "category": "databases",
+  "publishedAt": "2026-11-01T08:37:13.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c8bb58867fbd62d5",
+  "excerpt": "Read/write splitting is easy for single, autocommit statements. It gets hard the moment a client opens a transaction. Most proxies give up and send every statement inside a transaction to the primary, even the reads. This article is about a middle path we built into Polar Proxy: keep the transaction on the primary, but let its read statements borrow a replica connection.",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Vadim Yatsenko: Splitting the Read-Only Transaction: Replica Reads Inside an Open Transaction",
+    "url": "https://postgr.es/p/9AK",
+    "publishedAt": "2026-11-01T08:37:13.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-aws-capacity-largely-sold-out-through-2027-with-ce58f0",
+  "title": "AWS Capacity Largely Sold Out Through 2027, With On Demand Headroom Reserved",
+  "canonicalUrl": "https://infoq.com/news/2026/11/aws-capacity-sold-out",
+  "category": "cloud",
+  "publishedAt": "2026-11-01T08:03:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "59cbd6cb69d73824",
+  "excerpt": "Amazon CEO Andy Jassy says AWS’s large committed cloud capacity is largely sold out through 2027, with part of 2028 already allocated, while the company continues to reserve headroom for On Demand, EC2 and Bedrock. Practitioners discussing the remarks report difficulty obtaining On Demand capacity for ordinary EC2 instances, and similar constraints at other providers.\nBy Steef-Jan Wiggers",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "AWS Capacity Largely Sold Out Through 2027, With On Demand Headroom Reserved",
+    "url": "https://infoq.com/news/2026/11/aws-capacity-sold-out",
+    "publishedAt": "2026-11-01T08:03:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-file-mover-express-aws-releases-open-source-tool-38f9bd",
+  "title": "File Mover Express: AWS Releases Open-Source Tool for S3 File Transfers",
+  "canonicalUrl": "https://infoq.com/news/2026/11/aws-s3-file-transfer",
+  "category": "cloud",
+  "publishedAt": "2026-11-01T06:32:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-01T14:25:26.683Z",
+  "lastSeenAt": "2026-11-01T14:25:26.683Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6f090755fb954104",
+  "excerpt": "AWS has recently released File Mover Express, an open-source application under the Apache 2.0 license for transferring large files between local systems and Amazon S3. Available for macOS, Windows, and Linux, it supports parallel transfers, automatic performance tuning, retries, pause and resume, and file integrity verification.\nBy Renato Losio",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "File Mover Express: AWS Releases Open-Source Tool for S3 File Transfers",
+    "url": "https://infoq.com/news/2026/11/aws-s3-file-transfer",
+    "publishedAt": "2026-11-01T06:32:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"2.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ }
+]

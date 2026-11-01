@@ -65,5 +65,21 @@
   "analysisFailed": 0,
   "analysisSkipped": "ANTHROPIC_API_KEY is not set; stories are ranked but not analysed",
   "errors": []
+ },
+ {
+  "startedAt": "2026-11-01T14:25:26.683Z",
+  "finishedAt": "2026-11-01T14:25:35.599Z",
+  "ok": true,
+  "sourcesOk": 63,
+  "sourcesFailed": 0,
+  "itemsFetched": 219,
+  "newStories": 10,
+  "updatedStories": 4,
+  "corroborated": 0,
+  "unchanged": 138,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "--no-analyze",
+  "errors": []
  }
 ]
