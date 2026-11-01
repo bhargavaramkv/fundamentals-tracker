@@ -195,12 +195,12 @@ describe("merge and deduplication", () => {
       stories,
       [
         item({}),
-        item({ sourceId: "the-register", title: "Fixture: Introducing Model Z", url: "https://www.theregister.com/2026/10/29/model_z/", publishedAt: "2026-10-29T15:00:00.000Z" }),
+        item({ sourceId: "ars-technica", title: "Fixture: Introducing Model Z", url: "https://www.theregister.com/2026/10/29/model_z/", publishedAt: "2026-10-29T15:00:00.000Z" }),
       ],
       { now: NOW, lookbackDays: 7, sources: sourceMap },
     );
     expect(stories).toHaveLength(1);
-    expect(stories[0].sources.map((s) => s.sourceId)).toEqual(["openai", "the-register"]);
+    expect(stories[0].sources.map((s) => s.sourceId)).toEqual(["openai", "ars-technica"]);
     expect(stories[0].score.parts.find((p) => p.label === "Corroboration")?.points).toBe(8);
   });
 
