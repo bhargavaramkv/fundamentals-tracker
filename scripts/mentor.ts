@@ -5,6 +5,8 @@
  *   npm run --silent mentor -- commit  --data <data repo> --packet <packet.json> --proposal <proposal.json>
  *   npm run --silent mentor -- carry   --data <data repo> --packet <packet.json>
  *   npm run --silent mentor -- fail    --data <data repo> --packet <packet.json> --reason "<why>"
+ *   npm run --silent mentor -- coding-collect --data <data repo> --out <packet.json>
+ *   npm run --silent mentor -- coding-commit  --data <data repo> --packet <packet.json> --proposal <review.json>
  *
  * commit, carry and fail write only under mentor/ and publish with one git commit. Exit code 2 means the proposal was
  * rejected and nothing changed.
@@ -20,6 +22,7 @@ import { buildState, computeStatus, countsOf, pointerFor, renderReport, runIdOf 
 import { MENTOR_PROMPT_VERSION, MENTOR_SCHEMA, type Conversation, type CurrentPointer, type EvidenceItem, type LearnerState, type MentorPacket, type MentorStatus, type RunRecord, type RunStatus, type Submission } from "../lib/mentor/types";
 import { validateProposal } from "../lib/mentor/validate";
 import { validateQuestions } from "../lib/validate";
+import { buildCodingAnalysis, buildCodingPacket, isCodingAnalysis, isLeetCodeStore, validateCodingReview, type CodingPacket, type CodingReview } from "../lib/leetcode-history";
 import type { Resource } from "../lib/resources";
 import { DOMAINS, type Question, type TopicMeta } from "../lib/types";
 
@@ -230,7 +233,32 @@ function fail() {
   console.log(JSON.stringify({ status: "failed", reason: run.errors[0] }));
 }
 
-const commands: Record<string, () => void> = { collect, commit, carry, fail };
+/** Tonight's LeetCode work for review. leetcode/ is written by the data repo's nightly pull and only read here. */
+function codingCollect() {
+  const dataDir = need("data");
+  const store = readJsonIf<unknown>(path.join(dataDir, "leetcode/submissions.json"));
+  if (!isLeetCodeStore(store)) throw new Error("leetcode/submissions.json is missing or damaged");
+  const previous = readJsonIf<unknown>(path.join(dataDir, "mentor/coding.json"));
+  const packet = buildCodingPacket(store.submissions, isCodingAnalysis(previous) ? previous : null, forDateOf(new Date()));
+  writeJson(need("out"), packet);
+  console.log(JSON.stringify({ decision: packet.decision, forDate: packet.forDate, unreviewed: packet.unreviewedCount, included: packet.newSubmissions.length }));
+}
+
+function codingCommit() {
+  const dataDir = need("data");
+  const packet = readJson<CodingPacket>(need("packet"));
+  const review = readJson<unknown>(need("proposal"));
+  const errors = validateCodingReview(review, packet);
+  if (errors.length > 0) {
+    console.error(`Review rejected. Nothing was written.\n${errors.map((e) => `- ${e}`).join("\n")}`);
+    process.exit(2);
+  }
+  writeJson(path.join(dataDir, "mentor/coding.json"), buildCodingAnalysis(review as CodingReview, packet, new Date().toISOString()));
+  publish(dataDir, `mentor: coding review ${packet.forDate}`);
+  console.log(JSON.stringify({ status: "reviewed", forDate: packet.forDate }));
+}
+
+const commands: Record<string, () => void> = { collect, commit, carry, fail, "coding-collect": codingCollect, "coding-commit": codingCommit };
 const command = commands[process.argv[2] ?? ""];
 if (!command) {
   console.error(`Unknown command. Use one of: ${Object.keys(commands).join(", ")}`);

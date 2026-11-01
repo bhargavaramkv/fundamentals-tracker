@@ -5,7 +5,7 @@ import type { CurrentPointer, LearnerState, MentorActivity, MentorStatus, Submis
 /** Reads what the nightly routine published, using the existing sync token. Nothing here needs Claude or an API key. */
 const contentsUrl = (p: string) => `https://api.github.com/repos/${DATA_REPO.owner}/${DATA_REPO.repo}/contents/${p}`;
 
-async function readFile<T>(token: string, p: string): Promise<T | null> {
+export async function readFile<T>(token: string, p: string): Promise<T | null> {
   const res = await fetch(`${contentsUrl(p)}?ref=${encodeURIComponent(DATA_REPO.branch)}`, {
     headers: { Accept: "application/vnd.github.raw+json", Authorization: `Bearer ${token}`, "X-GitHub-Api-Version": "2022-11-28" },
     cache: "no-store",
