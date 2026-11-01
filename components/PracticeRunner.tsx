@@ -1,27 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { buildPracticeSet, recommend } from "@/lib/recommend";
-import { DOMAIN_LABELS, type Question, type TopicMeta } from "@/lib/types";
+import type { Question, TopicMeta } from "@/lib/types";
 import { useProgress } from "./ProgressProvider";
-import { DomainIcon } from "./DomainIcon";
 import { Quiz } from "./Quiz";
 
 const SESSION_SIZE = 10;
 
+/**
+ * Mixed rounds across topics: the daily review from Today, and the low-pressure warm-up. Practising one topic lives in
+ * its workspace, and the old topic links are forwarded there.
+ */
 export function PracticeRunner({ questions, topics }: { questions: Question[]; topics: TopicMeta[] }) {
   const { data, ready } = useProgress();
   const params = useSearchParams();
+  const router = useRouter();
   const topicParam = params.get("topic");
   const warmup = params.get("mode") === "warmup";
   const [running, setRunning] = useState<Question[] | null>(null);
   const [round, setRound] = useState(0);
+  const forwardTo = topicParam && topics.some((t) => `${t.domain}/${t.topic}` === topicParam) ? `/learn/${topicParam}/?tab=practice` : null;
 
-  if (!ready) return <p className="text-ink-2">Loading your progress…</p>;
+  useEffect(() => {
+    if (forwardTo) router.replace(forwardTo);
+  }, [forwardTo, router]);
 
-  const focusTopic = topicParam ? topics.find((t) => `${t.domain}/${t.topic}` === topicParam) : undefined;
+  if (!ready || forwardTo) return <p className="text-ink-2">Loading your progress…</p>;
 
   const build = (): Question[] => {
     if (warmup) {
@@ -33,11 +40,6 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         .sort((a, b) => Number(seen.has(a.id)) - Number(seen.has(b.id)) || a.id.localeCompare(b.id))
         .slice(0, 5);
     }
-    if (focusTopic) {
-      return questions
-        .filter((q) => q.domain === focusTopic.domain && q.topic === focusTopic.topic)
-        .sort((a, b) => a.difficulty - b.difficulty);
-    }
     return buildPracticeSet(data, questions, topics, SESSION_SIZE);
   };
 
@@ -47,101 +49,73 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
   };
 
   if (running) {
-    return (
-      <Quiz
-        key={round}
-        questions={running}
-        mode="practice"
-        onExit={() => setRunning(null)}
-        onRestart={focusTopic || warmup ? undefined : start}
-      />
-    );
+    return <Quiz key={round} questions={running} mode="practice" onExit={() => setRunning(null)} onRestart={warmup ? undefined : start} />;
   }
 
   const rec = recommend(data, questions, topics);
   const preview = build();
+  const covers = [...new Set(preview.map((q) => `${q.domain}/${q.topic}`))].map((key) => ({
+    key,
+    title: topics.find((x) => `${x.domain}/${x.topic}` === key)?.title ?? key,
+    n: preview.filter((q) => `${q.domain}/${q.topic}` === key).length,
+  }));
 
   return (
-    <div className="space-y-8">
-      <div className="hero-grid pt-2 sm:pt-6">
-        <p className="eyebrow">{warmup ? "Low pressure" : focusTopic ? "Topic drill" : "Recommended session"}</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.125rem]">
-          {warmup ? "Warm-up" : focusTopic ? `Practice: ${focusTopic.title}` : "Adaptive practice"}
-        </h1>
-        <p className="mt-2 max-w-2xl text-ink-2">
+    <div className="max-w-3xl space-y-9">
+      <header className="page-head">
+        <nav aria-label="Breadcrumb" className="meta mb-3">
+          <Link href="/" className="tap hover:text-ink">
+            Today
+          </Link>
+        </nav>
+        <h1>{warmup ? "Warm-up" : "Mixed review"}</h1>
+        <p>
           {warmup
             ? "Five core-level questions you haven't answered correctly yet. No pressure: just get moving."
-            : focusTopic
-            ? `Every question for this topic, easiest first.`
-            : `A ${SESSION_SIZE}-question round built from your data: questions due for spaced review first, then your weakest topics, then topics you haven't tried yet.`}
+            : `${SESSION_SIZE} questions chosen from your history: reviews that are due first, then your weakest topics, then topics you haven't tried.`}
         </p>
-        {(focusTopic || warmup) && (
-          <Link href="/practice/" className="tap mt-2 inline-block text-sm text-accent-text hover:underline">
-            ← Back to adaptive practice
-          </Link>
-        )}
-      </div>
+      </header>
 
-      {!focusTopic && !warmup && (
-        <div className="grid grid-cols-3 divide-x divide-line border-y border-line">
-          <Stat label="Reviews due" value={rec.dueQuestionIds.length} />
-          <Stat label="Weak or shaky topics" value={rec.focus.filter((f) => f.reason === "weak" || f.reason === "shaky").length} />
-          <Stat label="Untested topics" value={rec.focus.filter((f) => f.reason === "untested").length} />
-        </div>
-      )}
-
-      {!warmup && !focusTopic && (
-        <p className="text-sm text-ink-2">
-          Low on energy?{" "}
-          <Link href="/fun/" className="tap font-medium text-accent-text hover:underline">
-            Try the fun corner
+      {!warmup && (
+        <p className="text-[15px] text-ink-2">
+          {rec.dueQuestionIds.length} {rec.dueQuestionIds.length === 1 ? "review" : "reviews"} due, {rec.focus.filter((f) => f.reason === "weak" || f.reason === "shaky").length} weak or shaky topics,{" "}
+          {rec.focus.filter((f) => f.reason === "untested").length} untested. Low on energy?{" "}
+          <Link href="/practice/?mode=warmup" className="text-accent-text hover:underline">
+            Try the warm-up
           </Link>{" "}
-          or a{" "}
-          <Link href="/practice/?mode=warmup" className="tap font-medium text-accent-text hover:underline">
-            5-question warm-up
+          or the{" "}
+          <Link href="/fun/" className="text-accent-text hover:underline">
+            fun corner
           </Link>
           .
         </p>
       )}
 
-      <section>
-        <div className="section-head mb-3">
-          <h2>This round covers</h2>
+      <section aria-labelledby="covers-h">
+        <div className="section-head">
+          <h2 id="covers-h">This round covers</h2>
         </div>
-        <ul className="flex flex-wrap gap-2 text-xs">
-          {[...new Set(preview.map((q) => `${q.domain}/${q.topic}`))].map((key) => {
-            const t = topics.find((x) => `${x.domain}/${x.topic}` === key);
-            const n = preview.filter((q) => `${q.domain}/${q.topic}` === key).length;
-            return (
-              <li key={key} className="chip chip-icon text-ink-2">
-                {t && <DomainIcon domain={t.domain} size={22} />}
-                {t?.title ?? key} <span className="text-ink-3">×{n}</span>
+        {covers.length === 0 ? (
+          <p className="pt-3 text-[15px] text-ink-2">Nothing to show: you&apos;ve already answered every core question correctly.</p>
+        ) : (
+          <ul className="divide-y divide-line">
+            {covers.map((c) => (
+              <li key={c.key} className="flex items-baseline justify-between gap-3 py-2.5 text-[15px]">
+                <Link href={`/learn/${c.key}/`} className="hover:text-accent-text">
+                  {c.title}
+                </Link>
+                <span className="meta shrink-0">
+                  {c.n} question{c.n === 1 ? "" : "s"}
+                </span>
               </li>
-            );
-          })}
-        </ul>
-        {preview[0] && (
-          <p className="mt-3 text-xs text-ink-3">Starts with {DOMAIN_LABELS[preview[0].domain]}.</p>
+            ))}
+          </ul>
         )}
       </section>
 
-      <button
-        type="button"
-        onClick={start}
-        disabled={preview.length === 0}
-        className="btn btn-primary"
-      >
-        Start round · {preview.length} questions <span className="btn-arrow" aria-hidden>→</span>
+      <button type="button" onClick={start} disabled={preview.length === 0} className="btn btn-primary">
+        Start · {preview.length} questions <span className="btn-arrow" aria-hidden>→</span>
       </button>
-    </div>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: number }) {
-  return (
-    <div className="px-3 py-3 first:pl-0 sm:px-5">
-      <p className="text-2xl font-bold tabular-nums">{value}</p>
-      <p className="text-xs text-ink-3">{label}</p>
     </div>
   );
 }

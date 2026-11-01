@@ -91,6 +91,55 @@ export interface ReadLog {
   durationMs: number;
 }
 
+/** Self-graded result of a written exercise. */
+export type ExerciseRating = "got-it" | "partial" | "missed";
+
+/**
+ * One piece of learning evidence other than a quiz answer. Append-only, like answers: the latest record for a ref wins,
+ * and nothing is ever removed, so merging devices can't lose or resurrect anything.
+ */
+export type LearningActivity = {
+  id: string;
+  domain: Domain;
+  topic: string;
+  at: string;
+} & (
+  | { kind: "resource"; refId: string }
+  | { kind: "exercise"; refId: string; rating: ExerciseRating }
+  | { kind: "practical"; refId: string; note?: string }
+);
+
+export type CodingDifficulty = "easy" | "medium" | "hard";
+/** Whether the solution was your own: a hint or a read solution is recorded differently from solving it unaided. */
+export type CodingOutcome = "solved" | "solved-with-help" | "not-solved";
+
+export interface CodingProblem {
+  /** Derived from the LeetCode slug, so adding the same problem on two devices merges into one. */
+  id: string;
+  title: string;
+  /** Only set when a real link was entered; never guessed from a title. */
+  url?: string;
+  /** LeetCode's problem number, when known. */
+  number?: number;
+  difficulty: CodingDifficulty;
+  /** Pattern ids from CODING_PATTERNS (lib/coding.ts). */
+  patterns: string[];
+  notes: string;
+  createdAt: string;
+  updatedAt: string;
+  /** Soft delete, so a removal survives merging with a device that still has the problem. */
+  deletedAt?: string;
+}
+
+export interface CodingAttempt {
+  id: string;
+  problemId: string;
+  at: string;
+  outcome: CodingOutcome;
+  minutes?: number;
+  notes?: string;
+}
+
 export interface ProgressData {
   version: 1;
   updatedAt: string;
@@ -98,6 +147,10 @@ export interface ProgressData {
   sessions: SessionRecord[];
   reviews: Record<string, ReviewState>;
   reads: ReadLog[];
+  /** Added with the topic workspaces. Older files simply have none. */
+  activities: LearningActivity[];
+  codingProblems: CodingProblem[];
+  codingAttempts: CodingAttempt[];
 }
 
 export type Confidence = "low" | "medium" | "high";
@@ -125,6 +178,35 @@ export interface SkillProfile {
   domains: DomainStat[];
   weakTopics: TopicStat[];
   strongTopics: TopicStat[];
+}
+
+/** A retrieval prompt: write your answer, then compare and grade yourself. */
+export interface Exercise {
+  id: string;
+  prompt: string;
+  /** A model answer to compare against. */
+  answer: string;
+  minutes: number;
+}
+
+/** Hands-on work done outside the app, recorded with a note. */
+export interface PracticalTask {
+  id: string;
+  title: string;
+  task: string;
+  /** How you know you've finished. */
+  done: string;
+  minutes: number;
+}
+
+export interface TopicWorkspace {
+  /** Suggested position within the domain. A suggestion only: nothing is locked. */
+  order: number;
+  /** Topic keys (domain/topic) that help to know first. */
+  prerequisites: string[];
+  objectives: string[];
+  exercises: Exercise[];
+  practical: PracticalTask[];
 }
 
 export interface FunStory {

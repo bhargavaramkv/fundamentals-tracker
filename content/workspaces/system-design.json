@@ -1,0 +1,50 @@
+{
+  "scalability": {
+    "order": 1,
+    "prerequisites": [],
+    "objectives": ["Estimate load and capacity with back-of-envelope numbers", "Explain consistent hashing and why it helps", "Scale on the signal that's actually the bottleneck"],
+    "exercises": [
+      { "id": "system-design-scalability-ex1", "minutes": 5, "prompt": "You add a fourth cache node to three, using hash(key) mod N. Roughly what fraction of keys move? What about with consistent hashing?", "answer": "With mod N, about three quarters of keys remap, which causes a stampede on the database. With consistent hashing only about a quarter move, the share taken over by the new node, and virtual nodes keep that share even." },
+      { "id": "system-design-scalability-ex2", "minutes": 5, "prompt": "Your service's pods autoscale on CPU, but latency climbs while CPU stays low. Why might that happen, and what signal would you scale on?", "answer": "The work is mostly waiting on I/O, or it's limited by a connection pool or queue, so CPU never reflects the load. Scale on what actually saturates: in-flight requests, queue depth or latency. Also check whether the true bottleneck is downstream, because adding pods won't help then, and can make things worse." }
+    ],
+    "practical": [
+      { "id": "system-design-scalability-lab1", "minutes": 30, "title": "Find a real limit", "task": "Load test any small HTTP service with k6, hey or similar, raising concurrency until latency bends upward. Identify what saturated first: CPU, connections, a database or a thread pool.", "done": "You have the load at which it degraded and evidence of what limited it, not just a requests-per-second number." }
+    ]
+  },
+  "caching": {
+    "order": 2,
+    "prerequisites": ["system-design/scalability"],
+    "objectives": ["Choose a cache pattern and an invalidation approach", "Prevent a cache stampede", "Explain the race in cache-aside writes"],
+    "exercises": [
+      { "id": "system-design-caching-ex1", "minutes": 5, "prompt": "In cache-aside, why is it safer to delete the cache entry on write rather than update it? What race can still happen?", "answer": "If two writers update the cache, they can apply in the opposite order to the database, leaving a stale value indefinitely. Deleting avoids that. A race remains: a reader misses and reads the old value, a writer updates and deletes, and then the reader stores the stale value. TTLs limit how long this lasts, and delayed double-delete or leases reduce it." },
+      { "id": "system-design-caching-ex2", "minutes": 5, "prompt": "A popular key expires and thousands of requests hit the database at once. Name three ways to prevent this.", "answer": "Request coalescing or a lock, so that only one caller recomputes the value. Serving stale while one caller refreshes it, or refreshing early before it expires. Adding random jitter to TTLs so that many keys don't expire together." }
+    ],
+    "practical": [
+      { "id": "system-design-caching-lab1", "minutes": 30, "title": "Create and fix a stampede", "task": "Put a small cache in front of a deliberately slow function. Send 100 concurrent requests just after expiry and count the backend calls. Add request coalescing and count again.", "done": "You've measured backend calls before and after, for example 100 versus 1." }
+    ]
+  },
+  "messaging": {
+    "order": 3,
+    "prerequisites": ["system-design/caching"],
+    "objectives": ["Choose a queue or pub/sub from the requirement", "Design consumers for at-least-once delivery", "Handle ordering, retries and poison messages"],
+    "exercises": [
+      { "id": "system-design-messaging-ex1", "minutes": 5, "prompt": "Your broker delivers at least once. A payment consumer crashes after charging but before acknowledging. What happens, and how do you make it safe?", "answer": "The message is redelivered and the customer could be charged twice. Make the consumer idempotent: record the message or payment key in the same transaction as the side effect and skip keys you've seen, or pass an idempotency key to the payment provider." },
+      { "id": "system-design-messaging-ex2", "minutes": 5, "prompt": "How does Kafka order messages, and what breaks that order for a single entity?", "answer": "Order is guaranteed only within a partition, so keying by entity ID keeps one entity's messages in order. It breaks if the key changes, the partition count changes (the key then maps elsewhere), messages are retried out of order by a producer without idempotence, or a consumer processes one partition concurrently." }
+    ],
+    "practical": [
+      { "id": "system-design-messaging-lab1", "minutes": 40, "title": "Build an idempotent consumer", "task": "Run RabbitMQ or Kafka locally. Write a consumer that crashes at random after doing its work but before acknowledging. Observe the duplicates, then add an idempotency check.", "done": "Across repeated crashes every message took effect exactly once, even though it was delivered more than once." }
+    ]
+  },
+  "consistency": {
+    "order": 4,
+    "prerequisites": ["system-design/messaging", "databases/replication-sharding"],
+    "objectives": ["Explain CAP and PACELC accurately", "Solve the dual-write problem with an outbox", "Choose between a saga and a distributed transaction"],
+    "exercises": [
+      { "id": "system-design-consistency-ex1", "minutes": 8, "prompt": "A service updates its database and then publishes an event. What can go wrong, and how does the outbox pattern fix it?", "answer": "A crash between the two steps leaves the database updated with no event, or the reverse if the order is swapped. There's no atomic commit across both systems. With an outbox, you write the event to a table in the same database transaction, and a separate relay publishes it. Delivery is at-least-once, so consumers must be idempotent." },
+      { "id": "system-design-consistency-ex2", "minutes": 5, "prompt": "Someone says \"we chose AP, so we don't have consistency\". What's wrong with that statement?", "answer": "CAP only describes behaviour during a network partition, and only for linearizability. Outside a partition, the real trade-off is latency against consistency, which is what PACELC adds. Most systems also offer many models between strong and eventual, such as read-your-writes or causal, and the choice can be made per operation." }
+    ],
+    "practical": [
+      { "id": "system-design-consistency-lab1", "minutes": 40, "title": "Implement an outbox", "task": "In a small service with a database, write an order and its event in one transaction, and publish from a relay process. Kill the relay partway through and restart it.", "done": "No event was lost, you've seen at least one duplicate or handled the case, and you can say why consumers must be idempotent." }
+    ]
+  }
+}

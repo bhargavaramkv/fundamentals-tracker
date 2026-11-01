@@ -1,7 +1,8 @@
 import "server-only";
 import path from "node:path";
+import { buildFeed, listable, toListItem } from "./feed";
 import { readRuns, readState, readStories } from "./store";
-import type { RadarListItem, RadarState, RadarStory, RunLog } from "./types";
+import type { RadarFeed, RadarState, RadarStory, RunLog } from "./types";
 import { validateStory } from "./validate";
 
 // Build-time only. The deploy workflow checks the radar-data branch out here; locally it may be absent.
@@ -22,6 +23,20 @@ export function getRadarStories(): RadarStory[] {
   return cache;
 }
 
+export { toListItem };
+
+/** Stories that appear in lists: every event once. */
+export function getListedStories(): RadarStory[] {
+  return getRadarStories().filter(listable);
+}
+
+/** The build-time snapshot of the live feed: what the site shows until (or unless) feed.json can be fetched. */
+export function getBuildFeed(): RadarFeed {
+  const state = readState(DIR);
+  const newest = getRadarStories().reduce((m, s) => Math.max(m, Date.parse(s.firstSeenAt)), 0);
+  return buildFeed(getRadarStories(), state, new Date(newest || 0));
+}
+
 export function getRadarStory(id: string): RadarStory | null {
   return getRadarStories().find((s) => s.id === id) ?? null;
 }
@@ -32,25 +47,6 @@ export function getRadarState(): RadarState {
 
 export function getRadarRuns(limit = 7): RunLog[] {
   return readRuns(DIR, limit);
-}
-
-export function toListItem(s: RadarStory): RadarListItem {
-  return {
-    id: s.id,
-    title: s.analysis?.headline ?? s.title,
-    summary: s.analysis?.summary ?? s.excerpt.slice(0, 280),
-    category: s.category,
-    publishedAt: s.publishedAt,
-    firstSeenAt: s.firstSeenAt,
-    updatedAt: s.updatedAt,
-    importance: s.importance,
-    score: s.score.total,
-    minor: s.minor,
-    analysed: Boolean(s.analysis),
-    sourceName: s.sources[0].sourceName,
-    sourceCount: new Set(s.sources.map((x) => new URL(x.url).hostname)).size,
-    related: s.analysis?.relatedTopics ?? [],
-  };
 }
 
 /** Months (YYYY-MM) that have stories, newest first. */

@@ -28,31 +28,33 @@ export function FunCorner({ stories, facts, topics }: { stories: FunStory[]; fac
 
   return (
     <div className="mx-auto max-w-3xl space-y-10">
-      <div className="hero-grid pt-2 sm:pt-6">
-        <p className="eyebrow">Fun corner</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.125rem]">Not feeling it? That&apos;s fine.</h1>
-        <p className="mt-2 max-w-2xl text-ink-2">
-          Two minutes, no score pressure. Real bugs that broke real systems, and the fundamental each one teaches.
-        </p>
-      </div>
+      <header className="page-head">
+        <nav aria-label="Breadcrumb" className="meta mb-3">
+          <Link href="/" className="tap hover:text-ink">
+            Today
+          </Link>
+        </nav>
+        <h1>Not feeling it? That&apos;s fine.</h1>
+        <p>Two minutes, no score pressure. Real bugs that broke real systems, and the fundamental each one teaches.</p>
+      </header>
 
-      <section className="rounded-lg border border-line bg-surface p-5 sm:p-7">
+      <section className="border-y border-line py-7">
         <p className="eyebrow">
           Bug story · {story.year > new Date().getFullYear() ? `coming in ${story.year}` : story.year}
         </p>
-        <h2 className="mt-1 text-2xl font-bold tracking-tight">{story.title}</h2>
+        <h2 className="headline mt-1 text-3xl">{story.title}</h2>
         <p className="mt-2 text-lg text-ink-2">{story.hook}</p>
 
         {revealed ? (
           <div className="mt-4 space-y-3 text-[15px] leading-relaxed" aria-live="polite">
             <p>{story.story}</p>
-            <p className="rounded-lg border-l-4 border-good bg-good-bg/50 p-4">
+            <p className="border-l-2 border-good pl-4">
               <span className="font-semibold text-good">The lesson: </span>
               {story.lesson}
             </p>
             {lesson && (
-              <Link href={`/lessons/${lesson.domain}/${lesson.topic}/`} className="tap text-sm text-accent-text hover:underline">
-                Related lesson: {lesson.title} →
+              <Link href={`/learn/${lesson.domain}/${lesson.topic}/`} className="tap text-sm text-accent-text hover:underline">
+                Related topic: {lesson.title} →
               </Link>
             )}
           </div>
@@ -76,7 +78,7 @@ export function FunCorner({ stories, facts, topics }: { stories: FunStory[]; fac
         <div className="section-head">
           <h2>Did you know?</h2>
         </div>
-        <p className="mt-3 leading-relaxed">{fact.fact}</p>
+        <p className="mt-3 max-w-[68ch] text-[17px] leading-relaxed">{fact.fact}</p>
         <button type="button" onClick={() => setFactIdx((i) => (i + 1) % facts.length)} className="btn btn-ghost -ml-3 mt-2">
           Another fact
         </button>
@@ -85,7 +87,7 @@ export function FunCorner({ stories, facts, topics }: { stories: FunStory[]; fac
       <section className="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6">
         <div>
           <p className="font-semibold">Warm-up: 5 easy questions</p>
-          <p className="text-sm text-ink-2">Core-level only. Good for getting a streak going on a slow day.</p>
+          <p className="text-sm text-ink-2">Core-level only. A gentle way back in on a slow day.</p>
         </div>
         <Link href="/practice/?mode=warmup" className="btn btn-secondary">
           Start warm-up

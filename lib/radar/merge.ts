@@ -1,5 +1,5 @@
-import { MIXED_SOURCES } from "./sources";
-import { classifyCategory, importanceOf, isMinor, scoreStory } from "./rank";
+import { MIXED_SOURCES, SOURCES } from "./sources";
+import { classifyCategory, importanceOf, isMinor, isOffTopic, scoreStory } from "./rank";
 import { canonicalUrl, contentHash, eventKeys, sha, slugify, titleSimilarity } from "./text";
 import type { FeedItem, RadarStory, SourceDef, StorySource } from "./types";
 
@@ -27,6 +27,26 @@ const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, "");
 
 function storySource(item: FeedItem, url: string, src: SourceDef): StorySource {
   return { sourceId: src.id, sourceName: src.name, title: item.title, url, publishedAt: item.publishedAt, credibility: src.credibility };
+}
+
+/**
+ * Brings a stored story up to the current taxonomy: its category and off-topic flag are recomputed from its text and
+ * source, so changing the classifier reclassifies history without rewriting anything else.
+ */
+export function normalizeStory(story: RadarStory): RadarStory {
+  const sourceId = story.sources[0]?.sourceId ?? "";
+  const def = SOURCES.find((s) => s.id === sourceId);
+  const mixed = !def || MIXED_SOURCES.has(sourceId);
+  // Sources that have since been removed have no default, so they're classified like mixed publications.
+  const category = mixed ? classifyCategory(story.title, story.excerpt, def?.category ?? "programming") : def.category;
+  const offTopic = isOffTopic(sourceId, story.title, story.excerpt);
+  const next: RadarStory = { ...story, category, ...(offTopic ? { offTopic } : {}) };
+  // Rules for "minor" only ever widen, so a story newly recognised as minor drops in rank like any other.
+  if (!next.minor && isMinor(next.title)) {
+    next.minor = true;
+    rescore(next, new Date(next.firstSeenAt));
+  }
+  return next;
 }
 
 /** Recomputes score and importance in place (call after any change to sources, text or analysis). */
@@ -151,6 +171,7 @@ export function mergeItems(stories: RadarStory[], items: FeedItem[], opts: Merge
       excerpt: item.excerpt,
       sources: [storySource(item, url, src)],
       minor: isMinor(item.title),
+      ...(isOffTopic(src.id, item.title, item.excerpt) ? { offTopic: true } : {}),
       score: { total: 0, parts: [] },
       importance: "routine",
       status: "pending",

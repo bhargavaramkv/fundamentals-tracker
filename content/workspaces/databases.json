@@ -1,0 +1,50 @@
+{
+  "data-modeling": {
+    "order": 1,
+    "prerequisites": [],
+    "objectives": ["Normalise a schema and say what each normal form prevents", "Choose embedding or referencing in MongoDB from the access pattern", "Plan a schema change that doesn't need downtime"],
+    "exercises": [
+      { "id": "databases-data-modeling-ex1", "minutes": 5, "prompt": "When should you embed a sub-document in MongoDB rather than reference another collection? Give one case for each.", "answer": "Embed when the data is read together, belongs to its parent and stays small and bounded, such as an order's shipping address. Reference when the data grows without bound, is shared by many parents or changes independently, such as a user's activity log or a product used by many orders." },
+      { "id": "databases-data-modeling-ex2", "minutes": 5, "prompt": "You need to rename a column on a busy table with no downtime. Describe the steps.", "answer": "Expand and contract. Add the new column, then deploy code that writes to both columns. Backfill existing rows in batches, switch reads to the new column, stop writing to the old one, and finally drop it. Each step works with both the previous and next code version, so you can roll back at any point." }
+    ],
+    "practical": [
+      { "id": "databases-data-modeling-lab1", "minutes": 30, "title": "Model the same domain twice", "task": "Model orders, line items and customers once in third normal form and once as MongoDB documents. Write the three most common queries against each.", "done": "You can name one query that's simpler in each model, and what each model costs on update." }
+    ]
+  },
+  "indexing": {
+    "order": 2,
+    "prerequisites": ["databases/data-modeling"],
+    "objectives": ["Predict whether a query can use a composite index", "Order compound index fields using equality, sort, range", "Read a query plan and spot a missed index"],
+    "exercises": [
+      { "id": "databases-indexing-ex1", "minutes": 5, "prompt": "You have an index on (a, b, c). Which of these can use it well: WHERE b = 1; WHERE a = 1 AND c = 3; WHERE a = 1 ORDER BY b? Explain each.", "answer": "WHERE b = 1 generally can't, because it skips the leftmost column (some engines can do a skip scan). WHERE a = 1 AND c = 3 uses the index for a, and can only filter c among those entries, since b isn't constrained. WHERE a = 1 ORDER BY b is ideal, because it seeks on a and reads b already in sorted order." },
+      { "id": "databases-indexing-ex2", "minutes": 5, "prompt": "Why does WHERE LOWER(email) = 'x' often skip an index on email, and what are two ways to fix it?", "answer": "The index stores email values, not LOWER(email), so the engine can't seek on the computed result and has to scan. This is called non-sargable. Fixes: create an index on the expression (or a computed column), or use a case-insensitive collation or type such as citext in PostgreSQL, so that the plain comparison works." }
+    ],
+    "practical": [
+      { "id": "databases-indexing-lab1", "minutes": 30, "title": "Read a plan before and after", "task": "Load at least 100,000 rows into a local PostgreSQL or MongoDB. Run a slow filtered and sorted query with EXPLAIN ANALYZE or explain('executionStats'), add a compound index, and run it again.", "done": "You've compared the two plans and can state the change in rows or keys examined, not just the time taken." }
+    ]
+  },
+  "transactions": {
+    "order": 3,
+    "prerequisites": ["databases/indexing"],
+    "objectives": ["Match isolation levels to the anomalies they prevent", "Recognise a lost update and write skew in application code", "Choose between locking and optimistic concurrency"],
+    "exercises": [
+      { "id": "databases-transactions-ex1", "minutes": 8, "prompt": "Two doctors are on call. Each transaction checks that at least two are on call, then takes itself off. Both commit under snapshot isolation. What happens, what is this called, and how do you prevent it?", "answer": "Both read two doctors on call, both remove themselves, and nobody is left on call. This is write skew: the transactions update different rows based on a shared read, so there's no write conflict to detect. Prevent it with serializable isolation or by locking the rows you read, for example SELECT ... FOR UPDATE." },
+      { "id": "databases-transactions-ex2", "minutes": 5, "prompt": "Show how a lost update happens with a read-modify-write of a balance, and give two ways to fix it.", "answer": "Two transactions read balance 100. One writes 110 and the other writes 120, so the first update is lost. Fixes: use an atomic update (SET balance = balance + 10), lock with SELECT FOR UPDATE, or use optimistic concurrency with a version column that retries when the version has changed." }
+    ],
+    "practical": [
+      { "id": "databases-transactions-lab1", "minutes": 30, "title": "Reproduce an anomaly", "task": "Open two sessions on a local PostgreSQL. Reproduce a lost update at READ COMMITTED, then run the same steps at REPEATABLE READ and see the second transaction fail.", "done": "You've seen the wrong balance, seen the serialization error, and know your code would have to retry on that error." }
+    ]
+  },
+  "replication-sharding": {
+    "order": 4,
+    "prerequisites": ["databases/transactions"],
+    "objectives": ["Explain the trade-off between synchronous and asynchronous replication", "Choose read and write concerns for a requirement", "Choose a shard key and predict its failure modes"],
+    "exercises": [
+      { "id": "databases-replication-sharding-ex1", "minutes": 5, "prompt": "A user saves their profile, reloads the page, and sees the old value. What's the likely cause, and what are two fixes?", "answer": "Replication lag: the write went to the primary, and the read came from a replica that hadn't caught up. Fixes: read your own writes from the primary for a short window or for that user's data, or wait for the replica to reach the write's position using a session token or causal consistency." },
+      { "id": "databases-replication-sharding-ex2", "minutes": 5, "prompt": "Why is a timestamp a poor shard key, and what's the trade-off of hashing it?", "answer": "Timestamps always increase, so every new write lands on the last shard, creating a hot spot while the others sit idle. Hashing spreads writes evenly, but a range query then has to go to every shard. A common compromise is a compound key: a well-distributed field first, then time." }
+    ],
+    "practical": [
+      { "id": "databases-replication-sharding-lab1", "minutes": 40, "title": "Watch a failover", "task": "Run a three-node MongoDB replica set locally with Docker. Write in a loop, stop the primary, and watch the election. Repeat with write concern 1 and with majority.", "done": "You've measured how long writes failed, and can say what write concern 1 could lose that majority wouldn't." }
+    ]
+  }
+}

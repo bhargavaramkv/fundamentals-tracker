@@ -1,0 +1,50 @@
+{
+  "composition-encapsulation": {
+    "order": 1,
+    "prerequisites": [],
+    "objectives": ["Say what invariant a class protects", "Choose composition over inheritance and explain the trade-off", "Avoid constructor traps such as calling virtual methods"],
+    "exercises": [
+      { "id": "oop-composition-encapsulation-ex1", "minutes": 5, "prompt": "A class has private fields, each with a public getter and setter. Is it encapsulated? Explain using an example of an invariant.", "answer": "Not meaningfully. Encapsulation is about protecting invariants, not hiding fields. If an Order exposes SetTotal, callers can make the total disagree with the line items. A better design exposes AddLine and computes the total internally, so the object can never reach an invalid state." },
+      { "id": "oop-composition-encapsulation-ex2", "minutes": 5, "prompt": "Why is calling a virtual method from a base class constructor dangerous?", "answer": "The derived override runs before the derived constructor has initialised its own state, so it can see nulls or default values. In C# and Java the override really does run at that point. C++ dispatches to the base version during construction, which surprises people differently." }
+    ],
+    "practical": [
+      { "id": "oop-composition-encapsulation-lab1", "minutes": 25, "title": "Replace inheritance in real code", "task": "Find a class in a project you work on that inherits mainly to reuse code. Sketch or make the change to composition: inject the collaborator and delegate to it.", "done": "You can name what got easier to test or change, and anything that got worse." }
+    ]
+  },
+  "solid": {
+    "order": 2,
+    "prerequisites": ["oop/composition-encapsulation"],
+    "objectives": ["Diagnose which principle is violated from a symptom", "Explain Liskov substitution in terms of behaviour", "Avoid over-engineering in the name of open/closed"],
+    "exercises": [
+      { "id": "oop-solid-ex1", "minutes": 5, "prompt": "Square inherits from Rectangle and overrides SetWidth to also set the height. Which principle does this break? Show the calling code that fails.", "answer": "Liskov substitution. Code that uses a Rectangle can reasonably expect: r.SetWidth(5); r.SetHeight(4); then r.Area() == 20. With a Square the area is 16. The subtype compiles, but it breaks the behaviour its base type promised." },
+      { "id": "oop-solid-ex2", "minutes": 5, "prompt": "A switch on payment type appears in five places, and each new payment type means editing all five. Which principle helps, and when would adding an abstraction be premature?", "answer": "Open/closed: put the behaviour behind an interface, with one implementation per payment type, so a new type means a new class. It's premature when there's one switch, two stable cases and no sign of change. A simple conditional is cheaper until real variation appears." }
+    ],
+    "practical": [
+      { "id": "oop-solid-lab1", "minutes": 25, "title": "Audit a class from your codebase", "task": "Take the largest service class in a project you know. List its reasons to change and its dependencies, then name one concrete split that would remove a reason to change.", "done": "You have a short written note naming the principle, the symptom and the split, and you've judged whether it's worth doing now." }
+    ]
+  },
+  "dependency-injection": {
+    "order": 3,
+    "prerequisites": ["oop/solid"],
+    "objectives": ["Distinguish dependency inversion from dependency injection", "Pick the right service lifetime and spot captive dependencies", "Explain how a hierarchical injector resolves a token"],
+    "exercises": [
+      { "id": "oop-dependency-injection-ex1", "minutes": 5, "prompt": "In ASP.NET Core, a singleton service takes a scoped DbContext in its constructor. What goes wrong?", "answer": "This is a captive dependency. The singleton holds one DbContext for the application's lifetime, so a context meant for one request is shared across requests, is not thread-safe and accumulates tracked entities. Validation catches this in development by default. The fix is to inject IServiceScopeFactory and create a scope for each unit of work." },
+      { "id": "oop-dependency-injection-ex2", "minutes": 5, "prompt": "What's the difference between dependency inversion and dependency injection? Can you have one without the other?", "answer": "Dependency inversion is a design principle: high-level code depends on abstractions, not on details. Dependency injection is a mechanism: a dependency is supplied from outside. You can inject a concrete class, which is injection without inversion. You can also invert with a hand-written factory or by passing a function, with no container involved." }
+    ],
+    "practical": [
+      { "id": "oop-dependency-injection-lab1", "minutes": 25, "title": "Make a hard-to-test class testable", "task": "Find code that calls the clock, a database or an HTTP client directly. Inject that dependency and write one test using a fake, for example a fixed clock.", "done": "A test that was impossible or flaky before now runs fast and gives the same result each time." }
+    ]
+  },
+  "design-patterns": {
+    "order": 4,
+    "prerequisites": ["oop/solid"],
+    "objectives": ["Choose a pattern from the problem, not from its name", "Tell look-alike patterns apart by intent", "Recognise when a pattern adds more than it saves"],
+    "exercises": [
+      { "id": "oop-design-patterns-ex1", "minutes": 5, "prompt": "Decorator, Proxy and Adapter all wrap an object. How do you tell them apart?", "answer": "By intent. Adapter changes the interface so an incompatible class fits. Decorator keeps the interface and adds behaviour, and decorators can stack. Proxy keeps the interface and controls access, for example lazy loading, caching or permission checks." },
+      { "id": "oop-design-patterns-ex2", "minutes": 5, "prompt": "Strategy and Chain of Responsibility both select behaviour at runtime. What's the structural difference, and when does each fit?", "answer": "With Strategy, the caller or context picks exactly one algorithm behind an interface, which fits interchangeable algorithms like pricing rules. With a chain, the request passes through handlers that can each process it, pass it on or stop it, which fits middleware and approval flows." }
+    ],
+    "practical": [
+      { "id": "oop-design-patterns-lab1", "minutes": 25, "title": "Find a pattern you already use", "task": "Open your framework's middleware or HTTP pipeline, such as ASP.NET Core middleware or Angular interceptors. Identify the pattern it uses and write a small custom link in that chain.", "done": "Your custom link runs in the real pipeline, and you can say why this pattern fits better than a Strategy here." }
+    ]
+  }
+}

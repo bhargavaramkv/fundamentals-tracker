@@ -1,0 +1,50 @@
+{
+  "networking": {
+    "order": 1,
+    "prerequisites": [],
+    "objectives": ["Trace what happens before the first HTTP byte", "Plan a DNS migration around TTLs", "Diagnose production bugs caused by TCP behaviour"],
+    "exercises": [
+      { "id": "web-networking-ex1", "minutes": 5, "prompt": "List the steps and round trips before the first HTTP byte on a new HTTPS connection over TCP with TLS 1.3. What can reduce them?", "answer": "DNS lookup, TCP handshake (one round trip), TLS 1.3 handshake (one round trip), and then the request. Connection reuse removes the handshakes, TLS session resumption shortens the TLS step, and HTTP/3 over QUIC combines the transport and TLS handshakes." },
+      { "id": "web-networking-ex2", "minutes": 5, "prompt": "You must move a service to a new IP address with a DNS record whose TTL is 24 hours. How do you do it safely?", "answer": "Lower the TTL at least 24 hours in advance, so the old value expires from caches. Then switch the record, keep the old address serving until traffic stops (some clients ignore TTLs), and raise the TTL again afterwards." }
+    ],
+    "practical": [
+      { "id": "web-networking-lab1", "minutes": 20, "title": "Time a real request", "task": "Use curl -w with time_namelookup, time_connect, time_appconnect and time_starttransfer against a site you use. Run it twice, and try a second request on a reused connection.", "done": "You can say how much of the total was DNS, TCP, TLS and server time, and what reuse saved." }
+    ]
+  },
+  "http": {
+    "order": 2,
+    "prerequisites": ["web/networking"],
+    "objectives": ["Choose methods and status codes by their semantics", "Use conditional requests", "Explain what HTTP/2 and HTTP/3 change"],
+    "exercises": [
+      { "id": "web-http-ex1", "minutes": 5, "prompt": "What's the difference between 401 and 403? Between PUT and PATCH with respect to idempotency?", "answer": "401 means the caller isn't authenticated, or the credentials are invalid. 403 means the server knows who you are but refuses. PUT replaces the resource and is idempotent by definition. PATCH applies changes and isn't guaranteed to be idempotent: an \"increment by one\" patch applied twice gives a different result." },
+      { "id": "web-http-ex2", "minutes": 5, "prompt": "Explain how ETag and If-None-Match work together. How would If-Match prevent a lost update in an API?", "answer": "The server returns an ETag. The client sends it back in If-None-Match, and if it's unchanged the server replies 304 with no body, saving bandwidth. If-Match on a PUT says to apply this only if the resource still has that version. Otherwise the server returns 412, so the client refetches rather than overwriting someone else's change." }
+    ],
+    "practical": [
+      { "id": "web-http-lab1", "minutes": 25, "title": "Add optimistic concurrency to an API", "task": "Add ETag and If-Match to one resource in a small API. Return 412 on a stale write and 428 if the header is missing. Test it with two clients using curl.", "done": "The second client's stale write is rejected, and it succeeds after refetching." }
+    ]
+  },
+  "browser": {
+    "order": 3,
+    "prerequisites": ["web/http"],
+    "objectives": ["Explain what CORS does and doesn't protect", "Predict when a request triggers a preflight", "Set Cache-Control correctly for a single-page app"],
+    "exercises": [
+      { "id": "web-browser-ex1", "minutes": 5, "prompt": "Your API returns a CORS error in the browser, but the same request works in curl. Why? Does CORS protect your API from attackers?", "answer": "CORS is enforced by the browser, which blocks the page from reading a cross-origin response unless the server allows it. curl doesn't enforce it. It protects users' browser sessions from other websites, not your API. Anyone can still call the API directly, so authentication and authorisation must live on the server." },
+      { "id": "web-browser-ex2", "minutes": 5, "prompt": "After a deploy, some users of your single-page app see a blank page until they hard refresh. What's the likely cause, and what caching rules fix it?", "answer": "index.html was cached and still references hashed bundles that the deploy has removed, so those requests fail. Serve index.html with Cache-Control: no-cache so it's revalidated each time, serve hashed assets with a long max-age and immutable, and keep old assets available for a while after a deploy." }
+    ],
+    "practical": [
+      { "id": "web-browser-lab1", "minutes": 25, "title": "Debug a preflight", "task": "Serve a page and an API on different local ports. Call the API with a custom header and watch the OPTIONS request in DevTools. Make it fail, then fix it by setting the right response headers.", "done": "You can say which header triggered the preflight and which response header fixed it." }
+    ]
+  },
+  "security": {
+    "order": 4,
+    "prerequisites": ["web/browser"],
+    "objectives": ["Set cookie attributes and say what each one prevents", "Prevent XSS and CSRF", "Weigh the options for storing tokens in a single-page app"],
+    "exercises": [
+      { "id": "web-security-ex1", "minutes": 5, "prompt": "What do HttpOnly, Secure and SameSite each protect against? Which of these stops CSRF?", "answer": "HttpOnly keeps JavaScript from reading the cookie, which limits session theft through XSS. Secure sends it only over HTTPS. SameSite stops the browser attaching it to cross-site requests, which is the one that defends against CSRF, usually alongside CSRF tokens. None of them stops an XSS script from making requests as the user." },
+      { "id": "web-security-ex2", "minutes": 5, "prompt": "Your single-page app keeps a JWT in localStorage. What's the risk, what's the common alternative, and what does that alternative cost you?", "answer": "Any XSS can read the token and use it elsewhere until it expires. A common alternative is a short-lived access token in memory, plus a refresh token in an HttpOnly, Secure, SameSite cookie, or a backend-for-frontend holding tokens on the server. Cookies then bring CSRF back into scope, and the design is more complex." }
+    ],
+    "practical": [
+      { "id": "web-security-lab1", "minutes": 30, "title": "Test your own app", "task": "On a local app you own, check cookie attributes in DevTools, try a stored XSS payload in a text field, and add a Content-Security-Policy in report-only mode. Only test systems you own.", "done": "You have a short list of what you found and what you changed, and you've read the CSP reports." }
+    ]
+  }
+}
