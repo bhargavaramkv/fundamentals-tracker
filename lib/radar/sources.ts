@@ -50,19 +50,21 @@ export const SOURCES: SourceDef[] = [
   { id: "nvidia-blog", name: "NVIDIA Blog", kind: "feed", url: "https://blogs.nvidia.com/feed/", homepage: "https://blogs.nvidia.com/", category: "hardware", credibility: 3, maxItems: 4 },
   { id: "ieee-spectrum", name: "IEEE Spectrum", kind: "feed", url: "https://spectrum.ieee.org/feeds/feed.rss", homepage: "https://spectrum.ieee.org/", category: "hardware", credibility: 2, maxItems: 6 },
   { id: "ars-technica", name: "Ars Technica", kind: "feed", url: "https://feeds.arstechnica.com/arstechnica/technology-lab", homepage: "https://arstechnica.com/", category: "hardware", credibility: 2, maxItems: 6 },
-  { id: "the-register", name: "The Register", kind: "feed", url: "https://www.theregister.com/headlines.atom", homepage: "https://www.theregister.com/", category: "hardware", credibility: 2, maxItems: 8 },
+  { id: "hacker-news", name: "Hacker News (200+ points)", kind: "feed", url: "https://hnrss.org/frontpage?points=200", homepage: "https://news.ycombinator.com/", category: "developer", credibility: 2, maxItems: 8 },
+  { id: "the-verge", name: "The Verge: Tech", kind: "feed", url: "https://www.theverge.com/rss/tech/index.xml", homepage: "https://www.theverge.com/tech", category: "hardware", credibility: 2, maxItems: 5 },
   { id: "mit-tech-review", name: "MIT Technology Review", kind: "feed", url: "https://www.technologyreview.com/feed/", homepage: "https://www.technologyreview.com/", category: "hardware", credibility: 2, maxItems: 5 },
 
   // Research & Engineering Breakthroughs
   { id: "google-research", name: "Google Research Blog", kind: "feed", url: "https://research.google/blog/rss/", homepage: "https://research.google/blog/", category: "research", credibility: 3, maxItems: 4 },
   { id: "meta-engineering", name: "Engineering at Meta", kind: "feed", url: "https://engineering.fb.com/feed/", homepage: "https://engineering.fb.com/", category: "research", credibility: 3, maxItems: 3 },
   { id: "netflix-tech", name: "Netflix TechBlog", kind: "feed", url: "https://netflixtechblog.com/feed", homepage: "https://netflixtechblog.com/", category: "research", credibility: 3, maxItems: 3 },
-  { id: "cacm", name: "Communications of the ACM", kind: "feed", url: "https://cacm.acm.org/feed/", homepage: "https://cacm.acm.org/", category: "research", credibility: 2, maxItems: 3 },
+  { id: "stackoverflow-blog", name: "Stack Overflow Blog", kind: "feed", url: "https://stackoverflow.blog/feed/", homepage: "https://stackoverflow.blog/", category: "developer", credibility: 2, maxItems: 3 },
+  { id: "the-new-stack", name: "The New Stack", kind: "feed", url: "https://thenewstack.io/feed/", homepage: "https://thenewstack.io/", category: "developer", credibility: 2, maxItems: 4 },
   { id: "arxiv-dc", name: "arXiv: Distributed Computing", kind: "feed", url: "https://rss.arxiv.org/rss/cs.DC", homepage: "https://arxiv.org/list/cs.DC/new", category: "research", credibility: 2, maxItems: 4 },
   { id: "arxiv-db", name: "arXiv: Databases", kind: "feed", url: "https://rss.arxiv.org/rss/cs.DB", homepage: "https://arxiv.org/list/cs.DB/new", category: "research", credibility: 2, maxItems: 3 },
 ];
 
 /** Publications whose stories span categories: each story is classified by its own text instead of the source default. */
-export const MIXED_SOURCES = new Set(["infoq", "bleepingcomputer", "ars-technica", "the-register", "mit-tech-review", "ieee-spectrum"]);
+export const MIXED_SOURCES = new Set(["infoq", "bleepingcomputer", "ars-technica", "hacker-news", "the-verge", "mit-tech-review", "ieee-spectrum"]);
 
 export const sourceById = (id: string): SourceDef | undefined => SOURCES.find((s) => s.id === id);
