@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "username": "bhargavaramkv",
+  "syncedAt": "2026-11-01T11:22:14.798Z",
+  "items": [
+    {
+      "slug": "linked-list-cycle-ii",
+      "title": "Linked List Cycle II",
+      "number": 142,
+      "difficulty": "medium",
+      "tags": [
+        "hash-table",
+        "linked-list",
+        "two-pointers",
+        "floyds-cycle-finding-algorithm"
+      ],
+      "solvedAt": "2026-08-25T16:01:38.000Z"
+    },
+    {
+      "slug": "merge-two-sorted-lists",
+      "title": "Merge Two Sorted Lists",
+      "number": 21,
+      "difficulty": "easy",
+      "tags": [
+        "linked-list",
+        "recursion"
+      ],
+      "solvedAt": "2026-08-25T14:02:57.000Z"
+    },
+    {
+      "slug": "linked-list-cycle",
+      "title": "Linked List Cycle",
+      "number": 141,
+      "difficulty": "easy",
+      "tags": [
+        "hash-table",
+        "linked-list",
+        "two-pointers",
+        "floyds-cycle-finding-algorithm"
+      ],
+      "solvedAt": "2026-07-23T10:23:30.000Z"
+    },
+    {
+      "slug": "sqrtx",
+      "title": "Sqrt(x)",
+      "number": 69,
+      "difficulty": "easy",
+      "tags": [
+        "math",
+        "binary-search",
+        "newtons-method"
+      ],
+      "solvedAt": "2026-07-21T13:26:49.000Z"
+    },
+    {
+      "slug": "factorial-trailing-zeroes",
+      "title": "Factorial Trailing Zeroes",
+      "number": 172,
+      "difficulty": "medium",
+      "tags": [
+        "math"
+      ],
+      "solvedAt": "2026-07-21T12:49:05.000Z"
+    },
+    {
+      "slug": "plus-one",
+      "title": "Plus One",
+      "number": 66,
+      "difficulty": "easy",
+      "tags": [
+        "array",
+        "math"
+      ],
+      "solvedAt": "2026-07-21T09:26:13.000Z"
+    },
+    {
+      "slug": "palindrome-number",
+      "title": "Palindrome Number",
+      "number": 9,
+      "difficulty": "easy",
+      "tags": [
+        "math"
+      ],
+      "solvedAt": "2026-07-20T13:07:40.000Z"
+    },
+    {
+      "slug": "reverse-bits",
+      "title": "Reverse Bits",
+      "number": 190,
+      "difficulty": "easy",
+      "tags": [
+        "divide-and-conquer",
+        "bit-manipulation"
+      ],
+      "solvedAt": "2026-07-20T12:54:53.000Z"
+    },
+    {
+      "slug": "contains-duplicate-ii",
+      "title": "Contains Duplicate II",
+      "number": 219,
+      "difficulty": "easy",
+      "tags": [
+        "array",
+        "hash-table",
+        "sliding-window"
+      ],
+      "solvedAt": "2026-07-19T05:34:21.000Z"
+    },
+    {
+      "slug": "valid-anagram",
+      "title": "Valid Anagram",
+      "number": 242,
+      "difficulty": "easy",
+      "tags": [
+        "hash-table",
+        "string",
+        "sorting"
+      ],
+      "solvedAt": "2026-07-19T05:17:57.000Z"
+    },
+    {
+      "slug": "word-pattern",
+      "title": "Word Pattern",
+      "number": 290,
+      "difficulty": "easy",
+      "tags": [
+        "hash-table",
+        "string"
+      ],
+      "solvedAt": "2026-07-18T13:30:23.000Z"
+    },
+    {
+      "slug": "isomorphic-strings",
+      "title": "Isomorphic Strings",
+      "number": 205,
+      "difficulty": "easy",
+      "tags": [
+        "hash-table",
+        "string"
+      ],
+      "solvedAt": "2026-07-18T13:25:06.000Z"
+    },
+    {
+      "slug": "ransom-note",
+      "title": "Ransom Note",
+      "number": 383,
+      "difficulty": "easy",
+      "tags": [
+        "hash-table",
+        "string",
+        "counting"
+      ],
+      "solvedAt": "2026-07-18T13:05:24.000Z"
+    },
+    {
+      "slug": "add-binary",
+      "title": "Add Binary",
+      "number": 67,
+      "difficulty": "easy",
+      "tags": [
+        "math",
+        "string",
+        "bit-manipulation",
+        "simulation"
+      ],
+      "solvedAt": "2026-07-15T16:07:06.000Z"
+    },
+    {
+      "slug": "two-sum",
+      "title": "Two Sum",
+      "number": 1,
+      "difficulty": "easy",
+      "tags": [
+        "array",
+        "hash-table"
+      ],
+      "solvedAt": "2026-07-14T04:45:01.000Z"
+    },
+    {
+      "slug": "3sum",
+      "title": "3Sum",
+      "number": 15,
+      "difficulty": "medium",
+      "tags": [
+        "array",
+        "two-pointers",
+        "sorting"
+      ],
+      "solvedAt": "2026-07-13T16:29:12.000Z"
+    },
+    {
+      "slug": "container-with-most-water",
+      "title": "Container With Most Water",
+      "number": 11,
+      "difficulty": "medium",
+      "tags": [
+        "array",
+        "two-pointers",
+        "greedy"
+      ],
+      "solvedAt": "2026-07-13T16:12:13.000Z"
+    },
+    {
+      "slug": "two-sum-ii-input-array-is-sorted",
+      "title": "Two Sum II - Input Array Is Sorted",
+      "number": 167,
+      "difficulty": "medium",
+      "tags": [
+        "array",
+        "two-pointers",
+        "binary-search"
+      ],
+      "solvedAt": "2026-07-13T15:56:35.000Z"
+    },
+    {
+      "slug": "is-subsequence",
+      "title": "Is Subsequence",
+      "number": 392,
+      "difficulty": "easy",
+      "tags": [
+        "two-pointers",
+        "string",
+        "dynamic-programming"
+      ],
+      "solvedAt": "2026-07-13T13:41:06.000Z"
+    }
+  ]
+}
