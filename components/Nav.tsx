@@ -19,7 +19,7 @@ type NavLink = {
   label: string;
   short: string;
   icon: ReactNode;
-  /** tab: always shown, and in the phone bottom bar. wide: top bar on large screens only. header: an icon until there's room for its label. */
+  /** tab: always shown, and in the phone bottom bar. wide: top bar on large screens only. header: an icon at the right of the bar, never a labelled tab. */
   place: "tab" | "wide" | "header";
   match?: string[];
 };
@@ -66,21 +66,11 @@ const LINKS: NavLink[] = [
     place: "wide",
     label: "Practice",
     short: "Practice",
+    // The baseline assessment and the Fun corner are reached from Practice, so they keep it lit.
+    match: ["/practice", "/assess", "/fun"],
     icon: (
       <Icon>
         <path d="M13 2 4 14h7l-1 8 9-12h-7z" />
-      </Icon>
-    ),
-  },
-  {
-    href: "/assess/",
-    place: "wide",
-    label: "Assessment",
-    short: "Assess",
-    icon: (
-      <Icon>
-        <path d="M9 4h6M9 4a2 2 0 0 0-2 2H5v15h14V6h-2a2 2 0 0 0-2-2M9 4a2 2 0 0 1 2-1h2a2 2 0 0 1 2 1" />
-        <path d="m9 13 2 2 4-4" />
       </Icon>
     ),
   },
@@ -106,18 +96,6 @@ const LINKS: NavLink[] = [
         <circle cx="12" cy="12" r="5" />
         <path d="M12 12 18.4 5.6" />
         <circle cx="16" cy="9.5" r="1" fill="currentColor" />
-      </Icon>
-    ),
-  },
-  {
-    href: "/fun/",
-    place: "header",
-    label: "Fun corner",
-    short: "Fun",
-    icon: (
-      <Icon>
-        <path d="M12 3c-3.9 0-7 3-7 6.8 0 2.4 1.2 4.3 3 5.5V18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.7c1.8-1.2 3-3.1 3-5.5C19 6 15.9 3 12 3z" />
-        <path d="M9.5 22h5" />
       </Icon>
     ),
   },
@@ -155,10 +133,9 @@ export function Nav() {
             <BrandMark />
           </Link>
           <nav aria-label="Main" className="hidden flex-1 gap-1 self-stretch text-sm sm:flex">
-            {LINKS.map((l) => {
+            {LINKS.filter((l) => l.place !== "header").map((l) => {
               const active = isActive(pathname, l);
-              // Below lg the top bar keeps the sections; practice rounds and the baseline are reached from them.
-              const shown = l.place === "tab" ? "flex" : l.place === "wide" ? "hidden lg:flex" : "hidden xl:flex";
+              const shown = l.place === "tab" ? "flex" : "hidden lg:flex";
               return (
                 <Link
                   key={l.href}
@@ -184,7 +161,7 @@ export function Nav() {
                   href={l.href}
                   aria-label={syncIssue ? `${l.label} (sync error)` : l.label}
                   aria-current={isActive(pathname, l) ? "page" : undefined}
-                  className={`tap flex items-center px-2.5 xl:hidden ${syncIssue ? "text-bad" : isActive(pathname, l) ? "text-accent-text" : "text-ink-3"}`}
+                  className={`tap flex items-center px-2.5 ${syncIssue ? "text-bad" : isActive(pathname, l) ? "text-accent-text" : "text-ink-3"}`}
                 >
                   {l.icon}
                 </Link>
