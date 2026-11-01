@@ -74,7 +74,7 @@ Processed ids are used instead of a timestamp watermark, so an answer that syncs
 | No new interactions | Records `no-new-evidence`, and nothing about the learner changes |
 | Validation fails twice, or a step breaks | Records `failed` with the reason and keeps the last valid state |
 | Usage limit reached, outage or GitHub disconnected | No session runs, so nothing can report it. The next run and the site both notice the gap (`missedDates`, "No run reported") |
-| Plan over 3 days old | Home falls back to the rule-based Today and says why |
+| Plan over 3 days old | Home falls back to the rule-based dashboard and says why |
 
 Extra usage must stay off at claude.ai/settings/usage. When it's off and the limit is reached, Anthropic's docs say runs are rejected until the window resets. The routine has no API key and can't enable it.
 
