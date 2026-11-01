@@ -21,8 +21,20 @@ const SETTINGS_ICON = (
   </Icon>
 );
 
-/** The four sections. Everything else (practice rounds, the baseline, the fun corner) lives under one of them. */
+/** The sections. Everything else (practice rounds, the baseline, the fun corner) lives under one of them. */
 const LINKS: { href: string; label: string; short: string; match: string[]; icon: ReactNode }[] = [
+  {
+    href: "/mentor/",
+    label: "Mentor",
+    short: "Mentor",
+    match: ["/mentor"],
+    icon: (
+      <Icon>
+        <path d="M4 5h16v11H9l-5 4z" />
+        <path d="M8 9h8M8 12h5" />
+      </Icon>
+    ),
+  },
   {
     href: "/",
     label: "Today",

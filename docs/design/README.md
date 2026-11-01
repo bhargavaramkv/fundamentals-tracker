@@ -1,12 +1,10 @@
-**Current design: [REDESIGN.md](REDESIGN.md).** The v2 documents below are kept for history; where they conflict, REDESIGN.md wins.
+**Current direction: [MENTOR.md](MENTOR.md).** It takes precedence over [REDESIGN.md](REDESIGN.md), which takes precedence over the v2 documents below. Those are kept for history.
 
 # Fundamentals Tracker redesign handoff
 
 This branch contains the updated design specifications for the **Developer Playground × Skill Quest** redesign.
 
-#**Current design: [REDESIGN.md](REDESIGN.md).** The v2 documents below are kept for history; where they conflict, REDESIGN.md wins.
-
-# Start here
+## Start here
 1. Read [UX/UI LLD v2](./UX-UI-LLD-v2.md).
 2. Read [HLD v2](./HLD-v2.md).
 3. Audit the existing repository and its current behavior before changing code.
