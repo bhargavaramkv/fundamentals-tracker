@@ -17,5 +17,21 @@
    "the-register: malformed XML: boolean attribute 'defer' is not allowed. (line 7)",
    "cacm: HTTP 403"
   ]
+ },
+ {
+  "startedAt": "2026-11-01T00:14:36.984Z",
+  "finishedAt": "2026-11-01T00:14:44.305Z",
+  "ok": true,
+  "sourcesOk": 45,
+  "sourcesFailed": 0,
+  "itemsFetched": 170,
+  "newStories": 19,
+  "updatedStories": 0,
+  "corroborated": 0,
+  "unchanged": 96,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "ANTHROPIC_API_KEY is not set; stories are ranked but not analysed",
+  "errors": []
  }
 ]
