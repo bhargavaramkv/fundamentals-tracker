@@ -1,5 +1,697 @@
 [
  {
+  "id": "2026-11-02-aleksei-aleinikov-navicat-18-review-is-it-worth-ef611e",
+  "title": "Aleksei Aleinikov: Navicat 18 Review: Is It Worth It for PostgreSQL? Tested on 10M Rows",
+  "canonicalUrl": "https://postgr.es/p/9AN",
+  "category": "databases",
+  "publishedAt": "2026-11-02T06:30:08.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "631862fd5dbaaea4",
+  "excerpt": "Most database client reviews are a tour of the feature list. I wanted to know something narrower: when you open Navicat 18 and put it in front of a real table, which of the new features do you actually find, and which of them hold up?\nSo I connected it to PostgreSQL with a table of 10 million rows and went through the headline features one by one. This is the list of what I saw: what worked on the first try, what was hidden, and one AI answer that needed a second look.\nNote\nThis is a partner post. Navicat asked for an honest review, with no condition on the verdict, and a mention of the free Navicat Premium Lite, which is in here. They do not pay for the review. They provide the prize licenses for the giveaway at the end of the article. I used the public 14-day trial.\nWhat is Navicat, and who is it for?\nA database holds your data, and to work with it you normally type SQL into a terminal (for PostgreSQL that is psql ). A database client puts a window around that: you see the tables as a tree, write queries in an editor that warns you about mistakes, look at how a query will run, and move data between databases without writing scripts.\nNavicat is one of the oldest of these clients.…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Aleksei Aleinikov: Navicat 18 Review: Is It Worth It for PostgreSQL? Tested on 10M Rows",
+    "url": "https://postgr.es/p/9AN",
+    "publishedAt": "2026-11-02T06:30:08.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgresql, database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-02-new-bug-fix-releases-for-mps-versions-20262-rc2-3511fc",
+  "title": "New Bug-Fix Releases for MPS Versions 2026.2 RC2, 2026.1.2, 2025.3.3, 2025.2.5, and 2025.1.5",
+  "canonicalUrl": "https://blog.jetbrains.com/mps/2026/11/mps-2026-1-2-released",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-02T05:13:55.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8ce2d204f9951319",
+  "excerpt": "We’ve released updates for multiple MPS versions that fix a critical security issue. MPS 2026.1.2 and 2026.2 RC2 additionally bring a substantial improvement to the Projectional Agent Toolkit plugin.\nFor the latest information on the security issue and the steps we’ve taken to address it, please read our dedicated blog post – Compromised eMudhra Certificates: Update Your JetBrains IDEs .\nOne important fix required on your end if you are on 2025.1.5 or 2025.2.5: Disable JCEF by turning off the ide.browser.jcef.enabled flag in the MPS Registry. Read detailed instructions in the Disable JCEF in your IDE section of the announcement.\nAs JBR and JCEF are affected by the security problem, this is likely to affect MPS-based RCP applications. If you build and distribute RCP applications, please read the above-mentioned post and perform all necessary actions to secure your RCP applications properly.\nDOWNLOAD MPS 2026.1.2 \nMPS 2026.1.2 and 2026.2 RC2\nThe Projectional Agent Toolkit plugin receives all the improvements that are planned for MPS 2026.2, including:\nConsolidated MCP tool API\nNumerous performance improvements\nType system MCP tool\nIntention actions and quick-fixes\nAutomatic skill…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "New Bug-Fix Releases for MPS Versions 2026.2 RC2, 2026.1.2, 2025.3.3, 2025.2.5, and 2025.1.5",
+    "url": "https://blog.jetbrains.com/mps/2026/11/mps-2026-1-2-released",
+    "publishedAt": "2026-11-02T05:13:55.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 38,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-auditfl-a-contract-backed-clearing-layer-for-open-c6ed5a",
+  "title": "AuditFL: A Contract-Backed Clearing Layer for Open Federated Learning",
+  "canonicalUrl": "https://arxiv.org/abs/2610.41278",
+  "category": "research",
+  "publishedAt": "2026-11-02T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "296fefc0fa7d4df8",
+  "excerpt": "arXiv:2610.41278v1 Announce Type: new \nAbstract: Federated learning (FL) keeps raw data local, but most deployments still rely on a trusted coordinator for client admission, checkpoint distribution, update collection, aggregation, and rewards. This paper presents AuditFL, a contract-backed clearing layer for auditable FL in open settings. AuditFL keeps training and aggregation off chain, stores model artifacts in an assumed reliable off-chain artifact store, and records only content identifiers and economic state on chain. Clients reserve update tickets with deposits, publish update identifiers, and later claim refunds or rewards; the task coordinator publishes global checkpoints and finalizes rounds through deterministic settlement rules. The design does not remove the aggregator, but makes its on-chain round decisions attributable, replayable, auditable, and economically constrained. We implement AuditFL as both a deterministic state-machine prototype and a Solidity contract on a local Ethereum-compatible Anvil chain. On full MNIST with Dirichlet non-IID splits, 12 rounds, and up to 200 clients, AuditFL preserves the Plain FL learning trajectory while its overhead follows…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "AuditFL: A Contract-Backed Clearing Layer for Open Federated Learning",
+    "url": "https://arxiv.org/abs/2610.41278",
+    "publishedAt": "2026-11-02T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"update\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-cypherguard-database-grounded-correction-for-75de2f",
+  "title": "CypherGuard: Database-Grounded Correction for Reliable Text-to-Cypher",
+  "canonicalUrl": "https://arxiv.org/abs/2610.41755",
+  "category": "research",
+  "publishedAt": "2026-11-02T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "86f0c38dcb6a2321",
+  "excerpt": "arXiv:2610.41755v1 Announce Type: new \nAbstract: Text-to-Cypher translates natural-language questions into Cypher queries over property graphs. Graph database systems increasingly adopt this translation as a native query interface. Large language models generate fluent Cypher but stay unreliable. On Cypher-Bench a small model answers only 31.4% of questions correctly, and even a strong model plateaus at 71.76%. The dominant failure modes are structural rather than linguistic. For example, a generated query may parse correctly and follow the schema, yet still return zero rows because it traverses a relationship against the stored graph direction. To address this issue, we present CypherGuard, a training-free framework that detects and corrects these structural faults. Our approach uses two core components: a graph-native error taxonomy to guide repair, and a mined rule library to guide query generation. At inference time, CypherGuard first rewrites schema-detectable faults, then re-executes each draft and repairs it only when the query errors or returns nothing. On CypherBench test questions, across seven graphs, CypherGuard reaches 88.50% overall execution accuracy, +25.08% over…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "CypherGuard: Database-Grounded Correction for Reliable Text-to-Cypher",
+    "url": "https://arxiv.org/abs/2610.41755",
+    "publishedAt": "2026-11-02T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-falcons-pushing-the-speed-ratio-limits-of-lossy-c76c2e",
+  "title": "Falcons: Pushing the Speed-Ratio Limits of Lossy Compression for Parallel Scientific Applications",
+  "canonicalUrl": "https://arxiv.org/abs/2610.41209",
+  "category": "research",
+  "publishedAt": "2026-11-02T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0e96fa9b56555da1",
+  "excerpt": "arXiv:2610.41209v1 Announce Type: new \nAbstract: The extreme volume of scientific data has become a critical challenge for modern exa-scale scientific computing applications, and error-bounded lossy compression remains indispensable for scientific data management due to its high data reduction rate and controllable data fidelity. However, to ensure sufficient data reduction, existing compressors incur prohibitive computational overheads in real-world parallel scientific computing applications. To overcome the performance bottlenecks of error-bounded lossy compression, we present \\textbf{Falcons}, a broadly deployable error-bounded lossy compressor that simultaneously achieves \\textbf{high compression ratios with ultra-fast throughput, minimizing the overhead in parallel scientific applications}. Falcons integrates three key designs: memory-regularized interpolation with SIMD (Single Instruction Multiple Data) vectorization, distribution-adaptive lossless coding, and application-oriented optimizations for multiple parallelization schemes. Across our evaluations on cutting-edge supercomputers, Falcons clearly outperforms state-of-the-art compressors, simultaneously achieving up to…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Falcons: Pushing the Speed-Ratio Limits of Lossy Compression for Parallel Scientific Applications",
+    "url": "https://arxiv.org/abs/2610.41209",
+    "publishedAt": "2026-11-02T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-02-fidelity-synopses-pre-execution-plan-selection-9dd98b",
+  "title": "Fidelity Synopses: Pre-Execution Plan Selection for Approximate Vector Search",
+  "canonicalUrl": "https://arxiv.org/abs/2610.41407",
+  "category": "research",
+  "publishedAt": "2026-11-02T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b2d52efd0f40ab8d",
+  "excerpt": "arXiv:2610.41407v1 Announce Type: new \nAbstract: Vector search has become a database operator with many physical implementations: different index families, build-time and search-time parameters, and compressed or disk-resident variants. Each trades cost against fidelity, the fraction of a query's exact top-k nearest neighbors that a configuration returns. Deployments nevertheless choose one configuration offline and use it for every query, so they are sized for their hardest queries and overpay for the rest. On a 5.8M-item LAION benchmark with four embedding models, running each query on the cheapest configuration that suffices for it would roughly halve the cost in a typical setting. Exploiting this requires predicting each configuration's fidelity before running it, which is hard because fidelity is defined by the very exact search that approximate indexes avoid. Relational optimizers solve the analogous problem for cardinality with offline synopses; we propose one for vector search. A fidelity synopsis divides the embedding space into cells around a set of landmarks and records, for every cell and configuration, how often that configuration met a fidelity target on a sample of…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Fidelity Synopses: Pre-Execution Plan Selection for Approximate Vector Search",
+    "url": "https://arxiv.org/abs/2610.41407",
+    "publishedAt": "2026-11-02T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"benchmark\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches vector, database, index"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-02-jackery-made-its-portable-power-stations-even-eef1d5",
+  "title": "Jackery made its portable power stations even smaller",
+  "canonicalUrl": "https://theverge.com/tech/1023173/jackery-explorer-100d-portable-power-station-battery-lithium-iron-phosphate",
+  "category": "hardware",
+  "publishedAt": "2026-11-02T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "69b8934ed62913af",
+  "excerpt": "Jackery announced a new portable power station that uses the safer and longer-lasting lithium iron phosphate (LFP) batteries the company first introduced in 2023. But what makes the new Explorer 100D stand out is that it's Jackery's smallest power station to date, measuring only 4.6 by 3.4 by 3.4 inches and weighing just 1.87 pounds. […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Jackery made its portable power stations even smaller",
+    "url": "https://theverge.com/tech/1023173/jackery-explorer-100d-portable-power-station-battery-lithium-iron-phosphate",
+    "publishedAt": "2026-11-02T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-llm-fine-tuning-workloads-characterization-1acca3",
+  "title": "LLM Fine-Tuning Workloads: Characterization, Challenges, and Opportunities for Serverless AI",
+  "canonicalUrl": "https://arxiv.org/abs/2610.40983",
+  "category": "research",
+  "publishedAt": "2026-11-02T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "30e757a5f73b4a7d",
+  "excerpt": "arXiv:2610.40983v1 Announce Type: new \nAbstract: Serverless execution of Large Language Models (LLMs) is becoming important, reflecting their wide societal use. An increasingly present stage in LLM pipelines is fine-tuning, which specializes trained models and improves inference performance. Serverless operation of LLM fine-tuning workloads shifts operational concerns from the user to the provider. For these new workloads, providers face important operational complexities, such as performance issues, resource waste, and even service failure due to misconfiguration. However, optimizing such workloads is still at an early stage, and, relevant to this work, relatively little is currently known about how LLM fine-tuning workloads run in practice. In this work, we address the knowledge gap by characterizing the execution of LLM fine-tuning workloads on clusters equipped with different GPUs, running LLM models at various scales. We analyze IBM's LLMFineTuningBench, a large-scale, diverse profiling dataset of 30,920 fine-tuning experiments that records both successful and failing configurations. We provide quantitative insight into throughput (expressed in tokens/s), scaling, failure,…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "LLM Fine-Tuning Workloads: Characterization, Challenges, and Opportunities for Serverless AI",
+    "url": "https://arxiv.org/abs/2610.40983",
+    "publishedAt": "2026-11-02T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"improves\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches llm, inference"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-02-resource-locks-and-fast-unlock-for-shared-3bc05d",
+  "title": "Resource Locks and Fast Unlock for Shared Balances in Certificate-Based Payment Systems",
+  "canonicalUrl": "https://arxiv.org/abs/2610.41207",
+  "category": "research",
+  "publishedAt": "2026-11-02T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6fd9b902bc1f6d18",
+  "excerpt": "arXiv:2610.41207v1 Announce Type: new \nAbstract: Certificate-based payment systems such as FastPay settle a payment with one round of signatures from a quorum of validators and avoid global ordering. The client collects the signatures, and validators never talk to each other. We observe that this client-driven design is complete only as long as no lock is ever undone. Each account has a single writer, a conflict can only come from that writer's own misbehavior, and the account stays locked as the penalty. Stablecoin payments routinely need balances that several accounts debit: treasuries, merchant pools, allowances and subscriptions. There, honest accounts race, locks must be undone, and a quorum certificate held privately by a client can be silently overridden. We prove that no unlock rule is safe in this setting unless certificate formation is visible to validators.\nWe present a hybrid protocol. Personal accounts keep the client-driven FastPay path unchanged. A shared resource is a balance with its own version number and a set of authorized accounts. Transactions on shared resources are submitted to any validator and certified by a two-phase broadcast, ECHO then READY. The…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Resource Locks and Fast Unlock for Shared Balances in Certificate-Based Payment Systems",
+    "url": "https://arxiv.org/abs/2610.41207",
+    "publishedAt": "2026-11-02T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-supervised-and-llm-augmented-cardinality-d4424d",
+  "title": "Supervised and LLM-Augmented Cardinality Estimation for Similarity Queries on Knowledge Graphs",
+  "canonicalUrl": "https://arxiv.org/abs/2610.41669",
+  "category": "research",
+  "publishedAt": "2026-11-02T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "72260901aa7cf241",
+  "excerpt": "arXiv:2610.41669v1 Announce Type: new \nAbstract: Over the past decades, query cardinality estimation on relational databases has been proven crucial, enabling the result size estimation of all sub-plans of each query. This allowed query optimizers to design efficient query plans, towards minimizing the query response time. Lately, knowledge graphs are being preferred over traditional databases in various applications, due to their ability to represent complex relationships and semantic meaning in a domain-specific context. In this work, we present a novel approach for supervised similarity-aware cardinality estimation on knowledge graphs that incorporates similarities into the model training process, thus treating them as first-class citizens. To this end, we present SCE-KG, a model that employs a novel encoding scheme for cardinality estimation, named SGsplit. We further extend our approach by leveraging a Large Language Model (LLM) to generate training queries that resemble realistic user workloads, and show that combining LLM-generated and random walk samples consistently improves estimation accuracy on test workloads generated by two independent LLMs. Our experimental…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Supervised and LLM-Augmented Cardinality Estimation for Similarity Queries on Knowledge Graphs",
+    "url": "https://arxiv.org/abs/2610.41669",
+    "publishedAt": "2026-11-02T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches llm"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-occupysaas-cd02d1",
+  "title": "OccupySaaS",
+  "canonicalUrl": "https://occupysaas.com/",
+  "category": "programming",
+  "publishedAt": "2026-11-02T00:17:27.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "af8ebbc5ce10aeee",
+  "excerpt": "Article URL: https://occupysaas.com/ \nComments URL: https://news.ycombinator.com/item?id=50331402 \nPoints: 210\n# Comments: 138",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "OccupySaaS",
+    "url": "https://occupysaas.com/",
+    "publishedAt": "2026-11-02T00:17:27.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-kernel-prepatch-74-rc1-f02c8b",
+  "title": "Kernel prepatch 7.4-rc1",
+  "canonicalUrl": "https://lwn.net/Articles/1104654",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-02T00:17:08.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "29aa972e9961a30c",
+  "excerpt": "The 7.4-rc1 kernel prepatch is out, and\nthe merge window is closed for this development cycle.\nThis is a *BIG* merge window. I think the reason is the by now\nobvious one, but I'm actually taking it as a good sign: I'm *much*\nhappier with the flood of AI triggered work going into the merge\nwindow than it showing up mainly as extra fixes during the -rc\nperiod. So I'm hoping that this merge window being larger than\nusual is a sign that the AI fixes are becoming more part of the\n\"normal development\" than a flood of fixes that go into the whole\nstabilization phase. I think that's a much healthier model.\nThere were 18,591 non-merge changesets brought in during this merge window\n— this is not just a record, but it nearly matches the patch volume during\nthe entire (record-setting) 7.3 development cycle. So far, 2,678\ndevelopers have contributed to 7.4; 625 of them are first-time kernel\ncontributors. Subscribers can find more details in the KSDB 7.4 page .",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Kernel prepatch 7.4-rc1",
+    "url": "https://lwn.net/Articles/1104654",
+    "publishedAt": "2026-11-02T00:17:08.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 17,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches go"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-chris-van-eijk-server-closed-the-connection-2c0913",
+  "title": "Chris van Eijk: server closed the connection unexpectedly in PostgreSQL",
+  "canonicalUrl": "https://postgr.es/p/9AM",
+  "category": "databases",
+  "publishedAt": "2026-11-02T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0661d38d4d03adc5",
+  "excerpt": "PostgreSQL's server closed the connection unexpectedly, measured in six clients: what the server log says per cause, where the reason goes, and lost COMMITs.",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Chris van Eijk: server closed the connection unexpectedly in PostgreSQL",
+    "url": "https://postgr.es/p/9AM",
+    "publishedAt": "2026-11-02T00:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-01-game-off-2026-the-theme-is-shift-3e4cd1",
   "title": "Game Off 2026: The theme is SHIFT",
   "canonicalUrl": "https://github.blog/open-source/gaming/game-off-2026-the-theme-is-shift",
@@ -7,7 +699,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -54,7 +746,7 @@
   "publishedAt": "2026-11-01T19:58:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2f188d5724a0e38c",
@@ -143,6 +835,100 @@
   "duplicateOf": "2026-11-01-north-korea-linked-to-massive-binance-crypto-heist-64fc87"
  },
  {
+  "id": "2026-11-01-ask-hn-which-tv-do-you-recommend-for-privacy-17faad",
+  "title": "Ask HN: Which TV do you recommend for privacy?",
+  "canonicalUrl": "https://news.ycombinator.com/item?id=50328896",
+  "category": "programming",
+  "publishedAt": "2026-11-01T19:35:27.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9fab5c7802e6c8b0",
+  "excerpt": "I haven’t owned a TV in years and would like one that respects my privacy. Are there any TV’s which do this well? I am looking for something in the 60”to 80”range and would like a 4k display with at least 60hz display. I don’t mind paying a premium. I have heard good things about Apple TV as a better alternative to most smart TV native apps. Would some TV’s pair better with this than others for privacy? I don’t want the TV doing anything other than being the display for Apple TV. I am curious what success others have had.\nComments URL: https://news.ycombinator.com/item?id=50328896 \nPoints: 303\n# Comments: 460",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Ask HN: Which TV do you recommend for privacy?",
+    "url": "https://news.ycombinator.com/item?id=50328896",
+    "publishedAt": "2026-11-01T19:35:27.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-mathematics-has-changed-let-s-act-like-it-227c6c",
+  "title": "Mathematics has changed. Let's act like it",
+  "canonicalUrl": "https://terrytao.wordpress.com/2026/11/01/mathematics-has-changed-lets-act-like-it",
+  "category": "programming",
+  "publishedAt": "2026-11-01T18:28:42.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "32cec54d56d1487c",
+  "excerpt": "Article URL: https://terrytao.wordpress.com/2026/11/01/mathematics-has-changed-lets-act-like-it/ \nComments URL: https://news.ycombinator.com/item?id=50328251 \nPoints: 287\n# Comments: 305",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Mathematics has changed. Let's act like it",
+    "url": "https://terrytao.wordpress.com/2026/11/01/mathematics-has-changed-lets-act-like-it",
+    "publishedAt": "2026-11-01T18:28:42.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-01-patrick-stewart-taught-us-what-good-men-do-with-945ca7",
   "title": "Patrick Stewart taught us what good men do with power",
   "canonicalUrl": "https://vox.com/politics/508526/patrick-stewart-jean-luc-picard-star-trek-liberalism",
@@ -197,7 +983,7 @@
   "publishedAt": "2026-11-01T17:16:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f17008e45061f48a",
@@ -244,7 +1030,7 @@
   "publishedAt": "2026-11-01T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "021e6aeb6e32a525",
@@ -291,7 +1077,7 @@
   "publishedAt": "2026-11-01T15:58:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8c23dc26f438d4e2",
@@ -338,7 +1124,7 @@
   "publishedAt": "2026-11-01T15:11:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "13d1c71c7b958c94",
@@ -390,7 +1176,7 @@
   "publishedAt": "2026-11-01T15:03:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1adbdb372fa10c23",
@@ -442,7 +1228,7 @@
   "publishedAt": "2026-11-01T15:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9090da97698cf308",
@@ -494,11 +1280,17 @@
   "publishedAt": "2026-11-01T14:34:43.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "8ee56030fe1fbe09",
-  "excerpt": "Article URL: https://www.reddit.com/r/technology/comments/1xl2pr3/lenovos_encrypted_fingerprint_usb_drive_is_just/ \nComments URL: https://news.ycombinator.com/item?id=50326099 \nPoints: 349\n# Comments: 117",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": "2026-11-02T07:58:46.861Z",
+  "revisions": [
+   {
+    "at": "2026-11-02T07:58:46.861Z",
+    "reason": "Source text edited",
+    "contentHash": "ede1d46df5f0e823"
+   }
+  ],
+  "contentHash": "ede1d46df5f0e823",
+  "excerpt": "Article URL: https://www.reddit.com/r/technology/comments/1xl2pr3/lenovos_encrypted_fingerprint_usb_drive_is_just/ \nComments URL: https://news.ycombinator.com/item?id=50326099 \nPoints: 464\n# Comments: 158",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -541,7 +1333,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -602,7 +1394,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
@@ -649,7 +1441,7 @@
   "publishedAt": "2026-11-01T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "03e21f4984c07421",
@@ -701,7 +1493,7 @@
   "publishedAt": "2026-11-01T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "90f3e879d158f179",
@@ -753,7 +1545,7 @@
   "publishedAt": "2026-11-01T13:53:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "34be90a4340a1780",
@@ -781,6 +1573,58 @@
      "label": "Source credibility",
      "points": 14,
      "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-01-show-hn-omnidiff-opensource-super-fast-content-1c2c00",
+  "title": "Show HN: OmniDiff – Opensource, super fast, content aware Git difftool, in Rust",
+  "canonicalUrl": "https://github.com/ivankovic/omnidiff",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-01T13:02:30.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f87f768b4cb9f7ba",
+  "excerpt": "I have been researching what the ultimate diff tool would look like, based on actual diffs in open source repositories. OmniDiff can diff: code (25 languages), config, images, PDFs, archives, cursors, fonts... It's fast. It can diff C++ files of tens of thousands of lines in under 100ms, on a 2023 ThinkPad T14s. It's open source. AGPLv3. It's based on real diffs. I looked at the 7400 repositories that are listed in Gentoo packages, sampled 2000 diffs and solved them manually to get a good understanding of what is needed, before putting together the diff pipelines for each content type. Incidentally, this also forms the basis of the CI pipeline, so the robustness of the codebase is quite high. I'm still developing it. It's v0.3.0 at this time. But I have been using it daily as my git difftool for months now, and it works well. AI Disclosure: Yes, I do use AI. No, I do not vibecode.\nComments URL: https://news.ycombinator.com/item?id=50325253 \nPoints: 223\n# Comments: 54",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Show HN: OmniDiff – Opensource, super fast, content aware Git difftool, in Rust",
+    "url": "https://github.com/ivankovic/omnidiff",
+    "publishedAt": "2026-11-01T13:02:30.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches rust"
     },
     {
      "label": "Freshness",
@@ -894,7 +1738,7 @@
   "publishedAt": "2026-11-01T08:03:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "59cbd6cb69d73824",
@@ -946,7 +1790,7 @@
   "publishedAt": "2026-11-01T06:32:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T14:25:26.683Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6f090755fb954104",
@@ -1003,11 +1847,17 @@
   "publishedAt": "2026-11-01T06:06:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-01T22:57:57.398Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "a576327db2c888a2",
-  "excerpt": "Article URL: https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/ \nComments URL: https://news.ycombinator.com/item?id=50323088 \nPoints: 270\n# Comments: 208",
+  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "updatedAt": "2026-11-02T07:58:46.861Z",
+  "revisions": [
+   {
+    "at": "2026-11-02T07:58:46.861Z",
+    "reason": "Source text edited",
+    "contentHash": "5e50e8dd48d85767"
+   }
+  ],
+  "contentHash": "5e50e8dd48d85767",
+  "excerpt": "Article URL: https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/ \nComments URL: https://news.ycombinator.com/item?id=50323088 \nPoints: 355\n# Comments: 280",
   "sources": [
    {
     "sourceId": "hacker-news",
