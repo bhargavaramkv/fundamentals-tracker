@@ -1,4 +1,5 @@
 import type { Analyzer } from "./analyze";
+import { clusterStories } from "./cluster";
 import { parseSource } from "./feeds";
 import type { FetchText } from "./fetch";
 import { mergeItems, rescore } from "./merge";
@@ -74,16 +75,22 @@ export async function runPipeline(stories: RadarStory[], state: RadarState, opts
   const sourceMap = new Map(opts.sources.map((s) => [s.id, s]));
   const { stats } = mergeItems(stories, items, { now, lookbackDays: opts.lookbackDays, sources: sourceMap });
 
+  // Fold different reports of one event together, so the feed shows it once with every source attached.
+  const clustered = clusterStories(stories, now);
+  for (const s of clustered.changed) rescore(s, now);
+  stats.corroborated += clustered.merged;
+
+  const worthAnalysing = (s: RadarStory) => !s.minor && !s.offTopic && !s.duplicateOf && s.score.total >= opts.minScoreForAnalysis;
   // A held-back story that gained corroboration (and score) becomes eligible again.
   for (const s of stories) {
-    if (s.status === "below-threshold" && !s.minor && s.score.total >= opts.minScoreForAnalysis) s.status = "pending";
+    if (s.status === "below-threshold" && worthAnalysing(s)) s.status = "pending";
   }
   // Pick what to analyse: pending, not minor, good enough, not given up on. Highest score first.
   const queue = stories
-    .filter((s) => s.status === "pending" && !s.minor && s.score.total >= opts.minScoreForAnalysis && (s.attempts ?? 0) < MAX_ATTEMPTS)
+    .filter((s) => s.status === "pending" && worthAnalysing(s) && (s.attempts ?? 0) < MAX_ATTEMPTS)
     .sort((a, b) => b.score.total - a.score.total);
   for (const s of stories) {
-    if (s.status === "pending" && !s.analysis && (s.minor || s.score.total < opts.minScoreForAnalysis)) s.status = "below-threshold";
+    if (s.status === "pending" && !s.analysis && !worthAnalysing(s)) s.status = "below-threshold";
   }
 
   let analysed = 0;

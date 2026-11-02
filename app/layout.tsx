@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fundamentals Tracker",
-  description: "Revisit engineering fundamentals, find weak areas, and practice them adaptively.",
+  title: "Fundamentals",
+  description: "A daily plan for engineering fundamentals: reliable sources, real practice, coding history and technology news.",
   robots: { index: false, follow: false },
 };
 
@@ -39,11 +39,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AuthGate>
           <ProgressProvider>
             <Nav />
-            <main className="mx-auto w-full max-w-6xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-5 sm:py-8">
-              {children}
-            </main>
+            <main className="mx-auto w-full max-w-6xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-5 sm:py-8">{children}</main>
             <footer className="mx-auto w-full max-w-6xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8">
-              Lessons and questions live in <code>/content</code>. Progress stays in your browser unless you enable sync.
+              Progress stays in your browser unless you enable sync in Settings.
             </footer>
           </ProgressProvider>
         </AuthGate>

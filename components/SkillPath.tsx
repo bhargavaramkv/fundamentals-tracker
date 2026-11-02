@@ -84,7 +84,7 @@ export function SkillPath({ domains, goal }: { domains: DomainStat[]; goal: { hr
           return (
             <li key={d.domain} className="relative" style={style}>
               <Link
-                href={`/lessons/#${d.domain}`}
+                href={`/learn/#${d.domain}`}
                 className="skill-node flex items-center gap-3 rounded-lg py-1.5 sm:flex-col sm:gap-2 sm:pt-[var(--dot-top)] sm:text-center"
                 aria-label={`${DOMAIN_LABELS[d.domain]}: ${tried ? `${d.score}%, ${d.confidence} confidence, ${d.attempts} answers` : "not tried yet"}`}
               >

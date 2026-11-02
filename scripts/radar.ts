@@ -128,7 +128,7 @@ function pending(): number {
   const topicList = topics();
   const limit = Number(arg("limit") ?? 5);
   const queue = readStories(dataDir)
-    .filter((s) => s.status === "pending" && !s.minor)
+    .filter((s) => s.status === "pending" && !s.minor && !s.offTopic && !s.duplicateOf)
     .sort((a, b) => b.score.total - a.score.total)
     .slice(0, limit);
   console.log(JSON.stringify({ system: systemPrompt(topicList), stories: queue.map((s) => ({ id: s.id, url: s.canonicalUrl, prompt: userPrompt(s, null) })) }, null, 1));
@@ -184,7 +184,7 @@ function top(): number {
   const state = readState(dataDir);
   console.log(`last successful update: ${state.lastSuccessAt ?? "never"}`);
   readStories(dataDir)
-    .filter((s) => !s.minor && Date.parse(s.firstSeenAt) >= since)
+    .filter((s) => !s.minor && !s.offTopic && !s.duplicateOf && Date.parse(s.firstSeenAt) >= since)
     .sort((a, b) => b.score.total - a.score.total)
     .slice(0, Number(arg("limit") ?? 3))
     .forEach((s) => console.log(`- ${s.analysis?.headline ?? s.title} (${s.score.total}) https://bhargavaramkv.github.io/fundamentals-tracker/radar/${s.id}/`));

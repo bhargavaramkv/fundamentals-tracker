@@ -12,7 +12,11 @@
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
     "report": "tsx scripts/progress-report.ts",
     "set-password": "tsx scripts/set-password.ts",
-    "radar": "tsx scripts/radar.ts"
+    "radar": "tsx scripts/radar.ts",
+    "mentor": "tsx scripts/mentor.ts",
+    "leetcode-sync": "tsx scripts/leetcode-sync.ts",
+    "leetcode-history": "tsx scripts/leetcode-history.ts",
+    "resources:verify": "tsx scripts/verify-resources.mts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

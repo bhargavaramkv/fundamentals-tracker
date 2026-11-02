@@ -1,15 +1,30 @@
 /** Tech Radar: data shapes shared by the ingestion pipeline (scripts/) and the static pages (app/radar/). */
 
-export const RADAR_CATEGORIES = ["ai-ml", "developer", "cloud", "security", "hardware", "research"] as const;
+export const RADAR_CATEGORIES = [
+  "ai-ml",
+  "developer-tools",
+  "programming",
+  "cloud",
+  "databases",
+  "infrastructure",
+  "open-source",
+  "security",
+  "hardware",
+  "research",
+] as const;
 export type RadarCategory = (typeof RADAR_CATEGORIES)[number];
 
 export const RADAR_CATEGORY_LABELS: Record<RadarCategory, string> = {
-  "ai-ml": "AI & Machine Learning",
-  developer: "Developer Ecosystem",
-  cloud: "Cloud & Infrastructure",
-  security: "Cybersecurity",
-  hardware: "Hardware & Emerging Tech",
-  research: "Research & Breakthroughs",
+  "ai-ml": "AI",
+  "developer-tools": "Developer tools",
+  programming: "Programming",
+  cloud: "Cloud",
+  databases: "Databases",
+  infrastructure: "Infrastructure",
+  "open-source": "Open source",
+  security: "Security",
+  hardware: "Hardware",
+  research: "Research",
 };
 
 /** 3 = the vendor or project itself (primary source), 2 = established publication or research venue, 1 = aggregator. */
@@ -121,6 +136,10 @@ export interface RadarStory {
   /** Primary source first, then corroborating sources. */
   sources: StorySource[];
   minor: boolean;
+  /** General-interest story from a mixed publication with no engineering angle. Kept, but hidden like a minor update. */
+  offTopic?: boolean;
+  /** Id of the story this one reports the same event as. It stays stored and reachable, but leaves every list. */
+  duplicateOf?: string;
   score: { total: number; parts: ScorePart[] };
   importance: Importance;
   status: StoryStatus;
@@ -171,15 +190,40 @@ export interface RadarListItem {
   summary: string;
   category: RadarCategory;
   publishedAt: string;
+  dateEstimated: boolean;
   firstSeenAt: string;
   updatedAt: string | null;
   importance: Importance;
   score: number;
   minor: boolean;
   analysed: boolean;
+  /** The original article. */
+  url: string;
   sourceName: string;
   sourceCount: number;
   related: string[];
+  /** Why a developer should care; null when there's nothing specific to say. */
+  why: string | null;
+  whyKind: "ai" | "rule" | null;
+}
+
+export interface SourceProblem {
+  name: string;
+  error: string;
+  failures: number;
+}
+
+/** feed.json on the radar-data branch: public, secret-free, read by the site at runtime. */
+export interface RadarFeed {
+  version: 1;
+  generatedAt: string;
+  lastSuccessAt: string | null;
+  lastRunAt: string | null;
+  sourceCount: number;
+  healthyCount: number;
+  problems: SourceProblem[];
+  briefing: string[];
+  items: RadarListItem[];
 }
 
 /** An existing lesson the analysis may link to. */

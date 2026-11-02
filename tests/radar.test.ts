@@ -348,7 +348,7 @@ describe("source registry", () => {
       else expect(s.url).toMatch(/^https:\/\//);
       expect(s.homepage).toMatch(/^https:\/\//);
     }
-    expect(new Set(SOURCES.map((s) => s.category)).size).toBe(6);
+    expect(new Set(SOURCES.map((s) => s.category)).size).toBe(10);
   });
 });
 

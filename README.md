@@ -1,10 +1,13 @@
-# Fundamentals Tracker
+# Fundamentals
 
-A private, adaptive tracker for software-engineering fundamentals at interview and
+A private learning platform for software-engineering fundamentals at interview and
 real-work level: DSA, OOP and design principles, databases, system design, and
-web/networking. It finds weak areas from your answers and keeps practice focused
-on them. A daily Claude routine also improves the lessons and questions based on
-where you keep failing.
+web/networking. It builds a daily plan from your own evidence, points you at reliable
+sources first, tracks reading separately from real practice, and keeps up with
+technology news. A daily Claude routine also improves the lessons and questions based
+on where you keep failing.
+
+The design and its reasoning: [docs/design/REDESIGN.md](docs/design/REDESIGN.md).
 
 **Live site:** https://bhargavaramkv.github.io/fundamentals-tracker/
 
@@ -38,33 +41,53 @@ this public repo and ships in the static bundle, so treat content as public.
 
 ## Features
 
-- **Assessment:** 60 questions (12 per domain, 4 topics × 3 difficulties). Domains
-  are interleaved and difficulty ramps up, so a partial run still gives a signal.
+The site has four sections:
+
+- **Today:** a daily plan that stays stable through the day, revision reminders,
+  proficient topics and recent activity.
+- **Learning Path:** 20 topics in suggested order. Each has a workspace with sources,
+  an explanation, practice, exercises, practical work and a check.
+- **Coding:** LeetCode history, notes, retry dates and weak patterns. Entry is manual;
+  [the design doc explains why](docs/design/REDESIGN.md#coding-why-tracking-is-manual).
+- **Tech Radar:** technology news from official sources, refreshed four times a day.
+
+What drives them:
+
+- **Resource registry:** sources with publisher, reliability tier and a verification
+  date. Blogs and videos are always marked supplementary. `npm run resources:verify`
+  re-checks every link.
+- **Proficiency:** reading, quizzes, exercises and practical work are tracked
+  separately, and reading alone never counts as mastery. Each topic says what's missing
+  for the next level.
+- **AI labelling:** explanations, model answers and analysis are labelled as AI-generated
+  wherever they appear.
+- **Assessment:** a baseline of 60+ questions across domains, plus a check per topic.
+  Domains are interleaved and difficulty ramps up, so a partial run still gives a signal.
   Option order is shuffled per session.
 - **Skill profile:** per-domain and per-topic scores (recency-weighted with a
   21-day half-life, harder questions weighted more), a confidence level based on
   evidence and topic coverage, and weak-topic detection (2+ answers and
   either < 60% or 2+ misses in the last 5). Topics missed with less evidence show
   up as "shaky".
-- **Dashboard:** strengths vs gaps, score per session over time (chart and table),
-  streak, last-active date, and a nudge after 2+ inactive days.
-- **Adaptive practice:** 10-question rounds built from due spaced-repetition
-  reviews, then weak and shaky topics (round-robin), then untested topics, then
-  whatever you saw least recently.
+- **Progress overview:** strengths and gaps, score per session over time (chart and
+  table), streak, and a nudge after 2+ inactive days.
+- **Mixed review:** 10-question rounds built from due spaced-repetition reviews, then
+  weak and shaky topics (round-robin), then untested topics, then whatever you saw
+  least recently.
 - **Spaced repetition:** every missed question enters a Leitner deck
-  (4h → 1d → 3d → 7d → 14d → 30d). A miss resets it to the first box.
-- **Tech Radar:** a daily, automatically discovered feed of important developments
-  across AI, developer tools, cloud and databases, security, hardware and research,
-  from 43 official blogs, release feeds, advisories, research feeds and publications.
-  Stories are deduplicated, ranked (with the reasons shown) and, for the strongest
-  ones, explained by Claude through the fundamentals behind them, with source facts,
-  company claims and AI analysis kept apart. Includes a daily briefing, filters,
-  search, bookmarks, read tracking, a weekly roundup and a monthly archive. See
+  (4h → 1d → 3d → 7d → 14d → 30d), and a miss resets it to the first box. Topics you've
+  practised also come back for revision at 1 to 60 days, based on how recall has gone.
+- **Tech Radar detail:** 63 official blogs, release feeds, advisories and publications
+  across AI, developer tools, programming, cloud, databases, infrastructure, open source,
+  security, hardware and research. Stories are deduplicated by event, ranked (with the
+  reasons shown) and, when an API key is set, explained by Claude with source facts,
+  company claims and AI analysis kept apart. Includes a briefing, filters, search,
+  bookmarks, read tracking, a weekly roundup and a monthly archive. See
   [docs/tech-radar.md](docs/tech-radar.md).
 - **Fun corner:** for low-motivation days: real bug stories (Knight Capital,
   Cloudflare's regex outage, left-pad…), quick facts, and a 5-question warm-up.
 - **Lessons:** short markdown guides in `content/lessons/<domain>/<topic>.md`,
-  each linked to a focused drill.
+  shown in each topic's workspace.
 - **Answer log:** every answer is stored with its timestamp, question, topic,
   difficulty, correctness, the option picked, and time taken. Lesson reads
   (20+ seconds visible) are logged too.
@@ -73,12 +96,18 @@ this public repo and ships in the static bundle, so treat content as public.
 
 ```
 app/                 Next.js App Router pages (statically exported)
-components/          Client components (quiz, dashboard, chart, settings)
+components/          Client components (Today, topic workspace, coding, quiz, settings)
 content/questions/   Question bank, one JSON file per domain
 content/lessons/     Markdown lessons, one per topic
+content/workspaces/  Exercises, practical work and path order, one JSON file per domain
+content/resources/   The resource registry
 lib/storage.ts       ProgressStore interface + LocalStore + GitHubStore
 lib/profile.ts       Scoring, confidence, weak/strong detection
-lib/srs.ts           Spaced repetition
+lib/proficiency.ts   Evidence tracks, proficiency levels, topic revision schedule
+lib/today.ts         The daily plan
+lib/coding.ts        LeetCode tracking: parsing, retry dates, weak patterns
+lib/resources.ts     Registry types and rules
+lib/srs.ts           Question-level spaced repetition
 lib/recommend.ts     Focus topics + adaptive practice set
 lib/progress.ts      Append-only merge, session recording
 scripts/progress-report.ts   Analysis used by the daily routine
@@ -117,10 +146,11 @@ npm run dev          # http://localhost:3000
 |---|---|
 | `npm run lint` | ESLint (Next core-web-vitals + TypeScript rules) |
 | `npm run typecheck` | Generates route types, then runs strict `tsc` |
-| `npm test` | Vitest: engine logic + content integrity (IDs, lessons, ≥3 questions/topic) |
+| `npm test` | Vitest: engine logic, content integrity, data compatibility, contrast |
 | `npm run build` | Static export to `out/` |
 | `npm run check` | All of the above; run before every commit |
 | `npm run report -- --data <progress.json>` | Markdown progress report (`--json` for JSON) |
+| `npm run resources:verify` | Fetch every registry link (`-- --write` stamps the ones that loaded) |
 | `npm run set-password` | Regenerate `lib/login-vault.json` (see Access control) |
 
 ## Environment variables
@@ -131,6 +161,7 @@ See `.env.example`. There are **no secrets**:
 |---|---|---|
 | `NEXT_PUBLIC_BASE_PATH` | set by the deploy workflow | `/fundamentals-tracker` on Pages; empty locally |
 | `NEXT_PUBLIC_DATA_OWNER` / `NEXT_PUBLIC_DATA_REPO` | optional build-time override | private repo that stores progress (defaults: `bhargavaramkv` / `fundamentals-tracker-data`) |
+| `NEXT_PUBLIC_RADAR_FEED_URL` | optional build-time override | where the site reads the public live feed (default: `feed.json` on the `radar-data` branch) |
 
 Neither the password nor the sync token is an environment variable. The password
 exists only as the PBKDF2 vault in `lib/login-vault.json`. The sync token is
@@ -202,4 +233,8 @@ grants repo access per session and is never written to this repo.
   `id`, because progress references it. `npm test` validates shape, uniqueness,
   answer indexes and lesson coverage.
 - Lessons: `content/lessons/<domain>/<topic>.md`, with quoted `title` and
-  `summary` frontmatter. A new topic needs a lesson and at least 3 questions.
+  `summary` frontmatter. A new topic needs a lesson, at least 3 questions, a workspace
+  entry and at least one tier 1 source.
+- Exercises and practical work: `content/workspaces/<domain>.json`. Never reuse an `id`.
+- Sources: `content/resources/registry.json`. Run `npm run resources:verify` after adding
+  one, and read the page titles it prints. Never add a link you haven't fetched.

@@ -6,28 +6,28 @@ import type { ReactNode } from "react";
 import { BrandMark } from "./BrandMark";
 import { useProgress } from "./ProgressProvider";
 
-const ICON = "h-5 w-5";
-
 function Icon({ children }: { children: ReactNode }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className={ICON} aria-hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden>
       {children}
     </svg>
   );
 }
 
-const FUN_ICON = (
-  <Icon>
-    <path d="M12 3c-3.9 0-7 3-7 6.8 0 2.4 1.2 4.3 3 5.5V18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.7c1.8-1.2 3-3.1 3-5.5C19 6 15.9 3 12 3z" />
-    <path d="M9.5 22h5" />
-  </Icon>
-);
+type NavLink = {
+  href: string;
+  label: string;
+  short: string;
+  icon: ReactNode;
+  /** tab: always shown, and in the phone bottom bar. wide: top bar on large screens only. header: an icon at the right of the bar, never a labelled tab. */
+  place: "tab" | "wide" | "header";
+  match?: string[];
+};
 
-// `tab: false` links live in the header on phones; the bottom bar keeps five destinations.
-const LINKS: { href: string; label: string; short: string; icon: ReactNode; tab: boolean }[] = [
+const LINKS: NavLink[] = [
   {
     href: "/",
-    tab: true,
+    place: "tab",
     label: "Dashboard",
     short: "Home",
     icon: (
@@ -37,33 +37,23 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode; tab:
     ),
   },
   {
-    href: "/practice/",
-    tab: true,
-    label: "Practice",
-    short: "Practice",
+    href: "/mentor/",
+    place: "tab",
+    label: "Mentor",
+    short: "Mentor",
     icon: (
       <Icon>
-        <path d="M13 2 4 14h7l-1 8 9-12h-7z" />
+        <path d="M4 5h16v11H9l-5 4z" />
+        <path d="M8 9h8M8 12h5" />
       </Icon>
     ),
   },
   {
-    href: "/assess/",
-    tab: true,
-    label: "Assessment",
-    short: "Assess",
-    icon: (
-      <Icon>
-        <path d="M9 4h6M9 4a2 2 0 0 0-2 2H5v15h14V6h-2a2 2 0 0 0-2-2M9 4a2 2 0 0 1 2-1h2a2 2 0 0 1 2 1" />
-        <path d="m9 13 2 2 4-4" />
-      </Icon>
-    ),
-  },
-  {
-    href: "/lessons/",
-    tab: true,
-    label: "Lessons",
-    short: "Lessons",
+    href: "/learn/",
+    place: "tab",
+    label: "Learning Path",
+    short: "Learn",
+    match: ["/learn", "/lessons"],
     icon: (
       <Icon>
         <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
@@ -72,10 +62,34 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode; tab:
     ),
   },
   {
+    href: "/practice/",
+    place: "wide",
+    label: "Practice",
+    short: "Practice",
+    // The baseline assessment and the Fun corner are reached from Practice, so they keep it lit.
+    match: ["/practice", "/assess", "/fun"],
+    icon: (
+      <Icon>
+        <path d="M13 2 4 14h7l-1 8 9-12h-7z" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/coding/",
+    place: "tab",
+    label: "Coding",
+    short: "Coding",
+    icon: (
+      <Icon>
+        <path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 5l-4 14" />
+      </Icon>
+    ),
+  },
+  {
     href: "/radar/",
+    place: "tab",
     label: "Radar",
     short: "Radar",
-    tab: true,
     icon: (
       <Icon>
         <circle cx="12" cy="12" r="9" />
@@ -85,10 +99,9 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode; tab:
       </Icon>
     ),
   },
-  { href: "/fun/", label: "Fun corner", short: "Fun", tab: false, icon: FUN_ICON },
   {
     href: "/settings/",
-    tab: false,
+    place: "header",
     label: "Settings",
     short: "Settings",
     icon: (
@@ -100,9 +113,9 @@ const LINKS: { href: string; label: string; short: string; icon: ReactNode; tab:
   },
 ];
 
-function isActive(pathname: string, href: string): boolean {
-  if (href === "/") return pathname === "/";
-  return pathname.startsWith(href.replace(/\/$/, ""));
+function isActive(pathname: string, link: NavLink): boolean {
+  if (link.href === "/") return pathname === "/";
+  return (link.match ?? [link.href.replace(/\/$/, "")]).some((m) => pathname.startsWith(m));
 }
 
 /** Top bar everywhere; on phones the links move to a bottom tab bar within thumb reach. */
@@ -110,48 +123,45 @@ export function Nav() {
   const pathname = usePathname();
   const { storeKind, syncState } = useProgress();
 
-  const syncLabel =
-    storeKind === "local" ? "Local only" : syncState === "syncing" ? "Syncing…" : syncState === "error" ? "Sync error" : "Synced";
+  const syncLabel = storeKind === "local" ? "Local only" : syncState === "syncing" ? "Syncing…" : syncState === "error" ? "Sync error" : "Synced";
 
   return (
     <>
       <header className="sticky top-0 z-30 border-b border-line bg-bg/90 pt-[env(safe-area-inset-top)] backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-[max(1rem,env(safe-area-inset-left))] sm:pr-[max(1rem,env(safe-area-inset-right))]">
-          <Link href="/" className="tap -ml-1 px-1 font-semibold tracking-tight sm:ml-0 sm:px-0 sm:py-3">
+          <Link href="/" className="tap -ml-1 px-1 font-semibold tracking-tight sm:ml-0 sm:px-0 sm:py-3" aria-label="Fundamentals, go to the home page">
             <BrandMark />
           </Link>
           <nav aria-label="Main" className="hidden flex-1 gap-1 self-stretch text-sm sm:flex">
-            {LINKS.map((l) => {
-              const active = isActive(pathname, l.href);
+            {LINKS.filter((l) => l.place !== "header").map((l) => {
+              const active = isActive(pathname, l);
+              const shown = l.place === "tab" ? "flex" : "hidden lg:flex";
               return (
                 <Link
                   key={l.href}
                   href={l.href}
                   aria-current={active ? "page" : undefined}
-                  className={`relative flex items-center px-2.5 transition-colors ${
-                    active
-                      ? "font-semibold text-ink after:absolute after:inset-x-2.5 after:-bottom-px after:h-0.5 after:bg-accent"
-                      : "text-ink-2 hover:text-ink"
+                  className={`relative ${shown} items-center whitespace-nowrap px-2.5 transition-colors ${
+                    active ? "font-semibold text-ink after:absolute after:inset-x-2.5 after:-bottom-px after:h-0.5 after:bg-accent" : "text-ink-2 hover:text-ink"
                   }`}
                 >
-                  {l.label}
+                  <span className="lg:hidden">{l.href === "/" ? l.label : l.short}</span>
+                  <span className="hidden lg:inline">{l.label}</span>
                 </Link>
               );
             })}
           </nav>
           <div className="-mr-1 flex items-center sm:mr-0">
-            {LINKS.filter((l) => !l.tab).map((l) => {
-              // On phones the settings icon doubles as the sync indicator.
+            {LINKS.filter((l) => l.place === "header").map((l) => {
+              // The settings icon doubles as the sync indicator on phones.
               const syncIssue = l.href === "/settings/" && syncState === "error";
               return (
                 <Link
                   key={l.href}
                   href={l.href}
                   aria-label={syncIssue ? `${l.label} (sync error)` : l.label}
-                  aria-current={isActive(pathname, l.href) ? "page" : undefined}
-                  className={`tap px-2.5 sm:hidden ${
-                    syncIssue ? "text-bad" : isActive(pathname, l.href) ? "text-accent-text" : "text-ink-3"
-                  }`}
+                  aria-current={isActive(pathname, l) ? "page" : undefined}
+                  className={`tap flex items-center px-2.5 ${syncIssue ? "text-bad" : isActive(pathname, l) ? "text-accent-text" : "text-ink-3"}`}
                 >
                   {l.icon}
                 </Link>
@@ -159,7 +169,7 @@ export function Nav() {
             })}
             <Link
               href="/settings/"
-              className={`hidden py-1 font-mono text-xs sm:inline ${syncState === "error" ? "text-bad" : "text-ink-3"}`}
+              className={`hidden whitespace-nowrap py-1 font-mono text-xs md:inline ${syncState === "error" ? "text-bad" : "text-ink-3"}`}
               title="Where your progress is stored"
             >
               <span aria-hidden>●</span> {syncLabel}
@@ -168,13 +178,10 @@ export function Nav() {
         </div>
       </header>
 
-      <nav
-        aria-label="Primary"
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-bg/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden"
-      >
+      <nav aria-label="Primary" className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-bg/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden">
         <ul className="mx-auto flex h-[var(--tabbar-h)] max-w-md items-stretch px-[env(safe-area-inset-left)]">
-          {LINKS.filter((l) => l.tab).map((l) => {
-            const active = isActive(pathname, l.href);
+          {LINKS.filter((l) => l.place === "tab").map((l) => {
+            const active = isActive(pathname, l);
             return (
               <li key={l.href} className="flex-1">
                 <Link

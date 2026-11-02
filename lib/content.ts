@@ -3,7 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import { DOMAINS, type Domain, type FunFact, type FunStory, type Lesson, type Question, type TopicMeta } from "./types";
+import type { Resource } from "./resources";
+import { DOMAINS, type Domain, type FunFact, type FunStory, type Lesson, type Question, type TopicMeta, type TopicWorkspace } from "./types";
 import { validateQuestions } from "./validate";
 
 // Content is read at build time only (static export), so plain sync fs is fine.
@@ -63,6 +64,21 @@ export function getLesson(domain: Domain, topic: string): Lesson | null {
     summary: String(data.summary ?? ""),
     html,
   };
+}
+
+/** The resource registry, in the order it's written. See lib/resources.ts for the rules. */
+export function getResources(): Resource[] {
+  return JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, "resources", "registry.json"), "utf8")) as Resource[];
+}
+
+/** Exercises, practical work and path order per topic, keyed by `domain/topic`. */
+export function getWorkspaces(): Record<string, TopicWorkspace> {
+  const out: Record<string, TopicWorkspace> = {};
+  for (const domain of DOMAINS) {
+    const raw = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, "workspaces", `${domain}.json`), "utf8")) as Record<string, TopicWorkspace>;
+    for (const [topic, w] of Object.entries(raw)) out[`${domain}/${topic}`] = w;
+  }
+  return out;
 }
 
 export function getFunStories(): FunStory[] {

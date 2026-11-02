@@ -1,5 +1,5 @@
 import { applyAnswers } from "./srs";
-import type { AnswerLog, Domain, ProgressData, ReadLog, ReviewState, SessionRecord } from "./types";
+import type { AnswerLog, CodingAttempt, CodingProblem, Domain, LearningActivity, ProgressData, ReadLog, ReviewState, SessionRecord } from "./types";
 
 /**
  * Answers given before this moment were on question sets that have since been
@@ -25,7 +25,7 @@ export function archivedAnswerCount(data: ProgressData, epoch: string = CONTENT_
 }
 
 export function emptyProgress(): ProgressData {
-  return { version: 1, updatedAt: new Date(0).toISOString(), answers: [], sessions: [], reviews: {}, reads: [] };
+  return { version: 1, updatedAt: new Date(0).toISOString(), answers: [], sessions: [], reviews: {}, reads: [], activities: [], codingProblems: [], codingAttempts: [] };
 }
 
 /** Coerces unknown JSON (localStorage, remote file, import) into ProgressData without dropping valid records. */
@@ -39,6 +39,9 @@ export function normalizeProgress(raw: unknown): ProgressData {
     sessions: Array.isArray(r.sessions) ? r.sessions.filter((s) => s && typeof s.id === "string") : [],
     reviews: r.reviews && typeof r.reviews === "object" ? r.reviews : {},
     reads: Array.isArray(r.reads) ? r.reads.filter((x) => x && typeof x.id === "string") : [],
+    activities: Array.isArray(r.activities) ? r.activities.filter((x) => x && typeof x.id === "string" && typeof x.at === "string") : [],
+    codingProblems: Array.isArray(r.codingProblems) ? r.codingProblems.filter((x) => x && typeof x.id === "string" && typeof x.updatedAt === "string") : [],
+    codingAttempts: Array.isArray(r.codingAttempts) ? r.codingAttempts.filter((x) => x && typeof x.id === "string" && typeof x.at === "string") : [],
   };
 }
 
@@ -53,6 +56,16 @@ export function mergeProgress(a: ProgressData, b: ProgressData): ProgressData {
   for (const x of [...(a.reads ?? []), ...(b.reads ?? [])]) reads.set(x.id, x);
   const sessions = new Map<string, SessionRecord>();
   for (const x of [...a.sessions, ...b.sessions]) sessions.set(x.id, x);
+  const activities = new Map<string, LearningActivity>();
+  for (const x of [...(a.activities ?? []), ...(b.activities ?? [])]) activities.set(x.id, x);
+  const attempts = new Map<string, CodingAttempt>();
+  for (const x of [...(a.codingAttempts ?? []), ...(b.codingAttempts ?? [])]) attempts.set(x.id, x);
+  // Problems can be edited, so the latest edit wins; a soft delete is just another edit.
+  const problems = new Map<string, CodingProblem>();
+  for (const x of [...(a.codingProblems ?? []), ...(b.codingProblems ?? [])]) {
+    const prev = problems.get(x.id);
+    if (!prev || x.updatedAt >= prev.updatedAt) problems.set(x.id, x);
+  }
 
   const sortedAnswers = [...answers.values()].sort((x, y) => x.answeredAt.localeCompare(y.answeredAt));
   const reviews: Record<string, ReviewState> = {};
@@ -68,22 +81,38 @@ export function mergeProgress(a: ProgressData, b: ProgressData): ProgressData {
     // Replay so review state reflects every answer, including ones only one side had.
     reviews: applyAnswers(reviews, sortedAnswers),
     reads: [...reads.values()].sort((x, y) => x.openedAt.localeCompare(y.openedAt)),
+    activities: [...activities.values()].sort((x, y) => x.at.localeCompare(y.at)),
+    codingProblems: [...problems.values()].sort((x, y) => x.createdAt.localeCompare(y.createdAt) || x.id.localeCompare(y.id)),
+    codingAttempts: [...attempts.values()].sort((x, y) => x.at.localeCompare(y.at)),
   };
 }
 
 export function recordSession(data: ProgressData, session: SessionRecord, answers: AnswerLog[]): ProgressData {
   return {
+    ...data,
     version: 1,
     updatedAt: session.finishedAt,
     answers: [...data.answers, ...answers],
     sessions: [...data.sessions, session],
     reviews: applyAnswers(data.reviews, answers),
-    reads: data.reads,
   };
 }
 
 export function recordRead(data: ProgressData, read: ReadLog): ProgressData {
   return { ...data, updatedAt: new Date().toISOString(), reads: [...data.reads, read] };
+}
+
+export function recordActivity(data: ProgressData, activity: LearningActivity): ProgressData {
+  return { ...data, updatedAt: new Date().toISOString(), activities: [...data.activities, activity] };
+}
+
+/** Adds a problem or replaces it by id (an edit). */
+export function recordCodingProblem(data: ProgressData, problem: CodingProblem): ProgressData {
+  return { ...data, updatedAt: new Date().toISOString(), codingProblems: [...data.codingProblems.filter((p) => p.id !== problem.id), problem] };
+}
+
+export function recordCodingAttempt(data: ProgressData, attempt: CodingAttempt): ProgressData {
+  return { ...data, updatedAt: new Date().toISOString(), codingAttempts: [...data.codingAttempts, attempt] };
 }
 
 /** Most recent moment of any activity (answer given or lesson reading finished). */
@@ -94,6 +123,8 @@ export function latestActivityAt(data: ProgressData): string | null {
     const end = new Date(Date.parse(r.openedAt) + r.durationMs).toISOString();
     if (!latest || end > latest) latest = end;
   }
+  for (const x of data.activities) if (!latest || x.at > latest) latest = x.at;
+  for (const x of data.codingAttempts) if (!latest || x.at > latest) latest = x.at;
   return latest;
 }
 

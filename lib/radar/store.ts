@@ -1,11 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
+import { buildFeed } from "./feed";
+import { normalizeStory } from "./merge";
 import type { RadarState, RadarStory, RunLog } from "./types";
 
 /*
  * On-disk layout (the `radar-data` branch, checked out at content/radar for builds):
  *   stories/YYYY-MM.json   stories by publication month, newest first (full history, never pruned)
  *   state.json             last run, last success, per-source health
+ *   feed.json              recent stories for the site to read at runtime (public, no secrets)
  *   runs/YYYY-MM.json      one log entry per pipeline run
  */
 
@@ -30,7 +33,8 @@ export function readStories(dir: string): RadarStory[] {
     .readdirSync(storiesDir)
     .filter((f) => /^\d{4}-\d{2}\.json$/.test(f))
     .sort()
-    .flatMap((f) => readJson<RadarStory[]>(path.join(storiesDir, f), []));
+    .flatMap((f) => readJson<RadarStory[]>(path.join(storiesDir, f), []))
+    .map(normalizeStory);
 }
 
 export function readState(dir: string): RadarState {
@@ -59,6 +63,7 @@ export function writeStore(dir: string, stories: RadarStory[], state: RadarState
     writeJsonAtomic(path.join(dir, "stories", `${month}.json`), list);
   }
   writeJsonAtomic(path.join(dir, "state.json"), state);
+  writeJsonAtomic(path.join(dir, "feed.json"), buildFeed(stories, state, new Date(run.finishedAt)));
   const runFile = path.join(dir, "runs", `${run.startedAt.slice(0, 7)}.json`);
   writeJsonAtomic(runFile, [...readJson<RunLog[]>(runFile, []), run]);
 }

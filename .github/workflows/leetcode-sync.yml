@@ -1,0 +1,53 @@
+name: LeetCode sync
+
+# Twice a day, reads your recent accepted LeetCode submissions from the public profile (no cookie or login) and commits
+# leetcode.json to the leetcode-data branch. The Coding page reads it at runtime, so no deploy is needed.
+# Setup: Settings > Secrets and variables > Actions > Variables > add LEETCODE_USERNAME.
+on:
+  schedule:
+    - cron: "15 2,14 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: leetcode-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      LEETCODE_USERNAME: ${{ vars.LEETCODE_USERNAME }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check out leetcode-data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin leetcode-data >/dev/null; then
+            git fetch origin leetcode-data
+            git worktree add content/leetcode origin/leetcode-data
+            git -C content/leetcode checkout -B leetcode-data
+          else
+            git worktree add --orphan -b leetcode-data content/leetcode
+          fi
+      - name: Sync
+        run: npm run --silent leetcode-sync -- --out content/leetcode
+      - name: Commit to leetcode-data
+        run: |
+          cd content/leetcode
+          if [ ! -f leetcode.json ]; then echo "Nothing to commit"; exit 0; fi
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -qm "leetcode: $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do git push origin HEAD:leetcode-data && break; sleep $((i * 5)); done
+          fi

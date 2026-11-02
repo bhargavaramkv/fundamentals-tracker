@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Tech Radar data lives on the radar-data branch; builds check it out here.
 /content/radar/
+
+# LeetCode sync data lives on the leetcode-data branch; the workflow checks it out here.
+/content/leetcode/
