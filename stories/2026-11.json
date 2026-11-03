@@ -1,5 +1,619 @@
 [
  {
+  "id": "2026-11-03-oh-your-agents-need-oauth2-too-ea450c",
+  "title": "Oh, your agents need OAuth2, too",
+  "canonicalUrl": "https://stackoverflow.blog/2026/11/03/oh-your-agents-need-oauth2-too",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T08:40:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b16dc7d436a154ab",
+  "excerpt": "Recorded at LDX3 by LeadDev, Ryan chats with Dan Moore, Senior Director of CIAM Strategy and Identity Standards at FusionAuth, about adapting established OAuth2 protocols for the agentic era, the security necessity of giving autonomous AI agents their own distinct identities, and how AI coding tools are shifting developers' focus toward solving core business problems.",
+  "sources": [
+   {
+    "sourceId": "stackoverflow-blog",
+    "sourceName": "Stack Overflow Blog",
+    "title": "Oh, your agents need OAuth2, too",
+    "url": "https://stackoverflow.blog/2026/11/03/oh-your-agents-need-oauth2-too",
+    "publishedAt": "2026-11-03T08:40:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-cities-worldwide-build-and-scale-ai-services-with-2eec94",
+  "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications",
+  "category": "hardware",
+  "publishedAt": "2026-11-03T07:00:12.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b804a311851f84fd",
+  "excerpt": "Cities generate enormous amounts of data from cameras, sensors and operational systems, but turning it into useful action — for planning, maintenance and public services — remains a challenge. \nPhysical and agentic AI offer new ways to close that gap, from digital twins for infrastructure planning to vision and service agents, while keeping local governments in control of how sensitive data is processed and used. \nBuilding on initiatives announced at GTC Berlin , NVIDIA and its partners are expanding physical AI and AI agents to cities worldwide. Shared computing infrastructure gives city departments, neighboring municipalities and local developers a common foundation to build on — extending services without each organization having to acquire and manage resources of their own. \nAgentic AI for Cities \nFrom resident services to vision agents, cities are adopting NVIDIA agentic AI to deliver faster, more responsive public services. City teams don’t need a massive infrastructure investment to get started building these AI services: depending on the workload, NVIDIA RTX workstations or a small GPU system may be enough.  \nIn Spain, 1MillionBot combines open source ALIA models trained…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI",
+    "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications",
+    "publishedAt": "2026-11-03T07:00:12.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-here-s-who-is-falling-in-line-for-trump-s-super-71a4c0",
+  "title": "Here’s who is falling in line for Trump’s “Super Intelligence” loyalty test",
+  "canonicalUrl": "https://technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T04:18:47.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a7ab7cd532405783",
+  "excerpt": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first,  sign up here . \nAt the end of September, President Trump signed an executive order that contained just one directive, ordering government agencies to rebrand what they had been calling artificial intelligence as “Super Intelligence.” That term beat out other contenders, including “Extreme Intelligence” and “Supreme Intelligence,” offered by the president in a poll on X a couple of weeks earlier. \nRebrands are, of course, now a White House tradition: Trump has changed names to project US dominance of certain bodies of water (the Gulf of America and Lake America), to signal new institutional priorities (Department of War), or simply to leave his mark on storied places (see the ongoing fight over renaming the Kennedy Center). \nThe stated reason for this name change is that today’s AI systems “amplify human ingenuity” rather than merely “imitate” intelligence, and the government’s terminology should reflect that. But if this rebrand follows the pattern of others, its effects will extend beyond government. \nIt will turn a choice of words into a political loyalty…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "Here’s who is falling in line for Trump’s “Super Intelligence” loyalty test",
+    "url": "https://technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test",
+    "publishedAt": "2026-11-03T04:18:47.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-tech-firms-dismantle-botnet-that-turned-13m-tv-5eac2a",
+  "title": "Tech Firms Dismantle Botnet That Turned 1.3M TV Boxes Into Proxies",
+  "canonicalUrl": "https://krebsonsecurity.com/2026/11/tech-firms-dismantle-botnet-that-turned-1-3m-tv-boxes-into-proxies",
+  "category": "security",
+  "publishedAt": "2026-11-03T02:24:31.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9522fb183ff0ae80",
+  "excerpt": "Google said today it worked with industry partners to dismantle a botnet made up of more than 1.3 million Android TV set-top boxes that ship with malicious software which secretly rents the user’s Internet connection out to strangers and conducts advertising fraud. Experts involved in the takedown say the action is likely to sever the botnet’s access to more than 10 million additional compromised systems, including other Internet of Things (IoT) products such as Android-based healthcare devices and karaoke machines.\nA report from the Google Threat Intelligence Group (GTIG) said Google has severed ties with Videostrong Technology Co. , a TV box manufacturer in China that GTIG and other industry experts concluded was responsible for including malware that enrolled more than 1.3 million set-top boxes in a botnet dubbed “ XCPE ” (named after one of the malware’s core code components).\nThe global distribution of XCPE botnet infections. Image: Google Threat Intelligence Group.\nThe report said the XCPE botnet loaded the user’s device with software that makes their Internet address available for resale by multiple “residential proxy” services, which allow customers to rent Internet…",
+  "sources": [
+   {
+    "sourceId": "krebs",
+    "sourceName": "Krebs on Security",
+    "title": "Tech Firms Dismantle Botnet That Turned 1.3M TV Boxes Into Proxies",
+    "url": "https://krebsonsecurity.com/2026/11/tech-firms-dismantle-botnet-that-turned-1-3m-tv-boxes-into-proxies",
+    "publishedAt": "2026-11-03T02:24:31.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-show-hn-hacker-times-a-new-york-times-inspired-c6b64c",
+  "title": "Show HN: Hacker Times, a New York Times-inspired version of Hacker News",
+  "canonicalUrl": "https://hackertimes.ca/",
+  "category": "security",
+  "publishedAt": "2026-11-03T01:53:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "aed3824b066517f7",
+  "excerpt": "I thought it would be fun to browse HN as if it were a newspaper. The site updates once an hour. Enjoy!\nComments URL: https://news.ycombinator.com/item?id=50346981 \nPoints: 208\n# Comments: 67",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Show HN: Hacker Times, a New York Times-inspired version of Hacker News",
+    "url": "https://hackertimes.ca/",
+    "publishedAt": "2026-11-03T01:53:34.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-openai-built-itself-a-new-git-backend-too-78ce57",
+  "title": "OpenAI built itself a new Git backend, too",
+  "canonicalUrl": "https://thenewstack.io/openai-pando-git-backend",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "04a80d684734f442",
+  "excerpt": "OpenAI on Monday detailed how it built a new Git backend for its monorepo to power the ever-increasing number of commits its developers and their agents now create.\nPando, as the team calls the new backend, cut push latency by nearly 5x, the company says, and it currently serves close to a petabyte of Git data per day at OpenAI.\nOpenAI is obviously an early adopter of agentic coding tools. Compared to the first quarter of 2024, the quarterly commits to its monorepo will have increased by over 2,400% by the end of this year, the company says. But the issues it is facing are similar to what many other enterprises and Git forges like GitHub are now seeing.\nWith the pace of development increasing, Git itself is becoming a bottleneck. GitHub, for example, spent much of its recent Universe keynote on how it is improving its infrastructure to become faster and more reliable, all while serving billions of pull requests every month.\nThat has given rise to startups like Entire (from former GitHub CEO Thomas Dohmke) and projects like Origin from Cursor . Like OpenAI’s work, those are based on Git, but others, like Anthropic , basically start from scratch with a new client and…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "OpenAI built itself a new Git backend, too",
+    "url": "https://thenewstack.io/openai-pando-git-backend",
+    "publishedAt": "2026-11-03T00:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-transformers-model-integration-contracts-a6f54d",
+  "title": "Transformers Model Integration Contracts",
+  "canonicalUrl": "https://huggingface.co/blog/transformers-mic",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d31d1a052d88ffa5",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "Transformers Model Integration Contracts",
+    "url": "https://huggingface.co/blog/transformers-mic",
+    "publishedAt": "2026-11-03T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-02-diagnose-distributed-ai-workload-failures-with-0dde73",
+  "title": "Diagnose Distributed AI Workload Failures with NVIDIA Attribution",
+  "canonicalUrl": "https://developer.nvidia.com/blog/diagnose-distributed-ai-workload-failures-with-nvidia-attribution",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-02T23:39:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "66462a9bddb36434",
+  "excerpt": "In distributed AI workloads, a single error can produce a cascade of symptoms. A GPU or fabric event may surface as NCCL errors on other ranks, scheduler state...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Diagnose Distributed AI Workload Failures with NVIDIA Attribution",
+    "url": "https://developer.nvidia.com/blog/diagnose-distributed-ai-workload-failures-with-nvidia-attribution",
+    "publishedAt": "2026-11-02T23:39:34.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches distributed"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-02-apple-is-not-able-to-predict-when-it-ll-have-52e80b",
+  "title": "Apple is ‘not able to predict’ when it’ll have enough iPhone Duos to go around",
+  "canonicalUrl": "https://theverge.com/tech/1024915/apple-iphone-duo-supply-chain-constraints",
+  "category": "hardware",
+  "publishedAt": "2026-11-02T22:56:11.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bcf80e66a734f6de",
+  "excerpt": "Apple CEO John Ternus doesn't have a timeline for when iPhone Duo supply constraints could lift. During an interview with Reuters, Ternus said the company is \"working hard to get it to as many customers as quickly as possible, but at this ​point, we're not able to predict when supply and demand will be in […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Apple is ‘not able to predict’ when it’ll have enough iPhone Duos to go around",
+    "url": "https://theverge.com/tech/1024915/apple-iphone-duo-supply-chain-constraints",
+    "publishedAt": "2026-11-02T22:56:11.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches go"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-keep-distributed-training-running-with-automated-6d49bd",
+  "title": "Keep Distributed Training Running with Automated Workload Recovery",
+  "canonicalUrl": "https://developer.nvidia.com/blog/keep-distributed-training-running-with-automated-workload-recovery",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-02T22:43:05.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "321ded97b6856ff3",
+  "excerpt": "As distributed AI training scales, failures across hardware and software dependencies increasingly disrupt training progress, making fast, reliable recovery...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Keep Distributed Training Running with Automated Workload Recovery",
+    "url": "https://developer.nvidia.com/blog/keep-distributed-training-running-with-automated-workload-recovery",
+    "publishedAt": "2026-11-02T22:43:05.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches distributed"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-02-angular-21226-8b531d",
+  "title": "angular 21.2.26",
+  "canonicalUrl": "https://github.com/angular/angular/releases/tag/v21.2.26",
+  "category": "programming",
+  "publishedAt": "2026-11-02T22:35:58.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a0fb772d3e6559fc",
+  "excerpt": "### upgrade\n| Commit | Description |\n| -- | -- |\n| [![fix - bc74d72035](https://img.shields.io/badge/bc74d72035-fix-green)](https://github.com/angular/angular/commit/bc74d72035bdf3aff82fe84514a1f00d37459cc5) | only compile the template contents of a downgraded component |",
+  "sources": [
+   {
+    "sourceId": "gh-angular",
+    "sourceName": "Angular releases",
+    "title": "angular 21.2.26",
+    "url": "https://github.com/angular/angular/releases/tag/v21.2.26",
+    "publishedAt": "2026-11-02T22:35:58.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 23,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches angular"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-the-sec-should-block-anthropic-s-ipo-to-protect-4d288a",
+  "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+  "canonicalUrl": "https://techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-02T22:30:47.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6c2ee67d296dedff",
+  "excerpt": "Article URL: https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/ \nComments URL: https://news.ycombinator.com/item?id=50344919 \nPoints: 319\n# Comments: 237",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+    "url": "https://techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public",
+    "publishedAt": "2026-11-02T22:30:47.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-02-angular-20335-0c4b99",
   "title": "angular 20.3.35",
   "canonicalUrl": "https://github.com/angular/angular/releases/tag/v20.3.35",
@@ -7,7 +621,7 @@
   "publishedAt": "2026-11-02T22:08:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8e7b7729f82dce57",
@@ -64,11 +678,17 @@
   "publishedAt": "2026-11-02T22:02:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "b88353e689be73e7",
-  "excerpt": "Apple had a record-breaking quarter for iPhone sales - despite not releasing a standard model during its latest refresh. In its fourth-quarter earnings report released on Monday, Apple says it earned $57.58 billion in iPhone revenue, marking a 17 percent jump from the same time last year. The increase in revenue follows the launch of […]",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": "2026-11-02T22:56:51.000Z",
+  "revisions": [
+   {
+    "at": "2026-11-03T08:18:48.237Z",
+    "reason": "Source text edited",
+    "contentHash": "57ac06857a8724a0"
+   }
+  ],
+  "contentHash": "57ac06857a8724a0",
+  "excerpt": "Apple had a record-breaking quarter for iPhone sales - despite not releasing a standard model during its latest refresh. In its fourth-quarter earnings report released on Monday, Apple says it earned $57.58 billion in iPhone revenue, a 17 percent jump from the same time last year. The increase in revenue follows the launch of Apple's […]",
   "sources": [
    {
     "sourceId": "the-verge",
@@ -116,7 +736,7 @@
   "publishedAt": "2026-11-02T21:40:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3595cd5bed0c16dc",
@@ -168,7 +788,7 @@
   "publishedAt": "2026-11-02T21:04:20.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8e70da7232b65c1",
@@ -220,7 +840,7 @@
   "publishedAt": "2026-11-02T21:03:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22941e0bf33ef7d4",
@@ -267,7 +887,7 @@
   "publishedAt": "2026-11-02T20:37:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f37a834d8c34190b",
@@ -314,7 +934,7 @@
   "publishedAt": "2026-11-02T20:20:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4691d47bd2f4c26a",
@@ -361,7 +981,7 @@
   "publishedAt": "2026-11-02T19:03:38.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5c8bc89d9423a19c",
@@ -418,7 +1038,7 @@
   "publishedAt": "2026-11-02T19:00:45.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "607ffed523a4749f",
@@ -470,7 +1090,7 @@
   "publishedAt": "2026-11-02T18:43:24.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7eb06ab2577e1762",
@@ -517,11 +1137,17 @@
   "publishedAt": "2026-11-02T18:21:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "9ffc2ec89f67228f",
-  "excerpt": "Article URL: https://rikiyat.github.io/blog/weight-space-programming/ \nComments URL: https://news.ycombinator.com/item?id=50341174 \nPoints: 1372\n# Comments: 435",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": "2026-11-03T08:18:48.237Z",
+  "revisions": [
+   {
+    "at": "2026-11-03T08:18:48.237Z",
+    "reason": "Source text edited",
+    "contentHash": "07408f9bd15b7317"
+   }
+  ],
+  "contentHash": "07408f9bd15b7317",
+  "excerpt": "Article URL: https://rikiyat.github.io/blog/weight-space-programming/ \nComments URL: https://news.ycombinator.com/item?id=50341174 \nPoints: 2468\n# Comments: 773",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -564,7 +1190,7 @@
   "publishedAt": "2026-11-02T18:16:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1f616ae239c99d0",
@@ -611,7 +1237,7 @@
   "publishedAt": "2026-11-02T18:06:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "14113d1f1a5471d7",
@@ -658,7 +1284,7 @@
   "publishedAt": "2026-11-02T18:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06fd30116389c265",
@@ -715,7 +1341,7 @@
   "publishedAt": "2026-11-02T18:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1ce24ee1d1bc9cb7",
@@ -760,6 +1386,105 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-02-preparing-our-next-security-sprint-to-harden-0d2970",
+  "title": "Preparing our next security sprint to harden OpenAI",
+  "canonicalUrl": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-02T18:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ac17f6c76e40161c",
+  "excerpt": "OpenAI is preparing its next internal security sprint with Cathedral Systems to test and strengthen its defenses using AI.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Preparing our next security sprint to harden OpenAI",
+    "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai",
+    "publishedAt": "2026-11-02T18:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-02-rewarding-defenders-with-bigger-bug-bounties-bca108",
+  "title": "Rewarding defenders with bigger bug bounties",
+  "canonicalUrl": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-02T18:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d2b5f26e895a4bad",
+  "excerpt": "OpenAI is raising Security Bug Bounty rewards and introducing report quality, loyalty, and priority campaign bonuses for independent security researchers.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Rewarding defenders with bigger bug bounties",
+    "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+    "publishedAt": "2026-11-02T18:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-02-the-second-part-of-the-74-merge-window-e7196e",
   "title": "[$] The second part of the 7.4 merge window",
   "canonicalUrl": "https://lwn.net/Articles/1102739",
@@ -767,7 +1492,7 @@
   "publishedAt": "2026-11-02T17:51:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2f3f86c70c4da48",
@@ -854,6 +1579,53 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-02-self-employed-solopreneur-nist-has-a-fb4d05",
+  "title": "Self-Employed? Solopreneur? NIST Has a Cybersecurity Guide Just for You",
+  "canonicalUrl": "https://nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you",
+  "category": "programming",
+  "publishedAt": "2026-11-02T17:47:40.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6276e37db54dba39",
+  "excerpt": "Article URL: https://www.nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you \nComments URL: https://news.ycombinator.com/item?id=50340619 \nPoints: 200\n# Comments: 54",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Self-Employed? Solopreneur? NIST Has a Cybersecurity Guide Just for You",
+    "url": "https://nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you",
+    "publishedAt": "2026-11-02T17:47:40.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-02-the-latest-ai-news-we-announced-in-october-2026-996c88",
   "title": "The latest AI news we announced in October 2026",
   "canonicalUrl": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026",
@@ -861,7 +1633,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -913,7 +1685,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -960,7 +1732,7 @@
   "publishedAt": "2026-11-02T17:26:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "834456d13ddb011f",
@@ -1007,7 +1779,7 @@
   "publishedAt": "2026-11-02T17:26:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5a98412d98a53444",
@@ -1054,7 +1826,7 @@
   "publishedAt": "2026-11-02T17:16:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dcb993aadae17422",
@@ -1101,7 +1873,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "73a7589b370db6c5",
@@ -1153,7 +1925,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d43b0ad5c2e7b13",
@@ -1200,7 +1972,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4d327974a598045d",
@@ -1252,7 +2024,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "64f56635038ac185",
@@ -1309,7 +2081,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7df187067917c486",
@@ -1361,7 +2133,7 @@
   "publishedAt": "2026-11-02T16:53:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "74ab554ec2d1eca1",
@@ -1413,7 +2185,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -1570,11 +2342,17 @@
   "publishedAt": "2026-11-02T16:34:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "f0177156d29c3242",
-  "excerpt": "Article URL: https://namedaisy.com/blog/boy-names-that-became-girl-names \nComments URL: https://news.ycombinator.com/item?id=50339397 \nPoints: 218\n# Comments: 242",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": "2026-11-03T08:18:48.237Z",
+  "revisions": [
+   {
+    "at": "2026-11-03T08:18:48.237Z",
+    "reason": "Source text edited",
+    "contentHash": "ff7f3e14b545efe7"
+   }
+  ],
+  "contentHash": "ff7f3e14b545efe7",
+  "excerpt": "Article URL: https://namedaisy.com/blog/boy-names-that-became-girl-names \nComments URL: https://news.ycombinator.com/item?id=50339397 \nPoints: 374\n# Comments: 358",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -1582,6 +2360,53 @@
     "title": "US boy names that became girl names and vice versa",
     "url": "https://namedaisy.com/blog/boy-names-that-became-girl-names",
     "publishedAt": "2026-11-02T16:34:36.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-02-show-hn-warsaw-in-voxels-an-interactive-3d-map-of-4c20a2",
+  "title": "Show HN: Warsaw in voxels – An interactive 3D map of the city centre",
+  "canonicalUrl": "https://p.migdal.pl/warsaw-vibe-voxel",
+  "category": "programming",
+  "publishedAt": "2026-11-02T16:25:26.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2902c6943e806725",
+  "excerpt": "Explore central Warsaw in voxels - slightly inspired by Minecraft, and MagicaVoxel. \nYou can change the date, time of day and weather, explore the city, or click on a pedestrian to control them (here a bit of inspiration from Dungeon Keeper). Works best on desktop, but I tried to make it usable on mobile too. The initial load can take a while. It's based on several open datasets, including: - OpenStreetMap ( https://www.openstreetmap.org/#map=6/52.02/19.14 ) - buildings, streets, sidewalks, tram tracks, etc - GUGiK / Geoportal ( https://www.geoportal.gov.pl/ ) - LiDAR for building heights and trees, aerial imagery for colours - Warsaw's city tree database ( https://mapa.um.warszawa.pl/ ) - individual tree species, used for seasonal foliage Open-source ( https://github.com/stared/warsaw-vibe-voxel ), so feel invited to (re)use it as you wish!\nComments URL: https://news.ycombinator.com/item?id=50339221 \nPoints: 259\n# Comments: 41",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Show HN: Warsaw in voxels – An interactive 3D map of the city centre",
+    "url": "https://p.migdal.pl/warsaw-vibe-voxel",
+    "publishedAt": "2026-11-02T16:25:26.000Z",
     "credibility": 2
    }
   ],
@@ -1669,7 +2494,7 @@
   "publishedAt": "2026-11-02T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "39efb8d0c6bdcf7b",
@@ -1726,7 +2551,7 @@
   "publishedAt": "2026-11-02T15:47:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3958f99f6ba0d69f",
@@ -1773,7 +2598,7 @@
   "publishedAt": "2026-11-02T15:44:53.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9cead05e8906ddf1",
@@ -1823,6 +2648,53 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-02-scaling-git-at-openai-277870",
+  "title": "Scaling Git at OpenAI",
+  "canonicalUrl": "https://openai.com/index/scaling-git-at-openai",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-02T15:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3d49173c08eb8137",
+  "excerpt": "How OpenAI built Pando, a Git-compatible backend designed for the scale of development that Codex makes possible.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Scaling Git at OpenAI",
+    "url": "https://openai.com/index/scaling-git-at-openai",
+    "publishedAt": "2026-11-02T15:30:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-02-magnus-hagander-nordic-pgday-2027-sponsorships-3e7b60",
   "title": "Magnus Hagander: Nordic PGDay 2027 - Sponsorships for Nordic PGDay 2027 Are Now Open",
   "canonicalUrl": "https://postgr.es/p/9AQ",
@@ -1830,7 +2702,7 @@
   "publishedAt": "2026-11-02T15:28:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "96ed6eaec5ed72d4",
@@ -1887,7 +2759,7 @@
   "publishedAt": "2026-11-02T15:14:46.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e308e0e8b19bbbcd",
@@ -1939,7 +2811,7 @@
   "publishedAt": "2026-11-02T15:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "915502b7b55d4333",
@@ -2038,7 +2910,7 @@
   "publishedAt": "2026-11-02T14:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ed405e76e99d9f3d",
@@ -2095,7 +2967,7 @@
   "publishedAt": "2026-11-02T14:28:39.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1aaa042734298874",
@@ -2147,7 +3019,7 @@
   "publishedAt": "2026-11-02T14:28:23.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "93fe5d59091928b6",
@@ -2199,7 +3071,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -2246,7 +3118,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cb1a00a3efcc5a15",
@@ -2306,7 +3178,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b048de63a87b4a2b",
@@ -2363,7 +3235,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "55c68f3716124d85",
@@ -2415,7 +3287,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3f0ae029662bfce9",
@@ -2467,7 +3339,7 @@
   "publishedAt": "2026-11-02T13:53:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f2f2aec5cd9ef018",
@@ -2519,7 +3391,7 @@
   "publishedAt": "2026-11-02T13:36:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "892feacabd4df34f",
@@ -2576,7 +3448,7 @@
   "publishedAt": "2026-11-02T13:27:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "11eecddc97a69cdc",
@@ -2670,7 +3542,7 @@
   "publishedAt": "2026-11-02T13:10:32.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb804eb0a9b13673",
@@ -2722,7 +3594,7 @@
   "publishedAt": "2026-11-02T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0f2be299b103042e",
@@ -2774,7 +3646,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -2873,7 +3745,7 @@
   "publishedAt": "2026-11-02T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "12c000533ac2fda7",
@@ -2920,7 +3792,7 @@
   "publishedAt": "2026-11-02T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7f8b14a5475cf46d",
@@ -2972,7 +3844,7 @@
   "publishedAt": "2026-11-02T10:48:29.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c0c196245051e6f2",
@@ -3024,7 +3896,7 @@
   "publishedAt": "2026-11-02T09:40:30.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dd1d3bb211e4ee40",
@@ -3076,7 +3948,7 @@
   "publishedAt": "2026-11-02T09:35:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2da05b0470b0b25f",
@@ -3133,7 +4005,7 @@
   "publishedAt": "2026-11-02T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23c410bc09f44729",
@@ -3185,7 +4057,7 @@
   "publishedAt": "2026-11-02T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "afcffdeee2531db2",
@@ -3294,7 +4166,7 @@
   "publishedAt": "2026-11-02T05:13:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T07:58:46.861Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8ce2d204f9951319",
@@ -3882,7 +4754,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -3981,7 +4853,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5318b4a6371af0e",
@@ -4043,7 +4915,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e2f2e97b2c9996a",
@@ -4090,7 +4962,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8feb681ee8d7cdbc",
@@ -4147,7 +5019,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -4842,7 +5714,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-02T22:25:43.270Z",
+  "lastSeenAt": "2026-11-03T08:18:48.237Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
