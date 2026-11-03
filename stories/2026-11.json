@@ -1,5 +1,3204 @@
 [
  {
+  "id": "2026-11-04-visual-studio-code-1145-insiders-29b335",
+  "title": "Visual Studio Code 1.145 (Insiders)",
+  "canonicalUrl": "https://code.visualstudio.com/updates/v1_145",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-04T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9dd853b2d9d51dcd",
+  "excerpt": "Learn what is new in Visual Studio Code 1.145 (Insiders).\nRead the full article",
+  "sources": [
+   {
+    "sourceId": "vscode",
+    "sourceName": "VS Code Updates",
+    "title": "Visual Studio Code 1.145 (Insiders)",
+    "url": "https://code.visualstudio.com/updates/v1_145",
+    "publishedAt": "2026-11-04T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 20,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-quick-start-c-and-mongodb-starting-and-setup-8c5437",
+  "title": "Quick Start: C# and MongoDB - Starting and Setup",
+  "canonicalUrl": "https://mongodb.com/company/blog/technical/quick-start-c-sharp-and-mongodb-starting-and-setup",
+  "category": "databases",
+  "publishedAt": "2026-11-03T20:09:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d5d35ccb71e4fdeb",
+  "excerpt": "In the first of the C# Quick Start series, I'll show how to set up connections between C# and MongoDB.\nIn future parts we'll move on and work through:\nDatabase Create, Read, Update, and Delete (CRUD) operations\nMap MongoDB to C# objects\nLook at MongoDB aggregation\nHow to use LINQ with MongoDB\nAs you already know, C# is a general-purpose language and MongoDB is a general-purpose data platform. Together, C# and MongoDB are a powerful combination.\nTo follow along, I'll be using Visual Studio 2019 on Windows 10 and we will be connecting to a MongoDB Atlas cluster.\nIf you're using a different OS, IDE, or text editor, the walkthrough might be slightly different, but the code itself should be fairly similar. Let's jump in and take a look at how nicely C# and MongoDB work together.\nGetting Setup\nFor this demonstration, I’ve chosen to create a Console App (.NET Core), and I’ve named it MongoDBConnectionDemo.\nNext, we need to install the MongoDB Driver for C#/.NET for a Solution. We can do that quite easily with NuGet . Inside Visual Studio for Windows, by going to Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution..._\nWe can browse for MongoDB.Driver . Then click on our…",
+  "sources": [
+   {
+    "sourceId": "mongodb",
+    "sourceName": "MongoDB Blog",
+    "title": "Quick Start: C# and MongoDB - Starting and Setup",
+    "url": "https://mongodb.com/company/blog/technical/quick-start-c-sharp-and-mongodb-starting-and-setup",
+    "publishedAt": "2026-11-03T20:09:41.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 51,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"update\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches mongodb, database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-introducing-atlas-app-connections-secure-one-06db09",
+  "title": "Introducing Atlas App Connections: Secure, One-Click Access for AI Tools",
+  "canonicalUrl": "https://mongodb.com/company/blog/product-release-announcements/introducing-atlas-app-connections-secure-one-click-access-for-ai-tools",
+  "category": "databases",
+  "publishedAt": "2026-11-03T20:08:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4c456ca04e406713",
+  "excerpt": "For builders using AI coding tools, speed is everything. Integrations that require generating a credential, filing an access request, or waiting on a custom build can stop momentum (and productivity) in its tracks.\nUntil now, connecting an external application like an AI coding assistant to a MongoDB Atlas account introduced some of that friction. The only way to do so was by sharing long-lived service account credentials, a workaround that slowed builders down and left administrators managing a security risk they were reluctant to accept. Faced with that tradeoff, some organizations avoided third-party integrations, or defaulted to whatever tool was already the default in their AI stack, whether or not it was the best fit.\nMongoDB Atlas App Connections closes that gap. It enables builders to securely connect AI coding tools to their MongoDB Atlas account with a single click. Built on OAuth 2.1, an industry-standard authorization framework, App Connections allows AI clients to act on the user's behalf via the MongoDB Atlas MCP Server , without long-lived credentials to generate, share, or manage.\nAvailable now in Atlas App Connections\nWith Atlas App Connections, builders can…",
+  "sources": [
+   {
+    "sourceId": "mongodb",
+    "sourceName": "MongoDB Blog",
+    "title": "Introducing Atlas App Connections: Secure, One-Click Access for AI Tools",
+    "url": "https://mongodb.com/company/blog/product-release-announcements/introducing-atlas-app-connections-secure-one-click-access-for-ai-tools",
+    "publishedAt": "2026-11-03T20:08:21.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches mongodb"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-binance-says-fake-job-interview-led-to-63-billion-77b620",
+  "title": "Binance says fake job interview led to $6.3 billion crypto heist",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist",
+  "category": "security",
+  "publishedAt": "2026-11-03T20:05:50.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "911e9db63a068981",
+  "excerpt": "Cryptocurrency exchange Binance says North Korean hackers used a fake job interview to trick an employee into installing malware that ultimately let them compromise the company's wallet infrastructure and steal about $6.34 billion in digital assets. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Binance says fake job interview led to $6.3 billion crypto heist",
+    "url": "https://bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist",
+    "publishedAt": "2026-11-03T20:05:50.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-building-next-gen-ai-agents-the-mongodb-atlas-b96546",
+  "title": "Building Next-gen AI agents: The MongoDB Atlas-Microsoft Foundry Integration",
+  "canonicalUrl": "https://mongodb.com/company/blog/innovation/building-next-gen-ai-agents-mongodb-atlas-integration-microsoft-foundry",
+  "category": "databases",
+  "publishedAt": "2026-11-03T20:02:58.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c46295285fe0bc4f",
+  "excerpt": "Generative AI is rapidly evolving from experimenting with models to relying on intelligent, autonomous multi-agent workflows that can reason, act, and adapt in real time. Together, Microsoft and MongoDB are defining the future of AI by providing companies everywhere a robust, secure, scalable foundation for building innovative, next-generation AI agents.\nMicrosoft Azure Foundry provides a unified, enterprise-grade platform to build, deploy, and govern AI applications and agents, while MongoDB Atlas delivers the flexible, secure, and scalable data foundation that gives those agents real-time memory, context, and intelligence across the Azure ecosystem.\nToday, we’re pleased to announce that Microsoft and MongoDB are taking that collaboration to the next level, bringing the MongoDB MCP Server into the tools catalog in Microsoft Foundry. This integration bridges Microsoft Foundry’s Agent Service with MongoDB’s real-time data capabilities—empowering developers to build context-aware agents that can both retrieve knowledge and perform actions using MongoDB Atlas.\nMongoDB Atlas meets Microsoft Foundry \nOriginally introduced by Anthropic, the Model Context Protocol (MCP) has become the de…",
+  "sources": [
+   {
+    "sourceId": "mongodb",
+    "sourceName": "MongoDB Blog",
+    "title": "Building Next-gen AI agents: The MongoDB Atlas-Microsoft Foundry Integration",
+    "url": "https://mongodb.com/company/blog/innovation/building-next-gen-ai-agents-mongodb-atlas-integration-microsoft-foundry",
+    "publishedAt": "2026-11-03T20:02:58.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches agents, mongodb, agent, azure"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-you-can-t-hit-a-wrong-note-when-playing-along-7d4528",
+  "title": "You can’t hit a wrong note when playing along with songs on Casio’s new keyboard",
+  "canonicalUrl": "https://theverge.com/tech/1025673/casio-digital-piano-keyboard-ct-fs1-feel-sync-technology",
+  "category": "hardware",
+  "publishedAt": "2026-11-03T19:48:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "81c4785a4549ff95",
+  "excerpt": "Casio announced a new addition to its Casiotone line of portable electronic keyboards with a feature that could help aspiring musicians master skills like rhythm and timing without the frustrations or discouragement of hitting the wrong note. The Casiotone CT-FS1 is available now for $399.99 in a monochromatic black or white version where even the […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "You can’t hit a wrong note when playing along with songs on Casio’s new keyboard",
+    "url": "https://theverge.com/tech/1025673/casio-digital-piano-keyboard-ct-fs1-feel-sync-technology",
+    "publishedAt": "2026-11-03T19:48:41.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-goldman-sachs-restricted-claude-code-for-bankers-4b1bdd",
+  "title": "Goldman Sachs restricted Claude Code for bankers — but made one surprising exception",
+  "canonicalUrl": "https://thenewstack.io/ai-coding-agents-security",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T19:18:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "307a650641a23407",
+  "excerpt": "Replit CEO Amjad Masad is warning that AI coding agents running on employee devices are becoming a security risk for enterprises and governments, as financial institutions begin restricting access to tools such as Claude Code.\n&ldquo;AI agents running on employee endpoints are becoming a systemic security risk for enterprises & governments,&rdquo; Masad writes on X , Tuesday. &ldquo;Some are responding by restricting tools like Claude Code, as Goldman Sachs reportedly has.&rdquo;\n&ldquo;Some are responding by restricting tools like Claude Code, as Goldman Sachs reportedly has.&rdquo;\nWhy finance restricts coding agents\nHis comments follow a Bloomberg report that Goldman Sachs has restricted access to Anthropic&rsquo;s Claude Code and Microsoft&rsquo;s GitHub coding tools to engineers. The restrictions apply to bankers and traders, but certain quantitative employees known as strats are exempt.\nGoldman spokesperson Nick Carcaterra told Bloomberg the bank weighs productivity gains against potential risks when deciding which employees can continue using AI tools.\nMasad suggests Goldman Sachs is not alone. \n&ldquo;This is widespread in finance. The ban hammer is coming…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Goldman Sachs restricted Claude Code for bankers — but made one surprising exception",
+    "url": "https://thenewstack.io/ai-coding-agents-security",
+    "publishedAt": "2026-11-03T19:18:34.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-what-s-new-in-clickstack-september-and-october-26-28004c",
+  "title": "What's new in ClickStack - September and October '26",
+  "canonicalUrl": "https://clickhouse.com/blog/whats-new-in-clickstack-october-2026",
+  "category": "databases",
+  "publishedAt": "2026-11-03T19:09:52.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "78c9971e0c1c799a",
+  "excerpt": "The September and October ClickStack releases bring ad hoc dashboard filters, PromQL for every chart type, ClickStack query tracing, a Trace logs tab, alerts from the chart explorer, and a long list of search page and collector improvements.",
+  "sources": [
+   {
+    "sourceId": "clickhouse",
+    "sourceName": "ClickHouse Blog",
+    "title": "What's new in ClickStack - September and October '26",
+    "url": "https://clickhouse.com/blog/whats-new-in-clickstack-october-2026",
+    "publishedAt": "2026-11-03T19:09:52.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"releases\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-delivering-skills-in-nuget-packages-7b40f9",
+  "title": "Delivering Skills in NuGet packages",
+  "canonicalUrl": "https://devblogs.microsoft.com/dotnet/delivering-skills-in-nuget-packages",
+  "category": "programming",
+  "publishedAt": "2026-11-03T19:00:14.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0910ed73c99d16b6",
+  "excerpt": "Agent skills were introduced by Anthropic in 2025 and have quickly become commonplace for AI-driven development. dotnet/skills and Impeccable skills are good examples. Agent skills are typically distributed via git repos. We’ve been working on skill delivery via NuGet packages and found that the approach can be effective. The common thread is that repos and packages are units of development that can be used as distribution vehicles for skills.\nSkills solve two main problems: fill in gaps in model knowledge and can prescribe “our way” of approaching a task. New NuGet packages will always be ahead of model training and can benefit from just-in-time skill delivery.\nHere’s a quick demo using the markout package, whch contains a set of skills:\n$ dotnet-inspect package markout -S Skills\npath size\nskills/markout-built-in-shapes/SKILL.md 9457\nskills/markout-composite-cells-cards/SKILL.md 6764\nskills/markout-conditional-composition/SKILL.md 4978\nskills/markout-output-formats/SKILL.md 7744\nskills/markout/SKILL.md 8551 \nBaseline\nWe’ve done a lot of experimentation. We’ve found that agents (as a baseline behavior) are capable of finding content in the NuGet cache to learn about a package.…",
+  "sources": [
+   {
+    "sourceId": "dotnet-blog",
+    "sourceName": ".NET Blog",
+    "title": "Delivering Skills in NuGet packages",
+    "url": "https://devblogs.microsoft.com/dotnet/delivering-skills-in-nuget-packages",
+    "publishedAt": "2026-11-03T19:00:14.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, distributed"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-ieee-computer-society-chapter-offers-webinars-d4804f",
+  "title": "IEEE Computer Society Chapter Offers Webinars With Industry Experts",
+  "canonicalUrl": "https://spectrum.ieee.org/ieee-industry-experts-webinar",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T19:00:02.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "054c2c53d0b5954c",
+  "excerpt": "To help engineers keep up with emerging technologies such as AI, cloud computing, and sustainable infrastructure, and learn how they can be applied in practice, the IEEE Computer Society ’s Central Indiana Chapter recently launched its Tech Talk Series.\nThe live webinar series connects IEEE members, undergrad and graduate students, and engineering professionals from IEEE Region 4 with industry practitioners. The monthly sessions have covered AI governance and security, agentic systems, and related topics. The sessions featured speakers from Apple , software company Tavant , and cybersecurity concern Zscaler .\nUpcoming sessions and registration details are available on the IEEE Region 4 virtual events calendar .\nTechnical discussions grounded in engineering\nRather than presenting on emerging technologies only at a conceptual level, speakers discussed the design decisions behind specific tools and systems, how the systems are structured, and implementation challenges. They also shared lessons learned from using the tools in their daily work.\nSessions also include technical walkthroughs and practical examples.\nThe live format allows attendees to discuss and compare their approaches…",
+  "sources": [
+   {
+    "sourceId": "ieee-spectrum",
+    "sourceName": "IEEE Spectrum",
+    "title": "IEEE Computer Society Chapter Offers Webinars With Industry Experts",
+    "url": "https://spectrum.ieee.org/ieee-industry-experts-webinar",
+    "publishedAt": "2026-11-03T19:00:02.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-google-launches-litert-tensor-api-for-building-344701",
+  "title": "Google Launches LiteRT Tensor API for Building, Customizing, and Optimizing ML Models for On-Device",
+  "canonicalUrl": "https://infoq.com/news/2026/11/litert-tensor-api",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T19:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ffbe1d46521567c3",
+  "excerpt": "Google has introduced the LiteRT Tensor API, a lightweight C++ API that allows developers to build, customize, and optimize machine learning models directly for on-device execution. According to Google, it combines the flexibility of native model authoring with cross-platform portability.\nBy Sergio De Simone",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Google Launches LiteRT Tensor API for Building, Customizing, and Optimizing ML Models for On-Device",
+    "url": "https://infoq.com/news/2026/11/litert-tensor-api",
+    "publishedAt": "2026-11-03T19:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launches\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-google-llmjacking-attacks-rack-up-1-million-in-6d6522",
+  "title": "Google: LLMjacking attacks rack up $1 million in cloud AI charges",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/google-llmjacking-attacks-rack-up-1-million-in-cloud-ai-charges",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T18:51:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b75494314472d00c",
+  "excerpt": "Large language model hijacking attacks, also known as LLMjacking, are generating large fraudulent cloud charges, with some organizations losing more than $100,000 per day. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Google: LLMjacking attacks rack up $1 million in cloud AI charges",
+    "url": "https://bleepingcomputer.com/news/security/google-llmjacking-attacks-rack-up-1-million-in-cloud-ai-charges",
+    "publishedAt": "2026-11-03T18:51:04.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-apple-s-latest-watchos-beta-includes-its-new-5074a8",
+  "title": "Apple’s latest watchOS beta includes its new always-on Audio Intelligence features",
+  "canonicalUrl": "https://theverge.com/tech/1025002/apple-watch-audio-intelligence-watchos-beta",
+  "category": "hardware",
+  "publishedAt": "2026-11-03T18:31:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7b4943de8f025b63",
+  "excerpt": "Starting today, Siri can tune into the Apple Watch's mic with Audio Intelligence features that are available in the new watchOS 27.3 developer beta rolling out now. The two new additions are Siri Recap, which uses \"ambient listening\" to generate summaries of your conversation, and Live Rewind, which generates text transcripts of the last 15 […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Apple’s latest watchOS beta includes its new always-on Audio Intelligence features",
+    "url": "https://theverge.com/tech/1025002/apple-watch-audio-intelligence-watchos-beta",
+    "publishedAt": "2026-11-03T18:31:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"beta\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-openai-says-chatgpt-is-catching-up-to-google-in-151c40",
+  "title": "OpenAI says ChatGPT is catching up to Google in search",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1025482/openai-says-chatgpt-is-catching-up-to-google-in-search",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T18:30:42.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "44061b592991a849",
+  "excerpt": "In many circles, \"Ask Chat\" has replaced \"Google it,\" and that's reflected in a new announcement from OpenAI: the volume of search queries run through ChatGPT now equals 20 percent of the volume run through Google. Adam Fry, OpenAI's consumer product lead for ChatGPT, made the announcement at a press event on Monday. He said […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "OpenAI says ChatGPT is catching up to Google in search",
+    "url": "https://theverge.com/ai-artificial-intelligence/1025482/openai-says-chatgpt-is-catching-up-to-google-in-search",
+    "publishedAt": "2026-11-03T18:30:42.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-reddit-is-adding-more-ads-996656",
+  "title": "Reddit is adding more ads",
+  "canonicalUrl": "https://theverge.com/tech/1025602/reddit-search-ads-test",
+  "category": "hardware",
+  "publishedAt": "2026-11-03T18:26:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "348b47993b986b89",
+  "excerpt": "Reddit is testing ads on another area of its platform: search. With this update, ads will appear within your search results \"based on a range of factors, including contextual relevance to a search query,\" according to Reddit. That means searching for \"espresso station\" could present you with ads for espresso, machines, beans, or mugs, while […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Reddit is adding more ads",
+    "url": "https://theverge.com/tech/1025602/reddit-search-ads-test",
+    "publishedAt": "2026-11-03T18:26:36.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"update\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-jimmy-angelakos-postgres-edinburgh-october-2026-640bed",
+  "title": "Jimmy Angelakos: Postgres Edinburgh October 2026 Meetup Recap",
+  "canonicalUrl": "https://postgr.es/p/9AY",
+  "category": "databases",
+  "publishedAt": "2026-11-03T18:16:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "52e43a70db186f58",
+  "excerpt": "Right after the Apache Software Foundation's Community Over Code in Glasgow, we found ourselves the following day in Edinburgh for our October meetup, where Elizabeth Christensen (Snowflake) went over what's new in Postgres 18 and 19.\nElizabeth Christensen walking us through the Postgres versions timeline \nThanks to everyone who came along on Thursday, October 15th, to Elizabeth for joining us all the way from Kansas, and to pgEdge for the pizza and refreshments. It was also great to see David Christensen there with Elizabeth.\nPizza first, talks second \nThe Main Event: What's New in PostgreSQL 18 & 19\nElizabeth Christensen ( Snowflake ) \nElizabeth is an open source advocate on the Postgres team at Snowflake, a Postgres contributor and a board member of the United States PostgreSQL Association, and she runs the online Postgres Meetup for All . She came to go over Postgres 19, which had been pencilled in for the end of October, and the parts of 18 that went by unnoticed.\nThe first thing to know about 19 is that it has slipped. An unusually large number of features were reverted during the beta, which Elizabeth framed as the sign of a healthy project, because the process caught…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Jimmy Angelakos: Postgres Edinburgh October 2026 Meetup Recap",
+    "url": "https://postgr.es/p/9AY",
+    "publishedAt": "2026-11-03T18:16:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 20,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgres, postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-use-your-github-copilot-plan-in-jetbrains-air-in-b86d6a",
+  "title": "Use Your GitHub Copilot Plan in JetBrains Air – in Your IDE and in the Cloud",
+  "canonicalUrl": "https://blog.jetbrains.com/air/2026/11/github-copilot-in-air",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-03T18:04:19.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e94882161192f9e3",
+  "excerpt": "GitHub and JetBrains are bringing GitHub Copilot to JetBrains Air. Air lets you hand coding tasks to agents, run them in parallel, and review their changes in one place. You can now pick GitHub Copilot as the agent in Air – locally in your JetBrains IDE, and in the cloud with Air Teams. Tasks run on your existing Copilot plan, not on JetBrains AI credits.\nAir runs the official GitHub Copilot CLI over the Agent Client Protocol (ACP) , the open protocol Air uses to connect agents. You get the real GitHub Copilot agent and the models it offers you, in the same task list as Claude, Codex, and Junie. With Air Teams, you can hand GitHub Copilot a cloud task and close your laptop, and it’ll keep working on its own sandboxed machine.\nTry it now in your JetBrains IDE or on the web .\nRun GitHub Copilot locally in your IDE\nGitHub Copilot runs locally in Air in JetBrains IDEs through ACP. You don’t need Air Teams, but you do need a GitHub Copilot subscription.\nInstall Air in your JetBrains IDE and open it.\nChoose GitHub Copilot in the agent picker.\nSign in with GitHub when Air prompts you to do so.\nDescribe your task and click Send .\nGitHub Copilot works in your local project, and you review…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "Use Your GitHub Copilot Plan in JetBrains Air – in Your IDE and in the Cloud",
+    "url": "https://blog.jetbrains.com/air/2026/11/github-copilot-in-air",
+    "publishedAt": "2026-11-03T18:04:19.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-03-github-copilot-is-now-available-in-jetbrains-air-2b4786"
+ },
+ {
+  "id": "2026-11-03-how-nammu21-automates-syndicated-loans-on-google-9139a6",
+  "title": "How Nammu21 automates syndicated loans on Google Cloud Universal Ledger",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/financial-services/how-nammu21-automates-syndicated-loans-on-google-cloud-universal-ledger",
+  "category": "cloud",
+  "publishedAt": "2026-11-03T18:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8f387dae4f6709e0",
+  "excerpt": "The syndicated loan and private credit markets, both critical components of corporate finance, have long been constrained by manual processes, leading to multi-week settlements, valuation opacity, and trade friction.  \nTo solve these long-standing challenges, fintech innovator Nammu21 partnered with Google Cloud on a new proof-of-concept. Using its AI-powered platform to structure legal agreements and instantiate them as smart contracts on the Google Cloud Universal Ledger (GCUL) , Nammu21 automates the entire loan lifecycle, paving the way for improved settlement times and greater market efficiency. \nDigitizing the loan market \nWhile loan markets provide billions in capital to businesses worldwide, their underlying infrastructure has not kept pace with the speed of digital finance. This landscape requires continuous coordination across facility agents, borrowers, and diverse lender syndicates, while also managing highly customized credit agreements with dynamic tranches and complex covenants.  \nIn particular, relying on fragmented, manual interpretation of legal text often results in significant operational drag and data silos. According to the Loan Market Association , secondary…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "How Nammu21 automates syndicated loans on Google Cloud Universal Ledger",
+    "url": "https://cloud.google.com/blog/topics/financial-services/how-nammu21-automates-syndicated-loans-on-google-cloud-universal-ledger",
+    "publishedAt": "2026-11-03T18:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-qwen-38-27b-on-my-laptop-can-interpret-model-b5cba0",
+  "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
+  "canonicalUrl": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T17:40:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "98b1661745fa5a07",
+  "excerpt": "Article URL: https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/ \nComments URL: https://news.ycombinator.com/item?id=50355251 \nPoints: 279\n# Comments: 83",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
+    "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights",
+    "publishedAt": "2026-11-03T17:40:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches .net"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-fake-download-campaign-uses-trojanized-installers-e66c70",
+  "title": "Fake-download campaign uses trojanized installers to deliver monetization payloads",
+  "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/11/03/fake-download-campaign-uses-trojanized-installers-deliver-monetization-payloads",
+  "category": "security",
+  "publishedAt": "2026-11-03T17:32:47.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f73e76cba7ea56e0",
+  "excerpt": "In this article \nAttack chain overview \nMitigation and protection guidance \nLearn More \nMicrosoft Threat Intelligence has identified an evolving fake-download campaign targeting users searching for cracked commercial software, free games, activators, plugins, and unofficial utilities. The campaign uses trojanized Inno Setup-style installers to distribute multiple monetized software payloads, referred to by the delivery system as “offers”, during a single installation session. \nOur investigation found that the installers use a per-offer callback and status-tracking model to manage delivery and record installation outcomes. We confirmed three downstream monetization branches that transformed affected devices into monetized assets, including by routing third-party internet traffic through the device, enrolling it in a distributed-computing platform, or installing additional utility-style software, often without users’ informed knowledge or consent. These products and components may have legitimate uses, but their silent installation through deceptive software bundles without informed user consent introduces security and privacy risks. \nOrganizations can reduce their exposure to this…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "Fake-download campaign uses trojanized installers to deliver monetization payloads",
+    "url": "https://microsoft.com/en-us/security/blog/2026/11/03/fake-download-campaign-uses-trojanized-installers-deliver-monetization-payloads",
+    "publishedAt": "2026-11-03T17:32:47.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-get-ready-for-net-conf-2026-5c0447",
+  "title": "Get Ready for .NET Conf 2026!",
+  "canonicalUrl": "https://devblogs.microsoft.com/dotnet/get-ready-for-dotnet-conf-2026",
+  "category": "programming",
+  "publishedAt": "2026-11-03T17:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2c079f328f4b481e",
+  "excerpt": ".NET Conf 2026 is just one week away! Join us November 10-13 for this free, four-day virtual conference and the official launch of .NET 11. We’ll kick things off with two days of sessions from Microsoft product teams, followed by two days of community-led talks from developers around the world.\nStart at dot.net/conf for Microsoft’s sessions and conference information. You’ll find Community Days information on the community-run .NET Conf site .\nGet ready for .NET Conf 2026 \nFour days of .NET\nHere’s how the conference breaks down. All times below are Pacific Standard Time (PST, UTC-8).\nDates \nWhat’s happening \nTime \nNovember 10-11 \nMicrosoft product team days, including the .NET 11 launch \n8 AM-5 PM PST each day \nNovember 12-13 \n.NET Conf Community Days \n8 AM-5 PM PST each day \nYou can browse the Microsoft session agenda and add sessions to your calendar. The agenda also lets you choose your time zone, so you can plan your viewing wherever you are.\nDay one: .NET 11 launch\nThe conference starts on Tuesday, November 10, at 8 AM PST with Scott Hanselman and the .NET team. The opening keynote will explore what’s new in .NET 11 and how Copilot and agents fit into .NET development,…",
+  "sources": [
+   {
+    "sourceId": "dotnet-blog",
+    "sourceName": ".NET Blog",
+    "title": "Get Ready for .NET Conf 2026!",
+    "url": "https://devblogs.microsoft.com/dotnet/get-ready-for-dotnet-conf-2026",
+    "publishedAt": "2026-11-03T17:30:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launch\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches .net"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-moft-s-new-origami-case-adds-a-kickstand-and-grip-042a6e",
+  "title": "Moft’s new origami case adds a kickstand and grip to the iPhone Duo",
+  "canonicalUrl": "https://theverge.com/tech/1025364/moft-dynamic-folio-case-stand-grip-apple-iphone-duo",
+  "category": "hardware",
+  "publishedAt": "2026-11-03T17:27:52.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1aeee14c8a0a5bcf",
+  "excerpt": "Originally released in early 2025 as an accessory for the iPad, Moft has redesigned its Dynamic Folio as a case for the iPhone Duo that does more than just protect Apple's folding phone. You can use it to prop the Duo up at several different angles for hands-free use, or reconfigure the Dynamic Folio's origami-like […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Moft’s new origami case adds a kickstand and grip to the iPhone Duo",
+    "url": "https://theverge.com/tech/1025364/moft-dynamic-folio-case-stand-grip-apple-iphone-duo",
+    "publishedAt": "2026-11-03T17:27:52.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-postman-silently-auto-installs-ai-plugins-and-210b26",
+  "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+  "canonicalUrl": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T17:22:37.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "fb489b8f0fbdfc8c",
+  "excerpt": "Article URL: https://github.com/postmanlabs/postman-app-support/issues/14370 \nComments URL: https://news.ycombinator.com/item?id=50354960 \nPoints: 668\n# Comments: 219",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+    "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+    "publishedAt": "2026-11-03T17:22:37.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-statebench-testing-how-language-models-track-8d8667",
+  "title": "StateBench: Testing how language models track state changes over long documents",
+  "canonicalUrl": "https://huggingface.co/blog/allenai/statebench",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T17:15:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0ffb3b8e06ea15de",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "StateBench: Testing how language models track state changes over long documents",
+    "url": "https://huggingface.co/blog/allenai/statebench",
+    "publishedAt": "2026-11-03T17:15:21.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-opensuse-leap-161-50da5c",
+  "title": "OpenSUSE Leap 16.1",
+  "canonicalUrl": "https://lwn.net/Articles/1105131",
+  "category": "open-source",
+  "publishedAt": "2026-11-03T17:09:48.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7e6b71aa2ea9efba",
+  "excerpt": "The openSUSE project has announced the release of openSUSE Leap 16.1. The release is notable for allowing both traditional installations and immutable images with transactional updates. While immutable images had previously been available for Leap Micro, they are now available across all platforms that Leap supports, including servers, desktops, and virtual machines.\n\"Leap's image gives the best of both for traditional and immutable users, and we expect that Tumbleweed will follow when Agama becomes the default installer for Tumbleweed as well.\" said Leap release manager Lubos Kocman. \"The Leap Micro experience people relied on is still here, but now it shares the same release, the same life cycle and the same maintenance updates as the rest of Leap, so users only have to pick the mode that fits their workload.\"",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "OpenSUSE Leap 16.1",
+    "url": "https://lwn.net/Articles/1105131",
+    "publishedAt": "2026-11-03T17:09:48.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-agentic-cheminformatics-with-google-antigravity-23c4f1",
+  "title": "Agentic cheminformatics with Google Antigravity",
+  "canonicalUrl": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T17:01:49.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3a8157116dcd56dc",
+  "excerpt": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
+  "sources": [
+   {
+    "sourceId": "deepmind",
+    "sourceName": "Google DeepMind",
+    "title": "Agentic cheminformatics with Google Antigravity",
+    "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity",
+    "publishedAt": "2026-11-03T17:01:49.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-f3-lightning-how-meta-accelerates-ads-ml-features-118b73",
+  "title": "F3 Lightning: How Meta Accelerates Ads ML Features to Production at Scale",
+  "canonicalUrl": "https://engineering.fb.com/2026/11/03/ml-applications/f3-lightning-how-meta-accelerates-ads-ml-features-to-production",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T17:00:35.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "07868382369961d4",
+  "excerpt": "Facebook Feature Framework (F3) is Meta’s framework for authoring, compiling, and serving the machine learning features underlying ads ranking models, where a single request can require more than 20,000 features. We first presented F3 at AI @ Scale 2020 .  \nF3 reduced execution computational costs by compiling all features into a single merged graph, but that graph also served as the release unit, so a single failure or invalid definition blocked the entire release pipeline. \nThis post introduces F3 Lightning , an infrastructure layer built on top of F3 to resolve this challenge by decoupling feature releases from shared execution, so each feature is compiled, validated, deployed, and rolled back independently. \nThe hardest part to solve was preserving F3’s efficiency improvements. Early per-feature release prototypes increased CPU usage because independent features no longer shared computation. We aimed to close this gap through four optimizations: stable computation identifiers, a single shared execution plan, one shared memory buffer across all features, and dense index mapping for direct array access. \nWith F3 Lightning, comparable extraction features now reach production…",
+  "sources": [
+   {
+    "sourceId": "meta-engineering",
+    "sourceName": "Engineering at Meta",
+    "title": "F3 Lightning: How Meta Accelerates Ads ML Features to Production at Scale",
+    "url": "https://engineering.fb.com/2026/11/03/ml-applications/f3-lightning-how-meta-accelerates-ads-ml-features-to-production",
+    "publishedAt": "2026-11-03T17:00:35.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-leading-in-the-agentic-era-how-to-put-people-60ef08",
+  "title": "Leading in the agentic era: How to put people first as you adopt AI agents",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/consulting/lessons-for-adopting-ai-agents",
+  "category": "cloud",
+  "publishedAt": "2026-11-03T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "49a4f6fcc323a4bb",
+  "excerpt": "Over the past few years, our Google Cloud Consulting team has partnered with many companies to introduce AI into their daily operations. \nIn that time, we’ve seen the focus shift from generative AI that answers questions to agentic systems that fully carry out the work. These agents can create multi-step plans and manage a project from start to finish. \nWhile budget, compute, and tooling can help launch an agent program, enterprise adoption takes intentional culture work. People need to feel empowered enough to experiment with agents, and leaders need to show teams what agents mean for their roles. \nBased on our work across these organizations, we’ve put together five practical lessons for guiding enterprises through an agentic shift.  \n1. Make workflows agent-executed, human-directed \nMost enterprise workflows run like a relay race: one person completes a task, checks it, and hands it off to the next person, who then does the same. Layering an AI agent onto that model gives you a faster runner for one leg, but the handoffs may stall or slow down other work.  \nRedesigning your workflows can remove blockers like these in a few ways:  \nStrategic direction: Move from…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Leading in the agentic era: How to put people first as you adopt AI agents",
+    "url": "https://cloud.google.com/blog/topics/consulting/lessons-for-adopting-ai-agents",
+    "publishedAt": "2026-11-03T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launch\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-microsoft-named-a-leader-in-the-2026-gartner-07adff",
+  "title": "Microsoft named a Leader in the 2026 Gartner® Magic Quadrant™ for AI Agent Management Platforms",
+  "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/11/03/microsoft-named-a-leader-in-the-2026-gartner-magic-quadrant-for-ai-agent-management-platforms",
+  "category": "security",
+  "publishedAt": "2026-11-03T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "04a691a3f53e8d61",
+  "excerpt": "Microsoft has been named a Leader in the inaugural 2026 Gartner® Magic Quadrant™ for AI Agent Management Platforms . We believe this recognition reflects Microsoft’s approach to helping organizations manage, secure, and scale their AI investments through Microsoft Agent 365 . \nFigure 1: Gartner, Magic Quadrant for AI Agent Management Platforms, October 27, 2026. \nMonitor and manage agents with Microsoft Agent 365 \nWhen we introduced Agent 365, we started with a simple concept: agents should be managed with the same rigor you already apply to users, apps, and devices, using the infrastructure and protections that already run your business. Since then, more than 50 million agents have been registered in Agent 365. 1 \nHere’s what we believe made the difference.  \nWe started with identity, not monitoring   \nMany approaches to managing agents focus on monitoring after an agent is running. Microsoft’s approach begins with identity. With Microsoft Entra Agent ID , every agent in the organization is assigned a unique agent ID, associated with an owner and purpose, and the right access controls based on its needs.  \nThis enables organizations to apply established identity and access…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "Microsoft named a Leader in the 2026 Gartner® Magic Quadrant™ for AI Agent Management Platforms",
+    "url": "https://microsoft.com/en-us/security/blog/2026/11/03/microsoft-named-a-leader-in-the-2026-gartner-magic-quadrant-for-ai-agent-management-platforms",
+    "publishedAt": "2026-11-03T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-vitest-5-prioritises-performance-with-a-shared-bb7908",
+  "title": "Vitest 5: Prioritises Performance with a Shared Vite Server, Trace View, and Stricter Test Defaults",
+  "canonicalUrl": "https://infoq.com/news/2026/11/vite-5-release",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-03T16:47:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f7b341858eaf99a9",
+  "excerpt": "Vitest 5.0 focuses on speed, with reported gains of 8 to 25 percent in most setups and up to 53 percent in VM pools. It adds a vitest doctor command, Browser Mode Trace View, and vi.when. Defaults are stricter: clearMocks is true and unawaited async assertions fail. It requires Vite 6.4 and Node.js 22.12 or newer.\nBy Daniel Curtis",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Vitest 5: Prioritises Performance with a Shared Vite Server, Trace View, and Stricter Test Defaults",
+    "url": "https://infoq.com/news/2026/11/vite-5-release",
+    "publishedAt": "2026-11-03T16:47:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"5.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches node.js"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-palette-teaching-a-small-model-to-build-decks-in-4d3938",
+  "title": "Palette: teaching a small model to build decks in your design language",
+  "canonicalUrl": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T16:35:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ad908317fc7457db",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "Palette: teaching a small model to build decks in your design language",
+    "url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+    "publishedAt": "2026-11-03T16:35:36.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-llm-reviews-for-debian-s-new-queue-spark-debate-8f2bc6",
+  "title": "[$] LLM reviews for Debian's new queue spark debate",
+  "canonicalUrl": "https://lwn.net/Articles/1103674",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T16:28:40.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9aebd165124fc964",
+  "excerpt": "The Debian project has wrestled with the topic of LLM usage for years, which\nculminated in a general-resolution\nvote this August. The project voted in favor of the fifth, out of\neight, option: \" Responsible Use of\nGenerative AI \". With the door open to LLM use, the DFSG, Licensing & New Packages\nTeam (usually shortened to \"DFSG team\"), which is relatively new , has started to employ LLMs in\nsending out reviews of packages entering Debian's new queue . The practice has\nraised a number of objections and questions about where lines should be drawn in\nthe use of LLM-generated output.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "[$] LLM reviews for Debian's new queue spark debate",
+    "url": "https://lwn.net/Articles/1103674",
+    "publishedAt": "2026-11-03T16:28:40.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches llm"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-uefi-bootkit-infected-fully-patched-windows-d05229",
+  "title": "UEFI bootkit infected fully patched Windows machines. Is Microsoft to blame?",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/uefi-bootkit-infected-fully-patched-windows-machines-is-microsoft-to-blame",
+  "category": "security",
+  "publishedAt": "2026-11-03T16:03:13.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0815715ceb80d8b6",
+  "excerpt": "In 2023, malware tracked as BlackLotus became the first publicly documented in-the-wild UEFI bootkit capable of bypassing Secure Boot on fully updated Windows 11 systems. With the industry-wide chain-of-trust mechanism subverted, the malware was able to run malicious code before Windows was fully loaded and many security defenses were operational.\nMicrosoft had already patched the vulnerability that BlackLotus exploited in 2022. In 2023 and 2024, Microsoft issued additional updates. The first added a new certificate that no longer trusted the vulnerable boot managers. The second provided the means to revoke trust in the digital certificate used to sign older vulnerable Windows boot managers. The organizations infected by the new bootkit, which is tracked under the name BlackX, had installed all of these patches. So how did they fall victim?\nUEFI bootkit refresher\nBefore discussing the incident further, a brief review of BlackLotus and UEFI malware is in order. Short for Unified Extensible Firmware Interface , UEFI is firmware that runs immediately after a computer is turned on. One of its main jobs is to load system configuration settings, identify and initialize hardware…",
+  "sources": [
+   {
+    "sourceId": "ars-technica",
+    "sourceName": "Ars Technica",
+    "title": "UEFI bootkit infected fully patched Windows machines. Is Microsoft to blame?",
+    "url": "https://arstechnica.com/security/2026/11/uefi-bootkit-infected-fully-patched-windows-machines-is-microsoft-to-blame",
+    "publishedAt": "2026-11-03T16:03:13.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updated\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-ai-is-changing-how-semiconductor-fabs-work-and-1864e4",
+  "title": "AI Is Changing How Semiconductor Fabs Work — and Engineers Are Moving Faster Because of It",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/ai-semiconductor-fabs",
+  "category": "hardware",
+  "publishedAt": "2026-11-03T16:00:45.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "891c9baffd398277",
+  "excerpt": "Demand for advanced chips is rising. The processes to build them are getting more complex. And the margin for error is shrinking. \nFor engineers, understanding how a process change will behave, how a material will interact with a new step, how a defect maps back to a root cause are critical, challenging steps in semiconductor manufacturing — and these analyses can take days. Physical experiments on a fab line are slow and expensive. A wrong call on yield or process quality has real consequences. \nAI is transforming semiconductor manufacturing, impacting what engineers can do — and how fast.  \nAccelerated computing shortens simulation time, allowing engineers to evaluate more alternatives before committing to physical trials.  \nPhysics-based AI helps engineers predict process behavior without running a full simulation every time.  \nAI agents handle sequences of engineering tasks that once consumed hours.  \nAnd digital twins let teams test changes in a virtual environment before committing to physical trials. \nTogether, these capabilities describe an AI-defined fab: a semiconductor manufacturing factory where AI helps engineers optimize processes, catch problems earlier and make…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "AI Is Changing How Semiconductor Fabs Work — and Engineers Are Moving Faster Because of It",
+    "url": "https://blogs.nvidia.com/blog/ai-semiconductor-fabs",
+    "publishedAt": "2026-11-03T16:00:45.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-arnis-turns-any-place-on-earth-into-a-minecraft-20ff7d",
+  "title": "Arnis turns any place on Earth into a Minecraft world",
+  "canonicalUrl": "https://github.blog/open-source/maintainers/arnis-turns-any-place-on-earth-into-a-minecraft-world",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-03T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9d564caf0890182b",
+  "excerpt": "Louis Erbkamm knows his way around Arnis, the smallest town in Germany, but he&rsquo;s never set foot in it.\nI know where the shops are. Where the boats are&hellip; I know the city pretty well, but I haven&rsquo;t been there yet.\nLouis Erbkamm, maintainer of Arnis \nArnis is also the name of his open source project, which takes real-world data from OpenStreetMap and other sources to turn places you know into Minecraft worlds you can freely explore. Since Louis started Arnis in 2022, it&rsquo;s reached close to 900,000 downloads from GitHub and about 70 contributors.\nTwo weeks and a slow prototype\nLouis grew up playing Minecraft and started coding at 13, always looking for ways to bring code into the game. Arnis began as a fun diversion combining Minecraft with geospatial data, and it went on GitHub, where he already kept his side projects. He finished the first prototype within two weeks while on a break from school.\nThat first version was Python written by hand, built only on OpenStreetMap, and generating a town took a while. He needed somewhere real to test it, so he looked up towns in Germany, where he lives, and found Arnis. A small town helped while early generation was…",
+  "sources": [
+   {
+    "sourceId": "github-blog",
+    "sourceName": "The GitHub Blog",
+    "title": "Arnis turns any place on Earth into a Minecraft world",
+    "url": "https://github.blog/open-source/maintainers/arnis-turns-any-place-on-earth-into-a-minecraft-world",
+    "publishedAt": "2026-11-03T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-study-estimates-75-of-nfl-players-who-died-over-a3becf",
+  "title": "Study estimates 75% of NFL players who died over 15-year span had CTE",
+  "canonicalUrl": "https://nbcnews.com/health/health-news/study-estimates-75-nfl-players-died-15-year-span-may-cte-rcna605975",
+  "category": "research",
+  "publishedAt": "2026-11-03T15:38:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c4c0ddd905840d8a",
+  "excerpt": "Article URL: https://www.nbcnews.com/health/health-news/study-estimates-75-nfl-players-died-15-year-span-may-cte-rcna605975 \nComments URL: https://news.ycombinator.com/item?id=50353335 \nPoints: 203\n# Comments: 145",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Study estimates 75% of NFL players who died over 15-year span had CTE",
+    "url": "https://nbcnews.com/health/health-news/study-estimates-75-nfl-players-died-15-year-span-may-cte-rcna605975",
+    "publishedAt": "2026-11-03T15:38:04.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"study\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-hear-what-your-ide-is-doing-new-sound-cues-in-bf9a8e",
+  "title": "Hear What Your IDE Is Doing: New Sound Cues in JetBrains IDEs",
+  "canonicalUrl": "https://blog.jetbrains.com/platform/2026/11/accessibility-sound-cues-in-jetbrains-ides",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-03T15:36:11.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d49edf6c8e99cdc5",
+  "excerpt": "You can use the audio player below to listen to this blog post. \n123 \nWith JetBrains IDEs 2026.3, we’re adding a new way to stay connected to your work: sound cues.\nA short sound can tell you if a build has finished successfully or failed, a breakpoint has been hit, or there’s something at the caret that needs your attention. These cues are designed to make everyday development easier to follow, whether you are concentrating on another task, working across several projects, or using a screen reader.\nSound is on by default for screen reader users, and opt-in otherwise. In both cases, the sound cues are configurable – you can choose the cues that help you and leave the rest off.\nWhat you can hear\nThe new Sound Signals settings let your IDE provide audio feedback for all important events.\nA video illustrating a sound signal for a failed test, as well as a sound for a breakpoint being hit. \nFor long-running work, you can hear when a build, test, or other task finishes, with different cues for success, warnings, and errors. The IDE also plays a sound when a breakpoint is hit and while a background task is running, so you know where the progress is at without having to repeatedly check…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "Hear What Your IDE Is Doing: New Sound Cues in JetBrains IDEs",
+    "url": "https://blog.jetbrains.com/platform/2026/11/accessibility-sound-cues-in-jetbrains-ides",
+    "publishedAt": "2026-11-03T15:36:11.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-kalshi-and-its-co-founders-face-felony-charges-da1b59",
+  "title": "Kalshi and its co-founders face felony charges for violating Utah gambling laws",
+  "canonicalUrl": "https://arstechnica.com/tech-policy/2026/10/trump-admin-sues-utah-to-save-kalshi-from-the-states-total-ban-on-gambling",
+  "category": "programming",
+  "publishedAt": "2026-11-03T15:29:15.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9fd527d703903790",
+  "excerpt": "Article URL: https://arstechnica.com/tech-policy/2026/10/trump-admin-sues-utah-to-save-kalshi-from-the-states-total-ban-on-gambling/ \nComments URL: https://news.ycombinator.com/item?id=50353229 \nPoints: 309\n# Comments: 226",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Kalshi and its co-founders face felony charges for violating Utah gambling laws",
+    "url": "https://arstechnica.com/tech-policy/2026/10/trump-admin-sues-utah-to-save-kalshi-from-the-states-total-ban-on-gambling",
+    "publishedAt": "2026-11-03T15:29:15.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-look-up-a-resource-s-cost-center-with-the-github-9bd439",
+  "title": "Look up a resource’s cost center with the GitHub REST API",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-03-look-up-a-resources-cost-center-with-the-github-rest-api",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-03T15:27:13.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c8be7ecf3c438d2b",
+  "excerpt": "You can now use the GitHub REST API to find which cost center a user, organization, repository, or enterprise team belongs to. Previously, you had to list every cost center and scan its resources.\nPass the resource type and name to the new endpoint. The response includes the cost center&rsquo;s ID and name. If the resource doesn&rsquo;t belong to a cost center, the memberships array is empty.\nAccess depends on your role:\nEnterprise owners, billing managers, and GitHub Apps with read access to enterprise billing can look up any resource in the enterprise.\nOrganization owners and users with custom roles that include read access to enterprise billing can only look up the resources and cost centers they can already see.\nTo get started, see Get cost center membership for a resource in the REST API documentation.\nThe post Look up a resource’s cost center with the GitHub REST API appeared first on The GitHub Blog .",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "Look up a resource’s cost center with the GitHub REST API",
+    "url": "https://github.blog/changelog/2026-11-03-look-up-a-resources-cost-center-with-the-github-rest-api",
+    "publishedAt": "2026-11-03T15:27:13.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-google-will-turn-off-search-for-schools-that-2258ac",
+  "title": "Google will turn off search for schools that reject AI",
+  "canonicalUrl": "https://nytimes.com/2026/11/03/us/google-search-schools-restrict-ai.html",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T15:25:47.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "92683acf7fd6e837",
+  "excerpt": "https://archive.ph/RuwsB https://blog.google/products-and-platforms/products/educatio... \nComments URL: https://news.ycombinator.com/item?id=50353192 \nPoints: 380\n# Comments: 293",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Google will turn off search for schools that reject AI",
+    "url": "https://nytimes.com/2026/11/03/us/google-search-schools-restrict-ai.html",
+    "publishedAt": "2026-11-03T15:25:47.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-dave-stokes-is-postgresql-really-winning-3c9aad",
+  "title": "Dave Stokes: Is PostgreSQL Really Winning?",
+  "canonicalUrl": "https://postgr.es/p/9AX",
+  "category": "databases",
+  "publishedAt": "2026-11-03T15:18:18.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ee025b458c681ce7",
+  "excerpt": "The November 2026 DB-Engines rankings are out. PostgreSQL is the only database in the top four whose line is going up and to the right.\nOracle, MySQL and Microsoft SQL Server all lost points this month, and all three are down from a year ago. PostgreSQL gained points on both counts. It now sits just 3.84 points behind SQL Server for third place. On the past year's trend, PostgreSQL could move ahead of SQL Server as early as next month.\nSo it's time to celebrate, right? Maybe not yet. Before anyone orders the cake, let's look at what the numbers say, why people are moving, and how hard the next step up will be.\nThe numbers\nOnly PostgreSQL gained points this month, and only PostgreSQL is up from a year ago.\nSource: DB-Engines Ranking of Relational DBMS , November 2026.\nA little napkin math shows when the order could change:\nSQL Server: The gap is 3.84 points. At this month's pace, it closes in about two months. At the past year's pace, it closes in less than one. So a December 2026 or January 2027 crossover is realistic.\nMySQL: The gap is 133.54 points. Over the past year, the gap shrank by about 81 points. If that keeps up, PostgreSQL passes MySQL around mid-2028.\nOracle: The gap…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Dave Stokes: Is PostgreSQL Really Winning?",
+    "url": "https://postgr.es/p/9AX",
+    "publishedAt": "2026-11-03T15:18:18.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgresql, database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-github-copilot-is-now-available-in-jetbrains-air-2b4786",
+  "title": "GitHub Copilot is now available in JetBrains Air",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-03T15:11:46.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8af08ec6da07a076",
+  "excerpt": "You can now delegate coding tasks, guide execution, and review results with GitHub Copilot in JetBrains Air . The integration uses the Agent Client Protocol (ACP) and supports tasks in your JetBrains IDE or in the cloud.\nUse Copilot in Air alongside the GitHub Copilot plugin and choose the workflow that works best for you. For a comparison and FAQ, see GitHub Copilot in JetBrains Air .\nWhat&rsquo;s new \nGitHub Copilot in Air&rsquo;s agent picker : Select GitHub Copilot and use your existing Copilot subscription for coding tasks.\nParallel work and in-context review : Track multiple agent sessions, use project context and IDE tools, and review changes alongside your code.\nCloud tasks on your GitHub Copilot subscription : Run Copilot in isolated cloud environments through Air Teams, from your IDE or browser. Tasks use your Copilot plan rather than JetBrains AI credits.\nGet started \nFor local tasks, install Air in your JetBrains IDE , select GitHub Copilot , and connect your GitHub Copilot account.\nFor cloud tasks, you&rsquo;ll need a JetBrains account in an Air Teams-enabled business organization, a GitHub Copilot subscription, and Copilot enabled by your Air administrator. There are…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "GitHub Copilot is now available in JetBrains Air",
+    "url": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air",
+    "publishedAt": "2026-11-03T15:11:46.000Z",
+    "credibility": 3
+   },
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "Use Your GitHub Copilot Plan in JetBrains Air – in Your IDE and in the Cloud",
+    "url": "https://blog.jetbrains.com/air/2026/11/github-copilot-in-air",
+    "publishedAt": "2026-11-03T18:04:19.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 66,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"now available\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "high",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-fedora-linux-45-released-d5ea80",
+  "title": "Fedora Linux 45 released",
+  "canonicalUrl": "https://lwn.net/Articles/1105121",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-03T15:11:32.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d06ddb6b7636098e",
+  "excerpt": "Fedora Linux\n45 has been released. This includes all editions: Fedora Workstation , Fedora KDE Plasma Desktop , Fedora Server , Fedora Cloud , Fedora CoreOS , and Fedora IoT , as well as the Atomic Desktops and Spins .\nThis release adds support for installation\non Stratis storage using Anaconda or Kickstart installs, retires\nunmaintained VPN plugins for NetworkManager, and updates Fedora's desktop\nenvironments, developer toolchains, and system packages. See the Fedora wiki\nChangeSet page for a list of major changes.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Fedora Linux 45 released",
+    "url": "https://lwn.net/Articles/1105121",
+    "publishedAt": "2026-11-03T15:11:32.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-barracuda-warns-of-critical-flaws-allowing-root-9a8ab8",
+  "title": "Barracuda warns of critical flaws allowing root access to devices",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices",
+  "category": "security",
+  "publishedAt": "2026-11-03T15:06:16.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "08271fc0b6d33bea",
+  "excerpt": "Cybersecurity company Barracuda Networks warned customers to patch two vulnerabilities that can let attackers run commands with root privileges. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Barracuda warns of critical flaws allowing root access to devices",
+    "url": "https://bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices",
+    "publishedAt": "2026-11-03T15:06:16.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-trace-linkage-connect-the-dots-between-your-app-387424",
+  "title": "Trace linkage: connect the dots between your app traces and database queries",
+  "canonicalUrl": "https://grafana.com/blog/trace-linkage-connect-the-dots-between-your-app-traces-and-database-queries",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-03T15:05:03.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b0ba33828d71fa95",
+  "excerpt": "When an application request slows down, a trace can show a database call. Finding the database query behind it can be tedious, requiring you to switch between traces and database telemetry, as well as match timestamps or query text by hand. \nIn Grafana Cloud, the Database Observability app already provides a window into all of your database telemetry, including query samples, performance history, and explain plan. But what if you could jump from that database call in the trace straight to its query details?\nOpenTelemetry database semantic conventions stabilized last year, giving us all a dependable shared language for describing database operations. That foundation has opened the door for what we call trace linkage , now Generally Available in Database Observability!\nWhat is trace linkage?\nWith trace linkage, we try to provide a connection between OpenTelemetry-instrumented applications and database telemetry collected with Alloy . In other words, when you give us these previously-disjoint puzzle pieces, we’ll do our best to provide you as much supporting information between these two elements as we can. And we'll do it without making you tediously piece together timestamps and…",
+  "sources": [
+   {
+    "sourceId": "grafana-blog",
+    "sourceName": "Grafana Labs Blog",
+    "title": "Trace linkage: connect the dots between your app traces and database queries",
+    "url": "https://grafana.com/blog/trace-linkage-connect-the-dots-between-your-app-traces-and-database-queries",
+    "publishedAt": "2026-11-03T15:05:03.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches database, observability"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-codeql-2273-adds-python-315-features-and-json-1ebb6c",
+  "title": "CodeQL 2.27.3 adds Python 3.15 features and JSON data extensions",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-03-codeql-2-27-3-adds-python-3-15-features-and-json-data-extensions",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-03T14:56:03.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "14a1b1bda4b95948",
+  "excerpt": "CodeQL is the static analysis engine behind GitHub code scanning, which finds and remediates security issues in your code. We&rsquo;ve recently released CodeQL 2.27.3 . It supports new Python 3.15 language features, adds JSON syntax for data extensions, adds C23 bit-precise integers, and includes accuracy improvements across languages.\nLanguage and framework support \nCodeQL CLI \nData extension files now support JSON syntax, using the same structure as YAML data extensions. Java-style comments ( // ... and /* ... */ ) also work. CodeQL parses files with the .json extension as JSON and continues to parse all other files as YAML.\nWe&rsquo;ve added an opt-in ai threat model for LLM-generated data. It doesn&rsquo;t include any built-in source models, so you can define your own sources with data extensions.\nPython \nThe Python extractor now supports Python 3.15 syntax, including unary plus in match literal patterns and Unicode 17 identifiers.\nWe&rsquo;ve added support for the new frozendict and sentinel builtins introduced in Python 3.15, including data flow modeling for frozendict construction.\nC/C++ \nWe&rsquo;ve added support for C23 bit-precise integers ( _BitInt(N) ).\nWe&rsquo;ve…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "CodeQL 2.27.3 adds Python 3.15 features and JSON data extensions",
+    "url": "https://github.blog/changelog/2026-11-03-codeql-2-27-3-adds-python-3-15-features-and-json-data-extensions",
+    "publishedAt": "2026-11-03T14:56:03.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 28,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches python"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-does-your-application-need-local-data-or-faster-d8dcbe",
+  "title": "Does your application need local data or faster Postgres?",
+  "canonicalUrl": "https://clickhouse.com/blog/does-your-application-need-local-data-or-faster-postgres",
+  "category": "databases",
+  "publishedAt": "2026-11-03T14:55:13.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b264312977f4dd5a",
+  "excerpt": "Local synchronization makes reads fast, but adds another data layer to manage. Explore how AI agents change the trade-off and when NVMe-backed Postgres can simplify the architecture.",
+  "sources": [
+   {
+    "sourceId": "clickhouse",
+    "sourceName": "ClickHouse Blog",
+    "title": "Does your application need local data or faster Postgres?",
+    "url": "https://clickhouse.com/blog/does-your-application-need-local-data-or-faster-postgres",
+    "publishedAt": "2026-11-03T14:55:13.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 51,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"faster\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgres, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-mac-at-any-scale-94e58d",
+  "title": "Mac at Any Scale",
+  "canonicalUrl": "https://namespace.so/blog/mac-at-any-scale",
+  "category": "programming",
+  "publishedAt": "2026-11-03T14:53:42.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "70a06952e824146a",
+  "excerpt": "Article URL: https://namespace.so/blog/mac-at-any-scale \nComments URL: https://news.ycombinator.com/item?id=50352758 \nPoints: 221\n# Comments: 119",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Mac at Any Scale",
+    "url": "https://namespace.so/blog/mac-at-any-scale",
+    "publishedAt": "2026-11-03T14:53:42.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-openai-seems-to-be-silently-re-enabling-model-31229f",
+  "title": "OpenAI seems to be silently re-enabling model training on Codex chats",
+  "canonicalUrl": "https://news.ycombinator.com/item?id=50352757",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T14:53:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "dd429f59ad617c7f",
+  "excerpt": "My company is pretty paranoid about leaking IP to the frontier labs through prompts, so we've all been diligent about disabling data sharing in Codex/Claude Code/etc. But yesterday my coworkers and I noticed that the setting had been silently reenabled in Codex. None of us knowingly opted back in. You can check your settings here: https://chatgpt.com/settings/data-controls. Look for \"Improve the model for everyone\". Curious if this is an isolated issue or something more widespread. EDIT: looks like this has been noted before https://news.ycombinator.com/item?id=49643556 EDIT: apparently you can also turn off data sharing here: https://privacy.openai.com/policies?modal=take-control\nComments URL: https://news.ycombinator.com/item?id=50352757 \nPoints: 333\n# Comments: 102",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "OpenAI seems to be silently re-enabling model training on Codex chats",
+    "url": "https://news.ycombinator.com/item?id=50352757",
+    "publishedAt": "2026-11-03T14:53:41.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-security-updates-for-tuesday-0920d2",
+  "title": "Security updates for Tuesday",
+  "canonicalUrl": "https://lwn.net/Articles/1105111",
+  "category": "databases",
+  "publishedAt": "2026-11-03T14:10:12.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e405b494a8cdaaef",
+  "excerpt": "Security updates have been issued by AlmaLinux (bind, bind9.16, firefox, freerdp, ghostscript, kernel, kernel-rt, libXi, perl-YAML:1.24, perl:5.32, pipewire, qt5-qtbase, redis:6, tomcat, and wireshark), Debian (chromium, git-annex, incus, kernel, and strongswan), Fedora (barman, erlang-hex_core, glib-networking, kernel, knot, liblerc, libsoup3, mingw-cfitsio, openjpeg, perl-libnet, pipx, python-pillow, python-uv-build, radicale, ruff, rust-archive-trait, rust-astral-ini, rust-astral-mail-headers, rust-astral-pubgrub, rust-astral-version-ranges, rust-astral_async_zip, rust-quick-junit, rust-tar-codec, rust-tar-framing, tpm2-tss, ty, uv, and zvbi), Mageia (unbound), Red Hat (buildah, compat-openssl10, compat-openssl11, container-tools:rhel8, delve, golang-github-openprinting-ipp-usb, grafana, grafana-pcp, kernel, oci-seccomp-bpf-hook, openssl, opentelemetry-collector, osbuild-composer, podman, rhc, and skopeo), Slackware (expat), SUSE (ansible-core, apache-arrow, apache-commons-codec, apache-commons-io, apache-commons- logging, avalon-framework, avalon-logkit, glassfish-jsp, jsch, maven-file- management, opentest4j, aws-nitro-enclaves-cli, bouncycastle, chromedriver, chromium,…",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Security updates for Tuesday",
+    "url": "https://lwn.net/Articles/1105111",
+    "publishedAt": "2026-11-03T14:10:12.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches redis, python, rust"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-introducing-zero-wire-a-hub-for-investigating-02c72e",
+  "title": "Introducing Zero Wire, a hub for investigating critical Internet vulnerabilities",
+  "canonicalUrl": "https://blog.cloudflare.com/zero-wire",
+  "category": "cloud",
+  "publishedAt": "2026-11-03T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f79884325a69aba1",
+  "excerpt": "You run security at your organization. It’s 7:00 am, and you’re having breakfast. You receive a ping: a new critical vulnerability has been disclosed. Your team scrambles to compare vendor advisories, read technical research, check which systems run the affected software, and answer familiar questions from the business: are we affected, and what are we doing about it? Another disclosure arrives before that work is finished.\nAI is changing both the volume and speed of critical vulnerability discovery. It can analyze large codebases at scale and surface deeply nested flaws that may have existed for years without being found through human review. That discovery momentum will put more pressure on security teams to understand the impact of each disclosure on their infrastructure.\nTo help security teams prepare, today we’re introducing Zero Wire : a public vulnerability intelligence feed on Cloudflare Radar, bringing the clarity of a news wire service to critical security developments. It helps security leaders and practitioners understand significant vulnerabilities and decide what to do next.\nHow it works\nZero Wire lives inside Cloudflare Radar under the security section.\nEach…",
+  "sources": [
+   {
+    "sourceId": "cloudflare",
+    "sourceName": "Cloudflare Blog",
+    "title": "Introducing Zero Wire, a hub for investigating critical Internet vulnerabilities",
+    "url": "https://blog.cloudflare.com/zero-wire",
+    "publishedAt": "2026-11-03T14:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-the-emudhra-certificate-authority-compromise-what-c12736",
+  "title": "The eMudhra Certificate Authority Compromise: What It Means for TeamCity",
+  "canonicalUrl": "https://blog.jetbrains.com/teamcity/2026/11/emudhra-certificate-authority-compromise-what-it-means-for-teamcity",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-03T13:59:06.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "116979e5d840fbd9",
+  "excerpt": "Summary\nIn October 2026, the private keys of eight intermediate certificate authorities operated by eMudhra were found to be weak and recoverable from public data. According to eMudhra’s official statement , none of the affected intermediate CAs had issued end-entity (leaf) certificates , and eMudhra is not aware of evidence that the weak keys were recovered or exploited before the issue was disclosed.\nThe issue is not a vulnerability in TeamCity itself. However, the trust stores maintained by other software components (primarily the Java runtime) that TeamCity relies on may continue to trust the compromised certificates. Starting with versions 2026.2.2 and 2026.1.6 , TeamCity shows a health report if the installation still trusts affected certificates, along with remediation steps.\nRecommended actions: \nTeamCity On-Premises: Review server and build agent installations and apply the necessary fixes according to the instructions below. Upgrade to v2026.2.2 or v2026.1.6 for an updated Java runtime for the Windows agent installer, updated Docker images, and the health report, or follow the instructions below to apply the same fixes to the current installation.\nTeamCity Cloud:…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "The eMudhra Certificate Authority Compromise: What It Means for TeamCity",
+    "url": "https://blog.jetbrains.com/teamcity/2026/11/emudhra-certificate-authority-compromise-what-it-means-for-teamcity",
+    "publishedAt": "2026-11-03T13:59:06.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-dimitri-fontaine-postgres-logical-replication-6f5655",
+  "title": "Dimitri Fontaine: Postgres logical replication beyond one writer",
+  "canonicalUrl": "https://postgr.es/p/9AU",
+  "category": "databases",
+  "publishedAt": "2026-11-03T13:50:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d60973f2c54c6e93",
+  "excerpt": "In 2014, if you wanted Postgres servers on several continents, each of them\naccepting writes and all of them sharing their rows, there was one serious\nopen source answer: BDR, from 2ndQuadrant. It needed a patched PostgreSQL 9.4\nand a plugin, which means it needed a server that was not Postgres. Ten years\nof work on logical replication have since moved most of what BDR needed into\nthe stock server, and in this article we build the same kind of system with\nPostgres 19 release candidate 1 and pg_auto_failover, to see how far that\nincremental progress has taken us, and what is still left to build.\nThis is the last article of a series on logical replication, and it should\nread fine on its own. In Part\n1 we built a\nhub-and-workers system for write scalability, in Part\n2 \nwe consolidated several databases into one warehouse, and in Part\n3 \nwe did a zero-downtime major upgrade.\nTL;DR We built five regions out of pg_auto_failover groups and core logical\nreplication, and tested them by killing primaries under load. Every\nacknowledged row survived, every region ended with the same rows, and a fifth\nregion joined the running system with five statements and no pause. Core now\ndoes the hard…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Dimitri Fontaine: Postgres logical replication beyond one writer",
+    "url": "https://postgr.es/p/9AU",
+    "publishedAt": "2026-11-03T13:50:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches postgres, replication, postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-anthropic-speeds-up-claude-code-with-message-b01fd2",
+  "title": "Anthropic speeds up Claude Code with message threads. But your token bill stays the same.",
+  "canonicalUrl": "https://thenewstack.io/anthropic-claude-message-threads",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T13:46:14.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "668537b34ce419e3",
+  "excerpt": "Anthropic has announced a new feature that aims to speed up long-running Claude Code sessions by reducing the amount of conversation data repeatedly sent to its API, helping developers get responses faster as their coding sessions grow.\nMessage threads , as it’s called, is available now in public beta for Anthropic’s Messages API and is already enabled by default for “most” Claude Code users, according to an article published by Anthropic on Monday.\nThe company says that the feature has reduced median time to first token (TTFT) — the time it takes Claude to begin generating a response — by approximately 35% for Claude Code requests containing between 500,000 and 1 million tokens.\nGiven that it’s now part of the Messages API, the feature also extends beyond Claude Code to developers building their own AI agents, particularly those handling lengthy conversations, repeated tool calls, and large amounts of data.\nHow message threads works\nTo understand what’s changed, it’s worth looking at how the Messages API has traditionally handled conversations.\nEvery time an agent sends a new request to Claude, it includes the entire conversation history. That means all messages and tool calls…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Anthropic speeds up Claude Code with message threads. But your token bill stays the same.",
+    "url": "https://thenewstack.io/anthropic-claude-message-threads",
+    "publishedAt": "2026-11-03T13:46:14.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-the-download-controlling-ai-agents-and-super-a69655",
+  "title": "The Download: controlling AI agents and “Super Intelligence” loyalty tests",
+  "canonicalUrl": "https://technologyreview.com/2026/11/03/1147940/the-download-controlling-ai-agents-trump-super-intelligence",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T13:10:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5a36c03cb1c74664",
+  "excerpt": "This is today’s edition of The Download , our weekday newsletter that provides a daily dose of what’s going on in the world of technology. \nHow “reverse game theory” could keep AI agents in check\nA new approach known as “reverse game theory” aims to control powerful AI models by designing systems that incentivize them to stick to the rules.\nWhile game theory predicts how rational actors behave under particular rules, reverse game theory designs rules to elicit the behavior we want. Think of splitting a cake: if one person cuts it and the other gets first choice, the cutter has an incentive to make the portions equal.\nResearchers believe the approach could align AI more closely with our rules and instructions. But big questions remain about whether these mechanisms will work in practice.\nHere’s how reverse game theory could help make AI agents behave .\n—Amit Katwala \nHere’s who is falling in line for Trump’s “Super Intelligence” loyalty test \nAt the end of September, President Trump signed an executive order with just one directive: government agencies must rebrand artificial intelligence as “Super Intelligence.”\nOne month on, the rebrand is slowly appearing across government…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "The Download: controlling AI agents and “Super Intelligence” loyalty tests",
+    "url": "https://technologyreview.com/2026/11/03/1147940/the-download-controlling-ai-agents-trump-super-intelligence",
+    "publishedAt": "2026-11-03T13:10:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-accelerating-engineering-for-the-physical-world-25493a",
+  "title": "Accelerating engineering for the physical world",
+  "canonicalUrl": "https://openai.com/index/accelerating-engineering-for-the-physical-world",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "aff824d2ecdc3470",
+  "excerpt": "Discover how ChatGPT and Codex are helping engineers accelerate CAD, PCB design, simulation, and other workflows across the physical world.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Accelerating engineering for the physical world",
+    "url": "https://openai.com/index/accelerating-engineering-for-the-physical-world",
+    "publishedAt": "2026-11-03T12:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-linkedin-uses-opentelemetry-to-trace-the-member-3797db",
+  "title": "LinkedIn Uses OpenTelemetry to Trace the Member Journey from Tap to Backend",
+  "canonicalUrl": "https://infoq.com/news/2026/11/linkedin-opentelemetry-journey",
+  "category": "programming",
+  "publishedAt": "2026-11-03T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "93a97c092169b6ff",
+  "excerpt": "LinkedIn has built an OpenTelemetry-based telemetry platform that connects what members do in its iOS, Android, and web applications with the backend services processing those interactions.\nBy Craig Risi",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "LinkedIn Uses OpenTelemetry to Trace the Member Journey from Tap to Backend",
+    "url": "https://infoq.com/news/2026/11/linkedin-opentelemetry-journey",
+    "publishedAt": "2026-11-03T12:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-openkruise-agents-v060-leaping-ahead-in-agent-829f47",
+  "title": "OpenKruise Agents v0.6.0: Leaping ahead in agent Sandbox security and automation",
+  "canonicalUrl": "https://cncf.io/blog/2026/11/03/openkruise-agents-v0-6-0-leaping-ahead-in-agent-sandbox-security-and-automation",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-03T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d143689e77c992d9",
+  "excerpt": "About OpenKruise Agents \nOpenKruise Agents is a sub-project of OpenKruise, the CNCF open-source application automation and workload orchestration project. It provides full lifecycle management for Agent Sandboxes running at scale on Kubernetes, together with a complete runtime environment covering networking, storage, and identity. OpenKruise Agents exposes both Kubernetes and E2B interfaces , so infrastructure teams, platform teams, and AI algorithm engineers can all operate sandboxes conveniently.\nThe v0.3.0 release answered one question: once a Sandbox is handed to an Agent, how do you upgrade it, resize it, and account for it. Its roadmap closed with two promises — network governance through TrafficPolicy / SecurityProfile , and a security identity integration that keeps platform credentials out of Agent code.\nOpenKruise Agents v0.6.0 delivers both, and adds the operational machinery around them: 283 merged pull requests and 27 new contributors since v0.3.0. This post covers four capabilities in depth:\nL4 and L7 network access control plus token management — destination reachability, per-request inspection, MCP tool-level ACLs, and credential injection from Kubernetes…",
+  "sources": [
+   {
+    "sourceId": "cncf",
+    "sourceName": "CNCF Blog",
+    "title": "OpenKruise Agents v0.6.0: Leaping ahead in agent Sandbox security and automation",
+    "url": "https://cncf.io/blog/2026/11/03/openkruise-agents-v0-6-0-leaping-ahead-in-agent-sandbox-security-and-automation",
+    "publishedAt": "2026-11-03T12:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"6.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches agents, agent, kubernetes, runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-subnet-solutions-powersystem-center-3d17c5",
+  "title": "Subnet Solutions PowerSYSTEM Center",
+  "canonicalUrl": "https://cisa.gov/news-events/ics-advisories/icsa-26-307-01",
+  "category": "security",
+  "publishedAt": "2026-11-03T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7ff274bc5c1adf33",
+  "excerpt": "View CSAF \nSummary\nSuccessful exploitation of these vulnerabilities could allow an attacker to execute unauthorized SQL commands and gain access to unauthorized resources. \nThe following versions of Subnet Solutions PowerSYSTEM Center are affected:\nPowerSYSTEM Center 2020 <=5.29.x (CVE-2026-63017)\nPowerSYSTEM Center 2024 >=6.0.x|<=6.2.x (CVE-2026-63017, CVE-2026-63774)\nPowerSYSTEM Center 2026 >=7.0.x|<=7.1.x (CVE-2026-63017, CVE-2026-63774)\nCVSS \nVendor \nEquipment \nv3 9 \nSubnet Solutions \nPowerSYSTEM Center \n2 Vulnerabilities \nIncorrect Authorization, Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') \nBackground\nCritical Infrastructure Sectors: Critical Manufacturing, Energy\nCountries/Areas Deployed: Worldwide\nCompany Headquarters Location: Canada\nVulnerabilities\nExpand All + \nCVE-2026-63017\nIncorrect authorization in PowerSYSTEM Center allows a low-privileged, authenticated user to access resources normally limited to administrators.\nRead More \n3 Affected Products\nSubnet Solutions PowerSYSTEM Center 2024 >=6.0.x|<=6.2.x\nProduct Status: known_affected\nRemediations\nMitigation \nFor users who are currently using PowerSYSTEM Center 2024, Subnet…",
+  "sources": [
+   {
+    "sourceId": "cisa-advisories",
+    "sourceName": "CISA Cybersecurity Advisories",
+    "title": "Subnet Solutions PowerSYSTEM Center",
+    "url": "https://cisa.gov/news-events/ics-advisories/icsa-26-307-01",
+    "publishedAt": "2026-11-03T12:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-presentation-beyond-the-harness-canvas-for-ai-8244c7",
+  "title": "Presentation: Beyond the Harness: Canvas for AI Agents",
+  "canonicalUrl": "https://infoq.com/presentations/canvas-ai-agents",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T11:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "78d648fa04fff94c",
+  "excerpt": "Nimisha Asthagiri shares how applying proven product engineering and architecture principles creates a bounded canvas for AI agents. She explains how this model provides agents with bounded autonomy, continuous drift detection, and decision records to scale software development resiliently.\nBy Nimisha Asthagiri",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Presentation: Beyond the Harness: Canvas for AI Agents",
+    "url": "https://infoq.com/presentations/canvas-ai-agents",
+    "publishedAt": "2026-11-03T11:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-how-reverse-game-theory-could-keep-ai-agents-in-02e27e",
+  "title": "How “reverse game theory” could keep AI agents in check",
+  "canonicalUrl": "https://technologyreview.com/2026/11/03/1147934/reverse-game-theory-mechanism-design-ai-alignment",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T10:43:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "262761485a2570aa",
+  "excerpt": "A new approach known as “reverse game theory” aims to control powerful AI models by designing systems that incentivize them to stick to the rules.\nAs AI models become more capable, safety researchers are scrambling to ensure they are “aligned” with human desires—to make sure, in other words, that rogue agents don’t break the law, hack into unauthorized servers, or release poison gas into major cities and kill us all.\nUntil now, this work has mostly focused on trying to peer into an AI’s “brain” to understand what it is “thinking,” or training models to hew to values that we hold dear. Claude, for instance, has its constitution —a sort of moral code.\nThe trouble is, these techniques don’t seem to work particularly well: Models have been shown to deliberately underperform on tests, hide their intentions , and mislead their evaluators . \nNow some alignment researchers believe that reverse game theory, also known as mechanism design, might get better results. Where game theory tries to predict how rational actors will behave when given a particular set of rules, reverse game theory attempts to design rules that will elicit the kinds of behavior we want to encourage.\nAn example of…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "How “reverse game theory” could keep AI agents in check",
+    "url": "https://technologyreview.com/2026/11/03/1147934/reverse-game-theory-mechanism-design-ai-alignment",
+    "publishedAt": "2026-11-03T10:43:41.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-03-oh-your-agents-need-oauth2-too-ea450c",
   "title": "Oh, your agents need OAuth2, too",
   "canonicalUrl": "https://stackoverflow.blog/2026/11/03/oh-your-agents-need-oauth2-too",
@@ -7,7 +3206,7 @@
   "publishedAt": "2026-11-03T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b16dc7d436a154ab",
@@ -52,6 +3251,209 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-03-five-rules-for-evaluating-agent-skills-before-eb6475",
+  "title": "Five rules for evaluating agent skills before they bloat your context window",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/developers-practitioners/evaluate-agent-skills-before-they-bloat-your-context-window",
+  "category": "cloud",
+  "publishedAt": "2026-11-03T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d0a8907e1648dc3b",
+  "excerpt": "You’re probably hearing more about SKILL.md files, and you’ll see that a lot of people test them the same way: paste a prompt into chat, watch it pass once on a laptop, and merge to main. But when you paste three pages of CLI docs into a markdown file without an evaluation loop, you are just as likely to confuse a frontier model as you are to help it. \nFor the past weeks, we have been diligently measuring and optimizing our own Google Cloud Developer Plugin , with the most essential skills and the Developer Knowledge MCP server to ground responses in the documentation. \nWe ran dozens of scenarios with Gemini, Antigravity, and other agents. We used Claude Sonnet 5 on Gemini platform inside isolated Harbor pods on GKE Autopilot . And, we contributed Kubernetes and Gemini platform capabilities upstream to NVIDIA's open-source evaluator.  \nHere's the five-rule engineering playbook we use to verify a skill is worth its tokens. \n1. Gate trigger collisions and security risks before spinning up containers \nWhen an evaluation run shows zero improvement between your plugin arm and your baseline arm ( Δ = 0 ), the natural urge is to rewrite the body of your SKILL.md instructions. Hold off on…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Five rules for evaluating agent skills before they bloat your context window",
+    "url": "https://cloud.google.com/blog/topics/developers-practitioners/evaluate-agent-skills-before-they-bloat-your-context-window",
+    "publishedAt": "2026-11-03T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, context window"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-heimstaden-is-changing-residential-real-estate-fc87a4",
+  "title": "Heimstaden is changing residential real estate management with AI",
+  "canonicalUrl": "https://openai.com/index/heimstaden",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5ecffccb3db362d4",
+  "excerpt": "Discover how Heimstaden uses OpenAI’s ChatGPT Enterprise and Codex to transform property management, cut costs, and empower employees across Europe.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Heimstaden is changing residential real estate management with AI",
+    "url": "https://openai.com/index/heimstaden",
+    "publishedAt": "2026-11-03T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-how-cisco-defends-at-machine-speed-with-openai-34e7d6",
+  "title": "How Cisco defends at machine speed with OpenAI",
+  "canonicalUrl": "https://openai.com/index/cisco-cyber",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cb4e58bfdaf493f8",
+  "excerpt": "Cisco combines network intelligence with OpenAI models to strengthen enterprise security. Learn how it is building more adaptive defenses.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "How Cisco defends at machine speed with OpenAI",
+    "url": "https://openai.com/index/cisco-cyber",
+    "publishedAt": "2026-11-03T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-introducing-physical-engineering-s-last-exam-for-cbd096",
+  "title": "Introducing Physical-Engineering’s Last Exam for agents",
+  "canonicalUrl": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-physical-engineerings-last-exam-for-agents",
+  "category": "cloud",
+  "publishedAt": "2026-11-03T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "811bd5f293ec7661",
+  "excerpt": "Authors: Burak Gokturk, VP Research & Development; Rujun Han, Research Scientist; George Lee, Product Manager. \nToday, the Google AI & Infrastructure team is announcing Physical-Engineering's Last Exam (PLE) , a new benchmark and open competition, developed in collaboration with Mercor, and built to test a frontier model’s ability to complete tasks in mechanical, electrical, civil and structural engineering.  \nTo help the research community measure and improve how agents handle physical engineering work, we are releasing 29 public tasks, their grading tools, and an open competition leaderboard at ple-bench.com . \nFrontier labs and the broader research community use model examinations to test AI’s progress in completing tasks in a specific discipline. Humanity's Last Exam measures a model’s general knowledge. Agents' Last Exam measures a model’s ability to complete digital professional work. Physical-Engineering's Last Exam (PLE) measures a model’s ability to complete work that helps build the physical world. Physical engineers design skyscrapers, power grids, and computer chips we rely on, yet we could find no existing benchmark that tests whether frontier models can do that work…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Introducing Physical-Engineering’s Last Exam for agents",
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-physical-engineerings-last-exam-for-agents",
+    "publishedAt": "2026-11-03T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-03-cities-worldwide-build-and-scale-ai-services-with-2eec94",
   "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI",
   "canonicalUrl": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications",
@@ -59,7 +3461,7 @@
   "publishedAt": "2026-11-03T07:00:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b804a311851f84fd",
@@ -109,6 +3511,375 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-03-communication-efficient-model-distributed-b075a2",
+  "title": "Communication-Efficient Model-Distributed Inference for CBRS Radar Detection at the Edge",
+  "canonicalUrl": "https://arxiv.org/abs/2611.00625",
+  "category": "research",
+  "publishedAt": "2026-11-03T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "09742afd6f886660",
+  "excerpt": "arXiv:2611.00625v1 Announce Type: new \nAbstract: The Citizens Broadband Radio Service (CBRS) shares the 3550-3700 MHz band between incumbent radar systems and commercial LTE/5G users, so radar activity must be detected accurately and promptly. Spectrogram-based YOLO detectors can localize coexisting radar and cellular signals, but running them on resource-constrained edge devices is challenging. Model-distributed inference (MDI) can increase throughput by partitioning a model across edge devices. Using an end-to-end pipeline from raw I/Q samples to on-device detection, we show that partitioning recent YOLO generations incurs high activation-transfer costs due to their multi-scale structures. To reduce these costs, we propose CEDAR, a communication-efficient, edge-distributed architecture for radar detection. Its RF-aware detector, CEDAR-YOLO, removes YOLO's multi-scale neck and two of its three detection scales, leaving a single-scale path with independently configured frequency and time resolutions, which lowers the communication cost of partitioning. Its compression-aware MDI framework, CEDAR-MDI, integrates lightweight activation compressors and selects, for each compressor,…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Communication-Efficient Model-Distributed Inference for CBRS Radar Detection at the Edge",
+    "url": "https://arxiv.org/abs/2611.00625",
+    "publishedAt": "2026-11-03T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches distributed, inference, throughput"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-novafilter-a-rule-based-etl-staging-framework-for-8b631c",
+  "title": "NovaFilter - A Rule-Based ETL Staging Framework for Fault-Tolerant Relational Databases",
+  "canonicalUrl": "https://arxiv.org/abs/2611.00959",
+  "category": "research",
+  "publishedAt": "2026-11-03T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b69b6ff033ea73eb",
+  "excerpt": "arXiv:2611.00959v1 Announce Type: new \nAbstract: NovaFilter is a completely new approach to deriving structured relational data from heterogeneous input data in different data formats. It combines consistency checks, rule-based data transformation, and a human-in-the-loop example discussion. Using these three components, NovaFilter stores all transformation knowledge in an explicit rule base, which is continuously expanded through the example discussion with the user. The resulting data transformation process is deterministic, transparent, and reusable. As a result, the method can replace conventional ETL scripts and offers a completely new strategy for transforming data between different data models and schemas. Its main advantage is that users without programming skills (e.g. domain experts) can answer the example discussion and thus it is a building block for democratization of ETL script developement.",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "NovaFilter - A Rule-Based ETL Staging Framework for Fault-Tolerant Relational Databases",
+    "url": "https://arxiv.org/abs/2611.00959",
+    "publishedAt": "2026-11-03T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-rethinking-kv-cache-eviction-for-agentic-llm-9fb326",
+  "title": "Rethinking KV Cache Eviction for Agentic LLM Serving",
+  "canonicalUrl": "https://arxiv.org/abs/2611.00391",
+  "category": "research",
+  "publishedAt": "2026-11-03T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "92c18a8e25d545ac",
+  "excerpt": "arXiv:2611.00391v1 Announce Type: new \nAbstract: Key-value (KV) caches impose substantial memory pressure on large language model serving systems, requiring cache eviction when capacity is insufficient. Existing mechanisms typically evict KV from the ends of cached sequences to preserve prefix sharing across requests. However, agent workloads repeatedly reuse long histories across successive turns. Recomputing the KV cache for tokens near the end of a sequence is substantially more expensive than for earlier tokens because their attention computation involves longer histories. To address this problem, we propose preserving shared prefixes and evicting the KV cache from the beginning of the remaining history while retaining the cached suffix. We build Penelope around this strategy by co-designing the eviction policy, KV recomputation, and unified GPU-CPU cache management. Returning requests reuse the KV cache retained in GPU or CPU memory and recompute only missing segments while preserving reuse of the cached suffix. We implement Penelope in SGLang and evaluate it on three Qwen3 model sizes using real agent traces. Compared with SGLang, Penelope reduces mean time to first token by…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Rethinking KV Cache Eviction for Agentic LLM Serving",
+    "url": "https://arxiv.org/abs/2611.00391",
+    "publishedAt": "2026-11-03T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches cache, llm, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-sparqlcirc-probabilistic-query-evaluation-with-50d318",
+  "title": "SPARQLcirc: Probabilistic Query Evaluation with Provenance Circuits",
+  "canonicalUrl": "https://arxiv.org/abs/2611.00128",
+  "category": "research",
+  "publishedAt": "2026-11-03T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "32887f05652d0916",
+  "excerpt": "arXiv:2611.00128v1 Announce Type: new \nAbstract: Probabilistic query evaluation (PQE) computes the probability of every answer of a query over a tuple-independent probabilistic knowledge graph. We study exact PQE for SPARQL over graphs accessed through SPARQL 1.1 endpoints. Shared triples among the derivations of an answer make exact PQE #P-hard in general. Knowledge compilation of the Boolean provenance of every answer yields exact probabilities, and the provenance formulas of different answers can share subformulas. We propose SPARQLcirc, which rewrites a SPARQL query into CONSTRUCT queries that name every gate by its content, so that the results of independent queries form one Boolean provenance circuit for all answers. The rewriting covers joins, unions, projection, filters, OPTIONAL, difference, and transitive closures. SPARQLcirc compiles the circuit and computes the exact probability of every answer by weighted model counting. For the evaluation, we draw random probabilities for the triples of WatDiv and gMark and the statements of Wikidata and evaluate the CONSTRUCT queries on GraphDB, Fuseki, and Oxigraph. The ratio of the end-to-end time of PQE with SPARQLcirc to that of…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "SPARQLcirc: Probabilistic Query Evaluation with Provenance Circuits",
+    "url": "https://arxiv.org/abs/2611.00128",
+    "publishedAt": "2026-11-03T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"study\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-spbench-an-agent-native-framework-for-cross-e6f433",
+  "title": "SpBench: An Agent-Native Framework for Cross-Engine Lakehouse Benchmarking",
+  "canonicalUrl": "https://arxiv.org/abs/2611.00449",
+  "category": "research",
+  "publishedAt": "2026-11-03T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "52371ed189c1a7ac",
+  "excerpt": "arXiv:2611.00449v1 Announce Type: new \nAbstract: SpBench is an agent-native framework for cross-engine lakehouse benchmarking, in production use for benchmarking Snowpark, Snowpark Connect for Apache Spark, and other execution environments across standardized suites -- such as TPCx-BB and TPC-DI -- and custom benchmarks distilled from production workload patterns. It runs continuously across a broad portfolio of workloads, guiding the performance roadmap and detecting regressions for production-scale data engines. Benchmarking has historically been an expensive investment requiring continuous cross-functional collaboration and domain expertise, making it difficult to obtain actionable performance insights. SpBench provides (i) a typed, code-generated benchmark substrate that compiles platform-agnostic benchmark definitions into fair, comparable platform-specific implementations; (ii) a structured-telemetry contract recording every run as queryable fact and dimension data, letting LLM agents query results deterministically; and (iii) an agent-native harness of three composable skills to expedite building benchmarks and analyzing results. This agent-native architecture enabled the…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "SpBench: An Agent-Native Framework for Cross-Engine Lakehouse Benchmarking",
+    "url": "https://arxiv.org/abs/2611.00449",
+    "publishedAt": "2026-11-03T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-understanding-gpu-megakernels-why-residency-can-0aa549",
+  "title": "Understanding GPU Megakernels: Why Residency Can Mislead",
+  "canonicalUrl": "https://arxiv.org/abs/2611.00495",
+  "category": "research",
+  "publishedAt": "2026-11-03T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4fdaffdcf76da1ea",
+  "excerpt": "arXiv:2611.00495v1 Announce Type: new \nAbstract: Megakernels let one persistent GPU program prepare dependent operators early and execute ready tasks together. We study the benefits and costs of these capabilities by reconstructing two LLM megakernels, ThunderKittens (TK) and VDCores, as separate kernels on H100 using their original operator code. Our results show that CTA residency can misrepresent opportunities for useful overlap in both directions. By overlapping startup and operand loading with programmatic dependent launch (PDL), the reconstructions reduce decode-step latency by 5.7% in TK and achieve comparable performance in VDCores when both executions enforce the required memory ordering. Under whole-operator dependencies, TK's persistent execution still gains more from prefetch, but runtime and completion-signal ordering costs outweigh this advantage. Both startup overlap and prefetch depend on resource availability. Persistent CTAs can reuse storage before retiring, whereas separate successors must acquire their full CTA footprints before initializing or loading operands. This admission constraint in both reconstructions motivates finer resource sharing across kernels.…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Understanding GPU Megakernels: Why Residency Can Mislead",
+    "url": "https://arxiv.org/abs/2611.00495",
+    "publishedAt": "2026-11-03T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launch\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches llm, latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-weights-that-stay-on-chip-megakernels-for-serial-ce3ee1",
+  "title": "Weights That Stay: On-Chip Megakernels for Serial Heads in Speculative Decoding",
+  "canonicalUrl": "https://arxiv.org/abs/2611.00506",
+  "category": "research",
+  "publishedAt": "2026-11-03T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3388660f6efc1b16",
+  "excerpt": "arXiv:2611.00506v1 Announce Type: new \nAbstract: Parallel speculative drafters use a lightweight serial head to recover token dependencies within a block generated in parallel. Each head step updates only a small state, yet projects that state through the same vocabulary-sized matrix. Step-wise execution repeatedly transfers this large, immutable projection, making the head a meaningful source of latency despite its low arithmetic cost. We present Weights That Stay, an execution design that keeps projection shards on chip for the entire serial draft walk. A persistent megakernel couples weight residency with GPU-side token selection and state advancement, reusing resident weights while exchanging only compact state between steps. The design supports full or partial residency and accommodates both Markov and recurrent heads on H100 and B200. Integrated into SGLang, Weights That Stay improves throughput for Markov drafting on Qwen3-4B and Qwen3-8B, with gains of up to 12.3%. At the head level, the DSpark walk is up to 11.6$\\times$ faster than the fastest measured SGLang reference path. These results show that aligning weight residency with the full draft walk translates cross-step…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Weights That Stay: On-Chip Megakernels for Serial Heads in Speculative Decoding",
+    "url": "https://arxiv.org/abs/2611.00506",
+    "publishedAt": "2026-11-03T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-03-here-s-who-is-falling-in-line-for-trump-s-super-71a4c0",
   "title": "Here’s who is falling in line for Trump’s “Super Intelligence” loyalty test",
   "canonicalUrl": "https://technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test",
@@ -116,7 +3887,7 @@
   "publishedAt": "2026-11-03T04:18:47.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a7ab7cd532405783",
@@ -163,7 +3934,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -255,6 +4026,209 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-03-announcing-rustup-1293-462c04",
+  "title": "Announcing rustup 1.29.3",
+  "canonicalUrl": "https://blog.rust-lang.org/2026/11/03/Rustup-1.29.3",
+  "category": "programming",
+  "publishedAt": "2026-11-03T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bb003a33939c9f3b",
+  "excerpt": "The rustup team has published a new point release of rustup, 1.29.3.\nRustup is the recommended tool to install Rust , a\nprogramming language that empowers everyone to build reliable and efficient\nsoftware.\nWhat's new in rustup 1.29.3\nThis new patch release has fixed some minor regressions over the previous one:\nFixed \"Illegal instruction\" error on certain x86_64 CPUs without SSE4.1.\npr#5162 \nFixed \" lock() not supported\" error on Solaris. pr#5167 \nFurther details are available in the changelog !\nHow to update\nIf you have a previous version of rustup installed, getting the new one is as easy as stopping\nany programs which may be using rustup (e.g. closing your IDE) and running:\n$ rustup self update \nRustup will also automatically update itself at the end of a normal toolchain update:\n$ rustup update \nFor this particular release, if you have encountered any issues during\nself-update, you may try to update rustup manually by following the steps below:\nDownload the corresponding rustup-init binary for\nyour platform.\nMake double sure that no other rustup processes are running.\nReplace your existing rustup binary with the downloaded rustup-init \nrenamed to rustup .\nAs a reminder, this…",
+  "sources": [
+   {
+    "sourceId": "rust-blog",
+    "sourceName": "Rust Blog",
+    "title": "Announcing rustup 1.29.3",
+    "url": "https://blog.rust-lang.org/2026/11/03/Rustup-1.29.3",
+    "publishedAt": "2026-11-03T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 38,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announcing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches rust"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-03-bringing-local-analytics-to-the-quant-s-desktop-a8d7b2",
+  "title": "Bringing Local Analytics to the Quant's Desktop",
+  "canonicalUrl": "https://duckdb.org/2026/11/03/bringing-local-analytics-to-the-quants-desktop.html",
+  "category": "databases",
+  "publishedAt": "2026-11-03T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "deaa301289fa6aa4",
+  "excerpt": "After years building kdb+-based data platforms for banks and hedge funds, Ryan Hamilton wanted an analytical engine he could recommend to smaller teams without specialized infrastructure or expensive licensing. DuckDB gave him a small, embedded way to bring fast local analytics into QStudio and Pulse, and it is now shaping his next open-source project, PeachQ.",
+  "sources": [
+   {
+    "sourceId": "duckdb",
+    "sourceName": "DuckDB Blog",
+    "title": "Bringing Local Analytics to the Quant's Desktop",
+    "url": "https://duckdb.org/2026/11/03/bringing-local-analytics-to-the-quants-desktop.html",
+    "publishedAt": "2026-11-03T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-cwe-bench-v2-more-coverage-quality-and-63945b",
+  "title": "CWE-bench v2: More coverage, quality, and transparency",
+  "canonicalUrl": "https://huggingface.co/blog/cwe-bench",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8a5ad80e68497e17",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "CWE-bench v2: More coverage, quality, and transparency",
+    "url": "https://huggingface.co/blog/cwe-bench",
+    "publishedAt": "2026-11-03T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-openai-appoints-jill-hazelbaker-as-chief-019edb",
+  "title": "OpenAI appoints Jill Hazelbaker as Chief Corporate Affairs Officer",
+  "canonicalUrl": "https://openai.com/index/jill-hazelbaker-chief-corporate-affairs-officer",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-03T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "96171cba41676809",
+  "excerpt": "Jill Hazelbaker will join OpenAI as Chief Corporate Affairs Officer, leading the company’s global communications and corporate positioning.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "OpenAI appoints Jill Hazelbaker as Chief Corporate Affairs Officer",
+    "url": "https://openai.com/index/jill-hazelbaker-chief-corporate-affairs-officer",
+    "publishedAt": "2026-11-03T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-03-openai-built-itself-a-new-git-backend-too-78ce57",
   "title": "OpenAI built itself a new Git backend, too",
   "canonicalUrl": "https://thenewstack.io/openai-pando-git-backend",
@@ -262,7 +4236,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "04a80d684734f442",
@@ -307,6 +4281,63 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-03-pgbadger-v133-has-been-released-e831cc",
+  "title": "pgbadger v13.3 has been released",
+  "canonicalUrl": "https://postgresql.org/about/news/pgbadger-v133-has-been-released-3435",
+  "category": "databases",
+  "publishedAt": "2026-11-03T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-03T20:14:24.410Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "dab47b14b2977954",
+  "excerpt": "Antananarivo, Madagascar - November 03, 2026\npgBadger\npgBadger is a PostgreSQL performance analyzer, built for speed with\nfully detailed reports based on your PostgreSQL log files.\npgBadger 13.3 was released today, this is a maintenance release that fixes\nissues and applied patches reported by users since last release.\nAdd scroll on legend and mouseover graphs when the list of item is > 10.\nFix several issues when the --explode option is used.\nAdd filter of remote logs in watch mode on the remote host to not\nimport all the log.\nFix several issues with multiline statement in the log.\nFix the same execution reported by both log_min_duration_statement\nand auto_explain resulting in counted twice.\nAdd copy of explain plan.\nHandle \"Query Parameters: ...\" from auto_explain plan.\nFix wrong queries dropped when filtering with --dbuser.\nUse per-run names for temporary dblist and last parsed files to prevent\ntwo pgbadger running at the same time to read the same files.\nFor the complete list of changes, please checkout the release note\non https://github.com/darold/pgbadger/releases \nLinks & Credits\nI would like to thank all users who submitted patches and users\nwho reported bugs and feature…",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "pgbadger v13.3 has been released",
+    "url": "https://postgresql.org/about/news/pgbadger-v133-has-been-released-3435",
+    "publishedAt": "2026-11-03T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-03-transformers-model-integration-contracts-a6f54d",
   "title": "Transformers Model Integration Contracts",
   "canonicalUrl": "https://huggingface.co/blog/transformers-mic",
@@ -314,7 +4345,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d31d1a052d88ffa5",
@@ -361,7 +4392,7 @@
   "publishedAt": "2026-11-02T23:39:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "66462a9bddb36434",
@@ -465,7 +4496,7 @@
   "publishedAt": "2026-11-02T22:43:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "321ded97b6856ff3",
@@ -517,7 +4548,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -621,7 +4652,7 @@
   "publishedAt": "2026-11-02T22:08:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8e7b7729f82dce57",
@@ -840,7 +4871,7 @@
   "publishedAt": "2026-11-02T21:03:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22941e0bf33ef7d4",
@@ -934,7 +4965,7 @@
   "publishedAt": "2026-11-02T20:20:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4691d47bd2f4c26a",
@@ -1137,7 +5168,7 @@
   "publishedAt": "2026-11-02T18:21:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": "2026-11-03T08:18:48.237Z",
   "revisions": [
    {
@@ -1156,11 +5187,19 @@
     "url": "https://rikiyat.github.io/blog/weight-space-programming",
     "publishedAt": "2026-11-02T18:21:28.000Z",
     "credibility": 2
+   },
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "The 'Astra can read and write weights to improve Qwen' post is misleading",
+    "url": "https://honnibal.dev/blog/astra-read-write-misleading",
+    "publishedAt": "2026-11-03T12:21:17.000Z",
+    "credibility": 2
    }
   ],
   "minor": false,
   "score": {
-   "total": 34,
+   "total": 42,
    "parts": [
     {
      "label": "Baseline",
@@ -1173,6 +5212,11 @@
      "reason": "Established publication or research venue"
     },
     {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
      "label": "Freshness",
      "points": 5,
      "reason": "Published in the last 36 hours"
@@ -1180,7 +5224,7 @@
    ]
   },
   "importance": "routine",
-  "status": "below-threshold"
+  "status": "pending"
  },
  {
   "id": "2026-11-02-google-disrupts-million-device-xcpe-android-a07209",
@@ -1284,7 +5328,7 @@
   "publishedAt": "2026-11-02T18:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06fd30116389c265",
@@ -1341,7 +5385,7 @@
   "publishedAt": "2026-11-02T18:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1ce24ee1d1bc9cb7",
@@ -1393,7 +5437,7 @@
   "publishedAt": "2026-11-02T18:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ac17f6c76e40161c",
@@ -1440,7 +5484,7 @@
   "publishedAt": "2026-11-02T18:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2b5f26e895a4bad",
@@ -1633,7 +5677,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -1685,7 +5729,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -1732,7 +5776,7 @@
   "publishedAt": "2026-11-02T17:26:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "834456d13ddb011f",
@@ -1779,7 +5823,7 @@
   "publishedAt": "2026-11-02T17:26:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5a98412d98a53444",
@@ -1925,7 +5969,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d43b0ad5c2e7b13",
@@ -1972,7 +6016,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4d327974a598045d",
@@ -2024,7 +6068,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "64f56635038ac185",
@@ -2081,7 +6125,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7df187067917c486",
@@ -2185,7 +6229,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -2598,7 +6642,7 @@
   "publishedAt": "2026-11-02T15:44:53.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9cead05e8906ddf1",
@@ -3071,7 +7115,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -3178,7 +7222,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b048de63a87b4a2b",
@@ -3287,7 +7331,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3f0ae029662bfce9",
@@ -3542,7 +7586,7 @@
   "publishedAt": "2026-11-02T13:10:32.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb804eb0a9b13673",
@@ -3646,7 +7690,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -4754,7 +8798,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -4853,7 +8897,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5318b4a6371af0e",
@@ -4962,7 +9006,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8feb681ee8d7cdbc",
@@ -5019,7 +9063,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -5714,7 +9758,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-03T08:18:48.237Z",
+  "lastSeenAt": "2026-11-03T20:14:24.410Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
