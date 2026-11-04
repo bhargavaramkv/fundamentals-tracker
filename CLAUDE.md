@@ -19,6 +19,7 @@ Read `AGENTS.md` (Next.js version notes) before changing code.
   data lives on the `radar-data` branch (never commit `content/radar/` to `main`). See `docs/tech-radar.md`.
 - **Checks:** `npm run check` (lint, typecheck, tests, build) before every commit.
 - **Never:** push to `main` from the routine, delete question or exercise IDs, or touch
-  `lib/login-vault.json`, `vault/`, `lib/auth.ts`, `lib/vault.ts`.
+  `lib/auth.ts`, `lib/vault.ts`, `vault/`. `lib/login-vault.json` may change only when the owner explicitly asks for a
+  password change, and only via `npm run set-password` (never write a plaintext password to the repo).
 - Answers before `CONTENT_EPOCH` (lib/progress.ts) are archived and not counted.
 - Keep chat output short: the owner pays for tokens.
