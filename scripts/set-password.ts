@@ -5,6 +5,7 @@
  * Usage:
  *   LOGIN_USERNAME=bhargav LOGIN_PASSWORD='…' npm run set-password
  *   npm run set-password -- --generate     # prints a new random password once
+ *   npm run set-password -- --allow-short  # accept a password under 12 chars (weaker)
  */
 import { randomInt } from "node:crypto";
 import fs from "node:fs";
@@ -23,9 +24,11 @@ async function main() {
   const username = process.env.LOGIN_USERNAME ?? "bhargav";
   const generate = process.argv.includes("--generate");
   const password = generate ? generatePassword() : process.env.LOGIN_PASSWORD;
-  if (!password || password.length < 12) {
-    throw new Error("Set LOGIN_PASSWORD (12+ chars) or pass --generate.");
+  const allowShort = process.argv.includes("--allow-short");
+  if (!password || (password.length < 12 && !allowShort)) {
+    throw new Error("Set LOGIN_PASSWORD (12+ chars, or pass --allow-short) or pass --generate.");
   }
+  if (password.length < 12) process.stderr.write("Warning: short password; the public encrypted sync token is easier to brute-force.\n");
   const vault = await createLoginVault(username, password);
   const out = path.resolve(import.meta.dirname, "..", "lib", "login-vault.json");
   fs.writeFileSync(out, JSON.stringify(vault, null, 2) + "\n");
