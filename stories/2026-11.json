@@ -1,22 +1,1140 @@
 [
  {
+  "id": "2026-11-04-gemini-for-home-now-plugs-into-at-t-s-smart-1197aa",
+  "title": "Gemini for Home now plugs into AT&T’s smart security system",
+  "canonicalUrl": "https://theverge.com/tech/1026787/att-gemini-for-home-connected-life-security-system",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T20:23:24.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4bac8c6178a4b2d1",
+  "excerpt": "AT&T's smart home security system now integrates with Gemini for Home. The company says its Connected Life system is the \"first\" home security product to integrate with Google Home Premium, enabling a bunch of Gemini-powered features that can summarize home events, search your video history, and more. With the update, Gemini for Home can provide […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Gemini for Home now plugs into AT&T’s smart security system",
+    "url": "https://theverge.com/tech/1026787/att-gemini-for-home-connected-life-security-system",
+    "publishedAt": "2026-11-04T20:23:24.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"update\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-codeql-2274-improves-accuracy-and-query-metadata-f1b2d7",
+  "title": "CodeQL 2.27.4 improves accuracy and query metadata",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-04T20:04:52.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bd5a68b4034975d6",
+  "excerpt": "CodeQL is the static analysis engine behind GitHub code scanning, which finds and remediates security issues in your code. We&rsquo;ve recently released CodeQL 2.27.4 with query accuracy improvements across several languages, stronger security checks when you bundle or publish a pack, and corrections to query metadata.\nQuery changes \nJava/Kotlin \nThe java/log-injection query now recognizes additional sanitizers and sanitizer guards from the JDK, Apache Commons Lang and Text, Guava, OWASP Java Encoder, and Spring Framework.\nPath-injection queries now recognize additional substring guards and string replacement and removal operations from Apache Commons Lang and Guava.\nRust \nWe have reduced false positives in the rust/uncontrolled-allocation-size , rust/log-injection , and rust/cleartext-logging queries.\nC/C++ \nThe cpp/suspicious-pointer-scaling query no longer reports intentional pointer arithmetic on std::byte* buffers.\nThe cpp/unused-local-variable and cpp/unused-static-variable queries no longer report variables marked with [[maybe_unused]] .\nCWE metadata changes \nCodeQL no longer applies the CWE-730 tag to the following queries:\nC# : cs/redos and cs/regex-injection…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "CodeQL 2.27.4 improves accuracy and query metadata",
+    "url": "https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata",
+    "publishedAt": "2026-11-04T20:04:52.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 25,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"improves\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-github-copilot-is-now-available-in-xcode-s-coding-d53634",
+  "title": "GitHub Copilot is now available in Xcode’s coding assistant",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-04T19:10:40.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b5974a6b602a2ab3",
+  "excerpt": "You can now work with GitHub Copilot directly in Xcode&rsquo;s built-in coding assistant , bringing Copilot into your native Xcode workflow. The integration is now in public preview, available starting with Xcode 27.3 beta.\nThis gives you another way to use Copilot in Xcode. The existing GitHub Copilot for Xcode extension remains a separate option, so you can choose the workflow that works best for you.\nGet started \nDownload Xcode 27.3 beta from Apple Developer Downloads . You&rsquo;ll need a Mac running macOS Tahoe 26.6 or later.\nIn Xcode, open Xcode > Settings > Intelligence to set up GitHub Copilot in the coding assistant. For more information, see Setting up coding intelligence and the Xcode 27.3 beta release notes . All Copilot plans are supported.\nShare your feedback \nHelp us improve the experience by sharing your feedback in the GitHub Copilot for Xcode repository or through Apple Feedback Assistant .\nThe post GitHub Copilot is now available in Xcode’s coding assistant appeared first on The GitHub Blog .",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "GitHub Copilot is now available in Xcode’s coding assistant",
+    "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
+    "publishedAt": "2026-11-04T19:10:40.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"now available\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-dreamhost-confirms-data-breach-exposed-ftp-logins-b84990",
+  "title": "DreamHost confirms data breach exposed FTP logins and webmail sessions",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions",
+  "category": "security",
+  "publishedAt": "2026-11-04T19:05:19.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6459a9d74013d1a7",
+  "excerpt": "DreamHost is warning of a data breach after attackers gained access to its File Manager platform for two months and stole customers' FTP/SFTP usernames and passwords. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "DreamHost confirms data breach exposed FTP logins and webmail sessions",
+    "url": "https://bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions",
+    "publishedAt": "2026-11-04T19:05:19.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-google-s-pixel-11-phones-are-up-to-27-percent-off-58bffd",
+  "title": "Google’s Pixel 11 phones are up to 27 percent off",
+  "canonicalUrl": "https://theverge.com/gadgets/1025370/google-pixel-11-pro-phone-deal-sale",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T19:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f7b10c94ec7d6f66",
+  "excerpt": "You can save a heck of lot of money on Google’s Pixel 11 phones through November 8th, whether you want the best-for-the-least Pixel 11, or the slightly pricier Pixel 11 Pro that takes better photos. Even the big Pixel 11 Pro XL with a longer-lasting battery is hundreds off its original price. The Pixel 11 […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Google’s Pixel 11 phones are up to 27 percent off",
+    "url": "https://theverge.com/gadgets/1025370/google-pixel-11-pro-phone-deal-sale",
+    "publishedAt": "2026-11-04T19:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-xbox-previews-two-new-ways-to-control-cloud-games-ff0e1f",
+  "title": "Xbox previews two new ways to control cloud games",
+  "canonicalUrl": "https://theverge.com/news/1026455/xbox-nano-direct-cloud-wifi-connection-xbox-cloud-gaming-phone-controller",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T19:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "79740fc22aa04819",
+  "excerpt": "I revealed yesterday that the new Xbox Nano controller supports a Wi-Fi connection directly to Xbox Cloud Gaming, and now Microsoft is making it official today. Two new Xbox previews will let players try out using a phone as a controller on smart TVs, as well as cloud connect on the Xbox Nano to connect […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Xbox previews two new ways to control cloud games",
+    "url": "https://theverge.com/news/1026455/xbox-nano-direct-cloud-wifi-connection-xbox-cloud-gaming-phone-controller",
+    "publishedAt": "2026-11-04T19:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-texas-was-the-new-epicenter-of-the-ai-data-center-addc5f",
+  "title": "Texas was the new epicenter of the AI data center buildout. That might be kaput.",
+  "canonicalUrl": "https://technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T18:50:55.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8f40dfa300f27a89",
+  "excerpt": "Texas is the fastest-growing data center market in the US and ground zero for Big Tech’s largest AI buildouts. But the blue wave that swept the Lone Star State may jeopardize that position.\nDemocrat James Talarico won the US Senate seat against Ken Paxton. Gina Hinojosa won the race for governor against the Republican incumbent, Greg Abbott. At the state level, Democrats will take control of the Texas House for the first time in 24 years. Talarico and Hinojosa made data centers a central issue, discussing them constantly on the campaign trail.\nEven before the polls closed, insiders in the data center industry noticed that the times were changing. At the industry’s DCD conference in Ashburn, Virginia, on Tuesday, panelists lamented that Texas had been the easiest place to build for years—until September. That’s when Abbott, perhaps seeing the increasingly bipartisan distaste for these facilities , began changing course himself. \nDevelopers said the governor’s office had stopped responding to their emails. On September 21, Abbott directed a key state regulator to halt data center permits. Many panelists at the conference were expecting this to mean that existing projects might be…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "Texas was the new epicenter of the AI data center buildout. That might be kaput.",
+    "url": "https://technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput",
+    "publishedAt": "2026-11-04T18:50:55.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-nvidia-cuda-135-brings-nvidia-vera-rubin-ga-5acd07",
+  "title": "NVIDIA CUDA 13.5 Brings NVIDIA Vera Rubin GA Support",
+  "canonicalUrl": "https://developer.nvidia.com/blog/nvidia-cuda-13-5-brings-nvidia-vera-rubin-ga-support",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T18:46:07.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "006dbbbcb6db0b92",
+  "excerpt": "As artificial intelligence and accelerated computing continue to push the boundaries of what's possible, the latest NVIDIA CUDA release arrives to unlock...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "NVIDIA CUDA 13.5 Brings NVIDIA Vera Rubin GA Support",
+    "url": "https://developer.nvidia.com/blog/nvidia-cuda-13-5-brings-nvidia-vera-rubin-ga-support",
+    "publishedAt": "2026-11-04T18:46:07.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-nothing-teases-a-screen-free-ai-device-ahead-of-f6093f",
+  "title": "Nothing teases a screen-free AI device ahead of launch next month",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1026586/nothing-screen-free-ai-device-carl-pei",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T18:26:07.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "38e9bca1141eb625",
+  "excerpt": "Nothing CEO Carl Pei said in a post on X that the company's launching its first AI device in December. That's just a little over a year after Pei announced plans for \"AI-native\" devices and an AI operating system. He didn't give away much about what exactly the new device is, only that one feature […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Nothing teases a screen-free AI device ahead of launch next month",
+    "url": "https://theverge.com/ai-artificial-intelligence/1026586/nothing-screen-free-ai-device-carl-pei",
+    "publishedAt": "2026-11-04T18:26:07.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launch\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-apple-will-check-shared-icloud-links-for-harmful-c0ee56",
+  "title": "Apple will check shared iCloud links for ‘harmful content’",
+  "canonicalUrl": "https://theverge.com/tech/1026604/apple-icloud-links-harmful-content-27-3",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T18:23:37.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9a6975393c4b06de",
+  "excerpt": "Apple will start checking iCloud items that are accessible to anyone who has the link for \"harmful content\" starting with iOS 27.3 and other 27.3 updates, the company says. \"When you share an item that can be accessed by Anyone with the Link in version 27.3 or later of iOS, iPadOS, macOS, and visionOS, that […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Apple will check shared iCloud links for ‘harmful content’",
+    "url": "https://theverge.com/tech/1026604/apple-icloud-links-harmful-content-27-3",
+    "publishedAt": "2026-11-04T18:23:37.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-roundtables-inside-the-quest-for-cognitive-5eb186",
+  "title": "Roundtables: Inside the Quest for Cognitive Immortality",
+  "canonicalUrl": "https://technologyreview.com/2026/11/04/1148049/roundtables-inside-the-quest-for-cognitive-immortality",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T18:21:40.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7f8a4d3fdf82ea3f",
+  "excerpt": "Tuesday, November 17, 2026 \nIn an effort to reach an elusive continuity of the self, some far-thinking technologists are working on ways to keep your brain going—even beyond death. Join science editor Mary Beth Griggs and senior editor for biomedicine Antonio Regalado for a conversation exploring possible paths to keep your mind going, including gradual brain replacement and uploading our memories to the cloud.\nGoing live at 17:00 GMT / 12pm EST / 9am PST \nRegister Now \nRelated Stories: \nSix wild ideas for perpetuating your mind \nInside the stealthy startup that pitched brainless human clones \nTechnology that lets us “speak” to our dead relatives has arrived. Are we ready? \nThis researcher wants to replace your brain, little by little \nSpeakers: \nAntonio Regalado \nSenior Editor, Biomedicine \nMary Beth Griggs \nScience Editor",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "Roundtables: Inside the Quest for Cognitive Immortality",
+    "url": "https://technologyreview.com/2026/11/04/1148049/roundtables-inside-the-quest-for-cognitive-immortality",
+    "publishedAt": "2026-11-04T18:21:40.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-agile-deliberation-how-ai-helps-humans-define-the-188687",
+  "title": "Agile Deliberation: How AI helps humans define the gray areas",
+  "canonicalUrl": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas",
+  "category": "research",
+  "publishedAt": "2026-11-04T18:07:05.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c4b9d28e7f893788",
+  "excerpt": "Data Mining & Modeling",
+  "sources": [
+   {
+    "sourceId": "google-research",
+    "sourceName": "Google Research Blog",
+    "title": "Agile Deliberation: How AI helps humans define the gray areas",
+    "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas",
+    "publishedAt": "2026-11-04T18:07:05.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-render-just-removed-its-ai-sandbox-time-limit-and-a6ec5f",
+  "title": "Render just removed its AI sandbox time limit — and Vercel still has a 24-hour cap",
+  "canonicalUrl": "https://thenewstack.io/render-vercel-ai-sandboxes",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T18:04:17.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0b316baf9adef4a1",
+  "excerpt": "Render is taking on Vercel with AI sandboxes that can run indefinitely, along with new tools for managing long-running agent workflows and shared storage.\nAnnounced Wednesday, the launch removes Render &rsquo;s previous 30-day continuous runtime limit on paid workspace plans. Vercel caps individual sandbox sessions at 24 hours, while Render says its environments can suspend when idle and resume with their files, memory and running processes intact.\nRender founder and CEO Anurag Goel , a former Stripe engineer and head of risk, built the platform as an alternative to AWS without the same infrastructure complexity. Now he’s extending that approach to AI agents, combining sandboxes, durable workflows, and shared storage with the applications and databases they depend on.\nNot everything is ready yet. Credential brokering will initially be available only to selected customers, private networking for sandboxes is still in development, and Render has yet to settle how its shared storage will handle simultaneous writes to the same file.\nSandboxes that resume mid-task\nWith this launch, Render sandboxes can stay active through a multi-day codebase migration or while an agent tests an entire…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Render just removed its AI sandbox time limit — and Vercel still has a 24-hour cap",
+    "url": "https://thenewstack.io/render-vercel-ai-sandboxes",
+    "publishedAt": "2026-11-04T18:04:17.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agent, runtime, aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-cyberattack-disrupts-blood-storage-refrigeration-097ef6",
+  "title": "Cyberattack disrupts blood storage refrigeration systems in France",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france",
+  "category": "security",
+  "publishedAt": "2026-11-04T18:02:56.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "591b50519135c8a1",
+  "excerpt": "France's national blood service has confirmed that a cyberattack targeting a refrigeration equipment provider raised temperature and defrost settings at three of its facilities, threatening stored blood products. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Cyberattack disrupts blood storage refrigeration systems in France",
+    "url": "https://bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france",
+    "publishedAt": "2026-11-04T18:02:56.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-fortra-says-ai-could-save-file-transfer-admins-up-fac252",
+  "title": "Fortra says AI could save file transfer admins up to 160 hours a year",
+  "canonicalUrl": "https://thenewstack.io/failed-file-transfer-ai-troubleshooting",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T17:53:47.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e51e5e162d7d72eb",
+  "excerpt": "Fortra makes software that moves files between companies on a schedule and says AI could give admins back up to 160 hours a year. That’s 3.1 hours a week admins would otherwise spend figuring out why a transfer failed. \nManaged file transfer (MFT) sits behind payroll exports, bank settlements, and purchase orders. Fortra ships two MFT platforms, GoAnywhere MFT and Globalscape EFT. The new AI feature behind the estimate here is Guided Diagnostics, which works inside GoAnywhere. \nHeath Kath , Team Lead, Solutions Engineering at Fortra, is joining me for a demonstration on Thursday, November 19, at noon (9 a.m. Pacific). Kath will run Guided Diagnostics against a simulated failure and take questions on how the estimate was built. \nREGISTER NOW FOR THIS WEBINAR\nYou have successfully registered for the webinar.\nOne failed transfer took 50 minutes to figure out \nKath tells The New Stack that most failed transfers he sees come down to a connection or login problem with an outside trading partner. The log usually shows one of four error types: authentication, network, permissions, or a missing file. He mostly works in GoAnywhere and said the pattern holds on Globalscape and other MFT…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Fortra says AI could save file transfer admins up to 160 hours a year",
+    "url": "https://thenewstack.io/failed-file-transfer-ai-troubleshooting",
+    "publishedAt": "2026-11-04T17:53:47.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-dharma-field-extractor-any-document-in-structured-32d4e9",
+  "title": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
+  "canonicalUrl": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T17:50:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4f2eb35206164099",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
+    "url": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
+    "publishedAt": "2026-11-04T17:50:10.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-mongodb-cdc-connector-for-clickpipes-is-now-4a344e",
+  "title": "MongoDB CDC connector for ClickPipes is now generally available",
+  "canonicalUrl": "https://clickhouse.com/blog/mongodb-cdc-connector-clickpipes-ga",
+  "category": "databases",
+  "publishedAt": "2026-11-04T17:46:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "acc846c739e09a33",
+  "excerpt": "The MongoDB CDC connector for ClickPipes is now generally available, with parallel snapshotting, structured ingestion into typed columns, lag and resource metrics, and Terraform and OpenAPI support.",
+  "sources": [
+   {
+    "sourceId": "clickhouse",
+    "sourceName": "ClickHouse Blog",
+    "title": "MongoDB CDC connector for ClickPipes is now generally available",
+    "url": "https://clickhouse.com/blog/mongodb-cdc-connector-clickpipes-ga",
+    "publishedAt": "2026-11-04T17:46:41.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"generally available\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches mongodb"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-how-to-use-ai-for-rust-development-lessons-from-44a39a",
+  "title": "How to Use AI for Rust Development: Lessons From an OpenAI Engineer",
+  "canonicalUrl": "https://blog.jetbrains.com/rust/2026/11/04/ai-for-rust-development",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-04T17:09:33.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f160e371c6f1455c",
+  "excerpt": "“Some people use AI to write more code. I use AI to make my code more correct.” Predrag Gruevski’s pinned post sums up his approach to using AI for Rust development. Predrag works on frontier systems at OpenAI , and he created cargo-semver-checks and Trustfall. In his work, there’s very little room for error. Still, he does most of his engineering with AI in the loop, and his quality bar has gone up. But how?\nWe wanted to know what that looks like in practice, so we invited him to a RustRover livestream. His presentation was part of our AI & Rust livestream series with the Rust Foundation , which looks at real-world use cases, successes, and failures where Rust and AI meet. This post focuses on Predrag’s most practical advice: what to review, how to prompt AI coding agents, how to verify their work, and what to do when they get something wrong\nYou can watch the full livestream recording here 👇\nWhich Rust code deserves the most attention when you use AI?\nBefore you hand anything to an AI agent, sort the work by how much it would cost to get wrong. Not every line of code is equally important. Some lines deserve 1000 times more attention than others. When you typed every line…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "How to Use AI for Rust Development: Lessons From an OpenAI Engineer",
+    "url": "https://blog.jetbrains.com/rust/2026/11/04/ai-for-rust-development",
+    "publishedAt": "2026-11-04T17:09:33.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches rust"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-what-s-next-for-us-energy-policy-after-the-4232d7",
+  "title": "What’s next for US energy policy after the midterm elections?",
+  "canonicalUrl": "https://technologyreview.com/2026/11/04/1148022/us-energy-midterm",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T17:08:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1894a9db26182bb3",
+  "excerpt": "I’ve been locked in to my various screens since results from midterm elections started to roll in last night. And it didn’t take long to see the beginning of the blue wave: Democrats took control of both the US House of Representatives and the Senate, a dramatic swing from Donald Trump’s victory two years ago. \nWhile the results are striking, we probably won’t be seeing some of the big climate and energy policy shifts that have come in recent years as Congress and the presidency have changed hands. Instead, we’re entering a period of divided government, with a Congress that will likely do battle with Trump’s White House over the next two years. But even if the federal government isn’t likely to pass laws that overhaul energy and climate policy, the midterm results could be a big deal for energy, especially at the state and local level. \nLet’s step back for just a moment to put these results in context. Readers might remember huge laws affecting climate and energy that were passed in just the last four years. The 2022 Inflation Reduction Act included massive support for clean energy, including tax credits and government grants and loans.Then the 2025 One Big Beautiful Bill Act…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "What’s next for US energy policy after the midterm elections?",
+    "url": "https://technologyreview.com/2026/11/04/1148022/us-energy-midterm",
+    "publishedAt": "2026-11-04T17:08:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-helping-you-build-and-defend-at-machine-speed-in-671796",
+  "title": "Helping you build and defend at machine-speed in the agentic era",
+  "canonicalUrl": "https://cloud.google.com/blog/products/identity-security/helping-you-build-and-defend-at-machine-speed-in-the-agentic-era",
+  "category": "cloud",
+  "publishedAt": "2026-11-04T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "88673f93b39ba5b9",
+  "excerpt": "As both a frontier lab and the operator of the world's most comprehensive threat intelligence network, Google occupies a unique vantage point: We see exactly how Large Language Models are engineered, and how adversaries are targeting them in the wild. \nPassive defense is no longer viable. Allowing rapid, ungoverned adoption of autonomous systems into traditional workflows can lead to critical security incidents.  \nAt the Google Cloud Security Summit, we are sharing updates on how we are helping organizations build securely, secure systems, and defend at machine speed in the agentic era.  \nBuilding securely in the agentic era \nAgentic coding tools have dramatically accelerated software delivery, but human review can’t keep up with machine-speed commits and unvetted dependencies. Because autonomous agents are now part of the supply chain, blind trust can turn them into direct backdoors for attackers. \nOur approach to securing the development lifecycle builds native, real-time guardrails in the integrated development environment (IDE), unifies asset graphs across code and identity and access management (IAM,) and verifies models to weed out logic flaws before code merges.…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Helping you build and defend at machine-speed in the agentic era",
+    "url": "https://cloud.google.com/blog/products/identity-security/helping-you-build-and-defend-at-machine-speed-in-the-agentic-era",
+    "publishedAt": "2026-11-04T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-03-how-cisco-defends-at-machine-speed-with-openai-34e7d6"
+ },
+ {
+  "id": "2026-11-04-highlights-and-reflections-from-google-public-637447",
+  "title": "Highlights and reflections from Google Public Sector Summit: Where mission meets moonshot",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/public-sector/highlights-and-reflections-from-google-public-sector-summit-where-mission-meets-moonshot",
+  "category": "cloud",
+  "publishedAt": "2026-11-04T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "fa0a3030e376b029",
+  "excerpt": "Over 2,700 government leaders, innovators, and industry partners convened across two-days at our Google Public Sector Summit in Washington D.C. where we explored the theme, “Where mission meets moonshot.” We were honored to bring together leaders who are driving impact in the agentic era and leveraging agents to help boost productivity, drive innovation, and transform how services are delivered.\nLet’s take a closer look at the sessions, speakers, demos, and activations throughout the event that showcased how leaders across education and government are collaborating with Google Public Sector to turn their moonshot aspirations into secure, scaled, real-world mission outcomes.\nDriving impact together \nIn our morning keynote, CEO of Google Public Sector, Karen Dahut unpacked the event theme and shared how organizations like NASA, NOAA, The Department of War, The Department of Energy, The State of Connecticut, The U.S. Army, Case Western Reserve University, and more are collaborating with Google to drive impact in the agentic era. Karen underscored the importance of leading boldly, building with and for your people, and scaling for impact.\nThomas Kurian , CEO of Google Cloud,…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Highlights and reflections from Google Public Sector Summit: Where mission meets moonshot",
+    "url": "https://cloud.google.com/blog/topics/public-sector/highlights-and-reflections-from-google-public-sector-summit-where-mission-meets-moonshot",
+    "publishedAt": "2026-11-04T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-how-nvidia-factory-operations-blueprint-73bbcb",
+  "title": "How NVIDIA Factory Operations Blueprint Coordinates AI Agents to Investigate Production Issues",
+  "canonicalUrl": "https://developer.nvidia.com/blog/how-nvidia-factory-operations-blueprint-coordinates-ai-agents-to-investigate-production-issues",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a0a79c234056d36f",
+  "excerpt": "A Siemens report estimates that unplanned downtime costs an average large plant in the surveyed sectors $253 million per year. Whether investigating a failed...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "How NVIDIA Factory Operations Blueprint Coordinates AI Agents to Investigate Production Issues",
+    "url": "https://developer.nvidia.com/blog/how-nvidia-factory-operations-blueprint-coordinates-ai-agents-to-investigate-production-issues",
+    "publishedAt": "2026-11-04T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-04-visual-studio-code-1145-insiders-29b335",
-  "title": "Visual Studio Code 1.145 (Insiders)",
+  "title": "Visual Studio Code 1.145",
   "canonicalUrl": "https://code.visualstudio.com/updates/v1_145",
   "category": "developer-tools",
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "9dd853b2d9d51dcd",
-  "excerpt": "Learn what is new in Visual Studio Code 1.145 (Insiders).\nRead the full article",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": "2026-11-04T17:00:00.000Z",
+  "revisions": [
+   {
+    "at": "2026-11-04T20:30:30.575Z",
+    "reason": "Title changed from \"Visual Studio Code 1.145 (Insiders)\"",
+    "contentHash": "6b8498636862b197"
+   }
+  ],
+  "contentHash": "6b8498636862b197",
+  "excerpt": "Learn what's new in Visual Studio Code 1.145\nRead the full article",
   "sources": [
    {
     "sourceId": "vscode",
     "sourceName": "VS Code Updates",
-    "title": "Visual Studio Code 1.145 (Insiders)",
+    "title": "Visual Studio Code 1.145",
     "url": "https://code.visualstudio.com/updates/v1_145",
     "publishedAt": "2026-11-04T17:00:00.000Z",
     "credibility": 3
@@ -52,6 +1170,1964 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-04-signing-in-to-your-company-s-plugins-one-by-one-f1a230",
+  "title": "“Signing in to your company’s plugins one by one is annoying”: Anthropic’s fix puts Claude in the identity business",
+  "canonicalUrl": "https://thenewstack.io/claude-plugin-identity-issuer",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T16:59:22.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a9a996519b7ce0d9",
+  "excerpt": "Anthropic is now letting businesses automatically connect employees to approved Claude plugins, saving staff from having to sign in to and authorize each service individually. The feature also allows Claude to verify users’ organizational membership directly, making it easier for companies to manage access to workplace applications.\nThe feature builds on the Enterprise-Managed Authorization ( EMA ) extension to the Model Context Protocol (MCP), which debuted back in June. As The New Stack reported at the time , this ushered in a way for companies to manage MCP connections centrally through their existing identity providers, with Okta becoming the first to support it.\nAnthropic also announced support for the extension in Claude, Claude Code and Cowork on the same day, and published implementation guidance for developers building compatible MCP servers. \nIn its original guise, the approach relied on the company’s identity provider being compatible with EMA. Okta was the first to support the extension, and adoption among other providers remains limited, meaning many organizations have still had to authorize connections individually.\n“Claude itself can issue the signed identity…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "“Signing in to your company’s plugins one by one is annoying”: Anthropic’s fix puts Claude in the identity business",
+    "url": "https://thenewstack.io/claude-plugin-identity-issuer",
+    "publishedAt": "2026-11-04T16:59:22.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-nikke-pc-game-launcher-hacked-to-spread-remote-2f1bff",
+  "title": "NIKKE PC game launcher hacked to spread remote access, data-stealing malware",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/nikke-pc-game-launcher-hacked-to-spread-remote-access-data-stealing-malware",
+  "category": "security",
+  "publishedAt": "2026-11-04T16:58:46.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "198f91201f59f096",
+  "excerpt": "The developers of Goddess of Victory: NIKKE have confirmed that hackers tampered with the game's PC launcher scripts in a supply-chain attack, distributing malware capable of stealing credentials and cryptocurrency wallet data. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "NIKKE PC game launcher hacked to spread remote access, data-stealing malware",
+    "url": "https://bleepingcomputer.com/news/security/nikke-pc-game-launcher-hacked-to-spread-remote-access-data-stealing-malware",
+    "publishedAt": "2026-11-04T16:58:46.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-your-net-parallel-loop-can-become-serial-in-a-one-150868",
+  "title": "Your .NET parallel loop can become serial in a one-CPU container",
+  "canonicalUrl": "https://stackoverflow.blog/2026/11/04/your-net-parallel-loop-can-become-serial-in-a-one-cpu-container",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-04T16:34:13.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "aa3054af9f820a8f",
+  "excerpt": "CPU-based defaults can leave an I/O-heavy loop processing one record at a time. Raising the limit helps, but each downstream service still needs a concurrency budget it can handle.",
+  "sources": [
+   {
+    "sourceId": "stackoverflow-blog",
+    "sourceName": "Stack Overflow Blog",
+    "title": "Your .NET parallel loop can become serial in a one-CPU container",
+    "url": "https://stackoverflow.blog/2026/11/04/your-net-parallel-loop-can-become-serial-in-a-one-cpu-container",
+    "publishedAt": "2026-11-04T16:34:13.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches concurrency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-plasma-x11-session-removal-surprises-some-fedora-1dcd99",
+  "title": "[$] Plasma X11 session removal surprises some Fedora users",
+  "canonicalUrl": "https://lwn.net/Articles/1105130",
+  "category": "open-source",
+  "publishedAt": "2026-11-04T16:33:11.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "02587ff63aef8a69",
+  "excerpt": "The KDE Project announced, in 2025, that Plasma 6.7 would\nbe the last version of the desktop environment that would support X11\nsessions. Those who keep up with KDE's announcements no doubt expected it when\nPlasma 6.8 \ndropped X11 support as promised. What seems to have come as a surprise, at\nleast to a number of Fedora KDE Plasma\nDesktop users, is that the Fedora 44 release&mdash;which shipped in\nApril with Plasma 6.6 &mdash;received\nan update to Plasma 6.8 that swept away the X11 session without much warning.\nDespite the surprise, it is gone for good: the Fedora Engineering Steering\nCommittee (FESCo) has voted\nagainst a request to revert the update for Fedora 44 and the just-released\nFedora 45.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "[$] Plasma X11 session removal surprises some Fedora users",
+    "url": "https://lwn.net/Articles/1105130",
+    "publishedAt": "2026-11-04T16:33:11.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-binance-says-hackers-who-stole-billions-in-crypto-b1748a",
+  "title": "Binance says hackers who stole billions in crypto spent months planning heist",
+  "canonicalUrl": "https://arstechnica.com/information-technology/2026/11/binance-says-hackers-who-stole-billions-in-crypto-spent-months-planning-heist",
+  "category": "security",
+  "publishedAt": "2026-11-04T16:06:03.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "54cc2115083a6ca9",
+  "excerpt": "The hackers who stole billions of dollars in cryptocurrency from the Binance exchange spent months working on the theft and used both social engineering and novel malware in the process, the company said Tuesday.\nThe heist, which both the FBI and the TRM Security firm attributed to North Korean actors, initially targeted $6.34 billion in cryptocurrency from Binance wallets. The exchange has since frozen or intercepted $2.85 billion of that sum. Binance said it has set aside funds required to cover the loss and provided this link to a Proof of Reserves page. The $6.34 billion represents the biggest sum ever targeted in a cryptocurrency theft.\nAdvanced persistent threat\nBinance said the people behind the heist began no later than June and continued until last Thursday, when they successfully compromised an engineer's laptop and withdrew assets from several wallets. Like just about every organization that suffers a public, high-consequence hack, Binance said the threat actor was sophisticated and resourceful.\nRead full article \nComments",
+  "sources": [
+   {
+    "sourceId": "ars-technica",
+    "sourceName": "Ars Technica",
+    "title": "Binance says hackers who stole billions in crypto spent months planning heist",
+    "url": "https://arstechnica.com/information-technology/2026/11/binance-says-hackers-who-stole-billions-in-crypto-spent-months-planning-heist",
+    "publishedAt": "2026-11-04T16:06:03.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-01-north-korea-linked-to-massive-binance-crypto-heist-64fc87"
+ },
+ {
+  "id": "2026-11-04-introducing-compute-engine-api-multi-versioning-372b73",
+  "title": "Introducing Compute Engine API multi-versioning: Predictable evolution without breaking production",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-compute-engine-api-multi-versioning-predictable-evolution-without-breaking-production",
+  "category": "cloud",
+  "publishedAt": "2026-11-04T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e2fafb3cc47b76de",
+  "excerpt": "Ready to modernize your infrastructure without risking production stability? API multi-versioning for Compute Engine, now in general availability, helps you do just that. With date-based API versions, Compute Engine can now regularly deliver modern API semantics, stronger resilience defaults, and improved developer experience while preserving the rock-solid stability of the /v1 API. \nFor more than a decade, the Google Compute Engine /v1 API has served as the foundational control plane for millions of virtual machines, Google Kubernetes Engine (GKE) clusters, and large-scale AI infrastructure. For platform teams and developers who build on Google Cloud, that single /v1 endpoint delivered an extraordinary promise: write your integration once, and trust that it will keep running year after year. \nYet as cloud architectures have grown in scale and sophistication, infrastructure teams have faced a growing tension. On one hand, mission-critical production workloads require absolute API stability and strict backward compatibility. On the other hand, customers want faster access to safer security defaults, stronger regional resilience, machine-readable error models, and modern,…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Introducing Compute Engine API multi-versioning: Predictable evolution without breaking production",
+    "url": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-compute-engine-api-multi-versioning-predictable-evolution-without-breaking-production",
+    "publishedAt": "2026-11-04T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches api, kubernetes"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-use-nvidia-nemo-to-turn-agent-failures-into-tests-1f522e",
+  "title": "Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes",
+  "canonicalUrl": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "50c3bc7b304679e3",
+  "excerpt": "Turn production evidence into prioritized issues and custom evaluations that help you improve prompts, tools, models, memory, skills, and harness code. When you...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes",
+    "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes",
+    "publishedAt": "2026-11-04T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-bazzite-45-released-42ec10",
+  "title": "Bazzite 45 released",
+  "canonicalUrl": "https://lwn.net/Articles/1105395",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-04T15:54:44.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "eaee50ca051f0e21",
+  "excerpt": "Version\n45 of Bazzite , the image-based gaming distribution based on\nFedora Linux, has been released. Notable changes in this release include a\nrebase to Fedora 45, updated Open Gaming Collective (OGC)\nkernels, support for Logitech TrueWheel devices, and more.\nLWN covered Bazzite in\nDecember 2025.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Bazzite 45 released",
+    "url": "https://lwn.net/Articles/1105395",
+    "publishedAt": "2026-11-04T15:54:44.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-amd-expects-to-outsell-intel-in-q4-for-the-first-c48500",
+  "title": "AMD expects to outsell Intel in Q4 for the first time in history",
+  "canonicalUrl": "https://tomshardware.com/pc-components/cpus/amd-expects-to-outsell-intel-in-q4-for-the-first-time-in-history-usd17b-guidance-would-exceed-intels-projections",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T15:38:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "fd44ba2fffe4ae2f",
+  "excerpt": "Article URL: https://www.tomshardware.com/pc-components/cpus/amd-expects-to-outsell-intel-in-q4-for-the-first-time-in-history-usd17b-guidance-would-exceed-intels-projections \nComments URL: https://news.ycombinator.com/item?id=50367125 \nPoints: 327\n# Comments: 107",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "AMD expects to outsell Intel in Q4 for the first time in history",
+    "url": "https://tomshardware.com/pc-components/cpus/amd-expects-to-outsell-intel-in-q4-for-the-first-time-in-history-usd17b-guidance-would-exceed-intels-projections",
+    "publishedAt": "2026-11-04T15:38:34.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-kimi-k31-pro-model-weights-are-out-f4a904",
+  "title": "Kimi K3.1 Pro model weights are out",
+  "canonicalUrl": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T15:30:30.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "186c98449f249804",
+  "excerpt": "Article URL: https://huggingface.co/moonshotai/Kimi-K3.1-Pro \nComments URL: https://news.ycombinator.com/item?id=50366999 \nPoints: 237\n# Comments: 62",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Kimi K3.1 Pro model weights are out",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+    "publishedAt": "2026-11-04T15:30:30.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-keep-learning-keep-building-make-the-most-of-bc7abf",
+  "title": "Keep learning, keep building! Make the most of VSLive! with your Visual Studio Subscription",
+  "canonicalUrl": "https://devblogs.microsoft.com/visualstudio/keep-learning-keep-building-make-the-most-of-vslive-with-your-visual-studio-subscription",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-04T15:30:28.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4e630168c99913a8",
+  "excerpt": "Keeping up with new technology is one thing. Finding worthwhile opportunities to explore what matters most to your work is another.   \nThat’s where VSLive! can help. It brings technical learning, hands-on experience, expert guidance, and a community of developers together in one place, giving you focused time to explore evolving technologies and decide what’s worth bringing back to your team.   \nAnd if you’re an eligible Dev Essentials member, Visual Studio Professional subscriber, or Visual Studio Enterprise subscriber, you have benefits that can provide a significant discount for these in-person events.   \nDevelop skills you can put to work   \nOne of the things that makes VSLive! so beneficial is its focus on practical learning. Rather than simply hearing about the latest technologies, developers have opportunities to explore how those technologies can help solve real development challenges.    \nFor example, if you’re interested in furthering your skills with Copilot, VSlive! Las Vegas 2027 will offer a dedicated hands on lab equipping you to build an ASP.NET Core Web Assembly SPA from scratch (all in just one day).   \nMaybe you’d like to witness Microsoft Foundry in action.…",
+  "sources": [
+   {
+    "sourceId": "visual-studio",
+    "sourceName": "Visual Studio Blog",
+    "title": "Keep learning, keep building! Make the most of VSLive! with your Visual Studio Subscription",
+    "url": "https://devblogs.microsoft.com/visualstudio/keep-learning-keep-building-make-the-most-of-vslive-with-your-visual-studio-subscription",
+    "publishedAt": "2026-11-04T15:30:28.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-introducing-the-mongodb-google-adk-integration-55dde0",
+  "title": "Introducing the MongoDB Google ADK Integration: Durable Memory for Agent State",
+  "canonicalUrl": "https://mongodb.com/company/blog/product-release-announcements/introducing-mongodb-google-adk-integration-durable-memory-agent-state",
+  "category": "databases",
+  "publishedAt": "2026-11-04T15:29:17.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "64fb4b6edab13ee0",
+  "excerpt": "We’re excited to announce the MongoDB Google ADK Integration , which provides developers with the building blocks they need to create durable memory for agent state. \nAs agents move from prototypes to real-world applications, they need secure, dependable access to data and the ability to retain context over a long time. However, developers still need to build their own tooling for a data store that provides durable agent memory for agent state. \nThis integration gives developers a cohesive, ADK-native experience for using MongoDB as the data platform for agents.\nWhat is the Google ADK?\nThe Google Agent Development Kit (ADK) is an open source agent development framework that lets you build, debug, and deploy reliable AI agents at enterprise scale. It is available in Python, TypeScript, Go, Java, and Kotlin.\nGoogle ADK offers developers an extensive set of tools for creating, deploying, assessing, and scaling agents, enabling developers to build anything from personal AI assistants to mission-critical business workflows.\nHow does the MongoDB Google ADK Integration help?\nDevelopers can prototype an agent that searches a product catalog or knowledge base, then evolve it into a…",
+  "sources": [
+   {
+    "sourceId": "mongodb",
+    "sourceName": "MongoDB Blog",
+    "title": "Introducing the MongoDB Google ADK Integration: Durable Memory for Agent State",
+    "url": "https://mongodb.com/company/blog/product-release-announcements/introducing-mongodb-google-adk-integration-durable-memory-agent-state",
+    "publishedAt": "2026-11-04T15:29:17.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 64,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches mongodb, agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-ilya-kosmodemiansky-the-default-postgresqlconf-0aa7ff",
+  "title": "Ilya Kosmodemiansky: The “default” postgresql.conf",
+  "canonicalUrl": "https://postgr.es/p/9A_",
+  "category": "databases",
+  "publishedAt": "2026-11-04T14:54:53.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "04acc2e35a8e4758",
+  "excerpt": "Part 1 of 4: how PostgreSQL configuration works, and connection settings \npg_settings, reload versus restart, max_connections, reserved connections and TCP keepalives \nThis is Part 1 of a four-part series based on the talk “The “default” postgresql.conf, step by step”, which I gave at PGConf.EU 2026 in Valencia on 21 October 2026. The slides can be found here . \nA 45-minute talk leaves no room for test output, for the mechanism behind a setting, or for the questions people asked afterwards. A blog post has that room, so these posts contain a few extras that were not in the talk. \nA new PostgreSQL installation starts with conservative defaults. They are chosen so that Postgres starts on almost any hardware, from a coffee machine to a small virtual machine, and they are not tuned for the server you actually run. The defaults improve from release to release, but you still need to read the documentation carefully to know which ones to change. Real servers have more memory, faster disks, unstable networks, connection poolers and applications that leave transactions open.\nAt Data Egret, we look after many PostgreSQL clusters. When we set up a new cluster or take over an existing one, we…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Ilya Kosmodemiansky: The “default” postgresql.conf",
+    "url": "https://postgr.es/p/9A_",
+    "publishedAt": "2026-11-04T14:54:53.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-portable-python-scripts-with-dependencies-18686f",
+  "title": "[$] Portable Python scripts with dependencies",
+  "canonicalUrl": "https://lwn.net/Articles/1104646",
+  "category": "programming",
+  "publishedAt": "2026-11-04T14:45:02.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "385c8db26f755257",
+  "excerpt": "A basic Python script is portable: it can be copied between machines with little concern about compatibility.\nA script that depends on third-party packages requires quite a bit more\ncare and consideration, however.\nIn 2023, PEP\n723 (\"Inline script metadata\") introduced a standard for declaring a Python script's\ndependencies inside the script itself.\nSeveral third-party tools can now automatically install and manage those dependencies, but there is still little official support for this standard within Python itself.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "[$] Portable Python scripts with dependencies",
+    "url": "https://lwn.net/Articles/1104646",
+    "publishedAt": "2026-11-04T14:45:02.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches python"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-inkitt-builds-a-one-shot-pr-creator-with-eb6f77",
+  "title": "Inkitt Builds a One-Shot PR Creator with Resumable Agent Orchestration",
+  "canonicalUrl": "https://infoq.com/news/2026/11/inkitt-one-shot-pr-creator-agent",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-04T14:36:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b784ee473fce53aa",
+  "excerpt": "Inkitt built a one-shot pull request creator that automates small, low-risk code changes from task intake to draft PR creation. Its event-driven orchestrator persists workflow state, coordinates short-lived coding agent containers, bounds retries, and enforces permission restrictions while retaining human review and approval before changes can be merged.\nBy Leela Kumili",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Inkitt Builds a One-Shot PR Creator with Resumable Agent Orchestration",
+    "url": "https://infoq.com/news/2026/11/inkitt-one-shot-pr-creator-agent",
+    "publishedAt": "2026-11-04T14:36:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-openai-to-acquire-pierre-computer-company-inc-1be4fd",
+  "title": "OpenAI to acquire Pierre Computer Company, Inc.",
+  "canonicalUrl": "https://openai.com/index/openai-to-acquire-pierre",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T14:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "18865e1710771b8f",
+  "excerpt": "OpenAI will acquire Pierre Computer Company, expanding Codex’s tools for building, understanding, and reviewing code.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "OpenAI to acquire Pierre Computer Company, Inc.",
+    "url": "https://openai.com/index/openai-to-acquire-pierre",
+    "publishedAt": "2026-11-04T14:30:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-security-updates-for-wednesday-46f1ae",
+  "title": "Security updates for Wednesday",
+  "canonicalUrl": "https://lwn.net/Articles/1105378",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-04T14:13:24.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "81f3404e6e410b6d",
+  "excerpt": "Security updates have been issued by AlmaLinux (cockpit, dpdk, fence-agents, firefox, freerdp, gimp, opentelemetry-collector, python-dns, qemu-kvm, and raptor2), Debian (apt and squid), Fedora (ags, apptainer, chromium, fractal, mingw-harfbuzz, mingw-qt5-qtwebkit, mingw-qt6-qt5compat, python-mistune, python3-docs, python3.14, python3.9, rubygem-gist, rust-app-store-connect, rust-qemu-rdp, rust-redlib, and selenium-manager), Mageia (java-latest-openjdk, java-17-openjdk, java-21-openjdk, timezone), Oracle (.NET 10.0, .NET 8.0, .NET 9.0, bind, bind9.16, cockpit, firefox, freerdp, gcc, ghostscript, glibc, grafana, java-17-openjdk, java-21-openjdk, kernel, kernel-uek, libXi, pipewire, pki-deps:10.6, podman, python-jwt, python-pillow, python-pyasn1, qt5-qtbase, thunderbird, tomcat, util-linux, and wireshark), Red Hat (dnsmasq, fence-agents, freerdp, pki-core:10.6, and thunderbird), SUSE (amazon-ssm-agent, aom-tools, apache2, brotli, cadvisor, chromium, cups, curl, distribution-registry, eog, gh, go-containerregistry, google-guest-agent, gvfs, haproxy, hauler, helm3, kernel, libBasicUsageEnvironment2, libcdio, libinstpatch-1_0-2, libosmocore, libreoffice, libX11, nodejs22,…",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Security updates for Wednesday",
+    "url": "https://lwn.net/Articles/1105378",
+    "publishedAt": "2026-11-04T14:13:24.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"10.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, python, rust"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-north-korean-fake-job-interview-led-to-63b-43c4a3",
+  "title": "North Korean fake job interview led to $6.3B Binance heist",
+  "canonicalUrl": "https://theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398",
+  "category": "programming",
+  "publishedAt": "2026-11-04T14:09:55.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0847e058a1341097",
+  "excerpt": "Article URL: https://www.theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398 \nComments URL: https://news.ycombinator.com/item?id=50365755 \nPoints: 461\n# Comments: 272",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "North Korean fake job interview led to $6.3B Binance heist",
+    "url": "https://theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398",
+    "publishedAt": "2026-11-04T14:09:55.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-01-north-korea-linked-to-massive-binance-crypto-heist-64fc87"
+ },
+ {
+  "id": "2026-11-04-alloydb-express-instant-scale-to-zero-postgresql-36bfe9",
+  "title": "AlloyDB Express: Instant, scale-to-zero PostgreSQL for developers and coding agents",
+  "canonicalUrl": "https://cloud.google.com/blog/products/databases/introducing-alloydb-express-for-rapid-testing-and-prototyping",
+  "category": "cloud",
+  "publishedAt": "2026-11-04T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c1b8ef58ebf5bf21",
+  "excerpt": "Databases have struggled to keep up with the speed of AI-enabled software development. Across the engineering and platform teams we talk to, we see coding agents stalled by slow database provisioning, CI/CD test pipelines bottlenecked by complexity, and internal apps hitting a wall as they transition from sandbox to production. Until now, no PostgreSQL service in the market has combined agent-ready capabilities with uncompromised enterprise security and scale. \nTo solve this, we are excited to announce the preview of AlloyDB Express , a new offering of AlloyDB for PostgreSQL designed specifically for developers and AI coding agents. Capable of spinning up in seconds and automatically pausing when idle, it helps bridge the gap between rapid, AI-driven development and robust enterprise infrastructure.The result is a highly secure, cost-effective database environment that accelerates how you build applications and can easily grow to production scale. Get started with the free tier and pay only for what you use.  \nAlloyDB Express is an agent-ready database that gives you: \nDatabase creation in under two seconds: Create a ready-to-use PostgreSQL database in under two seconds using…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "AlloyDB Express: Instant, scale-to-zero PostgreSQL for developers and coding agents",
+    "url": "https://cloud.google.com/blog/products/databases/introducing-alloydb-express-for-rapid-testing-and-prototyping",
+    "publishedAt": "2026-11-04T14:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 60,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"preview\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 15,
+     "reason": "Touches postgresql, agents, database, ci/cd, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-new-capabilities-to-power-agents-at-scale-with-c0aeac",
+  "title": "New capabilities to power agents at scale with Google's Agentic Data Cloud",
+  "canonicalUrl": "https://cloud.google.com/blog/products/databases/whats-new-across-googles-agentic-data-cloud",
+  "category": "cloud",
+  "publishedAt": "2026-11-04T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7901de735bfb8c01",
+  "excerpt": "Not long ago, we were entering the agentic era; today, organizations are deriving significant value from running agents in production. The opportunity to capture new revenue streams, improve efficiency, and manage risk makes reimagining operations with agents top of mind for enterprise leaders. \nThat is why we built the Agentic Data Cloud — a System of Action designed to activate all your data by breaking down walled gardens, deliver high accuracy and trust, and operate proactively at low cost. Leading organizations such as PayPal, Siemens, Telus, Vodafone, Walmart, and more are already achieving business impact with us today.  \nToday, we’re sharing key updates to Google’s Agentic Data Cloud. We’re empowering your agents everywhere, grounding them in your enterprise context to deliver accurate, trusted answers, and providing elevated agentic-first experiences for both practitioners and business users. \nActivate all your data for agents with the borderless Lakehouse \nEnterprise data lives everywhere — across multi-cloud environments, on-premises systems, and SaaS platforms like Confluent, SAP, Salesforce, and Workday. The borderless Lakehouse , built on the open Apache Iceberg…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "New capabilities to power agents at scale with Google's Agentic Data Cloud",
+    "url": "https://cloud.google.com/blog/products/databases/whats-new-across-googles-agentic-data-cloud",
+    "publishedAt": "2026-11-04T14:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-see-the-agents-set-the-terms-new-visibility-and-982ed4",
+  "title": "See the agents, set the terms: new visibility and control for personal agents",
+  "canonicalUrl": "https://blog.cloudflare.com/personal-agents-visibility-control",
+  "category": "cloud",
+  "publishedAt": "2026-11-04T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6fe944b2debc623a",
+  "excerpt": "Personal agents are the intermediary between humans and the Internet, turning a person’s instructions into requests and actions on websites. A customer might ask a personal agent to compare products across your site, find support articles, or complete a purchase. To a site owner, all three interactions show up as automated traffic — and without a clear view of which agents are visiting and what they are doing, it can be difficult to know whether that traffic is helping your business or creating risk. Blocking agents altogether can feel like the safest choice, but it can mean losing customers. Better visibility into agent activity allows you to decide what access makes sense for your site.\nToday, we’re launching new analytics to help you understand how personal agents access your site on behalf of humans, along with more granular access policies to put those decisions into practice. Together, they let you welcome agents on your own terms, and in ways that support your business.\nSee how agents access your site\nKnowing which agent is behind a request turns unexplained automated traffic into traffic you can act on with confidence. Cloudflare maintains the largest verified bot…",
+  "sources": [
+   {
+    "sourceId": "cloudflare",
+    "sourceName": "Cloudflare Blog",
+    "title": "See the agents, set the terms: new visibility and control for personal agents",
+    "url": "https://blog.cloudflare.com/personal-agents-visibility-control",
+    "publishedAt": "2026-11-04T14:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-the-download-blended-meat-restored-sight-and-the-669b84",
+  "title": "The Download: blended meat, restored sight, and the agentic web",
+  "canonicalUrl": "https://technologyreview.com/2026/11/04/1148001/the-download-blended-meat-sight-restoring-implant-agentic-web",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T13:10:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "920c1ce3d571c460",
+  "excerpt": "This is today’s edition of The Download , our weekday newsletter that provides a daily dose of what’s going on in the world of technology. \nThese startups hope “blended” food will cut our appetite for red meat \nIn the fall of 2025, Jeff Dodge served hungry students steaming marinara sauce and meatballs. The students loved them: 92% of those who tried them wanted them on the menu. Few could guess that mushrooms had been mixed into the meat.\nDodge was testing a new product called 50/Cut from the company Joyn. The blend of seemingly simple ingredients—available as meatballs, burgers, and ground meat—could help solve one of the biggest challenges of the climate crisis: getting people to eat less meat, particularly beef.\nJoyn is among a wave of startups creating “blended meat,” which combines plant proteins with the real deal. The logic: The best meat replacement is … better meat.\nGet a taste of the startups betting on greener beef .\n—Meghan McCarron \nThis implant can restore sight for patients with macular degeneration \nMore than 5 million people have an advanced form of age-related macular degeneration (AMD) called geographic atrophy, in which retinal cells die off. Until now, no…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "The Download: blended meat, restored sight, and the agentic web",
+    "url": "https://technologyreview.com/2026/11/04/1148001/the-download-blended-meat-sight-restoring-implant-agentic-web",
+    "publishedAt": "2026-11-04T13:10:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-securing-the-agentic-enterprise-with-data-lineage-5cff4c",
+  "title": "Securing the agentic enterprise with data lineage",
+  "canonicalUrl": "https://technologyreview.com/2026/11/04/1147596/securing-the-agentic-enterprise-with-data-lineage",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T13:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ceddb1f9e8767305",
+  "excerpt": "A sales representative asks an AI agent for customer pricing, and the agent pulls data from multiple sources: restricted pricing systems, internal communications, and archived quotes. The output looks accurate to the agent, so a second agent uses the data to draft the proposal for the sales rep. No human checks either handoff. When it’s discovered that the proposal includes unapproved, confidential, and sensitive information, no one can trace where the problematic data entered the workflow or how it spread across systems, files, and agents.\nDOWNLOAD THE REPORT \nThis scenario illustrates why AI governance needs to evolve, rapidly and dynamically. As more enterprises begin to use agentic AI in daily workflows, they’re realizing that they must manage more than static files; they must manage moving and fragmented data that is continuously ingested, copied, summarized, transformed, reused, and redistributed in new forms. In short, AI security isn’t a tool problem; it’s a data visibility problem.\nConsequently, traditional security approaches built solely around applications, systems, networks, or endpoints are no longer sufficient. Securing agentic AI at scale requires understanding how…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "Securing the agentic enterprise with data lineage",
+    "url": "https://technologyreview.com/2026/11/04/1147596/securing-the-agentic-enterprise-with-data-lineage",
+    "publishedAt": "2026-11-04T13:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-actively-exploited-apple-multiple-products-cve-ff75ac",
+  "title": "Actively exploited: Apple Multiple Products CVE-2024-27834 (Apple Multiple Products Improper Authentication Vulnerability)",
+  "canonicalUrl": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834",
+  "category": "security",
+  "publishedAt": "2026-11-04T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a18861f43f130f7a",
+  "excerpt": "Apple iOS, iPadOS, macOS, Safari, tvOS and watchOS 10.5 contain an improper authentication vulnerability which could allow an attacker with arbitrary read and write capability to bypass pointer authentication. Required action: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+  "sources": [
+   {
+    "sourceId": "cisa-kev",
+    "sourceName": "CISA Known Exploited Vulnerabilities",
+    "title": "Actively exploited: Apple Multiple Products CVE-2024-27834 (Apple Multiple Products Improper Authentication Vulnerability)",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834",
+    "publishedAt": "2026-11-04T12:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 62,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"actively exploited\")"
+    },
+    {
+     "label": "Exploitation",
+     "points": 4,
+     "reason": "Listed by CISA as exploited in the wild"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-openshell-on-kubernetes-a-guide-for-platform-c60d83",
+  "title": "OpenShell on Kubernetes: A guide for platform engineers",
+  "canonicalUrl": "https://cncf.io/blog/2026/11/04/openshell-on-kubernetes-a-guide-for-platform-engineers",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-04T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6fa85216859a5f13",
+  "excerpt": "What OpenShell is \nAI agents do more than call APIs. They run shells, install packages, read files, and open network connections. Often they act on text they pulled from the internet a minute earlier. So every agent is untrusted code that holds real credentials. \nOpenShell , started by NVIDIA and now a CNCF Sandbox project , is a runtime for running agents like this safely. OpenShell runs each agent in a sandbox. A trusted supervisor outside the sandbox decides what the agent may reach. You declare four kinds of control in YAML:\nFilesystem : Landlock limits which paths the agent can read or write. In the demo, /usr, /etc, and a few other paths are read-only, and only /sandbox, /tmp, and /dev/null are writable.\nProcess : before the agent starts, the sandbox runtime drops it to a non-root user with no capabilities and applies seccomp.\nNetwork : outbound traffic is denied by default. Rules can allow traffic per binary, host, port, and HTTP method.\nCredentials : the agent sees only a placeholder for each API key. The supervisor swaps in the real key, and only for endpoints the provider allows.\nFor Kubernetes admins, a key point is that OpenShell does not bring its own scheduler. Its…",
+  "sources": [
+   {
+    "sourceId": "cncf",
+    "sourceName": "CNCF Blog",
+    "title": "OpenShell on Kubernetes: A guide for platform engineers",
+    "url": "https://cncf.io/blog/2026/11/04/openshell-on-kubernetes-a-guide-for-platform-engineers",
+    "publishedAt": "2026-11-04T12:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches kubernetes, agents, agent, runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-ai-is-forcing-us-to-pay-off-40-years-of-technical-857e94",
+  "title": "AI is forcing us to pay off 40 years of technical debt",
+  "canonicalUrl": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T11:52:17.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "df7c2e93981a1fde",
+  "excerpt": "Article URL: https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability \nComments URL: https://news.ycombinator.com/item?id=50364336 \nPoints: 880\n# Comments: 522",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "AI is forcing us to pay off 40 years of technical debt",
+    "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+    "publishedAt": "2026-11-04T11:52:17.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-presentation-panel-who-builds-the-frontend-now-7a196f",
+  "title": "Presentation: Panel: Who Builds the Frontend Now? (And What Breaks When They Do)",
+  "canonicalUrl": "https://infoq.com/presentations/panel-ai-frontend-architecture",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T11:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "81e118b4db08ae0c",
+  "excerpt": "The panelists explain how AI tools and vibe coding reshape frontend and mobile engineering. They share insights on evolving junior developer roles, managing AI-generated code review fatigue, designing systems for autonomous agents, enforcing architectural guardrails, and navigating economic shifts in open-source software sustainability.\nBy Luca Mezzalira, James Hall, Danielle An, Ivan Zarea",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Presentation: Panel: Who Builds the Frontend Now? (And What Breaks When They Do)",
+    "url": "https://infoq.com/presentations/panel-ai-frontend-architecture",
+    "publishedAt": "2026-11-04T11:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-tell-hn-gemini-trains-on-chat-history-even-for-d5eecd",
+  "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+  "canonicalUrl": "https://news.ycombinator.com/item?id=50363461",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T10:10:27.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cfc5dbfb3bea7dda",
+  "excerpt": "If you have a personal Google AI subscription, all your saved chat history in Gemini can be used for training and there is no way to opt out unless you turn off chat history or use temporary chat sessions. These chat transcripts may even be read by human reviewers. Although Google claims to disconnect them from your account when human-reviewed, they explicitly warn not to enter confidential information . https://support.google.com/gemini/answer/16836988 “[Gemini app activity] is used to improve Google services for everyone, including by training generative AI models, if your Keep Activity setting is on.“ https://support.google.com/gemini/answer/13594961?hl=en#human_review “A subset of chats are reviewed by human reviewers” https://support.google.com/gemini/answer/13594961?hl=en#pn_retain_data “Chats reviewed by human reviewers [...] are not deleted when you delete your activity. Instead, they are retained for up to three years.” https://support.google.com/gemini/answer/13594961?hl=en#pn_data_usage “Please don’t enter confidential information that you wouldn’t want a reviewer to see or Google to use to improve our services, including machine-learning technologies.” To disable their…",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+    "url": "https://news.ycombinator.com/item?id=50363461",
+    "publishedAt": "2026-11-04T10:10:27.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-jetbrains-foundation-to-discontinue-new-400aaa",
+  "title": "JetBrains Foundation to discontinue new scholarships at Constructor University starting in 2027",
+  "canonicalUrl": "https://blog.jetbrains.com/education/2026/11/04/jetbrains-foundation-to-discontinue-new-scholarships-at-constructor-university-starting-in-2027",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-04T10:04:33.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b2179aa850b2d672",
+  "excerpt": "As JetBrains’ business direction evolves, we’re reviewing how our educational initiatives align with our priorities. As part of this shift, we’ve made the difficult decision to stop offering new scholarships at Constructor University.\nWe know this is disappointing news, especially if you were preparing to apply or have already submitted an application. We’re sorry for the uncertainty this brings to your plans.\nOur commitments to current students remain unchanged. All existing Software, Data and Technology (SDT) and Advanced Software Technology (AST) scholarship recipients will retain the benefits covered by their scholarship agreements until graduation. JetBrains experts will also continue their teaching involvement in the SDT and AST programs for current scholarship students.\nOur commitment to supporting talented young people through education continues. Our Math , AI , and Coding Clubs , Youth Coding and Math Challenges will continue as planned, along with the upcoming ACTS 2027.1 training camp .\nWe’ll also share an update on admissions and scholarship opportunities at Neapolis University Pafos on February 1, 2027.\nWe’re grateful to all the students, families, teachers, and…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "JetBrains Foundation to discontinue new scholarships at Constructor University starting in 2027",
+    "url": "https://blog.jetbrains.com/education/2026/11/04/jetbrains-foundation-to-discontinue-new-scholarships-at-constructor-university-starting-in-2027",
+    "publishedAt": "2026-11-04T10:04:33.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-incident-with-pull-requests-git-operations-and-862f2b",
+  "title": "Incident with Pull Requests, Git Operations and Issues",
+  "canonicalUrl": "https://githubstatus.com/incidents/smtdswd1h2w4",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-04T10:00:06.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c7951e1fa500889b",
+  "excerpt": "Article URL: https://www.githubstatus.com/incidents/smtdswd1h2w4 \nComments URL: https://news.ycombinator.com/item?id=50363378 \nPoints: 229\n# Comments: 117",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Incident with Pull Requests, Git Operations and Issues",
+    "url": "https://githubstatus.com/incidents/smtdswd1h2w4",
+    "publishedAt": "2026-11-04T10:00:06.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-amazon-ecs-gateway-arrives-with-generated-3594ed",
+  "title": "Amazon ECS Gateway Arrives with Generated Hostnames and No Custom Domain Support",
+  "canonicalUrl": "https://infoq.com/news/2026/11/introducing-amazon-ecs-gateway",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-04T09:49:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6a8924d1531d8feb",
+  "excerpt": "AWS has released Amazon ECS Gateway, an account-level ingress resource letting platform teams define networking once and application teams opt services in with a connector. Each service gets a generated hostname and routing is host-based, and neither the announcement nor the documentation covers custom domains.\nBy Steef-Jan Wiggers",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Amazon ECS Gateway Arrives with Generated Hostnames and No Custom Domain Support",
+    "url": "https://infoq.com/news/2026/11/introducing-amazon-ecs-gateway",
+    "publishedAt": "2026-11-04T09:49:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-cornelia-biacsics-contributions-for-week-43-c62fcd",
+  "title": "Cornelia Biacsics: Contributions for week 43",
+  "canonicalUrl": "https://postgr.es/p/9AZ",
+  "category": "databases",
+  "publishedAt": "2026-11-04T09:35:39.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "126c8df01fd1cce1",
+  "excerpt": "On 27 Oct, the Warsaw PostgreSQL User Group met.\nOrganizers: \nAlicja Kucharczyk \nAdam Wołk\nTomasz Gintowt\nSpeaker: \nTomasz Gintowt\nOn 30 October, PostgreSQL PG Down Under 2026 took place. \nOrganizers: \nRajni Baliyan\nRoneel Kumar\nMalcolm McLean\nRandal McDonnel\nJames Sewell\nDavid Micallef\nGary Evans\nLloyd Albin\nTalk Selection Committee:\nRobins Tharakan\nSean Massey\nSameer Kumar\nThomas Munro\nUdara Ratnakumara\nNishchay Kothari\nShadab Mohammad\nRavi Kiran\nManish Upadhyay\nSpeakers: \nJoe Conway\nPeter Smith\nAjin Cherian\nJames Sadler\nRavi Kiran Venkata Bhaskarabhatta\nManan Gupta\nSameer Kumar\nRoneel Kumar\nEvgeny Voropaev\nNishchay Kothari\nJames Blackwood-Sewell\nCraig Ringer\nEugene Bobkov\nToby Hede\nShadab Mohammad\nRajni Baliyan\nDiksha Sharma\nOn 30 October, the Prague PostgreSQL User Group met, organized by Mayur B. and Gülçin Yıldırım Jelínek \nSpeakers: \nRadim Marek \nSergey Chehuta\nJosef Šimánek\nCommunity Blog Posts:\nPat Wright about “Organizing and Growing Community Events”",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Cornelia Biacsics: Contributions for week 43",
+    "url": "https://postgr.es/p/9AZ",
+    "publishedAt": "2026-11-04T09:35:39.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-article-the-app-is-just-the-tip-what-it-takes-to-1df275",
+  "title": "Article: The App Is Just the Tip: What It Takes to Build Mobile Infrastructure at Scale",
+  "canonicalUrl": "https://infoq.com/articles/mobile-app-infrastructure-at-scale",
+  "category": "programming",
+  "publishedAt": "2026-11-04T09:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6c05d825e1fcece5",
+  "excerpt": "What determines whether your app feels fast, ships often, and stays stable at scale is not the app itself. It is what sits behind it. This article is about that layer: what it does, why it exists, what it takes to design it correctly, and what happens when you try to migrate a live, high-traffic product onto it without a safety net.\nBy Kirill Sokolov",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Article: The App Is Just the Tip: What It Takes to Build Mobile Infrastructure at Scale",
+    "url": "https://infoq.com/articles/mobile-app-infrastructure-at-scale",
+    "publishedAt": "2026-11-04T09:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-docker-urges-isolation-and-governance-for-ai-0fcd23",
+  "title": "Docker Urges Isolation and Governance for AI Agent Security",
+  "canonicalUrl": "https://infoq.com/news/2026/11/docker-ai-agent-security",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T09:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5ec002c1abc96de5",
+  "excerpt": "Docker has published a guide to five security risks that arise when AI agents are allowed to browse, run code and call tools with limited human oversight. They argue that the autonomy that makes agents useful also makes conventional application security controls insufficient. The company positions isolation and governance, rather than model improvements alone, as the main defences.\nBy Matt Saunders",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Docker Urges Isolation and Governance for AI Agent Security",
+    "url": "https://infoq.com/news/2026/11/docker-ai-agent-security",
+    "publishedAt": "2026-11-04T09:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"improvements\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches docker, agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-kitty-050-327489",
+  "title": "Kitty 0.50",
+  "canonicalUrl": "https://sw.kovidgoyal.net/kitty/changelog",
+  "category": "programming",
+  "publishedAt": "2026-11-04T08:57:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5677cb791d7f922e",
+  "excerpt": "Article URL: https://sw.kovidgoyal.net/kitty/changelog/# \nComments URL: https://news.ycombinator.com/item?id=50362980 \nPoints: 334\n# Comments: 206",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Kitty 0.50",
+    "url": "https://sw.kovidgoyal.net/kitty/changelog",
+    "publishedAt": "2026-11-04T08:57:10.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches .net"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-nvidia-rtx-spark-encrypted-firmware-slows-453704",
+  "title": "Nvidia RTX Spark encrypted firmware slows inference speed to 35% on Linux",
+  "canonicalUrl": "https://mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T08:46:29.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "533c241951a42a1f",
+  "excerpt": "Article URL: https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop \nComments URL: https://news.ycombinator.com/item?id=50362905 \nPoints: 527\n# Comments: 242",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Nvidia RTX Spark encrypted firmware slows inference speed to 35% on Linux",
+    "url": "https://mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop",
+    "publishedAt": "2026-11-04T08:46:29.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches inference"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-the-user-group-support-program-is-becoming-the-9aef31",
+  "title": "The User Group Support Program Is Becoming the Developer Communities Program",
+  "canonicalUrl": "https://blog.jetbrains.com/community-programs/2026/11/the-user-group-support-program-is-becoming-the-developer-communities-program",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-04T08:12:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9387ff4dff57796f",
+  "excerpt": "Great developer communities don’t come together by accident – they’re built by people who consistently show up for others. They organize meetups after work, keep online discussions active, invite speakers, prepare workshops, and create spaces where developers can learn from each other.\nAt JetBrains, we’ve always valued these efforts and had the privilege of supporting community organizers around the world. Today, we’re taking the next step in how we do that.\nCommunities have changed, and so have we\nWhen we first launched the JetBrains User Group Support Program thirteen years ago, the idea was simple. We wanted to help local developer groups grow by providing JetBrains IDE subscriptions for organizers and small community giveaways. Since then, the way developer communities work has changed greatly.\nMany communities now live online, on Discord, Slack, and other platforms. Others move between in-person and virtual events, depending on what works best. Workshops, livestreams, and hybrid events have become part of everyday community life.\nWe realized our program should evolve together with the communities.\nThat’s why our User Group Support Program is becoming the JetBrains Developer…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "The User Group Support Program Is Becoming the Developer Communities Program",
+    "url": "https://blog.jetbrains.com/community-programs/2026/11/the-user-group-support-program-is-becoming-the-developer-communities-program",
+    "publishedAt": "2026-11-04T08:12:21.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-daybreak-red-is-now-available-in-aws-govcloud-us-a3433e",
+  "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+  "canonicalUrl": "https://openai.com/index/daybreak-red-aws-govcloud",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T07:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "73c339cbf7884660",
+  "excerpt": "Daybreak Red brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+    "url": "https://openai.com/index/daybreak-red-aws-govcloud",
+    "publishedAt": "2026-11-04T07:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"now available\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-04-epilora-fusing-many-lora-adapters-into-low-a60124",
   "title": "EpiLoRA: Fusing Many LoRA Adapters into Low-Precision GEMMs for Serving and RL",
   "canonicalUrl": "https://arxiv.org/abs/2611.03899",
@@ -59,7 +3135,7 @@
   "publishedAt": "2026-11-04T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e72b1041c09d3db5",
@@ -111,7 +3187,7 @@
   "publishedAt": "2026-11-04T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1efbc1613b4604d4",
@@ -168,7 +3244,7 @@
   "publishedAt": "2026-11-04T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1902a4914bc86ac3",
@@ -220,7 +3296,7 @@
   "publishedAt": "2026-11-04T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e7199e3b3fc79f5d",
@@ -277,7 +3353,7 @@
   "publishedAt": "2026-11-04T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5ffad4c32d19e8fa",
@@ -329,7 +3405,7 @@
   "publishedAt": "2026-11-04T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f90e279d90f98f47",
@@ -376,7 +3452,7 @@
   "publishedAt": "2026-11-04T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "50ef2c439b2c0f7c",
@@ -522,7 +3598,7 @@
   "publishedAt": "2026-11-04T00:32:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e6ccb3482403a10c",
@@ -555,6 +3631,276 @@
      "label": "Engineering relevance",
      "points": 6,
      "reason": "Touches api, go"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-fencing-a-postgres-primary-that-might-still-be-abbdcb",
+  "title": "Fencing a Postgres primary that might still be alive",
+  "canonicalUrl": "https://clickhouse.com/blog/fencing-a-postgres-primary-that-might-still-be-alive",
+  "category": "databases",
+  "publishedAt": "2026-11-04T00:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "88689845c16189f4",
+  "excerpt": "Promoting a standby doesn't stop the old Postgres primary from taking writes. Here's how the control plane behind ClickHouse Managed Postgres fences it on bare metal, AWS and GCP, and why the design is fail-open.",
+  "sources": [
+   {
+    "sourceId": "clickhouse",
+    "sourceName": "ClickHouse Blog",
+    "title": "Fencing a Postgres primary that might still be alive",
+    "url": "https://clickhouse.com/blog/fencing-a-postgres-primary-that-might-still-be-alive",
+    "publishedAt": "2026-11-04T00:30:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgres, aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-a-new-go-api-for-json-c69a40",
+  "title": "A new Go API for JSON",
+  "canonicalUrl": "https://go.dev/blog/jsonv2",
+  "category": "programming",
+  "publishedAt": "2026-11-04T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "264827f0f234257a",
+  "excerpt": "Go 1.27 introduces new encoding/json/v2 and encoding/json/jsontext packages.",
+  "sources": [
+   {
+    "sourceId": "go-blog",
+    "sourceName": "The Go Blog",
+    "title": "A new Go API for JSON",
+    "url": "https://go.dev/blog/jsonv2",
+    "publishedAt": "2026-11-04T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches go, api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-agents-are-software-introducing-the-next-chapter-9a5fba",
+  "title": "Agents Are Software: Introducing the Next Chapter of Redis Iris",
+  "canonicalUrl": "https://redis.io/blog/agents-are-software-introducing-the-next-chapter-of-redis-iris",
+  "category": "databases",
+  "publishedAt": "2026-11-04T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5d5ae52df4bd5866",
+  "excerpt": "The next chapter of Redis Iris is here\nAI models and infrastructure are now good enough for the enterprise, yet few teams are seeing repeatable, production-level success with agents. This is because agents lack the right context, at the right time, r...",
+  "sources": [
+   {
+    "sourceId": "redis-blog",
+    "sourceName": "Redis Blog",
+    "title": "Agents Are Software: Introducing the Next Chapter of Redis Iris",
+    "url": "https://redis.io/blog/agents-are-software-introducing-the-next-chapter-of-redis-iris",
+    "publishedAt": "2026-11-04T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, redis"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-project-detroit-from-foreign-libraries-to-foreign-f5042f",
+  "title": "Project Detroit: From Foreign Libraries to Foreign Language Runtimes",
+  "canonicalUrl": "https://inside.java/2026/11/04/devoxxbelgium-project-detroit",
+  "category": "programming",
+  "publishedAt": "2026-11-04T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "61c25825b89d32cc",
+  "excerpt": "Interacting with foreign libraries from Java has never been easier, thanks to the Foreign Function & Memory (FFM) API. But interacting with entire foreign language runtimes, like JavaScript or Python, remains hard. Project Detroit paves a new way forward: instead of implementing bespoke language runtimes from scratch, it leverages FFM to embed industry-standard native runtimes like V8 and CPython in the safety and comfort of your Java application.",
+  "sources": [
+   {
+    "sourceId": "inside-java",
+    "sourceName": "Inside Java",
+    "title": "Project Detroit: From Foreign Libraries to Foreign Language Runtimes",
+    "url": "https://inside.java/2026/11/04/devoxxbelgium-project-detroit",
+    "publishedAt": "2026-11-04T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches api, javascript, python"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-the-next-chapter-of-redis-iris-what-agents-need-1df310",
+  "title": "The next chapter of Redis Iris: what agents need to work in the real world",
+  "canonicalUrl": "https://redis.io/blog/the-next-chapter-of-redis-iris-what-agents-need-to-work-in-the-real-world",
+  "category": "databases",
+  "publishedAt": "2026-11-04T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "67e9863464c4705d",
+  "excerpt": "The other day, I was chatting with a customer support AI agent dealing with a cancelled flight. The experience was terrible. You could tell the agent realistically only had a few functions, and this was clearly not one of them. I’m sure when the devel...",
+  "sources": [
+   {
+    "sourceId": "redis-blog",
+    "sourceName": "Redis Blog",
+    "title": "The next chapter of Redis Iris: what agents need to work in the real world",
+    "url": "https://redis.io/blog/the-next-chapter-of-redis-iris-what-agents-need-to-work-in-the-real-world",
+    "publishedAt": "2026-11-04T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches redis, agents, agent"
     },
     {
      "label": "Freshness",
@@ -621,7 +3967,7 @@
   "publishedAt": "2026-11-03T23:17:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7d3f1283f0accac4",
@@ -663,6 +4009,58 @@
    ]
   },
   "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-03-wednesday-november-11-2026-security-releases-130d9b",
+  "title": "Wednesday, November 11, 2026 Security Releases",
+  "canonicalUrl": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases",
+  "category": "programming",
+  "publishedAt": "2026-11-03T23:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cfe17be4551f925c",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "nodejs-blog",
+    "sourceName": "Node.js Blog",
+    "title": "Wednesday, November 11, 2026 Security Releases",
+    "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases",
+    "publishedAt": "2026-11-03T23:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"releases\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
   "status": "pending"
  },
  {
@@ -1091,7 +4489,7 @@
   "publishedAt": "2026-11-03T21:32:18.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "82a0ebad3515a78b",
@@ -1247,7 +4645,7 @@
   "publishedAt": "2026-11-03T20:09:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d5d35ccb71e4fdeb",
@@ -1304,7 +4702,7 @@
   "publishedAt": "2026-11-03T20:08:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4c456ca04e406713",
@@ -1618,7 +5016,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -1675,7 +5073,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -1727,7 +5125,7 @@
   "publishedAt": "2026-11-03T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ffbe1d46521567c3",
@@ -1983,7 +5381,7 @@
   "publishedAt": "2026-11-03T18:16:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "52e43a70db186f58",
@@ -2203,7 +5601,7 @@
   "publishedAt": "2026-11-03T17:32:47.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f73e76cba7ea56e0",
@@ -2250,7 +5648,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -2418,7 +5816,7 @@
   "publishedAt": "2026-11-03T17:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0ffb3b8e06ea15de",
@@ -2517,7 +5915,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -2564,7 +5962,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -2673,7 +6071,7 @@
   "publishedAt": "2026-11-03T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "04a691a3f53e8d61",
@@ -2834,7 +6232,7 @@
   "publishedAt": "2026-11-03T16:35:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ad908317fc7457db",
@@ -2933,7 +6331,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -2985,7 +6383,7 @@
   "publishedAt": "2026-11-03T16:00:45.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "891c9baffd398277",
@@ -3037,7 +6435,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -3555,7 +6953,7 @@
   "publishedAt": "2026-11-03T15:05:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b0ba33828d71fa95",
@@ -3883,7 +7281,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -4153,7 +7551,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aff824d2ecdc3470",
@@ -4200,7 +7598,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5607977dbb4021b1",
@@ -4317,7 +7715,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d143689e77c992d9",
@@ -4530,7 +7928,7 @@
   "publishedAt": "2026-11-03T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b16dc7d436a154ab",
@@ -4634,7 +8032,7 @@
   "publishedAt": "2026-11-03T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5ecffccb3db362d4",
@@ -4681,7 +8079,7 @@
   "publishedAt": "2026-11-03T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cb4e58bfdaf493f8",
@@ -4694,11 +8092,19 @@
     "url": "https://openai.com/index/cisco-cyber",
     "publishedAt": "2026-11-03T08:00:00.000Z",
     "credibility": 3
+   },
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Helping you build and defend at machine-speed in the agentic era",
+    "url": "https://cloud.google.com/blog/products/identity-security/helping-you-build-and-defend-at-machine-speed-in-the-agentic-era",
+    "publishedAt": "2026-11-04T17:00:00.000Z",
+    "credibility": 3
    }
   ],
   "minor": false,
   "score": {
-   "total": 40,
+   "total": 48,
    "parts": [
     {
      "label": "Baseline",
@@ -4711,13 +8117,18 @@
      "reason": "Primary source (the vendor or project itself)"
     },
     {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
      "label": "Freshness",
      "points": 5,
      "reason": "Published in the last 36 hours"
     }
    ]
   },
-  "importance": "routine",
+  "importance": "notable",
   "status": "pending"
  },
  {
@@ -4785,7 +8196,7 @@
   "publishedAt": "2026-11-03T07:00:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b804a311851f84fd",
@@ -5258,7 +8669,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -5357,7 +8768,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -5419,7 +8830,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -5466,7 +8877,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8a5ad80e68497e17",
@@ -5513,7 +8924,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "96171cba41676809",
@@ -5612,7 +9023,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dab47b14b2977954",
@@ -5669,7 +9080,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d31d1a052d88ffa5",
@@ -5716,7 +9127,7 @@
   "publishedAt": "2026-11-02T23:39:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "66462a9bddb36434",
@@ -5872,7 +9283,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -5976,7 +9387,7 @@
   "publishedAt": "2026-11-02T22:08:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8e7b7729f82dce57",
@@ -6235,6 +9646,58 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-02-the-platform-behind-the-next-ai-breakthrough-7af52c",
+  "title": "The Platform Behind the Next AI Breakthrough",
+  "canonicalUrl": "https://wired.com/sponsored/story/the-platform-behind-the-next-ai-breakthrough",
+  "category": "cloud",
+  "publishedAt": "2026-11-02T20:52:22.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1999d731b87a8967",
+  "excerpt": "This article has been written and paid for by Microsoft. The content is not WIRED editorial content. The content does not necessarily reflect the views of WIRED, its affiliates, or owner, and does not reflect any endorsement direct or indirect of Microsoft, its affiliates, or other clients. \nThe next frontier of AI is coming into focus as agents take on longer, more strategic work. They can write and validate code, coordinate across systems, rebalance inventory as conditions change, manage production operations, or carry a migration from plan to completion. AI is no longer supporting one step; it is executing and reshaping the process itself.\nNew models help drive this change by expanding what AI can reason about, create, and accomplish. But the combination of advances in models and infrastructure is key to moving agents from isolated tasks to sustained, high-impact work. Realizing that potential requires silicon, compute, storage, and networking to work together so workloads run faster and more reliably at scale.\nAgents Are a Different Kind of Workload \nCloud infrastructure has evolved before to support new kinds of applications. Even the most advanced cloud-native applications…",
+  "sources": [
+   {
+    "sourceId": "azure-blog",
+    "sourceName": "Microsoft Azure Blog",
+    "title": "The Platform Behind the Next AI Breakthrough",
+    "url": "https://wired.com/sponsored/story/the-platform-behind-the-next-ai-breakthrough",
+    "publishedAt": "2026-11-02T20:52:22.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 53,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"breakthrough\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-02-one-of-google-s-android-partners-turned-13-a009c8",
   "title": "One of Google’s Android partners turned 1.3 million set-top boxes into a botnet",
   "canonicalUrl": "https://theverge.com/1024807/google-botnet-android-tv-shut-down",
@@ -6279,7 +9742,8 @@
    ]
   },
   "importance": "routine",
-  "status": "below-threshold"
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-02-google-disrupts-million-device-xcpe-android-a07209"
  },
  {
   "id": "2026-11-02-what-exploited-vulnerabilities-have-in-common-a-1c791b",
@@ -6289,7 +9753,7 @@
   "publishedAt": "2026-11-02T20:20:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4691d47bd2f4c26a",
@@ -6571,11 +10035,19 @@
     "url": "https://bleepingcomputer.com/news/security/google-disrupts-million-device-xcpe-android-malware-botnet-bans-tv-box-maker",
     "publishedAt": "2026-11-02T18:16:34.000Z",
     "credibility": 2
+   },
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "One of Google’s Android partners turned 1.3 million set-top boxes into a botnet",
+    "url": "https://theverge.com/1024807/google-botnet-android-tv-shut-down",
+    "publishedAt": "2026-11-02T20:37:49.000Z",
+    "credibility": 2
    }
   ],
   "minor": false,
   "score": {
-   "total": 34,
+   "total": 42,
    "parts": [
     {
      "label": "Baseline",
@@ -6588,6 +10060,11 @@
      "reason": "Established publication or research venue"
     },
     {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
      "label": "Freshness",
      "points": 5,
      "reason": "Published in the last 36 hours"
@@ -6595,7 +10072,7 @@
    ]
   },
   "importance": "routine",
-  "status": "below-threshold"
+  "status": "pending"
  },
  {
   "id": "2026-11-02-canva-s-new-design-model-doesn-t-generate-images-e11aba",
@@ -7001,7 +10478,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -7053,7 +10530,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -7100,7 +10577,7 @@
   "publishedAt": "2026-11-02T17:26:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "834456d13ddb011f",
@@ -7147,7 +10624,7 @@
   "publishedAt": "2026-11-02T17:26:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5a98412d98a53444",
@@ -7553,7 +11030,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -8439,7 +11916,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -8546,7 +12023,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b048de63a87b4a2b",
@@ -8655,7 +12132,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3f0ae029662bfce9",
@@ -9014,7 +12491,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -10122,7 +13599,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -10221,7 +13698,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5318b4a6371af0e",
@@ -10330,7 +13807,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8feb681ee8d7cdbc",
@@ -10387,7 +13864,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -11042,12 +14519,28 @@
     "url": "https://bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers",
     "publishedAt": "2026-11-01T19:57:53.000Z",
     "credibility": 2
+   },
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "North Korean fake job interview led to $6.3B Binance heist",
+    "url": "https://theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398",
+    "publishedAt": "2026-11-04T14:09:55.000Z",
+    "credibility": 2
+   },
+   {
+    "sourceId": "ars-technica",
+    "sourceName": "Ars Technica",
+    "title": "Binance says hackers who stole billions in crypto spent months planning heist",
+    "url": "https://arstechnica.com/information-technology/2026/11/binance-says-hackers-who-stole-billions-in-crypto-spent-months-planning-heist",
+    "publishedAt": "2026-11-04T16:06:03.000Z",
+    "credibility": 2
    }
   ],
   "minor": false,
   "offTopic": true,
   "score": {
-   "total": 42,
+   "total": 50,
    "parts": [
     {
      "label": "Baseline",
@@ -11061,8 +14554,8 @@
     },
     {
      "label": "Corroboration",
-     "points": 8,
-     "reason": "Reported by 2 independent sources"
+     "points": 16,
+     "reason": "Reported by 4 independent sources"
     },
     {
      "label": "Freshness",
@@ -11071,7 +14564,7 @@
     }
    ]
   },
-  "importance": "routine",
+  "importance": "notable",
   "status": "below-threshold"
  },
  {
@@ -11082,7 +14575,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-04T20:30:30.575Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",

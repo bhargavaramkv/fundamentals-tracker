@@ -177,5 +177,23 @@
   "analysisFailed": 0,
   "analysisSkipped": "--no-analyze",
   "errors": []
+ },
+ {
+  "startedAt": "2026-11-04T20:30:30.575Z",
+  "finishedAt": "2026-11-04T20:30:39.022Z",
+  "ok": true,
+  "sourcesOk": 62,
+  "sourcesFailed": 1,
+  "itemsFetched": 225,
+  "newStories": 67,
+  "updatedStories": 1,
+  "corroborated": 4,
+  "unchanged": 115,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "--no-analyze",
+  "errors": [
+   "cisa-advisories: HTTP 403"
+  ]
  }
 ]
