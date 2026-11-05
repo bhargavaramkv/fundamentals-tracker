@@ -3,10 +3,11 @@
  * routine proposes it, code validates it, and the site only renders what passed. See docs/design/MENTOR.md.
  */
 import type { CodingContext } from "../leetcode-history";
+import type { GeneratedQuestion } from "./questions";
 
 export const MENTOR_SCHEMA = 1;
 /** Bump when the routine's instructions change, so the same input can be analysed again under the new rules. */
-export const MENTOR_PROMPT_VERSION = 1;
+export const MENTOR_PROMPT_VERSION = 2;
 export const MENTOR_TIME_ZONE = "Asia/Kolkata";
 /** Nights in a row the routine must succeed before the mentor becomes the home page. */
 export const PRIMARY_AFTER_NIGHTS = 5;
@@ -164,6 +165,8 @@ export interface Proposal {
   roadmap: { items: RoadmapItem[]; changes: { change: string; why: string }[] };
   plan: DailyPlan;
   feedback: SubmissionFeedback[];
+  /** New practice questions for tonight's gaps. Optional; appended to mentor/questions.json, never kept in the state. */
+  questions?: GeneratedQuestion[];
 }
 
 export interface LevelChange {
@@ -175,7 +178,7 @@ export interface LevelChange {
 }
 
 /** One version of what the mentor believes. Written to mentor/states/<forDate>.json and never edited. */
-export interface LearnerState extends Omit<Proposal, "evidence"> {
+export interface LearnerState extends Omit<Proposal, "evidence" | "questions"> {
   version: number;
   generatedAt: string;
   runId: string;
@@ -328,6 +331,8 @@ export interface MentorPacket {
     dueQuestionIds: string[];
     readsWithoutRetrieval: string[];
     daysSinceLastInteraction: number | null;
+    /** Per skill: questions in the bank and how many are still unseen. Where it's thin, write questions. */
+    questionBank: { skillId: string; total: number; unseen: number; byDifficulty: [number, number, number] }[];
   };
   /** Answers from before the question rewrite: context only, never evidence. */
   archived: { count: number; missedByTopic: Record<string, number> };

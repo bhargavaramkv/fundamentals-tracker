@@ -19,6 +19,7 @@ import { useRadarPrefs } from "./radar/prefs";
 import { ScoreChart } from "./ScoreChart";
 import { SkillPath } from "./SkillPath";
 import { relativeDays, startOfLocalDay, untilDays, useNow } from "./useNow";
+import { useQuestionPool } from "./useQuestionPool";
 
 const DAILY_GOAL = 10;
 
@@ -57,8 +58,10 @@ function relativeDay(days: number | null): string {
 export function Dashboard({ ctx, radar }: { ctx: PlanContext; radar: RadarFeed }) {
   const { data, ready } = useProgress();
   const now = useNow();
+  const questions = useQuestionPool(ctx.questions);
+  const pooled = useMemo(() => ({ ...ctx, questions }), [ctx, questions]);
   if (!ready || now === null) return <DashboardSkeleton />;
-  return <DashboardPage ctx={ctx} radar={radar} data={data} now={now} />;
+  return <DashboardPage ctx={pooled} radar={radar} data={data} now={now} />;
 }
 
 function DashboardPage({ ctx, radar, data, now }: { ctx: PlanContext; radar: RadarFeed; data: Data; now: number }) {
