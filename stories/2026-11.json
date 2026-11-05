@@ -1,5 +1,1137 @@
 [
  {
+  "id": "2026-11-05-a-controlled-experimental-evaluation-of-f56308",
+  "title": "A Controlled Experimental Evaluation of Configuration and Cache Architecture in LLM Serving Engines",
+  "canonicalUrl": "https://arxiv.org/abs/2611.05991",
+  "category": "research",
+  "publishedAt": "2026-11-05T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d9f573e9f3626031",
+  "excerpt": "arXiv:2611.05991v1 Announce Type: new \nAbstract: Multi-agent LLM applications repeat most of their prompt tokens across requests, and serving engines reuse the cached state of shared prefixes. vLLM and SGLang reuse it at different granularities, and benchmarks of their default deployments report large performance gaps, usually credited to the cache. Such comparisons rarely control for other configuration differences. One of them, whether a long prompt is prefilled in chunks, is set by each engine's defaults from the hardware and the release, and it confounds the comparison. We built a reproducible testbed on Kubernetes and a seeded multi-agent workload generator, and compared the two engines under vendor defaults and with chunked prefill matched. SGLang's configuration is the same in both arms, which makes it an internal control across independently provisioned deployments. Under defaults, vLLM's median time to first token is up to 64x SGLang's. Matching one setting removes 78% of the capacity gap where that gap is largest and 30 to 67% of the latency gap. Near saturation the remaining latency gap reflects queue growth. A fluid queue model driven only by a 4.4% throughput…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "A Controlled Experimental Evaluation of Configuration and Cache Architecture in LLM Serving Engines",
+    "url": "https://arxiv.org/abs/2611.05991",
+    "publishedAt": "2026-11-05T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches cache, llm, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-bobflow-towards-human-agent-collaborative-data-acaf08",
+  "title": "BobFlow: Towards Human-Agent Collaborative Data Science Using Dataflows",
+  "canonicalUrl": "https://arxiv.org/abs/2611.05761",
+  "category": "research",
+  "publishedAt": "2026-11-05T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4cd6da766dc144b1",
+  "excerpt": "arXiv:2611.05761v1 Announce Type: new \nAbstract: Recent advances in large language models (LLMs) have established human-agent collaboration as a promising paradigm for data science. Effective collaboration requires a shared computational abstraction that enables agents to reason about processing logic while allowing human analysts to understand, guide, and refine the analysis. Although scripts written in Python or SQL provide precise control, their syntax and execution details can be difficult for analysts to understand and modify. In this paper, we argue that dataflows are an effective abstraction for human-agent collaboration in data science. We introduce BobFlow, a system that combines the dataflow abstraction with the ReAct paradigm. It enables agents to iteratively construct and execute dataflows for data science tasks while allowing analysts to inspect the analysis and provide feedback. Our user study shows that BobFlow helps analysts understand, inspect, and verify agent-generated analyses. A thorough experimental evaluation across proprietary and open-weight LLMs shows accuracy score gains of up to 18.6 points at just over 1/3 of a script-based ReAct agent's inference cost.",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "BobFlow: Towards Human-Agent Collaborative Data Science Using Dataflows",
+    "url": "https://arxiv.org/abs/2611.05761",
+    "publishedAt": "2026-11-05T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agent, agents, python"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-energy-efficient-reinforcement-learning-for-large-b40690",
+  "title": "Energy-Efficient Reinforcement Learning for Large Language Models",
+  "canonicalUrl": "https://arxiv.org/abs/2611.05748",
+  "category": "research",
+  "publishedAt": "2026-11-05T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "881997ff51510192",
+  "excerpt": "arXiv:2611.05748v1 Announce Type: new \nAbstract: Reinforcement learning for language models alternates between generating responses and training the policy. These stages place different demands on GPUs, creating opportunities to reduce clock frequency with little loss in throughput. Selecting frequencies online is difficult because response lengths change and frequency trials themselves consume time and energy. We present EE-RL (energy-efficient RL), an online controller that selects separate frequencies for generation and training during RL execution. It compares candidate settings with a prediction of the default GPU governor on the same token workload, and keeps the most energy-efficient setting that meets a throughput threshold. The controller then monitors throughput and energy and adjusts frequencies as the workload changes. Fixed-frequency sweeps on H100 and GB200 show GPU energy savings of up to 28.2% per valid training token across synchronous and asynchronous execution, while largely preserving throughput. EE-RL turns this headroom into online savings, reducing GPU energy per valid training token by up to 16.9% at a modest throughput cost.",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Energy-Efficient Reinforcement Learning for Large Language Models",
+    "url": "https://arxiv.org/abs/2611.05748",
+    "publishedAt": "2026-11-05T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches throughput"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-runway-characters-serving-a-57b-video-diffusion-18e71e",
+  "title": "Runway Characters: Serving a 57B Video Diffusion Transformer for Real-Time Conversation",
+  "canonicalUrl": "https://arxiv.org/abs/2611.05642",
+  "category": "research",
+  "publishedAt": "2026-11-05T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "901f31113e4cddd4",
+  "excerpt": "arXiv:2611.05642v1 Announce Type: new \nAbstract: Conversational video characters must generate video as fast as it plays, for one user at a time: at 24 fps, a sustained 166.7 ms per four-frame chunk at batch size one, with only a few chunks of buffering. We describe the system behind Runway Characters, which serves a $\\approx$57B-parameter autoregressive video diffusion transformer (four denoising passes per chunk) at 704$\\times$1088 and 24 fps on four H100 GPUs with a voice agent in the loop. Each chunk takes 240 attention calls, each reading a 5,788-slot KV cache in which only 757 tokens are new, and 29% of the original step was whole-cache work repeated in every call. We move that work to write time (a ring cache, RoPE and FP8 quantization applied once per write, and a delta rotation when positions reset), fuse the tensor-parallel all-reduce into the FP8 GEMM with in-switch reduction, and give the decoder that turns latents into video frames its own GPU. Without the fused kernel, our optimizations cut the diffusion step from 240.9 to 159.3 ms (1.51$\\times$, 24.5 fps sustained) with no detected degradation in lip-sync scores; the fused kernel, rolled back once in production and…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Runway Characters: Serving a 57B Video Diffusion Transformer for Real-Time Conversation",
+    "url": "https://arxiv.org/abs/2611.05642",
+    "publishedAt": "2026-11-05T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, cache"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-turbocharging-pipnn-for-proximity-and-k-nn-graph-644ec4",
+  "title": "Turbocharging PiPNN for Proximity and $k$-NN Graph Building",
+  "canonicalUrl": "https://arxiv.org/abs/2611.05690",
+  "category": "research",
+  "publishedAt": "2026-11-05T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "992e0994cc0fa72b",
+  "excerpt": "arXiv:2611.05690v1 Announce Type: new \nAbstract: Graph-based Approximate Nearest Neighbor Search (ANNS) indexes such as HNSW and Vamana deliver state-of-the-art query performance at the cost of large indexing times. The recently introduced PiPNN method drastically accelerated index construction by way of a partitioning-based algorithm leveraging dense matrix multiplication and top-$K$ aggregation kernels.\nIn this paper, we unlock the full potential of PiPNN's hardware-friendly algorithm design. We introduce PiPNN II, which optimizes multiple steps of the PiPNN recipe, giving up to $8\\times$ speedups for graph-based ANNS index construction. In addition, we present GPiPNN, a GPU implementation which builds comparable ANNS indices up to $43.7\\times$ faster than Jasper and up to $50\\times$ faster than CAGRA. We also extend PiPNN II and GPiPNN to compute high-quality $k$-NN graphs directly, which unlocks massive speedups over methods used in many existing systems for clustering, anomaly detection, and more. For 10-NN graph building at $90\\%$ recall, we obtain up to a $13\\times$ speedup on CPUs and $6.6\\times$ on GPUs as compared to the prior best methods. PiPNN II can build a…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Turbocharging PiPNN for Proximity and $k$-NN Graph Building",
+    "url": "https://arxiv.org/abs/2611.05690",
+    "publishedAt": "2026-11-05T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches indexes, indexing, index"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-vexpert-virtualizing-expert-storage-for-adaptive-31f593",
+  "title": "vExpert: Virtualizing Expert Storage for Adaptive Load Balancing in Distributed MoE Inference",
+  "canonicalUrl": "https://arxiv.org/abs/2611.06057",
+  "category": "research",
+  "publishedAt": "2026-11-05T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d4d33567677160e3",
+  "excerpt": "arXiv:2611.06057v1 Announce Type: new \nAbstract: Mixture-of-Experts (MoE) models have become prevailing, yet their distributed deployment suffers from severe dynamic load imbalance due to the conflict between static expert placement and inherent routing dynamism. While host DRAM offers capacity to avoid static device storage for load balancing, we identify existing offloading works fundamentally fail in distributed inference due to two overlooked challenges: (1) coupled performance impacts of runtime Host-to-Device transfers due to load dynamism and shared PCIe topology; (2) system-level memory overhead incurred by DRAM usage at scale. In this paper, we propose vExpert that shifts DRAM offloading paradigm from partial residency to full redundancy through virtualized expert storage. We pioneer the first systematic performance model that jointly captures H2D latency, PCIe contention, and load imbalance, building a lightweight allocator to dynamically map physical experts to virtual slots runtime. A novel disaggregated manager is designed to reduce memory overhead in multi-process environments. Evaluated on DeepSeek-V3.1 within an 8-node H100 cluster, vExpert improves load balance…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "vExpert: Virtualizing Expert Storage for Adaptive Load Balancing in Distributed MoE Inference",
+    "url": "https://arxiv.org/abs/2611.06057",
+    "publishedAt": "2026-11-05T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches distributed, inference, runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-whiel-a-neurosymbolic-platform-for-certified-0fbefb",
+  "title": "Whiel: A Neurosymbolic Platform for Certified Relational Program Verification",
+  "canonicalUrl": "https://arxiv.org/abs/2611.05612",
+  "category": "research",
+  "publishedAt": "2026-11-05T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "54141643e2d36d19",
+  "excerpt": "arXiv:2611.05612v1 Announce Type: new \nAbstract: We present the Whiel (a contraction of Whi(le-R)el) system for Lean-certified reasoning about imperative relational programs. The system can encode containment and equivalence problems for Datalog, its extensions with negation, and the core fragment of graph query languages. It can also represent optimized or incremental evaluation algorithms that are not expressible in the original query language, as well as first-order specifications of integrity constraints, schema mappings, and views arising in data integration, exchange, and sharing. Whiel's program states are database instances, and its imperative structure enables compositional Hoare-style reasoning with first-order relational specifications, using prophecy variables and leveled invariants to support inductive arguments. Whiel supports neurosymbolic discovery of loop invariants whose verification conditions can be checked using the Vampire first-order theorem prover. Counterexamples are fed back into the neurosymbolic pipeline, while proposed solutions are translated into Lean proof certificates. To validate the Whiel system, we evaluate its performance on a curated benchmark…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Whiel: A Neurosymbolic Platform for Certified Relational Program Verification",
+    "url": "https://arxiv.org/abs/2611.05612",
+    "publishedAt": "2026-11-05T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-want-to-rent-an-internet-address-at-the-white-1a337c",
+  "title": "Want to Rent an Internet Address at the White House?",
+  "canonicalUrl": "https://krebsonsecurity.com/2026/11/want-to-rent-an-internet-address-at-the-white-house",
+  "category": "security",
+  "publishedAt": "2026-11-05T04:36:17.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "23b0e2464e00d2a9",
+  "excerpt": "Several staffers at the White House are using computers or mobile devices equipped with residential proxy services that render their internet address available for others to rent, security experts warned today. One of the proxy services is a Russian company whose founder’s web hosting business was ground zero for cyberattacks against election systems in Arizona and Illinois in 2016.\nThe security firm Layer3 Intel said it detected multiple residential proxy nodes beaconing out from the internet address network reserved for the Executive Office of the President ( AS2650 ). Layer3 said the proxy activity was relatively persistent between October 5 to November 3, and that a review of the proxies available from AS2650 showed they exited from the White House network 236 times during that period.\nThe proxy tracking company Synthient said on Twitter/X that the activity it saw coming from AS2650 was related to multiple Windows 11 installations of a service called Infatica , a proxy program that is often integrated into “free” mobile and desktop applications . Infatica’s founder Vladimir Fomenko is a Russian man whose hosting firm King Servers was home to six of the eight internet addresses…",
+  "sources": [
+   {
+    "sourceId": "krebs",
+    "sourceName": "Krebs on Security",
+    "title": "Want to Rent an Internet Address at the White House?",
+    "url": "https://krebsonsecurity.com/2026/11/want-to-rent-an-internet-address-at-the-white-house",
+    "publishedAt": "2026-11-05T04:36:17.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-lwnnet-weekly-edition-for-november-5-2026-46abc7",
+  "title": "[$] LWN.net Weekly Edition for November 5, 2026",
+  "canonicalUrl": "https://lwn.net/Articles/1103480",
+  "category": "programming",
+  "publishedAt": "2026-11-05T00:42:51.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "db3735a3522d1400",
+  "excerpt": "Inside this week's LWN.net Weekly Edition:\nFront : Kernel cells; Debian LLM reviews; glibc system-call wrappers; Binder in Rust; Kernel CVE flood; Fedora KDE and X11 removal; 7.4 merge window part two; Portable Python.\nBriefs : MTCP RCE; Bash security; XCPE botnet; Bazzite 45; Fedora 45; openSUSE Leap 16.1; Tor Browser 16.0; Quotes; ...\nAnnouncements : Newsletters, conferences, security updates, patches, and more.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "[$] LWN.net Weekly Edition for November 5, 2026",
+    "url": "https://lwn.net/Articles/1103480",
+    "publishedAt": "2026-11-05T00:42:51.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"16.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches .net, llm, rust, python"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-x-says-its-updated-web-app-is-way-faster-886ccd",
+  "title": "X says its updated web app is way faster",
+  "canonicalUrl": "https://theverge.com/tech/1027113/x-says-its-updated-web-app-is-way-faster",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T00:25:12.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "62f71ab96ec70bd9",
+  "excerpt": "X is introducing a new version of its web app that it says is much faster than before, and it's now rolling out the updated app \"one country at a time\" for signed-in users. \"Open a profile on X.com over a slow connection,\" principal engineer Yagiz Nizipli said in a blog post about the changes. […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "X says its updated web app is way faster",
+    "url": "https://theverge.com/tech/1027113/x-says-its-updated-web-app-is-way-faster",
+    "publishedAt": "2026-11-05T00:25:12.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-starfall-affordable-routine-access-to-microgravity-2fbfac",
+  "title": "Starfall – Affordable, routine access to microgravity",
+  "canonicalUrl": "https://spacex.com/starfall",
+  "category": "programming",
+  "publishedAt": "2026-11-05T00:18:18.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "289de9f36663bbc0",
+  "excerpt": "Article URL: https://www.spacex.com/starfall \nComments URL: https://news.ycombinator.com/item?id=50373308 \nPoints: 204\n# Comments: 134",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Starfall – Affordable, routine access to microgravity",
+    "url": "https://spacex.com/starfall",
+    "publishedAt": "2026-11-05T00:18:18.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-amazon-s3-tables-now-offer-managed-migration-of-0de52b",
+  "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
+  "canonicalUrl": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg",
+  "category": "cloud",
+  "publishedAt": "2026-11-04T23:34:52.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "33ab42b0991a0683",
+  "excerpt": "Today, we’re announcing a simple, cost-effective path for data lake modernization. Amazon S3 Tables now support managed migration of your Apache Hive tables to Apache Iceberg . Migration works with Parquet tables in Amazon S3 that are registered in the AWS Glue Data Catalog and allows you to upgrade your data lake with no pipelines to build or compute to provision, while production workloads keep running.\nApache Iceberg has become the open standard for large analytics datasets. It lets you manage petabyte-scale tables with features like schema evolution, hidden partitioning, and time travel queries, while keeping your data open and queryable with any Iceberg-compatible engine. Amazon S3 Tables offer fully managed storage purpose-built to keep Iceberg tables performant and cost-effective as they grow, with features like automatic maintenance, optimization, replication, and S3 Intelligent-Tiering built-in.\nWhat is new \nPreviously, migrating Apache Hive tables to Apache Iceberg could take weeks of engineering work to build and manage the required infrastructure. Converting data types and building rollback capabilities added operational complexity. Now, this is available as a managed,…",
+  "sources": [
+   {
+    "sourceId": "aws-news",
+    "sourceName": "AWS News Blog",
+    "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
+    "url": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg",
+    "publishedAt": "2026-11-04T23:34:52.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announcing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-anthropic-found-a-way-to-prove-which-ai-model-cf1ab3",
+  "title": "Anthropic found a way to prove which AI model answered you — but there’s a costly catch",
+  "canonicalUrl": "https://thenewstack.io/anthropic-flashprove-model-verification",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T22:50:18.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b42c309abd46a5a2",
+  "excerpt": "Developers using AI APIs have little way of knowing whether the model answering their requests is actually the one they&rsquo;re paying for. A provider could route requests to a cheaper model, or an attacker could interfere with responses, without customers having an obvious way to detect the switch.\nNow, Anthropic wants to change that. The company&rsquo;s Frontier Red Team has released FlashProve , an open-source cryptographic system designed to verify which AI model produced a response without exposing its underlying weights.\nAnnounced Tuesday , the research could eventually help developers verify third-party AI services and detect compromised inference systems. But FlashProve remains a research prototype, and the cost of generating proofs makes it impractical for routine API traffic.\nBut FlashProve remains a research prototype, and the cost of generating proofs makes it impractical for routine API traffic.\nHow FlashProve proves the model\nFlashProve uses zkSNARKs to verify that a response came from a specific set of model weights without revealing those weights. The commitment still has to come from a trusted source, or the proof means little.\nAnthropic has released FlashProve…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Anthropic found a way to prove which AI model answered you — but there’s a costly catch",
+    "url": "https://thenewstack.io/anthropic-flashprove-model-verification",
+    "publishedAt": "2026-11-04T22:50:18.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-qualcomm-is-betting-big-on-data-centers-as-d0df89",
+  "title": "Qualcomm is betting big on data centers as smartphone sales sink",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1026867/qualcomm-earnings-data-centers",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-04T22:42:15.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "232b59dc95b86676",
+  "excerpt": "With smartphone sales tanking by around 20 percent compared to 2025, Qualcomm is looking to data centers to help boost its bottom line. During its Q4 2026 earnings call, the company laid out its plans to make a splash in the AI data center business, through partnerships with companies like Amazon and Meta announced earlier […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Qualcomm is betting big on data centers as smartphone sales sink",
+    "url": "https://theverge.com/ai-artificial-intelligence/1026867/qualcomm-earnings-data-centers",
+    "publishedAt": "2026-11-04T22:42:15.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-hackers-exploited-ios-and-android-flaws-to-infect-c93bd4",
+  "title": "Hackers exploited iOS and Android flaws to infect phones",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/hackers-exploited-ios-and-android-flaws-to-infect-phones",
+  "category": "security",
+  "publishedAt": "2026-11-04T22:26:49.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "43599d165c97ba43",
+  "excerpt": "Hackers possibly linked to the Kremlin exploited previously patched iOS and Android flaws in an attempt to hack visitors of multiple websites, including one celebrating the 250th anniversary of American independence, researchers said Wednesday.\nThe attackers, which the researchers assessed with “moderate to high confidence” were part of Russia’s Foreign Intelligence Service, targeted other sites, many with links to that country’s ongoing war against Ukraine. The attacks began when iPhone or Android users visited one of potentially hundreds of different sites. JavaScript injected into the traffic then profiled the device. The final payloads, tailored to the type of platform visiting, attempted to steal browser cookies and, in some cases, Wi-Fi passwords and full mobile device data.\nWielding DarkSword\nOne of the impersonated sites was america250.org, belonging to a non-partisan group of lawmakers, business executives, and at least one former member of the Trump administration. The attackers registered america250[.]holiday and used it as a reverse proxy to america250.org. The imposter website delivered content from the real one that added malicious JavaScript into it.\nRead full…",
+  "sources": [
+   {
+    "sourceId": "ars-technica",
+    "sourceName": "Ars Technica",
+    "title": "Hackers exploited iOS and Android flaws to infect phones",
+    "url": "https://arstechnica.com/security/2026/11/hackers-exploited-ios-and-android-flaws-to-infect-phones",
+    "publishedAt": "2026-11-04T22:26:49.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches javascript"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-how-nvidia-uses-ai-agents-to-streamline-ai-4376fc",
+  "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
+  "canonicalUrl": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T22:00:17.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b60d6723a5fe3ff3",
+  "excerpt": "As GPU clusters scale, operations span compute, network, hardware, and scheduling. Site reliability engineers (SREs) often have to examine multiple dashboards...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
+    "url": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations",
+    "publishedAt": "2026-11-04T22:00:17.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-17-better-ways-elon-musk-could-have-wasted-446-b4d89f",
+  "title": "17 better ways Elon Musk could have wasted $446 million",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1026878/not-even-good-at-being-rich",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T21:45:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "fae9547fa625f811",
+  "excerpt": "One of the basic problems of spending too much time on social media is that you are cooking your brain by reading posts from a pack of attention-seeking lunatics. If your social media of choice is the site formerly known as Twitter, and it is your main source of contact with the outside world, you […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "17 better ways Elon Musk could have wasted $446 million",
+    "url": "https://theverge.com/ai-artificial-intelligence/1026878/not-even-good-at-being-rich",
+    "publishedAt": "2026-11-04T21:45:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-vmware-releases-vsphere-express-for-bca3ea",
+  "title": "VMware releases vSphere Express for virtualization on up to 128 cores",
+  "canonicalUrl": "https://arstechnica.com/information-technology/2026/11/vmware-releases-vsphere-express-for-virtualization-on-up-to-128-cores",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T21:38:49.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d1dff6ff843ce0b7",
+  "excerpt": "After alienating many long-time small- to medium-sized business (SMB) customers, Broadcom’s VMware is trying to appeal to its smaller customers.\nToday, the virtualization company announced vSphere Express, a lower-end virtualization offering for organizations that require “cost-effective essential virtualization.”\nvSphere Express comes after many customers reported that VMware was pushing them to VMware Cloud Foundation (VCF), the flagship private cloud bundle that has many features SMBs don’t need and is expensive. Some SMB users have reported that VMware sales representatives previously told them that vSphere Standard, VMware's prior entry-level virtualization offering, wasn’t available anymore.\nRead full article \nComments",
+  "sources": [
+   {
+    "sourceId": "ars-technica",
+    "sourceName": "Ars Technica",
+    "title": "VMware releases vSphere Express for virtualization on up to 128 cores",
+    "url": "https://arstechnica.com/information-technology/2026/11/vmware-releases-vsphere-express-for-virtualization-on-up-to-128-cores",
+    "publishedAt": "2026-11-04T21:38:49.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-vercel-rolls-out-new-protection-against-stolen-0e6e0d",
+  "title": "Vercel rolls out new protection against stolen session cookie attacks",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/vercel-rolls-out-new-protection-against-stolen-session-cookie-attacks",
+  "category": "security",
+  "publishedAt": "2026-11-04T21:31:18.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d79e54ecbd125bfc",
+  "excerpt": "Vercel is gradually rolling out Device Bound Session Credentials (DBSC) on its platform as a key defense against information stealer malware. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Vercel rolls out new protection against stolen session cookie attacks",
+    "url": "https://bleepingcomputer.com/news/security/vercel-rolls-out-new-protection-against-stolen-session-cookie-attacks",
+    "publishedAt": "2026-11-04T21:31:18.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-how-i-learned-to-love-an-obnoxious-phone-grip-075826",
+  "title": "How I learned to love an obnoxious phone grip",
+  "canonicalUrl": "https://theverge.com/tech/1026743/bright-colorful-phone-grip-case",
+  "category": "hardware",
+  "publishedAt": "2026-11-04T21:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b6a05ef32bb78d7a",
+  "excerpt": "Much like a great recipe, it started with a stick of butter. This wasn't real butter; it was a friend's new phone grip, complemented by a phone case with bold stripes. Butter is in vogue now, or at least that's what a 12-year-old told me a few months ago. This stick of butter was labeled […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "How I learned to love an obnoxious phone grip",
+    "url": "https://theverge.com/tech/1026743/bright-colorful-phone-grip-case",
+    "publishedAt": "2026-11-04T21:30:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-zyxel-fixes-zero-day-exploited-to-hack-nearly-1-afc36c",
+  "title": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches",
+  "category": "security",
+  "publishedAt": "2026-11-04T20:58:19.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f4aedce7feb97593",
+  "excerpt": "Zyxel has patched a zero-day vulnerability in its GS1900 series network switches that hackers exploited to compromise nearly 1,000 devices worldwide and steal configuration files and credentials. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
+    "url": "https://bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches",
+    "publishedAt": "2026-11-04T20:58:19.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"zero-day\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-residential-proxies-detected-on-white-house-6b097a",
+  "title": "Residential proxies detected on White House network",
+  "canonicalUrl": "https://layer3intel.com/blog/residential-proxies-white-house-network",
+  "category": "programming",
+  "publishedAt": "2026-11-04T20:45:18.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0a7a735389fc09c0",
+  "excerpt": "Article URL: https://layer3intel.com/blog/residential-proxies-white-house-network \nComments URL: https://news.ycombinator.com/item?id=50371246 \nPoints: 962\n# Comments: 286",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Residential proxies detected on White House network",
+    "url": "https://layer3intel.com/blog/residential-proxies-white-house-network",
+    "publishedAt": "2026-11-04T20:45:18.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-04-gemini-for-home-now-plugs-into-at-t-s-smart-1197aa",
   "title": "Gemini for Home now plugs into AT&T’s smart security system",
   "canonicalUrl": "https://theverge.com/tech/1026787/att-gemini-for-home-connected-life-security-system",
@@ -7,7 +1139,7 @@
   "publishedAt": "2026-11-04T20:23:24.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4bac8c6178a4b2d1",
@@ -59,7 +1191,7 @@
   "publishedAt": "2026-11-04T20:04:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bd5a68b4034975d6",
@@ -109,6 +1241,53 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-04-insects-don-t-swarm-at-led-lights-326efe",
+  "title": "Insects don't swarm at LED lights",
+  "canonicalUrl": "https://birdsoutsidemywindow.org/2026/11/03/insects-dont-swarm-at-led-lights",
+  "category": "programming",
+  "publishedAt": "2026-11-04T19:50:23.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "431ec30423bde2e6",
+  "excerpt": "Article URL: https://www.birdsoutsidemywindow.org/2026/11/03/insects-dont-swarm-at-led-lights/ \nComments URL: https://news.ycombinator.com/item?id=50370610 \nPoints: 234\n# Comments: 126",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Insects don't swarm at LED lights",
+    "url": "https://birdsoutsidemywindow.org/2026/11/03/insects-dont-swarm-at-led-lights",
+    "publishedAt": "2026-11-04T19:50:23.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-04-github-copilot-is-now-available-in-xcode-s-coding-d53634",
   "title": "GitHub Copilot is now available in Xcode’s coding assistant",
   "canonicalUrl": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
@@ -116,7 +1295,7 @@
   "publishedAt": "2026-11-04T19:10:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5974a6b602a2ab3",
@@ -168,7 +1347,7 @@
   "publishedAt": "2026-11-04T19:05:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6459a9d74013d1a7",
@@ -302,6 +1481,58 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-04-ripple-65b-preview-us-open-weight-sota-on-agentic-24ed9e",
+  "title": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding",
+  "canonicalUrl": "https://ricursive.com/ripple",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T18:53:29.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2e8970c2b60c0352",
+  "excerpt": "Article URL: https://www.ricursive.com/ripple \nComments URL: https://news.ycombinator.com/item?id=50369925 \nPoints: 281\n# Comments: 101",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding",
+    "url": "https://ricursive.com/ripple",
+    "publishedAt": "2026-11-04T18:53:29.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"preview\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-04-texas-was-the-new-epicenter-of-the-ai-data-center-addc5f",
   "title": "Texas was the new epicenter of the AI data center buildout. That might be kaput.",
   "canonicalUrl": "https://technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput",
@@ -309,7 +1540,7 @@
   "publishedAt": "2026-11-04T18:50:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8f40dfa300f27a89",
@@ -356,7 +1587,7 @@
   "publishedAt": "2026-11-04T18:46:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "006dbbbcb6db0b92",
@@ -512,7 +1743,7 @@
   "publishedAt": "2026-11-04T18:21:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7f8a4d3fdf82ea3f",
@@ -560,7 +1791,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -607,7 +1838,7 @@
   "publishedAt": "2026-11-04T18:04:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0b316baf9adef4a1",
@@ -711,7 +1942,7 @@
   "publishedAt": "2026-11-04T17:53:47.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e51e5e162d7d72eb",
@@ -758,7 +1989,7 @@
   "publishedAt": "2026-11-04T17:50:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f2eb35206164099",
@@ -805,7 +2036,7 @@
   "publishedAt": "2026-11-04T17:46:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "acc846c739e09a33",
@@ -855,6 +2086,63 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-04-progress-on-provable-inference-for-large-language-500511",
+  "title": "Progress on provable inference for large language models",
+  "canonicalUrl": "https://anthropic.com/research/provable-inference",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T17:17:46.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8451aa0b9c6deb5a",
+  "excerpt": "Article URL: https://www.anthropic.com/research/provable-inference \nComments URL: https://news.ycombinator.com/item?id=50368626 \nPoints: 210\n# Comments: 98",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Progress on provable inference for large language models",
+    "url": "https://anthropic.com/research/provable-inference",
+    "publishedAt": "2026-11-04T17:17:46.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches inference"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-04-how-to-use-ai-for-rust-development-lessons-from-44a39a",
   "title": "How to Use AI for Rust Development: Lessons From an OpenAI Engineer",
   "canonicalUrl": "https://blog.jetbrains.com/rust/2026/11/04/ai-for-rust-development",
@@ -862,7 +2150,7 @@
   "publishedAt": "2026-11-04T17:09:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f160e371c6f1455c",
@@ -914,7 +2202,7 @@
   "publishedAt": "2026-11-04T17:08:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1894a9db26182bb3",
@@ -943,6 +2231,58 @@
      "label": "Source credibility",
      "points": 14,
      "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-04-bruce-momjian-new-presentation-712b14",
+  "title": "Bruce Momjian: New Presentation",
+  "canonicalUrl": "https://postgr.es/p/9B1",
+  "category": "databases",
+  "publishedAt": "2026-11-04T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "068a314322b8d2e9",
+  "excerpt": "I just gave a new presentation at FOSS4G North America titled Can AI Write\nSQL? The talk is a follow-up to my Building an Mcp Server Using Postgres talk, and explores how well AI can write SQL\nqueries, and how to help AI be more effective.",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Bruce Momjian: New Presentation",
+    "url": "https://postgr.es/p/9B1",
+    "publishedAt": "2026-11-04T17:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgres"
     },
     {
      "label": "Freshness",
@@ -1015,7 +2355,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fa0a3030e376b029",
@@ -1067,7 +2407,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0a79c234056d36f",
@@ -1119,7 +2459,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -1177,7 +2517,7 @@
   "publishedAt": "2026-11-04T16:59:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a9a996519b7ce0d9",
@@ -1271,7 +2611,7 @@
   "publishedAt": "2026-11-04T16:34:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa3054af9f820a8f",
@@ -1323,7 +2663,7 @@
   "publishedAt": "2026-11-04T16:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "02587ff63aef8a69",
@@ -1423,7 +2763,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e2fafb3cc47b76de",
@@ -1473,6 +2813,63 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-04-predicting-and-detecting-failures-how-azure-f6c026",
+  "title": "Predicting and detecting failures: How Azure strengthens reliability for mission-critical workloads",
+  "canonicalUrl": "https://azure.microsoft.com/en-us/blog/predicting-and-detecting-failures-how-azure-strengthens-reliability-for-mission-critical-workloads",
+  "category": "cloud",
+  "publishedAt": "2026-11-04T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5844851476aa3b3b",
+  "excerpt": "Takeaway : Azure Failure Prediction and Detection (AFPD) is Microsoft Azure’s end-to-end system aiming to catch hardware failures before they interrupt a workload, not after. Across the Azure fleet, AFPD has improved the prevention of hardware-related VM interruptions by 36% . SAP workloads offer a compelling example of AFPD’s value, illustrating why preventing interruptions matters for mission-critical services. But AFPD isn’t specific to SAP: it operates across General Purpose, Specialized Compute, HPC/AI, and select Storage workloads, making SAP’s experience a window into Azure’s broader approach to reliability for mission-critical third-party services. To learn more, watch our companion video to learn how AFPD helps reduce the risk of failures disrupting your critical workloads.\nReliability engineered into the platform \nMost conversations about cloud reliability focus on what you build: zone-redundant architectures, failover patterns, and backup strategies. Less visible, but just as consequential, is what the platform does on your behalf; before a failure ever becomes an incident you need to respond to. \nThat’s the premise behind AFPD, which became fully operational in 2024.…",
+  "sources": [
+   {
+    "sourceId": "azure-blog",
+    "sourceName": "Microsoft Azure Blog",
+    "title": "Predicting and detecting failures: How Azure strengthens reliability for mission-critical workloads",
+    "url": "https://azure.microsoft.com/en-us/blog/predicting-and-detecting-failures-how-azure-strengthens-reliability-for-mission-critical-workloads",
+    "publishedAt": "2026-11-04T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches azure"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-04-use-nvidia-nemo-to-turn-agent-failures-into-tests-1f522e",
   "title": "Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes",
   "canonicalUrl": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes",
@@ -1480,7 +2877,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "50c3bc7b304679e3",
@@ -1532,7 +2929,7 @@
   "publishedAt": "2026-11-04T15:54:44.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eaee50ca051f0e21",
@@ -1678,7 +3075,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -1725,7 +3122,7 @@
   "publishedAt": "2026-11-04T15:29:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "64fb4b6edab13ee0",
@@ -1782,7 +3179,7 @@
   "publishedAt": "2026-11-04T14:54:53.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "04acc2e35a8e4758",
@@ -1834,7 +3231,7 @@
   "publishedAt": "2026-11-04T14:45:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "385c8db26f755257",
@@ -1891,7 +3288,7 @@
   "publishedAt": "2026-11-04T14:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b784ee473fce53aa",
@@ -1943,7 +3340,7 @@
   "publishedAt": "2026-11-04T14:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "18865e1710771b8f",
@@ -2095,7 +3492,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c1b8ef58ebf5bf21",
@@ -2152,7 +3549,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7901de735bfb8c01",
@@ -2204,7 +3601,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -2256,7 +3653,7 @@
   "publishedAt": "2026-11-04T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "920c1ce3d571c460",
@@ -2303,7 +3700,7 @@
   "publishedAt": "2026-11-04T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ceddb1f9e8767305",
@@ -2355,7 +3752,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a18861f43f130f7a",
@@ -2417,7 +3814,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fa85216859a5f13",
@@ -2516,7 +3913,7 @@
   "publishedAt": "2026-11-04T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "81e118b4db08ae0c",
@@ -2615,7 +4012,7 @@
   "publishedAt": "2026-11-04T10:04:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b2179aa850b2d672",
@@ -2709,7 +4106,7 @@
   "publishedAt": "2026-11-04T09:49:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6a8924d1531d8feb",
@@ -2766,7 +4163,7 @@
   "publishedAt": "2026-11-04T09:35:39.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "126c8df01fd1cce1",
@@ -2818,7 +4215,7 @@
   "publishedAt": "2026-11-04T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6c05d825e1fcece5",
@@ -2865,7 +4262,7 @@
   "publishedAt": "2026-11-04T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5ec002c1abc96de5",
@@ -3026,7 +4423,7 @@
   "publishedAt": "2026-11-04T08:12:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9387ff4dff57796f",
@@ -3071,6 +4468,64 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-04-a-thousand-fewer-paths-to-root-fbaa86",
+  "title": "A thousand fewer paths to root",
+  "canonicalUrl": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": "2026-11-05T08:13:08.728Z",
+  "revisions": [
+   {
+    "at": "2026-11-05T08:13:08.728Z",
+    "reason": "Source text edited",
+    "contentHash": "8efc21b688d47cac"
+   }
+  ],
+  "contentHash": "8efc21b688d47cac",
+  "excerpt": "Article URL: https://openai.com/index/a-thousand-fewer-paths-to-root/ \nComments URL: https://news.ycombinator.com/item?id=50372929 \nPoints: 296\n# Comments: 197",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "A thousand fewer paths to root",
+    "url": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+    "publishedAt": "2026-11-04T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches index"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-04-daybreak-red-is-now-available-in-aws-govcloud-us-a3433e",
   "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
   "canonicalUrl": "https://openai.com/index/daybreak-red-aws-govcloud",
@@ -3078,7 +4533,7 @@
   "publishedAt": "2026-11-04T07:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "73c339cbf7884660",
@@ -3598,7 +5053,7 @@
   "publishedAt": "2026-11-04T00:32:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e6ccb3482403a10c",
@@ -3650,7 +5105,7 @@
   "publishedAt": "2026-11-04T00:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "88689845c16189f4",
@@ -3702,11 +5157,17 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "264827f0f234257a",
-  "excerpt": "Go 1.27 introduces new encoding/json/v2 and encoding/json/jsontext packages.",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": "2026-11-05T08:13:08.728Z",
+  "revisions": [
+   {
+    "at": "2026-11-05T08:13:08.728Z",
+    "reason": "Source text edited",
+    "contentHash": "78eeacf9b49a4e76"
+   }
+  ],
+  "contentHash": "78eeacf9b49a4e76",
+  "excerpt": "Article URL: https://go.dev/blog/jsonv2 \nComments URL: https://news.ycombinator.com/item?id=50369106 \nPoints: 296\n# Comments: 134",
   "sources": [
    {
     "sourceId": "go-blog",
@@ -3719,7 +5180,7 @@
   ],
   "minor": false,
   "score": {
-   "total": 61,
+   "total": 46,
    "parts": [
     {
      "label": "Baseline",
@@ -3730,11 +5191,6 @@
      "label": "Source credibility",
      "points": 20,
      "reason": "Primary source (the vendor or project itself)"
-    },
-    {
-     "label": "Significance",
-     "points": 15,
-     "reason": "Major development (\"introduces\")"
     },
     {
      "label": "Engineering relevance",
@@ -3759,7 +5215,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5d5ae52df4bd5866",
@@ -3809,6 +5265,116 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-04-devrev-delivers-autonomous-self-service-with-gpt-981785",
+  "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
+  "canonicalUrl": "https://openai.com/index/devrev-enterprise-self-service",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "afc5610c967a1460",
+  "excerpt": "DevRev uses GPT-6.1 Sol to power Computer and Operator, balancing reasoning, speed, and cost for enterprise service.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
+    "url": "https://openai.com/index/devrev-enterprise-self-service",
+    "publishedAt": "2026-11-04T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-04-introducing-images-26-295354",
+  "title": "Images 2.6",
+  "canonicalUrl": "https://openai.com/index/introducing-images-2-6",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-04T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "updatedAt": "2026-11-05T08:13:08.728Z",
+  "revisions": [
+   {
+    "at": "2026-11-05T08:13:08.728Z",
+    "reason": "Source text edited",
+    "contentHash": "4210094e679b3191"
+   }
+  ],
+  "contentHash": "4210094e679b3191",
+  "excerpt": "Article URL: https://openai.com/index/introducing-images-2-6/ \nComments URL: https://news.ycombinator.com/item?id=50372945 \nPoints: 252\n# Comments: 162",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Images 2.6",
+    "url": "https://openai.com/index/introducing-images-2-6",
+    "publishedAt": "2026-11-04T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches index"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-04-project-detroit-from-foreign-libraries-to-foreign-f5042f",
   "title": "Project Detroit: From Foreign Libraries to Foreign Language Runtimes",
   "canonicalUrl": "https://inside.java/2026/11/04/devoxxbelgium-project-detroit",
@@ -3816,7 +5382,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "61c25825b89d32cc",
@@ -3868,7 +5434,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -4019,7 +5585,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -4489,7 +6055,7 @@
   "publishedAt": "2026-11-03T21:32:18.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "82a0ebad3515a78b",
@@ -4645,7 +6211,7 @@
   "publishedAt": "2026-11-03T20:09:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d5d35ccb71e4fdeb",
@@ -4702,7 +6268,7 @@
   "publishedAt": "2026-11-03T20:08:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4c456ca04e406713",
@@ -5016,7 +6582,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -5073,7 +6639,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -5125,7 +6691,7 @@
   "publishedAt": "2026-11-03T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ffbe1d46521567c3",
@@ -5601,7 +7167,7 @@
   "publishedAt": "2026-11-03T17:32:47.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f73e76cba7ea56e0",
@@ -5648,7 +7214,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -5816,7 +7382,7 @@
   "publishedAt": "2026-11-03T17:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0ffb3b8e06ea15de",
@@ -5915,7 +7481,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -5962,7 +7528,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -6071,7 +7637,7 @@
   "publishedAt": "2026-11-03T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "04a691a3f53e8d61",
@@ -6232,7 +7798,7 @@
   "publishedAt": "2026-11-03T16:35:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ad908317fc7457db",
@@ -6331,7 +7897,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -6383,7 +7949,7 @@
   "publishedAt": "2026-11-03T16:00:45.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "891c9baffd398277",
@@ -6435,7 +8001,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -6953,7 +8519,7 @@
   "publishedAt": "2026-11-03T15:05:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b0ba33828d71fa95",
@@ -7281,7 +8847,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -7551,7 +9117,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aff824d2ecdc3470",
@@ -7598,7 +9164,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5607977dbb4021b1",
@@ -7715,7 +9281,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d143689e77c992d9",
@@ -7928,7 +9494,7 @@
   "publishedAt": "2026-11-03T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b16dc7d436a154ab",
@@ -8079,7 +9645,7 @@
   "publishedAt": "2026-11-03T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cb4e58bfdaf493f8",
@@ -8196,7 +9762,7 @@
   "publishedAt": "2026-11-03T07:00:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b804a311851f84fd",
@@ -8669,7 +10235,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -8768,7 +10334,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -8830,7 +10396,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -8877,7 +10443,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8a5ad80e68497e17",
@@ -9023,7 +10589,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dab47b14b2977954",
@@ -9080,7 +10646,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d31d1a052d88ffa5",
@@ -9283,7 +10849,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -9387,7 +10953,7 @@
   "publishedAt": "2026-11-02T22:08:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8e7b7729f82dce57",
@@ -9653,7 +11219,7 @@
   "publishedAt": "2026-11-02T20:52:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1999d731b87a8967",
@@ -9753,7 +11319,7 @@
   "publishedAt": "2026-11-02T20:20:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4691d47bd2f4c26a",
@@ -10478,7 +12044,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -10530,7 +12096,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -10577,7 +12143,7 @@
   "publishedAt": "2026-11-02T17:26:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "834456d13ddb011f",
@@ -10624,7 +12190,7 @@
   "publishedAt": "2026-11-02T17:26:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5a98412d98a53444",
@@ -11030,7 +12596,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -11916,7 +13482,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -12023,7 +13589,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b048de63a87b4a2b",
@@ -12132,7 +13698,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3f0ae029662bfce9",
@@ -12491,7 +14057,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -13599,7 +15165,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -13698,7 +15264,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5318b4a6371af0e",
@@ -13807,7 +15373,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8feb681ee8d7cdbc",
@@ -13864,7 +15430,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -14498,7 +16064,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-02T07:58:46.861Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -14575,7 +16141,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-04T20:30:30.575Z",
+  "lastSeenAt": "2026-11-05T08:13:08.728Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",

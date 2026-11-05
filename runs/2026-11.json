@@ -195,5 +195,23 @@
   "errors": [
    "cisa-advisories: HTTP 403"
   ]
+ },
+ {
+  "startedAt": "2026-11-05T08:13:08.728Z",
+  "finishedAt": "2026-11-05T08:13:17.604Z",
+  "ok": true,
+  "sourcesOk": 62,
+  "sourcesFailed": 1,
+  "itemsFetched": 225,
+  "newStories": 30,
+  "updatedStories": 3,
+  "corroborated": 0,
+  "unchanged": 155,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "--no-analyze",
+  "errors": [
+   "cisa-advisories: HTTP 403"
+  ]
  }
 ]
