@@ -12,6 +12,7 @@ import { allRevisions, buildTodayPlan, topicHref, type PlanContext, type PlanTas
 import { DOMAINS, DOMAIN_LABELS, type TopicStat } from "@/lib/types";
 import { DomainIcon } from "./DomainIcon";
 import { ProgressRing } from "./ProgressRing";
+import { RetentionPanel } from "./RetentionPanel";
 import { useProgress } from "./ProgressProvider";
 import { CategoryTag, ImportanceTag } from "./radar/ui";
 import { useLiveRadar } from "./radar/live";
@@ -267,6 +268,7 @@ function DashboardPage({ ctx, radar, data, now }: { ctx: PlanContext; radar: Rad
 
         <div className="min-w-0 space-y-12">
           <TopicList title="Strengths" icon="▲" tone="text-good" empty="Strengths show up after 3+ answers at 80%+ in a topic." items={strengths} titleOf={(t) => titleOfKey(keyOf(t))} />
+          <RetentionPanel data={data} titleOf={titleOfKey} />
           <Revisions ctx={ctx} data={data} now={now} titleOf={titleOfKey} />
           <Proficient ctx={ctx} data={data} now={now} />
           <Recent data={data} now={now} titleOf={titleOfKey} />

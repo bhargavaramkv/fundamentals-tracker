@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { activeProgress, CONTENT_EPOCH, latestActivityAt } from "../progress";
 import { buildProfile } from "../profile";
+import { computeRetention } from "../retention";
 import { dueReviews } from "../srs";
 import type { CodingContext } from "../leetcode-history";
 import type { ProgressData, Question, TopicMeta } from "../types";
@@ -178,6 +179,7 @@ export function buildPacket(input: PacketInput): MentorPacket {
       readsWithoutRetrieval: [...new Set(active.reads.map(keyOf))].filter((k) => !retrievedSkills.has(k)),
       daysSinceLastInteraction: last ? Math.floor((now.getTime() - Date.parse(last)) / 86_400_000) : null,
       questionBank: bankCoverage(questions, new Set(active.answers.map((a) => a.questionId))),
+      retention: computeRetention(active.answers, now.getTime()),
     },
     archived: { count: archived.length, missedByTopic },
     coding: input.coding ?? null,

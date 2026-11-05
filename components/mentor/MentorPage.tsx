@@ -8,6 +8,7 @@ import { DIMENSIONS, DIMENSION_LABEL, knowledgeOf, LEVEL_LABEL, PRIMARY_AFTER_NI
 import type { Resource } from "@/lib/resources";
 import { useAuth } from "../AuthGate";
 import { useProgress } from "../ProgressProvider";
+import { RetentionPanel } from "../RetentionPanel";
 import { useGeneratedQuestions } from "../useQuestionPool";
 import { useMentor } from "./useMentor";
 
@@ -223,6 +224,8 @@ function Dashboard({ state, status, resources }: { state: LearnerState; status: 
               </ul>
             )}
           </section>
+
+          <RetentionPanel data={progress} titleOf={titleOf} />
 
           <section aria-labelledby="sw-h">
             <div className="section-head">

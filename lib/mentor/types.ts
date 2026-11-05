@@ -3,6 +3,7 @@
  * routine proposes it, code validates it, and the site only renders what passed. See docs/design/MENTOR.md.
  */
 import type { CodingContext } from "../leetcode-history";
+import type { Retention } from "../retention";
 import type { GeneratedQuestion } from "./questions";
 
 export const MENTOR_SCHEMA = 1;
@@ -333,6 +334,8 @@ export interface MentorPacket {
     daysSinceLastInteraction: number | null;
     /** Per skill: questions in the bank and how many are still unseen. Where it's thin, write questions. */
     questionBank: { skillId: string; total: number; unseen: number; byDifficulty: [number, number, number] }[];
+    /** Delayed recall and first-sight accuracy (lib/retention.ts). Context for priorities and revision, never evidence. */
+    retention: Retention;
   };
   /** Answers from before the question rewrite: context only, never evidence. */
   archived: { count: number; missedByTopic: Record<string, number> };
