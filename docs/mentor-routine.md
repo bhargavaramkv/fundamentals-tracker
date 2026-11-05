@@ -41,7 +41,8 @@ The packet contains tonight's `newInteractions`, the `previousState`, `relevantE
 Work through these in order:
 
 1. **Look at the actual work.** What did they get right, and why? Wrong picks reveal misconceptions. Answers under 5 seconds suggest guessing. A correct answer alone is weak evidence.
-2. **Compare with history.** Use `previousState` and `relevantEvidence`. Is a mistake recurring? Has an old misconception gone, or has it just not been tested?
+2. **Compare with history.** Use `previousState`, `relevantEvidence` and `facts.retention` (delayed recall per topic:
+   a topic fading on recall needs revision before new material). Is a mistake recurring? Has an old misconception gone, or has it just not been tested?
 3. **Record evidence.** Add one item per real observation. Quote the learner verbatim for conversations and submissions. Use `neutral` for reads and resource visits, because reading isn't understanding.
 4. **Reassess skills.** Keep the four dimensions separate: someone who can explain an index but can't choose one under load has a higher `concept` than `practical`. Leave anything without evidence as `null`.
 5. **Decide what matters most.** Which gap would most improve them as an engineer? Prefer revisiting a shaky foundation to starting something new, and don't move on while a misconception is active. Raise difficulty only after something is demonstrated.
