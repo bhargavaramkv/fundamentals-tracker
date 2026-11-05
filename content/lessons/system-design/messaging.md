@@ -32,6 +32,16 @@ Kafka orders messages **only within a partition**. Use the entity ID as the mess
 - **Poison messages** must not block a partition forever.
 - **Consumer lag** is your key health metric and a good autoscaling signal (KEDA).
 
+## Transactional outbox
+
+"Save to the database, then publish" is a **dual write**: a crash between the two steps loses the event.
+
+| Step | What happens |
+|---|---|
+| 1 | In **one DB transaction**, save the order and insert the event into an `outbox` table |
+| 2 | A relay (a poller or CDC) publishes the outbox rows, then marks them as sent |
+| 3 | The relay can resend after a crash, so consumers dedupe by event id |
+
 ## When not to use a broker
 
 For a simple request-reply that needs an immediate answer, use HTTP or gRPC. A broker adds latency, operational load and eventual consistency.
