@@ -1,5 +1,802 @@
 [
  {
+  "id": "2026-11-05-inside-github-s-new-git-storage-architecture-c18d65",
+  "title": "Inside GitHub’s new Git storage architecture",
+  "canonicalUrl": "https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T20:23:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4e0bc84fb7004d81",
+  "excerpt": "Last week at GitHub Universe, we announced our new Git storage architecture, capable of handling thousands of writes per second with reads that scale on demand. Through internal testing, we&rsquo;ve demonstrated the ability to support 5,000 concurrent agents working on a repository, sending 7,200 pushes per second to a repo, all while serving read traffic with consistently low latency. This new architecture is the foundation for GitHub to support agentic development for hundreds of millions of developers, and we&rsquo;ve been building it underneath GitHub while it keeps running.\nOver the past year, agents changed what a busy repository looks like on GitHub. In our first post in this series, we laid out the two principles behind our next-generation Git storage architecture: minimize coordination, and decouple storage from compute. In our last post , we covered the bridge: moving 99.99999% of repositories into Azure, scoping the write quorum to individual references, and standing up virtual replicas backed by Azure Blob Storage.\nWe also left off with an observation: very little of a write needs to be ordered. Git objects are immutable and named by their contents, meaning two writers…",
+  "sources": [
+   {
+    "sourceId": "github-blog",
+    "sourceName": "The GitHub Blog",
+    "title": "Inside GitHub’s new Git storage architecture",
+    "url": "https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture",
+    "publishedAt": "2026-11-05T20:23:21.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 64,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches concurrent, agents, latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-truffle-security-launches-program-to-revoke-14-52f5dc",
+  "title": "Truffle Security launches program to revoke 1.4 million live secrets",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/truffle-security-launches-program-to-revoke-14-million-live-secrets",
+  "category": "security",
+  "publishedAt": "2026-11-05T20:15:08.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "53cbeffeadba71fd",
+  "excerpt": "Truffle Security has launched the Secrets Revocation Program, a free initiative that helps API key issuers revoke 1.4 million publicly exposed secrets that remain valid. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Truffle Security launches program to revoke 1.4 million live secrets",
+    "url": "https://bleepingcomputer.com/news/security/truffle-security-launches-program-to-revoke-14-million-live-secrets",
+    "publishedAt": "2026-11-05T20:15:08.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launches\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-humanlayer-just-got-acquired-by-factory-but-it-727e56",
+  "title": "HumanLayer just got acquired by Factory. But it gave users a way out first.",
+  "canonicalUrl": "https://thenewstack.io/factory-acquires-humanlayer-agents",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T20:02:19.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0769300ac3e30f78",
+  "excerpt": "Factory has acquired HumanLayer, its third AI coding startup in less than a month, as it works to fold more of the software engineering lifecycle into a single autonomous platform. The deal deepens Factory&rsquo;s bench, but it also leaves existing HumanLayer users weighing what to do with the tools they already depend on.\nAnnounced Wednesday, the acquisition brings HumanLayer founders Dex Horthy and Kyle Mistele to Factory, along with technology for coordinating multiple coding agents and collaborating on their work. It arrives as demand for agentic coding tools climbs at a pace few enterprise products ever see , pushing the companies building them to consolidate fast.\n&ldquo;It arrives as demand for agentic coding tools climbs at a pace few enterprise products ever see&hellip;&rdquo;\nFactory co-founder and CEO Matan Grinberg welcomes the pair on X , writing that he has &ldquo;been a huge fan of @dexhorthy and @0xblacklight for a while now,&rdquo; and calling them two of the most ambitious polymaths he has met.\nWhat happens to users\nThe founders write in their announcement that Factory will &ldquo;also be refunding paying customers for the last several months,&rdquo; though…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "HumanLayer just got acquired by Factory. But it gave users a way out first.",
+    "url": "https://thenewstack.io/factory-acquires-humanlayer-agents",
+    "publishedAt": "2026-11-05T20:02:19.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"acquired\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-vera-delivers-the-best-of-both-worlds-highest-cb9b31",
+  "title": "Vera Delivers the Best of Both Worlds: Highest Throughput and Fastest Agents",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T20:00:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e8d76e8cf7c9759d",
+  "excerpt": "AI agents do more than generate answers. They search for information, query databases, write and test code and take action.  \nEach of those steps relies on a CPU, with agents moving between GPU reasoning and CPU execution throughout a task.  \nAs businesses put more agents to work, AI factories need CPUs that can execute those steps quickly and support many agents at once, all within the limits of available power. \nWhat this means: AI infrastructure providers need to support more agents without making each one wait longer to get work done. And critically, AI factories are power limited. This means operators need to choose infrastructure that maximizes the work done for every watt.  \nWhy it matters: NVIDIA Vera delivers both fast agent performance and high capacity per watt within a single CPU. That gives providers one CPU for a range of agent workloads, rather than having to mix and match fast and dense x86 parts to balance speed and capacity. \nThe data that proves it: In a 100-megawatt data center comparison, NVIDIA found that a single Vera CPU performs better than the fastest x86 CPU and the most energy-efficient x86 CPU. \nVera delivers industry-leading agent speed while enabling…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "Vera Delivers the Best of Both Worlds: Highest Throughput and Fastest Agents",
+    "url": "https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents",
+    "publishedAt": "2026-11-05T20:00:41.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches throughput, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-jimmy-angelakos-pgconfeu-2026-megapost-a-busy-b26b13",
+  "title": "Jimmy Angelakos: PGConf.EU 2026 MEGAPOST: a busy week in Valencia",
+  "canonicalUrl": "https://postgr.es/p/9B7",
+  "category": "databases",
+  "publishedAt": "2026-11-05T19:57:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3ef29f7aaacea164",
+  "excerpt": "This year's PostgreSQL Conference Europe, PGConf.EU 2026 , took place from October 20th to 23rd in wonderful Valencia, at the Palacio de Congresos. There was far too much going on to cover it all, so I'm just going to go over what I was involved with: a panel on Tuesday, a book signing on Wednesday, a talk on Thursday, and three Community Events on Friday. That still leaves out the hallway track, and the many discussions there on everything from Postgres heisenbugs to the core development workflow to community building.\nObligatory selfie from PGConf.EU 2026 \nThe panel: Postgres On-Call Confessions\nOn Tuesday afternoon I joined Ants Aasma, Mayuresh Bagayatkar, Hettie Dombrovskaya , Pavlo Golub and Teresa Lopes for Postgres On-Call Confessions: Worst Practices 101 , a panel on the \"Postgres in production\" topics everyone shies away from. We started with the common threads in where we've seen Postgres fail at scale and in production, but also the most embarrassing and funniest incidents each of us has personally witnessed. Then the mic was open for anyone in the audience to come up and confess an \"obvious fix\" of their own that backfired in production.\nThe Postgres On-Call…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Jimmy Angelakos: PGConf.EU 2026 MEGAPOST: a busy week in Valencia",
+    "url": "https://postgr.es/p/9B7",
+    "publishedAt": "2026-11-05T19:57:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches postgresql, go, postgres"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-new-nvidia-cosmos-3-open-models-for-interactive-f25b92",
+  "title": "New NVIDIA Cosmos 3 Open Models for Interactive World Simulation",
+  "canonicalUrl": "https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T19:35:16.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "79f9136d2ee061be",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "New NVIDIA Cosmos 3 Open Models for Interactive World Simulation",
+    "url": "https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation",
+    "publishedAt": "2026-11-05T19:35:16.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-02-build-world-models-for-interactive-simulation-a84009"
+ },
+ {
+  "id": "2026-11-05-what-s-new-with-grafana-variables-less-clutter-8ea149",
+  "title": "What’s new with Grafana variables: less clutter, easier reuse across dashboards, and more",
+  "canonicalUrl": "https://grafana.com/blog/whats-new-with-grafana-variables-less-clutter-easier-reuse-across-dashboards-and-more",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-05T19:25:32.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9c06dbaaa6eb94b3",
+  "excerpt": "Template variables are one of the most used features in Grafana, providing users with a dropdown to turn one dashboard into hundreds: pick a different cluster , region , or service , and every panel updates.\nFor most of Grafana's history, variables had a single home at the top of the dashboard. Each dashboard had one flat list of variables, and that list was shared by every panel on it. But as dashboards grew in size and number, those controls became harder to organize and maintain. The top of a dashboard could get crowded with dropdowns that only applied to certain panels, while shared controls were copied across dashboards and had to be updated individually.\nTo address these challenges, we’ve rolled out two new features in Grafana: \nSection-level variables for rows and tabs (generally available): these variables let you place controls near the panels they affect, reducing clutter at the top of the dashboard. \nCross-dashboard variables (public preview): these are variables you can define once and reuse across dashboards, keeping configurations consistent and easier to maintain.\nIn this post, we’ll take a closer look at each variable type, its use cases, and how to get…",
+  "sources": [
+   {
+    "sourceId": "grafana-blog",
+    "sourceName": "Grafana Labs Blog",
+    "title": "What’s new with Grafana variables: less clutter, easier reuse across dashboards, and more",
+    "url": "https://grafana.com/blog/whats-new-with-grafana-variables-less-clutter-easier-reuse-across-dashboards-and-more",
+    "publishedAt": "2026-11-05T19:25:32.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-openai-s-gpt-6-astra-silently-obstructed-safety-02cba5",
+  "title": "OpenAI’s GPT-6 Astra silently obstructed safety research tasks",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/openais-gpt-6-astra-silently-obstructed-safety-research-tasks",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T19:24:26.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cbd42e8fb11cf184",
+  "excerpt": "OpenAI has disclosed another AI alignment incident where GPT-6 Astra was found to sometimes quietly withhold help on safety research. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "OpenAI’s GPT-6 Astra silently obstructed safety research tasks",
+    "url": "https://bleepingcomputer.com/news/security/openais-gpt-6-astra-silently-obstructed-safety-research-tasks",
+    "publishedAt": "2026-11-05T19:24:26.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-05-gpt-6-astra-covertly-underperforms-on-safety-0b4278"
+ },
+ {
+  "id": "2026-11-05-muse-has-a-voice-mode-now-1c9324",
+  "title": "Muse has a voice mode now",
+  "canonicalUrl": "https://theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T19:03:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f8f695b2de530804",
+  "excerpt": "Meta now lets you have voice conversations with your Muse AI agent in real time, CEO Mark Zuckerberg announced today. The feature has been rolled out to me, and I gave it a spin on the iOS app while writing this article. As you chat with your Muse agent, the avatar at the top of […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Muse has a voice mode now",
+    "url": "https://theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
+    "publishedAt": "2026-11-05T19:03:04.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-openai-s-new-gpt-6-cyber-is-better-at-hacking-and-a5edd0",
+  "title": "OpenAI’s new GPT-6 Cyber is better at hacking and better at staying in its lane",
+  "canonicalUrl": "https://thenewstack.io/openai-gpt6-cyber-exploits",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T19:01:03.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "adae02841496fafd",
+  "excerpt": "OpenAI on Thursday launched GPT-6 Cyber , the latest release in its series of cybersecurity-focused models.\nThe company ranks GPT-6 Cyber’s ability to identify vulnerabilities and develop exploits as ‘critical,’ up from ‘high’ for its predecessor. Just like with previous Cyber models, GPT-6 Cyber will not be available to all developers but only to “a select group of approved Daybreak Red customers,” OpenAI says.\nDaybreak Red access only\nDaybreak is OpenAI’s program for security teams and researchers, with Daybreak Red being a subsection for authorized red teaming, penetration testing, and exploit validation (as opposed to Daybreak Blue, its defensive counterpart).\nOver time, OpenAI plans to open the model to all Daybreak Red users.\nOpenAI also notes that it plans to expand the Daybreak program to more security researchers, organizations, and, critically, open source maintainers. “It is clear that we have a limited window to use frontier models to secure software⁠ ,” OpenAI writes. It notes that its own researchers used the new model to uncover flaws and build exploits in Firefox and the Linux kernel, while security teams at Cisco and CodeRabbit already rely on it for code review…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "OpenAI’s new GPT-6 Cyber is better at hacking and better at staying in its lane",
+    "url": "https://thenewstack.io/openai-gpt6-cyber-exploits",
+    "publishedAt": "2026-11-05T19:01:03.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-help-shape-the-future-of-net-take-the-2026-net-200b4c",
+  "title": "Help Shape the Future of .NET: Take the 2026 .NET Developer Survey",
+  "canonicalUrl": "https://devblogs.microsoft.com/dotnet/dotnet-developer-survey-2026",
+  "category": "programming",
+  "publishedAt": "2026-11-05T19:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cddffc5174e6bb18",
+  "excerpt": "It’s that time of the year! The 2026 .NET Developer Survey is open, and we’d love to hear about your experience. The survey takes about 15 minutes to complete, and your feedback helps the .NET team understand where to invest next.\nTake the 2026 .NET Developer Survey \nAs a thank you for your time, eligible U.S. residents who complete the survey and leave their email address at the end can enter for a chance to win .NET swag!\nYour feedback helps us build a better .NET\nWe want to understand what it’s like to use .NET in your everyday work. Where does it make things easier? What’s harder than it should be?\nYour answers help us understand how you use .NET and what would make it work better for you. Hearing from more developers helps us see which challenges are widely shared, including ones that might not come up in GitHub issues or community conversations.\nYou don’t need to be using the latest release to contribute. Maintaining an older application is just as much a part of .NET development as starting a new project, and we want that experience reflected in the feedback.\nA thank you for participating\nEligible U.S. residents can enter a sweepstakes for a chance to win one of 10 .NET…",
+  "sources": [
+   {
+    "sourceId": "dotnet-blog",
+    "sourceName": ".NET Blog",
+    "title": "Help Shape the Future of .NET: Take the 2026 .NET Developer Survey",
+    "url": "https://devblogs.microsoft.com/dotnet/dotnet-developer-survey-2026",
+    "publishedAt": "2026-11-05T19:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-together-ai-let-coding-agents-rewrite-its-gpu-7c1856",
+  "title": "Together AI let coding agents rewrite its GPU code. Then it kept humans on the deploy button.",
+  "canonicalUrl": "https://thenewstack.io/together-compiler-gpu-optimization",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T18:56:57.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "84dd7e86abb484b0",
+  "excerpt": "Together AI is putting AI coding agents to work on the GPU code that runs its inference infrastructure, automating performance tuning that used to take engineers days or weeks of manual work.\nThe company unveiled Together Compiler on Wednesday, a system that generates, tests, and improves GPU kernels without an engineer directing each experiment, and Together AI says it can deliver gains overnight. The process runs without a person steering each step, but it doesn&rsquo;t ship anything on its own.\nAsked how much people remain in the loop, Together AI tells The New Stack , &ldquo;The optimization loop is autonomous,&rdquo; adding that &ldquo;the final evaluations and deployment process are automatic but must be kicked off by a human, who reviews the changes before deploying to production.&rdquo;\n&ldquo;The optimization loop is autonomous. The final evaluations and deployment process &hellip; must be kicked off by a human, who reviews the changes before deploying to production.&rdquo;\nWhy GPU kernels fall behind\nNew AI models arrive so frequently that keeping inference infrastructure optimized has become a challenge. Each model has different requirements, and GPU code tuned for one…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Together AI let coding agents rewrite its GPU code. Then it kept humans on the deploy button.",
+    "url": "https://thenewstack.io/together-compiler-gpu-optimization",
+    "publishedAt": "2026-11-05T18:56:57.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"unveiled\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, inference, compiler"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-how-tui-scales-threat-modeling-for-100-teams-with-6e42b9",
+  "title": "How TUI scales threat modeling for 100+ teams with Amazon Bedrock",
+  "canonicalUrl": "https://aws.amazon.com/blogs/architecture/how-tui-scales-threat-modeling-for-100-teams-with-amazon-bedrock",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T18:45:07.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9adbcac3d66278a1",
+  "excerpt": "When your security team has four engineers and your organization has over 100 digital product teams, threat modeling becomes a bottleneck fast. That was the challenge TUI faced. TUI operates across the travel and tourism industry with airlines, hotels, cruise ships, and local travel experiences. Our Platform & Engineering division needs security assessments to keep pace.\nAt TUI, each threat modeling session took 4–6 hours of manual work: reviewing architecture diagrams, mapping threats to internal standards, researching security issues, and documenting findings in Confluence. The team could complete only 3–4 sessions per month, leaving a constant backlog.\nTUI needed threat modeling to become mandatory for every new service, not a luxury TUI reserved for the highest-priority projects. TUI built an AI-powered threat modeling system using Amazon Bedrock , collaborating with the AWS Generative AI Innovation Center during a 10-week proof of concept (PoC) to develop and validate the architecture. Amazon Bedrock is a fully managed service for building generative AI applications, and TUI used the Claude Sonnet 4.5 foundation model from Anthropic. TUI chose Amazon Bedrock for managed…",
+  "sources": [
+   {
+    "sourceId": "aws-architecture",
+    "sourceName": "AWS Architecture Blog",
+    "title": "How TUI scales threat modeling for 100+ teams with Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/architecture/how-tui-scales-threat-modeling-for-100-teams-with-amazon-bedrock",
+    "publishedAt": "2026-11-05T18:45:07.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-modernize-your-net-apps-for-windows-arm64-with-df4b0b",
+  "title": "Modernize your .NET apps for Windows Arm64 with GitHub Copilot",
+  "canonicalUrl": "https://devblogs.microsoft.com/dotnet/modernize-dotnet-apps-for-windows-arm64",
+  "category": "programming",
+  "publishedAt": "2026-11-05T18:05:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7fcfd3ded7f42913",
+  "excerpt": "Arm64 offers the potential for lower compute costs and more efficient infrastructure. But what would it take to get your existing .NET application running on it?\nThe answer may be scattered across your code, dependencies, and build settings. You need to know what already supports Arm64, what needs updating, and how much work is involved. Finding those answers by hand can become a project of its own.\nThe GitHub Copilot upgrade agent helps you move from those questions to concrete changes. It assesses your .NET projects for migration from Windows x64 or x86 to Windows Arm64, identifies blockers, creates a migration plan, and helps update your code, dependencies, and configuration.\nhttps://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/11/arm64-modernization.webm \nUnderstand what is blocking your migration\nAn x64 build setting is easy to spot. A package that quietly depends on a native library without an Arm64 binary can take more digging. Before you migrate, you need to know where those assumptions show up in your application.\nCommon blockers include:\nCode and build settings tied to a specific architecture\nNative dependencies that do not provide Arm64…",
+  "sources": [
+   {
+    "sourceId": "dotnet-blog",
+    "sourceName": ".NET Blog",
+    "title": "Modernize your .NET apps for Windows Arm64 with GitHub Copilot",
+    "url": "https://devblogs.microsoft.com/dotnet/modernize-dotnet-apps-for-windows-arm64",
+    "publishedAt": "2026-11-05T18:05:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-raindrop-simulates-your-agent-s-world-to-catch-6557bc",
+  "title": "Raindrop simulates your agent’s world to catch what your changes break",
+  "canonicalUrl": "https://thenewstack.io/raindrop-simulations-ai-agents",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-05T18:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9076ba3d268f0683",
+  "excerpt": "Raindrop wants developers to know what else will change when they edit an agent&rsquo;s prompt, swap its model, or give it a new tool.\nThe company, which started out as a monitoring startup for agents (“Sentry for agents” was its early motto), is making its Simulations platform available in public beta on Thursday.\nAn agent&rsquo;s prompt can depend on feature flags, account details, and the user&rsquo;s plan, says Ben Hylak, Raindrop&rsquo;s co-founder and CTO.\n&ldquo;You have to put the agent in motion in order to really evaluate it,&rdquo; he says.\nCredit: Raindrop. \nWith Simulations, Raindrop reconstructs an agent&rsquo;s production environment, including its tools, APIs, and databases, so developers can see how a change affects its behavior before shipping it, the company says. That change could be a model swap, a prompt edit, or a new tool &mdash; any of which could change an agent&rsquo;s behavior in production.\n&ldquo;Every time agents run, they go different paths.&rdquo; — Raindrop CTO Ben Hylak.\nHylak argues that predefined tests and evals can miss failures developers didn&rsquo;t anticipate, especially as agents take on more consequential work.\n&ldquo;Every time agents…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Raindrop simulates your agent’s world to catch what your changes break",
+    "url": "https://thenewstack.io/raindrop-simulations-ai-agents",
+    "publishedAt": "2026-11-05T18:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"beta\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-openssh-flaw-lets-attackers-log-into-password-3d2efa",
   "title": "OpenSSH flaw lets attackers log into password-disabled Linux accounts",
   "canonicalUrl": "https://bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts",
@@ -7,7 +804,7 @@
   "publishedAt": "2026-11-05T17:45:29.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ed9a88cb3bf7e7a7",
@@ -59,7 +856,7 @@
   "publishedAt": "2026-11-05T17:27:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "84f4ba655c0c54ed",
@@ -112,7 +909,7 @@
   "publishedAt": "2026-11-05T17:24:39.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0d7569672d01b800",
@@ -210,6 +1007,58 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-05-new-investments-to-reduce-on-premises-security-eef56b",
+  "title": "New investments to reduce on-premises security risk",
+  "canonicalUrl": "https://techcommunity.microsoft.com/blog/microsoft-security-blog/new-investments-to-reduce-on-premises-security-risk/4570381",
+  "category": "security",
+  "publishedAt": "2026-11-05T17:10:14.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d2cb52f8f53499ec",
+  "excerpt": "On-premises servers can be essential to business operations, but they are increasingly attractive targets to attackers. AI can help less-skilled actors analyze software, develop malicious tools, and repeat attack workflows at greater speed and scale, shortening the window between exposure and exploitation. Organizations need to strengthen security faster without disrupting the critical workloads they rely on. \nToday, we’re announcing a new on-premises security initiative, initially focused on server workloads. The initiative brings together guidance, migration , and product investments to help customers understand and prioritize risk, reduce their on-premises footprint wherever possible, and strengthen critical workloads that need to remain. Guidance for the initiative will soon be available through Secure Now , which also includes our AI readiness checklist in Microsoft Security Exposure Management and guidance for strengthening foundational security. \nUnderstand Identify the most important on-premises risks and prioritize actions customers can take now. Reduce Move workloads to Microsoft 365 where possible to take advantage of cloud-based security, resilience, and continuous…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "New investments to reduce on-premises security risk",
+    "url": "https://techcommunity.microsoft.com/blog/microsoft-security-blog/new-investments-to-reduce-on-premises-security-risk/4570381",
+    "publishedAt": "2026-11-05T17:10:14.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-agents-aren-t-humans-but-they-kinda-are-7f97ab",
   "title": "Agents aren’t humans (but they kinda are)",
   "canonicalUrl": "https://blog.cloudflare.com/trusted-agent-delegation",
@@ -217,7 +1066,7 @@
   "publishedAt": "2026-11-05T17:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "886a42415217b889",
@@ -326,7 +1175,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0841b8be630ad059",
@@ -378,7 +1227,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a179640616a66edf",
@@ -430,7 +1279,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e562c2aead4ffb51",
@@ -498,7 +1347,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ea1259a69a122b9f",
@@ -556,7 +1405,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "885dfa4943a70c78",
@@ -601,6 +1450,64 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-05-what-s-new-in-microsoft-security-november-2026-e3ec40",
+  "title": "​​​​What’s new in Microsoft Security: November 2026",
+  "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/11/05/whats-new-in-microsoft-security-november-2026",
+  "category": "security",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "89e077be5cc000eb",
+  "excerpt": "Endpoint administrators need to keep elevated access accountable at scale. Security teams also need a clearer view of expert-led protection and a simpler way to deploy SQL Server protection in Azure Government. As AI agents gain access to business data and tools, organizations need ways to limit their authority and adapt protection as risk changes. This month’s Microsoft Intune and Microsoft Defender updates introduce capabilities across these areas, alongside new Secure AI capabilities for agent access. A recent Secure Now update in Microsoft Security Exposure Management also connects information on recent threats to focused initiatives for reducing exposure. \nHere’s what’s new: \nLimit agent authority to the task with Dynamic Permissions \nGive agents task-scoped authority and adapt access as risk changes \nAs agents gain access to business data and tools, organizations need ways to manage what each agent is allowed to do. Dynamic Permissions provides an agent its own permissions and authority, scoped to its current task and for only as long as the task requires. As the agent works, Dynamic Agent Risk assesses whether the agent’s authority aligns with changing behavior and context.…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "​​​​What’s new in Microsoft Security: November 2026",
+    "url": "https://microsoft.com/en-us/security/blog/2026/11/05/whats-new-in-microsoft-security-november-2026",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 54,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches azure, agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-03-wednesday-november-11-2026-security-releases-130d9b"
+ },
+ {
   "id": "2026-11-05-where-is-windows-12-c98432",
   "title": "Where is Windows 12?",
   "canonicalUrl": "https://theverge.com/tech/1027621/where-is-windows-12-notepad",
@@ -608,7 +1515,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ef0ed60504b0df34",
@@ -665,7 +1572,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "539d938f41dc7485",
@@ -698,6 +1605,58 @@
      "label": "Significance",
      "points": 15,
      "reason": "Major development (\"launches\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-ahsan-hadi-zero-downtime-in-place-major-847024",
+  "title": "Ahsan Hadi: Zero Downtime In-Place Major PostgreSQL Upgrades on a Distributed PostgreSQL Cluster",
+  "canonicalUrl": "https://postgr.es/p/9B4",
+  "category": "databases",
+  "publishedAt": "2026-11-05T16:35:55.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5538d135512385a3",
+  "excerpt": "In my last post I walked through a rolling major version upgrade: add a brand new node on the new version, let it join the Spock cluster, retire the old node. It works well, but it assumes you can stand up an extra server for every node you need to upgrade. A lot of customers I talk to cannot. Either the hardware is not there, or the database is too big to hold a second full copy.For them there is a second option. Upgrade each node in place with . The node being upgraded does go down, but in a multi-master cluster the other nodes keep taking writes the whole time, so the application never loses a writable endpoint. The downtime belongs to one node, not to your users.I tested this end to end on the same lab I used for the rolling post, taking one node from PostgreSQL 17.10 to 18.6, including its Patroni managed standby. It worked, but not without a few surprises that the standard playbook will not warn you about. This post covers exactly what I ran. The Starting Setup\nA three node Spock cluster on two Rocky Linux ARM64 VMs. is the node being upgraded. It runs under Patroni with a physical standby, which matches the shape most production nodes have.The database is populated with the…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Ahsan Hadi: Zero Downtime In-Place Major PostgreSQL Upgrades on a Distributed PostgreSQL Cluster",
+    "url": "https://postgr.es/p/9B4",
+    "publishedAt": "2026-11-05T16:35:55.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 15,
+     "reason": "Touches postgresql, distributed, node, database, go"
     },
     {
      "label": "Freshness",
@@ -809,6 +1768,59 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-05-use-your-year-end-review-to-reach-for-a-promotion-ef7007",
+  "title": "Use Your Year-End Review to Reach for a Promotion",
+  "canonicalUrl": "https://spectrum.ieee.org/how-to-get-a-promotion",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T16:08:03.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f2a3cf72140c48d7",
+  "excerpt": "This article is crossposted from IEEE Spectrum ’s careers newsletter. Sign up now to get insider tips, expert advice, and practical strategies, written i n partnership with tech career development company Parsity and delivered to your inbox for free! \nHard work rarely speaks for itself. \nWhen I landed my first job as a software engineer, I had a simple plan: Work hard and somebody would notice. Eventually a manager would tap me on the shoulder and hand me a promotion (probably with a nice little speech).\nThat plan stalled my career for about five years.\nI switched jobs twice, kept my head down, read a stack of programming books, and sometimes pulled 12-hour days. I was never promoted. At my third job, out of frustration, I started interviewing at other companies and almost immediately got an offer for a senior engineer role.\nSo I went back to my job and quit. My team was blindsided. I liked my manager and the people I worked with, and they came back with a counteroffer. Then someone from HR asked me, “Why didn’t you just ask us?”\nHonestly, it never occurred to me.\nI took the counteroffer and stayed. Three jobs in, I finally got promoted, and all it took was asking (in the most…",
+  "sources": [
+   {
+    "sourceId": "ieee-spectrum",
+    "sourceName": "IEEE Spectrum",
+    "title": "Use Your Year-End Review to Reach for a Promotion",
+    "url": "https://spectrum.ieee.org/how-to-get-a-promotion",
+    "publishedAt": "2026-11-05T16:08:03.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"partnership\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-don-t-build-the-reusable-component-yet-068b75",
   "title": "Don’t Build the Reusable Component Yet",
   "canonicalUrl": "https://stackoverflow.blog/2026/11/05/don-t-build-the-reusable-component-yet",
@@ -816,7 +1828,7 @@
   "publishedAt": "2026-11-05T16:02:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eec77cc1f36fceb7",
@@ -856,6 +1868,53 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-05-motorola-signature-27-with-grapheneos-support-a5d230",
+  "title": "Motorola Signature 27 with GrapheneOS support",
+  "canonicalUrl": "https://motorolanews.com/motorola-signature-27-2",
+  "category": "programming",
+  "publishedAt": "2026-11-05T16:01:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6a0b3967b1518b5b",
+  "excerpt": "Article URL: https://motorolanews.com/motorola-signature-27-2/ \nComments URL: https://news.ycombinator.com/item?id=50380810 \nPoints: 288\n# Comments: 193",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Motorola Signature 27 with GrapheneOS support",
+    "url": "https://motorolanews.com/motorola-signature-27-2",
+    "publishedAt": "2026-11-05T16:01:34.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-detecting-signs-of-hypertension-using-wearable-f65775",
   "title": "Detecting signs of hypertension using wearable sensors",
   "canonicalUrl": "https://research.google/blog/detecting-signs-of-hypertension-using-wearable-sensors",
@@ -863,7 +1922,7 @@
   "publishedAt": "2026-11-05T16:01:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3d1555930494a48e",
@@ -910,7 +1969,7 @@
   "publishedAt": "2026-11-05T16:00:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "28d7fa52fd36adf1",
@@ -967,7 +2026,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3561da51fd1492a0",
@@ -1014,7 +2073,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f4ec20dae3525faa",
@@ -1061,7 +2120,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4aec6035220d9a39",
@@ -1108,7 +2167,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "833feba63abd7fbe",
@@ -1165,7 +2224,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "30602342d74ab837",
@@ -1317,7 +2376,7 @@
   "publishedAt": "2026-11-05T15:56:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63cc060a5baaa846",
@@ -1364,7 +2423,7 @@
   "publishedAt": "2026-11-05T15:53:42.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ca5693c236260cd6",
@@ -1416,7 +2475,7 @@
   "publishedAt": "2026-11-05T15:48:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b695bd4dbd5bc158",
@@ -1473,7 +2532,7 @@
   "publishedAt": "2026-11-05T15:31:37.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8e2c20cdc419457",
@@ -1519,22 +2578,28 @@
  },
  {
   "id": "2026-11-05-docker-activestate-extending-secure-defaults-to-9332f3",
-  "title": "Docker + ActiveState Extending Secure Defaults to the Packages Developers Install",
+  "title": "Docker and ActiveState Extending Secure Defaults to the Packages Developers Install",
   "canonicalUrl": "https://docker.com/blog/docker-activestate-trusted-content",
   "category": "infrastructure",
   "publishedAt": "2026-11-05T15:28:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "96569ff3c6ffea96",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": "2026-11-05T20:46:46.848Z",
+  "revisions": [
+   {
+    "at": "2026-11-05T20:46:46.848Z",
+    "reason": "Source text edited",
+    "contentHash": "53cd51cac152f0c7"
+   }
+  ],
+  "contentHash": "53cd51cac152f0c7",
   "excerpt": "Trusted content is the foundation security-conscious organizations expect all builds to start from. Docker has made that possible for everyone by providing the foundation free. Docker Hardened Images (DHI) are open source under Apache 2.0, with a catalog of 4,000+ minimal images (and growing) built from source and continuously maintained by Docker. The catalog also carries customizable Helm charts and over 65,000 hardened system packages. For most services, adopting DHI is as simple as changing the FROM line.\nTeams building on a secure foundation now want the same assurance for the open source their applications install. That open source is a different layer of the supply chain, where thousands of upstream projects are pulled in at build time by pip, npm and Maven, and by coding agents as well.\nDocker is committed to one standard for trusted content across everything teams build on. A new partnership with ActiveState , the company that has been securing open source since 1997, extends that standard to the packages themselves. Together, we give teams the same assurance on both layers, from the hardened images Docker maintains to the packages developers and their agents install on…",
   "sources": [
    {
     "sourceId": "docker-blog",
     "sourceName": "Docker Blog",
-    "title": "Docker + ActiveState Extending Secure Defaults to the Packages Developers Install",
+    "title": "Docker and ActiveState Extending Secure Defaults to the Packages Developers Install",
     "url": "https://docker.com/blog/docker-activestate-trusted-content",
     "publishedAt": "2026-11-05T15:28:22.000Z",
     "credibility": 3
@@ -1582,7 +2647,7 @@
   "publishedAt": "2026-11-05T15:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "719f72a504d7afcf",
@@ -1639,7 +2704,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a04bf1261c20d7d5",
@@ -1696,7 +2761,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2765579f20f1c2f",
@@ -1805,7 +2870,7 @@
   "publishedAt": "2026-11-05T14:54:27.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a17d54ce77344566",
@@ -1910,7 +2975,7 @@
   "publishedAt": "2026-11-05T14:33:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c8664eee7159bb40",
@@ -1957,7 +3022,7 @@
   "publishedAt": "2026-11-05T14:11:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be21e3570457b99",
@@ -2066,7 +3131,7 @@
   "publishedAt": "2026-11-05T14:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebc05f146351abe8",
@@ -2113,7 +3178,7 @@
   "publishedAt": "2026-11-05T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be1f3b408491c7b",
@@ -2170,7 +3235,7 @@
   "publishedAt": "2026-11-05T13:47:27.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "41bd6a258511e1b8",
@@ -2227,7 +3292,7 @@
   "publishedAt": "2026-11-05T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4b988ac1c1cb008b",
@@ -2267,6 +3332,100 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-05-discord-is-ditching-electron-and-its-new-app-uses-a5b148",
+  "title": "Discord is ditching Electron and its new app uses less RAM",
+  "canonicalUrl": "https://theverge.com/news/1027379/discord-ditching-electron-web-app",
+  "category": "programming",
+  "publishedAt": "2026-11-05T13:05:28.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7b74b2e99270e6e6",
+  "excerpt": "Article URL: https://www.theverge.com/news/1027379/discord-ditching-electron-web-app \nComments URL: https://news.ycombinator.com/item?id=50378625 \nPoints: 313\n# Comments: 262",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Discord is ditching Electron and its new app uses less RAM",
+    "url": "https://theverge.com/news/1027379/discord-ditching-electron-web-app",
+    "publishedAt": "2026-11-05T13:05:28.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-download-your-favourite-youtube-videos-d44456",
+  "title": "Download your favourite YouTube videos",
+  "canonicalUrl": "https://criminallyvulgar.dev/you-should-absolutely-download-your-favourite-youtube-videos",
+  "category": "programming",
+  "publishedAt": "2026-11-05T13:00:11.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4c08aa7cdf0259b9",
+  "excerpt": "Article URL: https://criminallyvulgar.dev/you-should-absolutely-download-your-favourite-youtube-videos/ \nComments URL: https://news.ycombinator.com/item?id=50378571 \nPoints: 209\n# Comments: 98",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Download your favourite YouTube videos",
+    "url": "https://criminallyvulgar.dev/you-should-absolutely-download-your-favourite-youtube-videos",
+    "publishedAt": "2026-11-05T13:00:11.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-powering-open-infrastructure-for-autonomous-agents-2976bb",
   "title": "Powering open infrastructure for autonomous agents",
   "canonicalUrl": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf",
@@ -2274,7 +3433,7 @@
   "publishedAt": "2026-11-05T12:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "db68b4504151f55b",
@@ -2326,11 +3485,17 @@
   "publishedAt": "2026-11-05T12:19:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "c4571234ab01d77d",
-  "excerpt": "Article URL: https://sshhole.com \nComments URL: https://news.ycombinator.com/item?id=50378228 \nPoints: 1414\n# Comments: 380",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": "2026-11-05T20:46:46.848Z",
+  "revisions": [
+   {
+    "at": "2026-11-05T20:46:46.848Z",
+    "reason": "Source text edited",
+    "contentHash": "6d2cf92f2742413a"
+   }
+  ],
+  "contentHash": "6d2cf92f2742413a",
+  "excerpt": "Article URL: https://sshhole.com \nComments URL: https://news.ycombinator.com/item?id=50378228 \nPoints: 1948\n# Comments: 505",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -2373,7 +3538,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "39625bb156898197",
@@ -2425,7 +3590,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e0b1b16d28551a1",
@@ -2475,6 +3640,58 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-05-openssh-106p2-critical-workaround-for-alpine-2e5637",
+  "title": "OpenSSH 10.6p2 Critical workaround for alpine without PAM",
+  "canonicalUrl": "https://openssh.org/releasenotes.html",
+  "category": "programming",
+  "publishedAt": "2026-11-05T11:40:30.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a76382ae687468f6",
+  "excerpt": "Article URL: https://www.openssh.org/releasenotes.html#10.6p2 \nComments URL: https://news.ycombinator.com/item?id=50377976 \nPoints: 212\n# Comments: 10",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "OpenSSH 10.6p2 Critical workaround for alpine without PAM",
+    "url": "https://openssh.org/releasenotes.html",
+    "publishedAt": "2026-11-05T11:40:30.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-critical-security-vulnerability-affects-openssh-aa224a",
   "title": "Critical security vulnerability affects OpenSSH on Alpine Linux systems",
   "canonicalUrl": "https://lwn.net/Articles/1105464",
@@ -2482,7 +3699,7 @@
   "publishedAt": "2026-11-05T11:39:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "96fac78b5804339b",
@@ -2599,7 +3816,7 @@
   "publishedAt": "2026-11-05T11:11:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "31b03d3a94888bf7",
@@ -2651,7 +3868,7 @@
   "publishedAt": "2026-11-05T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d57ee94756ce5784",
@@ -2708,7 +3925,7 @@
   "publishedAt": "2026-11-05T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "703f6a4fe1796d08",
@@ -2749,6 +3966,180 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-05-gpt-6-cyber-advancing-the-frontier-of-aligned-14e90e",
+  "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+  "canonicalUrl": "https://openai.com/index/introducing-gpt-6-cyber",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T09:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ecf0155aa18834a3",
+  "excerpt": "Introducing GPT‑6 Cyber, OpenAI’s cybersecurity model for finding exploitable vulnerabilities and developing fixes, trained to stay within authorized scope.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+    "url": "https://openai.com/index/introducing-gpt-6-cyber",
+    "publishedAt": "2026-11-05T09:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-new-pull-request-overview-page-in-public-preview-cc9dd9",
+  "title": "New pull request overview page in public preview",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-05-new-pull-request-overview-page-in-public-preview",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3206836337a73daf",
+  "excerpt": "On a long pull request, checking what&rsquo;s blocking often means scrolling past dozens of comments and timeline events just to reach the merge box. And once you&rsquo;re there, you still need to work out what to do next. As people need to review more and more pull requests, time spent scrolling adds up. So we&rsquo;ve begun to rethink the entire experience, beginning with addressing a familiar challenge: finding what&rsquo;s blocking progress and determining what to do next.\nToday, we&rsquo;re introducing the Overview page as an opt-in public preview, with rollout continuing through the weekend. It brings merge status and next available actions to the top of the page in a compact readiness summary. It&rsquo;s the first step toward making pull requests easier to follow as code, conversations, and reviews evolve.\nThe merge box, distilled \nWe&rsquo;re starting with the merge box, the place developers go to see whether a pull request can move forward. Rather than just moving it higher, we&rsquo;ve also redesigned it to show the same information in less than half the space.\nExplore the supporting signals: A compact view of checks, comments, and approvals keeps the context nearby…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "New pull request overview page in public preview",
+    "url": "https://github.blog/changelog/2026-11-05-new-pull-request-overview-page-in-public-preview",
+    "publishedAt": "2026-11-05T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-gpt-6-astra-covertly-underperforms-on-safety-0b4278",
+  "title": "GPT-6 Astra covertly underperforms on safety research",
+  "canonicalUrl": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T07:44:30.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ba39cdde7fe13673",
+  "excerpt": "Article URL: https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/ \nComments URL: https://news.ycombinator.com/item?id=50376313 \nPoints: 228\n# Comments: 118",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "GPT-6 Astra covertly underperforms on safety research",
+    "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks",
+    "publishedAt": "2026-11-05T07:44:30.000Z",
+    "credibility": 2
+   },
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "OpenAI’s GPT-6 Astra silently obstructed safety research tasks",
+    "url": "https://bleepingcomputer.com/news/security/openais-gpt-6-astra-silently-obstructed-safety-research-tasks",
+    "publishedAt": "2026-11-05T19:24:26.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 47,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-a-controlled-experimental-evaluation-of-f56308",
   "title": "A Controlled Experimental Evaluation of Configuration and Cache Architecture in LLM Serving Engines",
   "canonicalUrl": "https://arxiv.org/abs/2611.05991",
@@ -2756,7 +4147,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d9f573e9f3626031",
@@ -2813,7 +4204,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4cd6da766dc144b1",
@@ -2865,7 +4256,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "881997ff51510192",
@@ -2917,7 +4308,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "901f31113e4cddd4",
@@ -2969,7 +4360,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "992e0994cc0fa72b",
@@ -3026,7 +4417,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d4d33567677160e3",
@@ -3078,7 +4469,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "54141643e2d36d19",
@@ -3125,11 +4516,17 @@
   "publishedAt": "2026-11-05T04:54:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "4d74aa9ab9d3cb0c",
-  "excerpt": "Article URL: https://markblah.github.io/lemmings/ \nComments URL: https://news.ycombinator.com/item?id=50375354 \nPoints: 348\n# Comments: 69",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "updatedAt": "2026-11-05T20:46:46.848Z",
+  "revisions": [
+   {
+    "at": "2026-11-05T20:46:46.848Z",
+    "reason": "Source text edited",
+    "contentHash": "14c98ef9274f312b"
+   }
+  ],
+  "contentHash": "14c98ef9274f312b",
+  "excerpt": "Article URL: https://markblah.github.io/lemmings/ \nComments URL: https://news.ycombinator.com/item?id=50375354 \nPoints: 371\n# Comments: 74",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -3172,7 +4569,7 @@
   "publishedAt": "2026-11-05T04:36:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23b0e2464e00d2a9",
@@ -3219,7 +4616,7 @@
   "publishedAt": "2026-11-05T02:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4a0afd92ed9bcd4d",
@@ -3271,7 +4668,7 @@
   "publishedAt": "2026-11-05T00:42:51.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "db3735a3522d1400",
@@ -3427,7 +4824,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7830f630e76dadb",
@@ -3474,7 +4871,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ff7ffa9ed43ac193",
@@ -3531,7 +4928,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c3687296de93a199",
@@ -3578,7 +4975,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2ab2db9ee7eb5b19",
@@ -3630,7 +5027,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22bb623be37e8901",
@@ -3687,7 +5084,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a6bde6930a3c27b3",
@@ -3744,7 +5141,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f9f4c7b1beb9db58",
@@ -3801,7 +5198,7 @@
   "publishedAt": "2026-11-04T23:34:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33ab42b0991a0683",
@@ -3962,7 +5359,7 @@
   "publishedAt": "2026-11-04T22:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43599d165c97ba43",
@@ -4014,7 +5411,7 @@
   "publishedAt": "2026-11-04T22:00:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b60d6723a5fe3ff3",
@@ -4114,7 +5511,7 @@
   "publishedAt": "2026-11-04T21:38:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1dff6ff843ce0b7",
@@ -4413,7 +5810,7 @@
   "publishedAt": "2026-11-04T20:04:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bd5a68b4034975d6",
@@ -4762,7 +6159,7 @@
   "publishedAt": "2026-11-04T18:50:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8f40dfa300f27a89",
@@ -4809,7 +6206,7 @@
   "publishedAt": "2026-11-04T18:46:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "006dbbbcb6db0b92",
@@ -4965,7 +6362,7 @@
   "publishedAt": "2026-11-04T18:21:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7f8a4d3fdf82ea3f",
@@ -5013,7 +6410,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -5211,7 +6608,7 @@
   "publishedAt": "2026-11-04T17:50:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f2eb35206164099",
@@ -5258,7 +6655,7 @@
   "publishedAt": "2026-11-04T17:46:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "acc846c739e09a33",
@@ -5424,7 +6821,7 @@
   "publishedAt": "2026-11-04T17:08:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1894a9db26182bb3",
@@ -5681,7 +7078,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -5833,7 +7230,7 @@
   "publishedAt": "2026-11-04T16:34:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa3054af9f820a8f",
@@ -6042,7 +7439,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5844851476aa3b3b",
@@ -6297,7 +7694,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -6510,7 +7907,7 @@
   "publishedAt": "2026-11-04T14:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b784ee473fce53aa",
@@ -6562,7 +7959,7 @@
   "publishedAt": "2026-11-04T14:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "18865e1710771b8f",
@@ -6823,7 +8220,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -6974,7 +8371,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a18861f43f130f7a",
@@ -7036,7 +8433,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fa85216859a5f13",
@@ -7135,7 +8532,7 @@
   "publishedAt": "2026-11-04T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "81e118b4db08ae0c",
@@ -7697,7 +9094,7 @@
   "publishedAt": "2026-11-04T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -7755,7 +9152,7 @@
   "publishedAt": "2026-11-04T07:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "73c339cbf7884660",
@@ -8327,7 +9724,7 @@
   "publishedAt": "2026-11-04T00:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "88689845c16189f4",
@@ -8379,7 +9776,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -8447,7 +9844,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5d5ae52df4bd5866",
@@ -8551,7 +9948,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -8619,7 +10016,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "61c25825b89d32cc",
@@ -8671,7 +10068,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -8822,7 +10219,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -8835,11 +10232,19 @@
     "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases",
     "publishedAt": "2026-11-03T23:00:00.000Z",
     "credibility": 3
+   },
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "​​​​What’s new in Microsoft Security: November 2026",
+    "url": "https://microsoft.com/en-us/security/blog/2026/11/05/whats-new-in-microsoft-security-november-2026",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
    }
   ],
   "minor": false,
   "score": {
-   "total": 45,
+   "total": 53,
    "parts": [
     {
      "label": "Baseline",
@@ -8850,6 +10255,11 @@
      "label": "Source credibility",
      "points": 20,
      "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
     },
     {
      "label": "Significance",
@@ -9292,7 +10702,7 @@
   "publishedAt": "2026-11-03T21:32:18.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "82a0ebad3515a78b",
@@ -9819,7 +11229,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -9876,7 +11286,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -10451,7 +11861,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -10619,7 +12029,7 @@
   "publishedAt": "2026-11-03T17:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0ffb3b8e06ea15de",
@@ -10718,7 +12128,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -10765,7 +12175,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -11035,7 +12445,7 @@
   "publishedAt": "2026-11-03T16:35:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ad908317fc7457db",
@@ -11134,7 +12544,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -11238,7 +12648,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -12084,7 +13494,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -12401,7 +13811,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -12529,7 +13939,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d143689e77c992d9",
@@ -12742,7 +14152,7 @@
   "publishedAt": "2026-11-03T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b16dc7d436a154ab",
@@ -13483,7 +14893,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -13582,7 +14992,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -13644,7 +15054,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -14097,7 +15507,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -14201,7 +15611,7 @@
   "publishedAt": "2026-11-02T22:08:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8e7b7729f82dce57",
@@ -14467,7 +15877,7 @@
   "publishedAt": "2026-11-02T20:52:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1999d731b87a8967",
@@ -15292,7 +16702,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -15344,7 +16754,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -15391,7 +16801,7 @@
   "publishedAt": "2026-11-02T17:26:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "834456d13ddb011f",
@@ -15597,11 +17007,19 @@
     "url": "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos",
     "publishedAt": "2026-11-02T17:00:00.000Z",
     "credibility": 3
+   },
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "New NVIDIA Cosmos 3 Open Models for Interactive World Simulation",
+    "url": "https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation",
+    "publishedAt": "2026-11-05T19:35:16.000Z",
+    "credibility": 3
    }
   ],
   "minor": false,
   "score": {
-   "total": 40,
+   "total": 48,
    "parts": [
     {
      "label": "Baseline",
@@ -15614,13 +17032,18 @@
      "reason": "Primary source (the vendor or project itself)"
     },
     {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
      "label": "Freshness",
      "points": 5,
      "reason": "Published in the last 36 hours"
     }
    ]
   },
-  "importance": "routine",
+  "importance": "notable",
   "status": "pending"
  },
  {
@@ -15844,7 +17267,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -16730,7 +18153,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -16837,7 +18260,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b048de63a87b4a2b",
@@ -17305,7 +18728,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -18413,7 +19836,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -18678,7 +20101,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -19312,7 +20735,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -19389,7 +20812,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T20:46:46.848Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
