@@ -1,5 +1,2754 @@
 [
  {
+  "id": "2026-11-05-openssh-flaw-lets-attackers-log-into-password-3d2efa",
+  "title": "OpenSSH flaw lets attackers log into password-disabled Linux accounts",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts",
+  "category": "security",
+  "publishedAt": "2026-11-05T17:45:29.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ed9a88cb3bf7e7a7",
+  "excerpt": "A newly disclosed OpenSSH vulnerability dubbed \"*sshole\" allows attackers to log in to certain Alpine Linux and other musl-based Linux accounts that are configured to block password authentication, simply by entering an oversized password. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "OpenSSH flaw lets attackers log into password-disabled Linux accounts",
+    "url": "https://bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts",
+    "publishedAt": "2026-11-05T17:45:29.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-tiktok-launched-a-dedicated-tiktok-shop-app-7a9c02",
+  "title": "TikTok launched a dedicated TikTok Shop app",
+  "canonicalUrl": "https://theverge.com/tech/1027772/tiktok-shop-app",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T17:27:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "84f4ba655c0c54ed",
+  "excerpt": "TikTok has released a standalone app for TikTok Shop in a few countries, as spotted by social media consultant Matt Navarra. According to its App Store listing, the TikTok Shop app offers: - Personalized picks inspired by your interests - LIVE streams & short videos to see products in action - App-only deals, free shipping […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "TikTok launched a dedicated TikTok Shop app",
+    "url": "https://theverge.com/tech/1027772/tiktok-shop-app",
+    "publishedAt": "2026-11-05T17:27:36.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-nintendo-says-it-s-not-planning-another-switch-2-07120e",
+  "title": "Nintendo says it’s not planning another Switch 2 price hike",
+  "canonicalUrl": "https://theverge.com/games/1027757/nintendo-switch-2-price-hike-plans-ram",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T17:24:39.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0d7569672d01b800",
+  "excerpt": "Nintendo president Shuntaro Furukawa said during the company's latest earnings call that it's \"not considering additional changes\" to the Switch 2's price, Reuters reports. The Switch 2 got a $50 price hike earlier this year, bringing its starting price up to $499. Nintendo said in Thursday's earnings report that Switch 2 sales have dropped 37.4 […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Nintendo says it’s not planning another Switch 2 price hike",
+    "url": "https://theverge.com/games/1027757/nintendo-switch-2-price-hike-plans-ram",
+    "publishedAt": "2026-11-05T17:24:39.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-groundcover-automates-kubernetes-sizing-engineers-99ba96",
+  "title": "Groundcover automates Kubernetes sizing. Engineers set the bounds.",
+  "canonicalUrl": "https://thenewstack.io/groundcover-autonomous-kubernetes-rightsizing",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-05T17:14:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f7af8c5118b36be3",
+  "excerpt": "On Tuesday, groundcover launched Autonomous Infrastructure in beta to continuously adjust CPU and memory requests for Kubernetes (K8s) Deployments based on production data. \nBuilt on technology from Wand, the K8s resource optimization platform groundcover acquired in September , the beta uses data already collected from groundcover&rsquo;s eBPF sensor to inform resource allocation decisions, while giving engineers a direct view into how those decisions could affect infrastructure costs and workload performance. \nShahar Azulay , CEO and co-founder of groundcover, tells The New Stack about the balance the company is trying to get right: &ldquo;The goal isn&rsquo;t simply to reduce resource requests as much as possible. It&rsquo;s to find the right balance between efficiency and stability across the entire environment.&rdquo; \nThat can mean reducing requests for workloads consuming far less than they’ve been allocated, but it can also mean increasing requests when a workload needs additional resources to operate reliably. The objective is not simply a smaller infrastructure footprint. It’s an environment that continuously receives the resources it needs, without paying for capacity…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Groundcover automates Kubernetes sizing. Engineers set the bounds.",
+    "url": "https://thenewstack.io/groundcover-autonomous-kubernetes-rightsizing",
+    "publishedAt": "2026-11-05T17:14:41.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches kubernetes"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-agents-aren-t-humans-but-they-kinda-are-7f97ab",
+  "title": "Agents aren’t humans (but they kinda are)",
+  "canonicalUrl": "https://blog.cloudflare.com/trusted-agent-delegation",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T17:03:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "886a42415217b889",
+  "excerpt": "AI Agents now act on the web for millions of people. To a Site, an Agent can take many forms. It may be indistinguishable from a human user carrying out a task, or it might look like one visitor carrying many Users. This removes the ability for the Site to recognize, serve, and hold accountable the user or users behind the Agent, and causes the Site to face the costs when something goes wrong. This post argues that in order for Sites to maximize the access they provide to Agents, the ecosystem must develop new mechanisms to preserve the relationship between Sites and Users. Traditionally, in Security and Fraud Prevention, that requires three things: Identity, Reputation, and Accountability, allowing Sites to answer: Is the person acting being truthful about who they are? Is that person trustworthy? And who answers for the action?\n“Personal AI Agents” (“Agents” for short) are automations that take instructions from a human (“User”) and pursue a goal by controlling a cloud computer or browser. They are usually hosted and maintained by an “Operator” as part of a managed service or consumer offering. Examples include Muse from Meta and dots from OpenAI, and more are launching all the…",
+  "sources": [
+   {
+    "sourceId": "cloudflare",
+    "sourceName": "Cloudflare Blog",
+    "title": "Agents aren’t humans (but they kinda are)",
+    "url": "https://blog.cloudflare.com/trusted-agent-delegation",
+    "publishedAt": "2026-11-05T17:03:04.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-ai-failures-threaten-incident-management-here-are-b4ed2f",
+  "title": "AI failures threaten incident management: Here are 4 ways to avoid them.",
+  "canonicalUrl": "https://thenewstack.io/ai-failures-incident-management",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7248f8ff4203262c",
+  "excerpt": "AI is becoming woven into the fabric of digital operations and incident management. On the one hand, AI can detect, triage, and remediate incidents faster, improve coordination between teams, prevent repeat incidents, and drive process redesign. In some organizations, AI is already moving beyond assisting teams to acting on their behalf, as agents pave the way for autonomous digital operations.\nOn the other hand, greater autonomy also introduces greater risk. Unlike traditional software systems, AI-powered incident management tools and agents fail in ways that traditional ITOps and DevOps teams aren&rsquo;t used to &ndash; less predictable and harder to detect. AI has specific failure modes, including hallucinations, groundedness issues, model drift, guardrail violations, or poor tool selection. When these incidents happen, there is often no big-bang failure to set alarm bells ringing. Instead, errors cascade across services into major issues, especially in multi-agent systems.\n“When these incidents happen, there is often no big-bang failure to set alarm bells ringing. Instead, errors cascade across services into major issues.”\nThe good news is that organizations can mitigate…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "AI failures threaten incident management: Here are 4 ways to avoid them.",
+    "url": "https://thenewstack.io/ai-failures-incident-management",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-building-an-agent-skill-optimizer-with-640f89",
+  "title": "Building an agent skill optimizer with AlphaEvolve, Harbor and Gemini 4 Argon",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-an-agent-skill-optimizer-with-alphaevolve-and-harbor",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0841b8be630ad059",
+  "excerpt": "Every day, more and more people are using coding agents like Google Antigravity and OpenCode to complete software engineering tasks. But those tools need instructions to operate and their output is only as good as the inputs they get. By utilizing agent skills that direct the agents through building, testing, and deploying code, developers have a powerful way to automate their workflows.  \nBut most skills are written manually, so it’s hard to know which instructions are effective without assessing their output. \nTo measure the effectiveness of our skills, we ran OpenCode with Gemini 3.8 Flash on tasks from Terminal-Bench 2.0 , a public benchmark. The results were inconclusive: with our baseline skill, the agent passed about two-thirds of its attempts, but the outcome was about the same even without the skill. We needed better results. \nTo achieve them, we turned to AlphaEvolve , which optimizes skills the way it optimizes code: Gemini proposes a new version, an evaluator scores it, and the search retains the higher-scoring version. And with Harbor , that evaluator can be a real coding agent working on real tasks. We saw improvements of 5% with just a few iterations with…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Building an agent skill optimizer with AlphaEvolve, Harbor and Gemini 4 Argon",
+    "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-an-agent-skill-optimizer-with-alphaevolve-and-harbor",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-configure-certify-and-operate-kubernetes-gpu-5ef568",
+  "title": "Configure, Certify, and Operate Kubernetes GPU Clusters with NVIDIA DSX OS",
+  "canonicalUrl": "https://developer.nvidia.com/blog/configure-certify-and-operate-kubernetes-gpu-clusters-with-nvidia-dsx-os",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a179640616a66edf",
+  "excerpt": "One underperforming GPU can slow an entire distributed training job. The node may pass basic health checks and show normal utilization, leaving operators to...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Configure, Certify, and Operate Kubernetes GPU Clusters with NVIDIA DSX OS",
+    "url": "https://developer.nvidia.com/blog/configure-certify-and-operate-kubernetes-gpu-clusters-with-nvidia-dsx-os",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches kubernetes, distributed, node"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-gemini-omni-12-flash-fast-and-cost-effective-with-485654",
+  "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+  "canonicalUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e562c2aead4ffb51",
+  "excerpt": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
+  "sources": [
+   {
+    "sourceId": "google-ai",
+    "sourceName": "Google AI Blog",
+    "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   },
+   {
+    "sourceId": "deepmind",
+    "sourceName": "Google DeepMind",
+    "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+    "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips",
+    "publishedAt": "2026-11-05T17:05:16.000Z",
+    "credibility": 3
+   },
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Gemini Omni 1.2 Flash: Fast, cost-effective, and reliable video generation and editing now generally available",
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 56,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Corroboration",
+     "points": 16,
+     "reason": "Reported by 3 independent sources"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-gemini-omni-12-flash-fast-cost-effective-and-0d262a",
+  "title": "Gemini Omni 1.2 Flash: Fast, cost-effective, and reliable video generation and editing now generally available",
+  "canonicalUrl": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ea1259a69a122b9f",
+  "excerpt": "Today, Gemini Omni 1.2 Flash is generally available on Google Cloud. Built for the everyday videos businesses make in volume — like product videos, virtual try-ons, and ads — this model is fast, cost-effective, and follows your image, video and audio references more closely than before.   \nBusiness users can create with it in Gemini for business and Google Vids, and developers can build with it via API. \nHere's what's new: \nA lower price: $0.07 per second of 720p video, 30% less than Gemini Omni 1.1 Flash, with similar savings at other resolutions. \nLonger clips: Generate and edit videos of up to 15 seconds, up from 10s. \nMore consistent results: stronger adherence to image and video references keeps products, characters, and brand details consistent from shot to shot. \nFaster drafts, in higher resolution: create drafts at 360p or 720p, then upscale the best creations to 1080p or 4K. \nMore natural speech: You can generate scenes with more fluid, natural-sounding dialogue, clearer lip-sync, and distinct multi-speaker conditioning. \nEditing in conversation: refine the same clip, such as swapping a product, changing lighting, or changing camera angle, instead of starting over. \nNote:…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Gemini Omni 1.2 Flash: Fast, cost-effective, and reliable video generation and editing now generally available",
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"generally available\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-05-gemini-omni-12-flash-fast-and-cost-effective-with-485654"
+ },
+ {
+  "id": "2026-11-05-semantic-aggregation-over-millions-of-rows-in-639df5",
+  "title": "Semantic aggregation over millions of rows in BigQuery with AI.AGG",
+  "canonicalUrl": "https://cloud.google.com/blog/products/data-analytics/semantic-data-aggregation-with-bigquery-and-ai-agg",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "885dfa4943a70c78",
+  "excerpt": "For more than a decade, BigQuery has helped set standards for structured data aggregation, calculating financial sums, counting active users, and computing historical averages at a petabyte scale in seconds. But as modern enterprises become inundated with unstructured data — application logs, customer service transcripts, product imagery, and diagnostic reports — a critical gap has emerged. \nHistorically, relational SQL engines have lacked the native ability to aggregate, synthesize, and extract overarching semantic themes from millions of rows of text and multimodal data. While BigQuery recently introduced powerful row-level AI functions (like AI.GENERATE and AI.CLASSIFY), analyzing massive datasets holistically presents a unique architectural challenge: the large language model (LLM) context window. \nEven with advanced foundation models like Gemini, you cannot pass millions of rows into a single prompt without triggering severe truncation or hard execution failures. Traditionally, solving this required data engineering teams to construct complex external map-reduce pipelines, manage rate-limiting backoffs, and recursively stitch chunked summaries together. \nToday, we are…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Semantic aggregation over millions of rows in BigQuery with AI.AGG",
+    "url": "https://cloud.google.com/blog/products/data-analytics/semantic-data-aggregation-with-bigquery-and-ai-agg",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-where-is-windows-12-c98432",
+  "title": "Where is Windows 12?",
+  "canonicalUrl": "https://theverge.com/tech/1027621/where-is-windows-12-notepad",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ef0ed60504b0df34",
+  "excerpt": "While I wasn't expecting Microsoft to announce Windows 12 during its RTX Spark launch event last month, more than a few people were hoping to see something truly new. Between the growing frustration with Windows 11 and the muted response to Copilot Plus PCs, it's starting to feel like Microsoft needs to go bigger with […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Where is Windows 12?",
+    "url": "https://theverge.com/tech/1027621/where-is-windows-12-notepad",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launch\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches go"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-xbox-overhauls-its-pc-web-and-cloud-apps-with-a-b559d5",
+  "title": "Xbox overhauls its PC, web, and cloud apps with a faster design",
+  "canonicalUrl": "https://theverge.com/news/1027353/microsoft-new-xbox-pc-app-redesign",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "539d938f41dc7485",
+  "excerpt": "Microsoft is unveiling a new Xbox PC app that launches \"up to 60 percent faster\" than before, with an overhauled design to match new updates to Xbox Cloud Gaming on the web and smart TVs. Xbox Insiders will be able to start testing the updated Xbox PC app today, and the updated Xbox Cloud Gaming […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Xbox overhauls its PC, web, and cloud apps with a faster design",
+    "url": "https://theverge.com/news/1027353/microsoft-new-xbox-pc-app-redesign",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launches\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-hackers-backdoor-linux-servers-using-trojanized-a171d7",
+  "title": "Hackers backdoor Linux servers using trojanized CWP web server",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/hackers-backdoor-linux-servers-using-trojanized-cwp-web-server",
+  "category": "security",
+  "publishedAt": "2026-11-05T16:24:26.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2c2643c78e1e14b2",
+  "excerpt": "A new Linux malware called CWPdoor is being distributed through a trojanized version of cwpsrv, the web server behind the Control Web Panel (CWP) management interface. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Hackers backdoor Linux servers using trojanized CWP web server",
+    "url": "https://bleepingcomputer.com/news/security/hackers-backdoor-linux-servers-using-trojanized-cwp-web-server",
+    "publishedAt": "2026-11-05T16:24:26.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches distributed"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-digicert-data-breach-exposes-customer-information-71f802",
+  "title": "DigiCert data breach exposes customer information, identity documents",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents",
+  "category": "security",
+  "publishedAt": "2026-11-05T16:12:46.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2952015d8cad9064",
+  "excerpt": "DigiCert warns it suffered a data breach after a server migration mistakenly exposed an internal business system to the internet, allowing unauthorized access to customer information and identity documents. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "DigiCert data breach exposes customer information, identity documents",
+    "url": "https://bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents",
+    "publishedAt": "2026-11-05T16:12:46.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-don-t-build-the-reusable-component-yet-068b75",
+  "title": "Don’t Build the Reusable Component Yet",
+  "canonicalUrl": "https://stackoverflow.blog/2026/11/05/don-t-build-the-reusable-component-yet",
+  "category": "programming",
+  "publishedAt": "2026-11-05T16:02:13.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "eec77cc1f36fceb7",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "stackoverflow-blog",
+    "sourceName": "Stack Overflow Blog",
+    "title": "Don’t Build the Reusable Component Yet",
+    "url": "https://stackoverflow.blog/2026/11/05/don-t-build-the-reusable-component-yet",
+    "publishedAt": "2026-11-05T16:02:13.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-detecting-signs-of-hypertension-using-wearable-f65775",
+  "title": "Detecting signs of hypertension using wearable sensors",
+  "canonicalUrl": "https://research.google/blog/detecting-signs-of-hypertension-using-wearable-sensors",
+  "category": "research",
+  "publishedAt": "2026-11-05T16:01:08.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3d1555930494a48e",
+  "excerpt": "Health & Bioscience",
+  "sources": [
+   {
+    "sourceId": "google-research",
+    "sourceName": "Google Research Blog",
+    "title": "Detecting signs of hypertension using wearable sensors",
+    "url": "https://research.google/blog/detecting-signs-of-hypertension-using-wearable-sensors",
+    "publishedAt": "2026-11-05T16:01:08.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-the-wizard-of-open-weights-chris-alexiuk-makes-ai-1f284c",
+  "title": "The Wizard of Open Weights: Chris Alexiuk Makes AI Easy With Open Models",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/nvidia-life-chris-alexiuk",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T16:00:05.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "28d7fa52fd36adf1",
+  "excerpt": "Chris Alexiuk has a simple rule about open source AI: If you believe in it, be loud about it. \n“We should be shouting about this technology from the rooftops,” said Alexiuk, a Toronto-based senior product research engineer in deep learning at NVIDIA who specializes in making open large language models (LLMs) practical for working developers.  \nAlexiuk’s preferred “rooftop” is YouTube , where he’s built a following teaching curious thousands how to build, fine-tune, evaluate and ship production LLM applications and agents.  \n“I think the people who will most help us understand how to build and apply AI likely haven’t even heard of it yet,” he said. “Trying to get knowledge and information out to as many people as humanly possible is what continues to drive me.” \nBringing NVIDIA Nemotron to Developers Everywhere \nHaving spent years teaching developers to build with open models, Alexiuk has concluded that transparency isn’t a feature of good AI; it’s the precondition for it. \n“Fully open source AI is necessary for the democratization of intelligence,” he said. “You should have access to the weights, the data that went into it, the training recipes, everything.” \nThat’s why, on his…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "The Wizard of Open Weights: Chris Alexiuk Makes AI Easy With Open Models",
+    "url": "https://blogs.nvidia.com/blog/nvidia-life-chris-alexiuk",
+    "publishedAt": "2026-11-05T16:00:05.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 51,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches llm, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-accessibility-statements-now-have-a-home-on-github-478057",
+  "title": "Accessibility statements now have a home on GitHub",
+  "canonicalUrl": "https://github.blog/open-source/maintainers/accessibility-statements-now-have-a-home-on-github",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3561da51fd1492a0",
+  "excerpt": "Accessibility work often lives in issue trackers, contribution guidelines, audit reports, team knowledge, and conversations with users. When that information has no predictable home, people who encounter a barrier must search for it, and maintainers lose context as contributors and project ownership change.\nAn ACCESSIBILITY.md file, now visible on repository overview pages, gives a project one durable place to explain its accessibility goals, contributor expectations, supported environments, known limitations, and process for reporting barriers.\nGitHub makes accessibility statements easier to find\nGitHub now recognizes the ACCESSIBILITY.md file in the repository&rsquo;s root, .github/ directory, or docs/ directory. A repository can also inherit a statement from its organization&rsquo;s .github/ repository. For public repositories, maintainers can add or propose a statement from Insights > Community Standards using a concise starter document.\nGitHub&rsquo;s community health files help people understand how a project works:\nContribution guidelines explain how to propose changes\nCodes of conduct establish expectations for participation\nSecurity policies explain how to report…",
+  "sources": [
+   {
+    "sourceId": "github-blog",
+    "sourceName": "The GitHub Blog",
+    "title": "Accessibility statements now have a home on GitHub",
+    "url": "https://github.blog/open-source/maintainers/accessibility-statements-now-have-a-home-on-github",
+    "publishedAt": "2026-11-05T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-email-threat-landscape-q3-2026-trends-and-insights-0ca1cf",
+  "title": "Email threat landscape: Q3 2026 trends and insights",
+  "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/11/05/email-threat-landscape-q3-2026-trends-and-insights",
+  "category": "security",
+  "publishedAt": "2026-11-05T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f4ec20dae3525faa",
+  "excerpt": "In this article \nSpoofed sender domains \nQR code phishing attacks \nCAPTCHA-gated phishing tactics \nMalicious payloads \nBusiness contact impersonation \nMicrosoft Teams threats \nNotable phishing campaigns \nDefending against email and collaboration threats \nHunting queries \nIndicators of compromise (IOCs) \nMicrosoft Threat Intelligence detected approximately 7.3 billion email-based phishing threats from July through September, including a sharp increase to nearly 3 billion in September alone, up 41% from August. Yet the increase did not extend across the techniques that had driven threat actor activity earlier in the year. QR code phishing remained far below its early-year peak, while CAPTCHA-gated phishing reversed several months of decline, driven in part by renewed use of SVG attachments.\nQ2 in review \nShifting tactics and other trends › \nFigure 1. Monthly detected email threat volume (January &ndash; September 2026) \nThe quarter also highlighted how sender identity and security exceptions can shape the outcome of detected threats. Microsoft detected approximately 129 million malicious messages spoofing the sender domains of tracked business services. Many were delivered because…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "Email threat landscape: Q3 2026 trends and insights",
+    "url": "https://microsoft.com/en-us/security/blog/2026/11/05/email-threat-landscape-q3-2026-trends-and-insights",
+    "publishedAt": "2026-11-05T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-five-ways-nvidia-co-design-maximizes-the-value-of-7a4fd1",
+  "title": "Five Ways NVIDIA Co-Design Maximizes the Value of Every Byte in the AI Factory",
+  "canonicalUrl": "https://developer.nvidia.com/blog/five-ways-nvidia-co-design-maximizes-the-value-of-every-byte-in-the-ai-factory",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4aec6035220d9a39",
+  "excerpt": "In an AI factory, high bandwidth memory (HBM)is the fastest, most expensive, and most contested memory tier. Every byte spent on a redundant weight copy, an...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Five Ways NVIDIA Co-Design Maximizes the Value of Every Byte in the AI Factory",
+    "url": "https://developer.nvidia.com/blog/five-ways-nvidia-co-design-maximizes-the-value-of-every-byte-in-the-ai-factory",
+    "publishedAt": "2026-11-05T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-google-cloud-api-gateway-introduces-streaming-ec7790",
+  "title": "Google Cloud API Gateway Introduces Streaming Support for Real-Time and AI-Powered Applications",
+  "canonicalUrl": "https://infoq.com/news/2026/11/gcp-api-gateway-streaming",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "833feba63abd7fbe",
+  "excerpt": "Google has announced the public preview of streaming support for API Gateway, extending its traditional request-response model to support applications requiring real-time communication. According to Google, this is particularly relevant for AI applications that provide streaming model responses, multi-step agent workflows, and interactive sessions.\nBy Sergio De Simone",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Google Cloud API Gateway Introduces Streaming Support for Real-Time and AI-Powered Applications",
+    "url": "https://infoq.com/news/2026/11/gcp-api-gateway-streaming",
+    "publishedAt": "2026-11-05T16:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches api, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-more-performance-from-every-byte-how-full-stack-064fb8",
+  "title": "More Performance From Every Byte: How Full-Stack Codesign Solves AI’s Memory Challenge",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/memory-full-stack-codesign",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "30602342d74ab837",
+  "excerpt": "Larger models, longer contexts and agentic applications are increasing GPU memory pressure while supply tightens and prices rise — a trend expected to continue through the near term. \nNVIDIA works closely with memory partners to rapidly adopt the latest memory technologies. NVIDIA was first to adopt HBM3e and HBM4 technologies into an accelerated computing stack.  \nBut the approach isn’t to simply pack more memory onto the GPU. It’s full-stack codesign. NVIDIA intentionally designs GPUs, CPUs, networking, storage and software together to get more useful work out of memory at every layer of the AI factory. \nThat matters because an AI factory runs on a memory and storage hierarchy. GPU high-bandwidth memory (HBM) is the fastest, most expensive and most contested tier — with model weights and KV cache competing for limited capacity. Below it sit CPU memory, local SSDs and shared storage, each trading speed for more capacity at a lower cost per bit.  \nHow much useful work a byte does depends on how well the whole hierarchy is used: shrinking what must be stored, placing it on the right tier and bringing it back to the GPU before it’s needed.  \nByte for byte, NVIDIA makes the most…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "More Performance From Every Byte: How Full-Stack Codesign Solves AI’s Memory Challenge",
+    "url": "https://blogs.nvidia.com/blog/memory-full-stack-codesign",
+    "publishedAt": "2026-11-05T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-postcards-from-tomorrow-powering-the-agentic-era-8f3c0b",
+  "title": "Postcards from tomorrow: Powering the agentic era through open source",
+  "canonicalUrl": "https://thenewstack.io/kubernetes-ai-learning-loop",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "fb948ee86b3f5079",
+  "excerpt": "When organizations across the industry first adopted generative AI , most consumed it through a hosted API, but open-weight models are changing that. Models like the Qwen family and GLM-5 are published on model registries like Hugging Face, many under Apache 2.0 licensing, and load directly into open-source serving engines like vLLM and SGLang .\n&ldquo;For a growing set of workloads, that gap is small enough that the model is no longer the main constraint.&rdquo;\nClosed models pulled further ahead in 2025, but not by much. The Stanford AI Index 2026 put the top closed model’s lead over the top open model on the Arena leaderboard at 3.3% as of March 2026. For a growing set of workloads, that gap is small enough that the model is no longer the main constraint.\nKubeCon + CloudNativeCon is taking place in Salt Lake City from November 9 to 12. Register now ! \nServing a downloaded model is the easy part; the value comes from changing it: fine-tuning on your own data or applying reinforcement learning (RL) against your own tasks, then putting the improved version back into service. That learning loop is where most of the cost and infrastructure complexity sits.\nConsider an internal…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Postcards from tomorrow: Powering the agentic era through open source",
+    "url": "https://thenewstack.io/kubernetes-ai-learning-loop",
+    "publishedAt": "2026-11-05T16:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"2.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches api, index"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-sony-s-retro-headphones-brought-me-back-to-my-818bd5",
+  "title": "Sony’s retro headphones brought me back to my childhood in the best way",
+  "canonicalUrl": "https://theverge.com/tech/1026958/sony-mdr-3r-headphones-review",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2dcf206080d0a29a",
+  "excerpt": "Many of my childhood summer afternoons were spent riding around my hometown on my Huffy bike or, in later years, taking the bus into Harvard Square to walk around and hang out at The Garage. My Sony Walkman was always in my jacket pocket, and a pair of headphones were always on my head. For […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Sony’s retro headphones brought me back to my childhood in the best way",
+    "url": "https://theverge.com/tech/1026958/sony-mdr-3r-headphones-review",
+    "publishedAt": "2026-11-05T16:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-leapwork-play-reaches-ga-with-governance-for-9d5fee",
+  "title": "Leapwork Play Reaches GA with Governance for Playwright Tests",
+  "canonicalUrl": "https://infoq.com/news/2026/11/leapwork-play-playwright",
+  "category": "programming",
+  "publishedAt": "2026-11-05T15:56:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "63cc060a5baaa846",
+  "excerpt": "Leapwork Play adds requirement traceability and approval workflows around portable Playwright tests. Full governance and audit capabilities require an enterprise package.\nBy Mark Silvester",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Leapwork Play Reaches GA with Governance for Playwright Tests",
+    "url": "https://infoq.com/news/2026/11/leapwork-play-playwright",
+    "publishedAt": "2026-11-05T15:56:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-rustrover-20263-is-out-jetbrains-air-clearer-c66109",
+  "title": "RustRover 2026.3 Is Out: JetBrains Air, Clearer Debugger Views, and Agents That Debug With You",
+  "canonicalUrl": "https://blog.jetbrains.com/rust/2026/11/05/new-in-rustrover-2026-3",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T15:53:42.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ca5693c236260cd6",
+  "excerpt": "Fixing a bug starts with understanding what your code is doing at runtime: reading the program state, following the call stack, or tracking down a slow function. RustRover 2026.3 makes that work easier to follow, whether you do it yourself or with an AI agent. It also ships with JetBrains Air , a new layer for running coding agents and reviewing their work in the IDE.\nHere’s a quick look at the highlights. For full details, settings, and screenshots, see What’s New in RustRover 2026.3 .\nDownload RustRover 2026.3 \nRun and review your agents’ work in JetBrains Air\nJetBrains Air works with the agents you already use, including Claude Agent, Codex, Gemini, GitHub Copilot, Junie, OpenCode, and other ACP-compatible agents. Your existing subscriptions and API keys carry over, with no JetBrains AI subscription required. Junie Lite gives you a free agent with just a JetBrains Account, and Junie can also work with models running locally through Ollama or LM Studio. When an agent makes changes, you can review them with the surrounding code in view and anchor notes to specific lines in the diff, so the agent knows exactly what to fix.\nRead debugger views at a glance\nLong, fully qualified Rust…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "RustRover 2026.3 Is Out: JetBrains Air, Clearer Debugger Views, and Agents That Debug With You",
+    "url": "https://blog.jetbrains.com/rust/2026/11/05/new-in-rustrover-2026-3",
+    "publishedAt": "2026-11-05T15:53:42.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, runtime, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-secret-scanning-upgrades-detectors-adds-spacex-as-ee0727",
+  "title": "Secret scanning upgrades detectors, adds SpaceX as partner",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-05-secret-scanning-upgrades-detectors-adds-spacex-as-partner",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T15:48:50.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b695bd4dbd5bc158",
+  "excerpt": "This update expands secret scanning&rsquo;s detection coverage:\nNew partner: SpaceX is now a secret scanning partner.\nNew detector: GitHub now detects starlink_public_api_v2_secret .\nUpgraded detectors: Alibaba, AWS, Google, OpenVSX, Pydantic Services, and Tencent detectors include additional false-positive filtering.\nNew secret scanning partners \nThe following provider joined the secret scanning partnership program. When one of their secrets is found in a public repository, GitHub forwards it to the partner so they can revoke or rotate the credential before it can be abused.\nProvider \nSecret type \nSpaceX \nstarlink_public_api_v2_secret \nDetectors added \nSecret scanning now automatically detects the following new secret type in your repositories.\nProvider \nSecret type \nSpaceX \nstarlink_public_api_v2_secret \nPartner secrets are automatically reported to the secret issuer when found in public repositories through the secret scanning partnership program . User secrets generate secret scanning alerts when found in public or private repositories.\nFalse positives reduced \nThe following detector improvements reduce false-positive matches for supported secrets.\nProvider \nSecret type…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "Secret scanning upgrades detectors, adds SpaceX as partner",
+    "url": "https://github.blog/changelog/2026-11-05-secret-scanning-upgrades-detectors-adds-spacex-as-partner",
+    "publishedAt": "2026-11-05T15:48:50.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"partnership\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-why-actionable-banking-is-the-critical-stepping-74c5f6",
+  "title": "Why Actionable Banking Is the Critical Stepping Stone to Full Autonomy",
+  "canonicalUrl": "https://mongodb.com/company/blog/innovation/why-actionable-banking-is-critical-stepping-stone-full-autonomy",
+  "category": "databases",
+  "publishedAt": "2026-11-05T15:31:37.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f8e2c20cdc419457",
+  "excerpt": "Almost nothing is as important to someone today as their financial health. Most of us want to stay on top of what's happening with our bank accounts, like when a deposit clears so we can pay bills, if we're reaching our credit card limit, or if we have finally paid off that 30-year mortgage and can free up funds for that dream vacation or paying for our kid's college tuition. But we don't always get immediate feedback when transactions happen. That information often sits on the backend within our banks, and then days or weeks later we may get an email or alert with advice on investing or creating a payment plan.\nBut with actionable banking, this all becomes immediate. With the help of agentic AI, banks’ customers can quickly have a better understanding of steps they can take to make an investment or curb their spending with AI-powered insights. And people have said they want this. \nIn fact, in a survey conducted by Personetics of 2,000 bank customers(1), 70% said they strongly want their bank to proactively analyze their financial situation and 84% said they would likely switch to a bank that offers timely, relevant advice.\nActionable banking is also the safest first step toward…",
+  "sources": [
+   {
+    "sourceId": "mongodb",
+    "sourceName": "MongoDB Blog",
+    "title": "Why Actionable Banking Is the Critical Stepping Stone to Full Autonomy",
+    "url": "https://mongodb.com/company/blog/innovation/why-actionable-banking-is-critical-stepping-stone-full-autonomy",
+    "publishedAt": "2026-11-05T15:31:37.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-docker-activestate-extending-secure-defaults-to-9332f3",
+  "title": "Docker + ActiveState Extending Secure Defaults to the Packages Developers Install",
+  "canonicalUrl": "https://docker.com/blog/docker-activestate-trusted-content",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-05T15:28:22.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "96569ff3c6ffea96",
+  "excerpt": "Trusted content is the foundation security-conscious organizations expect all builds to start from. Docker has made that possible for everyone by providing the foundation free. Docker Hardened Images (DHI) are open source under Apache 2.0, with a catalog of 4,000+ minimal images (and growing) built from source and continuously maintained by Docker. The catalog also carries customizable Helm charts and over 65,000 hardened system packages. For most services, adopting DHI is as simple as changing the FROM line.\nTeams building on a secure foundation now want the same assurance for the open source their applications install. That open source is a different layer of the supply chain, where thousands of upstream projects are pulled in at build time by pip, npm and Maven, and by coding agents as well.\nDocker is committed to one standard for trusted content across everything teams build on. A new partnership with ActiveState , the company that has been securing open source since 1997, extends that standard to the packages themselves. Together, we give teams the same assurance on both layers, from the hardened images Docker maintains to the packages developers and their agents install on…",
+  "sources": [
+   {
+    "sourceId": "docker-blog",
+    "sourceName": "Docker Blog",
+    "title": "Docker + ActiveState Extending Secure Defaults to the Packages Developers Install",
+    "url": "https://docker.com/blog/docker-activestate-trusted-content",
+    "publishedAt": "2026-11-05T15:28:22.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"2.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches docker"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-what-s-new-in-pycharm-20263-84ad38",
+  "title": "What’s New in PyCharm 2026.3",
+  "canonicalUrl": "https://blog.jetbrains.com/pycharm/2026/11/what-s-new-in-pycharm-2026-3",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T15:03:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "719f72a504d7afcf",
+  "excerpt": "At the center of this release is JetBrains Air – a new layer for agentic development. It lets you run, track, and verify multi-agent workflows directly inside your IDE, with code intelligence keeping agents on track and complete review tools in your hands. This release also brings workspaces that adapt terminals and consoles to individual subprojects, initial support for Python 3.15 lazy imports, interactive FastAPI dependency graphs, and deeper Pydantic inspections, and so much more.\nDownload PyCharm 2026.3 now \nCheck out an overview video by our developer advocate William Vincent:\nNow, let’s take a closer look at the key highlights.\nJetBrains Air in PyCharm – One place to run your agents and verify their work \nAs of this release, JetBrains IDEs ship with Air , a new layer for agentic development. Work with the coding agents of your choice, and run, track, and verify multi-agent workflows inside your IDE, where code intelligence helps agents make fewer wrong turns and gives you the tools to review every change before it ships.\nYour agents, your models, your subscriptions – with Junie Lite for free\nAir works with Claude Agent, Codex, Gemini, GitHub Copilot, Junie, OpenCode, and…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "What’s New in PyCharm 2026.3",
+    "url": "https://blog.jetbrains.com/pycharm/2026/11/what-s-new-in-pycharm-2026-3",
+    "publishedAt": "2026-11-05T15:03:04.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 54,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agent, agents, python"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-building-an-agentic-warehouse-management-system-0dd85a",
+  "title": "Building an Agentic Warehouse Management System—Part 3: Tools, Decisions, and Actions",
+  "canonicalUrl": "https://mongodb.com/company/blog/technical/building-an-agentic-warehouse-management-system-part-3-tools-decisions-actions",
+  "category": "databases",
+  "publishedAt": "2026-11-05T15:00:01.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a04bf1261c20d7d5",
+  "excerpt": "If you haven’t read the first two parts yet, I recommend starting with Part 1: Where AI Agents Add Value and Part 2: Designing and Planning the Agent . There, we introduced the WMS scenario, discussed where an AI agent can add value, and built the first stages of the implementation with Java and Spring AI.\nIn this third and final part, we will build on the execution plan created in Part 2 and focus on the remaining stages of the agent workflow. We will see how each task is executed using controlled tools, how operational and business context is gathered, how the replenishment decision is made, and how the agent acts on that decision when necessary.\nFrom plan to execution\nLet’s revisit the complete agent flow. The first stages: Define the Agent, Trigger the Agent, and Plan, were covered in the previous article. Now we will focus on executing the tasks, using the available tools, gathering context, and making the replenishment decision.\nFigure 1. Agent Lifecycle: Execute, Decide, and Complete.\nExecute tasks with controlled tools\nWith the execution plan created in Part 2, the AgentRunner starts processing the tasks one at a time. For each task, the runner reads its description and…",
+  "sources": [
+   {
+    "sourceId": "mongodb",
+    "sourceName": "MongoDB Blog",
+    "title": "Building an Agentic Warehouse Management System—Part 3: Tools, Decisions, and Actions",
+    "url": "https://mongodb.com/company/blog/technical/building-an-agentic-warehouse-management-system-part-3-tools-decisions-actions",
+    "publishedAt": "2026-11-05T15:00:01.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-introducing-the-mongodb-vercel-ai-sdk-integration-12ed51",
+  "title": "Introducing the MongoDB Vercel AI SDK Integration: Persistent Memory for AI Applications",
+  "canonicalUrl": "https://mongodb.com/company/blog/product-release-announcements/introducing-mongodb-vercel-ai-sdk-integration-persistent-memory-applications",
+  "category": "databases",
+  "publishedAt": "2026-11-05T15:00:01.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d2765579f20f1c2f",
+  "excerpt": "We are excited to announce the release of the MongoDB Vercel AI SDK integration, which provides AI applications and agents built with Vercel’s SDK with a persistent memory store in MongoDB Atlas. It's now open source and generally available on npm. \nThis integration adds MongoDB Atlas as the memory store in the existing Vercel AI SDK code. Once installed, the package connects Vercel AI SDK applications to MongoDB Atlas and automatically stores the application's memories in documents. This allows the application to retain memories about conversations, user facts, and past events that persist across sessions, users, and restarts.\nWhat is the Vercel AI SDK?\nThe Vercel AI SDK is a TypeScript toolkit for building AI applications. It handles calling models, streaming responses, using tools, and running agents that work through multi-step tasks. The SDK doesn't include a database to persist memories between runs. Without memory, an AI application starts every conversation with no knowledge of the last one. It doesn't know who the user is, what they asked yesterday, or what it learned along the way. It doesn’t have any context.\nToday, developers have to build their own tooling to store…",
+  "sources": [
+   {
+    "sourceId": "mongodb",
+    "sourceName": "MongoDB Blog",
+    "title": "Introducing the MongoDB Vercel AI SDK Integration: Persistent Memory for AI Applications",
+    "url": "https://mongodb.com/company/blog/product-release-announcements/introducing-mongodb-vercel-ai-sdk-integration-persistent-memory-applications",
+    "publishedAt": "2026-11-05T15:00:01.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches mongodb, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-i-broke-a-working-agent-seven-ways-the-metric-i-fa7f80",
+  "title": "I broke a working agent seven ways. The metric I was watching caught two of them.",
+  "canonicalUrl": "https://thenewstack.io/monitoring-production-ai-agents",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T15:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "24de9059d3088c16",
+  "excerpt": "In September, I ran two models through the same 20 support tasks. Both scored 20 out of 20. Then I assigned each model two refund requests that the underlying billing data didn’t support: one against an uncollected invoice, and one for double the invoice’s value.\nClaude Haiku 4.5 issued all six refunds across three distinct permission configurations. Claude Sonnet 5 issued none. Their success rates looked identical, but their behavior diverged completely on the only scenarios capable of causing financial damage.\nIn October, I reran the evaluation harness . This time, the smaller model declined every unauthorized refund. I initially attributed this to queue ordering: the two trap tasks sat at the end of a 22-task queue instead of arriving in isolation, suggesting that processing 20 prior invoice tasks taught the agent to verify state before acting. I documented this theory in a neat report.\n“Their success rates looked identical, but their behavior diverged completely on the only scenarios capable of causing financial damage.”\nThen I checked the execution transcripts for the active model alias. In September, the haiku alias resolved to claude-haiku-4-5. In October, the same alias…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "I broke a working agent seven ways. The metric I was watching caught two of them.",
+    "url": "https://thenewstack.io/monitoring-production-ai-agents",
+    "publishedAt": "2026-11-05T15:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-building-a-rag-pipeline-for-semantic-code-search-ebfe98",
+  "title": "Building a RAG Pipeline for Semantic Code Search: A Developer Diary and Field Notes",
+  "canonicalUrl": "https://blog.jetbrains.com/ai/2026/11/building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and-field-notes-part-2",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T14:54:27.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a17d54ce77344566",
+  "excerpt": "Part 2: Storage, Search, and Agent Tooling \nIn this blog series, we aim to share some of the lessons we learned over the past six months as we built and rolled out Air Context , a production-grade RAG system for code search. In the first post of the series , we covered chunking, parsing, and vectorization. Turning code into vectors, however, represents only part of the journey. \nIn this post, we’ll tackle the next problems that must be solved for any serious production-grade RAG system: how to store millions of vectors so that the index keeps up with Git, and how to retrieve the right vectors in milliseconds.\nStorage\nOnce we have the code parsed, chunked, and turned into vectors, our next question is where to put them. A real-world codebase can produce millions of vectors. To compound the problem, codebases are not static. Not only do they change often and exist in dozens of branches at once, but the agent expects an answer in milliseconds, filtered down to the right repository, the right path, and only the files that the user is allowed to see. All this requires a special storage layer that efficiently handles the search operations under the given constraints.\nAt the center of…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "Building a RAG Pipeline for Semantic Code Search: A Developer Diary and Field Notes",
+    "url": "https://blog.jetbrains.com/ai/2026/11/building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and-field-notes-part-2",
+    "publishedAt": "2026-11-05T14:54:27.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, index"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-alpine-linux-security-advisory-openssh-server-c45ff0",
+  "title": "Alpine Linux Security Advisory: OpenSSH-server password authentication bypass",
+  "canonicalUrl": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass",
+  "category": "security",
+  "publishedAt": "2026-11-05T14:44:20.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7715495daaa6e330",
+  "excerpt": "Article URL: https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/ \nComments URL: https://news.ycombinator.com/item?id=50379704 \nPoints: 265\n# Comments: 22",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Alpine Linux Security Advisory: OpenSSH-server password authentication bypass",
+    "url": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass",
+    "publishedAt": "2026-11-05T14:44:20.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-05-critical-security-vulnerability-affects-openssh-aa224a"
+ },
+ {
+  "id": "2026-11-05-user-namespaces-file-capabilities-trouble-9ab2ef",
+  "title": "[$] User namespaces + file capabilities = trouble",
+  "canonicalUrl": "https://lwn.net/Articles/1103429",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-05T14:33:59.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c8664eee7159bb40",
+  "excerpt": "User namespaces are a key part of the\nkernel's toolkit for assembling containers; processes within a user\nnamespace can appear to have full root access to the system while gaining\nno extra privileges in the wider system. At least, that is the intent. In\npractice, keeping privilege contained within a user namespace has often\nturned out to be difficult. As an example, consider this\nsmall patch series from Josef Bacik, which is intended to address some\nsituations where a process within a user namespace can elevate the\nprivileges of processes outside of it.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "[$] User namespaces + file capabilities = trouble",
+    "url": "https://lwn.net/Articles/1103429",
+    "publishedAt": "2026-11-05T14:33:59.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-security-updates-for-thursday-c42e23",
+  "title": "Security updates for Thursday",
+  "canonicalUrl": "https://lwn.net/Articles/1105639",
+  "category": "databases",
+  "publishedAt": "2026-11-05T14:11:50.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7be21e3570457b99",
+  "excerpt": "Security updates have been issued by AlmaLinux (dpdk, httpd:2.4, kernel, kernel-rt, mysql:8.0, php:7.4, php:8.0, qt5, ruby:2.7, ruby:3.0, tesseract, webkit2gtk3, and xorg-x11-server-Xwayland), Debian (imagemagick, puppet-agent, symfony, trapperkeeper-authorization-clojure, and xen), Fedora (3proxy, bind, bind-dyndb-ldap, curl, dhcpcd, erlang-jose, forgejo, freetype, laszip, libical, libmongocrypt, markdownlint-cli2, mongo-c-driver, openbao, pipx, python-boto3, python-botocore, python-crate-ingredients, python-lxml-html-clean, python3.11, python3.13, python3.14, python3.15, roundcubemail, rply, ruby-build, rust-app-store-connect, rust-qemu-rdp, rust-redlib, scribus, and valkey), Mageia (minetest, python-pypdf, stunnel, znc, and zvbi), Oracle (.NET 10.0, bind, brotli, cockpit, dpdk, fence-agents, freerdp, gimp, glibc, grafana, gvfs, host-metering, kernel, python-dns, qemu-kvm, raptor2, tesseract, webkit2gtk3, and xorg-x11-server-Xwayland), Red Hat (grafana and pcs), Slackware (rsync), SUSE (amazon-cloudwatch-agent, apache2, aws-efs-utils, brotli, cephfs, coredns, cramfs-tools, firefox-esr, fuse-overlayfs, ghostscript, GraphicsMagick, libpolkit-agent-1-0-128, libsoup,…",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Security updates for Thursday",
+    "url": "https://lwn.net/Articles/1105639",
+    "publishedAt": "2026-11-05T14:11:50.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"8.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, python"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-hogwarts-legacy-gets-a-magical-nvidia-dlss-5-434802",
+  "title": "‘Hogwarts Legacy’ Gets a Magical NVIDIA DLSS 5 Upgrade on GeForce NOW",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/geforce-now-thursday-hogwarts-legacy-dlss-5",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T14:00:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3ed6fab705341051",
+  "excerpt": "Hogwarts Legacy receives an NVIDIA DLSS 5 upgrade with 3D-Guided Neural Rendering today, bringing lifelike lighting and materials to the wizarding world on GeForce NOW . \nBlizzard Entertainment’s World of Warcraft: Forever also opens a new chapter in Azeroth, with a launch-week access reward available for GeForce NOW members. Meanwhile, Ubisoft brings fresh challenges with expansions for Tom Clancy’s The Division 2 and Anno 117: Pax Romana . \nIt’s all part of a packed month of play, with two-dozen games joining the GeForce NOW library throughout November, including eight this week. \nHogwarts in a New Light \nNVIDIA DLSS 5 with 3D-Guided Neural Rendering arrives in Hogwarts Legacy today, giving members a new reason to return to Hogwarts, streaming from Steam, Epic Games and Xbox with Play Anywhere support. \nPublished by Warner Bros. Games under the Portkey Games label and developed by Avalanche Software, Hogwarts Legacy is an immersive, open-world action role-playing game set in the 1800s wizarding world. Begin as a fifth-year student, encounter magical creatures, brew potions and learn spells while exploring both recognizable and unfamiliar places. \nThe update adds lifelike…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "‘Hogwarts Legacy’ Gets a Magical NVIDIA DLSS 5 Upgrade on GeForce NOW",
+    "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-hogwarts-legacy-dlss-5",
+    "publishedAt": "2026-11-05T14:00:34.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launch\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-why-a-mathematician-is-chasing-eclipses-with-d8ec69",
+  "title": "Why a Mathematician Is Chasing Eclipses With Algorithms and Cameras",
+  "canonicalUrl": "https://spectrum.ieee.org/2026-solar-eclipse",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T14:00:02.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ebc05f146351abe8",
+  "excerpt": "The sun hangs low over the plains of Castile and León, in the north-central region of Spain. But from a slope of the mountain Pico Trigaza , it appears that a few puffy white clouds have started to block the sun. That’s vexing.\nA group of researchers, some wearing cardboard eclipse glasses, is clustered around sets of portable telescopes and cameras connected to laptops. All this gear is scattered on tabletops perched on the mountainside. On the computer screens, the sun’s disk looks like a deep orange crescent that is slowly waning. That’s because the moon began to crawl across it about half an hour ago. In 25 minutes, it will obscure the sun completely, producing an eerie and wondrous phenomenon—a total solar eclipse.\nIn the late-summer, late-afternoon heat, the researchers watch anxiously as those fluffy clouds linger around the sun. From an abandoned hut on the slope a few meters above, where the researchers have set up camp, one of the grad students emerges and nods toward the cloud formation. “Do you think it will dissolve?” he blurts out.\n“It will.” Miloslav Druckmüller glances calmly at his group of doctoral candidates, now making final checks of the equipment in…",
+  "sources": [
+   {
+    "sourceId": "ieee-spectrum",
+    "sourceName": "IEEE Spectrum",
+    "title": "Why a Mathematician Is Chasing Eclipses With Algorithms and Cameras",
+    "url": "https://spectrum.ieee.org/2026-solar-eclipse",
+    "publishedAt": "2026-11-05T14:00:02.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-cncf-score-project-improved-its-security-posture-f91520",
+  "title": "CNCF Score project improved its security posture by joining the Docker-Sponsored Open Source Program",
+  "canonicalUrl": "https://docker.com/blog/cncf-score-project-improved-its-security-posture-by-joining-the-docker-sponsored-open-source-program",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-05T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7be1f3b408491c7b",
+  "excerpt": "Score, a CNCF Sandbox project, recently joined the Docker-Sponsored Open Source (DSOS) Program to strengthen the security of its container images and release pipeline. In this post, the Score maintainers share what we adopted (Docker Hub, Docker Scout, Docker Hardened Images, the Docker GitHub Builder, and OIDC connections), the results we measured, and how other open source projects, within the CNCF and beyond, can apply the same practices by default.\nThe Opportunity\nIn September 2025, the CNCF announced a partnership with Docker to expand infrastructure support for project maintainers through the Docker-Sponsored Open Source (DSOS) Program. The partnership gives CNCF projects access to Docker’s security scanning tools, container registry, and best-practice resources at no cost.\nThis aligned closely with the discussions held at the Maintainer Summit NA 2025 in Atlanta , which centered on increasing collaboration across CNCF projects and demonstrating security best practices.\nThe Docker-Sponsored Open Source (DSOS) Program supports non-commercial open source projects with Docker tooling and infrastructure.\nEligible projects receive:\nVerified Docker-Sponsored Open Source…",
+  "sources": [
+   {
+    "sourceId": "docker-blog",
+    "sourceName": "Docker Blog",
+    "title": "CNCF Score project improved its security posture by joining the Docker-Sponsored Open Source Program",
+    "url": "https://docker.com/blog/cncf-score-project-improved-its-security-posture-by-joining-the-docker-sponsored-open-source-program",
+    "publishedAt": "2026-11-05T14:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches docker"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-shridhar-khanal-postgresql-minor-version-upgrade-d65379",
+  "title": "SHRIDHAR KHANAL: PostgreSQL Minor Version Upgrade on RHEL 9: A Step-by-Step Guide with Rollback",
+  "canonicalUrl": "https://postgr.es/p/9B3",
+  "category": "databases",
+  "publishedAt": "2026-11-05T13:47:27.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "41bd6a258511e1b8",
+  "excerpt": "Key Takeaways \nA minor upgrade, such as 15.13 to 15.19, only replaces the binaries. The data directory stays as it is, so there is no pg_upgrade, dump and restore, or new cluster. \nThe upgrade command takes seconds. The real risk is not having a tested plan for when the server doesn’t come back as expected. \nBefore upgrading, read every release note in between, take and verify a backup, save the RPMs you are running, check for version locks and record a baseline. \nRehearse the upgrade and the rollback on a production-like environment, then on test, then on production. Upgrade standbys first and the primary last. \nVerify with both version() and rpm -q . Roll back in order: reinstall the saved packages, undo the dnf transaction, then restore from backup. \nIn August 2026, the PostgreSQL Global Development Group released updates for all supported versions: 18.6, 17.11, 16.15, 15.19, and 14.24. These releases include security fixes and a large number of bug fixes, so now is a good time to plan your minor upgrade . You can see the full list of fixed CVEs in the official release announcement . \nIn this post, we’ll walk through a concrete example: upgrading PostgreSQL 15.13 to 15.19 on…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "SHRIDHAR KHANAL: PostgreSQL Minor Version Upgrade on RHEL 9: A Step-by-Step Guide with Rollback",
+    "url": "https://postgr.es/p/9B3",
+    "publishedAt": "2026-11-05T13:47:27.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-the-download-texas-s-fragile-ai-boom-and-energy-e7142e",
+  "title": "The Download: Texas’s fragile AI boom and energy policy shifts",
+  "canonicalUrl": "https://technologyreview.com/2026/11/05/1144908/the-download-texas-fragile-ai-boom-us-energy-policy",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T13:10:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4b988ac1c1cb008b",
+  "excerpt": "This is today’s edition of The Download , our weekday newsletter that provides a daily dose of what’s going on in the world of technology. \nTexas was the new epicenter of the AI data center buildout. That might be kaput. \nTexas is the fastest-growing data center market in the US and ground zero for Big Tech’s largest AI buildouts. But the blue wave that swept the Lone Star State may jeopardize that position.\nDemocrat James Talarico won the US Senate seat, Gina Hinojosa won the race for governor, and Democrats will take control of the Texas House for the first time in 24 years. They won after making data centers a central issue on the campaign trail.\nThe swings could spell trouble for hyperscalers with ambitious plans in the state. They also add to growing anxiety that America’s AI buildout could stall.\nHere’s how the election results could reshape AI’s future .\n—James O’Donnell \nWhat’s next for US energy policy after the midterm elections? \nDemocrats have taken control of both the House and the Senate, but we probably won’t see major federal climate and energy legislation while Trump remains president. The midterm elections could, however, be a big deal for energy at the state and…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "The Download: Texas’s fragile AI boom and energy policy shifts",
+    "url": "https://technologyreview.com/2026/11/05/1144908/the-download-texas-fragile-ai-boom-us-energy-policy",
+    "publishedAt": "2026-11-05T13:10:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-powering-open-infrastructure-for-autonomous-agents-2976bb",
+  "title": "Powering open infrastructure for autonomous agents",
+  "canonicalUrl": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T12:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "db68b4504151f55b",
+  "excerpt": "As AI shifts from human scale to agent scale , from systems of record to systems of action , and from simple requests to complex agentic workflows , the workload underneath your platform changes completely. An agent works in a continuous, stateful loop: It proposes an action, spins up subagents, executes code or tool calls inside a sandbox, and feeds the results back into the model for the next turn. Running that loop at scale requires the same open foundation and neutral governance that Kubernetes and the Cloud Native Computing Foundation (CNCF) brought to containers in the 2010s. \nToday, we are announcing the donation of Agent Substrate , gVisor , and OpenRL , three open source projects that started at Google, to the CNCF following their acceptance last month into the CNCF Sandbox. To bring this open stack into managed production and accelerate it across TPUs and GPUs, we are also announcing that Agent Substrate has reached its 1.0 milestone and is now generally available as Agent Substrate on GKE . \nEach project is now working through CNCF Sandbox onboarding with community maintainers and independent build infrastructure, and gVisor is on a path toward Incubation. These…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Powering open infrastructure for autonomous agents",
+    "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf",
+    "publishedAt": "2026-11-05T12:30:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, agent, kubernetes"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-sshole-8b3ecb",
+  "title": "sshole",
+  "canonicalUrl": "https://sshhole.com/",
+  "category": "programming",
+  "publishedAt": "2026-11-05T12:19:02.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c4571234ab01d77d",
+  "excerpt": "Article URL: https://sshhole.com \nComments URL: https://news.ycombinator.com/item?id=50378228 \nPoints: 1414\n# Comments: 380",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "sshole",
+    "url": "https://sshhole.com/",
+    "publishedAt": "2026-11-05T12:19:02.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-kpt-v100-is-released-0f4985",
+  "title": "kpt v1.0.0 is released",
+  "canonicalUrl": "https://cncf.io/blog/2026/11/05/kpt-v1-0-0-is-released",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-05T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "39625bb156898197",
+  "excerpt": "After many years and much development, the kpt community has released v1.0.0 of the kpt toolchain. This is a big step in maturing the kpt project after having it in pre-release status for several years. In the last twelve months the community has focused on stabilising the APIs, deprecating unused features and integrating the Porch (Package ORCHestration) service back into the kpt organization. With the complete toolchain under a common governance the community delivers a comprehensive system for GitOps based package management, which is modular enough to integrate and add value to any workflow.\nStandalone kpt provides lightweight configuration package management for applications running on Kubernetes, based on the config as data principles. These principles allow declarative manipulation and verification of the configuration of cloud native applications, clusters or indeed any resources managed through Kubernetes APIs. In kpt everything is expressed using KRM and kpt provides a framework to describe the manipulation and validation steps for KRM resources in a package, autonomously converting generic KRM into deployable models for a specific site or application. This allows…",
+  "sources": [
+   {
+    "sourceId": "cncf",
+    "sourceName": "CNCF Blog",
+    "title": "kpt v1.0.0 is released",
+    "url": "https://cncf.io/blog/2026/11/05/kpt-v1-0-0-is-released",
+    "publishedAt": "2026-11-05T12:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"0.0\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-notable-v8-changes-from-nodejs-26-to-27-alpha-f90c82",
+  "title": "Notable V8 changes from Node.js 26 to 27 (Alpha)",
+  "canonicalUrl": "https://nodejs.org/en/blog/announcements/notable-v8-changes-from-node-js-26-to-27-alpha",
+  "category": "programming",
+  "publishedAt": "2026-11-05T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7e0b1b16d28551a1",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "nodejs-blog",
+    "sourceName": "Node.js Blog",
+    "title": "Notable V8 changes from Node.js 26 to 27 (Alpha)",
+    "url": "https://nodejs.org/en/blog/announcements/notable-v8-changes-from-node-js-26-to-27-alpha",
+    "publishedAt": "2026-11-05T12:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 23,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches node.js"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-critical-security-vulnerability-affects-openssh-aa224a",
+  "title": "Critical security vulnerability affects OpenSSH on Alpine Linux systems",
+  "canonicalUrl": "https://lwn.net/Articles/1105464",
+  "category": "security",
+  "publishedAt": "2026-11-05T11:39:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "96fac78b5804339b",
+  "excerpt": "Version 10.6p2 of\nOpenSSH has been released with a workaround for a critical vulnerability that\naffects Linux systems that use musl libc \nwith PAM disabled, such as Alpine\nLinux . OpenSSH developer Damien Miller said :\nIf you operate a Linux system that uses musl libc without PAM (Alpine Linux\nis one example) then stop reading and set PasswordAuthentication=no or disable\nSSH for these systems IMMEDIATELY.\nThis vulnerability does not exist on non-Linux systems, Linux/glibc systems\nand Linux systems that use PAM for password authentication.\nWe consider the root cause of this bug to be outside OpenSSH itself, but\nwe're in a good position to deliver a mitigation quickly.\nThe Alpine Linux project has announced that\nit will be backporting the OpenSSH fix \" all the way back to Alpine 3.16 \",\nwhich was released in May\n2022.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Critical security vulnerability affects OpenSSH on Alpine Linux systems",
+    "url": "https://lwn.net/Articles/1105464",
+    "publishedAt": "2026-11-05T11:39:10.000Z",
+    "credibility": 2
+   },
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Alpine Linux Security Advisory: OpenSSH-server password authentication bypass",
+    "url": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass",
+    "publishedAt": "2026-11-05T14:44:20.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 60,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-awesome-repositories-are-no-longer-awesome-bf7673",
+  "title": "Awesome repositories are no longer awesome",
+  "canonicalUrl": "https://erikgahner.github.io/posts/2026/awesome-repositories-are-no-longer-awesome",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T11:16:51.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c698d48bd85777c2",
+  "excerpt": "Article URL: https://erikgahner.github.io/posts/2026/awesome-repositories-are-no-longer-awesome/ \nComments URL: https://news.ycombinator.com/item?id=50377821 \nPoints: 220\n# Comments: 105",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Awesome repositories are no longer awesome",
+    "url": "https://erikgahner.github.io/posts/2026/awesome-repositories-are-no-longer-awesome",
+    "publishedAt": "2026-11-05T11:16:51.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-building-a-culture-for-a-kubernetes-based-5c5979",
+  "title": "Building a Culture for a Kubernetes-Based Platform in a Bank",
+  "canonicalUrl": "https://infoq.com/news/2026/11/culture-kubernetes-bank",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-05T11:11:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "31b03d3a94888bf7",
+  "excerpt": "In banking, open source can earn trust by running real workloads, as Marcy Paramonova and Stéphane Cusin explained in their talk Building Cloud Native Culture in a Bank at KubeCon & CloudNativeCon Europe. Deploying Kubernetes was the easy part; the hard part was culture: community of practice, shared knowledge, rituals, ownership. Teams try things, keep what works, and improve bottom-up.\nBy Ben Linders",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Building a Culture for a Kubernetes-Based Platform in a Bank",
+    "url": "https://infoq.com/news/2026/11/culture-kubernetes-bank",
+    "publishedAt": "2026-11-05T11:11:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches kubernetes"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-presentation-zero-trust-agent-systems-that-pass-fdef81",
+  "title": "Presentation: Zero Trust Agent Systems that Pass Audits and Still Ship",
+  "canonicalUrl": "https://infoq.com/presentations/zero-trust-ai-agents-production-security",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T11:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d57ee94756ce5784",
+  "excerpt": "Advait Patel shares a playbook for securing AI agent systems in production. He discusses moving defense boundaries from the prompt to the tool layer, enforcing scoped workload identities, and mitigating prompt injection via tool outputs. He explains how to structure audit-ready observability and implement kill switches to protect critical data while keeping deployment fast and compliant.\nBy Advait Patel",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Presentation: Zero Trust Agent Systems that Pass Audits and Still Ship",
+    "url": "https://infoq.com/presentations/zero-trust-ai-agents-production-security",
+    "publishedAt": "2026-11-05T11:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, observability"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-a-new-bill-could-change-how-the-us-builds-energy-1b594f",
+  "title": "A new bill could change how the US builds energy infrastructure",
+  "canonicalUrl": "https://technologyreview.com/2026/11/05/1148062/permitting-reform",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T10:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "703f6a4fe1796d08",
+  "excerpt": "A sweeping bit of legislation designed to cut red tape could speed up the buildout of energy infrastructure in the US.\nWith the dust barely settled on this week’s momentous midterms, the Senate is set to vote on the Bipartisan American Affordability and Jobs Act (BAAJA) on November 9. It’s a plan that could finally start an overhaul of the slow, complicated process for getting energy projects approved, as part of something called permitting reform. People on both sides of the political aisle have been pushing for this type of change for some years. \nThe key question is whether this will cut greenhouse-gas emissions from the US energy sector or push them higher still. \nThe federal permitting system is designed to protect the environment against industrial pollution from large projects like power plants, transmission lines, and natural-gas pipelines. Today, permitting is governed by a range of laws, including the National Environmental Policy Act and the Clean Water Act. And if there’s one thing you might know about the current state of permitting in the US it’s that it’s slow and incredibly complicated.\nSo in its 417 pages, BAAJA attempts to tighten things up. The bill has…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "A new bill could change how the US builds energy infrastructure",
+    "url": "https://technologyreview.com/2026/11/05/1148062/permitting-reform",
+    "publishedAt": "2026-11-05T10:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-a-controlled-experimental-evaluation-of-f56308",
   "title": "A Controlled Experimental Evaluation of Configuration and Cache Architecture in LLM Serving Engines",
   "canonicalUrl": "https://arxiv.org/abs/2611.05991",
@@ -7,7 +2756,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d9f573e9f3626031",
@@ -64,7 +2813,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4cd6da766dc144b1",
@@ -116,7 +2865,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "881997ff51510192",
@@ -168,7 +2917,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "901f31113e4cddd4",
@@ -220,7 +2969,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "992e0994cc0fa72b",
@@ -277,7 +3026,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d4d33567677160e3",
@@ -329,7 +3078,7 @@
   "publishedAt": "2026-11-05T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "54141643e2d36d19",
@@ -369,6 +3118,53 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-05-lemmings-css-animation-bf5e13",
+  "title": "Lemmings CSS Animation",
+  "canonicalUrl": "https://markblah.github.io/lemmings",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T04:54:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4d74aa9ab9d3cb0c",
+  "excerpt": "Article URL: https://markblah.github.io/lemmings/ \nComments URL: https://news.ycombinator.com/item?id=50375354 \nPoints: 348\n# Comments: 69",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Lemmings CSS Animation",
+    "url": "https://markblah.github.io/lemmings",
+    "publishedAt": "2026-11-05T04:54:10.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-want-to-rent-an-internet-address-at-the-white-1a337c",
   "title": "Want to Rent an Internet Address at the White House?",
   "canonicalUrl": "https://krebsonsecurity.com/2026/11/want-to-rent-an-internet-address-at-the-white-house",
@@ -376,7 +3172,7 @@
   "publishedAt": "2026-11-05T04:36:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23b0e2464e00d2a9",
@@ -416,6 +3212,58 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-05-setting-a-new-standard-for-responsible-ai-25fa4d",
+  "title": "Setting a new standard for responsible AI infrastructure",
+  "canonicalUrl": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T02:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4a0afd92ed9bcd4d",
+  "excerpt": "OpenAI introduces its National Community Compact and Compute Campus Policy Blueprint to protect local resources, create jobs, and guide responsible AI infrastructure development.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Setting a new standard for responsible AI infrastructure",
+    "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+    "publishedAt": "2026-11-05T02:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-lwnnet-weekly-edition-for-november-5-2026-46abc7",
   "title": "[$] LWN.net Weekly Edition for November 5, 2026",
   "canonicalUrl": "https://lwn.net/Articles/1103480",
@@ -423,7 +3271,7 @@
   "publishedAt": "2026-11-05T00:42:51.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "db3735a3522d1400",
@@ -572,6 +3420,380 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-05-a-closer-look-at-phonon-tts-launching-high-c65c77",
+  "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+  "canonicalUrl": "https://huggingface.co/blog/phonon-tts",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c7830f630e76dadb",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+    "url": "https://huggingface.co/blog/phonon-tts",
+    "publishedAt": "2026-11-05T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-autobase-212-released-43428a",
+  "title": "Autobase 2.12 released",
+  "canonicalUrl": "https://postgresql.org/about/news/autobase-212-released-3430",
+  "category": "databases",
+  "publishedAt": "2026-11-05T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ff7ffa9ed43ac193",
+  "excerpt": "We are pleased to announce the release of Autobase 2.12 !\nHighlights\nBuilt-in Monitoring Dashboards\nAutobase isn't intended to replace your monitoring system. Instead, we've integrated with Netdata, which we consider one of the best solutions for real-time infrastructure monitoring.\nAutobase Platform now includes built-in dashboards powered by the Netdata agent, providing convenient access to key metrics for:\nSystem — CPU, memory, disk, and network performance\nPostgreSQL — database health and performance\nPgBouncer — connection pooling metrics\nTables and Indexes — statistics and performance insights\nExplore the dashboards in our live demo sandbox: https://demo.autobase.tech \nMulti-AZ Deployment\nWhen provisioning PostgreSQL clusters on AWS , GCP , and Azure , Autobase now distributes nodes across multiple Availability Zones (AZs) by default.\nThis improves cluster resilience by reducing the impact of a single Availability Zone failure.\nImplementation details:\nAWS — PR #1732 \nGCP — PR #1738 \nAzure — PR #1740 \nExternal Secrets Provider: AWS Secrets Manager\nWe've introduced a new secrets role with support for AWS Secrets Manager.\nThis integration enables Autobase to export and store…",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "Autobase 2.12 released",
+    "url": "https://postgresql.org/about/news/autobase-212-released-3430",
+    "publishedAt": "2026-11-05T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 57,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches agent, postgresql, database, indexes"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-episode-74-ask-the-architects-at-devoxx-ata-aaa426",
+  "title": "Episode 74 “Ask the Architects at Devoxx” [AtA]",
+  "canonicalUrl": "https://inside.java/2026/11/05/podcast-074",
+  "category": "programming",
+  "publishedAt": "2026-11-05T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c3687296de93a199",
+  "excerpt": "Recent and upcoming Java features (e.g. value classes, withers, and lazy constants) make it easier to define, construct, copy, and access immutable data",
+  "sources": [
+   {
+    "sourceId": "inside-java",
+    "sourceName": "Inside Java",
+    "title": "Episode 74 “Ask the Architects at Devoxx” [AtA]",
+    "url": "https://inside.java/2026/11/05/podcast-074",
+    "publishedAt": "2026-11-05T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-how-jetbrains-built-cross-database-queries-into-294632",
+  "title": "How JetBrains Built Cross-Database Queries into DataGrip with DuckDB",
+  "canonicalUrl": "https://duckdb.org/2026/11/05/jetbrains-datagrip.html",
+  "category": "databases",
+  "publishedAt": "2026-11-05T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2ab2db9ee7eb5b19",
+  "excerpt": "JetBrains users had long asked to join data across different database connections in a single query. Rather than build its own cross-database query engine, JetBrains embedded DuckDB in DataGrip, using DuckDB’s custom table functions to connect it to the IDE’s existing query execution. This is why DuckDB won out over the alternatives, and where the integration goes next.",
+  "sources": [
+   {
+    "sourceId": "duckdb",
+    "sourceName": "DuckDB Blog",
+    "title": "How JetBrains Built Cross-Database Queries into DataGrip with DuckDB",
+    "url": "https://duckdb.org/2026/11/05/jetbrains-datagrip.html",
+    "publishedAt": "2026-11-05T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-introducing-the-joint-reference-architecture-for-44669e",
+  "title": "Introducing the joint reference architecture for enterprise-grade Redis on VMware Cloud Foundation 9.1",
+  "canonicalUrl": "https://redis.io/blog/introducing-the-joint-reference-architecture-for-enterprise-grade-redis-on-vmware-cloud-foundation-9-1",
+  "category": "databases",
+  "publishedAt": "2026-11-05T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "22bb623be37e8901",
+  "excerpt": "Joint reference architecture from VMware by Broadcom and Redis\nMoving beyond caching to enterprise-grade real-time data\nTeams building fraud detection, streaming analytics, AI agents, and feature stores need fast data access under concurrent load. R...",
+  "sources": [
+   {
+    "sourceId": "redis-blog",
+    "sourceName": "Redis Blog",
+    "title": "Introducing the joint reference architecture for enterprise-grade Redis on VMware Cloud Foundation 9.1",
+    "url": "https://redis.io/blog/introducing-the-joint-reference-architecture-for-enterprise-grade-redis-on-vmware-cloud-foundation-9-1",
+    "publishedAt": "2026-11-05T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 67,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches redis, caching, agents, concurrent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "high",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-mydbr-77-brings-web-reporting-to-postgresql-796851",
+  "title": "myDBR 7.7 brings web reporting to PostgreSQL",
+  "canonicalUrl": "https://postgresql.org/about/news/mydbr-77-brings-web-reporting-to-postgresql-3424",
+  "category": "databases",
+  "publishedAt": "2026-11-05T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a6bde6930a3c27b3",
+  "excerpt": "Helsinki, Finland, 2026-10-28 - myDBR.com announced PostgreSQL support in myDBR, its web-based reporting platform for SQL databases. PostgreSQL 12 or later can now hold both myDBR's own objects and the reports, alongside the MySQL, MariaDB and Microsoft SQL Server support that myDBR already has.\nWhat is myDBR?\nmyDBR turns SQL into a finished reporting portal. A developer writes the report logic in the database. myDBR supplies the web interface: parameter forms, tables, charts, maps, drill-downs, scheduling, user management and export to Excel, PDF and CSV. Users need only a browser, and there is no separate report designer or proprietary query language to learn. If you can write a query, you can publish a report.\nWhat PostgreSQL support covers\nReports as PL/pgSQL functions. A report is a function that returns one cursor per result set. Titles, charts, tables, tabs and maps are each a result set, so one function can build a full report page.\nSimple installation. The web installer creates the role and database, and runs the creation script as a single transaction, so a failure leaves nothing half installed. myDBR can live in its own schema next to your data, which suits PostgreSQL's…",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "myDBR 7.7 brings web reporting to PostgreSQL",
+    "url": "https://postgresql.org/about/news/mydbr-77-brings-web-reporting-to-postgresql-3424",
+    "publishedAt": "2026-11-05T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgresql, database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-reindb-read-only-performance-monitoring-for-ecfbc5",
+  "title": "ReinDB: read-only performance monitoring for PostgreSQL, first database free",
+  "canonicalUrl": "https://postgresql.org/about/news/reindb-read-only-performance-monitoring-for-postgresql-first-database-free-3432",
+  "category": "databases",
+  "publishedAt": "2026-11-05T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-05T17:55:07.634Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f9f4c7b1beb9db58",
+  "excerpt": "Bandlei has released ReinDB, read-only performance monitoring for PostgreSQL, self-managed or on Amazon RDS and Aurora.\nReinDB learns what normal looks like for each database and statement, hour by hour, using pg_stat_statements, and flags what drifts from it, ranked by the extra database time each change costs. Each flag shows the evidence, including plan history, and a fix script your DBA can test, with an undo for each step.\nReinDB installs nothing in your database and needs one read-only login. It runs hosted, onsite on Linux or Windows, or in your own AWS or Google Cloud account. MySQL, SQL Server and Oracle are also supported.\nThe first database is free for one person, with no time limit and no card. A free 109-page guide, Rein In Your Database , covers the tuning method behind it.\nMore at reindb.com .",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "ReinDB: read-only performance monitoring for PostgreSQL, first database free",
+    "url": "https://postgresql.org/about/news/reindb-read-only-performance-monitoring-for-postgresql-first-database-free-3432",
+    "publishedAt": "2026-11-05T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 54,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches postgresql, database, aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-04-amazon-s3-tables-now-offer-managed-migration-of-0de52b",
   "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
   "canonicalUrl": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg",
@@ -579,7 +3801,7 @@
   "publishedAt": "2026-11-04T23:34:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33ab42b0991a0683",
@@ -740,7 +3962,7 @@
   "publishedAt": "2026-11-04T22:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43599d165c97ba43",
@@ -792,7 +4014,7 @@
   "publishedAt": "2026-11-04T22:00:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b60d6723a5fe3ff3",
@@ -892,7 +4114,7 @@
   "publishedAt": "2026-11-04T21:38:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1dff6ff843ce0b7",
@@ -1191,7 +4413,7 @@
   "publishedAt": "2026-11-04T20:04:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bd5a68b4034975d6",
@@ -1295,7 +4517,7 @@
   "publishedAt": "2026-11-04T19:10:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5974a6b602a2ab3",
@@ -1540,7 +4762,7 @@
   "publishedAt": "2026-11-04T18:50:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8f40dfa300f27a89",
@@ -1587,7 +4809,7 @@
   "publishedAt": "2026-11-04T18:46:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "006dbbbcb6db0b92",
@@ -1743,7 +4965,7 @@
   "publishedAt": "2026-11-04T18:21:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7f8a4d3fdf82ea3f",
@@ -1791,7 +5013,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -1989,7 +5211,7 @@
   "publishedAt": "2026-11-04T17:50:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f2eb35206164099",
@@ -2036,7 +5258,7 @@
   "publishedAt": "2026-11-04T17:46:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "acc846c739e09a33",
@@ -2202,7 +5424,7 @@
   "publishedAt": "2026-11-04T17:08:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1894a9db26182bb3",
@@ -2250,7 +5472,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "068a314322b8d2e9",
@@ -2459,7 +5681,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -2611,7 +5833,7 @@
   "publishedAt": "2026-11-04T16:34:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa3054af9f820a8f",
@@ -3075,7 +6297,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -3179,7 +6401,7 @@
   "publishedAt": "2026-11-04T14:54:53.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "04acc2e35a8e4758",
@@ -3288,7 +6510,7 @@
   "publishedAt": "2026-11-04T14:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b784ee473fce53aa",
@@ -3340,7 +6562,7 @@
   "publishedAt": "2026-11-04T14:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "18865e1710771b8f",
@@ -3601,7 +6823,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -3752,7 +6974,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a18861f43f130f7a",
@@ -3814,7 +7036,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fa85216859a5f13",
@@ -3913,7 +7135,7 @@
   "publishedAt": "2026-11-04T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "81e118b4db08ae0c",
@@ -4475,17 +7697,22 @@
   "publishedAt": "2026-11-04T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
-  "updatedAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
     "at": "2026-11-05T08:13:08.728Z",
     "reason": "Source text edited",
     "contentHash": "8efc21b688d47cac"
+   },
+   {
+    "at": "2026-11-05T17:55:07.634Z",
+    "reason": "Source text edited",
+    "contentHash": "798b12078e009a20"
    }
   ],
-  "contentHash": "8efc21b688d47cac",
-  "excerpt": "Article URL: https://openai.com/index/a-thousand-fewer-paths-to-root/ \nComments URL: https://news.ycombinator.com/item?id=50372929 \nPoints: 296\n# Comments: 197",
+  "contentHash": "798b12078e009a20",
+  "excerpt": "OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.",
   "sources": [
    {
     "sourceId": "openai",
@@ -4498,7 +7725,7 @@
   ],
   "minor": false,
   "score": {
-   "total": 43,
+   "total": 40,
    "parts": [
     {
      "label": "Baseline",
@@ -4509,11 +7736,6 @@
      "label": "Source credibility",
      "points": 20,
      "reason": "Primary source (the vendor or project itself)"
-    },
-    {
-     "label": "Engineering relevance",
-     "points": 3,
-     "reason": "Touches index"
     },
     {
      "label": "Freshness",
@@ -4533,7 +7755,7 @@
   "publishedAt": "2026-11-04T07:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "73c339cbf7884660",
@@ -5105,7 +8327,7 @@
   "publishedAt": "2026-11-04T00:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "88689845c16189f4",
@@ -5157,17 +8379,22 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
-  "updatedAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
     "at": "2026-11-05T08:13:08.728Z",
     "reason": "Source text edited",
     "contentHash": "78eeacf9b49a4e76"
+   },
+   {
+    "at": "2026-11-05T17:55:07.634Z",
+    "reason": "Source text edited",
+    "contentHash": "264827f0f234257a"
    }
   ],
-  "contentHash": "78eeacf9b49a4e76",
-  "excerpt": "Article URL: https://go.dev/blog/jsonv2 \nComments URL: https://news.ycombinator.com/item?id=50369106 \nPoints: 296\n# Comments: 134",
+  "contentHash": "264827f0f234257a",
+  "excerpt": "Go 1.27 introduces new encoding/json/v2 and encoding/json/jsontext packages.",
   "sources": [
    {
     "sourceId": "go-blog",
@@ -5180,7 +8407,7 @@
   ],
   "minor": false,
   "score": {
-   "total": 46,
+   "total": 61,
    "parts": [
     {
      "label": "Baseline",
@@ -5191,6 +8418,11 @@
      "label": "Source credibility",
      "points": 20,
      "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
     },
     {
      "label": "Engineering relevance",
@@ -5215,7 +8447,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5d5ae52df4bd5866",
@@ -5272,7 +8504,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "afc5610c967a1460",
@@ -5313,28 +8545,33 @@
  },
  {
   "id": "2026-11-04-introducing-images-26-295354",
-  "title": "Images 2.6",
+  "title": "Introducing Images 2.6",
   "canonicalUrl": "https://openai.com/index/introducing-images-2-6",
   "category": "ai-ml",
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
-  "updatedAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
     "at": "2026-11-05T08:13:08.728Z",
     "reason": "Source text edited",
     "contentHash": "4210094e679b3191"
+   },
+   {
+    "at": "2026-11-05T17:55:07.634Z",
+    "reason": "Source text edited",
+    "contentHash": "26c5ddda869b05b8"
    }
   ],
-  "contentHash": "4210094e679b3191",
-  "excerpt": "Article URL: https://openai.com/index/introducing-images-2-6/ \nComments URL: https://news.ycombinator.com/item?id=50372945 \nPoints: 252\n# Comments: 162",
+  "contentHash": "26c5ddda869b05b8",
+  "excerpt": "Images 2.6 brings faster image generation, GIF creation, more precise editing, and new API controls across ChatGPT, Codex, and the API.",
   "sources": [
    {
     "sourceId": "openai",
     "sourceName": "OpenAI News",
-    "title": "Images 2.6",
+    "title": "Introducing Images 2.6",
     "url": "https://openai.com/index/introducing-images-2-6",
     "publishedAt": "2026-11-04T00:00:00.000Z",
     "credibility": 3
@@ -5362,7 +8599,7 @@
     {
      "label": "Engineering relevance",
      "points": 3,
-     "reason": "Touches index"
+     "reason": "Touches api"
     },
     {
      "label": "Freshness",
@@ -5382,7 +8619,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "61c25825b89d32cc",
@@ -5434,7 +8671,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -5585,7 +8822,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -6055,7 +9292,7 @@
   "publishedAt": "2026-11-03T21:32:18.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "82a0ebad3515a78b",
@@ -6582,7 +9819,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -6639,7 +9876,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -7167,7 +10404,7 @@
   "publishedAt": "2026-11-03T17:32:47.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f73e76cba7ea56e0",
@@ -7214,7 +10451,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -7382,7 +10619,7 @@
   "publishedAt": "2026-11-03T17:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0ffb3b8e06ea15de",
@@ -7481,7 +10718,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -7528,7 +10765,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -7637,7 +10874,7 @@
   "publishedAt": "2026-11-03T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "04a691a3f53e8d61",
@@ -7798,7 +11035,7 @@
   "publishedAt": "2026-11-03T16:35:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ad908317fc7457db",
@@ -7897,7 +11134,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -8001,7 +11238,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -8519,7 +11756,7 @@
   "publishedAt": "2026-11-03T15:05:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b0ba33828d71fa95",
@@ -8847,7 +12084,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -9158,22 +12395,28 @@
  },
  {
   "id": "2026-11-03-actively-exploited-wordpress-wordpress-core-cve-bbe54c",
-  "title": "Actively exploited: WordPress WordPress Core CVE-2026-119977 (WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability)",
+  "title": "Actively exploited: WordPress Core CVE-2026-119977 (WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability)",
   "canonicalUrl": "https://nvd.nist.gov/vuln/detail/CVE-2026-119977",
   "category": "security",
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "5607977dbb4021b1",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
+  "updatedAt": "2026-11-05T17:55:07.634Z",
+  "revisions": [
+   {
+    "at": "2026-11-05T17:55:07.634Z",
+    "reason": "Source text edited",
+    "contentHash": "83bc38751999d023"
+   }
+  ],
+  "contentHash": "83bc38751999d023",
   "excerpt": "WordPress WordPress Core contains a time-of-check time-of-use (TOCTOU) race condition vulnerability that could allow unauthenticated attackers to execute code on the server during the upgrade window. This is due to predictable, web-accessible staging paths used during full-package core upgrades. Required action: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
   "sources": [
    {
     "sourceId": "cisa-kev",
     "sourceName": "CISA Known Exploited Vulnerabilities",
-    "title": "Actively exploited: WordPress WordPress Core CVE-2026-119977 (WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability)",
+    "title": "Actively exploited: WordPress Core CVE-2026-119977 (WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability)",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119977",
     "publishedAt": "2026-11-03T12:00:00.000Z",
     "credibility": 3
@@ -9189,7 +12432,7 @@
   ],
   "minor": false,
   "score": {
-   "total": 67,
+   "total": 55,
    "parts": [
     {
      "label": "Baseline",
@@ -9217,13 +12460,18 @@
      "reason": "Listed by CISA as exploited in the wild"
     },
     {
+     "label": "Not your stack",
+     "points": -12,
+     "reason": "Exploited, but matches none of the technologies tracked here"
+    },
+    {
      "label": "Freshness",
      "points": 5,
      "reason": "Published in the last 36 hours"
     }
    ]
   },
-  "importance": "high",
+  "importance": "notable",
   "status": "pending"
  },
  {
@@ -9281,7 +12529,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d143689e77c992d9",
@@ -9494,7 +12742,7 @@
   "publishedAt": "2026-11-03T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b16dc7d436a154ab",
@@ -9645,7 +12893,7 @@
   "publishedAt": "2026-11-03T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cb4e58bfdaf493f8",
@@ -10235,7 +13483,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -10334,7 +13582,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -10396,7 +13644,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -10443,7 +13691,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8a5ad80e68497e17",
@@ -10849,7 +14097,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -10953,7 +14201,7 @@
   "publishedAt": "2026-11-02T22:08:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8e7b7729f82dce57",
@@ -12044,7 +15292,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -12096,7 +15344,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -12143,7 +15391,7 @@
   "publishedAt": "2026-11-02T17:26:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "834456d13ddb011f",
@@ -12190,7 +15438,7 @@
   "publishedAt": "2026-11-02T17:26:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5a98412d98a53444",
@@ -12596,7 +15844,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -13482,7 +16730,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -13589,7 +16837,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b048de63a87b4a2b",
@@ -14057,7 +17305,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -15165,7 +18413,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -15430,7 +18678,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -16064,7 +19312,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -16141,7 +19389,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T08:13:08.728Z",
+  "lastSeenAt": "2026-11-05T17:55:07.634Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
