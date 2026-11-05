@@ -18,7 +18,8 @@ Read `AGENTS.md` (Next.js version notes) before changing code.
 - **Tech Radar:** pipeline in `lib/radar/` + `scripts/radar.ts`, scheduled by `.github/workflows/radar.yml`;
   data lives on the `radar-data` branch (never commit `content/radar/` to `main`). See `docs/tech-radar.md`.
 - **Checks:** `npm run check` (lint, typecheck, tests, build) before every commit.
-- **Never:** push to `main` from the routine, delete question or exercise IDs, or touch
-  `lib/login-vault.json`, `vault/`, `lib/auth.ts`, `lib/vault.ts`.
+- **Never:** push to `main` from the routine, delete question or exercise IDs, or (from the
+  routine) touch `lib/login-vault.json`, `vault/`, `lib/auth.ts`, `lib/vault.ts`. Interactive Claude Code
+  sessions have full authority and may change and merge these via PR; see `docs/pr-policy.md`.
 - Answers before `CONTENT_EPOCH` (lib/progress.ts) are archived and not counted.
 - Keep chat output short: the owner pays for tokens.
