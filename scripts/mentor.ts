@@ -22,7 +22,7 @@ import { buildState, computeStatus, countsOf, pointerFor, renderReport, runIdOf 
 import { MENTOR_PROMPT_VERSION, MENTOR_SCHEMA, type Conversation, type CurrentPointer, type EvidenceItem, type LearnerState, type MentorPacket, type MentorStatus, type RunRecord, type RunStatus, type Submission } from "../lib/mentor/types";
 import { validateProposal } from "../lib/mentor/validate";
 import { validateQuestions } from "../lib/validate";
-import { buildCodingAnalysis, buildCodingPacket, isCodingAnalysis, isLeetCodeStore, validateCodingReview, type CodingPacket, type CodingReview } from "../lib/leetcode-history";
+import { buildCodingAnalysis, buildCodingPacket, codingContextOf, isCodingAnalysis, isLeetCodeStore, validateCodingReview, type CodingPacket, type CodingReview } from "../lib/leetcode-history";
 import type { Resource } from "../lib/resources";
 import { DOMAINS, type Question, type TopicMeta } from "../lib/types";
 
@@ -146,6 +146,14 @@ function makeRun(packet: MentorPacket, status: RunStatus, extra: Partial<RunReco
   };
 }
 
+/** The LeetCode record as context for the nightly analysis. Missing or damaged files just mean no context. */
+function codingContext(dataDir: string) {
+  const store = readJsonIf<unknown>(path.join(dataDir, "leetcode/submissions.json"));
+  if (!isLeetCodeStore(store) || store.submissions.length === 0) return null;
+  const review = readJsonIf<unknown>(path.join(dataDir, "mentor/coding.json"));
+  return codingContextOf(store.submissions, isCodingAnalysis(review) ? review : null);
+}
+
 function collect() {
   const dataDir = need("data");
   const content = loadContent();
@@ -162,6 +170,7 @@ function collect() {
     previousState: loadState(dataDir),
     evidence: loadEvidence(dataDir),
     status: readJsonIf<MentorStatus>(path.join(dataDir, "mentor/status.json")),
+    coding: codingContext(dataDir),
   });
   writeJson(need("out"), packet);
   console.log(JSON.stringify({ decision: packet.decision, forDate: packet.forDate, trigger: packet.trigger, newInteractions: countsOf(packet) }));

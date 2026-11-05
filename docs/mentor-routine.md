@@ -36,7 +36,7 @@ The last line prints a `decision`. If any of these commands fails, go to **If so
 
 Read `/tmp/mentor-packet.json`, and the types in `lib/mentor/types.ts`. Don't read the rest of either repo, because the packet already holds what you need.
 
-The packet contains tonight's `newInteractions`, the `previousState`, `relevantEvidence`, computed `facts`, the skill catalogue and the registry of allowed resources. `archived` holds answers from before the question rewrite. They're context only and can never be evidence.
+The packet contains tonight's `newInteractions`, the `previousState`, `relevantEvidence`, computed `facts`, the skill catalogue and the registry of allowed resources. `archived` holds answers from before the question rewrite. They're context only and can never be evidence. `coding` is a short summary of the LeetCode record and its latest review (null if there's none). It's context only too: use it to choose priorities and wording, never as evidence for a skill level, and never cite it in `evidence`.
 
 Work through these in order:
 
