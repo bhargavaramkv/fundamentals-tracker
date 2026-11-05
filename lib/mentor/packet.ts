@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { activeProgress, CONTENT_EPOCH, latestActivityAt } from "../progress";
 import { buildProfile } from "../profile";
 import { dueReviews } from "../srs";
+import type { CodingContext } from "../leetcode-history";
 import type { ProgressData, Question, TopicMeta } from "../types";
 import type { Resource } from "../resources";
 import { forDateOf, triggerOf } from "./time";
@@ -43,6 +44,8 @@ export interface PacketInput {
   previousState: LearnerState | null;
   evidence: EvidenceItem[];
   status: MentorStatus | null;
+  /** Context only: left out of the input hash, so a LeetCode pull alone never triggers an analysis. */
+  coding?: CodingContext | null;
   /** Options as they stood when an answer was given, for answers older than a question rewrite. */
   pickedText?: (a: ProgressData["answers"][number]) => string | null;
 }
@@ -175,6 +178,7 @@ export function buildPacket(input: PacketInput): MentorPacket {
       daysSinceLastInteraction: last ? Math.floor((now.getTime() - Date.parse(last)) / 86_400_000) : null,
     },
     archived: { count: archived.length, missedByTopic },
+    coding: input.coding ?? null,
     skillCatalogue: [...topics.map((t) => ({ id: keyOf(t), title: t.title })), ...EXTRA_SKILLS],
     resources: resources.map((r) => ({ id: r.id, title: r.title, publisher: r.publisher, tier: r.tier, topics: r.topics })),
     processedKeys,

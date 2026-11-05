@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { buildCodingAnalysis, buildCodingPacket, computeCodingStats, isLeetCodeStore, validateCodingReview, type CodingReview, type LeetCodeSubmission } from "@/lib/leetcode-history";
+import { buildCodingAnalysis, buildCodingPacket, codingContextOf, computeCodingStats, isLeetCodeStore, summarizeProblems, validateCodingReview, type CodingReview, type LeetCodeSubmission } from "@/lib/leetcode-history";
 
 let n = 0;
 const sub = (p: Partial<LeetCodeSubmission>): LeetCodeSubmission => ({ id: String(++n), title: "Two Sum", slug: "two-sum", number: "1", difficulty: "Easy", tags: ["array"], status: "Accepted", lang: "cpp", timestamp: 1_780_000_000, code: "x", ...p });
 
 const review = (p: Partial<CodingReview> = {}): CodingReview => ({
   forDate: "2026-11-02",
+  headline: "Guards are missing on empty input.",
+  trend: { direction: "steady", note: "Same two failures as last week." },
   summary: "Guards are missing.",
   focus: [{ title: "Edge cases", why: "Both failures were empty input." }],
   mistakes: [{ pattern: "No null check", detail: "h->next on empty list", check: "Trace []", problems: ["two-sum"] }],
@@ -47,7 +49,40 @@ describe("coding stats", () => {
   });
 
   it("handles an empty history", () => {
-    expect(computeCodingStats([])).toMatchObject({ total: 0, recent: null, lastSubmittedAt: null });
+    expect(computeCodingStats([])).toMatchObject({ total: 0, recent: null, lastSubmittedAt: null, solved: 0, unsolved: [], lately: [], form: { previous: null } });
+  });
+
+  it("stops a problem's failures at the first pass and counts what came after separately", () => {
+    const re = computeCodingStats([
+      sub({ status: "Wrong Answer", timestamp: 1000 }),
+      sub({ timestamp: 1100 }),
+      sub({ status: "Wrong Answer", timestamp: 900000, lang: "python3" }),
+      sub({ timestamp: 900100, lang: "python3" }),
+    ]);
+    expect(re.hardest[0]).toMatchObject({ attempts: 2, acceptedOnTry: 2, later: 2, failures: [{ status: "Wrong Answer", count: 1 }] });
+  });
+
+  it("lists unsolved problems and compares the last 10 problems with the 10 before", () => {
+    const problems = Array.from({ length: 21 }, (_, i) => [
+      ...(i < 10 || i === 20 ? [sub({ slug: `p${i}`, status: "Wrong Answer", timestamp: i * 1000 })] : []),
+      ...(i === 20 ? [] : [sub({ slug: `p${i}`, timestamp: i * 1000 + 10 })]),
+    ]).flat();
+    const f = computeCodingStats(problems);
+    expect(f.unsolved.map((u) => u.slug)).toEqual(["p20"]);
+    expect(f.solved).toBe(20);
+    expect(f.form.last).toMatchObject({ problems: 10, firstTry: 9, avgTries: 1 });
+    expect(f.form.previous).toMatchObject({ problems: 10, firstTry: 1, avgTries: 1.9 });
+    expect(f.lately).toHaveLength(12);
+  });
+
+  it("doesn't list the same near miss twice", () => {
+    const miss = { status: "Wrong Answer", totalCorrect: 9, totalTestcases: 10, lastTestcase: "[9,9]" };
+    expect(computeCodingStats([sub({ ...miss, timestamp: 1 }), sub({ ...miss, timestamp: 2 })]).nearMisses).toHaveLength(1);
+  });
+
+  it("summarises each problem's history in one line", () => {
+    const [p] = summarizeProblems([sub({ status: "Wrong Answer", timestamp: 1000 }), sub({ status: "Compile Error", timestamp: 1100 }), sub({ timestamp: 900000 })]);
+    expect(p).toMatchObject({ slug: "two-sum", history: ["WA", "CE", "AC"], acceptedOnTry: 3, attempts: 3, sittings: 2, firstAt: 1000, lastAt: 900000 });
   });
 });
 
@@ -61,6 +96,15 @@ describe("coding review", () => {
     expect(buildCodingPacket(subs, analysis, "2026-11-03").decision).toBe("no-new");
     const next = buildCodingPacket([...subs, sub({ id: "c" })], analysis, "2026-11-03");
     expect(next.newSubmissions.map((s) => s.id)).toEqual(["c"]);
+  });
+
+  it("gives the nightly review every problem's history, newest first, and says what it left out", () => {
+    const many = Array.from({ length: 160 }, (_, i) => sub({ slug: `p${i}`, timestamp: i }));
+    const p = buildCodingPacket(many, null, "2026-11-02");
+    expect(p.problems).toHaveLength(150);
+    expect(p.problems[0].slug).toBe("p159");
+    expect(p.problemsOmitted).toBe(10);
+    expect(buildCodingPacket(subs, null, "2026-11-02").problems[0]).toMatchObject({ slug: "two-sum", history: ["AC", "WA"] });
   });
 
   it("reviews a large backlog over several nights, newest first, until none is left", () => {
@@ -89,6 +133,8 @@ describe("coding review", () => {
     const p = buildCodingPacket(subs, null, "2026-11-02");
     expect(validateCodingReview(review(), p)).toEqual([]);
     expect(validateCodingReview(review({ forDate: "2026-11-01" }), p)[0]).toContain("forDate");
+    expect(validateCodingReview(review({ headline: "" }), p)[0]).toContain("headline");
+    expect(validateCodingReview(review({ trend: { direction: "soaring" as "steady", note: "n" } }), p)[0]).toContain("trend");
     expect(validateCodingReview(review({ mistakes: [{ pattern: "p", detail: "d", check: "c", problems: ["never-tried"] }] }), p)[0]).toContain("unknown problem");
     expect(validateCodingReview(review({ reviews: [{ slug: "never-tried", title: "t", verdict: "good", note: "n" }] }), p)[0]).toContain("tonight");
     expect(validateCodingReview(review({ nextProblems: [{ slug: "../x", title: "t", why: "w" }] }), p)[0]).toContain("nextProblems");
@@ -99,5 +145,21 @@ describe("coding review", () => {
     expect(isLeetCodeStore({ version: 1, username: "u", submissions: subs })).toBe(true);
     expect(isLeetCodeStore({ version: 2, submissions: [] })).toBe(false);
     expect(isLeetCodeStore({ version: 1, submissions: [{ id: 1 }] })).toBe(false);
+  });
+});
+
+describe("coding context for the mentor", () => {
+  it("summarises the record without any code", () => {
+    const subs = [sub({ slug: "a", title: "A", timestamp: 100 }), sub({ slug: "b", title: "B", status: "Wrong Answer", timestamp: 200 })];
+    const ctx = codingContextOf(subs, buildCodingAnalysis(review(), buildCodingPacket(subs, null, "2026-11-02"), "2026-11-02T00:00:00Z"));
+    expect([ctx.problems, ctx.solved]).toEqual([2, 1]);
+    expect(ctx.neverPassed).toEqual(["B"]);
+    expect(ctx.review?.headline).toBe("Guards are missing on empty input.");
+    expect(ctx.review?.focus).toEqual(["Edge cases"]);
+    expect(JSON.stringify(ctx)).not.toContain('"code"');
+  });
+
+  it("works with no review yet", () => {
+    expect(codingContextOf([sub({})], null).review).toBeNull();
   });
 });

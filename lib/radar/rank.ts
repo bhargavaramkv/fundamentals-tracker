@@ -81,6 +81,8 @@ export function scoreStory(input: ScoreInput, now: Date): { total: number; parts
 
   const terms = [...new Set((text.match(RELEVANCE) ?? []).map((m) => m.toLowerCase()))];
   if (terms.length > 0) parts.push({ label: "Engineering relevance", points: Math.min(15, terms.length * 3), reason: `Touches ${terms.slice(0, 5).join(", ")}` });
+  // The exploited-in-the-wild list is mostly products an engineer here never runs; it shouldn't lead on source weight alone.
+  else if (input.isKev) parts.push({ label: "Not your stack", points: -12, reason: "Exploited, but matches none of the technologies tracked here" });
 
   const ageH = (now.getTime() - new Date(input.publishedAt).getTime()) / 3_600_000;
   if (ageH <= 36) parts.push({ label: "Freshness", points: 5, reason: "Published in the last 36 hours" });

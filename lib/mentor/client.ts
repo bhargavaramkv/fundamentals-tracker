@@ -1,4 +1,6 @@
+import { activeProgress } from "../progress";
 import { DATA_REPO } from "../storage";
+import type { ProgressData } from "../types";
 import { daysBetween, forDateOf } from "./time";
 import type { CurrentPointer, LearnerState, MentorActivity, MentorStatus, Submission } from "./types";
 
@@ -76,10 +78,23 @@ export const OPEN_PROMPT = "Mentor session: I want to discuss something. Follow 
 
 export type Freshness = "fresh" | "carried" | "stale";
 
-/** How much the page can trust the plan. Stale means the mentor has been silent long enough to say so plainly. */
-export function freshnessOf(state: LearnerState, now: Date): { kind: Freshness; ageDays: number } {
-  const ageDays = daysBetween(state.plan.forDate, forDateOf(now));
+/**
+ * How much the page can trust the plan. Stale means the mentor has been silent long enough to say so plainly.
+ * A night with nothing new leaves the plan as it was, so the last successful run counts as well as the plan's own date.
+ */
+export function freshnessOf(state: LearnerState, now: Date, status?: MentorStatus | null): { kind: Freshness; ageDays: number } {
+  const heardFrom = [state.plan.forDate, status?.lastSuccessForDate].filter((d): d is string => !!d).sort().at(-1) as string;
+  const ageDays = daysBetween(heardFrom, forDateOf(now));
   return { kind: ageDays <= 0 ? "fresh" : ageDays <= 3 ? "carried" : "stale", ageDays };
+}
+
+/** Work done since the last analysis that tonight's run hasn't seen. Reading and resource visits aren't evidence, so they don't count. */
+export function workSince(data: ProgressData, since: string): { answers: number; activities: number } {
+  const active = activeProgress(data);
+  return {
+    answers: active.answers.filter((a) => a.answeredAt > since).length,
+    activities: active.activities.filter((a) => a.kind !== "resource" && a.at > since).length,
+  };
 }
 
 /** Today's run didn't report in. A quota limit or outage leaves no session behind, so this is all anyone can know. */

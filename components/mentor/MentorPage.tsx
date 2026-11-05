@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
-import { activityPrompt, DIAGNOSTIC_PROMPT, freshnessOf, mentorSessionUrl, missedTonight, OPEN_PROMPT, saveSubmission, type MentorLoad } from "@/lib/mentor/client";
+import { activityPrompt, DIAGNOSTIC_PROMPT, freshnessOf, mentorSessionUrl, missedTonight, OPEN_PROMPT, saveSubmission, workSince, type MentorLoad } from "@/lib/mentor/client";
 import { forDateOf } from "@/lib/mentor/time";
 import { DIMENSIONS, DIMENSION_LABEL, knowledgeOf, LEVEL_LABEL, PRIMARY_AFTER_NIGHTS, type LearnerState, type Level, type MentorActivity, type MentorStatus, type Submission } from "@/lib/mentor/types";
 import type { Resource } from "@/lib/resources";
 import { useAuth } from "../AuthGate";
+import { useProgress } from "../ProgressProvider";
 import { useMentor } from "./useMentor";
 
 export function MentorPage({ resources }: { resources: Resource[] }) {
@@ -82,11 +83,13 @@ export function MentorView({ load, resources }: { load: MentorLoad; resources: R
 
 function StatusLine({ state, status }: { state: LearnerState; status: MentorStatus | null }) {
   const now = new Date();
-  const { kind, ageDays } = freshnessOf(state, now);
+  const { kind, ageDays } = freshnessOf(state, now, status);
   const today = forDateOf(now);
   const failed = status?.lastRunStatus === "failed" && status.lastRunForDate === today;
-  const quiet = status?.lastRunStatus === "no-new-evidence" && status.lastRunForDate === today;
   const missed = missedTonight(status, now);
+  // Checked since the plan was written, with nothing new to analyse: the plan is unchanged on purpose, not neglected.
+  const checkedSince = status?.lastSuccessForDate && status.lastSuccessForDate > state.plan.forDate ? status.lastSuccessForDate : null;
+  const nights = status?.consecutiveNights ?? 0;
   return (
     <div className="mt-3 space-y-1 text-[15px]" role="status">
       <p className="meta">
@@ -94,11 +97,13 @@ function StatusLine({ state, status }: { state: LearnerState; status: MentorStat
       </p>
       {failed && <p className="border-l-2 border-warn pl-4 text-ink-2">Last night&apos;s analysis failed, so this is the last valid plan. Your data is safe, and it runs again tonight.</p>}
       {missed && !failed && <p className="border-l-2 border-warn pl-4 text-ink-2">No run reported last night. A usage limit or service outage leaves no record, and it tries again tonight.</p>}
-      {quiet && <p className="text-ink-2">No new work since the last analysis, so nothing about you changed and the plan stays.</p>}
-      {kind === "stale" && <p className="border-l-2 border-warn pl-4 text-ink-2">This plan is {ageDays} days old.</p>}
+      {checkedSince && !failed && <p className="text-ink-2">Checked again on {dayLabel(checkedSince)}. There was no new work to analyse, so the plan stays.</p>}
+      {kind === "stale" && <p className="border-l-2 border-warn pl-4 text-ink-2">Your mentor hasn&apos;t reported in for {ageDays} days.</p>}
       {!status?.primaryEligible && (
         <p className="meta">
-          On trial: {status?.consecutiveNights ?? 0} of {PRIMARY_AFTER_NIGHTS} successful nights in a row before this becomes your home page.
+          {nights >= PRIMARY_AFTER_NIGHTS
+            ? "On trial: it has run without errors for 5 nights. It becomes your home page after its first night with real work to analyse."
+            : `On trial: ${nights} of ${PRIMARY_AFTER_NIGHTS} nights in a row without errors, then it becomes your home page.`}
         </p>
       )}
     </div>
@@ -110,6 +115,9 @@ function Dashboard({ state, status, resources }: { state: LearnerState; status: 
   const untested = state.skillCatalogue.filter((c) => !state.profile.skills.some((s) => s.id === c.id));
   const hasEvidence = state.profile.skills.length > 0;
   const noChange = state.analysis.improved.length === 0 && state.analysis.regressed.length === 0 && state.levelChanges.length === 0;
+  const { data: progress } = useProgress();
+  const waiting = workSince(progress, state.generatedAt);
+  const waitingParts = [waiting.answers > 0 && `${waiting.answers} ${waiting.answers === 1 ? "answer" : "answers"}`, waiting.activities > 0 && `${waiting.activities} ${waiting.activities === 1 ? "activity" : "activities"}`].filter(Boolean);
 
   return (
     <div className="space-y-14">
@@ -130,7 +138,8 @@ function Dashboard({ state, status, resources }: { state: LearnerState; status: 
             {state.plan.supporting.map((a) => (
               <ActivityCard key={a.id} activity={a} state={state} resources={resources} label="Supporting" />
             ))}
-            <p className="meta mt-4">Why this plan: {state.analysis.decisionRationale}</p>
+            {/* With no evidence yet the activity's own "Why" says the same thing. */}
+            {!state.plan.primary.noEvidenceYet && <p className="meta mt-4">Why this plan: {state.analysis.decisionRationale}</p>}
           </section>
 
           {state.feedback.length > 0 && (
@@ -149,32 +158,34 @@ function Dashboard({ state, status, resources }: { state: LearnerState; status: 
             </section>
           )}
 
-          <section aria-labelledby="roadmap-h">
-            <div className="section-head">
-              <h2 id="roadmap-h">Your roadmap</h2>
-            </div>
-            <ol className="divide-y divide-line">
-              {state.roadmap.items.map((r) => (
-                <li key={`${r.skillId}-${r.status}`} className="py-3">
-                  <p className="meta capitalize">{r.status}</p>
-                  <p className="font-medium">{r.title}</p>
-                  <p className="text-[15px] text-ink-2">{r.why}</p>
-                </li>
-              ))}
-            </ol>
-            {state.roadmap.changes.length > 0 && (
-              <>
-                <h3 className="mt-6 font-medium">What changed in the roadmap</h3>
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-[15px] text-ink-2">
-                  {state.roadmap.changes.map((c) => (
-                    <li key={c.change}>
-                      {c.change}. {c.why}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </section>
+          {(state.roadmap.items.length > 0 || state.roadmap.changes.length > 0) && (
+            <section aria-labelledby="roadmap-h">
+              <div className="section-head">
+                <h2 id="roadmap-h">Your roadmap</h2>
+              </div>
+              <ol className="divide-y divide-line">
+                {state.roadmap.items.map((r) => (
+                  <li key={`${r.skillId}-${r.status}`} className="py-3">
+                    <p className="meta capitalize">{r.status}</p>
+                    <p className="font-medium">{r.title}</p>
+                    <p className="text-[15px] text-ink-2">{r.why}</p>
+                  </li>
+                ))}
+              </ol>
+              {state.roadmap.changes.length > 0 && (
+                <>
+                  <h3 className="mt-6 font-medium">What changed in the roadmap</h3>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-[15px] text-ink-2">
+                    {state.roadmap.changes.map((c) => (
+                      <li key={c.change}>
+                        {c.change}. {c.why}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </section>
+          )}
         </div>
 
         <div className="min-w-0 space-y-12">
@@ -182,8 +193,13 @@ function Dashboard({ state, status, resources }: { state: LearnerState; status: 
             <div className="section-head">
               <h2 id="progress-h">Since the last analysis</h2>
             </div>
+            {waitingParts.length > 0 && (
+              <p className="mb-3 text-[15px]" role="status">
+                {waitingParts.join(" and ")} since then {waiting.answers + waiting.activities === 1 ? "is" : "are"} waiting for tonight&apos;s 1:00 AM analysis.
+              </p>
+            )}
             {noChange ? (
-              <p className="text-[15px] text-ink-2">No change in what you&apos;ve demonstrated.</p>
+              <p className="text-[15px] text-ink-2">{waitingParts.length > 0 ? "The last analysis found no change in what you'd demonstrated." : "No change in what you've demonstrated."}</p>
             ) : (
               <ul className="space-y-2 text-[15px]">
                 {state.analysis.improved.map((x) => (

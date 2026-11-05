@@ -115,7 +115,6 @@ function DashboardPage({ ctx, radar, data, now }: { ctx: PlanContext; radar: Rad
   const answeredToday = data.answers.filter((a) => dayKey(new Date(a.answeredAt)) === today).length;
   const allTopics = rec.profile.domains.flatMap((d) => d.topics);
   const covered = allTopics.filter((t) => t.attempts > 0).length;
-  const gaps = rec.profile.weakTopics.slice(0, 6);
   const strengths = rec.profile.strongTopics.slice(0, 6);
   const next = rec.focus[0];
   const nextKey = next ? keyOf(next.meta) : null;
@@ -264,7 +263,6 @@ function DashboardPage({ ctx, radar, data, now }: { ctx: PlanContext; radar: Rad
         </div>
 
         <div className="min-w-0 space-y-12">
-          <TopicList title="Gaps" icon="▼" tone="text-bad" empty="No weak topics yet. Nice." items={gaps} titleOf={(t) => titleOfKey(keyOf(t))} />
           <TopicList title="Strengths" icon="▲" tone="text-good" empty="Strengths show up after 3+ answers at 80%+ in a topic." items={strengths} titleOf={(t) => titleOfKey(keyOf(t))} />
           <Revisions ctx={ctx} data={data} now={now} titleOf={titleOfKey} />
           <Proficient ctx={ctx} data={data} now={now} />
@@ -304,8 +302,7 @@ function PlanList({ plan }: { plan: PlanTask[] }) {
               <div className="min-w-0 basis-full sm:basis-0 sm:flex-1">
                 <p className="flex flex-wrap items-center gap-x-2 text-xs text-ink-3">
                   <span className="tag bg-surface-2 text-ink-2">{KIND_LABEL[t.kind]}</span>
-                  <span>about {t.minutes} min</span>
-                  {t.done && <span className="font-medium text-good">✓ Done</span>}
+                  {t.done ? <span className="font-medium text-good">✓ Done</span> : <span>about {t.minutes} min</span>}
                 </p>
                 <Link href={t.href} className={`mt-0.5 block font-semibold hover:text-accent-text ${t.done ? "text-ink-2" : ""}`}>
                   {t.title}
@@ -336,7 +333,7 @@ function Revisions({ ctx, data, now, titleOf }: { ctx: PlanContext; data: Data; 
       <div className="section-head mb-2">
         <h2 id="rev-h">Revision</h2>
         <Link href="/coding/" className="tap text-sm font-medium text-accent-text hover:underline">
-          Coding
+          Coding insights
         </Link>
       </div>
       {shown.length === 0 && retries.length === 0 ? (
@@ -374,6 +371,7 @@ function Proficient({ ctx, data, now }: { ctx: PlanContext; data: Data; now: num
     const proficient = topics.filter((t) => levelRank(topicProficiency(keyOf(t), data, ctx.workspaces[keyOf(t)], solves, now).level) >= levelRank("proficient")).length;
     return { domain, proficient, total: topics.length };
   });
+  const total = rows.reduce((n, r) => n + r.proficient, 0);
   return (
     <section aria-labelledby="proficient-h">
       <div className="section-head mb-2">
@@ -382,19 +380,25 @@ function Proficient({ ctx, data, now }: { ctx: PlanContext; data: Data; now: num
           Path
         </Link>
       </div>
-      <ul className="space-y-1 text-sm">
-        {rows.map((r) => (
-          <li key={r.domain} className="flex items-center justify-between gap-3">
-            <Link href={`/learn/#${r.domain}`} className="tap flex min-w-0 items-center gap-2 hover:underline">
-              <DomainIcon domain={r.domain} size={22} />
-              <span className="truncate">{DOMAIN_LABELS[r.domain]}</span>
-            </Link>
-            <span className="shrink-0 tabular-nums text-ink-2">
-              {r.proficient} of {r.total}
-            </span>
-          </li>
-        ))}
-      </ul>
+      {total === 0 ? (
+        <p className="text-sm text-ink-3">None yet. A topic counts once your answers and exercises show you can apply it, not just recall it.</p>
+      ) : (
+        <ul className="space-y-1 text-sm">
+          {rows
+            .filter((r) => r.proficient > 0)
+            .map((r) => (
+              <li key={r.domain} className="flex items-center justify-between gap-3">
+                <Link href={`/learn/#${r.domain}`} className="tap flex min-w-0 items-center gap-2 hover:underline">
+                  <DomainIcon domain={r.domain} size={22} />
+                  <span className="truncate">{DOMAIN_LABELS[r.domain]}</span>
+                </Link>
+                <span className="shrink-0 tabular-nums text-ink-2">
+                  {r.proficient} of {r.total}
+                </span>
+              </li>
+            ))}
+        </ul>
+      )}
     </section>
   );
 }

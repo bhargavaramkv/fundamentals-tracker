@@ -2,6 +2,8 @@
  * The nightly mentor's data. Everything here lives under mentor/ in the private data repo. The nightly Claude Code
  * routine proposes it, code validates it, and the site only renders what passed. See docs/design/MENTOR.md.
  */
+import type { CodingContext } from "../leetcode-history";
+
 export const MENTOR_SCHEMA = 1;
 /** Bump when the routine's instructions change, so the same input can be analysed again under the new rules. */
 export const MENTOR_PROMPT_VERSION = 1;
@@ -329,6 +331,8 @@ export interface MentorPacket {
   };
   /** Answers from before the question rewrite: context only, never evidence. */
   archived: { count: number; missedByTopic: Record<string, number> };
+  /** The LeetCode record and its latest review. Context for choosing priorities, never evidence for a level. Null when there's no history. */
+  coding?: CodingContext | null;
   skillCatalogue: { id: string; title: string }[];
   resources: { id: string; title: string; publisher: string; tier: number; topics: string[] }[];
   /** Keys recorded as processed once this night's analysis commits. */
