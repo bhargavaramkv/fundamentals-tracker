@@ -378,3 +378,27 @@ export function isCodingAnalysis(raw: unknown): raw is CodingAnalysis {
   const a = raw as Partial<CodingAnalysis> | null;
   return !!a && a.version === 1 && typeof a.summary === "string" && Array.isArray(a.focus) && Array.isArray(a.mistakes) && Array.isArray(a.nextProblems) && Array.isArray(a.reviews);
 }
+
+/** A short account of the LeetCode record for the learner mentor's nightly packet. Context for choosing priorities, not evidence of a skill level. */
+export interface CodingContext {
+  problems: number;
+  solved: number;
+  lastSubmittedAt: string | null;
+  /** The last 10 problems started, as "6 of 10 solved first try". */
+  recentForm: string;
+  neverPassed: string[];
+  review: { headline: string | null; trend: CodingReview["trend"] | null; focus: string[]; mistakes: string[] } | null;
+}
+
+export function codingContextOf(submissions: LeetCodeSubmission[], analysis: CodingAnalysis | null): CodingContext {
+  const stats = computeCodingStats(submissions);
+  const { last } = stats.form;
+  return {
+    problems: stats.problems,
+    solved: stats.solved,
+    lastSubmittedAt: stats.lastSubmittedAt === null ? null : new Date(stats.lastSubmittedAt * 1000).toISOString(),
+    recentForm: `${last.firstTry} of ${last.problems} solved first try`,
+    neverPassed: stats.unsolved.slice(0, 5).map((u) => u.title),
+    review: analysis ? { headline: analysis.headline ?? null, trend: analysis.trend ?? null, focus: analysis.focus.map((f) => f.title), mistakes: analysis.mistakes.map((m) => m.pattern) } : null,
+  };
+}

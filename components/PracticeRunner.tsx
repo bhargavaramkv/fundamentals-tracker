@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { scoreHistory } from "@/lib/activity";
 import { buildPracticeSet, recommend } from "@/lib/recommend";
 import type { Question, TopicMeta } from "@/lib/types";
 import { useProgress } from "./ProgressProvider";
@@ -53,6 +54,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
   }
 
   const rec = recommend(data, questions, topics);
+  const recent = scoreHistory(data.sessions).slice(-5).reverse();
   const preview = build();
   const covers = [...new Set(preview.map((q) => `${q.domain}/${q.topic}`))].map((key) => ({
     key,
@@ -61,7 +63,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
   }));
 
   return (
-    <div className="max-w-3xl space-y-9">
+    <div className="space-y-9">
       <header className="page-head">
         <nav aria-label="Breadcrumb" className="meta mb-3">
           <Link href="/" className="tap hover:text-ink">
@@ -91,31 +93,60 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         </p>
       )}
 
-      <section aria-labelledby="covers-h">
-        <div className="section-head">
-          <h2 id="covers-h">This round covers</h2>
-        </div>
-        {covers.length === 0 ? (
-          <p className="pt-3 text-[15px] text-ink-2">Nothing to show: you&apos;ve already answered every core question correctly.</p>
-        ) : (
-          <ul className="divide-y divide-line">
-            {covers.map((c) => (
-              <li key={c.key} className="flex items-baseline justify-between gap-3 py-2.5 text-[15px]">
-                <Link href={`/learn/${c.key}/`} className="hover:text-accent-text">
-                  {c.title}
-                </Link>
-                <span className="meta shrink-0">
-                  {c.n} question{c.n === 1 ? "" : "s"}
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+      <div className="grid gap-9 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-14">
+        <div className="min-w-0 space-y-9">
+        <section aria-labelledby="covers-h">
+          <div className="section-head">
+            <h2 id="covers-h">This round covers</h2>
+          </div>
+          {covers.length === 0 ? (
+            <p className="pt-3 text-[15px] text-ink-2">Nothing to show: you&apos;ve already answered every core question correctly.</p>
+          ) : (
+            <ul className="divide-y divide-line">
+              {covers.map((c) => (
+                <li key={c.key} className="flex items-baseline justify-between gap-3 py-2.5 text-[15px]">
+                  <Link href={`/learn/${c.key}/`} className="hover:text-accent-text">
+                    {c.title}
+                  </Link>
+                  <span className="meta shrink-0">
+                    {c.n} question{c.n === 1 ? "" : "s"}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
 
-      <button type="button" onClick={start} disabled={preview.length === 0} className="btn btn-primary">
-        Start · {preview.length} questions <span className="btn-arrow" aria-hidden>→</span>
-      </button>
+        <button type="button" onClick={start} disabled={preview.length === 0} className="btn btn-primary">
+          Start · {preview.length} questions <span className="btn-arrow" aria-hidden>→</span>
+        </button>
+        </div>
+        <section aria-labelledby="recent-h">
+          <div className="section-head">
+            <h2 id="recent-h">Recent rounds</h2>
+          </div>
+          {recent.length === 0 ? (
+            <p className="pt-3 text-[15px] text-ink-2">Finished rounds show up here.</p>
+          ) : (
+            <ul className="divide-y divide-line">
+              {recent.map((p) => (
+                <li key={p.at} className="flex items-baseline justify-between gap-3 py-2.5 text-[15px]">
+                  <span className="min-w-0">
+                    <span className="capitalize">{p.mode}</span>{" "}
+                    <span className="meta">· {new Date(p.at).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</span>
+                  </span>
+                  <span className="shrink-0 tabular-nums">
+                    <span className="font-semibold">{p.score}%</span>{" "}
+                    <span className="meta">
+                      {p.correct} of {p.total}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      </div>
     </div>
   );
 }

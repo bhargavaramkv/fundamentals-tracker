@@ -85,6 +85,7 @@ export interface HistoryPoint {
   at: string;
   score: number;
   mode: SessionRecord["mode"];
+  correct: number;
   total: number;
 }
 
@@ -96,6 +97,7 @@ export function scoreHistory(sessions: SessionRecord[]): HistoryPoint[] {
       at: s.finishedAt,
       score: Math.round((100 * s.correct) / s.total),
       mode: s.mode,
+      correct: s.correct,
       total: s.total,
     }));
 }
