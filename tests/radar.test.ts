@@ -128,6 +128,11 @@ describe("feed parsing", () => {
     expect(items).toHaveLength(1);
     expect(items[0].url).toBe("https://nvd.nist.gov/vuln/detail/CVE-2026-99999");
   });
+
+  it("names the vendor once when the product already starts with it", () => {
+    const json = { vulnerabilities: [{ cveID: "CVE-2026-1", vendorProject: "WordPress", product: "WordPress Core", vulnerabilityName: "X", dateAdded: "2026-10-29" }] };
+    expect(parseKev(json, src("cisa-kev"), NOW)[0].title).toBe("Actively exploited: WordPress Core CVE-2026-1 (X)");
+  });
 });
 
 describe("ranking", () => {
@@ -154,6 +159,15 @@ describe("ranking", () => {
     expect(score.parts.reduce((n, p) => n + p.points, 0)).toBe(score.total);
     expect(score.parts.map((p) => p.label)).toEqual(["Baseline", "Source credibility", "Significance", "Engineering relevance", "Freshness"]);
     expect(score.parts.every((p) => p.reason.length > 0)).toBe(true);
+  });
+
+  it("doesn't let an exploited-list entry outside the owner's stack lead on source weight alone", () => {
+    const base = { excerpt: "", category: "security" as const, sources: [{ sourceId: "cisa-kev", sourceName: "CISA", title: "", url: "https://nvd.nist.gov/x", publishedAt: null, credibility: 3 as const }], publishedAt: NOW.toISOString(), minor: false, isKev: true };
+    const other = scoreStory({ ...base, title: "Actively exploited: WordPress Core CVE-2026-1 (Time-of-check Time-of-use Race Condition)" }, NOW);
+    const stack = scoreStory({ ...base, title: "Actively exploited: Docker Engine CVE-2026-2 (Authorization Bypass)" }, NOW);
+    expect(other.parts.map((p) => p.label)).toContain("Not your stack");
+    expect(stack.parts.map((p) => p.label)).not.toContain("Not your stack");
+    expect(stack.total).toBeGreaterThan(other.total);
   });
 });
 
