@@ -21,6 +21,7 @@ import { forDateOf, triggerOf } from "../lib/mentor/time";
 import { buildState, computeStatus, countsOf, pointerFor, renderReport, runIdOf } from "../lib/mentor/run";
 import { MENTOR_PROMPT_VERSION, MENTOR_SCHEMA, type Conversation, type CurrentPointer, type EvidenceItem, type LearnerState, type MentorPacket, type MentorStatus, type RunRecord, type RunStatus, type Submission } from "../lib/mentor/types";
 import { validateProposal } from "../lib/mentor/validate";
+import { appendQuestions, isQuestionBank, mergeQuestionPools, validateGeneratedQuestions, type GeneratedQuestion, type QuestionBankFile } from "../lib/mentor/questions";
 import { validateQuestions } from "../lib/validate";
 import { buildCodingAnalysis, buildCodingPacket, codingContextOf, isCodingAnalysis, isLeetCodeStore, validateCodingReview, type CodingPacket, type CodingReview } from "../lib/leetcode-history";
 import type { Resource } from "../lib/resources";
@@ -69,6 +70,14 @@ function loadContent(): { questions: Question[]; topics: TopicMeta[]; resources:
     });
   });
   return { questions, topics, resources: readJson<Resource[]>(path.join(root, "content/resources/registry.json")) };
+}
+
+const bankFile = (dataDir: string) => path.join(dataDir, "mentor/questions.json");
+
+/** Questions earlier nights wrote. A damaged file means none, never a failed night. */
+function loadBank(dataDir: string): QuestionBankFile | null {
+  const raw = readJsonIf<unknown>(bankFile(dataDir));
+  return isQuestionBank(raw) ? raw : null;
 }
 
 function loadEvidence(dataDir: string): EvidenceItem[] {
@@ -164,6 +173,7 @@ function collect() {
     now: new Date(),
     progress,
     ...content,
+    questions: mergeQuestionPools(content.questions, loadBank(dataDir)?.questions ?? []),
     submissions: jsonDir<Submission>(path.join(dataDir, "mentor/submissions")).filter((s) => typeof s?.id === "string" && typeof s.answer === "string" && Array.isArray(s.skillIds)),
     conversations: jsonDir<Conversation>(path.join(dataDir, "mentor/conversations")).filter((c) => typeof c?.id === "string" && typeof c.updatedAt === "string" && Array.isArray(c.turns)),
     processed: new Set(loadProcessed(dataDir)),
@@ -182,13 +192,25 @@ function commit() {
   if (packet.decision !== "analyse" && packet.decision !== "bootstrap") throw new Error(`Nothing to commit for decision "${packet.decision}"`);
   const proposal = readJson<unknown>(need("proposal"));
   const history = loadEvidence(dataDir);
-  const { resources } = loadContent();
+  const { resources, questions, topics } = loadContent();
   const { errors, checks, evidence } = validateProposal(proposal, {
     packet,
     previous: packet.previousState,
     history,
     resourceIds: new Set(resources.map((r) => r.id)),
   });
+  const bank = loadBank(dataDir);
+  const proposed = (proposal as { questions?: unknown }).questions;
+  errors.push(
+    ...validateGeneratedQuestions(proposed, {
+      forDate: packet.forDate,
+      existing: mergeQuestionPools(questions, bank?.questions ?? []),
+      topicKeys: new Set(topics.map((t) => `${t.domain}/${t.topic}`)),
+      evidenceIds: new Set([...history.map((e) => e.id), ...evidence.map((e) => e.id)]),
+    }),
+  );
+  const added = (proposed as GeneratedQuestion[] | undefined) ?? [];
+  if (errors.length === 0 && added.length > 0) checks.push(`${added.length} new question(s) passed the question rules`);
   if (errors.length > 0) {
     console.error(`Proposal rejected. Nothing was written.\n${errors.map((e) => `- ${e}`).join("\n")}`);
     process.exit(2);
@@ -206,11 +228,12 @@ function commit() {
     fs.appendFileSync(file, `${JSON.stringify(e)}\n`);
   }
   writeJson(path.join(dataDir, `mentor/states/${state.forDate}.json`), state);
+  if (added.length > 0) writeJson(bankFile(dataDir), appendQuestions(bank, added));
   writeJson(processedFile(dataDir), { keys: [...new Set([...loadProcessed(dataDir), ...packet.processedKeys])] });
   const status = saveRun(dataDir, run, state, evidence);
   writeJson(path.join(dataDir, "mentor/current.json"), pointerFor(state));
   publish(dataDir, `mentor: ${run.status} ${run.forDate} (state v${state.version})`);
-  console.log(JSON.stringify({ status: run.status, stateVersion: state.version, evidence: evidence.length, levelChanges: state.levelChanges.length, nights: status.consecutiveNights }));
+  console.log(JSON.stringify({ status: run.status, stateVersion: state.version, evidence: evidence.length, questions: added.length, levelChanges: state.levelChanges.length, nights: status.consecutiveNights }));
 }
 
 /** No new work: say so and keep the plan. Nothing about the learner changes. */

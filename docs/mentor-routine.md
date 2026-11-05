@@ -72,6 +72,26 @@ The validator enforces these, so plan for them:
 - `plan.revision` lists what's coming up, with dates. Include revision when something is due.
 - `roadmap.changes` explains what moved and why. It's empty when nothing moved.
 
+### Questions (`questions`, optional)
+
+This is how tomorrow's practice gets material without anyone merging anything. Write up to 12 new multiple-choice
+questions aimed at what tonight showed: active misconceptions, weak or shaky skills, and skills where
+`facts.questionBank` shows few unseen questions left. Write none when nothing calls for them.
+
+- Shape: the `GeneratedQuestion` type in `lib/mentor/questions.ts`. The id is `m-<forDate>-<n>`, `forDate` is the
+  packet's, and `domain`/`topic` is one of the 20 lesson topics (not a `stack/` or `practice/` skill).
+- Exactly 4 options, one correct. Distractors are the misconceptions you actually saw (use the wrong `picked` texts),
+  as specific and as long as the correct answer. The correct option mustn't be the longest most of the time.
+- Test reasoning or application: a scenario, a snippet, "what breaks if". Not a definition, and not a rewording of an
+  existing question.
+- `explanation` says why the answer is right and why the tempting wrong one is wrong.
+- `why` says what in this learner's work the question targets; cite `whyEvidenceIds` when evidence exists.
+- Set `difficulty` one step above what they've shown on that skill, or one below where they're struggling.
+- Only write what you're certain is technically correct. A published question can't be edited.
+
+If the validator rejects only questions, fix them; if they fail again, drop the `questions` field rather than lose the
+night's analysis.
+
 For the **diagnostic** (no evidence yet), the primary activity has kind `dialogue`, `noEvidenceYet: true`, and an `exercise` telling the learner to press "Work through it with Claude". Don't invent a questionnaire.
 
 ### Write and commit

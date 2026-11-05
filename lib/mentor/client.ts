@@ -1,6 +1,8 @@
 import { activeProgress } from "../progress";
 import { DATA_REPO } from "../storage";
 import type { ProgressData } from "../types";
+import { validateQuestions } from "../validate";
+import { isQuestionBank, type GeneratedQuestion } from "./questions";
 import { daysBetween, forDateOf } from "./time";
 import type { CurrentPointer, LearnerState, MentorActivity, MentorStatus, Submission } from "./types";
 
@@ -39,6 +41,20 @@ export async function loadMentor(token: string | null): Promise<MentorLoad> {
     return { kind: "ready", state, status };
   } catch (err) {
     return { kind: "error", message: err instanceof Error ? err.message : "Couldn't reach GitHub" };
+  }
+}
+
+/** Questions the nightly mentor wrote. Any failure means none: the static bank still works. */
+export async function loadGeneratedQuestions(token: string | null): Promise<GeneratedQuestion[]> {
+  if (!token) return [];
+  try {
+    const bank = await readFile<unknown>(token, "mentor/questions.json");
+    if (!isQuestionBank(bank)) return [];
+    const { questions } = validateQuestions(bank.questions);
+    const ok = new Set(questions.map((q) => q.id));
+    return bank.questions.filter((q) => ok.has(q.id));
+  } catch {
+    return [];
   }
 }
 

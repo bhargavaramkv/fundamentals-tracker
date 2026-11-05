@@ -8,6 +8,7 @@ import { buildPracticeSet, recommend } from "@/lib/recommend";
 import type { Question, TopicMeta } from "@/lib/types";
 import { useProgress } from "./ProgressProvider";
 import { Quiz } from "./Quiz";
+import { useQuestionPool } from "./useQuestionPool";
 
 const SESSION_SIZE = 10;
 
@@ -15,7 +16,8 @@ const SESSION_SIZE = 10;
  * Mixed rounds across topics: the daily review from Today, and the low-pressure warm-up. Practising one topic lives in
  * its workspace, and the old topic links are forwarded there.
  */
-export function PracticeRunner({ questions, topics }: { questions: Question[]; topics: TopicMeta[] }) {
+export function PracticeRunner({ questions: bank, topics }: { questions: Question[]; topics: TopicMeta[] }) {
+  const questions = useQuestionPool(bank);
   const { data, ready } = useProgress();
   const params = useSearchParams();
   const router = useRouter();

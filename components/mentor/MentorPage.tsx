@@ -8,6 +8,7 @@ import { DIMENSIONS, DIMENSION_LABEL, knowledgeOf, LEVEL_LABEL, PRIMARY_AFTER_NI
 import type { Resource } from "@/lib/resources";
 import { useAuth } from "../AuthGate";
 import { useProgress } from "../ProgressProvider";
+import { useGeneratedQuestions } from "../useQuestionPool";
 import { useMentor } from "./useMentor";
 
 export function MentorPage({ resources }: { resources: Resource[] }) {
@@ -141,6 +142,8 @@ function Dashboard({ state, status, resources }: { state: LearnerState; status: 
             {/* With no evidence yet the activity's own "Why" says the same thing. */}
             {!state.plan.primary.noEvidenceYet && <p className="meta mt-4">Why this plan: {state.analysis.decisionRationale}</p>}
           </section>
+
+          <WrittenForYou forDate={state.forDate} titleOf={titleOf} />
 
           {state.feedback.length > 0 && (
             <section aria-labelledby="feedback-h">
@@ -311,6 +314,42 @@ function Dashboard({ state, status, resources }: { state: LearnerState; status: 
         </div>
       </div>
     </div>
+  );
+}
+
+/** Questions last night's analysis wrote for this learner. They're already mixed into Practice and the topic pages. */
+function WrittenForYou({ forDate, titleOf }: { forDate: string; titleOf: (id: string) => string }) {
+  const { data } = useProgress();
+  const written = useGeneratedQuestions().filter((q) => q.forDate === forDate);
+  if (written.length === 0) return null;
+  const answered = new Set(data.answers.map((a) => a.questionId));
+  const left = written.filter((q) => !answered.has(q.id)).length;
+  const bySkill = new Map<string, typeof written>();
+  for (const q of written) bySkill.set(`${q.domain}/${q.topic}`, [...(bySkill.get(`${q.domain}/${q.topic}`) ?? []), q]);
+  return (
+    <section aria-labelledby="written-h">
+      <div className="section-head">
+        <h2 id="written-h">Questions written for you</h2>
+      </div>
+      <p className="text-ink-2">
+        {written.length} new {written.length === 1 ? "question" : "questions"} aimed at what last night&apos;s analysis found. {left > 0 ? `${left} not tried yet. Practice picks unseen questions ahead of repeats, after any reviews that are due.` : "You've tried them all."}
+      </p>
+      <ul className="mt-3 divide-y divide-line">
+        {[...bySkill.entries()].map(([skillId, qs]) => (
+          <li key={skillId} className="py-3">
+            <p className="font-medium">
+              {titleOf(skillId)} · {qs.length}
+            </p>
+            <p className="meta mt-1">{qs[0].why}</p>
+          </li>
+        ))}
+      </ul>
+      {left > 0 && (
+        <Link href="/practice/" className="btn btn-primary mt-4">
+          Practise now <span className="btn-arrow" aria-hidden>→</span>
+        </Link>
+      )}
+    </section>
   );
 }
 
