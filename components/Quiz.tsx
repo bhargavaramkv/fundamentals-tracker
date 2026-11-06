@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { summarizeSession } from "@/lib/progress";
+import { GUESS_MS } from "@/lib/retention";
 import { DOMAIN_LABELS, type AnswerLog, type Question, type SessionMode, type SessionRecord } from "@/lib/types";
 import { useProgress } from "./ProgressProvider";
 
@@ -256,6 +257,11 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
             <p className={`mb-1 font-medium ${last.correct ? "text-good" : "text-bad"}`}>
               {last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s
             </p>
+            {last.timeMs < GUESS_MS && (
+              <p className="mb-1 font-medium text-ink">
+                Under {GUESS_MS / 1000} seconds, so this counts as a likely guess and is left out of your retention numbers. Read every option before you pick.
+              </p>
+            )}
             <p className="text-ink-2">{question.explanation}</p>
             <p className="meta mt-1">AI-generated explanation. The topic&apos;s sources are the authority.</p>
             <Link
