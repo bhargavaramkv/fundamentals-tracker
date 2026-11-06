@@ -133,7 +133,7 @@ Rules for generated questions:
 | 2 | Retention metrics (delayed recall, first-sight accuracy) on Home and Learn | Answers "am I improving?" with real numbers | S-M, done (PR #22) |
 | 3 | Make the mentor plan drive Practice: a "today's set" chosen from its focus skills | One brain instead of two | M, done (PR #24) |
 | 4 | Retire the daily content routine once Phase 1 has run for a week; drop `leetcode-sync.yml` if `leetcode-pull` covers the Coding page; default Radar `analyze` to off | Fewer moving parts, less quota | S, partly done: see below |
-| 5 | Slow-answer nudge: answers under 2 s ask "sure?" (not blocked) | Data quality | S |
+| 5 | Slow-answer nudge: answers under 2 s ask "sure?" (not blocked) | Data quality | S, done as a note instead (PR #26): a confirm tap would push a reflex pick over 2 s and hide it from the guess filter |
 
 **Phase 4 outcome (2026-11-06).**
 - Radar `analyze` is now off by default, including the scheduled runs.
