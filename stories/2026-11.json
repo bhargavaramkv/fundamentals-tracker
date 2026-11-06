@@ -1,5 +1,1348 @@
 [
  {
+  "id": "2026-11-06-welcome-to-life-in-the-chip-age-d0c189",
+  "title": "Welcome to life in the chip age",
+  "canonicalUrl": "https://stackoverflow.blog/2026/11/06/welcome-to-life-in-the-chip-age",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T08:40:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b28c1a01375b2d75",
+  "excerpt": "Ryan sits down with Rakesh Kumar, professor of computer engineering at the University of Illinois Urbana-Champaign, about the astounding complexity of manufacturing modern semiconductors, the massive environmental and geopolitical footprint of AI data centers, and how AI models are rapidly shifting the future of chip design.",
+  "sources": [
+   {
+    "sourceId": "stackoverflow-blog",
+    "sourceName": "Stack Overflow Blog",
+    "title": "Welcome to life in the chip age",
+    "url": "https://stackoverflow.blog/2026/11/06/welcome-to-life-in-the-chip-age",
+    "publishedAt": "2026-11-06T08:40:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-edera-s-object-capability-bounded-authority-d640a4",
+  "title": "Edera's Object Capability Bounded Authority Promises to Isolate Credentials From AI Agent Workloads",
+  "canonicalUrl": "https://infoq.com/news/2026/11/ai-credentials-isolation",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T06:06:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2b00f9cd8f94823b",
+  "excerpt": "Edera announced Object Capability Bounded Authority, a security model that separates an AI agent's or MCP server's required authority from the credentials behind it. Hypervisor-enforced capabilities limit agents to specific actions without storing secrets in the workload. Initial releases cover scoped command execution and workload identity; credential-brokered API access will follow.\nBy Olimpiu Pop",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Edera's Object Capability Bounded Authority Promises to Isolate Credentials From AI Agent Workloads",
+    "url": "https://infoq.com/news/2026/11/ai-credentials-isolation",
+    "publishedAt": "2026-11-06T06:06:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agent, agents, api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-capability-gain-from-isa-to-shared-execution-on-a5dee8",
+  "title": "Capability Gain from ISA to Shared Execution on AMD MI300A and MI250X",
+  "canonicalUrl": "https://arxiv.org/abs/2611.07198",
+  "category": "research",
+  "publishedAt": "2026-11-06T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2ada64f694b94db6",
+  "excerpt": "arXiv:2611.07198v1 Announce Type: new \nAbstract: Each new GPU generation is showcased by its peak instruction rates, yet users hardly ever run instructions directly: they reach the hardware's performance through vendor libraries, applications and devices shared with other jobs. How much of a theoretical speedup survives these layers is rarely measured, so a team deciding whether to move to a new generation, or to adopt FP8 or 2:4 sparsity, lacks adequate guidance. AMD's MI300A (CDNA3) adds new FP8 matrix instructions and 2:4 structured-sparse instructions that the predecessor, the MI250X (CDNA2), does not have. We analyze this theoretical speedup gap on AMD's MI300A (CDNA3) against the MI250X (CDNA2) by defining a new metric, capability gain.\nCapability gain is the fraction of a feature's instruction-level speedup that it keeps at a higher level, such as a library, an application or a shared device. We trace it from ISA microbenchmarks through hipBLASLt and hipSPARSELt to LLM inference and mixed-precision HPL, and onto a device shared by up to eight concurrent streams. FP8 keeps most of its speedup through the library, completing an $8192^3$ GEMM \\genCapPkgEndToEndGainEightK{}…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Capability Gain from ISA to Shared Execution on AMD MI300A and MI250X",
+    "url": "https://arxiv.org/abs/2611.07198",
+    "publishedAt": "2026-11-06T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-diagdbench-evaluating-agentic-llms-on-interactive-e69a60",
+  "title": "DiagDBench: Evaluating Agentic LLMs on Interactive Database Diagnosis and Anomaly Remediation",
+  "canonicalUrl": "https://arxiv.org/abs/2611.07339",
+  "category": "research",
+  "publishedAt": "2026-11-06T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c4cdd03c94f4dffe",
+  "excerpt": "arXiv:2611.07339v1 Announce Type: new \nAbstract: Database diagnosis and anomaly remediation are essential to reliable database management system (DBMS) operation. Despite advances in large language model (LLM)-based database agents, constructing live DBMS environments that reproduce diverse anomalies at scale remains challenging, limiting the availability of executable samples for database agent training and evaluation. To this end, we introduce DiagDBench, a large-scale benchmark for training and evaluating database agents on interactive diagnosis, anomaly remediation, and optional workload performance optimization across diverse, realistic anomaly scenarios. Each sample pairs a user request, comprising an issue description and an anomaly-verified workload under which the issue was observed, with a self-contained, executable DBMS environment that supports real-time monitoring, interactive diagnosis, remediation, and workload execution. To construct these samples at scale, we propose an LLM-based framework with two complementary pipelines: Manual-Guided Anomaly Synthesis, which sequentially synthesizes user requests, database modifications, and anomaly-injection scripts grounded…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "DiagDBench: Evaluating Agentic LLMs on Interactive Database Diagnosis and Anomaly Remediation",
+    "url": "https://arxiv.org/abs/2611.07339",
+    "publishedAt": "2026-11-06T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 51,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"benchmark\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches database, llm, agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-dmuon-scaling-matrix-optimizers-in-data-6f4233",
+  "title": "DMuon: Scaling Matrix Optimizers in Data Parallelism with Topology-Aware Matrix Ownership and Communication",
+  "canonicalUrl": "https://arxiv.org/abs/2611.07084",
+  "category": "research",
+  "publishedAt": "2026-11-06T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "40ebe5b371ddfcb3",
+  "excerpt": "arXiv:2611.07084v1 Announce Type: new \nAbstract: Matrix optimizers such as Muon update whole weight matrices, which conflicts with the element- or row-wise sharding of data-parallel runtimes. Once parameters are sharded as well, matrix optimizers incur extra communication or repeated computation. We present DMuon, a matrix-granular optimizer runtime for PyTorch FSDP (ZeRO-2/3) and HSDP. DMuon assigns each matrix a unique owner, which performs the Newton--Schulz (NS) iteration and optimizer update on the full matrix, and balances the load across owners by computational cost. On HSDP, ownership is global across replicas, so the cluster keeps a single copy of gradients and optimizer state, and updated parameters are published across nodes as soon as they are ready, overlapping subsequent computation. This layout makes every collective sparse and variable in length, so DMuon schedules these collectives as their data becomes ready and routes them along the cluster's two-level network. On up to 256 H100 GPUs, across three dense LLMs and two VLA models, DMuon matches or exceeds the training throughput of PyTorch FSDP2 with AdamW, reaching 1.05$\\times$ that of FSDP2 with AdamW at the…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "DMuon: Scaling Matrix Optimizers in Data Parallelism with Topology-Aware Matrix Ownership and Communication",
+    "url": "https://arxiv.org/abs/2611.07084",
+    "publishedAt": "2026-11-06T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"update\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches sharding, runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-fastafd-when-does-attention-ffn-disaggregation-26ee43",
+  "title": "FastAFD: When Does Attention-FFN Disaggregation Pay on Rack-Scale NVLink?",
+  "canonicalUrl": "https://arxiv.org/abs/2611.07149",
+  "category": "research",
+  "publishedAt": "2026-11-06T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "83f269c8641290be",
+  "excerpt": "arXiv:2611.07149v1 Announce Type: new \nAbstract: Attention-FFN disaggregation (AFD) separates attention from the experts of a mixture-of-experts (MoE) model and has been reported to raise decode throughput over colocated serving. Whether this advantage holds on rack-scale NVLink systems such as GB200 NVL72 remains unclear: prior results were obtained on other hardware, against narrower colocated baselines, or with analytical models, whereas production engines serve large MoE models on these systems with wide expert parallelism (wide EP). We build and tune FastAFD, an AFD engine for GB200 NVL72 that overlaps the MoE of one microbatch with the attention of the other, and compare it against the best vLLM wide EP setting. Experiments show that AFD has a throughput advantage of up to 1.17x over wide EP on Qwen3 and 1.16x on Qwen3.5, and matches it on MiniMax-M2.5. We derive an analytical model that predicts AFD throughput within 3% using only profiles of colocated vLLM, telling whether switching to AFD would pay off before deploying it. The model yields a concise insight: AFD's speedup factors into a batch gain (larger batches, since attention GPUs hold no expert weights), an overlap…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "FastAFD: When Does Attention-FFN Disaggregation Pay on Rack-Scale NVLink?",
+    "url": "https://arxiv.org/abs/2611.07149",
+    "publishedAt": "2026-11-06T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches throughput"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-numa-torch-compiler-driven-numa-aware-llm-prefill-b7ff4b",
+  "title": "NUMA-Torch: Compiler-Driven NUMA-Aware LLM Prefill on Multi-Socket CPUs",
+  "canonicalUrl": "https://arxiv.org/abs/2611.07105",
+  "category": "research",
+  "publishedAt": "2026-11-06T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0455f77eb6189963",
+  "excerpt": "arXiv:2611.07105v1 Announce Type: new \nAbstract: For sufficiently large transformer-based Large Language Models (LLMs), whose parameters cannot be retained in on-chip caches, prefill throughput on multi-socket CPUs is often limited by sustainable DRAM bandwidth rather than peak floating-point throughput. In the standard PyTorch compilation (i.e., TorchInductor) path, model weights are allocated without considering the Non-Uniform Memory Access (NUMA) topology: specifically, the affinity between memory banks and compute cores is disregarded. This causes a substantial fraction of weight accesses to traverse the inter-socket interconnect, severely degrading the effective memory bandwidth available to each socket. We address this bottleneck through a compiler-level solution that makes TorchInductor NUMA-aware. Treating each NUMA socket as an independent tensor-parallel partition, we introduce NUMA-aware Tensor Parallelism (NUMA-TP). This approach transparently shards weights across sockets and schedules compute kernels such that thread pools and memory allocations remain strictly local to their respective sockets using CPU affinity. We evaluate the approach on GPT-2 (117M, 345M, 762M)…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "NUMA-Torch: Compiler-Driven NUMA-Aware LLM Prefill on Multi-Socket CPUs",
+    "url": "https://arxiv.org/abs/2611.07105",
+    "publishedAt": "2026-11-06T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches compiler, llm, throughput"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-recursively-testing-and-vibe-debugging-a-google-be5680",
+  "title": "Recursively Testing and Vibe Debugging a Google AI Studio Generated Vibe-Coded Database Software Application",
+  "canonicalUrl": "https://arxiv.org/abs/2611.06952",
+  "category": "research",
+  "publishedAt": "2026-11-06T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5c7e7b5f39997c52",
+  "excerpt": "arXiv:2611.06952v1 Announce Type: new \nAbstract: This research paper proposes a broader definition of vibe coding, extending the original one with non-developers and natural languages other than English, and introduces the notion of vibe debugging, as well as a sound, complete, and optimal algorithmic methodology for testing and vibe debugging vibe-coded software applications. This methodology is illustrated by applying it to a vibe-coded real-world database application of medium complexity generated with Google AI Studio Pro. We prove that even non-developers can obtain a final bug-free and functional satisfactory application version, even in languages other than English. We also prove that, although Google AI Studio Pro has sophisticated built-in engines for both language analysis, software development, and automated testing, it is still making lot of mistakes, so testing and vibe debugging of its generated code is a must.",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Recursively Testing and Vibe Debugging a Google AI Studio Generated Vibe-Coded Database Software Application",
+    "url": "https://arxiv.org/abs/2611.06952",
+    "publishedAt": "2026-11-06T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-selective-retrieval-routing-for-multi-violation-cddfff",
+  "title": "Selective Retrieval Routing for Multi-Violation Knowledge Graph Repair",
+  "canonicalUrl": "https://arxiv.org/abs/2611.07342",
+  "category": "research",
+  "publishedAt": "2026-11-06T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5b5ff449357f4320",
+  "excerpt": "arXiv:2611.07342v1 Announce Type: new \nAbstract: Knowledge graphs often contain missing or inconsistent facts that undermine the applications built on them. Schema validation detects such violations but does not identify which of several valid repairs recovers the intended graph. External corpora can supply the evidence needed to identify the intended repair, but retrieving from them is costly and not always successful. We propose a framework for selective retrieval in iterative graph repair. An LLM repair agent explores and edits the graph, while a router controls its access to a researcher agent that retrieves external evidence. We extend a violation-injection framework to generate cases with multiple compatible violations and known reference repairs. The agent's repair outcomes on these cases provide supervision for training the deployment-specific router. On two building-automation datasets, researcher access improves repairs for some violations and degrades them for others, with effects differing across deployments. The router uses fewer repair-time tokens than always enabling access in all six evaluation suites. It achieves higher repair $F_1$ than always disabling access in…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Selective Retrieval Routing for Multi-Violation Knowledge Graph Repair",
+    "url": "https://arxiv.org/abs/2611.07342",
+    "publishedAt": "2026-11-06T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches llm, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-docker-sandboxes-vs-containers-choosing-the-right-129a84",
+  "title": "Docker Sandboxes vs. Containers: Choosing the Right Isolation for AI Agents",
+  "canonicalUrl": "https://docker.com/blog/docker-sandboxes-vs-containers",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-06T03:17:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a092cfb216cb4f19",
+  "excerpt": "If you’ve used Docker for a while, “Docker Sandboxes” might read as “a container with an AI agent inside.” Containers have been the unit of nearly everything Docker ships for over a decade, and a sandbox might sound like one more way to package a workload.\nThey’re actually different technologies. A container is an isolated process that shares the host kernel with everything else on the machine. Docker Sandboxes are dedicated microVMs with their own Linux kernel , filesystem, network, and Docker Engine, built for autonomous coding agents that need a whole development machine to work in. A sandbox can run containers, which is part of why the two are easy to conflate.\nIn his WeAreDevelopers keynote , Docker President Mark Cavage said containers are doing exactly the job they were designed to do, but we’re asking them to do a different job.\nContainers were built to isolate applications, which they still do well. But a coding agent is an actor: it makes decisions and operates on your systems the way a developer uses a laptop. It clones repositories, installs packages, starts databases, builds images, and tries again for hours. It can also act on instructions from files, web pages, and…",
+  "sources": [
+   {
+    "sourceId": "docker-blog",
+    "sourceName": "Docker Blog",
+    "title": "Docker Sandboxes vs. Containers: Choosing the Right Isolation for AI Agents",
+    "url": "https://docker.com/blog/docker-sandboxes-vs-containers",
+    "publishedAt": "2026-11-06T03:17:04.000Z",
+    "credibility": 3
+   },
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Docker Urges Isolation and Governance for AI Agent Security",
+    "url": "https://infoq.com/news/2026/11/docker-ai-agent-security",
+    "publishedAt": "2026-11-04T09:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 57,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches docker, agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-fbi-cisa-warn-of-cyberattacks-targeting-d342cd",
+  "title": "FBI, CISA warn of cyberattacks targeting refrigeration systems",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems",
+  "category": "security",
+  "publishedAt": "2026-11-06T00:56:44.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "fc959755438b85c4",
+  "excerpt": "The FBI and CISA warn that hackers are actively targeting industrial refrigeration and cold-chain monitoring systems worldwide, potentially causing food spoilage, equipment damage, and fire hazards. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "FBI, CISA warn of cyberattacks targeting refrigeration systems",
+    "url": "https://bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems",
+    "publishedAt": "2026-11-06T00:56:44.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-usage-metrics-api-adds-code-review-details-and-525555",
+  "title": "Usage metrics API adds code review details and addressed rate",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T00:19:07.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6441e1b267a1180d",
+  "excerpt": "The enterprise and organization repository-level Copilot usage metrics reports now show what happens to Copilot code review feedback. A new copilot_code_review object on each repos-1-day row reports how many Copilot-reviewed pull requests merged without a later change request from a person and how many Copilot code review comments developers acted on. With these you can track an addressed rate per repository.\nWhat&rsquo;s new \ntotal_comments_evaluated : The number of Copilot code review comments checked to see whether the developer acted on them.\ntotal_comments_addressed : The number of evaluated comments the developer acted on, whether by applying the suggestion, asking Copilot to make the fix, editing the code, or replying that the fix will come in a later pull request. Divide by total_comments_evaluated for the addressed rate.\nreview_comments_by_severity , review_comments_by_review_tier , review_comments_by_comment_type , and review_comments_by_customization : Both counts broken down by severity (e.g., high , medium , low ), review tier (e.g., lite , balanced , max ), comment type (e.g., bug , security , or custom for your repository&rsquo;s own coding guidelines), and…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "Usage metrics API adds code review details and addressed rate",
+    "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate",
+    "publishedAt": "2026-11-06T00:19:07.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-how-orderserv-achieved-up-to-64-cost-savings-with-1bcf16",
+  "title": "How OrderServ achieved up to 64% cost savings with multi-tenant ECS",
+  "canonicalUrl": "https://aws.amazon.com/blogs/architecture/how-orderserv-achieved-up-to-64-cost-savings-with-multi-tenant-ecs",
+  "category": "cloud",
+  "publishedAt": "2026-11-06T00:09:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6b87dee3c6708cbc",
+  "excerpt": "When your food-ordering platform doubles its brand count, dedicated clusters become your biggest cost problem, and every failed request during a traffic surge is a lost sale.\nHere is how Cognizant and AWS Professional Services solved it.\nCognizant is a global services company that helps organizations modernize technology, reimagine processes, and transform customer experiences. Its OrderServ service is an omnichannel ordering solution for the food services industry that supports ordering across devices and integrates with point-of-sale, kitchen display, payment, loyalty, and other enterprise systems. Cognizant is an AWS Premier Tier Services Partner with multiple AWS Competencies and a member of the AWS Managed Service Provider (MSP) and AWS Well-Architected Partner Programs.\nIn 2022, Cognizant published how OrderServ 2.0 reimagined digital food ordering by migrating from a monolith to microservices on AWS Fargate , achieving 30 percent cost savings over traditional hosted architectures.\nSince then, the service grew from serving a single quick-service restaurant (QSR) brand to powering multiple brands across markets. Each brand ran as a dedicated Amazon Elastic Container Service…",
+  "sources": [
+   {
+    "sourceId": "aws-architecture",
+    "sourceName": "AWS Architecture Blog",
+    "title": "How OrderServ achieved up to 64% cost savings with multi-tenant ECS",
+    "url": "https://aws.amazon.com/blogs/architecture/how-orderserv-achieved-up-to-64-cost-savings-with-multi-tenant-ecs",
+    "publishedAt": "2026-11-06T00:09:41.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-usage-metrics-api-flags-telemetry-and-version-gaps-0778fb",
+  "title": "Usage metrics API flags telemetry and version gaps",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T00:08:31.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "18bda7e0072979dc",
+  "excerpt": "The Copilot usage metrics API now shows which users are missing client telemetry or are running IDE or extension versions below the usage metrics minimums. New per-user fields appear in enterprise and organization user reports, and daily affected-user counts appear in enterprise and organization reports.\nWhat&rsquo;s new \nclient_telemetry_present : Whether client telemetry was received for the user that day. false means Copilot saw the user&rsquo;s activity, but no usage events arrived from their editor.\nusage_metrics_requirements : Lists each of the user&rsquo;s IDEs and Copilot extensions as met , unmet , or unknown against the minimum supported versions .\nmissing_client_telemetry_user_count : The number of users that day with client_telemetry_present set to false .\nbelow_usage_metrics_minimum_user_count : The number of users that day with at least one IDE or extension below the minimum version.\nWhy this matters \nUsers without client telemetry still count as active, but their reports lack detail such as lines of code, feature breakdowns, and model breakdowns. Common causes include outdated editors or extensions, disabled IDE telemetry, and proxies or firewalls that block events.…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "Usage metrics API flags telemetry and version gaps",
+    "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps",
+    "publishedAt": "2026-11-06T00:08:31.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-airbnb-is-working-on-an-ai-travel-agent-c704bc",
+  "title": "Airbnb is working on an AI travel agent",
+  "canonicalUrl": "https://theverge.com/tech/1028412/airbnb-ai-travel-agent-q3-2026-earnings",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T00:06:12.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "04c9bfa8a14c6460",
+  "excerpt": "Airbnb plans to roll out an AI agent in the first half of 2027 that will help users plan and book travel, the company said in its Q3 2026 earnings shareholder letter released today. \"Today's AI agents are good at simple, routine tasks, like making a restaurant reservation or scheduling an appointment,\" Airbnb said. \"But […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Airbnb is working on an AI travel agent",
+    "url": "https://theverge.com/tech/1028412/airbnb-ai-travel-agent-q3-2026-earnings",
+    "publishedAt": "2026-11-06T00:06:12.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-threat-actors-use-agentic-ai-tooling-to-find-and-70e864",
+  "title": "Threat actors use agentic AI tooling to find and abuse exposed secrets",
+  "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets",
+  "category": "security",
+  "publishedAt": "2026-11-05T23:46:50.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b4df4e2c19844532",
+  "excerpt": "In this article \nFrom exposed secrets to cloud compromise \nFollow-on actions \nMitigating application credential abuse activity \nDefending against agentic AI attacks \nMicrosoft detections \nAdvanced hunting queries \nMicrosoft Threat Intelligence has observed threat actors using an agentic AI offensive framework to search public GitHub repositories for exposed secrets, including credentials, application credentials, and AI inference-related API keys across multiple applications and cloud services. These threat actors can then use the secrets for further malicious activity against the compromised organization.\nSearching open code repositories for exposed credentials, secrets, keys, and other authentication material is a well-documented technique that has historically been limited by the time required for human operators to find code repositories, review the data in the repositories, and leverage authentication material for further action. However, agentic tooling like ARTEX allows threat actors to not only scan for secrets across multiple repositories at a quicker pace but also use the agents to analyze the output and conduct follow-on attacks, cutting down on the need for the threat…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "Threat actors use agentic AI tooling to find and abuse exposed secrets",
+    "url": "https://microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets",
+    "publishedAt": "2026-11-05T23:46:50.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches inference, api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-the-new-york-times-is-in-talks-to-buy-letterboxd-cd91aa",
+  "title": "The New York Times is in talks to buy Letterboxd for around $330 million",
+  "canonicalUrl": "https://theverge.com/news/1028375/the-new-york-times-letterboxd-acquisition-report",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T23:45:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bab1d2433af25ae5",
+  "excerpt": "The New York Times Company is in talks\"exclusive negotations\" to acquire Letterboxd, the social network for film lovers, for around $330 million, The New York Times reports. The Times Company, Sony Pictures Entertainment, and A24 were all recently rumored to be among those interested in buying Letterboxd. The negotiations with the Times Company have included […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "The New York Times is in talks to buy Letterboxd for around $330 million",
+    "url": "https://theverge.com/news/1028375/the-new-york-times-letterboxd-acquisition-report",
+    "publishedAt": "2026-11-05T23:45:10.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-t-mobile-owner-on-elon-musk-launching-a-wireless-181ea8",
+  "title": "T-Mobile owner on Elon Musk launching a wireless carrier: ‘Welcome to the party’",
+  "canonicalUrl": "https://theverge.com/tech/1028346/t-mobile-deutsche-telecom-spacex-starlink-mobile",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T23:17:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "51643958d2500ad6",
+  "excerpt": "The head of T-Mobile's parent company is casting doubt on SpaceX's plans to make Starlink Mobile a \"major\" carrier in the US. During an earnings call on Thursday, Deutsche Telekom CEO Tim Höttges says he takes the Elon Musk-owned company \"super serious,\" but that it will cost at least $200 billion to pull off: He […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "T-Mobile owner on Elon Musk launching a wireless carrier: ‘Welcome to the party’",
+    "url": "https://theverge.com/tech/1028346/t-mobile-deutsche-telecom-spacex-starlink-mobile",
+    "publishedAt": "2026-11-05T23:17:10.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-cuban-facebook-knowingly-runs-ai-deepfake-scam-2bae9b",
+  "title": "Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue",
+  "canonicalUrl": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T23:09:57.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0a0f65fe4a97d8d6",
+  "excerpt": "Article URL: https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html \nComments URL: https://news.ycombinator.com/item?id=50385870 \nPoints: 290\n# Comments: 135",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue",
+    "url": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html",
+    "publishedAt": "2026-11-05T23:09:57.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-meet-sshole-the-vulnerability-that-lets-hackers-975fa8",
+  "title": "Meet *sshole, the vulnerability that lets hackers SSH into Linux devices",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password",
+  "category": "security",
+  "publishedAt": "2026-11-05T23:09:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "daef14854f3945fa",
+  "excerpt": "Devices running some configurations of Alpine Linux, and possibly other distributions, are affected by a decade-old vulnerability that allows attackers to log into devices with no password.\nThe vulnerability exists in the interaction between OpenSSH, the code library implementing SSH connections, and musl, a lightweight alternative to the libc library that, unlike most other Linux distributions, is used in Alpine. Further, OpenSSH using musl (pronounced muscle) must not use PAM (pluggable authentication modules), a framework that handles user authentication and account-access checks. Alpine is a lightweight, widely used Linux distribution. Other platforms may be affected if they use the same configurations.\nOne connection, works every time, needs no retries\nThere are two other conditions necessary for successful exploitation. First, a system must have at least one user account that’s accessible using a password that is hashed using the SHA256 or SHA512 functions. Second, the target system account must be configured to be passwordless, by way of specifying a \"*\" in the password field in /etc/shadow, the Linux file where password hashes are stored. Passwordless accounts are commonly…",
+  "sources": [
+   {
+    "sourceId": "ars-technica",
+    "sourceName": "Ars Technica",
+    "title": "Meet *sshole, the vulnerability that lets hackers SSH into Linux devices",
+    "url": "https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password",
+    "publishedAt": "2026-11-05T23:09:36.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-claude-code-sends-your-email-address-to-websites-199af8",
+  "title": "Claude Code sends your email address to websites",
+  "canonicalUrl": "https://github.com/anthropics/claude-code/issues/107757",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T22:17:15.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "206e6b2f2ab5e12f",
+  "excerpt": "Article URL: https://github.com/anthropics/claude-code/issues/107757 \nComments URL: https://news.ycombinator.com/item?id=50385272 \nPoints: 998\n# Comments: 320",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Claude Code sends your email address to websites",
+    "url": "https://github.com/anthropics/claude-code/issues/107757",
+    "publishedAt": "2026-11-05T22:17:15.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-salon-is-shutting-down-after-31-years-6623c2",
+  "title": "Salon is shutting down after 31 years",
+  "canonicalUrl": "https://theverge.com/news/1028281/salon-dot-com-shuts-down",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T22:08:14.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "251b098b233010dc",
+  "excerpt": "Salon launched 31 years ago as one of the first online-only news magazine outlets, and it announced today in an unsigned post that it's ceasing publication. The company said that the \"business realities of independent digital journalism have changed profoundly over the years,\" and it decided that its publishing model is \"no longer sustainable.\" It […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Salon is shutting down after 31 years",
+    "url": "https://theverge.com/news/1028281/salon-dot-com-shuts-down",
+    "publishedAt": "2026-11-05T22:08:14.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-the-kotlin-multiplatform-contest-is-open-win-a-a93a70",
+  "title": "The Kotlin Multiplatform Contest Is Open: Win a Trip to KotlinConf",
+  "canonicalUrl": "https://blog.jetbrains.com/kotlin/2026/11/kotlin-multiplatform-contest-2027",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T22:05:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ec043e7b675a4d19",
+  "excerpt": "The Kotlin Multiplatform Contest is back! \nStudents and recent graduates, turn your idea into a cross-platform project with Kotlin Multiplatform (KMP). \nThe authors of the top three projects will each win a trip to KotlinConf 2027 in Kraków, Poland, with conference tickets, travel, and accommodation covered by the Kotlin Foundation. Authors of all other valid entries will receive Kotlin souvenirs.\nSubmissions are open until December 7, 2026.\nJoin the contest \nYour project can be a game, a developer utility, a productivity app, an experiment with AI, or something entirely different. It needs to be created specifically for the contest, use KMP, and run on at least two platforms. Target Android, iOS, desktop, web, backend, or beyond.\nLast year, we received 88 submissions, with 76 eligible entries from more than 30 countries. Participants built everything from AI-powered learning tools to social-impact projects and accessibility apps.\nWe can’t wait to see what you build this year!\nImportant dates\nSubmission deadline: December 7, 2026, 23:59 CET\nWinners announced: December 21, 2026\nKotlinConf 2027: April 22–23, 2027, Kraków, Poland\nFor the official rules on eligibility, submission, and…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "The Kotlin Multiplatform Contest Is Open: Win a Trip to KotlinConf",
+    "url": "https://blog.jetbrains.com/kotlin/2026/11/kotlin-multiplatform-contest-2027",
+    "publishedAt": "2026-11-05T22:05:21.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-the-midterms-proved-once-and-for-all-that-x-is-37b844",
+  "title": "The midterms proved once and for all that X is not real life",
+  "canonicalUrl": "https://theverge.com/policy/1028253/midterm-elections-x-right-wing-memes",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T21:55:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3da4f69f12c6e262",
+  "excerpt": "A week before the midterm elections, Vice President JD Vance hosted a town hall in Texas with Fox News host Jesse Watters. It was a friendly event with a friendly audience in what should have been a friendly state, and maybe that's why Vance couldn't help himself. When a college student earnestly asked how the […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "The midterms proved once and for all that X is not real life",
+    "url": "https://theverge.com/policy/1028253/midterm-elections-x-right-wing-memes",
+    "publishedAt": "2026-11-05T21:55:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-fake-openai-spacex-events-used-to-steal-microsoft-0792a0",
+  "title": "Fake OpenAI, SpaceX events used to steal Microsoft, Google accounts",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/fake-openai-spacex-events-used-to-steal-microsoft-google-accounts",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T21:30:30.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "81991a49e271b93f",
+  "excerpt": "Hackers are using fake OpenAI, SpaceX, and Anthropic event invitations to lure employees into phishing attacks, using two different phishing-as-a-service platforms to steal Microsoft and Google account credentials and authentication sessions. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Fake OpenAI, SpaceX events used to steal Microsoft, Google accounts",
+    "url": "https://bleepingcomputer.com/news/security/fake-openai-spacex-events-used-to-steal-microsoft-google-accounts",
+    "publishedAt": "2026-11-05T21:30:30.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-ms-paint-remote-code-execution-vulnerability-c511b1",
+  "title": "MS Paint Remote Code Execution Vulnerability",
+  "canonicalUrl": "https://cve.org/CVERecord?id=CVE-2026-83844",
+  "category": "security",
+  "publishedAt": "2026-11-05T20:43:42.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bc7f6037c722cfc4",
+  "excerpt": "Article URL: https://www.cve.org/CVERecord?id=CVE-2026-83844 \nComments URL: https://news.ycombinator.com/item?id=50384233 \nPoints: 500\n# Comments: 179",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "MS Paint Remote Code Execution Vulnerability",
+    "url": "https://cve.org/CVERecord?id=CVE-2026-83844",
+    "publishedAt": "2026-11-05T20:43:42.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-inside-github-s-new-git-storage-architecture-c18d65",
   "title": "Inside GitHub’s new Git storage architecture",
   "canonicalUrl": "https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture",
@@ -7,7 +1350,7 @@
   "publishedAt": "2026-11-05T20:23:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e0bc84fb7004d81",
@@ -58,22 +1401,28 @@
  },
  {
   "id": "2026-11-05-truffle-security-launches-program-to-revoke-14-52f5dc",
-  "title": "Truffle Security launches program to revoke 1.4 million live secrets",
+  "title": "Nearly 1.5 million exposed secrets targeted in new revocation program",
   "canonicalUrl": "https://bleepingcomputer.com/news/security/truffle-security-launches-program-to-revoke-14-million-live-secrets",
   "category": "security",
   "publishedAt": "2026-11-05T20:15:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "53cbeffeadba71fd",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": "2026-11-06T08:17:37.472Z",
+  "revisions": [
+   {
+    "at": "2026-11-06T08:17:37.472Z",
+    "reason": "Title changed from \"Truffle Security launches program to revoke 1.4 million live secrets\"",
+    "contentHash": "601aee0d0495e65c"
+   }
+  ],
+  "contentHash": "601aee0d0495e65c",
   "excerpt": "Truffle Security has launched the Secrets Revocation Program, a free initiative that helps API key issuers revoke 1.4 million publicly exposed secrets that remain valid. [...]",
   "sources": [
    {
     "sourceId": "bleepingcomputer",
     "sourceName": "BleepingComputer",
-    "title": "Truffle Security launches program to revoke 1.4 million live secrets",
+    "title": "Nearly 1.5 million exposed secrets targeted in new revocation program",
     "url": "https://bleepingcomputer.com/news/security/truffle-security-launches-program-to-revoke-14-million-live-secrets",
     "publishedAt": "2026-11-05T20:15:08.000Z",
     "credibility": 2
@@ -96,7 +1445,7 @@
     {
      "label": "Significance",
      "points": 15,
-     "reason": "Major development (\"launches\")"
+     "reason": "Major development (\"launched\")"
     },
     {
      "label": "Engineering relevance",
@@ -114,6 +1463,53 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-05-goodbye-from-salon-b2443f",
+  "title": "Goodbye from Salon",
+  "canonicalUrl": "https://salon.com/2026/11/05/goodbye-from-salon",
+  "category": "programming",
+  "publishedAt": "2026-11-05T20:03:29.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b2ae93f5f632848a",
+  "excerpt": "Article URL: https://www.salon.com/2026/11/05/goodbye-from-salon/ \nComments URL: https://news.ycombinator.com/item?id=50383739 \nPoints: 563\n# Comments: 215",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Goodbye from Salon",
+    "url": "https://salon.com/2026/11/05/goodbye-from-salon",
+    "publishedAt": "2026-11-05T20:03:29.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-humanlayer-just-got-acquired-by-factory-but-it-727e56",
   "title": "HumanLayer just got acquired by Factory. But it gave users a way out first.",
   "canonicalUrl": "https://thenewstack.io/factory-acquires-humanlayer-agents",
@@ -121,7 +1517,7 @@
   "publishedAt": "2026-11-05T20:02:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0769300ac3e30f78",
@@ -178,7 +1574,7 @@
   "publishedAt": "2026-11-05T20:00:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e8d76e8cf7c9759d",
@@ -223,6 +1619,58 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-05-cultfit-builds-operational-muscle-with-codex-bbd492",
+  "title": "Cult.fit builds operational muscle with Codex",
+  "canonicalUrl": "https://openai.com/index/cultfit-builds-with-codex",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T20:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a368fccf0f85b32a",
+  "excerpt": "Cult.fit is using Codex to help teams across functions build tools, move faster, and change how work gets done.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Cult.fit builds operational muscle with Codex",
+    "url": "https://openai.com/index/cultfit-builds-with-codex",
+    "publishedAt": "2026-11-05T20:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"faster\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-jimmy-angelakos-pgconfeu-2026-megapost-a-busy-b26b13",
   "title": "Jimmy Angelakos: PGConf.EU 2026 MEGAPOST: a busy week in Valencia",
   "canonicalUrl": "https://postgr.es/p/9B7",
@@ -230,7 +1678,7 @@
   "publishedAt": "2026-11-05T19:57:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3ef29f7aaacea164",
@@ -330,7 +1778,7 @@
   "publishedAt": "2026-11-05T19:25:32.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9c06dbaaa6eb94b3",
@@ -428,6 +1876,53 @@
   "duplicateOf": "2026-11-05-gpt-6-astra-covertly-underperforms-on-safety-0b4278"
  },
  {
+  "id": "2026-11-05-the-hackintosh-reborn-0e3c62",
+  "title": "The Hackintosh Reborn",
+  "canonicalUrl": "https://naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T19:08:22.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "27a364d367864420",
+  "excerpt": "Article URL: https://www.naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai/ \nComments URL: https://news.ycombinator.com/item?id=50383057 \nPoints: 300\n# Comments: 158",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "The Hackintosh Reborn",
+    "url": "https://naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai",
+    "publishedAt": "2026-11-05T19:08:22.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-muse-has-a-voice-mode-now-1c9324",
   "title": "Muse has a voice mode now",
   "canonicalUrl": "https://theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
@@ -492,7 +1987,7 @@
   "publishedAt": "2026-11-05T19:01:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "adae02841496fafd",
@@ -544,7 +2039,7 @@
   "publishedAt": "2026-11-05T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cddffc5174e6bb18",
@@ -591,7 +2086,7 @@
   "publishedAt": "2026-11-05T18:56:57.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "84dd7e86abb484b0",
@@ -648,7 +2143,7 @@
   "publishedAt": "2026-11-05T18:45:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9adbcac3d66278a1",
@@ -695,7 +2190,7 @@
   "publishedAt": "2026-11-05T18:05:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7fcfd3ded7f42913",
@@ -747,7 +2242,7 @@
   "publishedAt": "2026-11-05T18:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9076ba3d268f0683",
@@ -1014,7 +2509,7 @@
   "publishedAt": "2026-11-05T17:10:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2cb52f8f53499ec",
@@ -1066,7 +2561,7 @@
   "publishedAt": "2026-11-05T17:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "886a42415217b889",
@@ -1168,6 +2663,53 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-05-australian-universities-are-creating-ai-native-616c68",
+  "title": "Australian universities are creating AI-native graduates",
+  "canonicalUrl": "https://openai.com/index/australian-universities-ai-native-graduates",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1e29238e6fbaed59",
+  "excerpt": "Australian universities are expanding access to ChatGPT and bringing AI into teaching and learning to prepare students for an AI-enabled workforce.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Australian universities are creating AI-native graduates",
+    "url": "https://openai.com/index/australian-universities-ai-native-graduates",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-building-an-agent-skill-optimizer-with-640f89",
   "title": "Building an agent skill optimizer with AlphaEvolve, Harbor and Gemini 4 Argon",
   "canonicalUrl": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-an-agent-skill-optimizer-with-alphaevolve-and-harbor",
@@ -1175,7 +2717,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0841b8be630ad059",
@@ -1227,7 +2769,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a179640616a66edf",
@@ -1279,7 +2821,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e562c2aead4ffb51",
@@ -1347,7 +2889,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ea1259a69a122b9f",
@@ -1405,7 +2947,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "885dfa4943a70c78",
@@ -1447,6 +2989,58 @@
    ]
   },
   "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-stop-treating-agents-as-one-off-projects-and-bdb192",
+  "title": "Stop treating agents as one-off projects and start running them as a continuous discipline",
+  "canonicalUrl": "https://azure.microsoft.com/en-us/blog/stop-treating-agents-as-one-off-projects-and-start-running-them-as-a-continuous-discipline",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f7802919130d5797",
+  "excerpt": "Transformation begins at the line between an experiment that works and a capability the business depends on. Scaling intelligence requires production capabilities built for sustained business performance, with investments prioritized against financial thresholds, tied to measurable outcomes, instrumented for unit costs, and owned by accountable leaders. This approach manages cost, performance, governance, and reliability as adoption grows.\nA new IDC InfoBrief, sponsored by Microsoft, Scaling AI Without Scaling Costs *, on how organizations are funding and governing AI, shows both the urgency of that shift and the friction holding it back. \nRead the IDC InfoBrief \nNearly 90% of organizations apply financial thresholds before\napproving AI initiatives.\nScaling AI Without Scaling Costs \nOnly 17% of organizations build models to project how costs scale in production—even as about 78% prioritize cost efficiency when selecting a model. 86% expect financial results within six to 24 months—roughly one budget cycle to show something real. Together, those findings point to a new operating reality: AI must be selected, architected, and managed as a continuous business discipline, not a series…",
+  "sources": [
+   {
+    "sourceId": "azure-blog",
+    "sourceName": "Microsoft Azure Blog",
+    "title": "Stop treating agents as one-off projects and start running them as a continuous discipline",
+    "url": "https://azure.microsoft.com/en-us/blog/stop-treating-agents-as-one-off-projects-and-start-running-them-as-a-continuous-discipline",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
   "status": "pending"
  },
  {
@@ -1617,6 +3211,53 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-05-window-sweaters-31e483",
+  "title": "Window Sweaters",
+  "canonicalUrl": "https://github.com/saragordic/window-sweaters",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-05T16:50:14.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "05c26a2eea4ae186",
+  "excerpt": "Article URL: https://github.com/saragordic/window-sweaters \nComments URL: https://news.ycombinator.com/item?id=50381383 \nPoints: 320\n# Comments: 97",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Window Sweaters",
+    "url": "https://github.com/saragordic/window-sweaters",
+    "publishedAt": "2026-11-05T16:50:14.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-ahsan-hadi-zero-downtime-in-place-major-847024",
   "title": "Ahsan Hadi: Zero Downtime In-Place Major PostgreSQL Upgrades on a Distributed PostgreSQL Cluster",
   "canonicalUrl": "https://postgr.es/p/9B4",
@@ -1624,7 +3265,7 @@
   "publishedAt": "2026-11-05T16:35:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5538d135512385a3",
@@ -1775,7 +3416,7 @@
   "publishedAt": "2026-11-05T16:08:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f2a3cf72140c48d7",
@@ -1828,7 +3469,7 @@
   "publishedAt": "2026-11-05T16:02:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eec77cc1f36fceb7",
@@ -1875,11 +3516,17 @@
   "publishedAt": "2026-11-05T16:01:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "6a0b3967b1518b5b",
-  "excerpt": "Article URL: https://motorolanews.com/motorola-signature-27-2/ \nComments URL: https://news.ycombinator.com/item?id=50380810 \nPoints: 288\n# Comments: 193",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": "2026-11-06T08:17:37.472Z",
+  "revisions": [
+   {
+    "at": "2026-11-06T08:17:37.472Z",
+    "reason": "Source text edited",
+    "contentHash": "30e289ec26ed868e"
+   }
+  ],
+  "contentHash": "30e289ec26ed868e",
+  "excerpt": "Article URL: https://motorolanews.com/motorola-signature-27-2/ \nComments URL: https://news.ycombinator.com/item?id=50380810 \nPoints: 465\n# Comments: 334",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -1922,7 +3569,7 @@
   "publishedAt": "2026-11-05T16:01:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3d1555930494a48e",
@@ -1969,7 +3616,7 @@
   "publishedAt": "2026-11-05T16:00:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "28d7fa52fd36adf1",
@@ -2026,7 +3673,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3561da51fd1492a0",
@@ -2054,6 +3701,58 @@
      "label": "Source credibility",
      "points": 20,
      "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-designing-azure-silicon-on-azure-silicon-eda-de6645",
+  "title": "Designing Azure silicon on Azure silicon: EDA workloads on Cobalt 200",
+  "canonicalUrl": "https://azure.microsoft.com/en-us/blog/designing-azure-silicon-on-azure-silicon-eda-workloads-on-cobalt-200",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2eb620ccd082811d",
+  "excerpt": "Every Azure chip Microsoft has built started as electronic design automation (EDA) jobs used to design, test, and validate silicon before it is manufactured. This includes simulation sweeps that run for days, verification regressions that fan out across thousands of cores overnight, and physical signoff runs that use hundreds of gigabytes of memory for a single block. Together, these workloads account for hundreds of millions of compute jobs each year. Today we’re sharing early results from our next step in that evolution: running EDA workloads on Azure Cobalt 200 , Azure’s custom compute infrastructure built on the Arm Neoverse CSS V3. In our silicon design environment, the evaluated EDA workloads ran with 1.30x to 4.15x more performance than on Cobalt 100 across a range of testing scenarios, from simulation to verification to static timing analysis.\nLearn more about Azure Cobalt 200 VMs \nTraditionally, EDA workloads ran on fixed, on-premise x86 server capacity, sized for peak demand with periods of underutilization. The shift to cloud-based EDA on Microsoft Azure offered a new level of flexibility, scale, and reliability on compute-intensive silicon design workloads. Using Azure…",
+  "sources": [
+   {
+    "sourceId": "azure-blog",
+    "sourceName": "Microsoft Azure Blog",
+    "title": "Designing Azure silicon on Azure silicon: EDA workloads on Cobalt 200",
+    "url": "https://azure.microsoft.com/en-us/blog/designing-azure-silicon-on-azure-silicon-eda-workloads-on-cobalt-200",
+    "publishedAt": "2026-11-05T16:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches azure"
     },
     {
      "label": "Freshness",
@@ -2120,7 +3819,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4aec6035220d9a39",
@@ -2167,7 +3866,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "833feba63abd7fbe",
@@ -2224,7 +3923,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "30602342d74ab837",
@@ -2376,7 +4075,7 @@
   "publishedAt": "2026-11-05T15:56:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63cc060a5baaa846",
@@ -2423,7 +4122,7 @@
   "publishedAt": "2026-11-05T15:53:42.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ca5693c236260cd6",
@@ -2475,7 +4174,7 @@
   "publishedAt": "2026-11-05T15:48:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b695bd4dbd5bc158",
@@ -2532,7 +4231,7 @@
   "publishedAt": "2026-11-05T15:31:37.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8e2c20cdc419457",
@@ -2584,7 +4283,7 @@
   "publishedAt": "2026-11-05T15:28:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": "2026-11-05T20:46:46.848Z",
   "revisions": [
    {
@@ -2647,7 +4346,7 @@
   "publishedAt": "2026-11-05T15:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "719f72a504d7afcf",
@@ -2704,7 +4403,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a04bf1261c20d7d5",
@@ -2761,7 +4460,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2765579f20f1c2f",
@@ -2968,6 +4667,53 @@
   "duplicateOf": "2026-11-05-critical-security-vulnerability-affects-openssh-aa224a"
  },
  {
+  "id": "2026-11-05-september-in-servo-rounded-rectangles-and-more-a18ea7",
+  "title": "September in Servo: , rounded rectangles, and more",
+  "canonicalUrl": "https://servo.org/blog/2026/11/05/september-in-servo",
+  "category": "programming",
+  "publishedAt": "2026-11-05T14:34:18.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5b11d1d9f21daa39",
+  "excerpt": "Article URL: https://servo.org/blog/2026/11/05/september-in-servo/ \nComments URL: https://news.ycombinator.com/item?id=50379576 \nPoints: 227\n# Comments: 56",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "September in Servo: , rounded rectangles, and more",
+    "url": "https://servo.org/blog/2026/11/05/september-in-servo",
+    "publishedAt": "2026-11-05T14:34:18.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-user-namespaces-file-capabilities-trouble-9ab2ef",
   "title": "[$] User namespaces + file capabilities = trouble",
   "canonicalUrl": "https://lwn.net/Articles/1103429",
@@ -2975,7 +4721,7 @@
   "publishedAt": "2026-11-05T14:33:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c8664eee7159bb40",
@@ -3022,7 +4768,7 @@
   "publishedAt": "2026-11-05T14:11:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be21e3570457b99",
@@ -3131,7 +4877,7 @@
   "publishedAt": "2026-11-05T14:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebc05f146351abe8",
@@ -3178,7 +4924,7 @@
   "publishedAt": "2026-11-05T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be1f3b408491c7b",
@@ -3235,7 +4981,7 @@
   "publishedAt": "2026-11-05T13:47:27.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "41bd6a258511e1b8",
@@ -3292,7 +5038,7 @@
   "publishedAt": "2026-11-05T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4b988ac1c1cb008b",
@@ -3433,7 +5179,7 @@
   "publishedAt": "2026-11-05T12:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "db68b4504151f55b",
@@ -3538,7 +5284,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "39625bb156898197",
@@ -3590,7 +5336,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e0b1b16d28551a1",
@@ -3638,6 +5384,106 @@
   },
   "importance": "routine",
   "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-post-quantum-questions-to-ask-your-vendors-5889c8",
+  "title": "Post-Quantum Questions to Ask Your Vendors",
+  "canonicalUrl": "https://cisa.gov/resources-tools/resources/post-quantum-questions-ask-your-vendors",
+  "category": "security",
+  "publishedAt": "2026-11-05T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "15bf593349dbcae8",
+  "excerpt": "CISA, the Australian Signals Directorate’s Australian Cyber Security Centre (ASD’s ACSC) and the National Security Agency (NSA) released joint guidance and an accompanying quick-reference list to help organizations assess vendor readiness for transitioning to post-quantum cryptography (PQC). As quantum computing advances, widely used public-key cryptography will become vulnerable to compromise from cryptographically relevant quantum computers (CRQCs). To protect their systems and data, organizations must plan for and transition to PQC—which includes algorithms capable of withstanding both classical computing and quantum-enabled threats—before CRQCs become available. \nMany organizations rely on third-party vendors for managed services, cloud capabilities, and other cryptography-dependent products and services. Cryptography is also embedded in systems and devices that are difficult to update, tied to long asset lifecycles, and require vendor support or replacement—such as industrial control systems and Internet of Things (IoT) devices. Reliance on vendors means that effective PQC transition depends on vendor readiness, and early, structured engagement with these vendors is critical…",
+  "sources": [
+   {
+    "sourceId": "cisa-advisories",
+    "sourceName": "CISA Cybersecurity Advisories",
+    "title": "Post-Quantum Questions to Ask Your Vendors",
+    "url": "https://cisa.gov/resources-tools/resources/post-quantum-questions-ask-your-vendors",
+    "publishedAt": "2026-11-05T12:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-02-10-questions-to-ask-any-software-vendor-about-788c19"
+ },
+ {
+  "id": "2026-11-05-us-government-partners-urge-hardening-industrial-890eff",
+  "title": "US Government Partners Urge Hardening Industrial Refrigeration and Cold Chain Monitoring Systems",
+  "canonicalUrl": "https://cisa.gov/resources-tools/resources/us-government-partners-urge-hardening-industrial-refrigeration-and-cold-chain-monitoring-systems",
+  "category": "security",
+  "publishedAt": "2026-11-05T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f8b17b5fef41cbb8",
+  "excerpt": "Overview \nThe Cybersecurity and Infrastructure Security Agency (CISA), Federal Bureau of Investigation (FBI), Health and Human Services (HHS), U.S. Department of Agriculture (USDA), and the Department of Transportation (DoT)—hereafter referred to as “the authoring organizations”—are aware of malicious cyber activity targeting industrial refrigeration and cold chain monitoring systems globally. Organizations in the Healthcare and Public Health , Chemical , Food and Agriculture , and Transportation Systems Sectors widely use these systems, including in refrigerated transport services, for automated and remote monitoring of temperatures, continuous temperature logging, defrost cycle management, and energy optimization.\nThe authoring organizations urge owners and operators to defend against this activity by using strong authentication, keeping systems updated, identifying any systems that are accessible from the internet, removing unnecessary remote access, and securing any necessary remote access.\nThreat \nThe authoring organizations are aware of malicious cyber actors targeting electronic temperature controllers and commercial refrigeration controllers in retail grocery and cold…",
+  "sources": [
+   {
+    "sourceId": "cisa-advisories",
+    "sourceName": "CISA Cybersecurity Advisories",
+    "title": "US Government Partners Urge Hardening Industrial Refrigeration and Cold Chain Monitoring Systems",
+    "url": "https://cisa.gov/resources-tools/resources/us-government-partners-urge-hardening-industrial-refrigeration-and-cold-chain-monitoring-systems",
+    "publishedAt": "2026-11-05T12:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
  },
  {
   "id": "2026-11-05-openssh-106p2-critical-workaround-for-alpine-2e5637",
@@ -3699,7 +5545,7 @@
   "publishedAt": "2026-11-05T11:39:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "96fac78b5804339b",
@@ -3816,7 +5662,7 @@
   "publishedAt": "2026-11-05T11:11:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "31b03d3a94888bf7",
@@ -3868,7 +5714,7 @@
   "publishedAt": "2026-11-05T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d57ee94756ce5784",
@@ -3925,7 +5771,7 @@
   "publishedAt": "2026-11-05T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "703f6a4fe1796d08",
@@ -3973,7 +5819,7 @@
   "publishedAt": "2026-11-05T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ecf0155aa18834a3",
@@ -4011,6 +5857,58 @@
      "label": "Engineering relevance",
      "points": 3,
      "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-merge-builds-product-and-business-tools-with-db9792",
+  "title": "Merge builds product and business tools with OpenAI technology",
+  "canonicalUrl": "https://openai.com/index/merge-builds-with-openai",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bad2773958f74a49",
+  "excerpt": "Merge uses GPT-6 Astra, ChatGPT, and Codex to review product code and support marketing. Its teams also use AI to plan executive dinners and prepare sales updates.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Merge builds product and business tools with OpenAI technology",
+    "url": "https://openai.com/index/merge-builds-with-openai",
+    "publishedAt": "2026-11-05T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
     },
     {
      "label": "Freshness",
@@ -4569,7 +6467,7 @@
   "publishedAt": "2026-11-05T04:36:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23b0e2464e00d2a9",
@@ -4616,7 +6514,7 @@
   "publishedAt": "2026-11-05T02:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4a0afd92ed9bcd4d",
@@ -4661,6 +6559,53 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-05-flipsnack-grows-product-signups-with-conversion-2d1d32",
+  "title": "Flipsnack grows product signups with conversion optimization",
+  "canonicalUrl": "https://openai.com/ads/customers/flipsnack",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-05T00:45:15.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b203c4cf92469c0a",
+  "excerpt": "Flipsnack focused its ChatGPT Ads campaigns on getting people to try its product, growing registrations while lowering the cost per signup.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Flipsnack grows product signups with conversion optimization",
+    "url": "https://openai.com/ads/customers/flipsnack",
+    "publishedAt": "2026-11-05T00:45:15.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-lwnnet-weekly-edition-for-november-5-2026-46abc7",
   "title": "[$] LWN.net Weekly Edition for November 5, 2026",
   "canonicalUrl": "https://lwn.net/Articles/1103480",
@@ -4668,7 +6613,7 @@
   "publishedAt": "2026-11-05T00:42:51.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "db3735a3522d1400",
@@ -4824,7 +6769,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7830f630e76dadb",
@@ -4871,7 +6816,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ff7ffa9ed43ac193",
@@ -4928,7 +6873,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c3687296de93a199",
@@ -4975,7 +6920,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2ab2db9ee7eb5b19",
@@ -5027,7 +6972,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22bb623be37e8901",
@@ -5084,7 +7029,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a6bde6930a3c27b3",
@@ -5141,7 +7086,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f9f4c7b1beb9db58",
@@ -5198,7 +7143,7 @@
   "publishedAt": "2026-11-04T23:34:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33ab42b0991a0683",
@@ -5359,7 +7304,7 @@
   "publishedAt": "2026-11-04T22:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43599d165c97ba43",
@@ -5411,7 +7356,7 @@
   "publishedAt": "2026-11-04T22:00:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b60d6723a5fe3ff3",
@@ -5511,7 +7456,7 @@
   "publishedAt": "2026-11-04T21:38:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1dff6ff843ce0b7",
@@ -6159,7 +8104,7 @@
   "publishedAt": "2026-11-04T18:50:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8f40dfa300f27a89",
@@ -6206,7 +8151,7 @@
   "publishedAt": "2026-11-04T18:46:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "006dbbbcb6db0b92",
@@ -6362,7 +8307,7 @@
   "publishedAt": "2026-11-04T18:21:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7f8a4d3fdf82ea3f",
@@ -6410,7 +8355,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -6608,7 +8553,7 @@
   "publishedAt": "2026-11-04T17:50:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f2eb35206164099",
@@ -6655,7 +8600,7 @@
   "publishedAt": "2026-11-04T17:46:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "acc846c739e09a33",
@@ -6821,7 +8766,7 @@
   "publishedAt": "2026-11-04T17:08:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1894a9db26182bb3",
@@ -7078,7 +9023,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -7230,7 +9175,7 @@
   "publishedAt": "2026-11-04T16:34:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa3054af9f820a8f",
@@ -7439,7 +9384,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5844851476aa3b3b",
@@ -7694,7 +9639,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -7907,7 +9852,7 @@
   "publishedAt": "2026-11-04T14:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b784ee473fce53aa",
@@ -8220,7 +10165,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -8371,7 +10316,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a18861f43f130f7a",
@@ -8928,7 +10873,8 @@
    ]
   },
   "importance": "notable",
-  "status": "pending"
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-06-docker-sandboxes-vs-containers-choosing-the-right-129a84"
  },
  {
   "id": "2026-11-04-kitty-050-327489",
@@ -9724,7 +11670,7 @@
   "publishedAt": "2026-11-04T00:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "88689845c16189f4",
@@ -9776,7 +11722,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -9844,7 +11790,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5d5ae52df4bd5866",
@@ -10016,7 +11962,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "61c25825b89d32cc",
@@ -10068,7 +12014,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -10219,7 +12165,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -10702,7 +12648,7 @@
   "publishedAt": "2026-11-03T21:32:18.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "82a0ebad3515a78b",
@@ -11229,7 +13175,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -11286,7 +13232,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -11861,7 +13807,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -12029,7 +13975,7 @@
   "publishedAt": "2026-11-03T17:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0ffb3b8e06ea15de",
@@ -12128,7 +14074,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -12175,7 +14121,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -12445,7 +14391,7 @@
   "publishedAt": "2026-11-03T16:35:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ad908317fc7457db",
@@ -12544,7 +14490,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -12648,7 +14594,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -13494,7 +15440,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -13811,7 +15757,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -13939,7 +15885,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d143689e77c992d9",
@@ -14893,7 +16839,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -14992,7 +16938,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -15054,7 +17000,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -15507,7 +17453,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -15611,7 +17557,7 @@
   "publishedAt": "2026-11-02T22:08:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8e7b7729f82dce57",
@@ -15877,7 +17823,7 @@
   "publishedAt": "2026-11-02T20:52:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1999d731b87a8967",
@@ -16702,7 +18648,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -16754,7 +18700,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -16994,7 +18940,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-04T07:48:30.394Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d43b0ad5c2e7b13",
@@ -17267,7 +19213,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -18153,7 +20099,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -18728,7 +20674,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -19836,7 +21782,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -19849,11 +21795,19 @@
     "url": "https://about.gitlab.com/blog/10-questions-to-ask-any-software-vendor-about-sovereignty",
     "publishedAt": "2026-11-02T00:00:00.000Z",
     "credibility": 3
+   },
+   {
+    "sourceId": "cisa-advisories",
+    "sourceName": "CISA Cybersecurity Advisories",
+    "title": "Post-Quantum Questions to Ask Your Vendors",
+    "url": "https://cisa.gov/resources-tools/resources/post-quantum-questions-ask-your-vendors",
+    "publishedAt": "2026-11-05T12:00:00.000Z",
+    "credibility": 3
    }
   ],
   "minor": false,
   "score": {
-   "total": 40,
+   "total": 48,
    "parts": [
     {
      "label": "Baseline",
@@ -19866,13 +21820,18 @@
      "reason": "Primary source (the vendor or project itself)"
     },
     {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
      "label": "Freshness",
      "points": 5,
      "reason": "Published in the last 36 hours"
     }
    ]
   },
-  "importance": "routine",
+  "importance": "notable",
   "status": "pending"
  },
  {
@@ -20101,7 +22060,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -20735,7 +22694,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -20812,7 +22771,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-05T20:46:46.848Z",
+  "lastSeenAt": "2026-11-06T08:17:37.472Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
