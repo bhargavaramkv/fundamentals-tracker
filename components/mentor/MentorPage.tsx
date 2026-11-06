@@ -335,7 +335,7 @@ function WrittenForYou({ forDate, titleOf }: { forDate: string; titleOf: (id: st
         <h2 id="written-h">Questions written for you</h2>
       </div>
       <p className="text-ink-2">
-        {written.length} new {written.length === 1 ? "question" : "questions"} aimed at what last night&apos;s analysis found. {left > 0 ? `${left} not tried yet. Practice picks unseen questions ahead of repeats, after any reviews that are due.` : "You've tried them all."}
+        {written.length} new {written.length === 1 ? "question" : "questions"} aimed at what last night&apos;s analysis found. {left > 0 ? `${left} not tried yet. Practice starts with any reviews that are due, then the skills in this plan, unseen questions first.` : "You've tried them all."}
       </p>
       <ul className="mt-3 divide-y divide-line">
         {[...bySkill.entries()].map(([skillId, qs]) => (

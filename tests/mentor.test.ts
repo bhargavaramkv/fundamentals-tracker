@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { freshnessOf, isUsableState, mentorSessionUrl, workSince } from "@/lib/mentor/client";
+import { freshnessOf, isUsableState, mentorSessionUrl, planFocus, workSince } from "@/lib/mentor/client";
 import { buildPacket } from "@/lib/mentor/packet";
 import { buildState, computeStatus, pointerFor } from "@/lib/mentor/run";
 import { forDateOf, triggerOf } from "@/lib/mentor/time";
@@ -285,6 +285,22 @@ describe("state and frontend", () => {
     expect(freshnessOf(st, NOW).kind).toBe("fresh");
     expect(freshnessOf(st, new Date("2026-11-04T04:00:00Z")).kind).toBe("carried");
     expect(freshnessOf(st, new Date("2026-11-07T04:00:00Z")).kind).toBe("stale");
+  });
+
+  it("gives Practice the plan's skills in order, revisions only once due, and nothing from a stale plan", () => {
+    const st = stateWith(null, []);
+    const plan = {
+      ...st.plan,
+      primary: { ...st.plan.primary, skillIds: ["a/x", "a/y"] },
+      supporting: [{ ...st.plan.primary, skillIds: ["a/y", "a/z"] }],
+      revision: [
+        { skillId: "a/due", due: FOR, why: "" },
+        { skillId: "a/later", due: "2026-11-09", why: "" },
+      ],
+    };
+    const withPlan = { ...st, plan };
+    expect(planFocus(withPlan, NOW)).toEqual(["a/x", "a/y", "a/z", "a/due"]);
+    expect(planFocus(withPlan, new Date("2026-11-07T04:00:00Z"))).toEqual([]);
   });
 
   it("counts a quiet night as hearing from the mentor", () => {

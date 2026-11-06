@@ -105,6 +105,20 @@ describe("practice set", () => {
     expect(set.slice(0, 2).map((x) => x.id).sort()).toEqual(["h1", "h2"]);
     expect(set[2].id).toBe("w1"); // untested topic before an already-mastered one
   });
+
+  it("puts the mentor's focus skills ahead of the rule-based weak topics, ignoring skills with no questions", () => {
+    const questions = [q("h1", "dsa", "hashing"), q("h2", "dsa", "hashing"), q("c1", "dsa", "complexity"), q("w1", "web", "http"), q("w2", "web", "http")];
+    const answers = [
+      answer({ questionId: "h1", topic: "hashing", correct: false, answeredAt: "2026-10-01T00:00:00.000Z" }),
+      answer({ questionId: "h2", topic: "hashing", correct: false, answeredAt: "2026-10-01T00:01:00.000Z" }),
+    ];
+    const data = { ...emptyProgress(), answers }; // no reviews due, so the order comes from focus alone
+    const ids = (s: Question[]) => s.map((x) => x.id);
+    expect(ids(buildPracticeSet(data, questions, topics, 3, NOW)).slice(0, 2).sort()).toEqual(["h1", "h2"]);
+    const set = buildPracticeSet(data, questions, topics, 4, NOW, ["stack/angular", "web/http"]);
+    expect(ids(set).slice(0, 2).sort()).toEqual(["w1", "w2"]);
+    expect(ids(set).slice(2).sort()).toEqual(["h1", "h2"]);
+  });
 });
 
 describe("activity", () => {
