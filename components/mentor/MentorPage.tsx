@@ -83,7 +83,7 @@ export function MentorView({ load, resources }: { load: MentorLoad; resources: R
   return <Dashboard state={load.state} status={load.status} resources={resources} />;
 }
 
-function StatusLine({ state, status }: { state: LearnerState; status: MentorStatus | null }) {
+export function StatusLine({ state, status }: { state: LearnerState; status: MentorStatus | null }) {
   const now = new Date();
   const { kind, ageDays } = freshnessOf(state, now, status);
   const today = forDateOf(now);
