@@ -1,6 +1,6 @@
 import { Dashboard } from "@/components/Dashboard";
 import { Home } from "@/components/mentor/Home";
-import { getAllQuestions, getAllTopics, getResources, getWorkspaces } from "@/lib/content";
+import { getAllQuestions, getAllTopics, getWorkspaces } from "@/lib/content";
 import { getBuildFeed } from "@/lib/radar/load";
 
 export default function HomeRoute() {
@@ -9,7 +9,6 @@ export default function HomeRoute() {
   const radar = { ...feed, items: feed.items.filter((i) => !i.minor).slice(0, 60) };
   return (
     <Home
-      resources={getResources()}
       fallback={<Dashboard ctx={{ questions: getAllQuestions(), topics: getAllTopics(), workspaces: getWorkspaces() }} radar={radar} />}
     />
   );
