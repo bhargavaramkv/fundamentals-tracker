@@ -104,6 +104,17 @@ export function freshnessOf(state: LearnerState, now: Date, status?: MentorStatu
   return { kind: ageDays <= 0 ? "fresh" : ageDays <= 3 ? "carried" : "stale", ageDays };
 }
 
+/**
+ * The skills the current plan says to work on, in its order: primary, supporting, then revisions that are due.
+ * Practice puts these first. A stale plan gives none, so the rule-based order takes over rather than old advice.
+ */
+export function planFocus(state: LearnerState, now: Date, status?: MentorStatus | null): string[] {
+  if (freshnessOf(state, now, status).kind === "stale") return [];
+  const today = forDateOf(now);
+  const { primary, supporting, revision } = state.plan;
+  return [...new Set([...primary.skillIds, ...supporting.flatMap((a) => a.skillIds), ...revision.filter((r) => r.due <= today).map((r) => r.skillId)])];
+}
+
 /** Work done since the last analysis that tonight's run hasn't seen. Reading and resource visits aren't evidence, so they don't count. */
 export function workSince(data: ProgressData, since: string): { answers: number; activities: number } {
   const active = activeProgress(data);
