@@ -144,10 +144,9 @@ reclassifies history without rewriting it. The retired `developer` category migr
 
 One-time setup (owner):
 
-1. **Settings → Secrets and variables → Actions → New repository secret:** add `ANTHROPIC_API_KEY`. Without it the radar
-   runs but doesn't analyse. Cost is roughly 12 analyses a day (3 per run, 4 runs) at about 6k input and 3k output tokens each, around
-   $1 per day at Opus 5.5 rates. Lower it with the `max_analyses` input or the `RADAR_MAX_ANALYSES` default in the
-   workflow.
+1. **AI analysis is off by design:** the project uses no API keys or API billing (`CLAUDE.md`), so every run passes
+   `--no-analyze` and stories are ranked but not analysed. To opt in deliberately, add an `ANTHROPIC_API_KEY` secret and
+   run the workflow by hand with `analyze` ticked (about 6k input and 3k output tokens per story analysed).
 2. **Settings → Actions → General:** make sure Actions may run, and that workflows have **Read and write permissions**.
    The ingest job pushes to `radar-data`.
 3. **Actions → Tech Radar → Run workflow** for the first run. After that it runs four times a day.

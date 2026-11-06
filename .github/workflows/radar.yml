@@ -12,9 +12,9 @@ on:
         description: "Most stories to analyse this run"
         default: "3"
       analyze:
-        description: "Run AI analysis (needs the ANTHROPIC_API_KEY secret)"
+        description: "Run AI analysis (needs an ANTHROPIC_API_KEY secret; off by design, the project uses no API billing)"
         type: boolean
-        default: true
+        default: false
 
 concurrency:
   group: radar
@@ -53,7 +53,7 @@ jobs:
           RADAR_MAX_ANALYSES: ${{ inputs.max_analyses || '3' }}
         run: |
           npm run --silent radar -- ingest --data content/radar --summary "$GITHUB_STEP_SUMMARY" \
-            ${{ inputs.analyze == false && '--no-analyze' || '' }}
+            ${{ inputs.analyze != true && '--no-analyze' || '' }}
       - name: Validate stored stories
         run: npm run --silent radar -- check --data content/radar
       - name: Commit to radar-data
