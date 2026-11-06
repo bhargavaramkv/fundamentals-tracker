@@ -36,3 +36,14 @@ When a hot key expires, N requests miss at once and hit the DB together. Mitigat
 ## Rules of thumb
 
 Put a TTL on everything. Cache **immutable or derived** data aggressively. Measure the hit ratio. Never cache per-user data at a shared layer without the user in the key.
+
+## Stampede vs penetration
+
+| Symptom | Name | Fix |
+|---|---|---|
+| One existing hot key expires, many requests hit the DB together | Stampede | Per-key lock or request coalescing, TTL jitter |
+| Requests for ids that never exist always miss | Penetration | Briefly cache the not-found result, or a Bloom filter |
+
+Check first whether the missing keys *exist*. Random non-existent ids point to penetration, not stampede.
+
+Write path: update the DB, then **delete** the key. Deleting first lets a concurrent reader refill the old value.
