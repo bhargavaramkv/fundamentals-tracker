@@ -265,5 +265,21 @@
   "analysisFailed": 0,
   "analysisSkipped": "--no-analyze",
   "errors": []
+ },
+ {
+  "startedAt": "2026-11-06T20:02:38.002Z",
+  "finishedAt": "2026-11-06T20:02:54.533Z",
+  "ok": true,
+  "sourcesOk": 63,
+  "sourcesFailed": 0,
+  "itemsFetched": 224,
+  "newStories": 54,
+  "updatedStories": 1,
+  "corroborated": 0,
+  "unchanged": 140,
+  "analysed": 0,
+  "analysisFailed": 0,
+  "analysisSkipped": "--no-analyze",
+  "errors": []
  }
 ]

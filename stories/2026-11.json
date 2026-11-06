@@ -1,5 +1,2346 @@
 [
  {
+  "id": "2026-11-06-angular-2225-072743",
+  "title": "angular 22.2.5",
+  "canonicalUrl": "https://github.com/angular/angular/releases/tag/v22.2.5",
+  "category": "programming",
+  "publishedAt": "2026-11-06T19:37:09.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5170ef543af30a32",
+  "excerpt": "### core\n| Commit | Description |\n| -- | -- |\n| [![fix - 6f06af76c9](https://img.shields.io/badge/6f06af76c9-fix-green)](https://github.com/angular/angular/commit/6f06af76c931a6924993e9f061fe99c5128a3ceb) | add debugName option to rxResource |\n| [![fix - 8c426b6cbc](https://img.shields.io/badge/8c426b6cbc-fix-green)](https://github.com/angular/angular/commit/8c426b6cbc132b1591eb42f0570edc22531223e4) | escape comment markers which share characters |\n| [![fix - ca3afffbdc](https://img.shields.io/badge/ca3afffbdc-fix-green)](https://github.com/angular/angular/commit/ca3afffbdc3378e8b5597aa04b6502d1b875db20) | remove attribute when img/video attr.src is null or undefined |\n### forms\n| Commit | Description |\n| -- | -- |\n| [![fix - 545eb3d07b](https://img.shields.io/badge/545eb3d07b-fix-green)](https://github.com/angular/angular/commit/545eb3d07baee57d6a8c15729b36b9ceba84d766) | reflect required validators in compat fields |\n| [![fix - a7b0e8ef9d](https://img.shields.io/badge/a7b0e8ef9d-fix-green)](https://github.com/angular/angular/commit/a7b0e8ef9d676135f8ba66d554766c8e9472f00b) | support updateOn blur and submit for custom FormValueControl |\n| [![perf -…",
+  "sources": [
+   {
+    "sourceId": "gh-angular",
+    "sourceName": "Angular releases",
+    "title": "angular 22.2.5",
+    "url": "https://github.com/angular/angular/releases/tag/v22.2.5",
+    "publishedAt": "2026-11-06T19:37:09.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 23,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches angular"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-ai-agents-are-getting-more-complex-developers-23a02e",
+  "title": "AI agents are getting more complex. Developers shouldn’t have to babysit them.",
+  "canonicalUrl": "https://thenewstack.io/harness-engineering-coding-agents",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T19:35:59.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "54fa92ab69035513",
+  "excerpt": "What if your coding agent could catch its own mistakes before you ever reviewed its work? \nA few years ago, AI hallucinations seemed to be everywhere. (Just how many r&rsquo;s are there in strawberry?) Early AI tools required extensive human oversight, with developers constantly reviewing code and checking for errors. But today, advances in AI agent engineering are making self-correction a reality. \nThrough harness engineering, teams can equip their agents with automated tests, feedback loops, and guardrails that help them identify and correct mistakes before humans review them. \nRecommended Download: Thoughtworks&rsquo; Technology Radar , Volume 35 \nAs a result, agents can tackle longer-running tasks with less intervention, while multiple agents work in parallel without stepping on each other&rsquo;s toes.\nOur guest on the latest episode of The New Stack podcast, Vanitha Kumar of Thoughtworks, explains that harness engineering has two parts. \nKumar &mdash; who is Head of Technology for Retail, CPG, Travel & Hospitality Market for Thoughtworks Americas &mdash; tells TNS: &ldquo;Do it right the first time and also self-correct when you have done it for the first time.&rdquo; \nThe…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "AI agents are getting more complex. Developers shouldn’t have to babysit them.",
+    "url": "https://thenewstack.io/harness-engineering-coding-agents",
+    "publishedAt": "2026-11-06T19:35:59.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-locking-down-hibernation-for-the-winter-f54727",
+  "title": "[$] Locking down hibernation for the winter",
+  "canonicalUrl": "https://lwn.net/Articles/1103190",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-06T18:51:28.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "fa79450f145976b5",
+  "excerpt": "When a computer hibernates, the kernel writes the contents of memory to disk and\nthen shuts the system down. Resuming from hibernation involves reading that data\nback into memory, and then having the kernel pick up where it left off.\nUnfortunately, the kernel does not have\nany way to know that the data it is reading back has not been tampered with,\nwhich is why lockdown , an optional kernel\nfeature that attempts to prevent modifications to the running kernel, disables hibernation.\nMatthew Garrett, who has been working on lockdown for many years, has shared\na patch set that aims to fix this problem. His solution must also protect\nagainst downgrade attacks (where an attacker reboots the computer with an older\nkernel version to bypass new protections), which complicates the implementation.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "[$] Locking down hibernation for the winter",
+    "url": "https://lwn.net/Articles/1103190",
+    "publishedAt": "2026-11-06T18:51:28.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-seven-stable-kernels-with-fixes-for-three-xen-a00f44",
+  "title": "Seven stable kernels with fixes for three Xen vulnerabilities",
+  "canonicalUrl": "https://lwn.net/Articles/1105902",
+  "category": "security",
+  "publishedAt": "2026-11-06T18:48:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5b368d4305515562",
+  "excerpt": "Hot on the heels of the previous\ntwo stable kernels , Greg Kroah-Hartman has announced the release of the 7.3.3 , 6.18.62 ,\n6.12.116 , 6.6.162 , 6.1.192 ,\n5.15.225 , and 5.10.274 stable kernels. Each one only contains\nfixes for three use-after-free vulnerabilities announced today by the Xen\nsecurity team.\nTwo of the vulnerabilities could allow an attacker to cause a denial of service (DoS) for the\nentire Xen host machine with possible information leakage ( CVE-2026-100080 ,\nCVE-2026-100082 ),\nand one may allow privilege escalation as well as a DoS of the host machine ( CVE-2026-100081 ). Users\nshould, of course, upgrade if they are using Xen.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Seven stable kernels with fixes for three Xen vulnerabilities",
+    "url": "https://lwn.net/Articles/1105902",
+    "publishedAt": "2026-11-06T18:48:34.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-fake-security-tools-on-github-push-backdoors-and-6e832e",
+  "title": "Fake security tools on GitHub push backdoors and infostealers",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/fake-security-tools-on-github-push-backdoors-and-infostealers",
+  "category": "security",
+  "publishedAt": "2026-11-06T18:46:52.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f1e982f7078995c3",
+  "excerpt": "Cybersecurity professionals are being targeted with infected security projects on GitHub that deploy a backdoor and information stealer malware. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Fake security tools on GitHub push backdoors and infostealers",
+    "url": "https://bleepingcomputer.com/news/security/fake-security-tools-on-github-push-backdoors-and-infostealers",
+    "publishedAt": "2026-11-06T18:46:52.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-any-agent-anywhere-how-to-use-grafana-cloud-with-6e5ba8",
+  "title": "Any agent anywhere: How to use Grafana Cloud with Claude, Cursor, and any other AI agent",
+  "canonicalUrl": "https://grafana.com/blog/any-agent-anywhere-how-to-use-grafana-cloud-with-claude-cursor-and-any-other-ai-agent",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-06T18:37:07.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c1024147c65db39a",
+  "excerpt": "AI agents are becoming part of everyday engineering workflows, helping teams write code, troubleshoot issues, and automate tasks. But to be truly useful in production, these agents need access to more than code. They also need observability data and context to understand what's happening across your systems, investigate problems, and help you take action.\nAt Grafana Labs, we believe that context should be available wherever you work. That’s one of the core ideas behind Grafana Cloud as the open agentic observability platform: the flexibility to work with your observability data through the AI agents you prefer—whether it’s Grafana Assistant , a coding agent in your IDE, or a tool you’ve built yourself—so you can investigate and troubleshoot issues without switching tools.\nIn this post, we'll explore how to bring Grafana Cloud into your agentic workflows using tools like the Grafana Cloud MCP server and gcx , with practical examples along the way. You can also check out our ObservabilityCON 2026 talk in the video below to learn more.\nThree ways to use Grafana Cloud with AI agents\nThere are multiple ways to bring Grafana Cloud observability data and context into your AI workflows,…",
+  "sources": [
+   {
+    "sourceId": "grafana-blog",
+    "sourceName": "Grafana Labs Blog",
+    "title": "Any agent anywhere: How to use Grafana Cloud with Claude, Cursor, and any other AI agent",
+    "url": "https://grafana.com/blog/any-agent-anywhere-how-to-use-grafana-cloud-with-claude-cursor-and-any-other-ai-agent",
+    "publishedAt": "2026-11-06T18:37:07.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agent, agents, observability"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-cognition-turned-an-open-model-into-a-coding-1e774a",
+  "title": "Cognition turned an open model into a coding beast. But it won’t release the weights.",
+  "canonicalUrl": "https://thenewstack.io/cognition-flash-private-weights",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-06T18:16:42.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b5a029b60d9ef0e8",
+  "excerpt": "Cognition built its newest coding model on a foundation that anyone can download, yet the company is keeping its own finished version locked away.\nReleased Wednesday, SWE-2 Flash costs one-fifth as much as Cognition’s larger SWE-2 model and generates tokens roughly three times faster, according to the company. Built on Thinking Machines Lab’s open weight Inkling-Small, the new model comes with a catch: Cognition is keeping its weights private, citing cybersecurity concerns.\nInkling-Small is a 276-billion-parameter mixture-of-experts model with 12 billion active parameters that Thinking Machines Lab, the startup led by co-founder and CEO Mira Murati , released on July 30 under an Apache 2.0 license, which means anyone can pull the weights from Hugging Face and build on them.\n&ldquo;a practical way to turn a weak open base into a usable agent model,&rdquo;\nCognition says the bulk of its performance gains came from adding a mid-training stage before reinforcement learning, and the numbers it published are striking &mdash; on Terminal-Bench 4.0, Flash scored 20% against Inkling-Small&rsquo;s 0.9%, and its FrontierCode 2.0 score climbed from the base model&rsquo;s 3.2% to 24%, narrowly…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Cognition turned an open model into a coding beast. But it won’t release the weights.",
+    "url": "https://thenewstack.io/cognition-flash-private-weights",
+    "publishedAt": "2026-11-06T18:16:42.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"new model\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-meta-s-muse-ai-can-create-custom-spaces-for-the-30f8dd",
+  "title": "Meta’s Muse AI can create custom ‘spaces’ for the version of the app you need right now",
+  "canonicalUrl": "https://theverge.com/tech/1028871/meta-muse-ai-spaces",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T18:10:10.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6220b7ddd98812a4",
+  "excerpt": "Meta will now allow you to build customized, app-like experiences within Muse. The new feature, called \"spaces,\" allows its AI assistant to build things like a shopping hub, school dashboard, music tracker, trivia game, and more, which you can interact with directly in the Muse app. Meta says you can create a new space by […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Meta’s Muse AI can create custom ‘spaces’ for the version of the app you need right now",
+    "url": "https://theverge.com/tech/1028871/meta-muse-ai-spaces",
+    "publishedAt": "2026-11-06T18:10:10.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-two-stable-kernels-for-friday-563134",
+  "title": "Two stable kernels for Friday",
+  "canonicalUrl": "https://lwn.net/Articles/1105899",
+  "category": "open-source",
+  "publishedAt": "2026-11-06T18:09:16.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5557753ee0aad183",
+  "excerpt": "Greg Kroah-Hartman has released the 7.3.2 \nand 6.18.61 stable kernels. Each contains quite\na few changes throughout the tree; users are advised to upgrade.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Two stable kernels for Friday",
+    "url": "https://lwn.net/Articles/1105899",
+    "publishedAt": "2026-11-06T18:09:16.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-meta-s-best-ai-model-now-trains-the-one-most-of-eb97f6",
+  "title": "Meta’s best AI model now trains the one most of its users get",
+  "canonicalUrl": "https://thenewstack.io/meta-muse-specialized-models",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T18:05:55.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4e155dedb70738b3",
+  "excerpt": "Starting on Friday, everyone using Meta’s Muse agent and Meta AI gets new models the company trained using Muse Wonder, its frontier model. Subscribers still get Wonder itself for harder tasks.\nMeta hasn’t named the new models, though we can assume their codenames don&rsquo;t involve fruits . The company calls them “specialized” versions of its existing ones that were &ldquo;trained using Muse Wonder.&rdquo; They also come with two features the company first introduced with Wonder: Active Memory and Active Focus.\nMeta originally launched Wonder and the more capable Wonder Full on Oct. 12. Wonder is currently available through the Meta Model API and in Muse Code, the company’s coding agent, while Wonder Full is limited to Muse Code&rsquo;s two most expensive plans.\nWonder-trained models for everyone\nMuse, Meta’s personal agent app , launched in September on the smaller Muse Spark model and became somewhat of a breakout hit for Meta and introduced consumers to the idea of personal agents. \nUnlike many personal agents, Muse has a free tier, giving it a far lower barrier of entry than OpenAI&rsquo;s Dots or Anthropic&rsquo;s Duet, which are only available to subscribers on those…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Meta’s best AI model now trains the one most of its users get",
+    "url": "https://thenewstack.io/meta-muse-specialized-models",
+    "publishedAt": "2026-11-06T18:05:55.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-accelerating-reinforcement-learning-weight-refit-581dcf",
+  "title": "Accelerating Reinforcement Learning Weight Refit with the Reshard Collective",
+  "canonicalUrl": "https://developer.nvidia.com/blog/accelerating-reinforcement-learning-weight-refit-with-the-reshard-collective",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T18:03:26.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "14ec240f07a1fc7a",
+  "excerpt": "During reinforcement learning (RL) post-training, training trajectories are generated on the fly by running inference with the current policy model. For...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Accelerating Reinforcement Learning Weight Refit with the Reshard Collective",
+    "url": "https://developer.nvidia.com/blog/accelerating-reinforcement-learning-weight-refit-with-the-reshard-collective",
+    "publishedAt": "2026-11-06T18:03:26.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches inference"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-amazon-is-now-making-a-melania-trump-tv-series-603294",
+  "title": "Amazon is now making a Melania Trump TV series",
+  "canonicalUrl": "https://theverge.com/tech/1028854/amazon-melania-the-series-mgm-studios-prime-video",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T17:56:58.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "10ee7fc8b59df5cd",
+  "excerpt": "Following the Melania documentary movie that premiered earlier this year, Amazon is now planning to release a two-part Prime Video series focusing on the first lady. The show, Melania: The Series, is set to debut on November 20th. \"MELANIA, The Series reveals never-before-told stories, offering unprecedented insight into Melania Trump's life, including the extraordinary days […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Amazon is now making a Melania Trump TV series",
+    "url": "https://theverge.com/tech/1028854/amazon-melania-the-series-mgm-studios-prime-video",
+    "publishedAt": "2026-11-06T17:56:58.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-just-about-anyone-can-rent-access-to-white-house-9dc370",
+  "title": "Just about anyone can rent access to White House IP addresses",
+  "canonicalUrl": "https://theverge.com/tech/1028835/white-house-residential-proxy",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T17:40:06.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e2b41de7709f6d6c",
+  "excerpt": "Someone at the White House appears to be running software that could enable outsiders to rent access on the presidential network for just \"a few dollars,\" as reported by Krebs on Security and The Register. That's according to findings from the security firms Layer3 Intel and Synthient, which discovered residential proxy activity on the White […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Just about anyone can rent access to White House IP addresses",
+    "url": "https://theverge.com/tech/1028835/white-house-residential-proxy",
+    "publishedAt": "2026-11-06T17:40:06.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-kobo-will-soon-let-you-upload-and-sync-your-own-0bda4c",
+  "title": "Kobo will soon let you upload and sync your own ebooks across devices, for a price",
+  "canonicalUrl": "https://theverge.com/tech/1028715/kobo-stack-cloud-sync-ebooks-epub-pdf-email-files",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T17:32:16.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "00543e0e22149eef",
+  "excerpt": "Kobo is launching a new monthly subscription service called Stack that lets you upload your own ebooks and documents to the company's servers where they'll be synced across multiple devices and apps, including your reading progress, highlights, and annotations. Kobo Stack is similar to Amazon's Send to Kindle feature that allows users to upload a […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Kobo will soon let you upload and sync your own ebooks across devices, for a price",
+    "url": "https://theverge.com/tech/1028715/kobo-stack-cloud-sync-ebooks-epub-pdf-email-files",
+    "publishedAt": "2026-11-06T17:32:16.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-the-iphone-duo-has-more-than-100-000-optimized-fbd050",
+  "title": "The iPhone Duo has more than 100,000 optimized apps, Apple says",
+  "canonicalUrl": "https://theverge.com/tech/1028813/apple-iphone-duo-optimized-apps",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T17:24:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8bcedebc61b72129",
+  "excerpt": "Apple's iPhone Duo has been officially on sale for two weeks, and the company said today that the App Store now has over 100,000 apps that are built for the foldable. \"It's been wonderful to see how quickly developers have embraced iPhone Duo, and we're grateful for their creativity and innovation,\" Susan Prescott, Apple's VP […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "The iPhone Duo has more than 100,000 optimized apps, Apple says",
+    "url": "https://theverge.com/tech/1028813/apple-iphone-duo-optimized-apps",
+    "publishedAt": "2026-11-06T17:24:36.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-qnap-says-hackers-breaching-nas-devices-in-106849",
+  "title": "QNAP says hackers breaching NAS devices in Plex2Shell attacks",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks",
+  "category": "security",
+  "publishedAt": "2026-11-06T17:04:23.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b429fec4ea6ad779",
+  "excerpt": "QNAP urges users to update Plex Media Server to the latest version available in the QNAP App Center, as hackers are exploiting the Plex2Shell vulnerability chain. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "QNAP says hackers breaching NAS devices in Plex2Shell attacks",
+    "url": "https://bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks",
+    "publishedAt": "2026-11-06T17:04:23.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"update\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-introducing-z4m-storage-optimized-compute-for-ai-9f7619",
+  "title": "Introducing Z4M: storage-optimized compute for AI/ML and parallel file systems",
+  "canonicalUrl": "https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga",
+  "category": "cloud",
+  "publishedAt": "2026-11-06T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "75f486319a6f835c",
+  "excerpt": "Today, we’re excited to announce the general availability of our next-generation Storage-optimized Z4M machine series in Google Compute Engine, available as both Virtual Machine (VM) and bare-metal instances.  \nWe built Z4M to provide storage for AI/ML training and inference workloads such as checkpointing, distributed key-value (KV) cache and parallel file systems — workloads that handle huge data volumes and require massive parallel data processing, as well as high storage and networking throughput. Low latency access to data is equally critical to keep GPUs and TPUs fully utilized. Powered by the fifth-generation Intel Xeon Scalable processors and paired with the latest enhancements in Titanium , Z4M provides up to 168,000 GiB of Local SSD (LSSD) storage coupled with up to 400 Gbps of Cloud Remote Direct Memory Access (RDMA) networking. RDMA improves the performance of these demanding workloads by reducing data-access latency by up to 60% compared to TCP networking, so you can increase your applications’ throughput while right-sizing your cloud investment.  \nZ4M VMs and bare-metal instances \nThe Z4M VM portfolio lets you scale your infrastructure and clusters to meet workload…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Introducing Z4M: storage-optimized compute for AI/ML and parallel file systems",
+    "url": "https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga",
+    "publishedAt": "2026-11-06T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 70,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 15,
+     "reason": "Touches inference, distributed, cache, throughput, latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "high",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-the-blueprint-orchestrating-5-000-ai-assets-for-a-216fad",
+  "title": "The Blueprint: Orchestrating 5,000+ AI assets for a World Cup TV spot",
+  "canonicalUrl": "https://cloud.google.com/blog/products/media-entertainment/how-mito-orchestrated-5000-plus-ai-assets-for-a-world-cup-tv-spot",
+  "category": "cloud",
+  "publishedAt": "2026-11-06T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6bad0e777eb263d5",
+  "excerpt": "Welcome back to The Blueprint, a regular feature where we highlight how Google Cloud customers are tackling unique and common challenges across industries using the latest AI and cloud technologies. We hope to inspire others looking to innovate in their work. \nAI is rapidly transforming video production at virtually every step of the process, from ideation and storyboarding to filming, editing, and release. At Mito , we’re striving to democratize AI-powered video creation, enabling everyone from solo artists to large enterprises to get the most out of the best creative technologies available. \nThe Challenge \nWhen we founded Mito, our goal was to eliminate the complex technical friction that stops creators from telling long-form, narrative stories with generative AI.  \nHowever, transitioning from a single five-second clip to a cohesive campaign — such as a 120-second national TV spot for Movistar Plus+, a part of Telefónica, to broadcast across Spain during the World Cup this summer. This effort revealed massive infrastructure and workflow bottlenecks: \nAsset & workflow overhead: Managing local media libraries across individual workstations was unscalable. For Movistar alone, our…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "The Blueprint: Orchestrating 5,000+ AI assets for a World Cup TV spot",
+    "url": "https://cloud.google.com/blog/products/media-entertainment/how-mito-orchestrated-5000-plus-ai-assets-for-a-world-cup-tv-spot",
+    "publishedAt": "2026-11-06T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-what-s-new-with-google-cloud-d38b64",
+  "title": "What’s new with Google Cloud",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud",
+  "category": "cloud",
+  "publishedAt": "2026-11-06T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "aa18c719950d2386",
+  "excerpt": "Want to know the latest from Google Cloud? Find it here in one handy location. Check back regularly for our newest updates, announcements, resources, events, learning opportunities, and more. \nTip : Not sure where to find what you’re looking for on the Google Cloud blog? Start here:  Google Cloud blog 101: Full list of topics, links, and resources .\naside_block \n<ListValue: []> \nNov 2 - Nov 6\nSecurity for AI workloads with Model Armor\nSecuring generative AI applications requires robust runtime protection against prompt injection and malicious inputs. Join Nicola Cardace on Thursday, November 19, 2026, at 5:00 PM CET for a Community TechTalk exploring how to safeguard enterprise AI workloads using Model Armor. Discover practical patterns for implementing active model defense across your LLM endpoints. \nRegister for the November 19 Community TechTalk \nA5X accelerated by NVIDIA Vera Rubin NVL72 is now Generally Available\nGet the most out of A5X instances with Google Cloud’s AI Hypercomputer. Bringing together compute, storage, networking, and software co-designed as a single system. \nRead more \nOct 26 - Oct 30\nSimplify PostgreSQL Monitoring with the New AlloyDB Omni Web UI\nThe newly…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "What’s new with Google Cloud",
+    "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud",
+    "publishedAt": "2026-11-06T17:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-vscode-typescript-v102-e93fd1",
+  "title": "vscode-typescript/v1.0.2",
+  "canonicalUrl": "https://github.com/microsoft/TypeScript/releases/tag/vscode-typescript/v1.0.2",
+  "category": "programming",
+  "publishedAt": "2026-11-06T16:43:23.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1e326dbead4a454a",
+  "excerpt": "Bundles TypeScript 7.0.2 from commit b37cbdc6886df3c2a34cbde8d20fbb4637a35503.",
+  "sources": [
+   {
+    "sourceId": "gh-typescript",
+    "sourceName": "TypeScript releases",
+    "title": "vscode-typescript/v1.0.2",
+    "url": "https://github.com/microsoft/TypeScript/releases/tag/vscode-typescript/v1.0.2",
+    "publishedAt": "2026-11-06T16:43:23.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": true,
+  "score": {
+   "total": 23,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches typescript"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    },
+    {
+     "label": "Minor update",
+     "points": -20,
+     "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-what-i-learned-from-a-month-with-walshadow-on-b981c6",
+  "title": "What I learned from a month with WalShadow on ClickHouse Managed Postgres",
+  "canonicalUrl": "https://clickhouse.com/blog/a-month-with-walshadow-clickhouse-managed-postgres",
+  "category": "databases",
+  "publishedAt": "2026-11-06T16:16:22.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5850e59de98551a2",
+  "excerpt": "Hidehiko ASAHI shares a month of WalShadow private-preview testing, comparing replication latency with ClickPipes and checking data correctness, schema changes, and recovery.",
+  "sources": [
+   {
+    "sourceId": "clickhouse",
+    "sourceName": "ClickHouse Blog",
+    "title": "What I learned from a month with WalShadow on ClickHouse Managed Postgres",
+    "url": "https://clickhouse.com/blog/a-month-with-walshadow-clickhouse-managed-postgres",
+    "publishedAt": "2026-11-06T16:16:22.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 54,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"preview\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches postgres, replication, latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-chris-travers-postgresql-numa-and-the-cloud-f4d0fe",
+  "title": "Chris Travers: PostgreSQL, NUMA, and the Cloud",
+  "canonicalUrl": "https://postgr.es/p/9Bb",
+  "category": "databases",
+  "publishedAt": "2026-11-06T16:11:22.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "26ecfed53b796d4b",
+  "excerpt": "PostgreSQL and NUMA, Part 4 of 4 \nThis series covers the specifics of running PostgreSQL on large systems with many processors. My experience is that people spend months often learning the basics when confronted with the problem. This series tries to dispel these difficulties by providing a clear background into the topics in question. The hope is that future generations of database engineers and administrators don’t have to spend months figuring things out through trial and error. \nThis article builds on the content of the previous articles in the series . It assumes both a general working knowledge of NUMA and how NUMA affects PostgreSQL in particular with regard to the specific PostgreSQL version you are running. \nDocker, Kubernetes, and other containerized technologies pose unique challenges for running PostgreSQL on NUMA systems, particularly on public cloud providers. This final article in this series covers the problems of doing so and a number of common solutions to making the most of PostgreSQL on such systems. \nImportant Note: This article primarily covers Linux containers, whether on Docker, Kubernetes, or similar technologies. Other free UNIX-type operating systems,…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Chris Travers: PostgreSQL, NUMA, and the Cloud",
+    "url": "https://postgr.es/p/9Bb",
+    "publishedAt": "2026-11-06T16:11:22.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgresql, database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-how-nvidia-open-source-tools-are-helping-0676c1",
+  "title": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Networks",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T16:00:35.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ad360219c93427c1",
+  "excerpt": "A year ago, NVIDIA open sourced its Aerial wireless software , joining Sionna and a broader suite of open source tools for accelerating next-generation 6G network development. Together, they give researchers a foundation for testing ideas, comparing results and building on each other’s work — connecting simulation and AI training with experiments on real over-the-air wireless systems. \nToday, researchers and developers are using these tools to build 6G-ready networks that do more than just transmit data — receiving signals more effectively, keeping robots and autonomous systems connected when it matters most, and adapting in real time as devices move through the world. \nOver the past year, global developer adoption of NVIDIA AI Aerial and NVIDIA Sionna software has grown 10x, while NVIDIA’s open source 5G/6G tools have surpassed 1 million downloads. More than 8,000 research and academic institutions worldwide are using these platforms.  \nThe projects emerging today offer a view of how future networks could look. Each addresses a different challenge, but together point toward a broader ambition for building AI-native 6G networks that deliver connectivity, computing and sensing over…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Networks",
+    "url": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks",
+    "publishedAt": "2026-11-06T16:00:35.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"open sourced\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-deus-ex-d279c9",
+  "title": "Deus Ex",
+  "canonicalUrl": "https://filfre.net/2026/11/deus-ex",
+  "category": "programming",
+  "publishedAt": "2026-11-06T15:44:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4c5e8a8b23c5b219",
+  "excerpt": "Article URL: https://www.filfre.net/2026/11/deus-ex/ \nComments URL: https://news.ycombinator.com/item?id=50393758 \nPoints: 263\n# Comments: 132",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Deus Ex",
+    "url": "https://filfre.net/2026/11/deus-ex",
+    "publishedAt": "2026-11-06T15:44:36.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches .net"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-veeam-warns-of-software-appliance-boot-failures-087fd5",
+  "title": "Veeam warns of Software Appliance boot failures on AMD EPYC hosts",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/veeam-software-appliance-vms-fail-to-boot-on-amd-epyc-hosts",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T15:25:31.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c0016016e2393af3",
+  "excerpt": "​Veeam warned customers about boot failures affecting Software Appliance virtual machines (VMs) on hosts with AMD EPYC processors. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Veeam warns of Software Appliance boot failures on AMD EPYC hosts",
+    "url": "https://bleepingcomputer.com/news/security/veeam-software-appliance-vms-fail-to-boot-on-amd-epyc-hosts",
+    "publishedAt": "2026-11-06T15:25:31.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-most-apps-never-make-it-off-localhost-cursor-987aea",
+  "title": "“Most apps never make it off localhost”: Cursor takes on Lovable and Replit with fully managed app deployment",
+  "canonicalUrl": "https://thenewstack.io/cursor-ai-app-deployment",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T15:15:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b94cc4e0da7dbc4e",
+  "excerpt": "AI coding agents have certainly made it easier to transform an idea into a working application. However, getting that application off a local machine and into the hands of real users remains a hurdle, requiring essential infrastructure steps spanning everything from hosting and database provisioning, to critical security checks.\nCursor, the AI coding platform acquired by Elon Musk’s SpaceX for $60 billion back in August , acknowledged the problem in an X post published on Thursday.\n&ldquo;Agents have made it easier to write code, but most apps never make it off localhost,&rdquo; the company notes.\nTo address this, Cursor is introducing new app-building and deployment functionality , designed to take AI-generated applications from development to a live, shareable URL, without users having to even think about the underlying infrastructure themselves.\n&ldquo;Agents have made it easier to write code, but most apps never make it off localhost.”\nBuilt on cloud agents\nThe new feature is built around cloud agents , which Cursor introduced last year as a way for developers to run multiple AI coding agents remotely without having to keep their laptops engaged. At the time, the company…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "“Most apps never make it off localhost”: Cursor takes on Lovable and Replit with fully managed app deployment",
+    "url": "https://thenewstack.io/cursor-ai-app-deployment",
+    "publishedAt": "2026-11-06T15:15:21.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-core-vitals-optimization-ssr-deployments-and-81b4ef",
+  "title": "Core Vitals Optimization, SSR Deployments, and Signal-First Architecture ⚡",
+  "canonicalUrl": "https://blog.angular.dev/core-vitals-optimization-ssr-deployments-and-signal-first-architecture-be82fd4a8c87",
+  "category": "programming",
+  "publishedAt": "2026-11-06T15:01:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "80c3306d27bd7fac",
+  "excerpt": "The Angular community is firing on all cylinders! From shaving milliseconds off your Core Web Vitals to deploying server-side rendered apps in production, mastering professional form submissions, and architecting enterprise Nx monorepos, this week’s lineup is packed with practical engineering gems.\nDive into these expert-led resources to level up your workflow:\nWeb Core Vitals in Angular (Spanish)\nKevin Dávila breaks down how to optimize your Angular applications for Core Web Vitals (LCP, INP, and CLS). Learn tactical patterns to enhance real-world user experience and skyrocket your performance scores.\nRead the guide: https://www.codeabien.com/es/blog/web-core-vitals-en-angular \nAngular SSR Deployment (Spanish with English Subtitles)\nAlejandro Cuba Ruiz, Antonio Cárdenas, and Ricardo Chavarría join forces to break down the complexities of taking Server-Side Rendering to production. Discover hosting options, pipeline setups, and critical deployment pitfalls to avoid.\nWatch the deployment panel: https://youtu.be/wIaThYaieUA \nSubmit Like a Pro with Angular Signal Forms\nFanis Prodromou walks through how to handle form submission flows cleanly using the modern Signal Forms API. Learn…",
+  "sources": [
+   {
+    "sourceId": "angular-blog",
+    "sourceName": "Angular Blog",
+    "title": "Core Vitals Optimization, SSR Deployments, and Signal-First Architecture ⚡",
+    "url": "https://blog.angular.dev/core-vitals-optimization-ssr-deployments-and-signal-first-architecture-be82fd4a8c87",
+    "publishedAt": "2026-11-06T15:01:04.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches angular"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-how-do-you-land-on-a-moon-with-almost-no-gravity-c33a47",
+  "title": "How Do You Land on a Moon With Almost No Gravity?",
+  "canonicalUrl": "https://spectrum.ieee.org/mmx-mission-to-phobos",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T15:00:02.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8752de9318c914b9",
+  "excerpt": "Last August, looking up from the edge of an ancient river delta on Mars, the Perseverance rover ’s electronic eye spied an oblong shadow crossing the distant, glowing Sun. Phobos , the Martian moon named for the Greek god of fear and panic, was transiting the solar disk. Too small to darken the pale, dust-tinged sky, but orbiting close enough to eclipse a significant fraction of the Sun, Phobos passed in less than a minute.\nNASA’s Perseverance rover captured Phobos passing in front of the Sun from the surface of Mars. ASU/MSSS/SSI/JPL-Caltech/NASA \nThe tiny moon, with its murky origins, is an enigma, and one whose makeup and history could tell us much about Mars and the wider solar system. And now the international Martian Moons eXploration (MMX) mission, which successfully launched on 20 October , seeks to explore that mystery with an unprecedented series of landings on the unknown surface of Phobos.\nThis mission brings unusual challenges—for example, designing an orbit to study a microgravity moon orbiting a much larger planet. Engineers also had to figure out how to assess and land on this low-gravity pile of loosely assembled dirt and rock, how a rover might rove across it,…",
+  "sources": [
+   {
+    "sourceId": "ieee-spectrum",
+    "sourceName": "IEEE Spectrum",
+    "title": "How Do You Land on a Moon With Almost No Gravity?",
+    "url": "https://spectrum.ieee.org/mmx-mission-to-phobos",
+    "publishedAt": "2026-11-06T15:00:02.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-yelp-combines-native-and-server-driven-ui-for-its-abfca9",
+  "title": "Yelp Combines Native and Server-Driven UI for Its AI Assistant",
+  "canonicalUrl": "https://infoq.com/news/2026/11/yelp-assistant-hybrid-ui",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T14:25:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0f13c56c60e2bdc0",
+  "excerpt": "Yelp combines native mobile controls with server-driven conversation rendering in its AI Assistant using the CHAOS framework. The architecture separates view configuration from conversation data, supports backend-driven chat interactions, and enables faster UI updates without new app releases. Yelp also discusses cross-platform challenges and reuse for its Biz Ask Anything pilot.\nBy Leela Kumili",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Yelp Combines Native and Server-Driven UI for Its AI Assistant",
+    "url": "https://infoq.com/news/2026/11/yelp-assistant-hybrid-ui",
+    "publishedAt": "2026-11-06T14:25:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"faster\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-security-updates-for-friday-2ff9a9",
+  "title": "Security updates for Friday",
+  "canonicalUrl": "https://lwn.net/Articles/1105881",
+  "category": "databases",
+  "publishedAt": "2026-11-06T14:04:54.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "28c27a3250eae348",
+  "excerpt": "Security updates have been issued by AlmaLinux (cockpit-files, container-tools:rhel8, delve, gcc-toolset-12-binutils, gimp:2.8, glibc, go-toolset:rhel8, kernel, libfastjson, mariadb:10.3, mod_auth_openidc:2.3, mysql:8.0, php:8.0, pki-core:10.6 and pki-deps:10.6, squid:4, tang, tesseract, thunderbird, and virt:rhel and virt-devel:rhel), Debian (chromium, ntfs-3g, puppet-agent, and trapperkeeper-authorization-clojure), Fedora (freerdp, goose, gpsd, hatch, perl-HTTP-Headers-ActionPack, perl-MIME-tools, perl-Plack, perl-Starman, proftpd, python-mistune, ruby-build, rust-crypto-bigint, rust-ctutils, rust-elliptic-curve, rust-num-bigint, rust-num-bigint0.4, rust-num-modular, rust-num-modular0.6, rust-num-prime, rust-zmij, rust-zstd, rust-zstd-safe, rust-zstd-safe7, rust-zstd-sys, rust-zstd0.13, scribus, sofia-sip, tailscale, tor, and wordpress), Oracle (cockpit-files, delve, firefox, gimp:2.8, kernel, and osbuild-composer), Red Hat (delve, git-lfs, go-toolset:rhel8, grafana, ignition, opentelemetry-collector, osbuild-composer, python-pillow, and yggdrasil), Slackware (openssh), SUSE (bind, brotli, cpupower, expat, fuse-overlayfs, go1.26, google-guest-agent, helm, ibus-typing-booster,…",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Security updates for Friday",
+    "url": "https://lwn.net/Articles/1105881",
+    "publishedAt": "2026-11-06T14:04:54.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"8.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches go, agent, python, rust"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-toyblocks-a-controlled-world-for-robot-learning-5a90ca",
+  "title": "ToyBlocks: A controlled world for robot learning and evaluation",
+  "canonicalUrl": "https://huggingface.co/blog/allenai/toyblocks",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T14:00:48.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e507217ce6a54dca",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "ToyBlocks: A controlled world for robot learning and evaluation",
+    "url": "https://huggingface.co/blog/allenai/toyblocks",
+    "publishedAt": "2026-11-06T14:00:48.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-the-post-quantum-future-of-web-privacy-0788fb",
+  "title": "The post-quantum future of web privacy",
+  "canonicalUrl": "https://blog.cloudflare.com/vole-mole",
+  "category": "cloud",
+  "publishedAt": "2026-11-06T14:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "006451afad2b79a7",
+  "excerpt": "The highest priorities for the transition to post-quantum cryptography are the basic building blocks of authenticated key-agreement protocols such as TLS. Without these building blocks in place, secure communication on the Internet will not be possible once cryptographically relevant quantum computers come online. However, today we rely on quantum-vulnerable cryptography for much more than TLS.\nPrivacy Pass  is a protocol used by site operators like Cloudflare to help protect applications from abuse. One way we do this is by rate limiting individual clients so that no one client consumes too many of the site's resources. Normally this involves some combination of friction or loss of privacy for users: CAPTCHAs or other challenges to moderate traffic, along with accounts and fingerprinting to identify traffic.Privacy Pass was designed to avoid this tradeoff between friction and privacy. The basic idea is that a client gets issued a number of tokens , which they can redeem in exchange for access to the site. Crucially, each token is unlinkable   to the client it was issued to, ensuring the client can use the site as they always had without sacrificing privacy.\nWith 10 years of…",
+  "sources": [
+   {
+    "sourceId": "cloudflare",
+    "sourceName": "Cloudflare Blog",
+    "title": "The post-quantum future of web privacy",
+    "url": "https://blog.cloudflare.com/vole-mole",
+    "publishedAt": "2026-11-06T14:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches tls"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-the-download-a-humanoid-cleans-house-and-samsung-8d0cdf",
+  "title": "The Download: a humanoid cleans house and Samsung builds for the AI boom",
+  "canonicalUrl": "https://technologyreview.com/2026/11/06/1148154/the-download-humanoid-robot-cleaner-samsung-ai-chip-boom",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T13:10:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "abf43b49463447fc",
+  "excerpt": "This is today’s edition of The Download , our weekday newsletter that provides a daily dose of what’s going on in the world of technology. \nI watched a humanoid robot clean my apartment. It felt like a taste of the future. \n—Grace Huckins \nWhen I saw an X post about a new humanoid-robot cleaning service in San Francisco, I immediately signed up for the waitlist. I wanted my apartment to feel like The Jetsons , even if just for an hour.\nThe device that arrived at my building belongs to Tau Robotics, a local startup. Its long-term goal is to make autonomous cleaning robots a reality, but the technology isn’t quite there yet. For now, humans pilot the robots remotely, watching them work through onboard cameras.\nThere were some unexpected challenges along the way, but also moments that felt like a glimpse of the future.\nFind out how well the machine cleaned my home—and how close we are to truly autonomous domestic robots .\nA visit to Samsung’s massive new semiconductor hub \nGenerative AI models depend on stacks of specialized memory chips. To meet soaring demand, Samsung is building a vast new semiconductor manufacturing campus in Pyeongtaek, South Korea.\nI visited the sprawling…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "The Download: a humanoid cleans house and Samsung builds for the AI boom",
+    "url": "https://technologyreview.com/2026/11/06/1148154/the-download-humanoid-robot-cleaner-samsung-ai-chip-boom",
+    "publishedAt": "2026-11-06T13:10:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-intellij-scala-plugin-20263-is-out-07c44c",
+  "title": "IntelliJ Scala Plugin 2026.3 Is Out!",
+  "canonicalUrl": "https://blog.jetbrains.com/scala/2026/11/06/intellij-scala-plugin-2026-3-is-out",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T12:15:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "22b4e6b46f6ba5a3",
+  "excerpt": "Hello everyone!\nScala plugin 2026.3 is here! This release brings more accurate Scala 3 code analysis, substantially reworked Twirl support for Play Framework developers, and more efficient compiler-based highlighting that reduces redundant background work. You’ll also find improvements to build-tool support, debugging, and everyday editing. Let’s take a closer look at what’s new.\nScala 3\nThis release adds support for Scala 3.10 and improves built-in Scala 3 code analysis, reducing false errors and making inferred types more accurate.\nExtension methods now resolve more accurately when overloads involve different or generic receiver types, method type parameters, or implicit conversions. We’ve also corrected resolution of right-associative extension operators. Code completion, navigation, and Quick Documentation distinguish extension methods with different receiver types more clearly, and code completion lists fewer duplicate entries.\nContextual argument resolution now makes better use of method arguments and explicit type arguments when selecting given instances. This avoids false ambiguity and missing-implicit errors in generic code, including calls where type and value parameter…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "IntelliJ Scala Plugin 2026.3 Is Out!",
+    "url": "https://blog.jetbrains.com/scala/2026/11/06/intellij-scala-plugin-2026-3-is-out",
+    "publishedAt": "2026-11-06T12:15:21.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches compiler"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-tesla-to-wind-down-cybertruck-production-e1b5f0",
+  "title": "Tesla to wind down Cybertruck production",
+  "canonicalUrl": "https://nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817",
+  "category": "programming",
+  "publishedAt": "2026-11-06T12:13:51.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a98e9b17c8c35f7e",
+  "excerpt": "Article URL: https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817 \nComments URL: https://news.ycombinator.com/item?id=50391456 \nPoints: 562\n# Comments: 1269",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Tesla to wind down Cybertruck production",
+    "url": "https://nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817",
+    "publishedAt": "2026-11-06T12:13:51.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-faster-llm-inference-startup-what-you-need-to-know-06ff09",
+  "title": "Faster LLM inference startup: What you need to know",
+  "canonicalUrl": "https://cncf.io/blog/2026/11/06/faster-llm-inference-startup-what-you-need-to-know",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-06T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "443119d03d631431",
+  "excerpt": "Adding an inference replica creates capacity only after the new instance can serve requests. Between starting a process and generating a response, an LLM server may need to load weights, initialize GPU resources, compile kernels, capture execution graphs, and warm up the engine. Restarts, model switches, and scale-out can repeat this work.\nThe community is addressing these costs at several levels. vLLM and SGLang are developing ways to reuse weights and initialized state. Serving platforms are building workflows around warm instances and snapshots. Kubernetes, container runtimes, and the Open Container Initiative (OCI) are working on related interfaces and artifact questions.\nThese efforts have different boundaries and are progressing independently. Understanding what each approach preserves helps explain both its benefits and its current scope.\nWhy starting an inference server takes time \nA typical startup includes several kinds of work. The server launches processes and imports libraries. It reads model files, constructs tensors, and performs any required weight transformations. It initializes the execution runtime and communication between workers, allocates memory, and…",
+  "sources": [
+   {
+    "sourceId": "cncf",
+    "sourceName": "CNCF Blog",
+    "title": "Faster LLM inference startup: What you need to know",
+    "url": "https://cncf.io/blog/2026/11/06/faster-llm-inference-startup-what-you-need-to-know",
+    "publishedAt": "2026-11-06T12:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"faster\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches llm, inference, kubernetes"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-gitlab-195-makes-agentic-development-a-governed-e87dae",
+  "title": "GitLab 19.5 Makes Agentic Development a Governed Part of the DevOps Platform",
+  "canonicalUrl": "https://infoq.com/news/2026/11/gitlab-19-5-agentic-platform",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bab5b48f3abfb5da",
+  "excerpt": "GitLab 19.5, released on October 15, puts agentic software development and governance at the centre of the platform, making its GitLab MCP server generally available while expanding how external AI agents can interact with GitLab.\nBy Craig Risi",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "GitLab 19.5 Makes Agentic Development a Governed Part of the DevOps Platform",
+    "url": "https://infoq.com/news/2026/11/gitlab-19-5-agentic-platform",
+    "publishedAt": "2026-11-06T12:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"generally available\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-clickhouse-release-2610-b80d6a",
+  "title": "ClickHouse release 26.10",
+  "canonicalUrl": "https://clickhouse.com/blog/clickhouse-release-26-10",
+  "category": "databases",
+  "publishedAt": "2026-11-06T11:45:40.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9bc638078ebc0c2b",
+  "excerpt": "ClickHouse 26.10 introduces function composition, more flexible joins, faster GROUP BY queries, disk spilling for IN subqueries, an experimental columns cache, and Freeform and SQLite formats.",
+  "sources": [
+   {
+    "sourceId": "clickhouse",
+    "sourceName": "ClickHouse Blog",
+    "title": "ClickHouse release 26.10",
+    "url": "https://clickhouse.com/blog/clickhouse-release-26-10",
+    "publishedAt": "2026-11-06T11:45:40.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches cache"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-goland-s-profiler-now-works-with-ai-agents-e5ba50",
+  "title": "GoLand’s Profiler Now Works With AI Agents",
+  "canonicalUrl": "https://blog.jetbrains.com/go/2026/11/06/we-gave-ai-agents-goland-s-profiler-they-found-the-same-bottlenecks-with-half-the-tokens",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T11:32:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "373132fb4e4b8f19",
+  "excerpt": "In our practical guide to profiling in Go , we mentioned that some of the Go developers we talked to avoid pprof if they can. For many of them, typical Go services perform well enough without optimizations, so when they do need to profile, it can feel like a “rescue mission” with a tool they are not really experienced with. They have to remember which profile to take and how to collect it, and then make sense of a lot of low-level data.\nGoLand 2026.1.2 made the collecting part easier with a built-in profiler. In GoLand 2026.3, we are taking it a step further – your AI agent can now use that profiler too. You describe the symptom, for example, “reindexing through POST /reindex takes much longer than it should, profile it”, and the agent runs your app with the profiler, picks the profiles that fit the problem, reads the results, and points you to the code that is responsible. You do not need to know what a mutex profile is or which pprof flags to pass.\nThis works with Claude Code, Codex, and Junie through the bundled goland-profiler skill and a set of MCP tools. Below, we take a closer look at what the agent does and how you can split the work with it.\nWhat happens when you ask the…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "GoLand’s Profiler Now Works With AI Agents",
+    "url": "https://blog.jetbrains.com/go/2026/11/06/we-gave-ai-agents-goland-s-profiler-they-found-the-same-bottlenecks-with-half-the-tokens",
+    "publishedAt": "2026-11-06T11:32:04.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, go, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-typescript-71-beta-restores-the-compiler-api-and-ac4116",
+  "title": "TypeScript 7.1 Beta: Restores the Compiler API and Makes Vue and Svelte First-Class",
+  "canonicalUrl": "https://infoq.com/news/2026/11/typescript-7-1-beta",
+  "category": "programming",
+  "publishedAt": "2026-11-06T11:06:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "f697d598302a3ebf",
+  "excerpt": "TypeScript 7.1 Beta, announced October 20, 2026, restores the compiler API removed in 7.0, now split into separate entry points. It adds content mappers, letting tools like Vue check non-standard files. One Vue project's type checks fell from 14.19 to 3.10 seconds. An editor issue remains open, and teams may need TypeScript 6 alongside 7.\nBy Daniel Curtis",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "TypeScript 7.1 Beta: Restores the Compiler API and Makes Vue and Svelte First-Class",
+    "url": "https://infoq.com/news/2026/11/typescript-7-1-beta",
+    "publishedAt": "2026-11-06T11:06:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches typescript, compiler, api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-presentation-the-socio-technical-staff-engineer-e08d56",
+  "title": "Presentation: The Socio-Technical Staff+ Engineer: Architecture, Culture and Organisational Change",
+  "canonicalUrl": "https://infoq.com/presentations/sociotechnical-staff-engineer-architecture",
+  "category": "programming",
+  "publishedAt": "2026-11-06T11:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4225cfdb5f0d4472",
+  "excerpt": "Vanessa Formicola shares how technical leaders can move beyond \"wishful architecture\" by practicing holistic socio-technical engineering. She discusses why engineering leaders must account for organizational maturity, reward structures, geopolitical climate, and team dynamics, framing the staff-plus role as designing the conditions for technology to thrive rather than just picking tools.\nBy Vanessa Formicola",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Presentation: The Socio-Technical Staff+ Engineer: Architecture, Culture and Organisational Change",
+    "url": "https://infoq.com/presentations/sociotechnical-staff-engineer-architecture",
+    "publishedAt": "2026-11-06T11:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-aws-ships-continuum-for-code-vulnerabilities-4b7b98",
+  "title": "AWS Ships Continuum for Code Vulnerabilities",
+  "canonicalUrl": "https://infoq.com/news/2026/11/aws-continuum-ga",
+  "category": "security",
+  "publishedAt": "2026-11-06T10:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d988dffbf384cc48",
+  "excerpt": "AWS has made Continuum for code vulnerabilities generally available in two regions. The service proves exploitability by running real exploits in a sandbox, then opens fixes as pull requests. Published pricing charges per finding processed as well as per line of code, and practitioners are asking what would justify letting it merge fixes on its own.\nBy Steef-Jan Wiggers",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "AWS Ships Continuum for Code Vulnerabilities",
+    "url": "https://infoq.com/news/2026/11/aws-continuum-ga",
+    "publishedAt": "2026-11-06T10:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"generally available\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches aws"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-i-watched-a-humanoid-robot-clean-my-apartment-it-e44f11",
+  "title": "I watched a humanoid robot clean my apartment. It felt like a taste of the future.",
+  "canonicalUrl": "https://technologyreview.com/2026/11/06/1148090/i-watched-a-humanoid-robot-clean-my-apartment-it-felt-like-a-taste-of-the-future",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T10:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "92301467a8432dfa",
+  "excerpt": "I’m not the sort of person who typically pays for a house cleaner. I’m too frugal, and I kind of enjoy putting on a podcast and going to town on my tub with a Magic Eraser. But when I saw an X post about a new humanoid-robot cleaning service in San Francisco, I immediately signed up for the waitlist. I wanted my apartment to feel like The Jetsons , even if just for an hour.\nI was also motivated by journalistic interest. In order to ensure an authentic experience, I didn’t tell Tau Robotics, the startup behind the X post, that I was a journalist—though I did use my real name, so it’s possible someone looked me up. Tau’s long-term goal is to make autonomous cleaning robots a reality, but they’re not quite there yet: For now, the robots are piloted remotely by humans, who watch what’s going on via cameras mounted in the robots’ heads and wrists. As the robots clean, they collect data that Tau will use to train up their more independent descendants. Every counter successfully wiped and T-shirt successfully folded will help the models that power the robots learn to do better on the next go-round.\nBecause this data is so valuable to Tau, the company charges less for cleaning than one…",
+  "sources": [
+   {
+    "sourceId": "mit-tech-review",
+    "sourceName": "MIT Technology Review",
+    "title": "I watched a humanoid robot clean my apartment. It felt like a taste of the future.",
+    "url": "https://technologyreview.com/2026/11/06/1148090/i-watched-a-humanoid-robot-clean-my-apartment-it-felt-like-a-taste-of-the-future",
+    "publishedAt": "2026-11-06T10:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-dutch-idealist-bank-asn-blocks-non-google-android-d18ddd",
+  "title": "Dutch 'idealist' bank ASN blocks non-Google Android, including GrapheneOS",
+  "canonicalUrl": "https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T09:27:12.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e1e1ce6bb88a55e0",
+  "excerpt": "Article URL: https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105 \nComments URL: https://news.ycombinator.com/item?id=50390124 \nPoints: 585\n# Comments: 376",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Dutch 'idealist' bank ASN blocks non-Google Android, including GrapheneOS",
+    "url": "https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105",
+    "publishedAt": "2026-11-06T09:27:12.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-article-identity-as-an-architectural-concern-d88e8e",
+  "title": "Article: Identity as an Architectural Concern: Enterprise IAM Beyond Authentication",
+  "canonicalUrl": "https://infoq.com/articles/identity-as-architecture",
+  "category": "programming",
+  "publishedAt": "2026-11-06T09:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cf47181bc4ba7834",
+  "excerpt": "The way you design your identities will drive your data models, your service scope, and your revocation policies; enterprise identity management is thus an architectural problem, not an afterthought. Based on our experience in service account governance, this article touches upon graph vs. RBAC, integrating a vault you don't own, and bounding revocation latency for an event stream.\nBy Vaishnavi Khosla",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Article: Identity as an Architectural Concern: Enterprise IAM Beyond Authentication",
+    "url": "https://infoq.com/articles/identity-as-architecture",
+    "publishedAt": "2026-11-06T09:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches authentication, latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-06-welcome-to-life-in-the-chip-age-d0c189",
   "title": "Welcome to life in the chip age",
   "canonicalUrl": "https://stackoverflow.blog/2026/11/06/welcome-to-life-in-the-chip-age",
@@ -7,7 +2348,7 @@
   "publishedAt": "2026-11-06T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b28c1a01375b2d75",
@@ -45,6 +2386,214 @@
   },
   "importance": "routine",
   "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-java-annotated-monthly-november-2026-005bc2",
+  "title": "Java Annotated Monthly – November 2026",
+  "canonicalUrl": "https://blog.jetbrains.com/idea/2026/11/java-annotated-monthly-november-2026",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T08:07:06.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "aa6818140c47536f",
+  "excerpt": "October kept the Java world busy, with JDK news, fresh tutorials, Kotlin updates, AI experiments, and plenty more from across the wider ecosystem. We’ve gathered the best of it in one place, so you can skip the scrolling and get straight to the good stuff. To top it all off, Piotr Przybył joins us as this month’s featured guest.\nLet’s go!\nFeatured Content\nPiotr Przybył\nPiotr Przybył   – Notorious engineer at work and after hours, tracing the meanders of the art of software engineering. Remote Software Gardener, mostly working in web-oriented Java gardens. Java Champion. Docker Captain. Testcontainers Champion. Programming usually in Java (since 1.3), Scala, and Go, but in other languages too. Fan of agility, seen mostly as choosing the right tools and approaches after asking the right questions. Developer, trainer, and conference speaker, currently working at Elastic as a Senior Developer Advocate.\nGreetings, fellow Java developers! It’s a pleasure to be here again – it’s been three Java releases since the last time. We all know that means roughly 18 months, don’t we? ;-)\nBoth the world and our ecosystem were moving fast back then, and it seems they have only accelerated. This…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "Java Annotated Monthly – November 2026",
+    "url": "https://blog.jetbrains.com/idea/2026/11/java-annotated-monthly-november-2026",
+    "publishedAt": "2026-11-06T08:07:06.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 51,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches go, docker"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-partnering-with-hacktron-to-find-vulnerabilities-a0a44e",
+  "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
+  "canonicalUrl": "https://openai.com/index/partnering-with-hacktron",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7b44a3f552684aab",
+  "excerpt": "OpenAI is partnering with Hacktron to find vulnerabilities, test connections with third-party services, and strengthen defenses with frontier AI.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
+    "url": "https://openai.com/index/partnering-with-hacktron",
+    "publishedAt": "2026-11-06T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-zero-shot-predictions-in-pandas-using-the-new-4323de",
+  "title": "Zero-shot predictions in Pandas using the new BigQuery Accessor",
+  "canonicalUrl": "https://cloud.google.com/blog/products/data-analytics/bigquery-ai-functions-in-pandas",
+  "category": "cloud",
+  "publishedAt": "2026-11-06T08:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "59e1c31be358c3a8",
+  "excerpt": "Imagine running advanced machine learning workflows—from forecasting and classification to high-dimensional embedding generation—without ever leaving your familiar pandas DataFrame. With the new .bigquery accessor from BigQuery DataFrames (BigFrames) , that vision is now a reality. You can seamlessly invoke BigQuery's enterprise-grade AI functions directly within pandas, scaling your data science and ML pipelines on cloud infrastructure . \nTake linear regression as an example. Traditionally, a pandas user who needs to run regression would have to extract data locally, manually select features, and train a custom scikit-learn model like this: \ncode_block \n<ListValue: [StructValue([('code', \"import pandas as pd\\r\\nfrom sklearn.linear_model import LinearRegression\\r\\nfrom sklearn.preprocessing import StandardScaler\\r\\nfrom sklearn.pipeline import make_pipeline\\r\\n\\r\\n# Load historical training data from a CSV\\r\\ntrain_df = pd.read_csv('historical_data.csv')\\r\\n\\r\\n# Separate features (X) and target (y)\\r\\nX_train = train_df[['feature_1', 'feature_2']]\\r\\ny_train = train_df['target_metric']\\r\\n\\r\\n# Build and train a modeling pipeline\\r\\n# The StandardScaler ensures features with…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Zero-shot predictions in Pandas using the new BigQuery Accessor",
+    "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-ai-functions-in-pandas",
+    "publishedAt": "2026-11-06T08:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-blender-s-ui-and-runtime-much-faster-than-gpui-bec042",
+  "title": "Blender's UI and Runtime: Much Faster Than GPUI",
+  "canonicalUrl": "https://github.com/ppmpreetham/BUI",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T07:40:35.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a92ebaba43f1b73d",
+  "excerpt": "Article URL: https://github.com/ppmpreetham/BUI \nComments URL: https://news.ycombinator.com/item?id=50389333 \nPoints: 598\n# Comments: 243",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Blender's UI and Runtime: Much Faster Than GPUI",
+    "url": "https://github.com/ppmpreetham/BUI",
+    "publishedAt": "2026-11-06T07:40:35.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"faster\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
  },
  {
   "id": "2026-11-06-edera-s-object-capability-bounded-authority-d640a4",
@@ -111,7 +2660,7 @@
   "publishedAt": "2026-11-06T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2ada64f694b94db6",
@@ -158,7 +2707,7 @@
   "publishedAt": "2026-11-06T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4cdd03c94f4dffe",
@@ -215,7 +2764,7 @@
   "publishedAt": "2026-11-06T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "40ebe5b371ddfcb3",
@@ -272,7 +2821,7 @@
   "publishedAt": "2026-11-06T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "83f269c8641290be",
@@ -324,7 +2873,7 @@
   "publishedAt": "2026-11-06T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0455f77eb6189963",
@@ -376,7 +2925,7 @@
   "publishedAt": "2026-11-06T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5c7e7b5f39997c52",
@@ -433,7 +2982,7 @@
   "publishedAt": "2026-11-06T05:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5b5ff449357f4320",
@@ -485,7 +3034,7 @@
   "publishedAt": "2026-11-06T03:17:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a092cfb216cb4f19",
@@ -597,7 +3146,7 @@
   "publishedAt": "2026-11-06T00:19:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6441e1b267a1180d",
@@ -649,7 +3198,7 @@
   "publishedAt": "2026-11-06T00:09:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6b87dee3c6708cbc",
@@ -701,7 +3250,7 @@
   "publishedAt": "2026-11-06T00:08:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "18bda7e0072979dc",
@@ -803,6 +3352,157 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-06-egyptian-and-nigerian-english-join-the-open-asr-13e4c9",
+  "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
+  "canonicalUrl": "https://huggingface.co/blog/open-asr-leaderboard-liva",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "dbd45afff744e044",
+  "excerpt": "",
+  "sources": [
+   {
+    "sourceId": "huggingface",
+    "sourceName": "Hugging Face Blog",
+    "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
+    "url": "https://huggingface.co/blog/open-asr-leaderboard-liva",
+    "publishedAt": "2026-11-06T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-measuring-how-ai-agents-handle-everyday-wet-lab-5f7212",
+  "title": "Measuring how AI agents handle everyday wet-lab science",
+  "canonicalUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "91b13b2625a85566",
+  "excerpt": "OpenAI introduces BioBasicsBench, a 100-task benchmark measuring how well AI agents interpret raw experimental data and handle everyday wet-lab science.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Measuring how AI agents handle everyday wet-lab science",
+    "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+    "publishedAt": "2026-11-06T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduces\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-the-pentagon-wants-to-know-who-checks-code-when-6ae6c4",
+  "title": "The Pentagon wants to know who checks code when AI writes it",
+  "canonicalUrl": "https://about.gitlab.com/blog/department-of-war-instruction-for-ai-generated-code",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "78cb42929856968e",
+  "excerpt": "The Department of War now treats AI-generated code as unverified until it’s proven otherwise. DoW Instruction 8430.01 , “Accelerated Mission Software,” took effect September 8, 2026, and is the department’s latest guidance on modernizing and managing software. If you build or buy software for the DoW, the instruction changes what’s required of you for every line AI writes. You have to review and test it to the same standard as human-written code, show where AI touched it, and keep it on systems the department has approved. Here’s what the instruction asks of your team, and how GitLab helps you address it.\nWhat is DoW Instruction 8430.01?\nIssued by DoW CIO Kirsten Davies, DoW Instruction 8430.01 applies to every DoW organization and to any acquisition program that includes software, regardless of cost. The instruction sets policy and procedures for modernizing and managing software, with an emphasis on delivering capabilities faster. It directs teams to automate testing and security scanning, reuse what already works, and produce evidence as software is built.\nThe instruction also encourages teams to use AI, calling AI-assisted development a major force multiplier for speed and…",
+  "sources": [
+   {
+    "sourceId": "gitlab",
+    "sourceName": "GitLab Blog",
+    "title": "The Pentagon wants to know who checks code when AI writes it",
+    "url": "https://about.gitlab.com/blog/department-of-war-instruction-for-ai-generated-code",
+    "publishedAt": "2026-11-06T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-05-threat-actors-use-agentic-ai-tooling-to-find-and-70e864",
   "title": "Threat actors use agentic AI tooling to find and abuse exposed secrets",
   "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets",
@@ -810,7 +3510,7 @@
   "publishedAt": "2026-11-05T23:46:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b4df4e2c19844532",
@@ -1004,7 +3704,7 @@
   "publishedAt": "2026-11-05T23:09:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "daef14854f3945fa",
@@ -1047,6 +3747,58 @@
   },
   "importance": "routine",
   "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-05-bringing-conversational-analytics-to-gemini-with-614daa",
+  "title": "Bringing conversational analytics to Gemini with Agentic Data Cloud connectors",
+  "canonicalUrl": "https://cloud.google.com/blog/products/data-analytics/query-enterprise-data-in-gemini-with-data-cloud-connectors",
+  "category": "cloud",
+  "publishedAt": "2026-11-05T23:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6cc9c9a15a9a326b",
+  "excerpt": "Data Cloud connectors in Gemini for business, now in preview , give business users and analysts a direct way to query live enterprise data in natural language. Across most organizations, data questions multiply faster than analysts can answer them: Projects stall in ticket queues, leaders fall back on guesswork, and unmanaged spreadsheets spread across teams. Early generative AI tools promised conversational access to data, but they often struggled to generate accurate SQL across complex schemas or to respect governance rules. Data Cloud connectors let you query governed data directly from your workspace while enforcing row- and column-level security and respecting end-user credentials. \nA new way to query enterprise data \nGemini brings conversational analytics directly into your day-to-day workflow through two paths: Conversational Analytics agents , which let you create data agents that include context and instructions to effectively answer questions for specific use cases, and Data Cloud connectors , allowing you to query live data directly with Gemini. End users can pull data directly from BigQuery (preview), operational databases like Spanner , AlloyDB , and Cloud SQL…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "Bringing conversational analytics to Gemini with Agentic Data Cloud connectors",
+    "url": "https://cloud.google.com/blog/products/data-analytics/query-enterprise-data-in-gemini-with-data-cloud-connectors",
+    "publishedAt": "2026-11-05T23:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"preview\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
  },
  {
   "id": "2026-11-05-claude-code-sends-your-email-address-to-websites-199af8",
@@ -1156,7 +3908,7 @@
   "publishedAt": "2026-11-05T22:05:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ec043e7b675a4d19",
@@ -1350,7 +4102,7 @@
   "publishedAt": "2026-11-05T20:23:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e0bc84fb7004d81",
@@ -1574,7 +4326,7 @@
   "publishedAt": "2026-11-05T20:00:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e8d76e8cf7c9759d",
@@ -1626,7 +4378,7 @@
   "publishedAt": "2026-11-05T20:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a368fccf0f85b32a",
@@ -1678,7 +4430,7 @@
   "publishedAt": "2026-11-05T19:57:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3ef29f7aaacea164",
@@ -1778,7 +4530,7 @@
   "publishedAt": "2026-11-05T19:25:32.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9c06dbaaa6eb94b3",
@@ -2032,6 +4784,54 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-05-ieee-program-schools-preuniversity-educators-on-c739d1",
+  "title": "IEEE Program Schools Preuniversity Educators On Tech Topics",
+  "canonicalUrl": "https://spectrum.ieee.org/ieee-preuniversity",
+  "category": "hardware",
+  "publishedAt": "2026-11-05T19:00:02.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "674e7c008a50ba01",
+  "excerpt": "Now in their third year, the IEEE TryEngineering educator sessions continue to empower preuniversity teachers with specialized professional development programs on engineering topics and classroom-tested lessons.\nThis year’s sessions, held across the United States, have focused on educating teachers about artificial intelligence and semiconductor technology. One session was held in Egypt.\nIn all, 54 educators learned about the engineering design process this year. They received an overview of TryEngineering resources including the Making of a Microchip and Train Your Tree lesson plans.\nWorkshops are scheduled this year in Greece and Guatemala.\nThe TryEngineering program is administered by IEEE Educational Activities . \nThese teachers and guest speakers attended the two-day session held at the Florida Semiconductor Institute and SkyWater Technology chip manufacturing facility. IEEE Educational Activities \nA network of host universities\nCentral to the educator session program’s success is its university network. Host campuses welcome teachers into their facilities, where faculty provide background information about some of the technologies being taught, as well as possible…",
+  "sources": [
+   {
+    "sourceId": "ieee-spectrum",
+    "sourceName": "IEEE Spectrum",
+    "title": "IEEE Program Schools Preuniversity Educators On Tech Topics",
+    "url": "https://spectrum.ieee.org/ieee-preuniversity",
+    "publishedAt": "2026-11-05T19:00:02.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-05-help-shape-the-future-of-net-take-the-2026-net-200b4c",
   "title": "Help Shape the Future of .NET: Take the 2026 .NET Developer Survey",
   "canonicalUrl": "https://devblogs.microsoft.com/dotnet/dotnet-developer-survey-2026",
@@ -2039,7 +4839,7 @@
   "publishedAt": "2026-11-05T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cddffc5174e6bb18",
@@ -2143,7 +4943,7 @@
   "publishedAt": "2026-11-05T18:45:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9adbcac3d66278a1",
@@ -2190,7 +4990,7 @@
   "publishedAt": "2026-11-05T18:05:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7fcfd3ded7f42913",
@@ -2509,7 +5309,7 @@
   "publishedAt": "2026-11-05T17:10:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2cb52f8f53499ec",
@@ -2561,7 +5361,7 @@
   "publishedAt": "2026-11-05T17:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "886a42415217b889",
@@ -2670,7 +5470,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1e29238e6fbaed59",
@@ -2769,7 +5569,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a179640616a66edf",
@@ -2815,22 +5615,28 @@
  },
  {
   "id": "2026-11-05-gemini-omni-12-flash-fast-and-cost-effective-with-485654",
-  "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+  "title": "Gemini Omni 1.2 Flash",
   "canonicalUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
   "category": "ai-ml",
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "e562c2aead4ffb51",
-  "excerpt": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "updatedAt": "2026-11-06T20:02:38.002Z",
+  "revisions": [
+   {
+    "at": "2026-11-06T20:02:38.002Z",
+    "reason": "Title changed from \"Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips\"",
+    "contentHash": "e8e05e7ddc0f7c4a"
+   }
+  ],
+  "contentHash": "e8e05e7ddc0f7c4a",
+  "excerpt": "Article URL: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/ \nComments URL: https://news.ycombinator.com/item?id=50392118 \nPoints: 245\n# Comments: 192",
   "sources": [
    {
     "sourceId": "google-ai",
     "sourceName": "Google AI Blog",
-    "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+    "title": "Gemini Omni 1.2 Flash",
     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
     "publishedAt": "2026-11-05T17:00:00.000Z",
     "credibility": 3
@@ -2854,7 +5660,7 @@
   ],
   "minor": false,
   "score": {
-   "total": 56,
+   "total": 71,
    "parts": [
     {
      "label": "Baseline",
@@ -2872,13 +5678,18 @@
      "reason": "Reported by 3 independent sources"
     },
     {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introducing\")"
+    },
+    {
      "label": "Freshness",
      "points": 5,
      "reason": "Published in the last 36 hours"
     }
    ]
   },
-  "importance": "notable",
+  "importance": "high",
   "status": "pending"
  },
  {
@@ -3265,7 +6076,7 @@
   "publishedAt": "2026-11-05T16:35:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5538d135512385a3",
@@ -3416,7 +6227,7 @@
   "publishedAt": "2026-11-05T16:08:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f2a3cf72140c48d7",
@@ -3469,7 +6280,7 @@
   "publishedAt": "2026-11-05T16:02:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eec77cc1f36fceb7",
@@ -3569,7 +6380,7 @@
   "publishedAt": "2026-11-05T16:01:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3d1555930494a48e",
@@ -3616,7 +6427,7 @@
   "publishedAt": "2026-11-05T16:00:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "28d7fa52fd36adf1",
@@ -3673,7 +6484,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3561da51fd1492a0",
@@ -3819,7 +6630,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4aec6035220d9a39",
@@ -4174,7 +6985,7 @@
   "publishedAt": "2026-11-05T15:48:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b695bd4dbd5bc158",
@@ -4231,7 +7042,7 @@
   "publishedAt": "2026-11-05T15:31:37.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8e2c20cdc419457",
@@ -4283,7 +7094,7 @@
   "publishedAt": "2026-11-05T15:28:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": "2026-11-05T20:46:46.848Z",
   "revisions": [
    {
@@ -4403,7 +7214,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a04bf1261c20d7d5",
@@ -4460,7 +7271,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2765579f20f1c2f",
@@ -4877,7 +7688,7 @@
   "publishedAt": "2026-11-05T14:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebc05f146351abe8",
@@ -4924,7 +7735,7 @@
   "publishedAt": "2026-11-05T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be1f3b408491c7b",
@@ -5038,7 +7849,7 @@
   "publishedAt": "2026-11-05T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4b988ac1c1cb008b",
@@ -5284,7 +8095,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "39625bb156898197",
@@ -5336,7 +8147,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e0b1b16d28551a1",
@@ -5446,7 +8257,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8b17b5fef41cbb8",
@@ -5771,7 +8582,7 @@
   "publishedAt": "2026-11-05T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "703f6a4fe1796d08",
@@ -5819,7 +8630,7 @@
   "publishedAt": "2026-11-05T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ecf0155aa18834a3",
@@ -5876,7 +8687,7 @@
   "publishedAt": "2026-11-05T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bad2773958f74a49",
@@ -6467,7 +9278,7 @@
   "publishedAt": "2026-11-05T04:36:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23b0e2464e00d2a9",
@@ -6769,7 +9580,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7830f630e76dadb",
@@ -6816,7 +9627,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ff7ffa9ed43ac193",
@@ -6873,7 +9684,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c3687296de93a199",
@@ -6920,7 +9731,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2ab2db9ee7eb5b19",
@@ -6972,7 +9783,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22bb623be37e8901",
@@ -7029,7 +9840,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a6bde6930a3c27b3",
@@ -7086,7 +9897,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f9f4c7b1beb9db58",
@@ -7143,7 +9954,7 @@
   "publishedAt": "2026-11-04T23:34:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33ab42b0991a0683",
@@ -7304,7 +10115,7 @@
   "publishedAt": "2026-11-04T22:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43599d165c97ba43",
@@ -7356,7 +10167,7 @@
   "publishedAt": "2026-11-04T22:00:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b60d6723a5fe3ff3",
@@ -7456,7 +10267,7 @@
   "publishedAt": "2026-11-04T21:38:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1dff6ff843ce0b7",
@@ -8104,7 +10915,7 @@
   "publishedAt": "2026-11-04T18:50:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8f40dfa300f27a89",
@@ -8355,7 +11166,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -8553,7 +11364,7 @@
   "publishedAt": "2026-11-04T17:50:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f2eb35206164099",
@@ -9023,7 +11834,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -9175,7 +11986,7 @@
   "publishedAt": "2026-11-04T16:34:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa3054af9f820a8f",
@@ -9384,7 +12195,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5844851476aa3b3b",
@@ -9639,7 +12450,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -10165,7 +12976,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -10316,7 +13127,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a18861f43f130f7a",
@@ -11722,7 +14533,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -11790,7 +14601,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5d5ae52df4bd5866",
@@ -11962,7 +14773,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "61c25825b89d32cc",
@@ -12014,7 +14825,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -12165,7 +14976,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -13175,7 +15986,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -13232,7 +16043,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -13807,7 +16618,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -14074,7 +16885,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -14121,7 +16932,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -14490,7 +17301,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -14594,7 +17405,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -15440,7 +18251,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -15757,7 +18568,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -15885,7 +18696,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d143689e77c992d9",
@@ -16839,7 +19650,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -16938,7 +19749,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -17000,7 +19811,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -17453,7 +20264,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -17823,7 +20634,7 @@
   "publishedAt": "2026-11-02T20:52:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1999d731b87a8967",
@@ -18648,7 +21459,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -18700,7 +21511,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -18940,7 +21751,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d43b0ad5c2e7b13",
@@ -19213,7 +22024,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -20099,7 +22910,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -20674,7 +23485,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -21782,7 +24593,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -22060,7 +24871,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -22694,7 +25505,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -22771,7 +25582,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-06T20:02:38.002Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
