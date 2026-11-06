@@ -129,11 +129,16 @@ Rules for generated questions:
 | Phase | What | Why first | Size |
 |---|---|---|---|
 | 0 | Re-attach both repos to the daily-run routine; merge the PR #1 content | Restores what's documented, costs nothing | S, done in this session |
-| 1 | Nightly generated questions in the data repo, served by Practice, Today and topic workspaces without a deploy | Gives the planner hands: the core autonomy gap | M, this session |
-| 2 | Retention metrics (delayed recall, first-sight accuracy) on Home and Learn | Answers "am I improving?" with real numbers | S-M |
-| 3 | Make the mentor plan drive Practice: a "today's set" chosen from its focus skills | One brain instead of two | M |
-| 4 | Retire the daily content routine once Phase 1 has run for a week; drop `leetcode-sync.yml` if `leetcode-pull` covers the Coding page; default Radar `analyze` to off | Fewer moving parts, less quota | S |
+| 1 | Nightly generated questions in the data repo, served by Practice, Today and topic workspaces without a deploy | Gives the planner hands: the core autonomy gap | M, done (PR #21; first 9 questions written 2026-11-06) |
+| 2 | Retention metrics (delayed recall, first-sight accuracy) on Home and Learn | Answers "am I improving?" with real numbers | S-M, done (PR #22) |
+| 3 | Make the mentor plan drive Practice: a "today's set" chosen from its focus skills | One brain instead of two | M, done (PR #24) |
+| 4 | Retire the daily content routine once Phase 1 has run for a week; drop `leetcode-sync.yml` if `leetcode-pull` covers the Coding page; default Radar `analyze` to off | Fewer moving parts, less quota | S, partly done: see below |
 | 5 | Slow-answer nudge: answers under 2 s ask "sure?" (not blocked) | Data quality | S |
+
+**Phase 4 outcome (2026-11-06).**
+- Radar `analyze` is now off by default, including the scheduled runs.
+- The daily routine was **narrowed, not retired**. Its first working run (PR #23) improved three lessons, which the mentor can't do because it writes only to `mentor/`. It also added questions on the same misses as the mentor's, so it now edits lessons and explanations only, and the mentor owns new questions. Retire it only if a week of its PRs shows nothing the mentor doesn't already cover.
+- **`leetcode-sync.yml` stays.** `leetcode-pull` does not cover the Coding page. The import offer reads the public recent-solves feed, while the full private history would offer hundreds of past problems as imports and flood the coding revision queue. Actions minutes cost nothing.
 
 ## 7. Cost
 
