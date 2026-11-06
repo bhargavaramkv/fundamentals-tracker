@@ -238,5 +238,20 @@
     ],
     "answer": 0,
     "explanation": "This is a stampede on one existing key: many misses at the same moment. Per-key locking or request coalescing (plus TTL jitter) fixes it. Caching 'not found' fixes penetration (ids that never exist). More shards don't help, since a single key still lives on one node."
+  },
+  {
+    "id": "system-design-messaging-4",
+    "domain": "system-design",
+    "topic": "messaging",
+    "difficulty": 2,
+    "prompt": "An order service commits the order to its database, then publishes OrderPlaced to the broker. The pod crashes between the two steps. What goes wrong, and what is the standard fix?",
+    "options": [
+      "The event is published twice; turn on the broker's exactly-once delivery mode",
+      "The order exists but no event is ever sent; use a transactional outbox table",
+      "The commit rolls back automatically; wrap both steps in a try/catch with retry",
+      "Consumers read events out of order; key the topic partitions by the orderId"
+    ],
+    "answer": 1,
+    "explanation": "This is the dual-write problem: the database and the broker can't commit atomically, so a crash in between loses the event. Write the event to an outbox table in the same transaction as the order, and have a relay publish it. The relay delivers at least once, so consumers must be idempotent. A broker's exactly-once mode only covers the broker side. It can't recover an event that was never sent."
   }
 ]

@@ -12,6 +12,7 @@ import { LessonReadTracker } from "./LessonReadTracker";
 import { useProgress } from "./ProgressProvider";
 import { Quiz } from "./Quiz";
 import { relativeDays, untilDays, useNow } from "./useNow";
+import { useQuestionPool } from "./useQuestionPool";
 
 const TABS = [
   { id: "read", label: "Read" },
@@ -29,7 +30,8 @@ interface Props {
   prerequisites: { key: string; title: string }[];
 }
 
-export function TopicWorkspaceView({ lesson, workspace, questions, resources, prerequisites }: Props) {
+export function TopicWorkspaceView({ lesson, workspace, questions: bank, resources, prerequisites }: Props) {
+  const questions = useQuestionPool(bank, (q) => q.domain === lesson.domain && q.topic === lesson.topic);
   const params = useSearchParams();
   const requested = params.get("tab");
   const tab: Tab = TABS.some((t) => t.id === requested) ? (requested as Tab) : "read";

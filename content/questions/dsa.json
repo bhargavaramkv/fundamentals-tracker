@@ -90,6 +90,21 @@
     "explanation": "sum(i..j) = prefix[j] − prefix[i−1], so you need some earlier prefix equal to prefix[j] − k. Seed the set with 0. A sliding window only works when all numbers are non-negative, because the window sum then changes monotonically."
   },
   {
+    "id": "dsa-hashing-4",
+    "domain": "dsa",
+    "topic": "hashing",
+    "difficulty": 2,
+    "prompt": "A C# Point class overrides Equals and GetHashCode using its mutable X and Y. You call dict.Add(p, \"A\"), then set p.X = 5, then call dict.ContainsKey(p) with the same object. What most likely happens?",
+    "options": [
+      "It returns true, because the dictionary compares by reference before hashing",
+      "It throws InvalidOperationException, because the key changed while stored",
+      "It returns false, because the new hash code points at a different bucket",
+      "It returns true, because the dictionary rehashes the key on every lookup call"
+    ],
+    "answer": 2,
+    "explanation": "Dictionary saves the hash code when a key is added and files the entry under it. After the mutation, GetHashCode returns a new value, so the lookup searches the wrong bucket and doesn't find the entry, even though it's the same object. Dictionary only checks equality inside the bucket the hash points to, so a reference check never gets a chance to run. Nothing throws: the entry is just stranded. Use immutable keys (a record or readonly struct) or don't mutate keys while they are stored."
+  },
+  {
     "id": "dsa-trees-graphs-1",
     "domain": "dsa",
     "topic": "trees-graphs",

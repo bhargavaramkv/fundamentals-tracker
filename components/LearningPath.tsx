@@ -32,7 +32,7 @@ function TrackSummary({ p }: { p: TopicProficiency }) {
     t.exercises.attempted > 0 ? `Exercises ${t.exercises.gotIt}/${t.exercises.total}` : null,
     hasPracticalEvidence(t) ? "Practical done" : null,
   ].filter(Boolean);
-  return <span>{parts.length ? parts.join(" · ") : "No evidence yet"}</span>;
+  return parts.length ? <span>{parts.join(" · ")}</span> : null;
 }
 
 export function LearningPath({ ctx }: { ctx: PlanContext }) {
@@ -42,6 +42,16 @@ export function LearningPath({ ctx }: { ctx: PlanContext }) {
   const solves = loaded ? codingSolvesByTopic(data, PATTERN_TOPICS) : new Map<string, string[]>();
   const proficiency = (t: TopicMeta) => (loaded ? topicProficiency(keyOf(t), data, ctx.workspaces[keyOf(t)], solves, now) : null);
   const hasAnswers = loaded && data.answers.length > 0;
+
+  const inDomain = (domain: Domain) =>
+    ctx.topics.filter((t) => t.domain === domain).sort((a, b) => (ctx.workspaces[keyOf(a)]?.order ?? 99) - (ctx.workspaces[keyOf(b)]?.order ?? 99));
+  const started = (t: TopicMeta) => {
+    const p = proficiency(t);
+    return !!p && p.level !== "not-started";
+  };
+  // The first topic in the suggested order that hasn't been touched.
+  const startHere = loaded ? PATH_ORDER.flatMap(inDomain).find((t) => !started(t)) : undefined;
+  const startedCount = loaded ? ctx.topics.filter(started).length : 0;
 
   return (
     <div className="space-y-14">
@@ -58,6 +68,19 @@ export function LearningPath({ ctx }: { ctx: PlanContext }) {
           </Link>
           .
         </p>
+        {loaded && (
+          <p className="meta mt-3">
+            {startedCount} of {ctx.topics.length} topics started
+            {startHere && (
+              <>
+                {" · "}
+                <Link href={`/learn/${startHere.domain}/${startHere.topic}/`} className="font-medium text-accent-text hover:underline">
+                  Start here: {startHere.title}
+                </Link>
+              </>
+            )}
+          </p>
+        )}
       </header>
 
       {PATH_ORDER.map((domain) => (
@@ -67,41 +90,42 @@ export function LearningPath({ ctx }: { ctx: PlanContext }) {
               <DomainIcon domain={domain} size={22} />
               {DOMAIN_LABELS[domain]}
             </h2>
+            {loaded && (
+              <span className="meta">
+                {inDomain(domain).filter(started).length} of {inDomain(domain).length} started
+              </span>
+            )}
           </div>
           <ol className="divide-y divide-line">
-            {ctx.topics
-              .filter((t) => t.domain === domain)
-              .sort((a, b) => (ctx.workspaces[keyOf(a)]?.order ?? 99) - (ctx.workspaces[keyOf(b)]?.order ?? 99))
-              .map((t, i) => {
-                const p = proficiency(t);
-                const revision = loaded ? topicRevision(keyOf(t), evidenceFor(keyOf(t), data, solves), now) : null;
-                return (
-                  <li key={t.topic} className="flex gap-4 py-5">
-                    <span className="headline w-6 shrink-0 text-xl text-ink-3" aria-hidden>
-                      {i + 1}
-                    </span>
-                    <div className="min-w-0 flex-1 sm:flex sm:items-baseline sm:justify-between sm:gap-8">
-                      <div className="min-w-0">
-                        <Link href={`/learn/${t.domain}/${t.topic}/`} className="headline block text-xl hover:text-accent-text">
-                          {t.title}
-                        </Link>
-                        <p className="mt-1 max-w-[60ch] text-[15px] text-ink-2">{t.summary}</p>
-                        {p && (
-                          <p className="meta mt-1.5">
-                            <TrackSummary p={p} />
-                          </p>
-                        )}
-                      </div>
-                      {p && (
-                        <p className="mt-2 flex shrink-0 flex-wrap items-center gap-x-2 sm:mt-0 sm:justify-end">
-                          {revision?.isDue && <span className="meta font-medium text-warn">Revision due</span>}
-                          <span className={`tag ${levelTone(p.level)}`}>{LEVEL_LABEL[p.level]}</span>
-                        </p>
-                      )}
+            {inDomain(domain).map((t, i) => {
+              const p = proficiency(t);
+              const revision = loaded ? topicRevision(keyOf(t), evidenceFor(keyOf(t), data, solves), now) : null;
+              const isStart = startHere ? keyOf(startHere) === keyOf(t) : false;
+              const showLevel = p && p.level !== "not-started";
+              return (
+                <li key={t.topic} className="flex gap-4 py-5">
+                  <span className="headline w-6 shrink-0 text-xl text-ink-3" aria-hidden>
+                    {i + 1}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <Link href={`/learn/${t.domain}/${t.topic}/`} className="headline text-xl hover:text-accent-text">
+                        {t.title}
+                      </Link>
+                      {isStart && <span className="tag bg-surface-2 font-semibold text-accent-text">Start here</span>}
+                      {showLevel && <span className={`tag ${levelTone(p.level)}`}>{LEVEL_LABEL[p.level]}</span>}
+                      {revision?.isDue && <span className="meta font-medium text-warn">Revision due</span>}
                     </div>
-                  </li>
-                );
-              })}
+                    <p className="mt-1 max-w-[60ch] text-[15px] text-ink-2">{t.summary}</p>
+                    {p && showLevel && (
+                      <p className="meta mt-1.5">
+                        <TrackSummary p={p} />
+                      </p>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </section>
       ))}

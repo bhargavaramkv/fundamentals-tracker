@@ -61,6 +61,7 @@ All under `mentor/` in the data repo.
 | `processed.json` | Routine | Interaction keys already analysed |
 | `runs/<runId>.json` | Routine | Execution history |
 | `reports/<date>.md` | Routine | The night's validation report |
+| `questions.json` | Routine | Generated practice questions. Append-only, immutable, validated by `lib/mentor/questions.ts`; the site merges them into Practice and topic pages |
 | `submissions/<id>.json` | Site | Answers written in the app |
 | `conversations/<id>.json` | Mentor session | Saved by the session itself |
 

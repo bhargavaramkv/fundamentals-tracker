@@ -1,11 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { freshnessOf, isUsableState, mentorSessionUrl } from "@/lib/mentor/client";
+import { freshnessOf, isUsableState, mentorSessionUrl, planFocus, workSince } from "@/lib/mentor/client";
 import { buildPacket } from "@/lib/mentor/packet";
 import { buildState, computeStatus, pointerFor } from "@/lib/mentor/run";
 import { forDateOf, triggerOf } from "@/lib/mentor/time";
-import type { Conversation, DimensionState, EvidenceItem, LearnerState, MentorActivity, MentorPacket, Proposal, ProposedEvidence, RunRecord, SkillState, Submission } from "@/lib/mentor/types";
+import type { Conversation, DimensionState, EvidenceItem, LearnerState, MentorActivity, MentorPacket, MentorStatus, Proposal, ProposedEvidence, RunRecord, SkillState, Submission } from "@/lib/mentor/types";
 import { validateProposal } from "@/lib/mentor/validate";
 import { emptyProgress } from "@/lib/progress";
 import type { AnswerLog, Question, TopicMeta } from "@/lib/types";
@@ -105,6 +105,18 @@ describe("packet", () => {
   it("hashes the same input the same way, and a new date differently", () => {
     expect(packet().inputHash).toBe(packet().inputHash);
     expect(packet().inputHash).not.toBe(packet({ now: new Date("2026-11-03T19:30:00Z") }).inputHash);
+  });
+});
+
+describe("coding context in the packet", () => {
+  it("is carried along but never changes what counts as new input", () => {
+    const ctx = { problems: 3, solved: 2, lastSubmittedAt: null, recentForm: "1 of 3 solved first try", neverPassed: [], review: null };
+    const base = packet();
+    const withCoding = packet({ coding: ctx });
+    expect(withCoding.coding).toEqual(ctx);
+    expect(base.coding).toBeNull();
+    expect(withCoding.inputHash).toBe(base.inputHash);
+    expect(withCoding.decision).toBe(base.decision);
   });
 });
 
@@ -273,6 +285,38 @@ describe("state and frontend", () => {
     expect(freshnessOf(st, NOW).kind).toBe("fresh");
     expect(freshnessOf(st, new Date("2026-11-04T04:00:00Z")).kind).toBe("carried");
     expect(freshnessOf(st, new Date("2026-11-07T04:00:00Z")).kind).toBe("stale");
+  });
+
+  it("gives Practice the plan's skills in order, revisions only once due, and nothing from a stale plan", () => {
+    const st = stateWith(null, []);
+    const plan = {
+      ...st.plan,
+      primary: { ...st.plan.primary, skillIds: ["a/x", "a/y"] },
+      supporting: [{ ...st.plan.primary, skillIds: ["a/y", "a/z"] }],
+      revision: [
+        { skillId: "a/due", due: FOR, why: "" },
+        { skillId: "a/later", due: "2026-11-09", why: "" },
+      ],
+    };
+    const withPlan = { ...st, plan };
+    expect(planFocus(withPlan, NOW)).toEqual(["a/x", "a/y", "a/z", "a/due"]);
+    expect(planFocus(withPlan, new Date("2026-11-07T04:00:00Z"))).toEqual([]);
+  });
+
+  it("counts a quiet night as hearing from the mentor", () => {
+    const st = stateWith(null, []);
+    const later = new Date("2026-11-04T04:00:00Z");
+    const status = { lastSuccessForDate: forDateOf(later) } as MentorStatus;
+    expect(freshnessOf(st, later).kind).toBe("carried");
+    expect(freshnessOf(st, later, status)).toEqual({ kind: "fresh", ageDays: 0 });
+    expect(freshnessOf(st, new Date("2026-11-09T04:00:00Z"), status).kind).toBe("stale");
+  });
+
+  it("counts only answers and exercises given after the last analysis", () => {
+    const data = emptyProgress();
+    data.answers.push(answer("a1", "2026-11-01T10:00:00Z"), answer("a2", "2026-11-03T10:00:00Z"));
+    data.activities.push({ id: "x1", kind: "exercise", domain: "databases", topic: "indexing", refId: "e", at: "2026-11-03T11:00:00Z" } as never, { id: "x2", kind: "resource", domain: "databases", topic: "indexing", refId: "r", at: "2026-11-03T12:00:00Z" } as never);
+    expect(workSince(data, "2026-11-02T00:00:00Z")).toEqual({ answers: 1, activities: 1 });
   });
 
   it("hands off to a Claude Code session on the data repo only", () => {

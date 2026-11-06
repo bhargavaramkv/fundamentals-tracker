@@ -23,8 +23,9 @@ export function countsOf(packet: MentorPacket): Record<string, number> {
 }
 
 export function buildState(proposal: Proposal, packet: MentorPacket, runId: string, generatedAt: string): LearnerState {
-  const { evidence: _evidence, ...rest } = proposal;
+  const { evidence: _evidence, questions: _questions, ...rest } = proposal;
   void _evidence;
+  void _questions;
   return {
     ...rest,
     version: (packet.previousState?.version ?? 0) + 1,

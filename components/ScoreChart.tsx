@@ -10,6 +10,31 @@ function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
+/** A line through one to three points says nothing, so a few sessions are listed with what each one was. */
+const MIN_FOR_LINE = 4;
+
+function FewSessions({ points }: { points: HistoryPoint[] }) {
+  const rows = [...points].reverse();
+  return (
+    <div>
+      <ul className="divide-y divide-line text-sm">
+        {rows.map((p, i) => (
+          <li key={p.at} className="flex items-baseline justify-between gap-3 py-2.5">
+            <span className="min-w-0">
+              <span className="capitalize">{p.mode}</span> <span className="text-ink-3">· {formatDate(p.at)}</span>
+              {i === 0 && <span className="tag ml-2 bg-surface-2 text-ink-2">Latest</span>}
+            </span>
+            <span className="shrink-0 tabular-nums">
+              <span className="font-semibold">{p.score}%</span> <span className="text-ink-3">{p.correct} of {p.total}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-2 text-xs text-ink-3">A trend line appears after {MIN_FOR_LINE} sessions.</p>
+    </div>
+  );
+}
+
 /** Single-series line of session scores over time, with a hover tooltip and a table view. */
 export function ScoreChart({ points }: { points: HistoryPoint[] }) {
   const [hover, setHover] = useState<number | null>(null);
@@ -28,6 +53,7 @@ export function ScoreChart({ points }: { points: HistoryPoint[] }) {
   if (points.length === 0) {
     return <p className="text-sm text-ink-3">Finish a session to start your score history.</p>;
   }
+  if (points.length < MIN_FOR_LINE) return <FewSessions points={points} />;
 
   const innerW = W - PAD.left - PAD.right;
   const innerH = H - PAD.top - PAD.bottom;

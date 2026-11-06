@@ -16,7 +16,7 @@ export function Home({ resources, fallback }: { resources: Resource[]; fallback:
   const load = useMentor();
   if (load === null) return <p className="meta py-10">Loading your plan…</p>;
 
-  if (load.kind === "ready" && load.status?.primaryEligible && freshnessOf(load.state, new Date()).kind !== "stale") {
+  if (load.kind === "ready" && load.status?.primaryEligible && freshnessOf(load.state, new Date(), load.status).kind !== "stale") {
     return <MentorView load={load} resources={resources} />;
   }
 
@@ -25,8 +25,8 @@ export function Home({ resources, fallback }: { resources: Resource[]; fallback:
       {load.kind === "ready" && (
         <p className="meta mb-8 border-l-2 border-line pl-4">
           {load.status?.primaryEligible
-            ? "This plan is rule-based because your mentor hasn't published in over 3 days. "
-            : `Your mentor is on trial: ${load.status?.consecutiveNights ?? 0} of ${PRIMARY_AFTER_NIGHTS} nights in a row before it becomes this page. `}
+            ? "This plan is rule-based because your mentor hasn't reported in over 3 days. "
+            : `Your mentor is on trial: ${load.status?.consecutiveNights ?? 0} of ${PRIMARY_AFTER_NIGHTS} nights in a row without errors. After that it replaces this page. `}
           <Link href="/mentor/" className="tap text-accent-text hover:underline">
             See what it thinks
           </Link>
