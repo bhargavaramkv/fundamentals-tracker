@@ -195,6 +195,51 @@
     "explanation": "The partition is the unit of order and parallelism. Keying by entity keeps one entity's events in order while different entities run in parallel. Watch out: changing the partition count remaps keys, and retries with max.in.flight > 1 need idempotent producers to stay ordered."
   },
   {
+    "id": "system-design-scalability-4",
+    "domain": "system-design",
+    "topic": "scalability",
+    "difficulty": 2,
+    "prompt": "A cache cluster of 4 nodes uses hash(key) % 4. A fifth node is added during peak traffic and the database load jumps sharply. Why?",
+    "options": [
+      "Most keys now map to a different node, so most lookups miss until refilled",
+      "The new node starts empty and must receive a full copy of every key",
+      "Modulo hashing sends every key to the newest node for a while after joining",
+      "Existing nodes flush their memory automatically whenever the cluster resizes"
+    ],
+    "answer": 0,
+    "explanation": "With % N, changing N remaps roughly (N-1)/N of keys, so nearly all cached entries become unreachable at once and the database absorbs the misses. Consistent hashing remaps only about 1/N. The new node being empty is true but it affects only its own share, not the whole cluster."
+  },
+  {
+    "id": "system-design-consistency-4",
+    "domain": "system-design",
+    "topic": "consistency",
+    "difficulty": 2,
+    "prompt": "A consumer reads OrderCreated from a broker with at-least-once delivery and charges a card for each message. What must the handler do?",
+    "options": [
+      "Deduplicate by event ID and make the charge idempotent per event",
+      "Acknowledge the message before processing so it is never delivered twice",
+      "Switch the broker to exactly-once and drop the handler-side checks",
+      "Process messages on a single thread so duplicates cannot overlap in time"
+    ],
+    "answer": 0,
+    "explanation": "At-least-once means duplicates will happen (redelivery after a crash or a slow ack). Acking early turns it into at-most-once and loses work on crash. Single-threading doesn't stop redelivery later. End-to-end safety comes from an idempotent handler keyed by event ID."
+  },
+  {
+    "id": "system-design-caching-5",
+    "domain": "system-design",
+    "topic": "caching",
+    "difficulty": 3,
+    "prompt": "A hot key's TTL expires and 2,000 concurrent requests all query the database for the same row. Which fix targets this exact problem?",
+    "options": [
+      "Coalesce requests so one refills the key while the others wait",
+      "Cache the 'not found' result briefly for ids that don't exist",
+      "Switch from cache-aside to a write-through caching strategy",
+      "Add more cache shards so the hot key is spread across them"
+    ],
+    "answer": 0,
+    "explanation": "This is a stampede on one existing key: many misses at the same moment. Per-key locking or request coalescing (plus TTL jitter) fixes it. Caching 'not found' fixes penetration (ids that never exist). More shards don't help, since a single key still lives on one node."
+  },
+  {
     "id": "system-design-messaging-4",
     "domain": "system-design",
     "topic": "messaging",

@@ -30,3 +30,9 @@ Reversing the order is no better. **Transactional outbox**: insert the event int
 ## Sagas
 
 Long-running workflows across services use a series of local transactions plus **compensations** (refund, release inventory), coordinated by an orchestrator or by choreography over events. Design every step to be idempotent and every compensation to be retryable.
+
+## Common traps
+
+- `POST` to `PUT` doesn't fix double charges: the payment still needs a stored idempotency key.
+- A consumer under at-least-once delivery sees duplicates. Deduplicate by event ID.
+- Two-phase commit across a database and a broker is rarely available; use the outbox.

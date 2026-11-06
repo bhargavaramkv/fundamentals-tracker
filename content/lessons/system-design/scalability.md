@@ -32,3 +32,11 @@ And **find the bottleneck first**: scaling pods against a saturated database or 
 - 1 day ≈ 86,400 s, so 1M requests/day ≈ 12 RPS on average (plan for 5–10× at peak).
 - Same-datacenter round trip ≈ 0.5 ms; cross-region ≈ 50–150 ms.
 - Main memory read ≈ 100 ns; SSD random read ≈ 100 µs.
+
+## Why `hash % N` breaks
+
+Changing N remaps about (N-1)/N of keys, so a cache resize empties the cache and floods the DB. Consistent hashing remaps only about 1/N. It is about *remapping*, not replication or speed.
+
+## Scaling signal
+
+If CPU is low but latency is high, pods are waiting on I/O. Scale on in-flight requests or queue depth, and find the saturated dependency (DB, pool) before adding replicas.
