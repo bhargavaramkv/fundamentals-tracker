@@ -33,6 +33,17 @@ When a hot key expires, N requests miss at once and hit the DB together. Mitigat
 - **Penetration:** repeated lookups for keys that don't exist. Cache the negative result or use a Bloom filter.
 - **Hot key:** a single key overloads one Redis node. Replicate it locally (L1 cache) or shard the key.
 
+### Stampede or penetration?
+
+Ask: *does a value exist for the missing key?*
+
+| Symptom | Keys involved | Fix |
+|---|---|---|
+| Stampede | One real hot key just expired; many requests want the same value | Single-flight lock, stale-while-revalidate |
+| Penetration | Many different keys that don't exist, so nothing is ever cached | Short-TTL "not found" marker, Bloom filter of valid ids |
+
+A per-key lock can't help penetration: each random id is requested once and there is no value to refill.
+
 ## Rules of thumb
 
 Put a TTL on everything. Cache **immutable or derived** data aggressively. Measure the hit ratio. Never cache per-user data at a shared layer without the user in the key.

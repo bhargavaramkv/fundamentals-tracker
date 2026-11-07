@@ -18,6 +18,8 @@ Networks lose responses, so clients retry. Make retries safe:
 - **Idempotency-Key header:** the server stores `(key, response)` under a unique constraint and replays the stored response for a repeat key.
 - **Natural idempotency:** `PUT` sets state, upserts, and conditional updates (`WHERE version = @v`).
 
+**Common trap:** switching `POST /payments` to `PUT` doesn't make a charge safe. `PUT` is idempotent only when the URL names the resource and the body fully sets its state. A payment the server creates is still a new charge on every retry unless the client sends an `Idempotency-Key` (or a client-generated payment id used as the resource id) that the server de-duplicates.
+
 ## The dual-write problem
 
 ```
