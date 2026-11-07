@@ -1,0 +1,11 @@
+#!/bin/sh
+# Fast local gate (~15 s); CI still runs the full build. Skip once with: git push --no-verify
+set -e
+npm run lint & p1=$!
+npm run typecheck & p2=$!
+npm test & p3=$!
+fail=0
+wait $p1 || fail=1
+wait $p2 || fail=1
+wait $p3 || fail=1
+exit $fail

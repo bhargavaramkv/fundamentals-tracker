@@ -22,17 +22,13 @@ jobs:
       LEETCODE_USERNAME: ${{ vars.LEETCODE_USERNAME }}
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
+      - uses: ./.github/actions/setup
       - name: Check out leetcode-data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if git ls-remote --exit-code --heads origin leetcode-data >/dev/null; then
-            git fetch origin leetcode-data
+            git fetch --depth=1 --filter=blob:none origin leetcode-data
             git worktree add content/leetcode origin/leetcode-data
             git -C content/leetcode checkout -B leetcode-data
           else

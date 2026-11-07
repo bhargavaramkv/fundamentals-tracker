@@ -9,19 +9,32 @@ on:
 permissions:
   contents: read
 
+# A newer push to the same PR supersedes the older run; main runs always finish.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: ./.github/actions/setup
+      - name: Lint, typecheck, test (parallel)
+        run: |
+          npm run lint & p1=$!
+          npm run typecheck & p2=$!
+          npm test & p3=$!
+          fail=0
+          wait $p1 || fail=1
+          wait $p2 || fail=1
+          wait $p3 || fail=1
+          exit $fail
+      - uses: actions/cache@v4
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm test
+          path: .next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx') }}
+          restore-keys: next-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /fundamentals-tracker
