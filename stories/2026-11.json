@@ -1,5 +1,913 @@
 [
  {
+  "id": "2026-11-07-how-we-review-4x-more-ai-code-without-reading-cccfcd",
+  "title": "How we review 4x more AI code without reading every line",
+  "canonicalUrl": "https://thenewstack.io/scale-ai-code-reviews",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-07T17:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c14eba668ac60c91",
+  "excerpt": "Do you need to read every line of AI-generated code to trust it? \nNot necessarily. Instead, check five things: the intent behind a change, its acceptance criteria, the invariants it can’t break, the decisions made along the way, and evidence that it works.\nAt Aviator , that shift let the same nine engineers merge 4&times; more pull requests, cut median time to merge from 2.1 days to 3.4 hours, and drop reverts by 40%. A human still signs off on every PR. What changed is what that human reads.\n“Decisions need a person, and a diff is the worst place to make them.”\nWe got the insight by sorting our own review comments. Most of what a reviewer writes on a PR is either a rule they’ve written before or a decision. Machines should check rules every time. Decisions need a person, and a diff is the worst place to make them.\nThe problem: Code review doesn’t scale with AI\nOur code flipped from human-written with AI help to AI-generated with human help. Weekly merged PRs went from about 100 to more than 400. Our median AI-generated PR reached 640 lines, well past 400 lines, widely considered the limit where bug detection falls off.\nCatching bugs was never the main point of code review anyway.…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "How we review 4x more AI code without reading every line",
+    "url": "https://thenewstack.io/scale-ai-code-reviews",
+    "publishedAt": "2026-11-07T17:30:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-dave-stokes-is-postgresql-really-winning-part-2-6ea3ad",
+  "title": "Dave Stokes: Is PostgreSQL Really Winning Part 2: The Evidence Beyond the Rankings",
+  "canonicalUrl": "https://postgr.es/p/9Be",
+  "category": "databases",
+  "publishedAt": "2026-11-07T17:11:16.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ac3faa6b4a46c738",
+  "excerpt": "My last post leaned hard on the DB-Engines ranking, and I admitted that ranking measures popularity, not installed base or revenue. Several of you called me on that, politely and otherwise. Fair enough.\nSo this time I went looking for evidence that does not come from one ranking site. Usage surveys: where the money is going, what cloud vendors are building, and what AI tools reach for when nobody tells them what to use. My conclusion has not changed, but I think the case is much stronger than I made it out to be.\nBeyond DB-Engines\nThe best usage number I can find comes from developers themselves. In the 2025 Stack Overflow Developer Survey, 55.6% of all respondents said they use PostgreSQL, up from 48.7% in 2024. Among professional developers it was 58.2%, roughly 18 points ahead of MySQL ( summary of the survey ). It also topped the admired and desired lists again.\nThat is still a survey, not an install count. But it is people saying \"I use this,\" not people searching for it, and that is a different signal from the one DB-Engines measures.\nThree caveats on my own napkin math from last time:\nStraight lines lie. I projected the MySQL and Oracle crossovers assuming this year's pace…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Dave Stokes: Is PostgreSQL Really Winning Part 2: The Evidence Beyond the Rankings",
+    "url": "https://postgr.es/p/9Be",
+    "publishedAt": "2026-11-07T17:11:16.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-the-uv-tracking-gem-made-me-rethink-how-sunlight-f9dbb0",
+  "title": "The UV-tracking Gem made me rethink how sunlight affects my health, not just my appearance",
+  "canonicalUrl": "https://theverge.com/tech/1023230/the90-gem-necklace-hands-on-impressions",
+  "category": "hardware",
+  "publishedAt": "2026-11-07T17:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a036efcffcfd80e1",
+  "excerpt": "With temperatures rising to the 90s in Los Angeles, avoiding the heat wasn't exactly an option while I was at a relative's outdoor party in August. So I sat beneath a patio umbrella with a powerful fan nearby, figuring I was protected from the sun and heat. Half an hour later, I felt exhausted, dizzy, […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "The UV-tracking Gem made me rethink how sunlight affects my health, not just my appearance",
+    "url": "https://theverge.com/tech/1023230/the90-gem-necklace-hands-on-impressions",
+    "publishedAt": "2026-11-07T17:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-in-the-software-factory-engineers-become-process-d0e856",
+  "title": "In the software factory, engineers become process engineers",
+  "canonicalUrl": "https://thenewstack.io/engineers-become-process-engineers",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-07T16:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7b00e9d7ca8884ee",
+  "excerpt": "For most of software’s history, the scarce resource was people who could write code. Every process the industry built assumed it. Sprints, code review, staging, and release trains were all designed around humans doing the work by hand.\nThat assumption is gone. By September, more than 40% of pull requests on GitHub started with an agent’s first draft , up from 17% in March. Work is moving to machines, but the process around it hasn’t caught up.\nAgents made generating code cheap and fast. For the most part, they have not yet had the same impact on shipping it. CircleCI’s 2026 delivery data showed average daily workflow runs grew 59% year over year , with the top 5% of teams up 97% and the bottom quartile showing no measurable increase. A study of one company that mandated doubling pull request output found that load per reviewer doubled and automated review overtook human review in coverage within months.\n“When work gets automated in any industry, the people don’t disappear. They stop doing the work and start designing the system the work runs through.”\nWhen work gets automated in any industry, the people don’t disappear. Their job changes. They stop doing the work and start…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "In the software factory, engineers become process engineers",
+    "url": "https://thenewstack.io/engineers-become-process-engineers",
+    "publishedAt": "2026-11-07T16:30:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"release\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-discogs-kevin-lewandowski-can-t-live-without-his-397724",
+  "title": "Discogs’ Kevin Lewandowski can’t live without his AeroPress",
+  "canonicalUrl": "https://theverge.com/tech/1029474/discogs-kevin-lewandowski-aeropress-interview",
+  "category": "databases",
+  "publishedAt": "2026-11-07T16:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "24624f2ea722d31c",
+  "excerpt": "Twenty-five years ago, Kevin Lewandowski founded Discogs, arguably the destination online for obsessive vinyl collectors and music nerds of all stripes. It is a marketplace for buying and selling records, obviously, but it's also become so much more. It's a shockingly comprehensive database that covers not just albums and singles, but all the various versions […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Discogs’ Kevin Lewandowski can’t live without his AeroPress",
+    "url": "https://theverge.com/tech/1029474/discogs-kevin-lewandowski-aeropress-interview",
+    "publishedAt": "2026-11-07T16:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-nyt-cooking-s-ai-assistant-saved-my-weeknight-a2958b",
+  "title": "NYT Cooking’s AI assistant saved my weeknight chicken, but almost ruined my cake",
+  "canonicalUrl": "https://theverge.com/tech/1029489/nyt-cooking-ai-assistant-review",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-07T15:50:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "835f13ca063dcd2a",
+  "excerpt": "Around 7PM each weeknight, I find myself standing in front of the fridge, trying to decide on something for dinner that won't make my husband complain, \"Chicken again?\" Yes, I should meal plan more, but I don't, so this is where I'm at. A nightly battle in which the chicken usually wins. Recently, my best […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "NYT Cooking’s AI assistant saved my weeknight chicken, but almost ruined my cake",
+    "url": "https://theverge.com/tech/1029489/nyt-cooking-ai-assistant-review",
+    "publishedAt": "2026-11-07T15:50:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-the-us-let-nvidia-sell-chips-to-an-empty-office-6edc4f",
+  "title": "The US let Nvidia sell chips to an empty office in China",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government",
+  "category": "hardware",
+  "publishedAt": "2026-11-07T15:43:45.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "27ce91c89ec2ba9b",
+  "excerpt": "Concerns are being raised that neither the Commerce Department nor Nvidia are doing their due diligence when it comes to vetting Chinese firms cleared to handle the company's H200 AI chips. According to The New York Times, New Matrix is on the list of approved firms, yet its offices are empty, \"a hollow gray shell […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "The US let Nvidia sell chips to an empty office in China",
+    "url": "https://theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government",
+    "publishedAt": "2026-11-07T15:43:45.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-why-aws-wants-developers-to-stop-babysitting-d2a3da",
+  "title": "Why AWS wants developers to stop babysitting their AI agents",
+  "canonicalUrl": "https://thenewstack.io/kiro-bots-agent-memory",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-07T15:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "305e07882ff3f949",
+  "excerpt": "AWS first introduced Kiro , its agentic, spec-driven development environment, in July 2025. It also introduced Kiro Crew in August of this year, its persistent, open-source development workspace that remembers context. Now, to help developers juggle more complex tasks executed in parallel, AWS introduced Kiro bots on Thursday, adding persistent agent memory and delegated workflow management to the toolset. Kiro Crew already carried memory across sessions; bots give each agent its own.\nDescribed as a &ldquo;named, long-running agent that you define and customize for a specific part of your work&rdquo; (such as reading new issues in a ticket queue), Kiro bots retain their own memory and start with only the tools provided to them at creation. \nThe bot function also runs its own sessions (by which AWS means parallel worker sessions the bot launches and monitors), so software engineers don’t have to track them one by one or weave them together.\nAccording to AWS, the arrival of Kiro bots heralds the shift from delegating tasks to delegating processes.\nBabysitting vs. bots building better\nAWS Agentic AI director of engineering Kathy Kam tells The New Stack that agents are only useful…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "Why AWS wants developers to stop babysitting their AI agents",
+    "url": "https://thenewstack.io/kiro-bots-agent-memory",
+    "publishedAt": "2026-11-07T15:30:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 58,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"introduced\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches aws, agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-hackers-pull-off-133-million-french-bank-heist-0e04a8",
+  "title": "Hackers pull off $133 million French bank heist via service provider",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider",
+  "category": "security",
+  "publishedAt": "2026-11-07T15:25:35.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b9695814239b6dab",
+  "excerpt": "French cooperative bank Crédit Mutuel Arkéa was targeted in a cyberattack that enabled fraudulent transactions of up to $133 million, forcing it to respond by suspending certain systems.v [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Hackers pull off $133 million French bank heist via service provider",
+    "url": "https://bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider",
+    "publishedAt": "2026-11-07T15:25:35.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-ai-broke-the-cybersecurity-world-what-s-next-348805",
+  "title": "AI broke the cybersecurity world. What’s next?",
+  "canonicalUrl": "https://theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-07T15:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3945d1dd2bb42ed0",
+  "excerpt": "Today, I’m talking with Alex Stamos, chief security officer at Cognition and longtime cybersecurity expert, about what a mess cybersecurity is right now. This episode is part one of a special series looking at AI in real life. I’ve always enjoyed talking to Alex because he’s so direct, and you’re going to hear him say […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "AI broke the cybersecurity world. What’s next?",
+    "url": "https://theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
+    "publishedAt": "2026-11-07T15:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-ctm360-exposes-fake-gift-card-scams-exploiting-6ce803",
+  "title": "CTM360 Exposes Fake Gift Card Scams Exploiting Trusted Brands",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/ctm360-exposes-fake-gift-card-scams-exploiting-trusted-brands",
+  "category": "security",
+  "publishedAt": "2026-11-07T14:10:19.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cff1b188550efb33",
+  "excerpt": "Scammers are impersonating major brands and celebrities to lure consumers into fake gift card giveaways that collect personal information and trigger unwanted subscriptions. CTM360 reveals how these campaigns use deceptive verification steps and affiliate networks to generate revenue without delivering the promised rewards. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "CTM360 Exposes Fake Gift Card Scams Exploiting Trusted Brands",
+    "url": "https://bleepingcomputer.com/news/security/ctm360-exposes-fake-gift-card-scams-exploiting-trusted-brands",
+    "publishedAt": "2026-11-07T14:10:19.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-we-organized-sustainability-month-here-s-what-we-62d034",
+  "title": "We organized Sustainability Month. Here’s what we learned. 🌱",
+  "canonicalUrl": "https://cncf.io/blog/2026/11/07/we-organized-sustainability-month-heres-what-we-learned-%f0%9f%8c%b1",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-07T12:30:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bfa65f3587af49c9",
+  "excerpt": "What do Kubernetes resource allocation, eBPF, carbon observability, and GPUs have in common?\nQuite a lot, actually. Especially when you start looking at them through the lens of environmental sustainability.\nThis October, we brought these conversations together as part of Cloud Native Sustainability Month . And while the idea was to help our community learn more about sustainability, we ended up learning quite a few things ourselves.\nBut first, a little backstory.\nHow did we get here? \nIt all started in 2023, when the CNCF TAG Environmental Sustainability launched the first Cloud Native Sustainability Week. The idea was simple: bring cloud native communities together to explore how technology can become more environmentally sustainable.\nWhat began as a week of events eventually grew into a month-long initiative, with sustainability efforts continuing under CNCF TAG Operational Resilience .\nFast-forward to October 2026, and communities were once again bringing their own perspectives to the conversation.\nIn Bucharest, we joined the initiative with a virtual meetup featuring speakers from across the cloud native ecosystem.\nOur goal? Make sustainability a little less abstract and a…",
+  "sources": [
+   {
+    "sourceId": "cncf",
+    "sourceName": "CNCF Blog",
+    "title": "We organized Sustainability Month. Here’s what we learned. 🌱",
+    "url": "https://cncf.io/blog/2026/11/07/we-organized-sustainability-month-heres-what-we-learned-%f0%9f%8c%b1",
+    "publishedAt": "2026-11-07T12:30:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"launched\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches kubernetes, observability"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-how-grab-improved-mobile-app-stability-by-safely-a06d36",
+  "title": "How Grab Improved Mobile App Stability by Safely Handling Surge in AI-Generated Code Changes",
+  "canonicalUrl": "https://infoq.com/news/2026/11/grab-ai-generated-code-safety",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-07T11:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "12948da805dae819",
+  "excerpt": "The growing adoption of AI coding assistants has accelerated development and increased the volume of code changes per release, bringing more opportunities for defects and crashes, says Grab. To address these challenges, they implemented a layered defense strategy to prevent, detect, and contain crashes throughout the development and release lifecycle.\nBy Sergio De Simone",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "How Grab Improved Mobile App Stability by Safely Handling Surge in AI-Generated Code Changes",
+    "url": "https://infoq.com/news/2026/11/grab-ai-generated-code-safety",
+    "publishedAt": "2026-11-07T11:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"improved\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-asahi-linux-73-progress-report-2bdf58",
+  "title": "Asahi Linux 7.3 progress report",
+  "canonicalUrl": "https://lwn.net/Articles/1105936",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-07T09:49:38.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "b8e204346865ad19",
+  "excerpt": "The Asahi Linux developers have put out a new report \non their progress toward a Linux distribution for Apple devices.\nSome time ago, we were made aware of multiple attempts to exploit\nour permissive licensing to hijack our work, with a direct view to\nreplacing the project and aggressively monetising Linux on Apple\nSilicon. In some extreme cases, in-development feature code was\nbeing lifted straight out of our personal forks and published\nwithout attribution or lazily rewritten with LLM assistance to\nobfuscate its origin. The MIT licence explicitly allows this, and\nhas no carveouts to protect against bad faith actors.\nAs such, we made the difficult decision to begin the process of\ntransitioning all of our repositories to the GNU General Public\nLicense version 2 or later. Going forward all Asahi Linux code will\nbe licenced under strong copyleft licences only. Those who do not\nlearn from history are doomed to repeat it.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Asahi Linux 7.3 progress report",
+    "url": "https://lwn.net/Articles/1105936",
+    "publishedAt": "2026-11-07T09:49:38.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches llm"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-open-source-pg-vectorsearch-brings-more-scalable-f0a3a3",
+  "title": "Open Source pg_vectorsearch Brings More Scalable Vector Search to PostgreSQL",
+  "canonicalUrl": "https://infoq.com/news/2026/11/postgresql-vector-search",
+  "category": "databases",
+  "publishedAt": "2026-11-07T09:49:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "310e4dfb2147647e",
+  "excerpt": "Tiger Data has released pg_vectorsearch, an open source PostgreSQL extension for vector similarity search, currently in alpha. Its PRISM index uses data partitioning and compression instead of the graph-based approach used by pgvector’s HNSW index, reducing memory requirements and index build times.\nBy Renato Losio",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Open Source pg_vectorsearch Brings More Scalable Vector Search to PostgreSQL",
+    "url": "https://infoq.com/news/2026/11/postgresql-vector-search",
+    "publishedAt": "2026-11-07T09:49:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches vector, postgresql, index"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-every-mac-comes-with-an-undocumented-family-ef313c",
+  "title": "Every Mac comes with an (undocumented) family member classifier",
+  "canonicalUrl": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-07T09:46:03.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ea450a0d466ecd84",
+  "excerpt": "Article URL: https://8rank.ai/game/apple-intelligence-personal-knowledge-graph \nComments URL: https://news.ycombinator.com/item?id=50403097 \nPoints: 427\n# Comments: 243",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Every Mac comes with an (undocumented) family member classifier",
+    "url": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph",
+    "publishedAt": "2026-11-07T09:46:03.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-need-for-speed-underground-2-online-in-the-browser-973a8c",
+  "title": "Need for Speed Underground 2 online in the browser",
+  "canonicalUrl": "https://nfsu2.xyz/",
+  "category": "programming",
+  "publishedAt": "2026-11-07T09:36:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a0c67d6bfddb2329",
+  "excerpt": "Article URL: https://nfsu2.xyz/ \nComments URL: https://news.ycombinator.com/item?id=50403052 \nPoints: 531\n# Comments: 161",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Need for Speed Underground 2 online in the browser",
+    "url": "https://nfsu2.xyz/",
+    "publishedAt": "2026-11-07T09:36:36.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-amutable-foundations-a-technical-overview-7fbc22",
+  "title": "Amutable Foundations: A Technical Overview",
+  "canonicalUrl": "https://lwn.net/Articles/1105934",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-07T09:32:56.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "a27dae18ebc2ff89",
+  "excerpt": "Lennart Poettering, Michael Vogt, and Joaquim Rocha have put together a\ndetailed overview of what the Amutable Operating System (AOS) and\nassociated infrastructure will look like.\nThe image-based OS approach enables us to enforce some very strict\nbut powerful security properties, which elevate the security\nposture of the system substantially above traditional Linux\nsystems. Specifically, let's highlight seven major essential\nsecurity properties of AOS here:\nNo Shell + No SSH + No Language Interpreters . By default AOS\ndoes not install a UNIX shell, nor makes remote access via SSH\navailable on the nodes. Moreover, we do not install any of the usual\nlanguage interpreters (Python, Perl, …) by default. For most nodes a\nshell or interpreted language support is not required and it removes a\nwhole class of attacks.\nSigned Images Only . On AOS only images that come with Verity\ndata signed by a signing key listed in the Verity keyring may be\nactivated.\n[...]",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Amutable Foundations: A Technical Overview",
+    "url": "https://lwn.net/Articles/1105934",
+    "publishedAt": "2026-11-07T09:32:56.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-07-varlock-releases-bumpy-a-file-based-versioning-7313a7",
   "title": "Varlock Releases Bumpy: A File-Based Versioning Alternative to Changesets",
   "canonicalUrl": "https://infoq.com/news/2026/11/bumpy-changesets-alternative",
@@ -7,7 +915,7 @@
   "publishedAt": "2026-11-07T06:54:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2f074d6671127906",
@@ -64,7 +972,7 @@
   "publishedAt": "2026-11-07T02:44:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ab9dd30204568dfc",
@@ -111,7 +1019,7 @@
   "publishedAt": "2026-11-07T02:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e0bf5ff8a0d9179",
@@ -163,7 +1071,7 @@
   "publishedAt": "2026-11-07T00:27:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7667fdefc05797d0",
@@ -220,7 +1128,7 @@
   "publishedAt": "2026-11-07T00:00:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9f2cc4333024ecf4",
@@ -270,6 +1178,172 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-07-agensgraph-218-released-graph-database-on-bbe305",
+  "title": "AgensGraph 2.18 Released: Graph Database on PostgreSQL 18 with Expanded ISO GQL Support",
+  "canonicalUrl": "https://postgresql.org/about/news/agensgraph-218-released-graph-database-on-postgresql-18-with-expanded-iso-gql-support-3437",
+  "category": "databases",
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "5f4d5f7d361d4248",
+  "excerpt": "The AgensGraph Development Team is pleased to announce the release of AgensGraph v2.18.6.1, the latest version in the 2.18 series. AgensGraph is an open-source graph database, built on PostgreSQL 18.6, that runs SQL and graph queries over the same data, in the same transaction and even in the same statement.\nAgensGraph 2.18 is a major step toward the ISO GQL standard (ISO/IEC 39075), the international standard query language for property graphs. We are committed to bringing AgensGraph in line with GQL: 2.18 adds the first set of GQL clauses alongside openCypher, and more will follow in upcoming releases.\nPerformance was the other focus of this release. Variable-length traversals now use the edge label's index at each hop, whereas 2.17 scanned the entire label at every hop. On the public soc-Pokec graph (30 million edges), a two-hop traversal that did not finish within 20 seconds in our tests on 2.17 now completes in milliseconds.\nHighlights\nGQL clauses: LET , FOR , FILTER , NEXT , FINISH and INSERT , plus standalone ORDER BY , OFFSET and LIMIT clauses.\nGraph subqueries: CALL { } , OPTIONAL CALL , EXISTS { } , COUNT { } , COLLECT { } and VALUE { } , plus CALL ... YIELD to invoke…",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "AgensGraph 2.18 Released: Graph Database on PostgreSQL 18 with Expanded ISO GQL Support",
+    "url": "https://postgresql.org/about/news/agensgraph-218-released-graph-database-on-postgresql-18-with-expanded-iso-gql-support-3437",
+    "publishedAt": "2026-11-07T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 51,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches database, postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-brume-fk-safe-pseudonymization-for-postgresql-fc2167",
+  "title": "Brume: FK-safe pseudonymization for PostgreSQL test and debug copies",
+  "canonicalUrl": "https://postgresql.org/about/news/brume-fk-safe-pseudonymization-for-postgresql-test-and-debug-copies-3434",
+  "category": "databases",
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d708e23705d0c2a1",
+  "excerpt": "Brume 2.1, an open source (Apache 2.0) tool that creates deterministic, foreign-key-safe pseudonymized copies of PostgreSQL databases for testing, debugging and demos, is now available.\nWhy Brume?\nDevelopment teams often need realistic data to reproduce bugs, run tests or prepare demos, but copying production exposes real personal data. Classic masking scripts also tend to break referential integrity, which forces you to disable triggers, suspend constraints or repair broken joins by hand.\nBrume copies a targeted subset of a source database to a target database or to a .sql file, and transforms personal data on the fly, before anything is written. Foreign keys stay valid end-to-end on the target. Brume only reads from the source database.\nKey features\nColumn-level strategies: FAKE for realistic synthetic values, MASK for partial reveals, HASH for one-way hashing, NULLIFY to drop sensitive data, FPE_ID / FPE_UUID for format-preserving encryption of identifiers, and DATE_SHIFT to move dates while keeping their distribution.\nDeterministic output: transformations are keyed by your own secrets. The same input with the same secret always gives the same output, across all releases of a…",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "Brume: FK-safe pseudonymization for PostgreSQL test and debug copies",
+    "url": "https://postgresql.org/about/news/brume-fk-safe-pseudonymization-for-postgresql-test-and-debug-copies-3434",
+    "publishedAt": "2026-11-07T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"2.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgresql, database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-heapdeck-an-on-call-monitor-for-postgresql-on-d0cf68",
+  "title": "HeapDeck: an on-call monitor for PostgreSQL on iPhone and iPad",
+  "canonicalUrl": "https://postgresql.org/about/news/heapdeck-an-on-call-monitor-for-postgresql-on-iphone-and-ipad-3436",
+  "category": "databases",
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1b6adda6a5f61d63",
+  "excerpt": "HeapDeck is a new native app for engineers on call for PostgreSQL 13 to 19, on the App Store for iPhone and iPad.\nIt opens on one health verdict with ten tiles. The Locks screen draws the tree from pg_blocking_pids() with the root blocker on top and counts the sessions that stopping it would free. Other screens cover pg_stat_activity, transaction ID wraparound and dead tuples, replication lag and slots, and pg_stat_statements.\nThe app uses a direct connection or an SSH tunnel, with TLS and pinned fingerprints. No vendor server sits between the phone and the database. It works while open and sends no alerts, so it goes next to your existing alerting.\nMonitoring one server is free. HeapDeck Pro is a one-time in-app purchase that adds more servers and the actions: cancel, terminate, VACUUM, dropping a slot and writes.\nhttps://heapdeck.app \nPostgres, PostgreSQL and the Slonik Logo are trademarks or registered trademarks of the PostgreSQL Community Association of Canada, and used with their permission.\nHeapDeck is an independent client and is not affiliated with, endorsed by, or sponsored by the PostgreSQL Community Association of Canada, PostgreSQL Global Development Group, PostgreSQL…",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "HeapDeck: an on-call monitor for PostgreSQL on iPhone and iPad",
+    "url": "https://postgresql.org/about/news/heapdeck-an-on-call-monitor-for-postgresql-on-iphone-and-ipad-3436",
+    "publishedAt": "2026-11-07T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 52,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches postgresql, replication, tls, database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-06-libghostty-10-328389",
   "title": "Libghostty 1.0",
   "canonicalUrl": "https://mitchellh.com/writing/libghostty-1-0",
@@ -277,11 +1351,17 @@
   "publishedAt": "2026-11-06T23:30:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "65d7669a42849adb",
-  "excerpt": "Article URL: https://mitchellh.com/writing/libghostty-1-0 \nComments URL: https://news.ycombinator.com/item?id=50399933 \nPoints: 505\n# Comments: 80",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": "2026-11-07T18:09:52.532Z",
+  "revisions": [
+   {
+    "at": "2026-11-07T18:09:52.532Z",
+    "reason": "Source text edited",
+    "contentHash": "c0d68ac5734339d2"
+   }
+  ],
+  "contentHash": "c0d68ac5734339d2",
+  "excerpt": "Article URL: https://mitchellh.com/writing/libghostty-1-0 \nComments URL: https://news.ycombinator.com/item?id=50399933 \nPoints: 928\n# Comments: 152",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -476,7 +1556,7 @@
   "publishedAt": "2026-11-06T22:20:20.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "681dd8262caa262e",
@@ -528,7 +1608,7 @@
   "publishedAt": "2026-11-06T22:17:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "10bd3b2c5d1bee40",
@@ -580,7 +1660,7 @@
   "publishedAt": "2026-11-06T22:15:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4655baf51fe97cf5",
@@ -632,7 +1712,7 @@
   "publishedAt": "2026-11-06T21:00:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "58305cfdd41bf963",
@@ -689,7 +1769,7 @@
   "publishedAt": "2026-11-06T20:56:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebede6eb8638b74f",
@@ -788,7 +1868,7 @@
   "publishedAt": "2026-11-06T20:25:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "41fb4ac320fc85fd",
@@ -887,11 +1967,17 @@
   "publishedAt": "2026-11-06T19:48:51.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "8388541dfc699704",
-  "excerpt": "Article URL: https://hightouch.com/blog/llm-judges-identity-resolution \nComments URL: https://news.ycombinator.com/item?id=50397429 \nPoints: 435\n# Comments: 98",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": "2026-11-07T18:09:52.532Z",
+  "revisions": [
+   {
+    "at": "2026-11-07T18:09:52.532Z",
+    "reason": "Source text edited",
+    "contentHash": "e7d30275bbba0613"
+   }
+  ],
+  "contentHash": "e7d30275bbba0613",
+  "excerpt": "Article URL: https://hightouch.com/blog/llm-judges-identity-resolution \nComments URL: https://news.ycombinator.com/item?id=50397429 \nPoints: 549\n# Comments: 136",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -939,7 +2025,7 @@
   "publishedAt": "2026-11-06T19:37:09.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5170ef543af30a32",
@@ -996,7 +2082,7 @@
   "publishedAt": "2026-11-06T19:35:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "54fa92ab69035513",
@@ -1048,11 +2134,17 @@
   "publishedAt": "2026-11-06T19:33:38.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "84f5bca6cacd8124",
-  "excerpt": "Article URL: https://pwn.ai/blog/firecracker-escape \nComments URL: https://news.ycombinator.com/item?id=50397219 \nPoints: 214\n# Comments: 105",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": "2026-11-07T18:09:52.532Z",
+  "revisions": [
+   {
+    "at": "2026-11-07T18:09:52.532Z",
+    "reason": "Source text edited",
+    "contentHash": "ecfc162cf9056110"
+   }
+  ],
+  "contentHash": "ecfc162cf9056110",
+  "excerpt": "Article URL: https://pwn.ai/blog/firecracker-escape \nComments URL: https://news.ycombinator.com/item?id=50397219 \nPoints: 271\n# Comments: 117",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -1143,7 +2235,7 @@
   "publishedAt": "2026-11-06T18:51:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fa79450f145976b5",
@@ -1289,7 +2381,7 @@
   "publishedAt": "2026-11-06T18:37:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c1024147c65db39a",
@@ -1549,7 +2641,7 @@
   "publishedAt": "2026-11-06T18:03:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "14ec240f07a1fc7a",
@@ -1846,7 +2938,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "75f486319a6f835c",
@@ -1903,7 +2995,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6bad0e777eb263d5",
@@ -1955,7 +3047,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa18c719950d2386",
@@ -2059,7 +3151,7 @@
   "publishedAt": "2026-11-06T16:43:23.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1e326dbead4a454a",
@@ -2116,7 +3208,7 @@
   "publishedAt": "2026-11-06T16:16:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5850e59de98551a2",
@@ -2173,7 +3265,7 @@
   "publishedAt": "2026-11-06T16:11:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "26ecfed53b796d4b",
@@ -2225,7 +3317,7 @@
   "publishedAt": "2026-11-06T16:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ad360219c93427c1",
@@ -2433,7 +3525,7 @@
   "publishedAt": "2026-11-06T15:01:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "80c3306d27bd7fac",
@@ -2485,7 +3577,7 @@
   "publishedAt": "2026-11-06T15:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8752de9318c914b9",
@@ -2533,7 +3625,7 @@
   "publishedAt": "2026-11-06T14:25:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0f13c56c60e2bdc0",
@@ -2642,7 +3734,7 @@
   "publishedAt": "2026-11-06T14:00:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e507217ce6a54dca",
@@ -2689,7 +3781,7 @@
   "publishedAt": "2026-11-06T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "006451afad2b79a7",
@@ -2741,7 +3833,7 @@
   "publishedAt": "2026-11-06T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "abf43b49463447fc",
@@ -2788,7 +3880,7 @@
   "publishedAt": "2026-11-06T12:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22b4e6b46f6ba5a3",
@@ -2898,7 +3990,7 @@
   "publishedAt": "2026-11-06T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "19a9abd47728bf88",
@@ -2973,7 +4065,7 @@
   "publishedAt": "2026-11-06T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "443119d03d631431",
@@ -3030,7 +4122,7 @@
   "publishedAt": "2026-11-06T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bab5b48f3abfb5da",
@@ -3087,7 +4179,7 @@
   "publishedAt": "2026-11-06T11:45:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9bc638078ebc0c2b",
@@ -3144,7 +4236,7 @@
   "publishedAt": "2026-11-06T11:32:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "373132fb4e4b8f19",
@@ -3196,7 +4288,7 @@
   "publishedAt": "2026-11-06T11:06:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f697d598302a3ebf",
@@ -3357,7 +4449,7 @@
   "publishedAt": "2026-11-06T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "92301467a8432dfa",
@@ -3503,7 +4595,7 @@
   "publishedAt": "2026-11-06T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b28c1a01375b2d75",
@@ -3550,7 +4642,7 @@
   "publishedAt": "2026-11-06T08:07:06.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa6818140c47536f",
@@ -3607,7 +4699,7 @@
   "publishedAt": "2026-11-06T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7b44a3f552684aab",
@@ -3654,7 +4746,7 @@
   "publishedAt": "2026-11-06T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "59e1c31be358c3a8",
@@ -4189,11 +5281,17 @@
   "publishedAt": "2026-11-06T04:00:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "0bf1f28b712a1710",
-  "excerpt": "Article URL: https://www.reuters.com/world/us/us-faa-says-it-will-phase-out-floppy-disks-air-traffic-control-by-2028-2026-11-05/ \nComments URL: https://news.ycombinator.com/item?id=50388001 \nPoints: 325\n# Comments: 261",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": "2026-11-07T18:09:52.532Z",
+  "revisions": [
+   {
+    "at": "2026-11-07T18:09:52.532Z",
+    "reason": "Source text edited",
+    "contentHash": "f978c31f9c43886b"
+   }
+  ],
+  "contentHash": "f978c31f9c43886b",
+  "excerpt": "Article URL: https://www.reuters.com/world/us/us-faa-says-it-will-phase-out-floppy-disks-air-traffic-control-by-2028-2026-11-05/ \nComments URL: https://news.ycombinator.com/item?id=50388001 \nPoints: 385\n# Comments: 317",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -4236,7 +5334,7 @@
   "publishedAt": "2026-11-06T03:17:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a092cfb216cb4f19",
@@ -4400,7 +5498,7 @@
   "publishedAt": "2026-11-06T00:09:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6b87dee3c6708cbc",
@@ -4561,7 +5659,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dbd45afff744e044",
@@ -4608,7 +5706,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "91b13b2625a85566",
@@ -4665,7 +5763,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "78cb42929856968e",
@@ -4712,7 +5810,7 @@
   "publishedAt": "2026-11-05T23:46:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b4df4e2c19844532",
@@ -4906,7 +6004,7 @@
   "publishedAt": "2026-11-05T23:09:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "daef14854f3945fa",
@@ -4958,7 +6056,7 @@
   "publishedAt": "2026-11-05T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6cc9c9a15a9a326b",
@@ -5110,7 +6208,7 @@
   "publishedAt": "2026-11-05T22:05:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ec043e7b675a4d19",
@@ -5147,6 +6245,58 @@
    ]
   },
   "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-05-accelerate-data-access-for-inference-and-training-4fd6f2",
+  "title": "Accelerate data access for inference and training with the open-source distributed accelerator for cloud storage",
+  "canonicalUrl": "https://opensource.microsoft.com/blog/2026/11/05/accelerate-data-access-for-inference-and-training-with-the-open-source-distributed-accelerator-for-cloud-storage",
+  "category": "open-source",
+  "publishedAt": "2026-11-05T22:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T18:09:52.532Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c29baea20e70f6a4",
+  "excerpt": "Microsoft is open-sourcing distributed accelerator for cloud storage (DACS): a caching system for AI workloads. It leverages the local NVMe or SSD storage in the GPU nodes of a Kubernetes cluster to bring data closer to GPUs, while Azure Blob Storage remains the durable source of truth.\nExplore the DACS repository \nIntroducing DACS\nDACS is Kubernetes native and cluster local. A supported client requests reading a blob chunk of an artifact. If the blob chunk is already cached, then DACS serves it from cache storage. If it is missing, the client reads it from Azure Blob Storage and hydrates the cache for later reads. This read-path suits large, immutable or versioned artifacts, including model weights, datasets, and checkpoint snapshots.\nWhy Microsoft is open-sourcing DACS\nThis technology is powering AI workloads at scale within Microsoft . Open source lets others inspect the design, try it in their own environments, and help shape what comes next. It also gives the community a shared starting point for addressing repeated data reads, without asking each team to build its own cache.\nTraining context : In one large-scale audio-training evaluation, reading from a warm cache reduced…",
+  "sources": [
+   {
+    "sourceId": "ms-opensource",
+    "sourceName": "Microsoft Open Source Blog",
+    "title": "Accelerate data access for inference and training with the open-source distributed accelerator for cloud storage",
+    "url": "https://opensource.microsoft.com/blog/2026/11/05/accelerate-data-access-for-inference-and-training-with-the-open-source-distributed-accelerator-for-cloud-storage",
+    "publishedAt": "2026-11-05T22:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 65,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"open-sourcing\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 15,
+     "reason": "Touches inference, distributed, caching, kubernetes, azure"
+    }
+   ]
+  },
+  "importance": "high",
   "status": "pending"
  },
  {
@@ -5304,7 +6454,7 @@
   "publishedAt": "2026-11-05T20:23:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e0bc84fb7004d81",
@@ -5528,7 +6678,7 @@
   "publishedAt": "2026-11-05T20:00:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e8d76e8cf7c9759d",
@@ -5580,7 +6730,7 @@
   "publishedAt": "2026-11-05T20:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a368fccf0f85b32a",
@@ -5732,7 +6882,7 @@
   "publishedAt": "2026-11-05T19:25:32.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9c06dbaaa6eb94b3",
@@ -5993,7 +7143,7 @@
   "publishedAt": "2026-11-05T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "674e7c008a50ba01",
@@ -6041,7 +7191,7 @@
   "publishedAt": "2026-11-05T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cddffc5174e6bb18",
@@ -6145,7 +7295,7 @@
   "publishedAt": "2026-11-05T18:45:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9adbcac3d66278a1",
@@ -6192,7 +7342,7 @@
   "publishedAt": "2026-11-05T18:05:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7fcfd3ded7f42913",
@@ -6511,7 +7661,7 @@
   "publishedAt": "2026-11-05T17:10:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2cb52f8f53499ec",
@@ -6563,7 +7713,7 @@
   "publishedAt": "2026-11-05T17:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "886a42415217b889",
@@ -6672,7 +7822,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1e29238e6fbaed59",
@@ -6771,7 +7921,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a179640616a66edf",
@@ -6817,14 +7967,14 @@
  },
  {
   "id": "2026-11-05-gemini-omni-12-flash-fast-and-cost-effective-with-485654",
-  "title": "Gemini Omni 1.2 Flash",
+  "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
   "canonicalUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
   "category": "ai-ml",
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
-  "updatedAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
+  "updatedAt": "2026-11-07T18:09:52.532Z",
   "revisions": [
    {
     "at": "2026-11-06T20:02:38.002Z",
@@ -6840,15 +7990,20 @@
     "at": "2026-11-07T07:33:15.562Z",
     "reason": "Title changed from \"Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips\"",
     "contentHash": "465d0139f3f09721"
+   },
+   {
+    "at": "2026-11-07T18:09:52.532Z",
+    "reason": "Title changed from \"Gemini Omni 1.2 Flash\"",
+    "contentHash": "e562c2aead4ffb51"
    }
   ],
-  "contentHash": "465d0139f3f09721",
-  "excerpt": "Article URL: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/ \nComments URL: https://news.ycombinator.com/item?id=50392118 \nPoints: 320\n# Comments: 227",
+  "contentHash": "e562c2aead4ffb51",
+  "excerpt": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
   "sources": [
    {
     "sourceId": "google-ai",
     "sourceName": "Google AI Blog",
-    "title": "Gemini Omni 1.2 Flash",
+    "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
     "publishedAt": "2026-11-05T17:00:00.000Z",
     "credibility": 3
@@ -6872,7 +8027,7 @@
   ],
   "minor": false,
   "score": {
-   "total": 71,
+   "total": 56,
    "parts": [
     {
      "label": "Baseline",
@@ -6890,18 +8045,13 @@
      "reason": "Reported by 3 independent sources"
     },
     {
-     "label": "Significance",
-     "points": 15,
-     "reason": "Major development (\"introducing\")"
-    },
-    {
      "label": "Freshness",
      "points": 5,
      "reason": "Published in the last 36 hours"
     }
    ]
   },
-  "importance": "high",
+  "importance": "notable",
   "status": "pending"
  },
  {
@@ -7022,7 +8172,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f7802919130d5797",
@@ -7439,7 +8589,7 @@
   "publishedAt": "2026-11-05T16:08:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f2a3cf72140c48d7",
@@ -7492,7 +8642,7 @@
   "publishedAt": "2026-11-05T16:02:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eec77cc1f36fceb7",
@@ -7592,7 +8742,7 @@
   "publishedAt": "2026-11-05T16:01:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3d1555930494a48e",
@@ -7639,7 +8789,7 @@
   "publishedAt": "2026-11-05T16:00:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "28d7fa52fd36adf1",
@@ -7696,7 +8846,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3561da51fd1492a0",
@@ -7743,7 +8893,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2eb620ccd082811d",
@@ -7842,7 +8992,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4aec6035220d9a39",
@@ -8254,7 +9404,7 @@
   "publishedAt": "2026-11-05T15:31:37.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8e2c20cdc419457",
@@ -8306,7 +9456,7 @@
   "publishedAt": "2026-11-05T15:28:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": "2026-11-05T20:46:46.848Z",
   "revisions": [
    {
@@ -8426,7 +9576,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a04bf1261c20d7d5",
@@ -8483,7 +9633,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2765579f20f1c2f",
@@ -8900,7 +10050,7 @@
   "publishedAt": "2026-11-05T14:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebc05f146351abe8",
@@ -8947,7 +10097,7 @@
   "publishedAt": "2026-11-05T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be1f3b408491c7b",
@@ -9061,7 +10211,7 @@
   "publishedAt": "2026-11-05T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4b988ac1c1cb008b",
@@ -9307,7 +10457,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "39625bb156898197",
@@ -9359,7 +10509,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e0b1b16d28551a1",
@@ -9469,7 +10619,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8b17b5fef41cbb8",
@@ -9794,7 +10944,7 @@
   "publishedAt": "2026-11-05T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "703f6a4fe1796d08",
@@ -9842,7 +10992,7 @@
   "publishedAt": "2026-11-05T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ecf0155aa18834a3",
@@ -9899,7 +11049,7 @@
   "publishedAt": "2026-11-05T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bad2773958f74a49",
@@ -10490,7 +11640,7 @@
   "publishedAt": "2026-11-05T04:36:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23b0e2464e00d2a9",
@@ -10792,7 +11942,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7830f630e76dadb",
@@ -10896,7 +12046,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c3687296de93a199",
@@ -10943,7 +12093,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2ab2db9ee7eb5b19",
@@ -10995,7 +12145,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22bb623be37e8901",
@@ -11166,7 +12316,7 @@
   "publishedAt": "2026-11-04T23:34:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33ab42b0991a0683",
@@ -11327,7 +12477,7 @@
   "publishedAt": "2026-11-04T22:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43599d165c97ba43",
@@ -11479,7 +12629,7 @@
   "publishedAt": "2026-11-04T21:38:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1dff6ff843ce0b7",
@@ -12127,7 +13277,7 @@
   "publishedAt": "2026-11-04T18:50:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8f40dfa300f27a89",
@@ -12378,7 +13528,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -12576,7 +13726,7 @@
   "publishedAt": "2026-11-04T17:50:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f2eb35206164099",
@@ -13046,7 +14196,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -13198,7 +14348,7 @@
   "publishedAt": "2026-11-04T16:34:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa3054af9f820a8f",
@@ -13407,7 +14557,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5844851476aa3b3b",
@@ -13662,7 +14812,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -14188,7 +15338,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -14339,7 +15489,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a18861f43f130f7a",
@@ -15745,7 +16895,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -15813,7 +16963,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5d5ae52df4bd5866",
@@ -15985,7 +17135,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "61c25825b89d32cc",
@@ -16037,7 +17187,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -16188,7 +17338,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -17211,7 +18361,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -17268,7 +18418,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -17843,7 +18993,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -18110,7 +19260,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -18157,7 +19307,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -18526,7 +19676,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -18630,7 +19780,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -19476,7 +20626,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -19793,7 +20943,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -19921,7 +21071,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d143689e77c992d9",
@@ -20875,7 +22025,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -20974,7 +22124,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -21036,7 +22186,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -21489,7 +22639,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -21859,7 +23009,7 @@
   "publishedAt": "2026-11-02T20:52:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1999d731b87a8967",
@@ -22684,7 +23834,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -22736,7 +23886,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -22976,7 +24126,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d43b0ad5c2e7b13",
@@ -23249,7 +24399,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -24135,7 +25285,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -25818,7 +26968,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -26096,7 +27246,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -26730,7 +27880,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -26807,7 +27957,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T18:09:52.532Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
