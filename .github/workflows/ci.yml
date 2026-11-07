@@ -1,15 +1,13 @@
 name: CI
 
+# PR-only: merging to main runs deploy.yml, which repeats lint, typecheck, tests and build before publishing.
 on:
   pull_request:
-  push:
-    branches: [main]
-    paths-ignore: ["vault/**"]
 
 permissions:
   contents: read
 
-# A newer push to the same PR supersedes the older run; main runs always finish.
+# A newer push to the same PR supersedes the older run;.
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -19,8 +17,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: ./.github/actions/setup
+        with:
+          fetch-depth: 2
+      # `check` is a required status, so a docs-only PR must still pass it: skip the work, not the job.
+      - id: scope
+        run: |
+          files=$(git diff --name-only HEAD^1 HEAD)
+          if [ -n "$files" ] && ! echo "$files" | grep -qvE '^(docs/|[^/]+\.md$)'; then
+            echo "docs_only=true" >> "$GITHUB_OUTPUT"; echo "Docs-only change: skipping checks"
+          fi
+      - if: steps.scope.outputs.docs_only != 'true'
+        uses: ./.github/actions/setup
       - name: Lint, typecheck, test (parallel)
+        if: steps.scope.outputs.docs_only != 'true'
         run: |
           npm run lint & p1=$!
           npm run typecheck & p2=$!
@@ -30,11 +39,13 @@ jobs:
           wait $p2 || fail=1
           wait $p3 || fail=1
           exit $fail
-      - uses: actions/cache@v4
+      - if: steps.scope.outputs.docs_only != 'true'
+        uses: actions/cache@v4
         with:
           path: .next/cache
           key: next-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx') }}
           restore-keys: next-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
-      - run: npm run build
+      - if: steps.scope.outputs.docs_only != 'true'
+        run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /fundamentals-tracker
