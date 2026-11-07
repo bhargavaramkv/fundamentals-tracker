@@ -1,5 +1,937 @@
 [
  {
+  "id": "2026-11-07-varlock-releases-bumpy-a-file-based-versioning-7313a7",
+  "title": "Varlock Releases Bumpy: A File-Based Versioning Alternative to Changesets",
+  "canonicalUrl": "https://infoq.com/news/2026/11/bumpy-changesets-alternative",
+  "category": "programming",
+  "publishedAt": "2026-11-07T06:54:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2f074d6671127906",
+  "excerpt": "Bumpy is an MIT-licensed, TypeScript tool for version management and changelogs in monorepos. It follows the changesets workflow, using markdown bump files, and adds support for workspace and catalog protocols, custom publish commands, and branch-based prereleases. Changesets v3, released in August 2026, closed many earlier gaps, though differences remain.\nBy Daniel Curtis",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Varlock Releases Bumpy: A File-Based Versioning Alternative to Changesets",
+    "url": "https://infoq.com/news/2026/11/bumpy-changesets-alternative",
+    "publishedAt": "2026-11-07T06:54:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"releases\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches typescript"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-artex-abuse-expands-as-cybercriminals-target-f14128",
+  "title": "ARTEX abuse expands as cybercriminals target financial sector",
+  "canonicalUrl": "https://microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
+  "category": "security",
+  "publishedAt": "2026-11-07T02:44:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ab9dd30204568dfc",
+  "excerpt": "In this article \nMitigation and protection guidance \nMicrosoft Defender detections \nHunting queries \nIndicators of compromise \nIn October 2026, the financially motivated threat actor Storm-3358 began targeting organizations in the financial sector using the agentic AI offensive framework ARTEX. The threat actor that Microsoft Threat Intelligence tracks as Storm-3358 is a Cambodia-based intrusion cluster that primarily targets financial organizations in Southeast Asia, in addition to a smaller number of large financial organizations globally.\nMicrosoft has observed Storm-3358 use ARTEX in combination with conventional automated tools to scan systems connected to the public internet, exploit security flaws including anonymous file upload and server-side request forgery (SSRF), and install open-source remote access trojans (RATs). Storm-3358 has used the WISP, vshell, and AdaptixC2 RATs for persistence and lateral movement. Microsoft has observed ARTEX agents using utilities like netcat and curl to download these RATs to compromised systems, as shown in Figure 1.\nFigure 1. Example commands that ARTEX agents used to download RATs to compromised systems. \nIn recent ARTEX-related…",
+  "sources": [
+   {
+    "sourceId": "ms-security",
+    "sourceName": "Microsoft Security Blog",
+    "title": "ARTEX abuse expands as cybercriminals target financial sector",
+    "url": "https://microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
+    "publishedAt": "2026-11-07T02:44:34.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-christophe-pettus-all-your-gucs-in-a-row-scram-319216",
+  "title": "Christophe Pettus: All Your GUCs in a Row: scram_iterations",
+  "canonicalUrl": "https://postgr.es/p/9Bc",
+  "category": "databases",
+  "publishedAt": "2026-11-07T02:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7e0bf5ff8a0d9179",
+  "excerpt": "`scram_iterations` embeds itself in each password when set and stays there forever, making it a per-password property masquerading as a server setting.\n(I consult on PostgreSQL through PGX Inc..)",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Christophe Pettus: All Your GUCs in a Row: scram_iterations",
+    "url": "https://postgr.es/p/9Bc",
+    "publishedAt": "2026-11-07T02:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-07-copilot-code-review-api-management-and-review-cc9249",
+  "title": "Copilot code review: API management and review overview updates",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-07T00:27:19.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7667fdefc05797d0",
+  "excerpt": "You can now manage GitHub Copilot code review settings through the REST and GraphQL APIs, from enterprise policy down to individual repositories. Copilot&rsquo;s review overview comment is now more compact, and this update includes fixes for billing, automatic reviews, and reliability.\nThese updates are available to Copilot Pro, Pro+, Max, Business, and Enterprise plans.\n🔌 Manage settings and identify Copilot&rsquo;s output through the API \nYou can already request reviews, choose their effort level, and get information back through the REST API. You can now also:\nIdentify Copilot&rsquo;s reviews and comments through explicit attribution fields.\nSee the review effort a review used, when that metadata is available.\nSee which skills, MCP servers, and custom instructions Copilot reported as sources for a comment. \nDepending on your role, you can also read and update code review settings:\nEnterprise administrators can enable or disable code review for all organizations, or leave the choice to organization administrators.\nOrganization administrators can manage code review enablement, the default review effort, and the runner configuration. Settings your enterprise manages can&rsquo;t…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "Copilot code review: API management and review overview updates",
+    "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates",
+    "publishedAt": "2026-11-07T00:27:19.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"updates\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches api"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-861b66",
+  "title": "SonicWall warns of new SSL-VPN MFA bypass flaw exploited in attacks",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks",
+  "category": "security",
+  "publishedAt": "2026-11-07T00:00:55.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9f2cc4333024ecf4",
+  "excerpt": "SonicWall has released security updates to fix seven vulnerabilities in SonicOS firewalls, including an SSL-VPN authentication bypass flaw exploited in attacks. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "SonicWall warns of new SSL-VPN MFA bypass flaw exploited in attacks",
+    "url": "https://bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks",
+    "publishedAt": "2026-11-07T00:00:55.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-libghostty-10-328389",
+  "title": "Libghostty 1.0",
+  "canonicalUrl": "https://mitchellh.com/writing/libghostty-1-0",
+  "category": "programming",
+  "publishedAt": "2026-11-06T23:30:52.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "65d7669a42849adb",
+  "excerpt": "Article URL: https://mitchellh.com/writing/libghostty-1-0 \nComments URL: https://news.ycombinator.com/item?id=50399933 \nPoints: 505\n# Comments: 80",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Libghostty 1.0",
+    "url": "https://mitchellh.com/writing/libghostty-1-0",
+    "publishedAt": "2026-11-06T23:30:52.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"1.0\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-china-reportedly-recruited-ai-exec-to-spy-on-348cd5",
+  "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+  "canonicalUrl": "https://theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T23:00:44.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0a0022f237f0274d",
+  "excerpt": "China's intelligence agency recruited Megaspeed executive Alice Huang to spy on Nvidia CEO Jensen Huang, according to The New York Times. The Ministry of State Security (MSS) enlisted her to glean information about American AI chips and \"potentially influence the company to push for its most advanced chips to be made available to China.\" Megaspeed […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+    "url": "https://theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+    "publishedAt": "2026-11-06T23:00:44.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-starlink-mobile-all-the-news-on-spacex-s-major-bdaf3d",
+  "title": "Starlink Mobile: All the news on SpaceX’s major mobile carrier ambitions",
+  "canonicalUrl": "https://theverge.com/science/1029162/spacex-starlink-mobile-elon-musk-news",
+  "category": "hardware",
+  "publishedAt": "2026-11-06T22:45:43.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0a5892e17be3ff97",
+  "excerpt": "SpaceX has declared that it’s going to make Starlink Mobile a “major” mobile carrier. The Elon Musk-owned company has already deployed thousands of direct-to-cell satellites, but its next big challenge is building out its 5G network here on Earth. As part of its plans to rival AT&T, Verizon, and T-Mobile, SpaceX has inked a deal […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Starlink Mobile: All the news on SpaceX’s major mobile carrier ambitions",
+    "url": "https://theverge.com/science/1029162/spacex-starlink-mobile-elon-musk-news",
+    "publishedAt": "2026-11-06T22:45:43.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "offTopic": true,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-runaway-ai-hacking-agent-behind-workos-breach-1d7d85",
+  "title": "Runaway AI hacking agent behind WorkOS breach after escaping sandbox",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox",
+  "category": "security",
+  "publishedAt": "2026-11-06T22:27:25.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "64aefac454b5b123",
+  "excerpt": "WorkOS says an AI-powered hacking agent that breached its internal sales application and accessed customer information was operated by a security researcher who claims the tool escaped its testing environment and unintentionally attacked the company. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Runaway AI hacking agent behind WorkOS breach after escaping sandbox",
+    "url": "https://bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox",
+    "publishedAt": "2026-11-06T22:27:25.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-speed-up-image-generation-with-flux-3-image-klein-4e0aa3",
+  "title": "Speed Up Image Generation with FLUX 3 Image Klein on NVIDIA Blackwell GPUs",
+  "canonicalUrl": "https://developer.nvidia.com/blog/speed-up-image-generation-with-flux-3-image-klein-on-nvidia-blackwell-gpus",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T22:20:20.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "681dd8262caa262e",
+  "excerpt": "When deploying diffusion models in design tools, image editors, and visual production workflows, developers must account for inference latency. Generating an...",
+  "sources": [
+   {
+    "sourceId": "nvidia-dev",
+    "sourceName": "NVIDIA Technical Blog",
+    "title": "Speed Up Image Generation with FLUX 3 Image Klein on NVIDIA Blackwell GPUs",
+    "url": "https://developer.nvidia.com/blog/speed-up-image-generation-with-flux-3-image-klein-on-nvidia-blackwell-gpus",
+    "publishedAt": "2026-11-06T22:20:20.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches inference, latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-a5fcc1",
+  "title": "Copilot impact dashboard adds chat and VS Code agent usage",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T22:17:28.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "10bd3b2c5d1bee40",
+  "excerpt": "The Agent adoption chart in the Copilot impact dashboard now includes Copilot Chat and the VS Code Agents window, so you can see engagement across nine Copilot experiences. The adoption cohort called &ldquo;Passive users&rdquo; is now &ldquo;Chat-first users&rdquo;, which better describes who is in it. The enterprise and organization 28-day usage metrics reports include the same two features. This builds on feature engagement in the Copilot impact dashboard .\nWhat&rsquo;s new \nAgent adoption chart: Adds Copilot Chat and the VS Code Agents window, for nine features in total.\nChat-first users: Replaces the &ldquo;Passive users&rdquo; cohort name. These users are active in Copilot but haven&rsquo;t used a qualifying feature on at least two days in the 28-day period, so they don&rsquo;t qualify for an adoption phase.\ncopilot_feature_engagement.totals_by_feature : Adds chat and vscode_agent entries to enterprise and organization 28-day reports.\nWhy this matters \nChat is a core Copilot experience, but the dashboard didn&rsquo;t show it, and users who mainly use chat were labeled passive. Showing Copilot Chat and VS Code Agents window engagement and naming the cohort for what it…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "Copilot impact dashboard adds chat and VS Code agent usage",
+    "url": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage",
+    "publishedAt": "2026-11-06T22:17:28.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 46,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agent, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-beyond-code-generation-a-developer-s-guide-to-92b800",
+  "title": "Beyond code generation: A developer’s guide to agentic engineering",
+  "canonicalUrl": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T22:15:59.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4655baf51fe97cf5",
+  "excerpt": "This October, GitHub saw more than 1.2 billion commits in one week&mdash;over 400% more than a year earlier. This is more commits than GitHub received in all of 2025. Chances are, you&rsquo;re generating more code than you were a year ago. But ask yourself: do you feel 400% more productive than you were last year?\nBuilding software takes more than a good prompt. As AI speeds up implementation, software developers are feeling more pressure in other places: a Faros AI study found that pull requests spent 441% longer in review when teams went from low to high AI adoption.\nAs a software developer, you gather requirements and steer implementation, review changes and evaluate test results, then investigate what happens in production. Agents can help you work more efficiently across all of these stages: Plan, Build, Verify, and Observe. We&rsquo;ll walk through what an effective agentic engineering workflow looks like on GitHub.\nPlan: Get everyone and every agent on the same page\nSee if this sounds familiar. You&rsquo;re planning an API change. The design is in one tool, a compatibility requirement is buried in Slack, and an old pull request explains why the current implementation works…",
+  "sources": [
+   {
+    "sourceId": "github-blog",
+    "sourceName": "The GitHub Blog",
+    "title": "Beyond code generation: A developer’s guide to agentic engineering",
+    "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering",
+    "publishedAt": "2026-11-06T22:15:59.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"study\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-github-copilot-weekly-releases-november-2-353c4d",
+  "title": "GitHub Copilot weekly releases — November 2",
+  "canonicalUrl": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-06T21:00:26.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "58305cfdd41bf963",
+  "excerpt": "This week, Copilot comes to JetBrains Air and Xcode&rsquo;s coding assistant, with updates to help you manage pull requests, settings, and agent sessions.\nGitHub Copilot app \nSet up Agent Merge directly from a pull request to have Copilot merge it when it&rsquo;s ready. It now stays enabled while required checks or rules are pending. You can also check reviewer status, request additional reviews, and select comment text to quote it or discuss it with Copilot.\nKeep working when a conversation reaches its context limit. Compact the conversation or review what&rsquo;s using the available space directly from the error.\nStart a session by dropping files on &ldquo;New&rdquo; in the sidebar. CSV and TSV files now open as tables with sticky headers and an option to view the source.\nManage sessions in fewer steps. Archive pinned sessions whose pull requests have merged or closed, pin or unpin multiple sessions, and separate nested chats without losing the conversation. My Work now supports more than ten saved custom views.\nGive Copilot guidance on which tool requests to approve without asking you. Personal instructions for assisted approval are opt-in and apply to local sessions.\nInstall…",
+  "sources": [
+   {
+    "sourceId": "github-changelog",
+    "sourceName": "GitHub Changelog",
+    "title": "GitHub Copilot weekly releases — November 2",
+    "url": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2",
+    "publishedAt": "2026-11-06T21:00:26.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"releases\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-chainalysis-says-hackers-stole-credentials-and-7142f0",
+  "title": "Chainalysis says hackers stole credentials and tokens for all of its customers",
+  "canonicalUrl": "https://arstechnica.com/security/2026/11/chainalysis-says-hackers-stole-credentials-and-tokens-for-all-of-its-customers",
+  "category": "security",
+  "publishedAt": "2026-11-06T20:56:41.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ebede6eb8638b74f",
+  "excerpt": "Blockchain analysis firm Chainalysis said that hackers have obtained sensitive personal information—including names, usernames, password hashes, and live tokens—for all of its users following a breach of its network security.\nThe accomplishment could be a major coup for the attackers. Both Chainalysis and public sources have revealed a long list of high-profile customers, including government agencies such as the FBI, US Immigration and Customs Enforcement agency, and the US Air Force, as well as private companies such as Microsoft, Coinbase, and Barclays. It's unclear if the data theft exposed customers to additional threats.\nWe regret to inform you...\nLast Friday, Chainalysis said it had been the target of a cybersecurity incident in October that was similar to the hacks of other platforms during the same month. The external actor used AI agent-assisted offensive techniques to gain unauthorized access to Chainalysis systems and internal tools. An email the company sent to affected customers said some “non-sensitive customer data, such as user IDs, full names, email addresses, and organization role labels for users provisioned on our platform were accessed.” It's not clear why…",
+  "sources": [
+   {
+    "sourceId": "ars-technica",
+    "sourceName": "Ars Technica",
+    "title": "Chainalysis says hackers stole credentials and tokens for all of its customers",
+    "url": "https://arstechnica.com/security/2026/11/chainalysis-says-hackers-stole-credentials-and-tokens-for-all-of-its-customers",
+    "publishedAt": "2026-11-06T20:56:41.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-ai-is-dramatically-accelerating-ai-research-5d5ecd",
+  "title": "AI is dramatically accelerating AI research",
+  "canonicalUrl": "https://planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T20:27:23.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8a4ef3ae01b1dff7",
+  "excerpt": "Article URL: https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai \nComments URL: https://news.ycombinator.com/item?id=50397994 \nPoints: 278\n# Comments: 213",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "AI is dramatically accelerating AI research",
+    "url": "https://planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
+    "publishedAt": "2026-11-06T20:27:23.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-videos-from-xdc-2026-are-available-b7e7c7",
+  "title": "Videos from XDC 2026 are available",
+  "canonicalUrl": "https://lwn.net/Articles/1105913",
+  "category": "open-source",
+  "publishedAt": "2026-11-06T20:25:22.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "41fb4ac320fc85fd",
+  "excerpt": "Videos from the 2026 X.Org Developers Conference (XDC) are now available on YouTube . XDC was held in Toronto, Ontario, Canada September 28-30.",
+  "sources": [
+   {
+    "sourceId": "lwn",
+    "sourceName": "LWN.net",
+    "title": "Videos from XDC 2026 are available",
+    "url": "https://lwn.net/Articles/1105913",
+    "publishedAt": "2026-11-06T20:25:22.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"now available\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-06-openai-s-new-gpt-6-cyber-ai-finds-81-firefox-475a42",
+  "title": "OpenAI's new GPT-6 Cyber AI finds 81 Firefox flaws, 948 Linux bugs",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/openais-new-gpt-6-cyber-ai-finds-81-firefox-flaws-948-linux-bugs",
+  "category": "security",
+  "publishedAt": "2026-11-06T20:24:19.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bb21f0bfdd253d83",
+  "excerpt": "OpenAI has revealed GPT-6 Cyber, a new artificial intelligence model that has discovered 81 previously unknown high-severity Firefox vulnerabilities and developed working exploits for 948 distinct Linux kernel flaws. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "OpenAI's new GPT-6 Cyber AI finds 81 Firefox flaws, 948 Linux bugs",
+    "url": "https://bleepingcomputer.com/news/security/openais-new-gpt-6-cyber-ai-finds-81-firefox-flaws-948-linux-bugs",
+    "publishedAt": "2026-11-06T20:24:19.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-a-jev-that-can-ask-opus-for-help-gives-opus-60724c",
+  "title": "A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost",
+  "canonicalUrl": "https://hightouch.com/blog/llm-judges-identity-resolution",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T19:48:51.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8388541dfc699704",
+  "excerpt": "Article URL: https://hightouch.com/blog/llm-judges-identity-resolution \nComments URL: https://news.ycombinator.com/item?id=50397429 \nPoints: 435\n# Comments: 98",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost",
+    "url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+    "publishedAt": "2026-11-06T19:48:51.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches llm"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-06-angular-2225-072743",
   "title": "angular 22.2.5",
   "canonicalUrl": "https://github.com/angular/angular/releases/tag/v22.2.5",
@@ -7,7 +939,7 @@
   "publishedAt": "2026-11-06T19:37:09.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5170ef543af30a32",
@@ -64,7 +996,7 @@
   "publishedAt": "2026-11-06T19:35:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "54fa92ab69035513",
@@ -109,6 +1041,101 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-06-firecracker-vm-escape-pwnescape-part-2-19e5a3",
+  "title": "Firecracker VM Escape: PwnEscape Part 2",
+  "canonicalUrl": "https://pwn.ai/blog/firecracker-escape",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-06T19:33:38.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "84f5bca6cacd8124",
+  "excerpt": "Article URL: https://pwn.ai/blog/firecracker-escape \nComments URL: https://news.ycombinator.com/item?id=50397219 \nPoints: 214\n# Comments: 105",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Firecracker VM Escape: PwnEscape Part 2",
+    "url": "https://pwn.ai/blog/firecracker-escape",
+    "publishedAt": "2026-11-06T19:33:38.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-06-building-the-next-generation-of-multimodal-ai-884405",
+  "title": "Building the next generation of multimodal AI experiences with fal in Microsoft Foundry",
+  "canonicalUrl": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/building-the-next-generation-of-multimodal-ai-experiences-with-fal-in-microsoft-/4570032",
+  "category": "cloud",
+  "publishedAt": "2026-11-06T19:08:44.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "8e4e1c618a91d98c",
+  "excerpt": "Microsoft and fal partner to expand video generation in Microsoft Foundry, helping developers bring creative ideas into enterprise applications.\nVideo workloads do not all start with the same input or aim for the same result. A creative team might explore several interpretations of a written brief. A retailer might turn an approved product image into a short motion concept. An application developer might combine image generation and video generation into a workflow that takes an idea from description to frame to scene. Each scenario brings different requirements for visual quality, motion, creative control, turnaround time, and cost. All of this means that a multi-model solution is necessary to realize a full vision.\nToday, Microsoft and fal are helping developers find the right tools for their workloads. We are excited to announce that Kling, LTX, and MiniMax video models are rolling out to in public preview in Microsoft Foundry through our new partnership with fal. Available as a first-party Azure service, these text-to-video and image-to-video options give creators and developers more ways to utilize video generation with the experiences they want to build.\nThe partnership…",
+  "sources": [
+   {
+    "sourceId": "azure-blog",
+    "sourceName": "Microsoft Azure Blog",
+    "title": "Building the next generation of multimodal AI experiences with fal in Microsoft Foundry",
+    "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/building-the-next-generation-of-multimodal-ai-experiences-with-fal-in-microsoft-/4570032",
+    "publishedAt": "2026-11-06T19:08:44.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-03-building-next-gen-ai-agents-the-mongodb-atlas-b96546"
+ },
+ {
   "id": "2026-11-06-locking-down-hibernation-for-the-winter-f54727",
   "title": "[$] Locking down hibernation for the winter",
   "canonicalUrl": "https://lwn.net/Articles/1103190",
@@ -116,7 +1143,7 @@
   "publishedAt": "2026-11-06T18:51:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fa79450f145976b5",
@@ -163,7 +1190,7 @@
   "publishedAt": "2026-11-06T18:48:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5b368d4305515562",
@@ -262,7 +1289,7 @@
   "publishedAt": "2026-11-06T18:37:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c1024147c65db39a",
@@ -314,7 +1341,7 @@
   "publishedAt": "2026-11-06T18:16:42.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b5a029b60d9ef0e8",
@@ -366,7 +1393,7 @@
   "publishedAt": "2026-11-06T18:10:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6220b7ddd98812a4",
@@ -413,7 +1440,7 @@
   "publishedAt": "2026-11-06T18:09:16.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5557753ee0aad183",
@@ -465,7 +1492,7 @@
   "publishedAt": "2026-11-06T18:05:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e155dedb70738b3",
@@ -522,7 +1549,7 @@
   "publishedAt": "2026-11-06T18:03:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "14ec240f07a1fc7a",
@@ -574,7 +1601,7 @@
   "publishedAt": "2026-11-06T17:56:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "10ee7fc8b59df5cd",
@@ -626,7 +1653,7 @@
   "publishedAt": "2026-11-06T17:40:06.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e2b41de7709f6d6c",
@@ -819,7 +1846,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "75f486319a6f835c",
@@ -876,7 +1903,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6bad0e777eb263d5",
@@ -928,7 +1955,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa18c719950d2386",
@@ -978,6 +2005,53 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-06-first-steps-in-bare-metal-programming-using-uefi-1c0e2b",
+  "title": "First steps in bare-metal programming using UEFI",
+  "canonicalUrl": "https://kevinboone.me/efitest_index.html",
+  "category": "programming",
+  "publishedAt": "2026-11-06T16:50:29.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7b7e9abca25a2727",
+  "excerpt": "Article URL: https://kevinboone.me/efitest_index.html \nComments URL: https://news.ycombinator.com/item?id=50394855 \nPoints: 215\n# Comments: 40",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "First steps in bare-metal programming using UEFI",
+    "url": "https://kevinboone.me/efitest_index.html",
+    "publishedAt": "2026-11-06T16:50:29.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-06-vscode-typescript-v102-e93fd1",
   "title": "vscode-typescript/v1.0.2",
   "canonicalUrl": "https://github.com/microsoft/TypeScript/releases/tag/vscode-typescript/v1.0.2",
@@ -985,7 +2059,7 @@
   "publishedAt": "2026-11-06T16:43:23.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1e326dbead4a454a",
@@ -1042,7 +2116,7 @@
   "publishedAt": "2026-11-06T16:16:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5850e59de98551a2",
@@ -1099,7 +2173,7 @@
   "publishedAt": "2026-11-06T16:11:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "26ecfed53b796d4b",
@@ -1151,7 +2225,7 @@
   "publishedAt": "2026-11-06T16:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ad360219c93427c1",
@@ -1302,7 +2376,7 @@
   "publishedAt": "2026-11-06T15:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b94cc4e0da7dbc4e",
@@ -1359,7 +2433,7 @@
   "publishedAt": "2026-11-06T15:01:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "80c3306d27bd7fac",
@@ -1411,7 +2485,7 @@
   "publishedAt": "2026-11-06T15:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8752de9318c914b9",
@@ -1459,7 +2533,7 @@
   "publishedAt": "2026-11-06T14:25:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0f13c56c60e2bdc0",
@@ -1568,7 +2642,7 @@
   "publishedAt": "2026-11-06T14:00:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e507217ce6a54dca",
@@ -1615,7 +2689,7 @@
   "publishedAt": "2026-11-06T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "006451afad2b79a7",
@@ -1667,7 +2741,7 @@
   "publishedAt": "2026-11-06T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "abf43b49463447fc",
@@ -1714,7 +2788,7 @@
   "publishedAt": "2026-11-06T12:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22b4e6b46f6ba5a3",
@@ -1771,11 +2845,17 @@
   "publishedAt": "2026-11-06T12:13:51.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "a98e9b17c8c35f7e",
-  "excerpt": "Article URL: https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817 \nComments URL: https://news.ycombinator.com/item?id=50391456 \nPoints: 562\n# Comments: 1269",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": "2026-11-07T07:33:15.562Z",
+  "revisions": [
+   {
+    "at": "2026-11-07T07:33:15.562Z",
+    "reason": "Source text edited",
+    "contentHash": "f72531035f9e17dc"
+   }
+  ],
+  "contentHash": "f72531035f9e17dc",
+  "excerpt": "Article URL: https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817 \nComments URL: https://news.ycombinator.com/item?id=50391456 \nPoints: 972\n# Comments: 1821",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -1811,6 +2891,81 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-06-actively-exploited-sonicwall-sonicos-sslvpn-cve-953902",
+  "title": "Actively exploited: SonicWall SonicOS SSLVPN CVE-2026-19868 (SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability)",
+  "canonicalUrl": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868",
+  "category": "security",
+  "publishedAt": "2026-11-06T12:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "19a9abd47728bf88",
+  "excerpt": "SonicWall SonicOS SSLVPN contains a use of single-factor authentication vulnerability that may allow a user with valid credentials for an alternate authentication method to bypass SAML authentication controls. Successful exploitation may also bypass SAML-enforced multi-factor authentication (MFA). Required action: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+  "sources": [
+   {
+    "sourceId": "cisa-kev",
+    "sourceName": "CISA Known Exploited Vulnerabilities",
+    "title": "Actively exploited: SonicWall SonicOS SSLVPN CVE-2026-19868 (SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability)",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868",
+    "publishedAt": "2026-11-06T12:00:00.000Z",
+    "credibility": 3
+   },
+   {
+    "sourceId": "cisa-advisories",
+    "sourceName": "CISA Cybersecurity Advisories",
+    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+    "url": "https://cisa.gov/news-events/alerts/2026/11/06/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "publishedAt": "2026-11-06T12:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 70,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"actively exploited\")"
+    },
+    {
+     "label": "Exploitation",
+     "points": 4,
+     "reason": "Listed by CISA as exploited in the wild"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "high",
+  "status": "pending"
+ },
+ {
   "id": "2026-11-06-faster-llm-inference-startup-what-you-need-to-know-06ff09",
   "title": "Faster LLM inference startup: What you need to know",
   "canonicalUrl": "https://cncf.io/blog/2026/11/06/faster-llm-inference-startup-what-you-need-to-know",
@@ -1818,7 +2973,7 @@
   "publishedAt": "2026-11-06T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "443119d03d631431",
@@ -1875,7 +3030,7 @@
   "publishedAt": "2026-11-06T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bab5b48f3abfb5da",
@@ -1932,7 +3087,7 @@
   "publishedAt": "2026-11-06T11:45:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9bc638078ebc0c2b",
@@ -1989,7 +3144,7 @@
   "publishedAt": "2026-11-06T11:32:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "373132fb4e4b8f19",
@@ -2041,7 +3196,7 @@
   "publishedAt": "2026-11-06T11:06:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f697d598302a3ebf",
@@ -2098,7 +3253,7 @@
   "publishedAt": "2026-11-06T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4225cfdb5f0d4472",
@@ -2145,7 +3300,7 @@
   "publishedAt": "2026-11-06T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d988dffbf384cc48",
@@ -2202,7 +3357,7 @@
   "publishedAt": "2026-11-06T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "92301467a8432dfa",
@@ -2348,7 +3503,7 @@
   "publishedAt": "2026-11-06T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b28c1a01375b2d75",
@@ -2395,7 +3550,7 @@
   "publishedAt": "2026-11-06T08:07:06.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa6818140c47536f",
@@ -2452,7 +3607,7 @@
   "publishedAt": "2026-11-06T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7b44a3f552684aab",
@@ -2499,7 +3654,7 @@
   "publishedAt": "2026-11-06T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "59e1c31be358c3a8",
@@ -3027,6 +4182,53 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-06-us-faa-says-it-will-phase-out-floppy-disks-from-58a00a",
+  "title": "US FAA says it will phase out floppy disks from air traffic control by 2028",
+  "canonicalUrl": "https://reuters.com/world/us/us-faa-says-it-will-phase-out-floppy-disks-air-traffic-control-by-2028-2026-11-05",
+  "category": "programming",
+  "publishedAt": "2026-11-06T04:00:28.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-07T07:33:15.562Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0bf1f28b712a1710",
+  "excerpt": "Article URL: https://www.reuters.com/world/us/us-faa-says-it-will-phase-out-floppy-disks-air-traffic-control-by-2028-2026-11-05/ \nComments URL: https://news.ycombinator.com/item?id=50388001 \nPoints: 325\n# Comments: 261",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "US FAA says it will phase out floppy disks from air traffic control by 2028",
+    "url": "https://reuters.com/world/us/us-faa-says-it-will-phase-out-floppy-disks-air-traffic-control-by-2028-2026-11-05",
+    "publishedAt": "2026-11-06T04:00:28.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-06-docker-sandboxes-vs-containers-choosing-the-right-129a84",
   "title": "Docker Sandboxes vs. Containers: Choosing the Right Isolation for AI Agents",
   "canonicalUrl": "https://docker.com/blog/docker-sandboxes-vs-containers",
@@ -3034,7 +4236,7 @@
   "publishedAt": "2026-11-06T03:17:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a092cfb216cb4f19",
@@ -3198,7 +4400,7 @@
   "publishedAt": "2026-11-06T00:09:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6b87dee3c6708cbc",
@@ -3359,7 +4561,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dbd45afff744e044",
@@ -3406,7 +4608,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "91b13b2625a85566",
@@ -3463,7 +4665,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "78cb42929856968e",
@@ -3510,7 +4712,7 @@
   "publishedAt": "2026-11-05T23:46:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b4df4e2c19844532",
@@ -3704,7 +4906,7 @@
   "publishedAt": "2026-11-05T23:09:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "daef14854f3945fa",
@@ -3756,7 +4958,7 @@
   "publishedAt": "2026-11-05T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6cc9c9a15a9a326b",
@@ -3908,7 +5110,7 @@
   "publishedAt": "2026-11-05T22:05:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ec043e7b675a4d19",
@@ -4102,7 +5304,7 @@
   "publishedAt": "2026-11-05T20:23:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e0bc84fb7004d81",
@@ -4326,7 +5528,7 @@
   "publishedAt": "2026-11-05T20:00:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e8d76e8cf7c9759d",
@@ -4378,7 +5580,7 @@
   "publishedAt": "2026-11-05T20:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a368fccf0f85b32a",
@@ -4430,7 +5632,7 @@
   "publishedAt": "2026-11-05T19:57:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3ef29f7aaacea164",
@@ -4530,7 +5732,7 @@
   "publishedAt": "2026-11-05T19:25:32.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9c06dbaaa6eb94b3",
@@ -4791,7 +5993,7 @@
   "publishedAt": "2026-11-05T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "674e7c008a50ba01",
@@ -4839,7 +6041,7 @@
   "publishedAt": "2026-11-05T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cddffc5174e6bb18",
@@ -4943,7 +6145,7 @@
   "publishedAt": "2026-11-05T18:45:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9adbcac3d66278a1",
@@ -4990,7 +6192,7 @@
   "publishedAt": "2026-11-05T18:05:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7fcfd3ded7f42913",
@@ -5309,7 +6511,7 @@
   "publishedAt": "2026-11-05T17:10:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2cb52f8f53499ec",
@@ -5361,7 +6563,7 @@
   "publishedAt": "2026-11-05T17:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "886a42415217b889",
@@ -5470,7 +6672,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1e29238e6fbaed59",
@@ -5569,7 +6771,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a179640616a66edf",
@@ -5621,17 +6823,27 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
-  "updatedAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
+  "updatedAt": "2026-11-07T07:33:15.562Z",
   "revisions": [
    {
     "at": "2026-11-06T20:02:38.002Z",
     "reason": "Title changed from \"Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips\"",
     "contentHash": "e8e05e7ddc0f7c4a"
+   },
+   {
+    "at": "2026-11-07T07:33:15.562Z",
+    "reason": "Title changed from \"Gemini Omni 1.2 Flash\"",
+    "contentHash": "e562c2aead4ffb51"
+   },
+   {
+    "at": "2026-11-07T07:33:15.562Z",
+    "reason": "Title changed from \"Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips\"",
+    "contentHash": "465d0139f3f09721"
    }
   ],
-  "contentHash": "e8e05e7ddc0f7c4a",
-  "excerpt": "Article URL: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/ \nComments URL: https://news.ycombinator.com/item?id=50392118 \nPoints: 245\n# Comments: 192",
+  "contentHash": "465d0139f3f09721",
+  "excerpt": "Article URL: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/ \nComments URL: https://news.ycombinator.com/item?id=50392118 \nPoints: 320\n# Comments: 227",
   "sources": [
    {
     "sourceId": "google-ai",
@@ -5810,7 +7022,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f7802919130d5797",
@@ -6227,7 +7439,7 @@
   "publishedAt": "2026-11-05T16:08:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f2a3cf72140c48d7",
@@ -6280,7 +7492,7 @@
   "publishedAt": "2026-11-05T16:02:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eec77cc1f36fceb7",
@@ -6380,7 +7592,7 @@
   "publishedAt": "2026-11-05T16:01:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3d1555930494a48e",
@@ -6427,7 +7639,7 @@
   "publishedAt": "2026-11-05T16:00:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "28d7fa52fd36adf1",
@@ -6484,7 +7696,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3561da51fd1492a0",
@@ -6531,7 +7743,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T08:17:37.472Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2eb620ccd082811d",
@@ -6630,7 +7842,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4aec6035220d9a39",
@@ -7042,7 +8254,7 @@
   "publishedAt": "2026-11-05T15:31:37.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8e2c20cdc419457",
@@ -7094,7 +8306,7 @@
   "publishedAt": "2026-11-05T15:28:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": "2026-11-05T20:46:46.848Z",
   "revisions": [
    {
@@ -7214,7 +8426,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a04bf1261c20d7d5",
@@ -7271,7 +8483,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2765579f20f1c2f",
@@ -7688,7 +8900,7 @@
   "publishedAt": "2026-11-05T14:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebc05f146351abe8",
@@ -7735,7 +8947,7 @@
   "publishedAt": "2026-11-05T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be1f3b408491c7b",
@@ -7849,7 +9061,7 @@
   "publishedAt": "2026-11-05T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4b988ac1c1cb008b",
@@ -8095,7 +9307,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "39625bb156898197",
@@ -8147,7 +9359,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e0b1b16d28551a1",
@@ -8257,7 +9469,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8b17b5fef41cbb8",
@@ -8582,7 +9794,7 @@
   "publishedAt": "2026-11-05T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "703f6a4fe1796d08",
@@ -8630,7 +9842,7 @@
   "publishedAt": "2026-11-05T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ecf0155aa18834a3",
@@ -8687,7 +9899,7 @@
   "publishedAt": "2026-11-05T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bad2773958f74a49",
@@ -9278,7 +10490,7 @@
   "publishedAt": "2026-11-05T04:36:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23b0e2464e00d2a9",
@@ -9580,7 +10792,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7830f630e76dadb",
@@ -9627,7 +10839,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ff7ffa9ed43ac193",
@@ -9684,7 +10896,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c3687296de93a199",
@@ -9731,7 +10943,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2ab2db9ee7eb5b19",
@@ -9783,7 +10995,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22bb623be37e8901",
@@ -9840,7 +11052,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a6bde6930a3c27b3",
@@ -9897,7 +11109,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f9f4c7b1beb9db58",
@@ -9954,7 +11166,7 @@
   "publishedAt": "2026-11-04T23:34:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33ab42b0991a0683",
@@ -10115,7 +11327,7 @@
   "publishedAt": "2026-11-04T22:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43599d165c97ba43",
@@ -10267,7 +11479,7 @@
   "publishedAt": "2026-11-04T21:38:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1dff6ff843ce0b7",
@@ -10915,7 +12127,7 @@
   "publishedAt": "2026-11-04T18:50:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8f40dfa300f27a89",
@@ -11166,7 +12378,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -11364,7 +12576,7 @@
   "publishedAt": "2026-11-04T17:50:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f2eb35206164099",
@@ -11834,7 +13046,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -11986,7 +13198,7 @@
   "publishedAt": "2026-11-04T16:34:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa3054af9f820a8f",
@@ -12195,7 +13407,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5844851476aa3b3b",
@@ -12450,7 +13662,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -12976,7 +14188,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -13127,7 +14339,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a18861f43f130f7a",
@@ -14533,7 +15745,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -14601,7 +15813,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5d5ae52df4bd5866",
@@ -14773,7 +15985,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "61c25825b89d32cc",
@@ -14825,7 +16037,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -14976,7 +16188,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -15790,11 +17002,19 @@
     "url": "https://mongodb.com/company/blog/innovation/building-next-gen-ai-agents-mongodb-atlas-integration-microsoft-foundry",
     "publishedAt": "2026-11-03T20:02:58.000Z",
     "credibility": 3
+   },
+   {
+    "sourceId": "azure-blog",
+    "sourceName": "Microsoft Azure Blog",
+    "title": "Building the next generation of multimodal AI experiences with fal in Microsoft Foundry",
+    "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/building-the-next-generation-of-multimodal-ai-experiences-with-fal-in-microsoft-/4570032",
+    "publishedAt": "2026-11-06T19:08:44.000Z",
+    "credibility": 3
    }
   ],
   "minor": false,
   "score": {
-   "total": 52,
+   "total": 60,
    "parts": [
     {
      "label": "Baseline",
@@ -15805,6 +17025,11 @@
      "label": "Source credibility",
      "points": 20,
      "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
     },
     {
      "label": "Engineering relevance",
@@ -15986,7 +17211,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -16043,7 +17268,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -16618,7 +17843,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -16885,7 +18110,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -16932,7 +18157,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -17301,7 +18526,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -17405,7 +18630,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -18251,7 +19476,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -18568,7 +19793,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -18696,7 +19921,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d143689e77c992d9",
@@ -19650,7 +20875,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -19749,7 +20974,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -19811,7 +21036,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -20264,7 +21489,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -20634,7 +21859,7 @@
   "publishedAt": "2026-11-02T20:52:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1999d731b87a8967",
@@ -21459,7 +22684,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -21511,7 +22736,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -21751,7 +22976,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d43b0ad5c2e7b13",
@@ -22024,7 +23249,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -22910,7 +24135,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -23485,7 +24710,7 @@
   "publishedAt": "2026-11-02T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a41a4cfcd3f036d9",
@@ -24593,7 +25818,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -24871,7 +26096,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -25505,7 +26730,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -25582,7 +26807,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-06T20:02:38.002Z",
+  "lastSeenAt": "2026-11-07T07:33:15.562Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
