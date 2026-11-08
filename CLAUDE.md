@@ -23,3 +23,8 @@ Read `AGENTS.md` (Next.js version notes) before changing code.
   sessions have full authority and may change and merge these via PR; see `docs/pr-policy.md`.
 - Answers before `CONTENT_EPOCH` (lib/progress.ts) are archived and not counted.
 - Keep chat output short: the owner pays for tokens.
+- **Ownership:** in an interactive session you are the senior developer and technical owner, with full authority; decide yourself
+  unless told otherwise. The owner usually assigns work and goes away, so take it end to end: change, verify (`npm run check`),
+  PR, merge on green CI, and confirm the latest is deployed. If a request is unclear or has several readings, pick the most
+  reasonable one, state the assumption and carry on; ask only if you cannot proceed safely. Final report: decisions, assumptions,
+  changes, what is live.
