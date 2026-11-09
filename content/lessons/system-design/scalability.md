@@ -17,6 +17,8 @@ Vertical scaling is simple but has a ceiling and a single point of failure. Hori
 
 With `hash % N`, changing N remaps almost every key, so your cache goes cold all at once. With a hash ring, changing nodes moves only about 1/N of the keys. Virtual nodes even out the distribution.
 
+The benefit is **stability under membership change**, not speed and not replication. Hashing costs about the same either way, and you still replicate separately if you need it. Example: 10 cache nodes, one dies. With `% N`, about 90% of keys change owner and the database eats the miss storm. With a ring, only that node's ~10% move.
+
 ## Scaling on the right signal
 
 The HPA on CPU works for CPU-bound services. For I/O-bound .NET or Node APIs, latency can climb while CPU stays low. Better signals:
@@ -25,7 +27,9 @@ The HPA on CPU works for CPU-bound services. For I/O-bound .NET or Node APIs, la
 - Queue depth or consumer lag (KEDA)
 - p95 latency as a guardrail, not as the scaling input
 
-And **find the bottleneck first**: scaling pods against a saturated database or a small connection pool makes things worse. Use the USE method (Utilization, Saturation, Errors) for resources and RED (Rate, Errors, Duration) for services.
+And **find the bottleneck first**: scaling pods against a saturated database or a small connection pool makes things worse. **Worked case:** p99 triples, CPU sits at 30%, pods wait on the DB. The HPA never fires, and a fixed 50 replicas (or a bigger HPA) just opens more connections against the same saturated DB. Fix the bottleneck (query/index, pool size, a cache, backpressure), then scale on concurrency or queue depth.
+
+Use the USE method (Utilization, Saturation, Errors) for resources and RED (Rate, Errors, Duration) for services.
 
 ## Back-of-envelope numbers
 
