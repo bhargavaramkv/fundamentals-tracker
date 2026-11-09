@@ -1,5 +1,988 @@
 [
  {
+  "id": "2026-11-09-nvidia-announces-new-planned-investments-in-86c270",
+  "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/korean-startup-investments-msit",
+  "category": "hardware",
+  "publishedAt": "2026-11-09T08:00:53.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "43e4ad5993acf5e9",
+  "excerpt": "Korea’s Ministry of Science and ICT and NVIDIA hosted the MSIT -NVIDIA AI Startup Partnership Forum at COEX. \nRyu Je-myung, vice minister of science and ICT , joined NVIDIA leaders to meet with over 20 Korean startups across foundation models, physical AI, AI infrastructure and AI semiconductors. \nNVIDIA also announced an investment in Korean startup Point2 , with additional investments planned in Motif Technologies , RLWRLD and Upstage.  \nPoint2 Technology, an AI interconnect company, builds scalable, radio frequency-based interconnects that move data between chips and racks in AI factories, offering an innovative alternative to conventional copper and optical interconnect solutions for AI cluster scale-up, delivering the reach, performance and efficiency needed for next-generation AI infrastructure. \nMotif Technologies , a Seoul-based AI lab, develops foundation models for building AI agents that carry out complex tasks, including Motif-3, a large language model released with open weights. \nRLWRLD, a physical AI startup based in San Francisco, Seoul and Tokyo, develops robotics foundation models that enable humanoid and industrial robots to perform complex real-world tasks that…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum",
+    "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit",
+    "publishedAt": "2026-11-09T08:00:53.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"announces\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-pinterest-replaces-journey-clustering-with-4b-62ea52",
+  "title": "Pinterest Replaces Journey Clustering with 4B Qwen3 LLM, Reports Improved Engagement",
+  "canonicalUrl": "https://infoq.com/news/2026/11/pinterest-journey",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-09T07:25:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d434d2a691cc2770",
+  "excerpt": "Pinterest has moved its user-journey inference system from a multi-stage clustering pipeline to a fine-tuned 4-billion-parameter language model, reporting a 1.1% improvement in email click-through and 1.3% higher push opens.\nBy Matt Foster",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Pinterest Replaces Journey Clustering with 4B Qwen3 LLM, Reports Improved Engagement",
+    "url": "https://infoq.com/news/2026/11/pinterest-journey",
+    "publishedAt": "2026-11-09T07:25:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"improved\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches llm, inference"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-tokio-releases-topcoat-a-batteries-included-full-a5ec17",
+  "title": "Tokio Releases Topcoat: A Batteries-Included Full-Stack Rust Framework",
+  "canonicalUrl": "https://infoq.com/news/2026/11/topcoat-rust-framework",
+  "category": "programming",
+  "publishedAt": "2026-11-09T06:42:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bfd9d0206285bfe9",
+  "excerpt": "Topcoat is an open-source, server-rendered full-stack web framework for Rust from the Tokio team, now public at version 0.9. It uses Rust expressions translated to JavaScript for reactivity instead of WebAssembly. It targets typical database-driven apps. Releases are unstable, and authentication and background jobs remain on the roadmap.\nBy Daniel Curtis",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Tokio Releases Topcoat: A Batteries-Included Full-Stack Rust Framework",
+    "url": "https://infoq.com/news/2026/11/topcoat-rust-framework",
+    "publishedAt": "2026-11-09T06:42:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 51,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"releases\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches rust, javascript, database, authentication"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-korea-advances-physical-ai-across-industries-with-d08694",
+  "title": "Korea Advances Physical AI Across Industries With NVIDIA",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem",
+  "category": "hardware",
+  "publishedAt": "2026-11-09T05:00:40.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "55d55dcd50cadad5",
+  "excerpt": "Tapping into the country’s strengths in manufacturing and engineering, NVIDIA is helping advance Korea’s physical AI ecosystem. \nThe country’s industry leaders are applying accelerated computing, AI and simulation to everything from semiconductor manufacturing to robotics and autonomous vehicles. \nThese efforts are helping bring physical AI from development into real-world production. \nSamsung Advances Semiconductor Engineering With Accelerated Computing and AI Physics \nSamsung Electronics is expanding its collaboration with NVIDIA to advance semiconductor innovation through accelerated computing and AI physics. The work spans materials research, process development and device engineering. \nIn technology computer-aided design, Samsung is working with NVIDIA cuISS and NVIDIA cuDSS to accelerate computations involving sparse linear systems. The collaboration also extends to GPU acceleration for process and optical simulations. In materials research, Samsung’s sMOL platform has run selected quantum chemical calculations up to 5x faster end to end with NVIDIA cuEST . Samsung is also exploring NVIDIA cuEquivariance to speed up tensor operations used in training and inference for…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "Korea Advances Physical AI Across Industries With NVIDIA",
+    "url": "https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem",
+    "publishedAt": "2026-11-09T05:00:40.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-korea-s-ai-ecosystem-advances-and-secures-agentic-776253",
+  "title": "Korea’s AI Ecosystem Advances and Secures Agentic AI With NVIDIA",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai",
+  "category": "hardware",
+  "publishedAt": "2026-11-09T05:00:39.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "70b4d39da4ed971d",
+  "excerpt": "As AI agents take on more work, they need capable open models and security that advances alongside them. \nHyundai Motor Group is exploring NVIDIA NemoClaw blueprints and the NVIDIA OpenShell runtime, while AIM Intelligence is integrating its Starfort platform with NVIDIA OpenShell to support secure AI agents for employee productivity and enterprise workflows . \nA key component of the NVIDIA Open Agent Safety Platform, OpenShell provides a secure runtime with sandboxed execution and policy-based controls to safeguard sensitive data, manage access to enterprise tools and govern autonomous agent actions. \nAIM Intelligence , a Korean AI security company, is integrating its Starfort agent control platform with NVIDIA OpenShell. The goal is to combine OpenShell’s runtime access controls with Starfort’s detection of malicious instructions and data leakage. The company is also considering a preliminary proof of concept for the public energy sector, with potential applications across enterprise, industrial and robotics environments. \nOn the model side, LG AI Research is opening application programming interface access for K-EXAONE-2.5, developed using NVIDIA Nemotron datasets, including…",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "Korea’s AI Ecosystem Advances and Secures Agentic AI With NVIDIA",
+    "url": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai",
+    "publishedAt": "2026-11-09T05:00:39.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 49,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, runtime, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-from-chips-to-skills-nvidia-and-korea-expand-698f08",
+  "title": "From Chips to Skills, NVIDIA and Korea Expand Sovereign AI Collaboration",
+  "canonicalUrl": "https://blogs.nvidia.com/blog/korea-sovereign-ai-collaboration",
+  "category": "hardware",
+  "publishedAt": "2026-11-09T05:00:04.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "47ba7c7c3ad2aa47",
+  "excerpt": "NVIDIA and Korea’s Ministry of Science and ICT (MSIT) are expanding their collaboration across the country’s sovereign AI ecosystem, from AI semiconductors and data center infrastructure to talent, startups, models, agents and security. \nThe collaboration lays the groundwork for Korean NPU and XPU companies to explore participation in the NVIDIA NVLink Fusion ecosystem, and includes NVIDIA training and certification programs, hackathons and technical seminars to strengthen GPU utilization. \nThrough Korea’s AI for All initiative, NVIDIA will collaborate with three selected consortia and four leading Korean foundation model builders, using NVIDIA Dynamo software to optimize and scale AI inference. \nIn addition, NVIDIA today announced a collaboration with SK Telecom and Rebellions, supported by MSIT, to advance sovereign AI infrastructure for Korean models and workloads with NVIDIA NVLink Fusion. Read more in the press release .",
+  "sources": [
+   {
+    "sourceId": "nvidia-blog",
+    "sourceName": "NVIDIA Blog",
+    "title": "From Chips to Skills, NVIDIA and Korea Expand Sovereign AI Collaboration",
+    "url": "https://blogs.nvidia.com/blog/korea-sovereign-ai-collaboration",
+    "publishedAt": "2026-11-09T05:00:04.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 43,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-autoparallel-composable-pytorch-native-automatic-57fedf",
+  "title": "AutoParallel: Composable, PyTorch-Native Automatic Parallelism for Production Training",
+  "canonicalUrl": "https://arxiv.org/abs/2611.08660",
+  "category": "research",
+  "publishedAt": "2026-11-09T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "0fb2f96beb5ac1b1",
+  "excerpt": "arXiv:2611.08660v1 Announce Type: new \nAbstract: Training large models requires multiple interacting forms of parallelism. As models and clusters scale, finding and maintaining efficient parallelization plans becomes essential for training performance. Diverse model architectures, workloads, and hardware topologies demand flexible strategies, yet production PyTorch systems typically rely on hand-written recipes that are costly to adapt and tend to reuse familiar patterns, which may be suboptimal for a given workload. We present AutoParallel, a PyTorch-native planner for distributed model training. AutoParallel searches parallelization choices jointly across the training computation, allowing established techniques to be combined and unconventional strategies to emerge. It expresses its decisions using native PyTorch abstractions and produces ordinary PyTorch programs, avoiding a separate execution runtime while composing directly with the PyTorch compilation and training stack. AutoParallel also composes automatic decisions with model-specific distributed code, allowing dynamic or specialized regions to remain under user control. Plans are inspectable and replayable artifacts.…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "AutoParallel: Composable, PyTorch-Native Automatic Parallelism for Production Training",
+    "url": "https://arxiv.org/abs/2611.08660",
+    "publishedAt": "2026-11-09T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches distributed"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-cpu-micro-architectural-characteristic-22e393",
+  "title": "CPU Micro-Architectural Characteristic Sensitivity Study on CPU-Side Agentic Task Latency",
+  "canonicalUrl": "https://arxiv.org/abs/2611.08697",
+  "category": "research",
+  "publishedAt": "2026-11-09T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "bf74d9ea9bc605f2",
+  "excerpt": "arXiv:2611.08697v1 Announce Type: new \nAbstract: We perform a novel study of CPU micro-architectural characteristics on how they affect agentic AI CPU side latency. Small enterprises and individual users looking to reduce costs and seeking data privacy benefit from running agents locally, motivating an investigation into the optimal performance characteristics of an edge CPU to improve user experience. We investigate the relationship between CPU core frequency, CPU uncore frequency, active physical cores, and symmetric multi threading with agentic task latency in single and multi agent configurations. Across eight experiments on an Intel edge CPU, we find that P-core frequency produces the largest median latency improvement among the evaluated parameters. Increasing P-core frequency from 2.5 to 5.5 GHz yields a 1.154$\\times$ speedup for a single agent and a 1.341$\\times$ speedup for eight concurrent agents. We are the first to characterize hardware micro-architectural relationships on single and multi agent configurations with TerminalBench; we also provide an open source framework and dataset for repeatable CPU side latency agentic benchmarking.",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "CPU Micro-Architectural Characteristic Sensitivity Study on CPU-Side Agentic Task Latency",
+    "url": "https://arxiv.org/abs/2611.08697",
+    "publishedAt": "2026-11-09T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 48,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"study\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches latency, agents, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-llm-based-feature-extraction-for-multi-criteria-1db273",
+  "title": "LLM-Based Feature Extraction for Multi-Criteria Inventory Classification",
+  "canonicalUrl": "https://arxiv.org/abs/2611.08626",
+  "category": "research",
+  "publishedAt": "2026-11-09T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "e9422b1c01bbce4c",
+  "excerpt": "arXiv:2611.08626v1 Announce Type: cross \nAbstract: E-commerce supply chains generate large volumes of customer feedback and operational data that remain underutilized in inventory management. Traditional inventory classification techniques such as ABC analysis rely primarily on annual dollar usage, while multi-criteria inventory classification (MCIC) methods extend this but still depend on structured quantitative data and do not utilize unstructured information available in modern supply chains. This paper proposes an LLM-based feature extraction approach that transforms unstructured sources such as customer reviews into quantitative features using vector embeddings and LLM-generated evaluation criteria. The enriched feature set is incorporated into an MCIC framework based on the Hadi-Vencheh model. Experimental results show measurable reclassification effects when customer sentiment signals are included, demonstrating that integrating unstructured data into MCIC can enhance inventory prioritization.",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "LLM-Based Feature Extraction for Multi-Criteria Inventory Classification",
+    "url": "https://arxiv.org/abs/2611.08626",
+    "publishedAt": "2026-11-09T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches llm"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-logical-scalability-in-big-data-architectures-89cdb6",
+  "title": "Logical Scalability in Big Data Architectures: Impact of Data Modeling on the Database Layer",
+  "canonicalUrl": "https://arxiv.org/abs/2611.09346",
+  "category": "research",
+  "publishedAt": "2026-11-09T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2111b0e7c9a94636",
+  "excerpt": "arXiv:2611.09346v1 Announce Type: new \nAbstract: In modern Big Data architectures, scalability is often addressed through infrastructural expansion, involving vertical or horizontal scaling to manage growing data volumes. However, this hardware-centric perspective overlooks the logical scalability of the storage layer. A central challenge lies in how data modeling choices affect the storage layer of big data architectures. Specifically, when the data model is misaligned with the underlying query patterns, performance bottlenecks emerge and persist regardless of the available computational resources. This paper investigates the concept of logical scalability by conducting a comparative performance analysis of Document, Graph and Multi-Model database paradigms under varying workloads, queries and dataset scales. Our results demonstrate that performance degradation caused by model misalignment cannot be mitigated by additional computational resources alone. Increasing the number of machines while retaining a structurally inadequate data model yields performance equivalent to or worse than a single-machine configuration, as distributed coordination overhead compounds the…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Logical Scalability in Big Data Architectures: Impact of Data Modeling on the Database Layer",
+    "url": "https://arxiv.org/abs/2611.09346",
+    "publishedAt": "2026-11-09T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches database"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-mv-ivf-multi-vector-retrieval-via-multi-vector-318e33",
+  "title": "MV-IVF: Multi-Vector Retrieval via Multi-Vector Clustering",
+  "canonicalUrl": "https://arxiv.org/abs/2611.09040",
+  "category": "research",
+  "publishedAt": "2026-11-09T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9da3b07f4b301547",
+  "excerpt": "arXiv:2611.09040v1 Announce Type: cross \nAbstract: Multi-vector retrieval represents each query and document as a set of embeddings and scores relevance via fine-grained set-to-set interactions such as MaxSim (Chamfer similarity). This expressiveness improves retrieval quality over single-vector representations, but makes search substantially more expensive. Existing systems address this challenge primarily through proxy representations or filter-and-rerank pipelines that reduce candidate generation to single-vector search. We study the complementary direction of building a native IVF-style index directly over multi-vector data.\nWe introduce MV-IVF, an inverted-file index for multi-vector retrieval built on MV-Lloyd, a new Lloyd-style algorithm for clustering point clouds under a Chamfer objective. Our key observation is that once point clouds are assigned to clusters, the center-update step reduces to standard single-vector clustering over the flattened embeddings in each cluster. This enables efficient construction of a hierarchical IVF tree with center point clouds at internal nodes.\nAt query time, MV-IVF performs best-first beam search over the tree to identify promising leaf…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "MV-IVF: Multi-Vector Retrieval via Multi-Vector Clustering",
+    "url": "https://arxiv.org/abs/2611.09040",
+    "publishedAt": "2026-11-09T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"improves\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches vector"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-resserve-accurate-and-efficient-fp4-llm-inference-b4302d",
+  "title": "ResServe: Accurate and Efficient FP4 LLM Inference with Residue Compensation",
+  "canonicalUrl": "https://arxiv.org/abs/2611.08713",
+  "category": "research",
+  "publishedAt": "2026-11-09T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9678a7bee793ba1a",
+  "excerpt": "arXiv:2611.08713v1 Announce Type: new \nAbstract: Block-scaled 4-bit floating-point (FP4) quantization reduces large language model inference costs but can degrade task quality. Higher-precision computation can mitigate this loss at the expense of some of the efficiency gains from FP4 inference. Narrow matrix computations common in decoding often leave spare hardware capacity for low-cost precision recovery. ResServe combines an FP4 activation base with an FP4-quantized residue representing information lost during quantization. It uses this spare capacity to compute the residue's contribution and combines results on-chip, avoiding extra result transfers. We apply this principle to linear layers and decode attention, while selective compensation limits added work when processing input prompts. On NVIDIA B200, compensated linear kernels using the NVFP4 format improve numerical precision while retaining latency close to uncompensated execution for the evaluated operations with few rows. In the evaluated NVFP4 inference configurations, ResServe adds at most 3.4% request-latency overhead over W4A4 and reduces request latency by 22.4-53.3% relative to W4A8. Across five models,…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "ResServe: Accurate and Efficient FP4 LLM Inference with Residue Compensation",
+    "url": "https://arxiv.org/abs/2611.08713",
+    "publishedAt": "2026-11-09T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches llm, inference"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-the-gpu-needs-an-operating-system-36ddbf",
+  "title": "The GPU Needs an Operating System",
+  "canonicalUrl": "https://arxiv.org/abs/2611.08720",
+  "category": "research",
+  "publishedAt": "2026-11-09T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1fe5c9b802be8565",
+  "excerpt": "arXiv:2611.08720v1 Announce Type: new \nAbstract: AI chips sit mostly idle while serving models, because replies must be fast and each step waits on memory. On two large open models, the math units were busy only about 6-11% of the time. We argue the GPU needs an operating system that keeps urgent work on schedule and fills idle capacity with other useful work. A feature that ships today recovers a quarter of a GPU with work designed to share, and a tenth with real jobs, at 5% slower decode. Our research system does better: one resident kernel runs a whole model faster than vLLM's best for a single request, and shares the GPU at under 2% slowdown. Scaling beyond one hand-built model needs compilers and a few new chip features, which we specify.",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "The GPU Needs an Operating System",
+    "url": "https://arxiv.org/abs/2611.08720",
+    "publishedAt": "2026-11-09T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-rip-harvest-7c8756",
+  "title": "RIP, Harvest",
+  "canonicalUrl": "https://aphyr.com/posts/427-rip-harvest",
+  "category": "programming",
+  "publishedAt": "2026-11-09T01:58:21.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1c1b8ec26cfd0947",
+  "excerpt": "Article URL: https://aphyr.com/posts/427-rip-harvest \nComments URL: https://news.ycombinator.com/item?id=50420035 \nPoints: 318\n# Comments: 93",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "RIP, Harvest",
+    "url": "https://aphyr.com/posts/427-rip-harvest",
+    "publishedAt": "2026-11-09T01:58:21.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-unlocking-any-car-from-x-brand-in-most-of-the-a8c93c",
+  "title": "Unlocking any car from X brand in most of the world",
+  "canonicalUrl": "https://shubs.io/unlocking-any-car-from-x-brand-in-most-of-the-world",
+  "category": "programming",
+  "publishedAt": "2026-11-09T00:10:50.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ae9fbb73f271c215",
+  "excerpt": "Article URL: https://shubs.io/unlocking-any-car-from-x-brand-in-most-of-the-world/ \nComments URL: https://news.ycombinator.com/item?id=50419215 \nPoints: 295\n# Comments: 100",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Unlocking any car from X brand in most of the world",
+    "url": "https://shubs.io/unlocking-any-car-from-x-brand-in-most-of-the-world",
+    "publishedAt": "2026-11-09T00:10:50.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-a-valhalla-ticker-in-one-int-c2beb8",
+  "title": "A Valhalla Ticker in One int",
+  "canonicalUrl": "https://inside.java/2026/11/09/inside-java-ticker-value-class",
+  "category": "programming",
+  "publishedAt": "2026-11-09T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3f92ec86f633bcdd",
+  "excerpt": "Learn how to pack a short ticker symbol into one int with a value class implementing CharSequence and Comparable.",
+  "sources": [
+   {
+    "sourceId": "inside-java",
+    "sourceName": "Inside Java",
+    "title": "A Valhalla Ticker in One int",
+    "url": "https://inside.java/2026/11/09/inside-java-ticker-value-class",
+    "publishedAt": "2026-11-09T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-dasha-110-patroni-auto-discovery-wait-analysis-ecd5cf",
+  "title": "Dasha 1.10: Patroni auto-discovery, wait analysis and replication slot forecasts for PostgreSQL",
+  "canonicalUrl": "https://postgresql.org/about/news/dasha-110-patroni-auto-discovery-wait-analysis-and-replication-slot-forecasts-for-postgresql-3438",
+  "category": "databases",
+  "publishedAt": "2026-11-09T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ca4c83550acaa9ef",
+  "excerpt": "Dasha is an open source performance dashboard for PostgreSQL fleets. It connects to your clusters with a read-only role, shows what the databases are doing right now, and explains what to do about it. Nothing is installed on the database hosts: no agent, and no extension beyond the ones you already have.\nOne instance serves many clusters and all of their replicas. Most PostgreSQL statistics are per-instance and are not replicated, so Dasha reads every host of a cluster and reasons over the combined picture. An index that looks unused on the primary may be serving the entire read workload on a standby.\nNew since the last announcement\nPatroni clusters from etcd v3 or Consul. Dasha reads the keys Patroni keeps in its DCS and turns every Patroni scope into a cluster: the members become hosts and the databases are listed from PostgreSQL. New clusters, lost replicas, created and dropped databases show up within the refresh interval. The DCS is only read, never written. User, password, port and database filters can be overridden per scope, and TLS with client certificates is supported for both etcd and Consul. Member names appear in the host selector next to the address.\nStandby cluster…",
+  "sources": [
+   {
+    "sourceId": "postgresql",
+    "sourceName": "PostgreSQL News",
+    "title": "Dasha 1.10: Patroni auto-discovery, wait analysis and replication slot forecasts for PostgreSQL",
+    "url": "https://postgresql.org/about/news/dasha-110-patroni-auto-discovery-wait-analysis-and-replication-slot-forecasts-for-postgresql-3438",
+    "publishedAt": "2026-11-09T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 55,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 15,
+     "reason": "Touches replication, postgresql, database, agent, index"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-maki-majima-two-migrations-collide-one-loud-5eff79",
+  "title": "Maki Majima: Two migrations collide: one loud failure, one silent one",
+  "canonicalUrl": "https://postgr.es/p/9Bm",
+  "category": "databases",
+  "publishedAt": "2026-11-09T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6f787b12804f9ed3",
+  "excerpt": "In the previous post I argued that migrations don’t earn Git’s protections by being made of files: two incompatible schema changes live in two separate migration files, so there is nothing to textually conflict, and both branches merge clean. The repository accepts the pair without comment.\nThat post ended with a claim: the collision is not resolved in the repo, so it must be resolved somewhere else — at apply time, per environment, inside the database. This post is that claim, run for real. What actually happens when the pair lands? \nI ran the collisions on PostgreSQL 16 to find out. The answer comes in two flavors — one loud, one silent — and the silent one is worse.\nNone of what follows is an argument against migrations, or against the defensive idioms people write in them. Every tool below does exactly what it promises. The point is what those promises do and don’t cover once two branches meet.\nThe loud collision: order decides which environment breaks \nBranch A adds a column to users . Branch B renames users to accounts . Semantically incompatible; textually invisible to Git; both merged.\nEach environment applies the migrations in whatever order they arrive — and the order…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Maki Majima: Two migrations collide: one loud failure, one silent one",
+    "url": "https://postgr.es/p/9Bm",
+    "publishedAt": "2026-11-09T00:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches database, postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-08-i-m-not-convinced-the-ai-bubble-exists-dab987",
+  "title": "I'm not convinced the AI bubble exists",
+  "canonicalUrl": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-08T23:44:36.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3f0d951ffdef488d",
+  "excerpt": "Article URL: https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists \nComments URL: https://news.ycombinator.com/item?id=50418975 \nPoints: 231\n# Comments: 337",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "I'm not convinced the AI bubble exists",
+    "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html",
+    "publishedAt": "2026-11-08T23:44:36.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-08-here-s-the-full-text-of-jensen-huang-s-memo-to-092003",
   "title": "Here’s the full text of Jensen Huang’s memo to Nvidia",
   "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1029595/full-text-jensen-huang-affair-memo-nvidia",
@@ -7,7 +990,7 @@
   "publishedAt": "2026-11-08T22:54:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T22:59:43.833Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "91beb91adc332b84",
@@ -57,6 +1040,58 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-08-ketchup-open-source-sketchup-alternative-built-9fc461",
+  "title": "KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
+  "canonicalUrl": "https://ketchup3d.github.io/app",
+  "category": "programming",
+  "publishedAt": "2026-11-08T22:35:35.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2fda057318c4c7c2",
+  "excerpt": "Article URL: https://ketchup3d.github.io/app/ \nComments URL: https://news.ycombinator.com/item?id=50418176 \nPoints: 436\n# Comments: 123",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
+    "url": "https://ketchup3d.github.io/app",
+    "publishedAt": "2026-11-08T22:35:35.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches rust"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-08-chris-van-eijk-json-vs-jsonb-in-postgresql-size-ed36da",
   "title": "Chris van Eijk: json vs jsonb in PostgreSQL: size and speed, measured",
   "canonicalUrl": "https://postgr.es/p/9Bl",
@@ -64,7 +1099,7 @@
   "publishedAt": "2026-11-08T22:30:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T22:59:43.833Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b748f335e05be24a",
@@ -97,6 +1132,100 @@
      "label": "Engineering relevance",
      "points": 3,
      "reason": "Touches postgresql"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-08-nvidia-ceo-jensen-huang-s-letter-to-staff-about-e020f3",
+  "title": "Nvidia CEO Jensen Huang's letter to staff about affair",
+  "canonicalUrl": "https://nvidianews.nvidia.com/news/a-message-to-our-company",
+  "category": "hardware",
+  "publishedAt": "2026-11-08T22:20:09.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7ec5bd2c9f40f893",
+  "excerpt": "https://www.axios.com/2026/11/08/nvidia-ceo-jensen-huang-aff... , https://archive.ph/Hxn5h https://www.nytimes.com/2026/11/06/us/politics/chinese-spy-a... , https://archive.ph/atMcp https://www.cnn.com/2026/11/08/business/nvidia-investigation... \nComments URL: https://news.ycombinator.com/item?id=50418016 \nPoints: 603\n# Comments: 623",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Nvidia CEO Jensen Huang's letter to staff about affair",
+    "url": "https://nvidianews.nvidia.com/news/a-message-to-our-company",
+    "publishedAt": "2026-11-08T22:20:09.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-08-ask-hn-what-are-you-working-on-november-2026-876d6b",
+  "title": "Ask HN: What are you working on? (November 2026)",
+  "canonicalUrl": "https://news.ycombinator.com/item?id=50417407",
+  "category": "programming",
+  "publishedAt": "2026-11-08T21:20:20.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "912f019ce76bd3f0",
+  "excerpt": "What are you working on? What have you been curious about lately?\nComments URL: https://news.ycombinator.com/item?id=50417407 \nPoints: 201\n# Comments: 670",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Ask HN: What are you working on? (November 2026)",
+    "url": "https://news.ycombinator.com/item?id=50417407",
+    "publishedAt": "2026-11-08T21:20:20.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
     },
     {
      "label": "Freshness",
@@ -156,6 +1285,105 @@
   "status": "below-threshold"
  },
  {
+  "id": "2026-11-08-how-i-fight-ai-brain-fry-8b18a5",
+  "title": "How I Fight AI Brain Fry",
+  "canonicalUrl": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-08T19:37:42.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1866a7fef6d1ec37",
+  "excerpt": "Article URL: https://sergeykuhne.com/blog/fighting-ai-brain-fry \nComments URL: https://news.ycombinator.com/item?id=50416363 \nPoints: 232\n# Comments: 165",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "How I Fight AI Brain Fry",
+    "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
+    "publishedAt": "2026-11-08T19:37:42.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-08-outlookcom-is-rejecting-email-from-domains-7cbb1e",
+  "title": "Outlook.com is rejecting email from domains without DMARC",
+  "canonicalUrl": "https://mailroute.net/blog/outlook-rejecting-email-without-dmarc",
+  "category": "programming",
+  "publishedAt": "2026-11-08T19:20:32.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-09T08:25:53.344Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "107ca84ff83bf1e3",
+  "excerpt": "Article URL: https://mailroute.net/blog/outlook-rejecting-email-without-dmarc \nComments URL: https://news.ycombinator.com/item?id=50416158 \nPoints: 380\n# Comments: 270",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Outlook.com is rejecting email from domains without DMARC",
+    "url": "https://mailroute.net/blog/outlook-rejecting-email-without-dmarc",
+    "publishedAt": "2026-11-08T19:20:32.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches .net"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-08-apple-is-racing-to-make-siri-more-agentic-d61b9b",
   "title": "Apple is racing to make Siri more agentic",
   "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic",
@@ -163,7 +1391,7 @@
   "publishedAt": "2026-11-08T19:18:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T22:59:43.833Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "516de7c524f21530",
@@ -262,7 +1490,7 @@
   "publishedAt": "2026-11-08T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f6e0abe374cc19da",
@@ -314,7 +1542,7 @@
   "publishedAt": "2026-11-08T16:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3169e18d1fe2ec0e",
@@ -366,7 +1594,7 @@
   "publishedAt": "2026-11-08T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T22:59:43.833Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b2f895f01b932fbd",
@@ -413,7 +1641,7 @@
   "publishedAt": "2026-11-08T15:43:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "84f5410bee7129dc",
@@ -460,7 +1688,7 @@
   "publishedAt": "2026-11-08T15:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "af39893c53649922",
@@ -517,7 +1745,7 @@
   "publishedAt": "2026-11-08T15:00:30.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T22:59:43.833Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8a3dc716860a74d5",
@@ -569,7 +1797,7 @@
   "publishedAt": "2026-11-08T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T22:59:43.833Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1c83d36255d22fdd",
@@ -621,7 +1849,7 @@
   "publishedAt": "2026-11-08T12:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fdc7c14098badc58",
@@ -673,7 +1901,7 @@
   "publishedAt": "2026-11-08T11:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "75f8c25bdfc4b14b",
@@ -767,7 +1995,7 @@
   "publishedAt": "2026-11-08T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "efbd1850e6f458b6",
@@ -919,7 +2147,7 @@
   "publishedAt": "2026-11-08T07:16:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T07:43:36.413Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f896ce0d93392d40",
@@ -976,7 +2204,7 @@
   "publishedAt": "2026-11-08T06:34:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T07:43:36.413Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "117af80047ce5b42",
@@ -1133,7 +2361,7 @@
   "publishedAt": "2026-11-08T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ef60ddf58214759b",
@@ -1364,7 +2592,7 @@
   "publishedAt": "2026-11-07T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c14eba668ac60c91",
@@ -1940,7 +3168,7 @@
   "publishedAt": "2026-11-07T15:25:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b9695814239b6dab",
@@ -2034,7 +3262,7 @@
   "publishedAt": "2026-11-07T14:10:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cff1b188550efb33",
@@ -2128,11 +3356,17 @@
   "publishedAt": "2026-11-07T12:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "bfa65f3587af49c9",
-  "excerpt": "What do Kubernetes resource allocation, eBPF, carbon observability, and GPUs have in common?\nQuite a lot, actually. Especially when you start looking at them through the lens of environmental sustainability.\nThis October, we brought these conversations together as part of Cloud Native Sustainability Month . And while the idea was to help our community learn more about sustainability, we ended up learning quite a few things ourselves.\nBut first, a little backstory.\nHow did we get here? \nIt all started in 2023, when the CNCF TAG Environmental Sustainability launched the first Cloud Native Sustainability Week. The idea was simple: bring cloud native communities together to explore how technology can become more environmentally sustainable.\nWhat began as a week of events eventually grew into a month-long initiative, with sustainability efforts continuing under CNCF TAG Operational Resilience .\nFast-forward to October 2026, and communities were once again bringing their own perspectives to the conversation.\nIn Bucharest, we joined the initiative with a virtual meetup featuring speakers from across the cloud native ecosystem.\nOur goal? Make sustainability a little less abstract and a…",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
+  "updatedAt": "2026-11-09T08:25:53.344Z",
+  "revisions": [
+   {
+    "at": "2026-11-09T08:25:53.344Z",
+    "reason": "Source text edited",
+    "contentHash": "3da86e3e345f4676"
+   }
+  ],
+  "contentHash": "3da86e3e345f4676",
+  "excerpt": "What do Kubernetes resource allocation, eBPF, carbon observability, and GPUs have in common?\nQuite a lot, actually. Especially when you start looking at them through the lens of environmental sustainability.\nThis October, we brought these conversations together as part of Cloud Native Sustainability Month . And while the idea was to help our community learn more about sustainability, we ended up learning quite a few things ourselves.\nBut first, a little backstory.\nHow did we get here? \nIt all started in 2023, when the CNCF TCG launched the first Cloud Native Sustainability Week. The idea was simple: bring cloud native communities together to explore how technology can become more environmentally sustainable.\nWhat began as a week of events eventually grew into a month-long initiative, with sustainability efforts continuing under CNCF TAG Operational Resilience .\nFast-forward to October 2026, and communities were once again bringing their own perspectives to the conversation.\nIn Bucharest, we joined the initiative with a virtual meetup featuring speakers from across the cloud native ecosystem.\nOur goal? Make sustainability a little less abstract and a lot more relevant to the…",
   "sources": [
    {
     "sourceId": "cncf",
@@ -2238,7 +3472,7 @@
   "publishedAt": "2026-11-07T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "12948da805dae819",
@@ -2290,7 +3524,7 @@
   "publishedAt": "2026-11-07T09:49:38.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b8e204346865ad19",
@@ -2570,7 +3804,7 @@
   "publishedAt": "2026-11-07T09:32:56.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a27dae18ebc2ff89",
@@ -2674,7 +3908,7 @@
   "publishedAt": "2026-11-07T02:44:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ab9dd30204568dfc",
@@ -2773,7 +4007,7 @@
   "publishedAt": "2026-11-07T00:27:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7667fdefc05797d0",
@@ -2887,7 +4121,7 @@
   "publishedAt": "2026-11-07T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5f4d5f7d361d4248",
@@ -2944,7 +4178,7 @@
   "publishedAt": "2026-11-07T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d708e23705d0c2a1",
@@ -3263,7 +4497,7 @@
   "publishedAt": "2026-11-06T22:20:20.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "681dd8262caa262e",
@@ -3315,7 +4549,7 @@
   "publishedAt": "2026-11-06T22:17:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "10bd3b2c5d1bee40",
@@ -3367,7 +4601,7 @@
   "publishedAt": "2026-11-06T22:15:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4655baf51fe97cf5",
@@ -3419,7 +4653,7 @@
   "publishedAt": "2026-11-06T21:00:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "58305cfdd41bf963",
@@ -3476,7 +4710,7 @@
   "publishedAt": "2026-11-06T20:56:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebede6eb8638b74f",
@@ -3575,7 +4809,7 @@
   "publishedAt": "2026-11-06T20:25:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "41fb4ac320fc85fd",
@@ -3732,7 +4966,7 @@
   "publishedAt": "2026-11-06T19:37:09.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5170ef543af30a32",
@@ -3942,7 +5176,7 @@
   "publishedAt": "2026-11-06T18:51:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fa79450f145976b5",
@@ -4088,7 +5322,7 @@
   "publishedAt": "2026-11-06T18:37:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c1024147c65db39a",
@@ -4348,7 +5582,7 @@
   "publishedAt": "2026-11-06T18:03:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "14ec240f07a1fc7a",
@@ -4645,7 +5879,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "75f486319a6f835c",
@@ -4702,7 +5936,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6bad0e777eb263d5",
@@ -4754,7 +5988,7 @@
   "publishedAt": "2026-11-06T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa18c719950d2386",
@@ -4858,7 +6092,7 @@
   "publishedAt": "2026-11-06T16:43:23.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1e326dbead4a454a",
@@ -4915,7 +6149,7 @@
   "publishedAt": "2026-11-06T16:16:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5850e59de98551a2",
@@ -5232,7 +6466,7 @@
   "publishedAt": "2026-11-06T15:01:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "80c3306d27bd7fac",
@@ -5284,7 +6518,7 @@
   "publishedAt": "2026-11-06T15:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8752de9318c914b9",
@@ -5441,7 +6675,7 @@
   "publishedAt": "2026-11-06T14:00:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e507217ce6a54dca",
@@ -5488,7 +6722,7 @@
   "publishedAt": "2026-11-06T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "006451afad2b79a7",
@@ -5540,7 +6774,7 @@
   "publishedAt": "2026-11-06T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "abf43b49463447fc",
@@ -5587,7 +6821,7 @@
   "publishedAt": "2026-11-06T12:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22b4e6b46f6ba5a3",
@@ -5697,7 +6931,7 @@
   "publishedAt": "2026-11-06T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "19a9abd47728bf88",
@@ -5772,7 +7006,7 @@
   "publishedAt": "2026-11-06T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "443119d03d631431",
@@ -5886,7 +7120,7 @@
   "publishedAt": "2026-11-06T11:45:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9bc638078ebc0c2b",
@@ -5943,7 +7177,7 @@
   "publishedAt": "2026-11-06T11:32:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "373132fb4e4b8f19",
@@ -6156,7 +7390,7 @@
   "publishedAt": "2026-11-06T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "92301467a8432dfa",
@@ -6302,7 +7536,7 @@
   "publishedAt": "2026-11-06T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b28c1a01375b2d75",
@@ -6349,7 +7583,7 @@
   "publishedAt": "2026-11-06T08:07:06.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa6818140c47536f",
@@ -6406,7 +7640,7 @@
   "publishedAt": "2026-11-06T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7b44a3f552684aab",
@@ -6453,7 +7687,7 @@
   "publishedAt": "2026-11-06T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "59e1c31be358c3a8",
@@ -7041,7 +8275,7 @@
   "publishedAt": "2026-11-06T03:17:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a092cfb216cb4f19",
@@ -7205,7 +8439,7 @@
   "publishedAt": "2026-11-06T00:09:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6b87dee3c6708cbc",
@@ -7366,7 +8600,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dbd45afff744e044",
@@ -7413,7 +8647,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "91b13b2625a85566",
@@ -7470,7 +8704,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "78cb42929856968e",
@@ -7517,7 +8751,7 @@
   "publishedAt": "2026-11-05T23:46:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b4df4e2c19844532",
@@ -7711,7 +8945,7 @@
   "publishedAt": "2026-11-05T23:09:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "daef14854f3945fa",
@@ -7763,7 +8997,7 @@
   "publishedAt": "2026-11-05T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6cc9c9a15a9a326b",
@@ -7915,7 +9149,7 @@
   "publishedAt": "2026-11-05T22:05:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ec043e7b675a4d19",
@@ -7962,7 +9196,7 @@
   "publishedAt": "2026-11-05T22:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c29baea20e70f6a4",
@@ -8161,7 +9395,7 @@
   "publishedAt": "2026-11-05T20:23:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e0bc84fb7004d81",
@@ -8437,7 +9671,7 @@
   "publishedAt": "2026-11-05T20:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a368fccf0f85b32a",
@@ -8589,7 +9823,7 @@
   "publishedAt": "2026-11-05T19:25:32.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9c06dbaaa6eb94b3",
@@ -8850,7 +10084,7 @@
   "publishedAt": "2026-11-05T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "674e7c008a50ba01",
@@ -8898,7 +10132,7 @@
   "publishedAt": "2026-11-05T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cddffc5174e6bb18",
@@ -9002,7 +10236,7 @@
   "publishedAt": "2026-11-05T18:45:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9adbcac3d66278a1",
@@ -9049,7 +10283,7 @@
   "publishedAt": "2026-11-05T18:05:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7fcfd3ded7f42913",
@@ -9368,7 +10602,7 @@
   "publishedAt": "2026-11-05T17:10:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2cb52f8f53499ec",
@@ -9420,7 +10654,7 @@
   "publishedAt": "2026-11-05T17:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "886a42415217b889",
@@ -9529,7 +10763,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1e29238e6fbaed59",
@@ -9628,7 +10862,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a179640616a66edf",
@@ -9680,7 +10914,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": "2026-11-07T18:09:52.532Z",
   "revisions": [
    {
@@ -9879,7 +11113,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f7802919130d5797",
@@ -10296,7 +11530,7 @@
   "publishedAt": "2026-11-05T16:08:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f2a3cf72140c48d7",
@@ -10349,7 +11583,7 @@
   "publishedAt": "2026-11-05T16:02:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eec77cc1f36fceb7",
@@ -10449,7 +11683,7 @@
   "publishedAt": "2026-11-05T16:01:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3d1555930494a48e",
@@ -10553,7 +11787,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3561da51fd1492a0",
@@ -10600,7 +11834,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2eb620ccd082811d",
@@ -10699,7 +11933,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4aec6035220d9a39",
@@ -11111,7 +12345,7 @@
   "publishedAt": "2026-11-05T15:31:37.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8e2c20cdc419457",
@@ -11163,7 +12397,7 @@
   "publishedAt": "2026-11-05T15:28:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": "2026-11-05T20:46:46.848Z",
   "revisions": [
    {
@@ -11283,7 +12517,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a04bf1261c20d7d5",
@@ -11340,7 +12574,7 @@
   "publishedAt": "2026-11-05T15:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d2765579f20f1c2f",
@@ -11757,7 +12991,7 @@
   "publishedAt": "2026-11-05T14:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebc05f146351abe8",
@@ -11804,7 +13038,7 @@
   "publishedAt": "2026-11-05T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be1f3b408491c7b",
@@ -11918,7 +13152,7 @@
   "publishedAt": "2026-11-05T13:10:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4b988ac1c1cb008b",
@@ -12164,7 +13398,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "39625bb156898197",
@@ -12216,7 +13450,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e0b1b16d28551a1",
@@ -12326,7 +13560,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8b17b5fef41cbb8",
@@ -12651,7 +13885,7 @@
   "publishedAt": "2026-11-05T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "703f6a4fe1796d08",
@@ -12699,7 +13933,7 @@
   "publishedAt": "2026-11-05T09:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ecf0155aa18834a3",
@@ -12756,7 +13990,7 @@
   "publishedAt": "2026-11-05T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bad2773958f74a49",
@@ -13347,7 +14581,7 @@
   "publishedAt": "2026-11-05T04:36:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23b0e2464e00d2a9",
@@ -13649,7 +14883,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7830f630e76dadb",
@@ -13753,7 +14987,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c3687296de93a199",
@@ -13800,7 +15034,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2ab2db9ee7eb5b19",
@@ -13852,7 +15086,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22bb623be37e8901",
@@ -14023,7 +15257,7 @@
   "publishedAt": "2026-11-04T23:34:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33ab42b0991a0683",
@@ -14184,7 +15418,7 @@
   "publishedAt": "2026-11-04T22:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43599d165c97ba43",
@@ -14336,7 +15570,7 @@
   "publishedAt": "2026-11-04T21:38:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1dff6ff843ce0b7",
@@ -14984,7 +16218,7 @@
   "publishedAt": "2026-11-04T18:50:55.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8f40dfa300f27a89",
@@ -15235,7 +16469,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -15433,7 +16667,7 @@
   "publishedAt": "2026-11-04T17:50:10.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f2eb35206164099",
@@ -15950,7 +17184,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -16102,7 +17336,7 @@
   "publishedAt": "2026-11-04T16:34:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "aa3054af9f820a8f",
@@ -16311,7 +17545,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5844851476aa3b3b",
@@ -16566,7 +17800,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -17092,7 +18326,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -17243,7 +18477,7 @@
   "publishedAt": "2026-11-04T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a18861f43f130f7a",
@@ -18649,7 +19883,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -18717,7 +19951,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5d5ae52df4bd5866",
@@ -18941,7 +20175,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -19092,7 +20326,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -20115,7 +21349,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -20172,7 +21406,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -20747,7 +21981,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -21014,7 +22248,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -21061,7 +22295,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -21430,7 +22664,7 @@
   "publishedAt": "2026-11-03T16:03:13.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0815715ceb80d8b6",
@@ -21534,7 +22768,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -22380,7 +23614,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -22697,7 +23931,7 @@
   "publishedAt": "2026-11-03T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T07:48:30.394Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -23779,7 +25013,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -23878,7 +25112,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -23940,7 +25174,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "deaa301289fa6aa4",
@@ -24393,7 +25627,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -24763,7 +25997,7 @@
   "publishedAt": "2026-11-02T20:52:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1999d731b87a8967",
@@ -25588,7 +26822,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -25640,7 +26874,7 @@
   "publishedAt": "2026-11-02T17:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "36f37e1d1baae54c",
@@ -25880,7 +27114,7 @@
   "publishedAt": "2026-11-02T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d43b0ad5c2e7b13",
@@ -26153,7 +27387,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -27039,7 +28273,7 @@
   "publishedAt": "2026-11-02T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9e573895707a969c",
@@ -28722,7 +29956,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -29000,7 +30234,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -29634,7 +30868,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
@@ -29711,7 +30945,7 @@
   "publishedAt": "2026-11-01T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-08T22:59:43.833Z",
+  "lastSeenAt": "2026-11-09T08:25:53.344Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a1ca446e5d6101ff",
