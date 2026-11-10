@@ -56,7 +56,9 @@ export function getAllTopics(): TopicMeta[] {
 export function getLesson(domain: Domain, topic: string): Lesson | null {
   const file = lessonPath(domain, topic);
   if (!fs.existsSync(file)) return null;
-  const { data, content } = matter(fs.readFileSync(file, "utf8"));
+  const { data, content: raw } = matter(fs.readFileSync(file, "utf8"));
+  // Site-absolute links in lessons (`](/learn/...)`) need the GitHub Pages base path.
+  const content = raw.replace(/\]\(\/(?!\/)/g, `](${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/`);
   // Lessons are trusted, repo-owned markdown, so rendering to HTML is safe here.
   const html = marked.parse(content, { async: false });
   return {

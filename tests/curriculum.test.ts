@@ -156,7 +156,7 @@ describe("curriculum file", () => {
     expect(listed.filter((k, i) => listed.indexOf(k) !== i)).toEqual([]);
   });
 
-  it("includes every existing lesson", () => {
+  it("lists every lesson, and every listed topic has a lesson", () => {
     const lessons = DOMAINS.flatMap((d) =>
       fs
         .readdirSync(path.join(root, "lessons", d))
@@ -164,5 +164,6 @@ describe("curriculum file", () => {
         .map((n) => `${d}/${n.replace(/\.md$/, "")}`),
     );
     expect(lessons.filter((k) => !listed.includes(k))).toEqual([]);
+    expect(listed.filter((k) => !lessons.includes(k))).toEqual([]);
   });
 });

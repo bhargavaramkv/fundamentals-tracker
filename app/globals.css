@@ -489,11 +489,6 @@ textarea.field {
   box-shadow: var(--shadow);
 }
 
-/* Retired decoration, kept so old markup still resolves; no styling. */
-.hero-grid {
-  position: relative;
-}
-
 /* Status tag: always text + color, never color alone. */
 .tag {
   display: inline-flex;
@@ -503,14 +498,6 @@ textarea.field {
   padding: 0.05rem 0.5rem;
   font-size: 0.75rem;
   font-weight: 600;
-}
-
-/* Retired skill trail: no decoration, kept so old markup still resolves. */
-.skill-node,
-.skill-dot,
-.skill-line-progress {
-  transition: none;
-  animation: none;
 }
 
 /* Marks text written by a model, so it can't be mistaken for an authoritative source. */

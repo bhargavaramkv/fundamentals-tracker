@@ -86,7 +86,10 @@ export function LessonPlayer({ lesson, questions: bank, start, next, pathHref }:
   }, [canContinue, finish, go, index, isLast, questions.length]);
 
   useEffect(() => {
-    if (moved.current) heading.current?.focus();
+    if (!moved.current) return;
+    // A new step starts at the top of the page, not wherever the last one was scrolled to.
+    window.scrollTo({ top: 0 });
+    heading.current?.focus({ preventScroll: true });
   }, [index, view]);
 
   // Enter = Continue; 1-4 answer the first open quick check.
