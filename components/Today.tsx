@@ -73,14 +73,29 @@ export function Today(ctx: CourseContext) {
         )}
       </p>
 
-      {mentor?.kind === "ready" && (
-        <p className="meta">
-          Your mentor left a note.{" "}
-          <Link href="/mentor/" className="tap text-accent-text hover:underline">
-            Read it
-          </Link>
-        </p>
-      )}
+      <p className="meta">
+        <Link href="/mentor/" className="tap inline-flex items-center gap-1 text-ink-2 hover:text-ink">
+          Mentor
+          {mentor?.kind === "ready" && (
+            <>
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="sr-only">new note</span>
+            </>
+          )}
+        </Link>
+        {" · "}
+        <Link href="/coding/" className="tap inline-flex items-center text-ink-2 hover:text-ink">
+          Coding
+        </Link>
+        {" · "}
+        <Link href="/radar/" className="tap inline-flex items-center text-ink-2 hover:text-ink">
+          Tech radar
+        </Link>
+        {" · "}
+        <Link href="/fun/" className="tap inline-flex items-center text-ink-2 hover:text-ink">
+          Fun corner
+        </Link>
+      </p>
     </div>
   );
 }
