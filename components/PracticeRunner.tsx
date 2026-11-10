@@ -77,12 +77,7 @@ export function PracticeRunner({ questions: bank, topics }: { questions: Questio
   return (
     <div className="space-y-9">
       <header className="page-head">
-        <nav aria-label="Breadcrumb" className="meta mb-3">
-          <Link href="/" className="tap hover:text-ink">
-            Today
-          </Link>
-        </nav>
-        <p className="eyebrow mt-1">Practice</p>
+        <p className="eyebrow">Practice</p>
         <h1>{warmup ? "Warm-up" : "Mixed review"}</h1>
         <p>
           {warmup
