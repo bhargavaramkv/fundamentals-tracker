@@ -3,6 +3,16 @@ title: "Messaging & event streaming"
 summary: "Queues vs pub/sub, delivery guarantees, ordering and partitioning in Kafka."
 ---
 
+## The idea
+
+When you post a letter, you don't wait at the postbox until it is read. You drop it in and carry on with your day. The postal service holds it and delivers it when it can.
+
+**Messaging** works like that between programs. Instead of calling another service and waiting for an answer (the request and response from "Clients & servers"), one service drops a **message** into a **queue** or **topic** run by a **broker**, and moves on. Another service picks it up when ready. This smooths out sudden bursts, lets slow work happen in the background, and means a down service does not lose the work. The cost: delivery is not instant, and the same message may arrive twice, which ties into the idempotency ideas in "Consistency, idempotency & distributed writes".
+
+```check
+{"prompt": "A user uploads a video and you want to transcode it without making them wait. What fits best?", "options": ["Do the transcode inside the upload request", "Put a 'transcode this' message on a queue and reply right away", "Ask the user to come back later"], "answer": 1, "explanation": "A queue decouples slow background work from the request. The user gets an instant reply, and workers process the job at their own pace, retrying if one fails."}
+```
+
 ## Queue vs pub/sub
 
 - **Work queue (competing consumers):** each message is processed by **one** consumer. Use it to spread work.
@@ -18,6 +28,10 @@ summary: "Queues vs pub/sub, delivery guarantees, ordering and partitioning in K
 | "Exactly-once" | at-least-once + dedup/transactions | only within a boundary (e.g. Kafka→Kafka transactions) |
 
 Idempotent consumers: keep a processed-ID table with a unique constraint, use upserts, or use state-setting operations.
+
+```check
+{"prompt": "With at-least-once delivery, a consumer crashes after doing the work but before acknowledging. What happens next?", "options": ["The message is lost", "The message is redelivered, so the work may run twice", "The broker deletes the queue"], "answer": 1, "explanation": "Without an acknowledgement the broker assumes the message was not handled and sends it again. That is why consumers must be idempotent under at-least-once delivery."}
+```
 
 ## Ordering
 

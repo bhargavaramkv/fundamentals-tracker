@@ -1,7 +1,43 @@
 {
-  "scalability": {
+  "client-server": {
     "order": 1,
     "prerequisites": [],
+    "objectives": ["Describe the request and response cycle between a client and a server", "Read common HTTP status codes such as 200 and 404", "Explain why a server cannot trust the client"],
+    "exercises": [
+      { "id": "system-design-client-server-ex1", "minutes": 4, "prompt": "Draw the steps when you open a shopping app and tap 'My orders'. Label the client, the server, the request and the response.", "answer": "The app (client) sends a request such as GET /orders with proof of who you are. The server checks it, reads your orders from its database and sends a response with status 200 and the list. The app then draws the screen." },
+      { "id": "system-design-client-server-ex2", "minutes": 5, "prompt": "An app hides the 'Delete user' button from normal users. Is that enough to stop them deleting users? Why or why not?", "answer": "No. Hiding a button only changes the client, and a user can send the request by hand or modify the app. The server must check on every request that the caller is allowed to delete users." }
+    ],
+    "practical": [
+      { "id": "system-design-client-server-lab1", "minutes": 20, "title": "Watch a request happen", "task": "Open your browser's developer tools, go to the Network tab and load any web page. Pick one request and note its method, URL, status code and how long it took. Then try curl -i on the same URL.", "done": "You can point at one request and name its client, server, method, status code and response time." }
+    ]
+  },
+  "latency-throughput": {
+    "order": 2,
+    "prerequisites": ["system-design/client-server"],
+    "objectives": ["Distinguish latency from throughput", "Explain why percentiles such as p99 matter more than averages", "Compare rough costs of memory, disk and network access"],
+    "exercises": [
+      { "id": "system-design-latency-throughput-ex1", "minutes": 4, "prompt": "A coffee shop has 2 baristas and each coffee takes 3 minutes. What are the latency and the maximum throughput? What happens if 50 customers arrive in an hour?", "answer": "Latency is 3 minutes per coffee. Throughput is 2 baristas times 20 coffees per hour, so 40 per hour. With 50 arrivals the queue grows, so later customers wait much longer than 3 minutes even though each coffee still takes 3." },
+      { "id": "system-design-latency-throughput-ex2", "minutes": 5, "prompt": "1 million requests arrive per day. About how many per second is that on average, and how should you plan for peaks?", "answer": "A day has about 86,400 seconds, so 1 million per day is roughly 12 requests per second on average. Traffic is uneven, so plan for several times that at peak, around 5 to 10 times, and check the p99 latency at that load." }
+    ],
+    "practical": [
+      { "id": "system-design-latency-throughput-lab1", "minutes": 25, "title": "Measure p50 and p99", "task": "Write a small program that calls any HTTP URL 100 times in a row and records each time in milliseconds. Sort the results and read off the median (p50), the 99th value (p99) and the mean.", "done": "You have the three numbers and can explain why the p99 and the mean differ." }
+    ]
+  },
+  "load-balancing-basics": {
+    "order": 3,
+    "prerequisites": ["system-design/client-server", "system-design/latency-throughput"],
+    "objectives": ["Explain how a load balancer shares requests among servers", "Describe how health checks remove failed servers", "Explain why servers should be stateless behind a balancer"],
+    "exercises": [
+      { "id": "system-design-load-balancing-basics-ex1", "minutes": 4, "prompt": "Three servers sit behind a round-robin balancer and server 2 crashes. Describe what should happen to requests 7 to 10.", "answer": "Health checks to server 2 fail, so the balancer removes it. Requests then alternate between servers 1 and 3, so users still get answers. When server 2 passes health checks again it is added back." },
+      { "id": "system-design-load-balancing-basics-ex2", "minutes": 6, "prompt": "Your login is stored in the memory of one app server, and users are randomly logged out. Why, and how do you fix it?", "answer": "The balancer sends some requests to other servers that do not hold the session. Fix it by storing sessions in a shared store such as Redis or using signed tokens, so any server can serve any user. Sticky routing is a weaker fix because it ties users to one server." }
+    ],
+    "practical": [
+      { "id": "system-design-load-balancing-basics-lab1", "minutes": 30, "title": "Balance two servers", "task": "Run two copies of a tiny web app that each print their own name, and put Nginx or another proxy in front of them with round-robin. Request it 10 times, then stop one copy and request again.", "done": "You saw the answers alternate between both servers, and after stopping one you can say how the balancer stopped sending it traffic." }
+    ]
+  },
+  "scalability": {
+    "order": 4,
+    "prerequisites": ["system-design/load-balancing-basics"],
     "objectives": ["Estimate load and capacity with back-of-envelope numbers", "Explain consistent hashing and why it helps", "Scale on the signal that's actually the bottleneck"],
     "exercises": [
       { "id": "system-design-scalability-ex1", "minutes": 5, "prompt": "You add a fourth cache node to three, using hash(key) mod N. Roughly what fraction of keys move? What about with consistent hashing?", "answer": "With mod N, about three quarters of keys remap, which causes a stampede on the database. With consistent hashing only about a quarter move, the share taken over by the new node, and virtual nodes keep that share even." },
@@ -12,7 +48,7 @@
     ]
   },
   "caching": {
-    "order": 2,
+    "order": 5,
     "prerequisites": ["system-design/scalability"],
     "objectives": ["Choose a cache pattern and an invalidation approach", "Prevent a cache stampede", "Explain the race in cache-aside writes"],
     "exercises": [
@@ -23,8 +59,20 @@
       { "id": "system-design-caching-lab1", "minutes": 30, "title": "Create and fix a stampede", "task": "Put a small cache in front of a deliberately slow function. Send 100 concurrent requests just after expiry and count the backend calls. Add request coalescing and count again.", "done": "You've measured backend calls before and after, for example 100 versus 1." }
     ]
   },
+  "api-design": {
+    "order": 6,
+    "prerequisites": ["system-design/client-server"],
+    "objectives": ["Design resource-based endpoints using nouns and HTTP methods", "Choose suitable status codes for success and errors", "Make create operations safe to retry and lists safe to page through"],
+    "exercises": [
+      { "id": "system-design-api-design-ex1", "minutes": 6, "prompt": "Design the endpoints for a to-do app: add a task, list tasks, mark one done, delete one. Give method, path and a success status for each.", "answer": "POST /tasks returns 201; GET /tasks?page=1 returns 200; PUT or PATCH /tasks/{id} returns 200 to mark done; DELETE /tasks/{id} returns 204 or 200. Paths are nouns and methods are the verbs." },
+      { "id": "system-design-api-design-ex2", "minutes": 5, "prompt": "A mobile client times out on 'POST /payments' and retries. How do you stop the customer being charged twice?", "answer": "Have the client send an idempotency key unique to that payment attempt. The server stores the key with the result and, on a repeat, returns the stored result instead of charging again." }
+    ],
+    "practical": [
+      { "id": "system-design-api-design-lab1", "minutes": 30, "title": "Build a tiny orders API", "task": "Using ASP.NET Core minimal APIs or any framework, build POST /orders, GET /orders/{id} and GET /orders?page=1 with an in-memory list. Return 201, 200 and 404 correctly, then call it with curl.", "done": "All three endpoints answer with the right status codes, and a missing id returns 404 rather than 200." }
+    ]
+  },
   "messaging": {
-    "order": 3,
+    "order": 8,
     "prerequisites": ["system-design/caching"],
     "objectives": ["Choose a queue or pub/sub from the requirement", "Design consumers for at-least-once delivery", "Handle ordering, retries and poison messages"],
     "exercises": [
@@ -36,7 +84,7 @@
     ]
   },
   "consistency": {
-    "order": 4,
+    "order": 7,
     "prerequisites": ["system-design/messaging", "databases/replication-sharding"],
     "objectives": ["Explain CAP and PACELC accurately", "Solve the dual-write problem with an outbox", "Choose between a saga and a distributed transaction"],
     "exercises": [
