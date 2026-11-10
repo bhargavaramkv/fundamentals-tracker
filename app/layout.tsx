@@ -39,8 +39,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AuthGate>
           <ProgressProvider>
             <Nav />
-            <main className="mx-auto w-full max-w-6xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-5 sm:py-8">{children}</main>
-            <footer className="mx-auto w-full max-w-6xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8">
+            <main className="mx-auto w-full max-w-3xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-8 sm:py-12">{children}</main>
+            <footer className="mx-auto w-full max-w-3xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8">
               Progress stays in your browser unless you enable sync in Settings.
             </footer>
           </ProgressProvider>

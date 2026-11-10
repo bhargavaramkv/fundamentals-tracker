@@ -40,6 +40,7 @@ export function AssessRunner({ questions }: { questions: Question[] }) {
             Learning Path
           </Link>
         </nav>
+        <p className="eyebrow mt-1">Assessment</p>
         <h1>Baseline assessment</h1>
         <p>
           A broad measure across all five domains, with no feedback until the end. Domains are interleaved and difficulty ramps up, so even a partial run is useful. Use End &amp; save at any time.

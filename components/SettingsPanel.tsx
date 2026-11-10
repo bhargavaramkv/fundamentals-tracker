@@ -77,6 +77,7 @@ export function SettingsPanel() {
   return (
     <div className="max-w-3xl space-y-10">
       <header className="page-head">
+        <p className="eyebrow">More</p>
         <h1>Settings</h1>
       </header>
 
