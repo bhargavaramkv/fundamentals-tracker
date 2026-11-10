@@ -3,6 +3,18 @@ title: "SOLID in practice"
 summary: "Each principle as a smell you can spot in a C#/TypeScript code review."
 ---
 
+## The idea
+
+Building codes exist because people learned the hard way what makes houses fall down. **SOLID** is the same for classes: five habits, learned from many painful projects, that keep code easy to change. The name is the first letter of each one.
+
+You already know the ingredients. [Cohesion](/learn/oop/coupling-cohesion/) is behind Single Responsibility, [interfaces](/learn/oop/interfaces-abstraction/) behind Interface Segregation and Dependency Inversion, and [inheritance and polymorphism](/learn/oop/inheritance-polymorphism/) behind Open/Closed and Liskov. The table below gives each principle as a smell you can notice in code, plus the fix. They are guides, not laws: following them blindly adds needless classes.
+
+```check
+{"prompt": "What is SOLID best described as?", "options": ["A set of five rules a compiler enforces", "Five design habits that keep code easy to change", "A C# library"], "answer": 1, "explanation": "SOLID is a set of guidelines, not something tools enforce. They help you spot designs that will be painful to change, and need judgement to apply."}
+```
+
+## The five principles
+
 | Principle | Smell | Refactor |
 |---|---|---|
 | **S**ingle Responsibility | A class changes for unrelated reasons (data access + formatting + email) | Split by axis of change and compose |
@@ -14,6 +26,10 @@ summary: "Each principle as a smell you can spot in a C#/TypeScript code review.
 ## LSP is about behavior, not taxonomy
 
 Square-extends-Rectangle fails because callers rely on setting width and height independently. `ReadOnlyCollection<T>` implementing `IList<T>` and throwing on `Add` is a real .NET LSP wart.
+
+```check
+{"prompt": "An override throws NotSupportedException because the subclass cannot do what the base class promises. Which principle does this point to?", "options": ["Single Responsibility", "Open/Closed", "Liskov Substitution", "Dependency Inversion"], "answer": 2, "explanation": "A subtype that refuses part of the base type's contract cannot safely stand in for it. That is exactly what Liskov Substitution warns about."}
+```
 
 ## OCP without over-engineering
 
