@@ -1,50 +1,146 @@
 {
-  "complexity": {
+  "big-o-basics": {
     "order": 1,
     "prerequisites": [],
-    "objectives": ["Work out time and space cost from code, including hidden loops", "Explain amortized cost with the doubling argument", "Solve the common recurrences without looking them up"],
+    "objectives": ["Describe what Big-O measures in plain words","Label simple loops as O(1), O(n) or O(n²)","Drop constants and small terms when simplifying"],
     "exercises": [
-      { "id": "dsa-complexity-ex1", "minutes": 5, "prompt": "A dynamic array doubles its capacity when full. Without using the word \"amortized\", explain why appending n items costs O(n) in total, even though a single append can cost O(n).", "answer": "Copies happen at sizes 1, 2, 4, ... up to n. Those copy costs sum to less than 2n, a geometric series dominated by its last term. Add n for the writes themselves and the total is under 3n, which is O(n). Each append therefore costs a constant on average across the sequence, even though a few are expensive." },
-      { "id": "dsa-complexity-ex2", "minutes": 5, "prompt": "What is the recurrence and the closed form for merge sort? For binary search? State why they differ.", "answer": "Merge sort: T(n) = 2T(n/2) + O(n), which is O(n log n). Binary search: T(n) = T(n/2) + O(1), which is O(log n). Merge sort does linear work at every level, and there are log n levels. Binary search recurses into only one half and does constant work per level." }
+      {"id":"dsa-big-o-basics-ex1","minutes":3,"prompt":"Write the Big-O of: a single loop over n items; two loops nested over n items; reading a[0]. Explain each in one sentence.","answer":"O(n), O(n²) and O(1). A single loop touches each item once so work grows with n. Nested loops run the inner loop n times for each of n outer passes, giving n times n. Reading a[0] is one step regardless of n."},
+      {"id":"dsa-big-o-basics-ex2","minutes":4,"prompt":"A function does n steps and then n*n steps. A friend says it is O(n + n²). What is the simpler answer and why?","answer":"O(n²). When n is large, the n² part dominates, so the smaller n term barely changes the total. Big-O keeps only the fastest-growing term and drops constants."}
     ],
     "practical": [
-      { "id": "dsa-complexity-lab1", "minutes": 20, "title": "Measure a growth rate", "task": "Write a function with a nested loop and one with a hash lookup. Time each at n = 1,000, 10,000 and 100,000, then compare how the time grows when n grows tenfold with what the Big-O predicts.", "done": "You can point at the measured ratio (about 100x versus about 10x) and say where the prediction held or didn't." }
+      {"id":"dsa-big-o-basics-lab1","minutes":15,"title":"Watch Big-O happen","task":"Write one loop-over-n function and one nested-loop function. Time each with n = 1,000, 2,000 and 4,000 using Stopwatch, and note how the time changes when n doubles.","done":"You saw the single loop roughly double and the nested loop roughly quadruple, and can explain why."}
+    ]
+  },
+  "arrays-strings": {
+    "order": 2,
+    "prerequisites": ["dsa/big-o-basics"],
+    "objectives": ["Explain why reading an array item by index is O(1)","Predict the cost of inserting and deleting in an array","Avoid slow repeated string concatenation"],
+    "exercises": [
+      {"id":"dsa-arrays-strings-ex1","minutes":4,"prompt":"Explain why inserting at the front of an array is O(n) but reading by index is O(1).","answer":"Items are stored side by side in same-sized boxes, so the address of index i is start plus i times box size: one calculation. Inserting at the front means every existing item must shift one place to make room, which touches n items."},
+      {"id":"dsa-arrays-strings-ex2","minutes":6,"prompt":"Write a function that checks whether a string is a palindrome using two indexes. State its time complexity.","answer":"Start i at 0 and j at Length - 1. While i < j, if s[i] != s[j] return false, otherwise i++ and j--. Return true at the end. It makes about n/2 comparisons, so it is O(n) time and O(1) extra space."}
+    ],
+    "practical": [
+      {"id":"dsa-arrays-strings-lab1","minutes":15,"title":"Concatenation vs StringBuilder","task":"Build a string of 100,000 characters first with s += \"x\" in a loop, then with StringBuilder. Time both, then repeat with 200,000 characters.","done":"You measured the gap, saw the += version slow by about four times when n doubled, and can explain why."}
+    ]
+  },
+  "linked-lists": {
+    "order": 3,
+    "prerequisites": ["dsa/arrays-strings"],
+    "objectives": ["Draw a linked list and describe how nodes connect","Insert and remove nodes by rewiring pointers safely","Compare linked lists with arrays for common operations"],
+    "exercises": [
+      {"id":"dsa-linked-lists-ex1","minutes":5,"prompt":"Describe the pointer changes needed to insert a new node n after node a, and why the order matters.","answer":"Set n.Next = a.Next first, then a.Next = n. If you set a.Next first, the only link to the rest of the list is overwritten and the remaining nodes are lost."},
+      {"id":"dsa-linked-lists-ex2","minutes":8,"prompt":"Write the loop that reverses a singly linked list and explain what each variable holds.","answer":"Keep prev (starts null), cur (starts head) and next. In each pass: next = cur.Next; cur.Next = prev; prev = cur; cur = next. When cur is null, prev is the new head. It visits each node once, so O(n) time and O(1) space."}
+    ],
+    "practical": [
+      {"id":"dsa-linked-lists-lab1","minutes":20,"title":"Build a linked list","task":"Implement a singly linked list with AddFirst, AddLast, Remove(value) and Reverse. Write a few tests, including an empty list and a single-item list.","done":"All tests pass, including the empty and single-item cases, and you can explain why AddFirst is O(1)."}
+    ]
+  },
+  "stacks-queues": {
+    "order": 4,
+    "prerequisites": ["dsa/arrays-strings","dsa/linked-lists"],
+    "objectives": ["Explain last-in-first-out and first-in-first-out","Use a stack to solve a matching problem","Choose between a stack and a queue for a task"],
+    "exercises": [
+      {"id":"dsa-stacks-queues-ex1","minutes":4,"prompt":"Walk through the bracket check on the string \"{[]}\" and show the stack after each character.","answer":"Push { gives [{]. Push [ gives [{, []. Next ] pops [ which matches, leaving [{]. Next } pops { which matches, leaving empty. The stack is empty at the end, so the brackets are balanced."},
+      {"id":"dsa-stacks-queues-ex2","minutes":5,"prompt":"Give one real situation for a stack and one for a queue, and say which end each operation uses.","answer":"Stack: undo history, where Push and Pop both use the top, so the latest action is undone first. Queue: print jobs, where Enqueue adds at the back and Dequeue takes from the front, so the oldest job runs first."}
+    ],
+    "practical": [
+      {"id":"dsa-stacks-queues-lab1","minutes":20,"title":"Bracket checker","task":"Write a function that checks whether a string with (), [] and {} is balanced, using Stack<char>. Test it on \"{[()]}\", \"([)]\", \"((\" and an empty string.","done":"All four cases give the right answer, and you can say why the final empty-stack check is needed."}
+    ]
+  },
+  "recursion": {
+    "order": 5,
+    "prerequisites": ["dsa/stacks-queues"],
+    "objectives": ["Identify the base case and recursive case in a function","Trace a recursive call through the call stack","Spot repeated work and explain how to avoid it"],
+    "exercises": [
+      {"id":"dsa-recursion-ex1","minutes":5,"prompt":"Write a recursive function Sum(n) that returns 1 + 2 + ... + n, and trace Sum(3).","answer":"Sum(n): if n <= 0 return 0; return n + Sum(n - 1). Sum(3) = 3 + Sum(2) = 3 + 2 + Sum(1) = 3 + 2 + 1 + Sum(0) = 3 + 2 + 1 + 0 = 6."},
+      {"id":"dsa-recursion-ex2","minutes":6,"prompt":"Why does naive recursive Fibonacci take exponential time, and how do you fix it?","answer":"Fib(n) calls Fib(n-1) and Fib(n-2), and each of those recomputes many of the same smaller values, so the number of calls roughly doubles per level. Store each result in an array or dictionary the first time it is computed (memoization), so every Fib(k) is calculated once and the total becomes O(n)."}
+    ],
+    "practical": [
+      {"id":"dsa-recursion-lab1","minutes":20,"title":"Fibonacci two ways","task":"Write Fib(n) as plain recursion, then with a dictionary memo. Count how many calls each makes for n = 10, 20 and 30.","done":"You can show the plain version's call count exploding while the memo version stays near n."}
+    ]
+  },
+  "sorting-searching": {
+    "order": 6,
+    "prerequisites": ["dsa/recursion"],
+    "objectives": ["Perform binary search by hand on a sorted array","Explain why sorting well costs O(n log n)","Decide when to sort first and search afterwards"],
+    "exercises": [
+      {"id":"dsa-sorting-searching-ex1","minutes":5,"prompt":"Trace binary search for 15 in [2, 5, 9, 15, 21, 30]. Show low, high and mid each step.","answer":"low 0, high 5, mid 2 (value 9): 9 < 15 so low = 3. low 3, high 5, mid 4 (value 21): 21 > 15 so high = 3. low 3, high 3, mid 3 (value 15): found at index 3."},
+      {"id":"dsa-sorting-searching-ex2","minutes":6,"prompt":"Explain the idea of merge sort and why its running time is O(n log n).","answer":"Split the array in half, sort each half recursively, then merge the two sorted halves by repeatedly taking the smaller front item. Halving gives about log n levels, and each level merges n items in total, so the cost is n times log n."}
+    ],
+    "practical": [
+      {"id":"dsa-sorting-searching-lab1","minutes":25,"title":"Race linear and binary search","task":"Create a sorted array of 1,000,000 integers. Time 1,000 lookups with a linear scan and 1,000 with a binary search you write yourself. Then sort a shuffled copy with Array.Sort and time it.","done":"Binary search is clearly faster, and you can say how many comparisons it needs at most and why."}
     ]
   },
   "hashing": {
-    "order": 2,
+    "order": 7,
     "prerequisites": ["dsa/complexity"],
-    "objectives": ["Explain how a hash table finds a key and why it's O(1) only on average", "State the equality and hash-code contract", "Recognise problems that a hash map turns from O(n^2) into O(n)"],
+    "objectives": ["Explain how a hash table finds a key and why it's O(1) only on average","State the equality and hash-code contract","Recognise problems that a hash map turns from O(n^2) into O(n)"],
     "exercises": [
-      { "id": "dsa-hashing-ex1", "minutes": 5, "prompt": "You override Equals in a C# class but not GetHashCode, then use it as a Dictionary key. Two instances compare equal. What goes wrong, and why?", "answer": "Lookups can miss. The dictionary first picks a bucket using the hash code, and the default hash code differs between the two instances, so it searches the wrong bucket and never calls Equals. Equal objects must return equal hash codes." },
-      { "id": "dsa-hashing-ex2", "minutes": 5, "prompt": "When does a hash table lookup degrade to O(n), and what do real implementations do about it?", "answer": "When many keys land in the same bucket, from a poor hash function, a very high load factor or crafted collisions. Implementations resize to keep the load factor bounded, and many randomise hash seeds to resist attacks. Some, such as Java's HashMap and .NET's string hashing, add further defences like tree bins or randomised string hashing." }
+      {"id":"dsa-hashing-ex1","minutes":5,"prompt":"You override Equals in a C# class but not GetHashCode, then use it as a Dictionary key. Two instances compare equal. What goes wrong, and why?","answer":"Lookups can miss. The dictionary first picks a bucket using the hash code, and the default hash code differs between the two instances, so it searches the wrong bucket and never calls Equals. Equal objects must return equal hash codes."},
+      {"id":"dsa-hashing-ex2","minutes":5,"prompt":"When does a hash table lookup degrade to O(n), and what do real implementations do about it?","answer":"When many keys land in the same bucket, from a poor hash function, a very high load factor or crafted collisions. Implementations resize to keep the load factor bounded, and many randomise hash seeds to resist attacks. Some, such as Java's HashMap and .NET's string hashing, add further defences like tree bins or randomised string hashing."}
     ],
     "practical": [
-      { "id": "dsa-hashing-lab1", "minutes": 25, "title": "Build a small hash map", "task": "Implement a hash map with separate chaining and resizing in your main language, without using the built-in map. Then add a key type with a deliberately bad hash function and measure how lookups slow down.", "done": "Your map passes get, put and delete checks, and you've measured the slowdown from the bad hash." }
+      {"id":"dsa-hashing-lab1","minutes":25,"title":"Build a small hash map","task":"Implement a hash map with separate chaining and resizing in your main language, without using the built-in map. Then add a key type with a deliberately bad hash function and measure how lookups slow down.","done":"Your map passes get, put and delete checks, and you've measured the slowdown from the bad hash."}
+    ]
+  },
+  "trees-basics": {
+    "order": 8,
+    "prerequisites": ["dsa/recursion","dsa/stacks-queues"],
+    "objectives": ["Name the parts of a tree: root, child, leaf and height","Search a binary search tree step by step","Write a recursive in-order traversal"],
+    "exercises": [
+      {"id":"dsa-trees-basics-ex1","minutes":5,"prompt":"Insert 5, 3, 8, 1, 4 into an empty BST. Draw it and list the in-order traversal.","answer":"5 is the root. 3 goes left of 5, 8 right of 5, 1 left of 3, 4 right of 3. In-order visits left, node, right and gives 1 3 4 5 8, which is sorted."},
+      {"id":"dsa-trees-basics-ex2","minutes":6,"prompt":"What can make a BST slow, and what does the height have to do with it?","answer":"Search, insert and delete take time proportional to the tree height. A balanced tree has height about log n, but inserting already sorted values builds a chain of height n, so each operation becomes O(n). Self-balancing trees keep the height near log n."}
+    ],
+    "practical": [
+      {"id":"dsa-trees-basics-lab1","minutes":25,"title":"Build a small BST","task":"Implement a BST node class with Insert, Contains and an in-order traversal. Insert 20 random numbers, then insert 1 to 20 in order, and compare the tree heights.","done":"In-order output is sorted for both trees, and you can explain why the second tree is so much taller."}
+    ]
+  },
+  "graphs-basics": {
+    "order": 9,
+    "prerequisites": ["dsa/stacks-queues","dsa/trees-basics"],
+    "objectives": ["Represent a graph as an adjacency list","Run BFS and DFS by hand on a small graph","Explain why visited tracking is necessary"],
+    "exercises": [
+      {"id":"dsa-graphs-basics-ex1","minutes":6,"prompt":"For edges A-B, A-C, B-D, C-D, write the adjacency list and the BFS order from A.","answer":"A: B, C. B: A, D. C: A, D. D: B, C. BFS from A: queue [A]; visit A, add B and C; visit B, add D; visit C, D is already seen; visit D. Order: A B C D."},
+      {"id":"dsa-graphs-basics-ex2","minutes":5,"prompt":"Why does BFS give shortest paths in an unweighted graph but DFS does not?","answer":"BFS processes all nodes at distance 1, then distance 2, and so on, so a node is first reached by the fewest edges. DFS follows one long path deeply first, so it may reach a node by a much longer route before any shorter one is tried."}
+    ],
+    "practical": [
+      {"id":"dsa-graphs-basics-lab1","minutes":25,"title":"Count islands in a grid","task":"Given a grid of 0s and 1s, count the groups of connected 1s (up, down, left, right). Solve it with BFS, then again with DFS, and test on grids with no islands and one big island.","done":"Both versions agree on every test grid, and you can explain why each cell is marked visited."}
+    ]
+  },
+  "complexity": {
+    "order": 10,
+    "prerequisites": [],
+    "objectives": ["Work out time and space cost from code, including hidden loops","Explain amortized cost with the doubling argument","Solve the common recurrences without looking them up"],
+    "exercises": [
+      {"id":"dsa-complexity-ex1","minutes":5,"prompt":"A dynamic array doubles its capacity when full. Without using the word \"amortized\", explain why appending n items costs O(n) in total, even though a single append can cost O(n).","answer":"Copies happen at sizes 1, 2, 4, ... up to n. Those copy costs sum to less than 2n, a geometric series dominated by its last term. Add n for the writes themselves and the total is under 3n, which is O(n). Each append therefore costs a constant on average across the sequence, even though a few are expensive."},
+      {"id":"dsa-complexity-ex2","minutes":5,"prompt":"What is the recurrence and the closed form for merge sort? For binary search? State why they differ.","answer":"Merge sort: T(n) = 2T(n/2) + O(n), which is O(n log n). Binary search: T(n) = T(n/2) + O(1), which is O(log n). Merge sort does linear work at every level, and there are log n levels. Binary search recurses into only one half and does constant work per level."}
+    ],
+    "practical": [
+      {"id":"dsa-complexity-lab1","minutes":20,"title":"Measure a growth rate","task":"Write a function with a nested loop and one with a hash lookup. Time each at n = 1,000, 10,000 and 100,000, then compare how the time grows when n grows tenfold with what the Big-O predicts.","done":"You can point at the measured ratio (about 100x versus about 10x) and say where the prediction held or didn't."}
     ]
   },
   "trees-graphs": {
-    "order": 3,
+    "order": 11,
     "prerequisites": ["dsa/complexity"],
-    "objectives": ["Choose BFS or DFS for a problem and justify it", "Explain why Dijkstra fails on negative edges", "Detect cycles correctly in directed and undirected graphs"],
+    "objectives": ["Choose BFS or DFS for a problem and justify it","Explain why Dijkstra fails on negative edges","Detect cycles correctly in directed and undirected graphs"],
     "exercises": [
-      { "id": "dsa-trees-graphs-ex1", "minutes": 5, "prompt": "Why does BFS find shortest paths in an unweighted graph, and why doesn't that work once edges have different weights?", "answer": "BFS visits nodes in order of edge count from the start, so the first time it reaches a node is along a path with the fewest edges. With weights, fewest edges isn't lowest cost, since a longer path can be cheaper. That needs Dijkstra, which processes nodes in order of total cost, or Bellman-Ford if weights can be negative." },
-      { "id": "dsa-trees-graphs-ex2", "minutes": 5, "prompt": "Explain how cycle detection differs between a directed and an undirected graph.", "answer": "Undirected: during DFS, reaching a visited node that isn't your parent means there's a cycle (union-find also works). Directed: you need three states, because reaching a finished node is only a cross or forward edge. A cycle exists only if you reach a node still on the current recursion stack." }
+      {"id":"dsa-trees-graphs-ex1","minutes":5,"prompt":"Why does BFS find shortest paths in an unweighted graph, and why doesn't that work once edges have different weights?","answer":"BFS visits nodes in order of edge count from the start, so the first time it reaches a node is along a path with the fewest edges. With weights, fewest edges isn't lowest cost, since a longer path can be cheaper. That needs Dijkstra, which processes nodes in order of total cost, or Bellman-Ford if weights can be negative."},
+      {"id":"dsa-trees-graphs-ex2","minutes":5,"prompt":"Explain how cycle detection differs between a directed and an undirected graph.","answer":"Undirected: during DFS, reaching a visited node that isn't your parent means there's a cycle (union-find also works). Directed: you need three states, because reaching a finished node is only a cross or forward edge. A cycle exists only if you reach a node still on the current recursion stack."}
     ],
     "practical": [
-      { "id": "dsa-trees-graphs-lab1", "minutes": 30, "title": "Find a real dependency cycle", "task": "Parse a package manifest or project-reference list from a real codebase into a directed graph. Write a topological sort that reports any cycle it finds.", "done": "It prints a valid build order for the real project, and names the cycle when you add one on purpose." }
+      {"id":"dsa-trees-graphs-lab1","minutes":30,"title":"Find a real dependency cycle","task":"Parse a package manifest or project-reference list from a real codebase into a directed graph. Write a topological sort that reports any cycle it finds.","done":"It prints a valid build order for the real project, and names the cycle when you add one on purpose."}
     ]
   },
   "dynamic-programming": {
-    "order": 4,
-    "prerequisites": ["dsa/complexity", "dsa/trees-graphs"],
-    "objectives": ["Recognise overlapping subproblems and optimal substructure", "Define the state and transition before writing code", "Reduce memory by keeping only the state you need"],
+    "order": 12,
+    "prerequisites": ["dsa/complexity","dsa/trees-graphs"],
+    "objectives": ["Recognise overlapping subproblems and optimal substructure","Define the state and transition before writing code","Reduce memory by keeping only the state you need"],
     "exercises": [
-      { "id": "dsa-dynamic-programming-ex1", "minutes": 8, "prompt": "For the 0/1 knapsack problem, define the state, the transition and the time and space cost. Why must the capacity loop run backwards in the one-dimensional version?", "answer": "State: dp[w] is the best value using the items seen so far with capacity w. Transition: dp[w] = max(dp[w], dp[w - weight] + value). Cost: O(nW) time and O(W) space. The loop runs from high to low so dp[w - weight] still holds the value from before this item. Going forwards would let the same item be used repeatedly, which solves the unbounded version instead." },
-      { "id": "dsa-dynamic-programming-ex2", "minutes": 5, "prompt": "What two properties tell you dynamic programming applies? Give a problem that looks similar but where a greedy approach is enough, and say why.", "answer": "Optimal substructure and overlapping subproblems. Interval scheduling for the most non-overlapping meetings looks like a DP problem, but always picking the meeting that ends earliest is optimal, because that choice leaves the most room and never rules out a better solution." }
+      {"id":"dsa-dynamic-programming-ex1","minutes":8,"prompt":"For the 0/1 knapsack problem, define the state, the transition and the time and space cost. Why must the capacity loop run backwards in the one-dimensional version?","answer":"State: dp[w] is the best value using the items seen so far with capacity w. Transition: dp[w] = max(dp[w], dp[w - weight] + value). Cost: O(nW) time and O(W) space. The loop runs from high to low so dp[w - weight] still holds the value from before this item. Going forwards would let the same item be used repeatedly, which solves the unbounded version instead."},
+      {"id":"dsa-dynamic-programming-ex2","minutes":5,"prompt":"What two properties tell you dynamic programming applies? Give a problem that looks similar but where a greedy approach is enough, and say why.","answer":"Optimal substructure and overlapping subproblems. Interval scheduling for the most non-overlapping meetings looks like a DP problem, but always picking the meeting that ends earliest is optimal, because that choice leaves the most room and never rules out a better solution."}
     ],
     "practical": [
-      { "id": "dsa-dynamic-programming-lab1", "minutes": 30, "title": "Solve one problem three ways", "task": "Solve edit distance by plain recursion, then with memoization, then bottom-up. Time all three on strings of length 10, 20 and 500 where feasible.", "done": "All three agree on the answer, and you've seen the plain recursion become unusable at a length the others handle easily." }
+      {"id":"dsa-dynamic-programming-lab1","minutes":30,"title":"Solve one problem three ways","task":"Solve edit distance by plain recursion, then with memoization, then bottom-up. Time all three on strings of length 10, 20 and 500 where feasible.","done":"All three agree on the answer, and you've seen the plain recursion become unusable at a length the others handle easily."}
     ]
   }
 }
