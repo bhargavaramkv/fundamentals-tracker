@@ -3,9 +3,19 @@ title: "Scalability & load"
 summary: "Stateless services, load balancing, consistent hashing, and scaling on the right signal in Kubernetes."
 ---
 
+## The idea
+
+A food truck gets popular and the queue grows. You have two choices. Buy a bigger, faster grill, or open more trucks. The bigger grill is easy, but there is a biggest grill you can buy, and if it breaks you sell nothing. More trucks has no such limit, but customers must be split between them.
+
+**Scalability** is a system's ability to cope with more users without falling over. The first fix is usually more copies of your server behind a load balancer, which is the front door described in "Load balancers, from scratch". Because the work is now shared, "Latency, throughput & the numbers that matter" gives you the way to measure whether it helped: does each request still finish quickly, and how many can you handle per second?
+
 ## Vertical vs horizontal
 
 Vertical scaling is simple but has a ceiling and a single point of failure. Horizontal scaling requires **stateless** instances: sessions live in Redis or a database, or in signed tokens. Uploads go to object storage, not local disk.
+
+```check
+{"prompt": "Which statement about horizontal scaling is correct?", "options": ["It means buying one bigger machine", "It means adding more machines, so servers should not keep user data in their own memory", "It makes a single request run faster"], "answer": 1, "explanation": "Horizontal scaling adds machines and shares work between them, so any machine must be able to serve any user. That is why state moves to a shared store. It raises throughput; it does not speed up a single request."}
+```
 
 ## Load balancing
 
@@ -36,6 +46,10 @@ And **find the bottleneck first**: scaling pods against a saturated database or 
 ## Why `hash % N` breaks
 
 Changing N remaps about (N-1)/N of keys, so a cache resize empties the cache and floods the DB. Consistent hashing remaps only about 1/N. It is about *remapping*, not replication or speed.
+
+```check
+{"prompt": "You grow a cache from 4 nodes to 5 using hash(key) % N. Roughly what share of keys end up on a different node?", "options": ["About 20%", "About 50%", "About 80%"], "answer": 2, "explanation": "With mod N, about (N-1)/N of keys move when N changes, here around four fifths. Consistent hashing would move only about one fifth, the share the new node takes over."}
+```
 
 ## Scaling signal
 

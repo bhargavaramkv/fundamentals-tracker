@@ -2,25 +2,25 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { PATTERN_TOPICS, CODING_PATTERNS } from "@/lib/coding";
-import { codingSolvesByTopic, CODING_SOLVES_FOR_PRACTICAL, hasPracticalEvidence, LEVEL_LABEL, latestRatings, nextStep, STEP_LABEL, STEP_TAB, topicProficiency, topicRevision, evidenceFor, type TopicProficiency } from "@/lib/proficiency";
+import { codingSolvesByTopic, CODING_SOLVES_FOR_PRACTICAL, hasPracticalEvidence, LEVEL_LABEL, latestRatings, topicProficiency, topicRevision, evidenceFor, type TopicProficiency } from "@/lib/proficiency";
 import { isVerificationStale, SOURCE_LABEL, TIER_LABEL, type Resource } from "@/lib/resources";
 import { DOMAIN_LABELS, type Exercise, type ExerciseRating, type Lesson, type LearningActivity, type PracticalTask, type Question, type TopicWorkspace } from "@/lib/types";
-import { levelTone } from "./LearningPath";
+import { LessonPlayer } from "./LessonPlayer";
 import { LessonReadTracker } from "./LessonReadTracker";
 import { useProgress } from "./ProgressProvider";
-import { Quiz } from "./Quiz";
 import { relativeDays, untilDays, useNow } from "./useNow";
-import { useQuestionPool } from "./useQuestionPool";
 
-const TABS = [
-  { id: "read", label: "Read" },
-  { id: "practice", label: "Practice" },
-  { id: "exercises", label: "Exercises" },
-  { id: "check", label: "Check" },
-] as const;
-type Tab = (typeof TABS)[number]["id"];
+/** Where this lesson sits in the course, worked out at build time. */
+export interface LessonNav {
+  trackTitle: string;
+  stageTitle: string;
+  /** 1-based position within the stage. */
+  position: number;
+  count: number;
+  next: { href: string; title: string } | null;
+}
 
 interface Props {
   lesson: Lesson;
@@ -28,39 +28,23 @@ interface Props {
   questions: Question[];
   resources: Resource[];
   prerequisites: { key: string; title: string }[];
+  nav: LessonNav | null;
 }
 
-export function TopicWorkspaceView({ lesson, workspace, questions: bank, resources, prerequisites }: Props) {
-  const questions = useQuestionPool(bank, (q) => q.domain === lesson.domain && q.topic === lesson.topic);
-  const params = useSearchParams();
-  const requested = params.get("tab");
-  const tab: Tab = TABS.some((t) => t.id === requested) ? (requested as Tab) : "read";
+export function levelTone(level: TopicProficiency["level"]): string {
+  if (level === "mastered") return "bg-good-bg text-good";
+  if (level === "proficient") return "text-good";
+  if (level === "reading") return "bg-warn-bg text-warn";
+  return "text-ink-2";
+}
+
+export function TopicWorkspaceView({ lesson, workspace, questions, resources, prerequisites, nav }: Props) {
+  const requested = useSearchParams().get("tab");
   const { data, ready } = useProgress();
   const now = useNow();
-  const [running, setRunning] = useState<"practice" | "check" | null>(null);
-  const [round, setRound] = useState(0);
   const key = `${lesson.domain}/${lesson.topic}`;
-  const base = `/learn/${lesson.domain}/${lesson.topic}/`;
-
-  const start = (mode: "practice" | "check") => {
-    setRound((r) => r + 1);
-    setRunning(mode);
-  };
-
-  if (running) {
-    const ordered = [...questions].sort((a, b) => a.difficulty - b.difficulty || a.id.localeCompare(b.id));
-    return (
-      <Quiz
-        key={round}
-        questions={ordered}
-        mode={running === "check" ? "assessment" : "practice"}
-        onExit={() => setRunning(null)}
-        onRestart={running === "practice" ? () => start("practice") : undefined}
-        onBack={() => setRunning(null)}
-        backLabel={`Back to ${lesson.title}`}
-      />
-    );
-  }
+  const primary = resources.filter((r) => r.tier < 3);
+  const extra = resources.filter((r) => r.tier === 3);
 
   const loaded = ready && now !== null;
   const solves = codingSolvesByTopic(data, PATTERN_TOPICS);
@@ -72,19 +56,34 @@ export function TopicWorkspaceView({ lesson, workspace, questions: bank, resourc
       <header>
         <nav aria-label="Breadcrumb" className="meta">
           <Link href="/learn/" className="tap hover:text-ink">
-            Learning Path
+            Learn
           </Link>
-          <span aria-hidden> / </span>
-          <Link href={`/learn/#${lesson.domain}`} className="tap hover:text-ink">
-            {DOMAIN_LABELS[lesson.domain]}
+          <span aria-hidden> › </span>
+          <Link href={`/learn/${lesson.domain}/`} className="tap hover:text-ink">
+            {nav?.trackTitle ?? DOMAIN_LABELS[lesson.domain]}
           </Link>
+          {nav && (
+            <>
+              <span aria-hidden> › </span>
+              <span>{nav.stageTitle}</span>
+            </>
+          )}
         </nav>
         <div className="page-head mt-3">
           <h1>{lesson.title}</h1>
           <p>{lesson.summary}</p>
         </div>
+        <p className="meta mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+          {nav && (
+            <span>
+              Lesson {nav.position} of {nav.count} in {nav.stageTitle}
+            </span>
+          )}
+          {lesson.minutes && <span>About {lesson.minutes} min</span>}
+          {proficiency && <span className={`tag ${levelTone(proficiency.level)}`}>{LEVEL_LABEL[proficiency.level]}</span>}
+        </p>
         {prerequisites.length > 0 && (
-          <p className="meta mt-3">
+          <p className="meta mt-2">
             Helps to know first:{" "}
             {prerequisites.map((p, i) => (
               <span key={p.key}>
@@ -98,46 +97,69 @@ export function TopicWorkspaceView({ lesson, workspace, questions: bank, resourc
         )}
       </header>
 
-      {proficiency && now !== null && <Evidence p={proficiency} revisionDueAt={revision?.dueAt ?? null} revisionIsDue={revision?.isDue ?? false} now={now} base={base} currentTab={tab} />}
+      <LessonReadTracker domain={lesson.domain} topic={lesson.topic} />
+      <LessonPlayer
+        lesson={lesson}
+        questions={questions}
+        start={requested === "practice" || requested === "check" ? "checkpoint" : "steps"}
+        next={nav?.next ?? null}
+        pathHref={`/learn/${lesson.domain}/`}
+      />
 
-      <nav aria-label="Topic sections" className="tabs">
-        {TABS.map((t) => (
-          <Link key={t.id} href={t.id === "read" ? base : `${base}?tab=${t.id}`} scroll={false} aria-current={tab === t.id ? "page" : undefined}>
-            {t.label}
-          </Link>
-        ))}
-      </nav>
-
-      {tab === "read" && <ReadTab lesson={lesson} workspace={workspace} resources={resources} />}
-      {tab === "practice" && <PracticeTab questions={questions} onStart={() => start("practice")} />}
-      {tab === "exercises" && <ExercisesTab lesson={lesson} workspace={workspace} topicKey={key} codingSolves={proficiency?.tracks.practical.codingSolves ?? 0} />}
-      {tab === "check" && <CheckTab topicKey={key} questions={questions} onStart={() => start("check")} />}
+      <div className="space-y-3">
+        <Section title="Exercises and practical work" open={requested === "exercises"}>
+          <ExercisesTab lesson={lesson} workspace={workspace} topicKey={key} codingSolves={proficiency?.tracks.practical.codingSolves ?? 0} />
+        </Section>
+        <Section title="Sources" open={false}>
+          <div className="space-y-8">
+            <div>
+              <p className="meta">Links checked against the live page</p>
+              <ResourceList lesson={lesson} resources={primary} />
+            </div>
+            {extra.length > 0 && (
+              <div>
+                <p className="meta">Supplementary: blogs and videos, useful views, not references</p>
+                <ResourceList lesson={lesson} resources={extra} />
+              </div>
+            )}
+            <p className="ai-note">
+              <strong>AI-generated.</strong> The lesson is written and revised with Claude as a short summary. It isn&apos;t checked
+              line by line against the sources above, so where they disagree, trust the sources.
+            </p>
+          </div>
+        </Section>
+        {proficiency && now !== null && (
+          <Section title="Your evidence" open={false}>
+            <Evidence p={proficiency} revisionDueAt={revision?.dueAt ?? null} revisionIsDue={revision?.isDue ?? false} now={now} />
+          </Section>
+        )}
+      </div>
     </article>
   );
 }
 
-function Evidence({ p, revisionDueAt, revisionIsDue, now, base, currentTab }: { p: TopicProficiency; revisionDueAt: string | null; revisionIsDue: boolean; now: number; base: string; currentTab: Tab }) {
-  const t = p.tracks;
-  const step = nextStep(t);
-  const targetTab = STEP_TAB[step] as Tab;
+function Section({ title, open, children }: { title: string; open: boolean; children: ReactNode }) {
   return (
-    <section aria-label="Your evidence for this topic" className="border-y border-line py-5">
-      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-        <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <span className="meta">Proficiency</span>
-          <span className={`tag text-sm ${levelTone(p.level)}`}>{LEVEL_LABEL[p.level]}</span>
-          {revisionDueAt && (
-            <span className={`meta ${revisionIsDue ? "font-medium text-warn" : ""}`}>
-              {revisionIsDue ? "Revision due" : `Next revision ${untilDays(revisionDueAt, now)}`}
-            </span>
-          )}
-        </p>
-        {currentTab !== targetTab && p.level !== "mastered" && (
-          <Link href={targetTab === "read" ? base : `${base}?tab=${targetTab}`} scroll={false} className="btn btn-primary">
-            {STEP_LABEL[step]} <span className="btn-arrow" aria-hidden>→</span>
-          </Link>
+    <details open={open || undefined} className="rounded-xl border border-line bg-surface">
+      <summary className="tap cursor-pointer px-5 py-3 font-medium">{title}</summary>
+      <div className="px-5 pb-5">{children}</div>
+    </details>
+  );
+}
+
+function Evidence({ p, revisionDueAt, revisionIsDue, now }: { p: TopicProficiency; revisionDueAt: string | null; revisionIsDue: boolean; now: number }) {
+  const t = p.tracks;
+  return (
+    <section aria-label="Your evidence for this topic">
+      <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <span className="meta">Proficiency</span>
+        <span className={`tag text-sm ${levelTone(p.level)}`}>{LEVEL_LABEL[p.level]}</span>
+        {revisionDueAt && (
+          <span className={`meta ${revisionIsDue ? "font-medium text-warn" : ""}`}>
+            {revisionIsDue ? "Revision due" : `Next revision ${untilDays(revisionDueAt, now)}`}
+          </span>
         )}
-      </div>
+      </p>
       <dl className="tracks mt-4">
         <Track label="Reading" value={t.reading.lessonReads + t.reading.resources > 0 ? `${t.reading.resources} source${t.reading.resources === 1 ? "" : "s"}, ${t.reading.lessonReads} read${t.reading.lessonReads === 1 ? "" : "s"}` : "Not yet"} last={t.reading.lastAt} now={now} />
         <Track label="Quizzes" value={t.quizzes.answers > 0 ? `${t.quizzes.score}% over ${t.quizzes.answers}` : "Not yet"} last={t.quizzes.lastAt} now={now} />
@@ -164,55 +186,6 @@ function Track({ label, value, last, now }: { label: string; value: string; last
       <dt className="meta">{label}</dt>
       <dd className="text-[15px] font-medium leading-snug">{value}</dd>
       {last && <dd className="meta">{relativeDays(last, now)}</dd>}
-    </div>
-  );
-}
-
-function ReadTab({ lesson, workspace, resources }: { lesson: Lesson; workspace: TopicWorkspace; resources: Resource[] }) {
-  const primary = resources.filter((r) => r.tier < 3);
-  const extra = resources.filter((r) => r.tier === 3);
-  return (
-    <div className="space-y-12">
-      <section aria-labelledby="objectives-h">
-        <div className="section-head">
-          <h2 id="objectives-h">By the end you should be able to</h2>
-        </div>
-        <ul className="mt-3 list-disc space-y-1 pl-5 text-[15px] text-ink-2">
-          {workspace.objectives.map((o) => (
-            <li key={o}>{o}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section aria-labelledby="sources-h">
-        <div className="section-head">
-          <h2 id="sources-h">Start with these sources</h2>
-          <span className="meta">Links checked against the live page</span>
-        </div>
-        <ResourceList lesson={lesson} resources={primary} />
-      </section>
-
-      <section aria-labelledby="explainer-h">
-        <div className="section-head">
-          <h2 id="explainer-h">Explanation</h2>
-        </div>
-        <p className="ai-note mt-4">
-          <strong>AI-generated.</strong> Written and revised with Claude as a short interview-focused summary. It isn&apos;t checked
-          line by line against the sources above, so where they disagree, trust the sources.
-        </p>
-        <div className="prose-lesson mt-6" dangerouslySetInnerHTML={{ __html: lesson.html }} />
-        <LessonReadTracker domain={lesson.domain} topic={lesson.topic} />
-      </section>
-
-      {extra.length > 0 && (
-        <section aria-labelledby="extra-h">
-          <div className="section-head">
-            <h2 id="extra-h">Supplementary</h2>
-            <span className="meta">Blogs and videos: useful views, not references</span>
-          </div>
-          <ResourceList lesson={lesson} resources={extra} />
-        </section>
-      )}
     </div>
   );
 }
@@ -252,69 +225,6 @@ function ResourceList({ lesson, resources }: { lesson: Lesson; resources: Resour
         </li>
       ))}
     </ul>
-  );
-}
-
-const DIFFICULTY = { 1: "Core", 2: "Interview", 3: "Deep" } as const;
-
-function PracticeTab({ questions, onStart }: { questions: Question[]; onStart: () => void }) {
-  const counts = ([1, 2, 3] as const).map((d) => `${questions.filter((q) => q.difficulty === d).length} ${DIFFICULTY[d].toLowerCase()}`);
-  return (
-    <div className="max-w-2xl space-y-5">
-      <p className="text-[17px] leading-relaxed text-ink-2">
-        Every question on this topic, easiest first, with an explanation after each answer. Anything you miss comes back on a
-        schedule, in about 4 hours and then at growing intervals.
-      </p>
-      <p className="meta">{counts.join(", ")}</p>
-      <button type="button" onClick={onStart} className="btn btn-primary">
-        Start · {questions.length} questions <span className="btn-arrow" aria-hidden>→</span>
-      </button>
-    </div>
-  );
-}
-
-function CheckTab({ topicKey, questions, onStart }: { topicKey: string; questions: Question[]; onStart: () => void }) {
-  const { data } = useProgress();
-  const now = useNow();
-  const sessions = new Map<string, { total: number; correct: number; at: string }>();
-  for (const a of data.answers) {
-    if (a.mode !== "assessment" || `${a.domain}/${a.topic}` !== topicKey) continue;
-    const s = sessions.get(a.sessionId) ?? { total: 0, correct: 0, at: a.answeredAt };
-    s.total++;
-    if (a.correct) s.correct++;
-    if (a.answeredAt > s.at) s.at = a.answeredAt;
-    sessions.set(a.sessionId, s);
-  }
-  const attempts = [...sessions.values()].sort((a, b) => b.at.localeCompare(a.at)).slice(0, 5);
-  return (
-    <div className="max-w-2xl space-y-8">
-      <div className="space-y-5">
-        <p className="text-[17px] leading-relaxed text-ink-2">
-          The same questions, but with no feedback until you finish, so it measures what you can do unaided. You can go back and
-          change an answer before the end.
-        </p>
-        <button type="button" onClick={onStart} className="btn btn-primary">
-          Start the check · {questions.length} questions <span className="btn-arrow" aria-hidden>→</span>
-        </button>
-      </div>
-      {attempts.length > 0 && now !== null && (
-        <section aria-labelledby="attempts-h">
-          <div className="section-head">
-            <h2 id="attempts-h">Previous checks</h2>
-          </div>
-          <ul className="divide-y divide-line text-[15px]">
-            {attempts.map((a) => (
-              <li key={a.at} className="flex justify-between gap-4 py-2.5">
-                <span className="text-ink-2">{relativeDays(a.at, now)}</span>
-                <span className="tabular-nums">
-                  {a.correct} of {a.total} correct
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-    </div>
   );
 }
 

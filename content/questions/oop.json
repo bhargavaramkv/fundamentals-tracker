@@ -298,5 +298,245 @@
     ],
     "answer": 2,
     "explanation": "Component-level providers create an instance bound to that component's element injector, and everything beneath it resolves to that nearest provider before reaching root. Children share the parent's one instance (not one each), and the rest of the app keeps the root one. Providing a token at several levels is legal, so there is no conflict error."
+  },
+  {
+    "id": "oop-classes-objects-1",
+    "domain": "oop",
+    "topic": "classes-objects",
+    "difficulty": 1,
+    "prompt": "What is the difference between a class and an object?",
+    "options": [
+      "A class is a blueprint; an object is one thing built from it",
+      "An object is a blueprint; a class is one thing built from it",
+      "They are two names for the same thing",
+      "A class holds data; an object holds only methods"
+    ],
+    "answer": 0,
+    "explanation": "A class describes the shape: what fields and methods exist. An object is one concrete instance created with new, holding its own values. Many objects can come from one class."
+  },
+  {
+    "id": "oop-classes-objects-2",
+    "domain": "oop",
+    "topic": "classes-objects",
+    "difficulty": 1,
+    "prompt": "Two Account objects are created from the same class. You call Deposit(50) on the first one. What happens to the second?",
+    "options": [
+      "Its balance also rises by 50",
+      "Its balance is reset to zero",
+      "Its balance stays unchanged",
+      "The program throws an error"
+    ],
+    "answer": 2,
+    "explanation": "Each object keeps its own copy of the fields, and a method call acts on the object it was called on. The class is shared, but the data is not."
+  },
+  {
+    "id": "oop-classes-objects-3",
+    "domain": "oop",
+    "topic": "classes-objects",
+    "difficulty": 2,
+    "prompt": "Given `var a = new Account(); var b = a; b.Balance = 99;` what is a.Balance?",
+    "options": [
+      "Zero, because b is a copy",
+      "99, because a and b refer to one object",
+      "It depends on the compiler",
+      "An error, since b was not created with new"
+    ],
+    "answer": 1,
+    "explanation": "Classes are reference types, so assigning a variable copies the reference and not the object. Both names point to the same Account, and a change through either is visible through both."
+  },
+  {
+    "id": "oop-classes-objects-4",
+    "domain": "oop",
+    "topic": "classes-objects",
+    "difficulty": 2,
+    "prompt": "What is the main benefit of validating arguments inside a constructor?",
+    "options": [
+      "It makes the program run noticeably faster",
+      "It lets the class have many more methods",
+      "A broken object can never be created",
+      "It removes the need for any fields at all"
+    ],
+    "answer": 2,
+    "explanation": "If the constructor rejects invalid input, every object that exists is valid from the start. You then avoid checking the same rules in every method that uses it, and bugs surface at the point of creation."
+  },
+  {
+    "id": "oop-interfaces-abstraction-1",
+    "domain": "oop",
+    "topic": "interfaces-abstraction",
+    "difficulty": 1,
+    "prompt": "What does an interface contain in C#?",
+    "options": [
+      "Method signatures a class must provide",
+      "Full working code for every method it lists",
+      "Only private fields and constants",
+      "A complete copy of another class"
+    ],
+    "answer": 0,
+    "explanation": "An interface lists what an implementing class can do, without saying how. The compiler checks that the class supplies every listed member, so callers can rely on them."
+  },
+  {
+    "id": "oop-interfaces-abstraction-2",
+    "domain": "oop",
+    "topic": "interfaces-abstraction",
+    "difficulty": 1,
+    "prompt": "A method takes an INotifier parameter. Why is that more flexible than taking EmailNotifier?",
+    "options": [
+      "It runs noticeably faster",
+      "It accepts any INotifier implementation",
+      "It allows several constructors to exist",
+      "It hides the method from other classes entirely"
+    ],
+    "answer": 1,
+    "explanation": "The method now depends on the promise, not on one concrete class. SMS, push or a test fake can be passed in later, and the method itself never needs to change."
+  },
+  {
+    "id": "oop-interfaces-abstraction-3",
+    "domain": "oop",
+    "topic": "interfaces-abstraction",
+    "difficulty": 2,
+    "prompt": "Your project has one class, PdfExporter, and no plans for another. Should you add IExporter now?",
+    "options": [
+      "Yes, every class needs an interface",
+      "Yes, otherwise the code cannot compile",
+      "No, interfaces are banned for single classes",
+      "Probably not yet, unless tests need a fake"
+    ],
+    "answer": 3,
+    "explanation": "An interface pays off when things need swapping. With one implementation and no test need, it is extra indirection. Adding it later, when a second exporter appears, is usually a small change."
+  },
+  {
+    "id": "oop-interfaces-abstraction-4",
+    "domain": "oop",
+    "topic": "interfaces-abstraction",
+    "difficulty": 2,
+    "prompt": "An interface has 12 methods, and most implementers leave several of them empty. What is the best fix?",
+    "options": [
+      "Make all of the methods virtual",
+      "Split it into smaller role interfaces",
+      "Delete it and use one big class instead",
+      "Add even more methods to cover cases"
+    ],
+    "answer": 1,
+    "explanation": "Classes should not be forced to implement things they do not do. Small role-based interfaces let each class promise only what it can honestly deliver."
+  },
+  {
+    "id": "oop-inheritance-polymorphism-1",
+    "domain": "oop",
+    "topic": "inheritance-polymorphism",
+    "difficulty": 1,
+    "prompt": "What does polymorphism let you do?",
+    "options": [
+      "Hide fields from all other classes in the program",
+      "Call one method and get behaviour that fits each object's real type",
+      "Create objects without ever needing a constructor",
+      "Make a class that can never be changed"
+    ],
+    "answer": 1,
+    "explanation": "With polymorphism, code written against a general type works with many specific types, and each responds in its own way. The caller does not need to check which kind it has."
+  },
+  {
+    "id": "oop-inheritance-polymorphism-2",
+    "domain": "oop",
+    "topic": "inheritance-polymorphism",
+    "difficulty": 1,
+    "prompt": "Which relationship should inheritance model?",
+    "options": [
+      "A has-a relationship, like a car has an engine",
+      "A uses-a relationship, like a program uses a file",
+      "An is-a relationship, like a dog is an animal",
+      "Any two classes that share some code"
+    ],
+    "answer": 2,
+    "explanation": "Inheritance means the subclass is a specialised version of the base class. For has-a relationships, put the part inside as a field (composition). Sharing code alone is not a good reason."
+  },
+  {
+    "id": "oop-inheritance-polymorphism-3",
+    "domain": "oop",
+    "topic": "inheritance-polymorphism",
+    "difficulty": 2,
+    "prompt": "A base class method is not marked virtual, and a subclass defines a method with the same name. A variable of the base type holds a subclass object and calls it. Which version runs?",
+    "options": [
+      "The base class version",
+      "The subclass version",
+      "Both, one after the other",
+      "Neither, it will not compile"
+    ],
+    "answer": 0,
+    "explanation": "Without virtual and override, there is no dynamic dispatch. The call is bound to the variable's declared type, so the base version runs. This is why overriding needs both keywords."
+  },
+  {
+    "id": "oop-inheritance-polymorphism-4",
+    "domain": "oop",
+    "topic": "inheritance-polymorphism",
+    "difficulty": 2,
+    "prompt": "Penguin inherits from Bird, and Bird.Fly() exists. Penguin.Fly() throws an exception. What does this suggest?",
+    "options": [
+      "The design is fine, since exceptions are allowed",
+      "Fly should be made private so nobody calls it directly",
+      "Penguin should have more methods",
+      "The hierarchy is wrong: Penguin cannot replace Bird"
+    ],
+    "answer": 3,
+    "explanation": "Code that accepts any Bird expects Fly to work. A subclass that refuses breaks that trust, which is a Liskov Substitution violation. Split flying birds into their own type instead."
+  },
+  {
+    "id": "oop-coupling-cohesion-1",
+    "domain": "oop",
+    "topic": "coupling-cohesion",
+    "difficulty": 1,
+    "prompt": "What does high cohesion mean?",
+    "options": [
+      "A class depends on many other classes",
+      "All the code is written inside one single file",
+      "Every class has exactly one method",
+      "Everything in a class serves one purpose"
+    ],
+    "answer": 3,
+    "explanation": "Cohesion measures how well the parts of a unit belong together. A cohesive class is easy to name and understand, because it does one clear job."
+  },
+  {
+    "id": "oop-coupling-cohesion-2",
+    "domain": "oop",
+    "topic": "coupling-cohesion",
+    "difficulty": 1,
+    "prompt": "Which is the better goal for a codebase?",
+    "options": [
+      "High cohesion and low coupling",
+      "Low cohesion and high coupling",
+      "High cohesion and high coupling",
+      "Low cohesion and low coupling"
+    ],
+    "answer": 0,
+    "explanation": "You want each unit focused inside, and weakly tied to the others outside. Then a change touches few places, and each part can be tested alone."
+  },
+  {
+    "id": "oop-coupling-cohesion-3",
+    "domain": "oop",
+    "topic": "coupling-cohesion",
+    "difficulty": 2,
+    "prompt": "OrderService creates a SqlConnection and an SmtpClient with new inside its method. Which problem follows most directly?",
+    "options": [
+      "It has too few methods for a service class",
+      "It cannot use any private fields in its methods because of this",
+      "It is welded to concrete types, so tests need real servers",
+      "It has far too many interfaces for one class"
+    ],
+    "answer": 2,
+    "explanation": "Calling new on concrete infrastructure welds the class to it. Taking small interfaces through the constructor loosens that link, so tests can pass in fakes."
+  },
+  {
+    "id": "oop-coupling-cohesion-4",
+    "domain": "oop",
+    "topic": "coupling-cohesion",
+    "difficulty": 2,
+    "prompt": "Two unrelated features share one helper to avoid duplicating twenty lines. What is the risk?",
+    "options": [
+      "The helper becomes slower to run over time",
+      "Changing it for one feature can break the other",
+      "The compiler refuses to build shared code like this",
+      "Duplication always becomes worse"
+    ],
+    "answer": 1,
+    "explanation": "Shared code couples its users. When the features evolve in different directions, the helper becomes tangled with special cases. Some duplication is cheaper than the wrong coupling."
   }
 ]

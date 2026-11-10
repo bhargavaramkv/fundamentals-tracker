@@ -401,7 +401,7 @@ describe("content: registry and workspaces", () => {
 
   it("each domain has one path, in order, with no prerequisite cycles", () => {
     for (const d of DOMAINS) {
-      const orders = Object.entries(spaces).filter(([k]) => k.startsWith(`${d}/`)).map(([, w]) => w.order).sort();
+      const orders = Object.entries(spaces).filter(([k]) => k.startsWith(`${d}/`)).map(([, w]) => w.order).sort((a, b) => a - b);
       expect(orders).toEqual(orders.map((_, i) => i + 1));
     }
     const visit = (key: string, seen: string[]): void => {

@@ -1,7 +1,7 @@
 # Fundamentals
 
 Static Next.js app (GitHub Pages) for the owner's engineering-fundamentals practice.
-Design and reasoning: `docs/design/REDESIGN.md`.
+Design and reasoning: `docs/design/V3.md` (current), `docs/design/REDESIGN.md` (history). Course order: `content/curriculum.json`.
 Read `AGENTS.md` (Next.js version notes) before changing code.
 
 - **Mentor:** the nightly routine follows `docs/mentor-routine.md`; design in `docs/design/MENTOR.md`. No API keys, API billing or
