@@ -59,11 +59,10 @@ function isActive(pathname: string, link: NavLink): boolean {
 /** Top bar everywhere; on phones the links move to a bottom tab bar within thumb reach. */
 export function Nav() {
   const pathname = usePathname();
-  const { storeKind, syncState } = useProgress();
+  const { syncState } = useProgress();
   const syncError = syncState === "error";
   const settingsActive = pathname.startsWith("/settings");
 
-  const syncLabel = storeKind === "local" ? "Local only" : syncState === "syncing" ? "Syncing…" : syncError ? "Sync error" : "Synced";
 
   return (
     <>
@@ -92,20 +91,12 @@ export function Nav() {
           <div className="flex items-center gap-1">
             <Link
               href="/settings/"
-              className={`hidden whitespace-nowrap py-1 text-xs md:inline ${syncError ? "text-bad" : "text-ink-3"}`}
-              title="Where your progress is stored"
-            >
-              <span aria-hidden>●</span> {syncLabel}
-            </Link>
-            <Link
-              href="/settings/"
-              aria-label="Settings"
+              aria-label={syncError ? "Settings (sync error)" : "Settings"}
               aria-current={settingsActive ? "page" : undefined}
               className={`relative flex h-11 w-11 items-center justify-center rounded-lg transition-colors ${settingsActive ? "text-ink" : "text-ink-3 hover:text-ink"}`}
             >
               <Icon>
-                <circle cx="12" cy="12" r="3" />
-                <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" />
+                <path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4" />
               </Icon>
               {syncError && <span aria-hidden className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-bad" />}
             </Link>
