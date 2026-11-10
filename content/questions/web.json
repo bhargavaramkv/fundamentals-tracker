@@ -193,5 +193,245 @@
     ],
     "answer": 0,
     "explanation": "no-cache plus an ETag is the usual setup for index.html: the browser always checks, and an unchanged page costs only a cheap 304. no-store is for sensitive responses. Hashed static assets should use max-age=31536000, immutable."
+  },
+  {
+    "id": "web-internet-basics-1",
+    "domain": "web",
+    "topic": "internet-basics",
+    "difficulty": 1,
+    "prompt": "What is an IP address used for?",
+    "options": [
+      "Naming a web page for people to read",
+      "Identifying a computer so packets can find it",
+      "Encrypting a message before it is sent",
+      "Storing a user's password on a server"
+    ],
+    "answer": 1,
+    "explanation": "An IP address is the network address of a computer, like a street address for a building. Routers read it to forward each packet one step closer to its destination."
+  },
+  {
+    "id": "web-internet-basics-2",
+    "domain": "web",
+    "topic": "internet-basics",
+    "difficulty": 1,
+    "prompt": "Why are messages sent over the internet split into packets?",
+    "options": [
+      "Routers can only read tiny messages",
+      "It is required before data can be encrypted",
+      "A lost piece can be resent on its own",
+      "It makes each IP address unique to you"
+    ],
+    "answer": 2,
+    "explanation": "Small packets can take different routes and be retransmitted individually if one is lost. That makes delivery flexible and resilient, instead of all-or-nothing."
+  },
+  {
+    "id": "web-internet-basics-3",
+    "domain": "web",
+    "topic": "internet-basics",
+    "difficulty": 2,
+    "prompt": "A server has one IP address but runs a web server and a mail server. How does incoming data reach the right program?",
+    "options": [
+      "By the port number",
+      "By the packet's size",
+      "By the router's brand",
+      "By the time of day"
+    ],
+    "answer": 0,
+    "explanation": "The IP address finds the computer, and the port number picks which program on it receives the data. Web traffic normally uses port 443 or 80, while mail uses other ports."
+  },
+  {
+    "id": "web-internet-basics-4",
+    "domain": "web",
+    "topic": "internet-basics",
+    "difficulty": 2,
+    "prompt": "What does TCP add on top of IP?",
+    "options": [
+      "A friendly name for the server",
+      "Reliable, ordered delivery with resends",
+      "Faster routers across the whole network",
+      "A much longer address space for computers"
+    ],
+    "answer": 1,
+    "explanation": "IP only moves packets on a best-effort basis, so they can be lost or arrive out of order. TCP numbers them, acknowledges what arrived, resends what is missing and reassembles the data in order."
+  },
+  {
+    "id": "web-dns-urls-1",
+    "domain": "web",
+    "topic": "dns-urls",
+    "difficulty": 1,
+    "prompt": "In https://shop.example.com/cart?id=7, what is /cart?",
+    "options": [
+      "The scheme",
+      "The query",
+      "The path",
+      "The host"
+    ],
+    "answer": 2,
+    "explanation": "The path comes after the host and names the resource being requested. The query starts at the question mark and holds extra key=value options."
+  },
+  {
+    "id": "web-dns-urls-2",
+    "domain": "web",
+    "topic": "dns-urls",
+    "difficulty": 1,
+    "prompt": "What does DNS do?",
+    "options": [
+      "Maps a domain name to an IP address",
+      "Encrypts the traffic between you and a site",
+      "Hosts the web page files for a website",
+      "Blocks unwanted traffic from reaching you"
+    ],
+    "answer": 0,
+    "explanation": "DNS is the internet's lookup service for names. Your browser asks it for the IP address behind a name, and then connects to that address to get the page."
+  },
+  {
+    "id": "web-dns-urls-3",
+    "domain": "web",
+    "topic": "dns-urls",
+    "difficulty": 2,
+    "prompt": "You change a DNS record's IP address, but some users still reach the old server for a while. Why?",
+    "options": [
+      "The new server is slower than the old",
+      "Browsers never ask DNS for anything at all",
+      "Cached answers last until their TTL ends",
+      "IP addresses are not allowed to change ever"
+    ],
+    "answer": 2,
+    "explanation": "Resolvers, operating systems and browsers cache answers for the record's TTL. Until a cache's copy expires, it keeps returning the old address, so changes spread gradually."
+  },
+  {
+    "id": "web-dns-urls-4",
+    "domain": "web",
+    "topic": "dns-urls",
+    "difficulty": 2,
+    "prompt": "Which part of a URL is never sent to the server?",
+    "options": [
+      "The path of the page",
+      "The fragment after the hash sign",
+      "The query string with its options",
+      "The host name of the server itself"
+    ],
+    "answer": 1,
+    "explanation": "The fragment points to a spot inside the page and is handled only by the browser. The host is used for the connection, and the path and query are included in the request."
+  },
+  {
+    "id": "web-http-requests-1",
+    "domain": "web",
+    "topic": "http-requests",
+    "difficulty": 1,
+    "prompt": "Which status code range means the client made a mistake?",
+    "options": [
+      "2xx",
+      "3xx",
+      "4xx",
+      "5xx"
+    ],
+    "answer": 2,
+    "explanation": "4xx codes such as 400 and 404 say the request itself was the problem. 5xx codes say the server failed even though the request was fine."
+  },
+  {
+    "id": "web-http-requests-2",
+    "domain": "web",
+    "topic": "http-requests",
+    "difficulty": 1,
+    "prompt": "Which part of an HTTP response comes after the blank line?",
+    "options": [
+      "The body",
+      "The status line",
+      "The headers",
+      "The method"
+    ],
+    "answer": 0,
+    "explanation": "A blank line ends the headers, and everything after it is the body, such as the HTML or JSON. The status line comes first, then the headers."
+  },
+  {
+    "id": "web-http-requests-3",
+    "domain": "web",
+    "topic": "http-requests",
+    "difficulty": 2,
+    "prompt": "A crawler visits thousands of pages using GET. Why must GET never change data?",
+    "options": [
+      "GET bodies are always far too small to matter",
+      "GET is always slower than POST for this job",
+      "GET cannot carry any headers or a body at all",
+      "Anyone may repeat GET, so it must be harmless"
+    ],
+    "answer": 3,
+    "explanation": "GET is meant to be safe: browsers, caches and crawlers may call it any number of times. If it deleted or created something, ordinary page visits would cause damage."
+  },
+  {
+    "id": "web-http-requests-4",
+    "domain": "web",
+    "topic": "http-requests",
+    "difficulty": 2,
+    "prompt": "What does the Content-Type header on a POST request tell the server?",
+    "options": [
+      "How to read the body, e.g. JSON",
+      "Which server the client should connect to",
+      "How long to keep the connection open",
+      "Whether the user is currently logged in"
+    ],
+    "answer": 0,
+    "explanation": "The body is just bytes until a Content-Type labels it, for example application/json. The server uses that label to choose how to parse it."
+  },
+  {
+    "id": "web-auth-basics-1",
+    "domain": "web",
+    "topic": "auth-basics",
+    "difficulty": 1,
+    "prompt": "Why does a website need cookies, sessions or tokens to keep you logged in?",
+    "options": [
+      "Browsers forget the password you typed",
+      "HTTP requests are independent of each other",
+      "Servers can only ever talk to one user",
+      "Passwords expire after every single request"
+    ],
+    "answer": 1,
+    "explanation": "HTTP has no memory between requests. After login, the server gives the client something to send each time, so it can tell the requests belong to the same user."
+  },
+  {
+    "id": "web-auth-basics-2",
+    "domain": "web",
+    "topic": "auth-basics",
+    "difficulty": 1,
+    "prompt": "What is the difference between authentication and authorization?",
+    "options": [
+      "Authentication is about speed, not identity",
+      "They are simply two names for one thing",
+      "Authorization proves who you are, authentication sets limits",
+      "Authentication proves who you are; authorization sets limits"
+    ],
+    "answer": 3,
+    "explanation": "Authentication answers who you are, usually with a password. Authorization answers what you are allowed to do, and it must be checked on every action."
+  },
+  {
+    "id": "web-auth-basics-3",
+    "domain": "web",
+    "topic": "auth-basics",
+    "difficulty": 2,
+    "prompt": "In a server-side session, what should the cookie contain?",
+    "options": [
+      "A random session ID",
+      "The user's password",
+      "The user's full profile and permissions",
+      "The server's secret key"
+    ],
+    "answer": 0,
+    "explanation": "The cookie is only a lookup key, and the real data lives on the server. That keeps secrets away from the browser and lets the server end a session by deleting its record."
+  },
+  {
+    "id": "web-auth-basics-4",
+    "domain": "web",
+    "topic": "auth-basics",
+    "difficulty": 2,
+    "prompt": "Why are signed tokens such as JWTs usually given a short lifetime?",
+    "options": [
+      "Long tokens take far too much space to store safely",
+      "They are hard to revoke: no server record",
+      "The browser deletes every token it ever receives",
+      "Short tokens are always encrypted better than long ones"
+    ],
+    "answer": 1,
+    "explanation": "A signed token is accepted by anyone who checks its signature, with no lookup, so the server cannot easily revoke one. A short expiry limits how long a stolen token is useful."
   }
 ]
