@@ -49,9 +49,10 @@ export function CodingInsights() {
   const logged = activeProblems(data).length;
 
   return (
-    <div className="space-y-12">
+    <div className="page-wide space-y-12">
       <header className="page-head">
-        <h1>Coding</h1>
+        <p className="eyebrow">Coding</p>
+        <h1>Your LeetCode review</h1>
         <p>Read from your LeetCode account every night and reviewed by Claude. There&apos;s nothing to log.</p>
       </header>
 

@@ -20,6 +20,7 @@ export default function RadarPage() {
   return (
     <div className="space-y-8">
       <header className="page-head">
+        <p className="eyebrow">Technology news</p>
         <h1>Tech Radar</h1>
         <p>
           What changed in AI, developer tools, programming, cloud, databases, infrastructure and open source, drawn from{" "}

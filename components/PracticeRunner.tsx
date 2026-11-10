@@ -82,6 +82,7 @@ export function PracticeRunner({ questions: bank, topics }: { questions: Questio
             Today
           </Link>
         </nav>
+        <p className="eyebrow mt-1">Practice</p>
         <h1>{warmup ? "Warm-up" : "Mixed review"}</h1>
         <p>
           {warmup
