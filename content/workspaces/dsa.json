@@ -73,7 +73,7 @@
   },
   "hashing": {
     "order": 7,
-    "prerequisites": ["dsa/complexity"],
+    "prerequisites": ["dsa/big-o-basics", "dsa/arrays-strings"],
     "objectives": ["Explain how a hash table finds a key and why it's O(1) only on average","State the equality and hash-code contract","Recognise problems that a hash map turns from O(n^2) into O(n)"],
     "exercises": [
       {"id":"dsa-hashing-ex1","minutes":5,"prompt":"You override Equals in a C# class but not GetHashCode, then use it as a Dictionary key. Two instances compare equal. What goes wrong, and why?","answer":"Lookups can miss. The dictionary first picks a bucket using the hash code, and the default hash code differs between the two instances, so it searches the wrong bucket and never calls Equals. Equal objects must return equal hash codes."},
@@ -109,7 +109,7 @@
   },
   "complexity": {
     "order": 10,
-    "prerequisites": [],
+    "prerequisites": ["dsa/big-o-basics", "dsa/recursion"],
     "objectives": ["Work out time and space cost from code, including hidden loops","Explain amortized cost with the doubling argument","Solve the common recurrences without looking them up"],
     "exercises": [
       {"id":"dsa-complexity-ex1","minutes":5,"prompt":"A dynamic array doubles its capacity when full. Without using the word \"amortized\", explain why appending n items costs O(n) in total, even though a single append can cost O(n).","answer":"Copies happen at sizes 1, 2, 4, ... up to n. Those copy costs sum to less than 2n, a geometric series dominated by its last term. Add n for the writes themselves and the total is under 3n, which is O(n). Each append therefore costs a constant on average across the sequence, even though a few are expensive."},
