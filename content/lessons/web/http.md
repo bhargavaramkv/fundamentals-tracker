@@ -3,6 +3,16 @@ title: "HTTP semantics & versions"
 summary: "Methods, status codes, caching headers in brief, and what HTTP/2 and HTTP/3 change."
 ---
 
+## The idea
+
+Think of a postal service with a rulebook. Everyone agrees that "recorded delivery" means one thing and "return to sender" means another, so letters get handled the same way everywhere. HTTP is the rulebook for the web. Its **methods** (GET, POST...) say what you want done, and its **status codes** (200, 404...) say how it went.
+
+The foundation lesson on requests and responses showed the basic shape. This lesson goes deeper on the precise meanings, because details matter: can a request be safely repeated if the network drops? Which code tells a client to log in, and which to give up? It also covers how newer HTTP versions send the same messages faster, without changing what they mean.
+
+```check
+{"prompt": "A network glitch means a client is unsure whether its request arrived. Which method is safest to simply send again?", "options": ["POST creating an order", "PUT replacing an order with the same data", "PATCH adding 1 to a counter", "POST charging a card"], "answer": 1, "explanation": "PUT is idempotent, so sending it twice leaves the same end state. Repeating a POST or an increment can create duplicates or double-count."}
+```
+
 ## Methods
 
 | Method | Safe | Idempotent | Notes |
@@ -20,6 +30,10 @@ summary: "Methods, status codes, caching headers in brief, and what HTTP/2 and H
 - **409** = conflict (version mismatch, duplicate). **412** = an `If-Match` precondition failed.
 - **429** = rate limited (send `Retry-After`). **503** = temporarily unavailable.
 - **301/308** = permanent redirect (308 keeps the method). **302/307** = temporary (307 keeps the method).
+
+```check
+{"prompt": "A logged-in user requests a page that only admins may see. Which code fits?", "options": ["401", "404", "403", "422"], "answer": 2, "explanation": "403 means the server knows who you are but refuses. 401 would mean you aren't identified at all."}
+```
 
 ## Conditional requests
 
