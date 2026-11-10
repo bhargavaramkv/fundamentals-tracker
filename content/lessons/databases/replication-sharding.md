@@ -3,10 +3,25 @@ title: "Replication & sharding"
 summary: "Replica lag, read/write concerns, choosing shard keys and avoiding hot shards."
 ---
 
+## The idea
+
+One database on one machine has two weaknesses. If the machine dies, your data is gone or unavailable. And one machine can only handle so much work.
+
+**Replication** fixes the first: keep copies of the data on several machines, like photocopying an important document and storing it in different buildings. If one copy is lost, another is used, and copies can also serve reads.
+
+**Sharding** fixes the second: split the data across machines, like dividing a phone book into volumes A-H, I-P and Q-Z so no one person holds it all. Each machine (a **shard**) holds only part.
+
+They solve different problems and are often combined. Both build on ideas from "Tables, rows & keys" (the key decides which piece a row belongs to) and from "Indexing" (lookups that include the key stay fast). "NoSQL, from scratch" explained why many NoSQL systems are built for this.
+
+
 ## Replication
 
 - **Primary/secondary (leader/follower):** writes go to the primary and are replicated (usually asynchronously) to secondaries.
 - **Replication lag** breaks read-your-writes when you read from replicas. Mitigations: read from the primary right after your own writes, use causally consistent sessions (MongoDB), or require write acknowledgment from replicas.
+
+```check
+{"prompt":"Which problem does sharding solve that replication does not?","options":["Copies of data surviving a machine failure","Data too big or too busy for one machine","Reading your own writes immediately","Making indexes unnecessary"],"answer":1,"explanation":"Replication keeps full copies, so every machine still holds all the data. Sharding splits the data so each machine holds only a part, which lets you grow beyond one machine's capacity."}
+```
 
 ## MongoDB read and write concerns
 
