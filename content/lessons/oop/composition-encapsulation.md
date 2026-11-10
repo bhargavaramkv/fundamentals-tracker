@@ -3,6 +3,18 @@ title: "Composition & encapsulation"
 summary: "Protecting invariants, fragile base classes, and constructor-time traps in C#."
 ---
 
+## The idea
+
+Think of a car. You steer, press the pedals and turn a key. You cannot reach in and squirt fuel straight into a cylinder, and that is a good thing, because one wrong squirt would wreck the engine. The car offers a few safe controls and keeps the dangerous parts inside.
+
+That is **encapsulation**: an object keeps its data private and offers only methods that keep it valid. The rule that must always hold, such as "an order's total equals the sum of its lines", is called an **invariant**. Building on [classes and objects](/learn/oop/classes-objects/), this lesson is about making a class that cannot be broken from outside.
+
+**Composition** means building a bigger object out of smaller ones, the way a car has an engine. It is often a better choice than [inheritance](/learn/oop/inheritance-polymorphism/), because you depend only on what the engine offers, not on how it is built. It also keeps [coupling](/learn/oop/coupling-cohesion/) low.
+
+```check
+{"prompt": "What is an invariant?", "options": ["A method that never changes", "A rule about an object's data that must always be true", "A private field"], "answer": 1, "explanation": "An invariant is a condition that must hold whenever the object is used, such as total = sum of lines. Encapsulation exists to protect it."}
+```
+
 ## Encapsulation means protecting invariants
 
 Hiding fields is not enough. The question is whether a caller can put the object into an invalid state.
@@ -38,6 +50,10 @@ In **TypeScript**, `readonly items: Item[]` only stops reassigning `items`; `car
 Inheritance couples a subclass to **how** the parent works internally (the fragile base class problem). Composition depends only on a collaborator's public contract and can be swapped at runtime. Use inheritance for true *is-a* relationships with stable base classes, and prefer `sealed` by default.
 
 The classic example is Java's `Stack extends Vector`. Every `Vector` method comes along, so callers can `insertElementAt` into the middle of a stack and break LIFO. A stack that *wraps* a private list exposes only `Push`/`Pop`/`Peek`, so its invariant can't be bypassed.
+
+```check
+{"prompt": "A class exposes `public List<OrderLine> Lines { get; }` and keeps a Total field updated in AddLine. What can go wrong?", "options": ["Nothing, the getter has no setter", "A caller can call Lines.Add(...) and the Total no longer matches", "The list will be null"], "answer": 1, "explanation": "A getter-only property protects the reference, not the contents. Callers can still mutate the list and skip the Total update, breaking the invariant."}
+```
 
 ## Constructor traps
 
