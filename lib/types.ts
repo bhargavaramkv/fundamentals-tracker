@@ -58,6 +58,8 @@ export interface AnswerLog {
   selected: number;
   /** Text of the picked option, so analysis survives later rewrites of the question. */
   selectedText?: string;
+  /** The learner chose "I don't know" instead of guessing. Always `correct: false`, `selected: -1`. */
+  unsure?: boolean;
   timeMs: number;
   answeredAt: string;
 }

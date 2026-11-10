@@ -66,7 +66,8 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
   const choose = useCallback(
     (displayIdx: number) => {
       if (!question || saving || (!blind && log)) return;
-      const selected = order[displayIdx];
+      const unsure = displayIdx < 0;
+      const selected = unsure ? -1 : order[displayIdx];
       const at = index;
       setLogs((prev) => {
         const nextLogs = [...prev];
@@ -78,9 +79,10 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
           domain: question.domain,
           topic: question.topic,
           difficulty: question.difficulty,
-          correct: selected === question.answer,
+          correct: !unsure && selected === question.answer,
           selected,
-          selectedText: question.options[selected],
+          selectedText: unsure ? "I don't know" : question.options[selected],
+          ...(unsure ? { unsure: true } : {}),
           // Time to the (final) decision, across visits.
           timeMs: Math.round(priorMs.current[at] + performance.now() - shownAt.current),
           answeredAt: new Date().toISOString(),
@@ -154,7 +156,8 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
     const onKey = (e: KeyboardEvent) => {
       if (result || saving) return;
       const n = Number(e.key);
-      if (n >= 1 && n <= order.length) choose(n - 1);
+      if (e.key === "0") choose(-1);
+      else if (n >= 1 && n <= order.length) choose(n - 1);
       else if (e.key === "Enter") next();
       else if (e.key === "ArrowLeft") previous();
     };
@@ -248,6 +251,18 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
             );
           })}
         </ol>
+        <button
+          type="button"
+          onClick={() => choose(-1)}
+          disabled={revealed}
+          aria-pressed={blind ? last?.unsure === true : undefined}
+          className={`mt-2 min-h-12 w-full rounded-lg border border-dashed px-4 py-3 text-left text-[15px] transition-colors disabled:cursor-default ${
+            blind && last?.unsure ? "border-accent bg-accent/10 ring-1 ring-accent" : revealed ? "border-line opacity-55" : "border-line text-ink-2 hover:border-ink-3 hover:bg-surface-2"
+          }`}
+        >
+          {revealed && last?.unsure ? "● You said: I don't know" : "I don't know this yet"}
+          {!revealed && <span className="meta ml-2">Better than guessing: you&apos;ll see the answer and it comes back for review.</span>}
+        </button>
 
         {revealed && last && (
           <div
@@ -255,9 +270,15 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
             className={`mt-5 rounded-lg border-l-4 p-4 text-sm leading-relaxed ${last.correct ? "border-good bg-good-bg/50" : "border-bad bg-bad-bg/50"}`}
           >
             <p className={`mb-1 font-medium ${last.correct ? "text-good" : "text-bad"}`}>
-              {last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s
+              {last.unsure ? "Honest answer, now learn it" : last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s
             </p>
-            {last.timeMs < GUESS_MS && (
+            {last.unsure && (
+              <p className="mb-1 text-ink">
+                The answer is <span className="font-medium">{question.options[question.answer]}</span>. Read why below, then open the topic.
+                This question returns for review.
+              </p>
+            )}
+            {last.timeMs < GUESS_MS && !last.unsure && (
               <p className="mb-1 font-medium text-ink">
                 Under {GUESS_MS / 1000} seconds, so this counts as a likely guess and is left out of your retention numbers. Read every option before you pick.
               </p>
@@ -303,7 +324,7 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
         </p>
       )}
       <p className="meta hidden text-right sm:block">
-        Keys: 1–{order.length} to answer, Enter for next{blind ? ", ← for previous" : ""}
+        Keys: 1–{order.length} to answer, 0 for I don&apos;t know, Enter for next{blind ? ", ← for previous" : ""}
       </p>
     </div>
   );
@@ -372,6 +393,7 @@ function QuizResult({
                   <p className="mt-1 text-ink-2">
                     Answer: <span className="text-ink">{q.options[q.answer]}</span>
                   </p>
+                  {a.unsure && <p className="mt-1 text-ink-2">{q.explanation}</p>}
                   <p className="meta mt-1">
                     <Link href={`/learn/${q.domain}/${q.topic}/`} className="text-accent-text hover:underline">
                       Open this topic
