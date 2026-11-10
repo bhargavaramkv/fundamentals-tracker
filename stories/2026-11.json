@@ -1,5 +1,1129 @@
 [
  {
+  "id": "2026-11-10-closing-the-ai-guidance-gap-in-education-69d4d9",
+  "title": "Closing the AI guidance gap in education",
+  "canonicalUrl": "https://openai.com/index/closing-ai-guidance-gap-education",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-10T09:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c348c43d1f88a197",
+  "excerpt": "Lessons from OpenAI’s EMEA education partnerships and new ThinkYoung research. Supporting teachers, AI literacy and independent learning.",
+  "sources": [
+   {
+    "sourceId": "openai",
+    "sourceName": "OpenAI News",
+    "title": "Closing the AI guidance gap in education",
+    "url": "https://openai.com/index/closing-ai-guidance-gap-education",
+    "publishedAt": "2026-11-10T09:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 45,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-customer-support-is-the-gnarliest-ai-problem-047b46",
+  "title": "Customer support is the gnarliest AI problem",
+  "canonicalUrl": "https://stackoverflow.blog/2026/11/10/customer-support-is-the-gnarliest-ai-problem",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-10T08:40:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "46283395e871f5aa",
+  "excerpt": "Ryan chats with Ahmad Al-Dahle, CTO at Airbnb, about deploying multi-party AI agents to tackle the uniquely gnarly problem of customer support, how a moving target of rigorous evaluations helps engineers balance latency against accuracy, and the ways in which AI coding tools demand an even higher level of judgment from software engineering teams.",
+  "sources": [
+   {
+    "sourceId": "stackoverflow-blog",
+    "sourceName": "Stack Overflow Blog",
+    "title": "Customer support is the gnarliest AI problem",
+    "url": "https://stackoverflow.blog/2026/11/10/customer-support-is-the-gnarliest-ai-problem",
+    "publishedAt": "2026-11-10T08:40:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches agents, latency"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-fireworks-ai-discloses-new-breach-after-cloud-9d2bd3",
+  "title": "Fireworks AI discloses new breach after cloud provider hack",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack",
+  "category": "security",
+  "publishedAt": "2026-11-10T07:49:58.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "cf5fe091a0f77108",
+  "excerpt": "AI infrastructure startup Fireworks has disclosed a new security breach in which attackers accessed its development machines after breaching a third-party cloud provider. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Fireworks AI discloses new breach after cloud provider hack",
+    "url": "https://bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack",
+    "publishedAt": "2026-11-10T07:49:58.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-10-effect-40-ships-dependency-free-rewrite-with-5x-03664d",
+  "title": "Effect 4.0 Ships: Dependency-Free Rewrite with 5x Smaller Bundles and Long-Term Support",
+  "canonicalUrl": "https://infoq.com/news/2026/11/effect-4-0-release",
+  "category": "programming",
+  "publishedAt": "2026-11-10T06:33:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3cdc37baec0e70f6",
+  "excerpt": "Effect 4.0, a TypeScript framework for typed errors and structured concurrency, was released on 30 September 2026 with a rewritten fiber runtime. The team reports a bundle size drop from 35.6 kB to 7.1 kB and about 6.4x higher throughput, though these figures are not independently verified. It also adds long-term support through September 2029.\nBy Daniel Curtis",
+  "sources": [
+   {
+    "sourceId": "infoq",
+    "sourceName": "InfoQ",
+    "title": "Effect 4.0 Ships: Dependency-Free Rewrite with 5x Smaller Bundles and Long-Term Support",
+    "url": "https://infoq.com/news/2026/11/effect-4-0-release",
+    "publishedAt": "2026-11-10T06:33:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 61,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"4.0\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches typescript, concurrency, runtime, throughput"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-mps-20262-has-been-released-4b7ce8",
+  "title": "MPS 2026.2 Has Been Released!",
+  "canonicalUrl": "https://blog.jetbrains.com/mps/2026/11/mps-2026-2-released",
+  "category": "developer-tools",
+  "publishedAt": "2026-11-10T05:38:47.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d7f7306aec5252e7",
+  "excerpt": "MPS now runs on Linux ARM64, and coding agents can do much more for much less. The UI allows grouping nodes by virtual package, several dialogs have their UIs reworked, editor tests allow for node-matching functions to be customized, and much more.\nDOWNLOAD MPS 2026.2 \nWhat’s new\nHere are the most noteworthy new features:\nBuild and distribution\nLinux ARM64 support\nMPS is now available for Linux on ARM64 (AArch64), bundled with a matching JetBrains Java runtime.\nYou can also build standalone MPS-based applications (RCPs) for Linux ARM64. The Build Script wizard now includes a Linux ARM64 distribution in its generated build scripts alongside the existing platform distributions.\nTAR imports in Build Language\nBuild Language now supports importing archive contents directly into distribution layouts using the new import files from tar and files from tar entries.\nYou can import files from plain TAR archives or archives compressed with gzip or bzip2. The source can be an archive file or another TAR layout defined in the build script.\nWhen importing into a TAR layout, symbolic links and file permissions are preserved. This is particularly useful when packaging platform-specific plugins and…",
+  "sources": [
+   {
+    "sourceId": "jetbrains",
+    "sourceName": "JetBrains Blog",
+    "title": "MPS 2026.2 Has Been Released!",
+    "url": "https://blog.jetbrains.com/mps/2026/11/mps-2026-2-released",
+    "publishedAt": "2026-11-10T05:38:47.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 64,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"now available\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, node, runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-comparing-write-read-and-query-performance-of-7eb718",
+  "title": "Comparing Write, Read, and Query Performance of General-Purpose and Columnar Data Serialization Formats at Increasing Scale: An Empirical Benchmark Study with Statistical Validation on Synthetic and Real-World Data",
+  "canonicalUrl": "https://arxiv.org/abs/2611.10398",
+  "category": "research",
+  "publishedAt": "2026-11-10T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4656afa41eccbe8a",
+  "excerpt": "arXiv:2611.10398v1 Announce Type: new \nAbstract: This study presents an empirical benchmark comparing nine format and access-method combinations across six data serialization technologies: CSV (including a column-projected variant), gzip CSV, JSON Lines, Python Pickle, SQLite (unindexed and indexed), and Apache Parquet (naive and pyarrow pushdown). A synthetic dataset was generated at four scales (50,000 to 3,000,000 rows), with write time, storage size, read time, and query time measured across twenty trials on two independent hosts, a native 24 GB Apple Silicon machine and a memory-constrained, single-core 4 GB Linux virtual machine. Mean, standard deviation, and 95 percent confidence intervals are reported for each host. The most robust finding, stable across every scale and both hosts, is that flat formats requiring full deserialization before filtering are one to three orders of magnitude more expensive for selective queries than any approach that avoids it. Welch t-tests, corroborated by Mann-Whitney U tests, show SQLite (indexed) is significantly fastest for selective access at every scale on both hosts, with the pushdown path of Parquet significantly cheaper than naive…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Comparing Write, Read, and Query Performance of General-Purpose and Columnar Data Serialization Formats at Increasing Scale: An Empirical Benchmark Study with Statistical Validation on Synthetic and Real-World Data",
+    "url": "https://arxiv.org/abs/2611.10398",
+    "publishedAt": "2026-11-10T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 42,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"benchmark\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches python"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-continual-instruction-tuning-for-llm-ased-7050f8",
+  "title": "Continual Instruction Tuning for LLM-ased Management of Continuum Resources",
+  "canonicalUrl": "https://arxiv.org/abs/2611.10292",
+  "category": "research",
+  "publishedAt": "2026-11-10T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6c88301d66927526",
+  "excerpt": "arXiv:2611.10292v1 Announce Type: new \nAbstract: Large language models (LLMs) are increasingly explored for resource management across the Cloud-Edge continuum. However, embedding LLMs directly inside latency-sensitive control loops places inference latency, execution jitter, and hallucination risks on the critical path. This study argues for a different use of LLMs: a continually instruction-tuned intent compiler that runs once per management intent or declared context change, above a fast, deterministic tactical controller that handles all low-latency runtime actions. We formulate intent compilation as a continual instruction tuning problem, because management intents arrive sequentially and accumulate while infrastructure and workload contexts drift. Unlike recent LLM-based management frameworks, our design scores the model's outputs by execution, so that catastrophic forgetting can be measured in the executed objective of the underlying controller. On a continuum simulator with a 2B backbone and parameter-efficient adapters, preliminary results show that naive sequential tuning forgets earlier intents in the executed objective, that replay of stored examples nearly prevents…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "Continual Instruction Tuning for LLM-ased Management of Continuum Resources",
+    "url": "https://arxiv.org/abs/2611.10292",
+    "publishedAt": "2026-11-10T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 64,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 15,
+     "reason": "Major development (\"critical\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 15,
+     "reason": "Touches llm, latency, inference, compiler, runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-extending-dblog-based-incremental-snapshots-to-c84923",
+  "title": "Extending DBLog-Based Incremental Snapshots to Handle Orphan Rows in CDC Pipelines",
+  "canonicalUrl": "https://arxiv.org/abs/2611.10810",
+  "category": "research",
+  "publishedAt": "2026-11-10T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4bd5e55fb783c3ca",
+  "excerpt": "arXiv:2611.10810v1 Announce Type: new \nAbstract: Applications use heterogeneous datastores where a source feeds sinks such as search indexes or data warehouses via change data capture (CDC). As transaction logs have limited retention, CDC alone cannot bootstrap sinks, and traditional approaches either stall source writes or hold back log events. DBLog-based incremental snapshots, adopted by Debezium and Flink CDC, read tables in chunks interleaved with the log without blocking writes or long log stalls and resume where they stopped.\nAfter the initial bootstrap, a sink can drift when losing change events or receiving unintended writes. Even a repeated bootstrap can leave orphan rows that exist in the sink and not at the source. A common remedy is to populate a new empty sink, but repairing an existing sink avoids parallel pipelines, a switch and serving traffic from a drifted sink until the new sink is ready.\nIn DBLog's original design, each chunk only emits the latest state of the rows the table still contains, so it does not handle orphan rows. We extend DBLog to delete them using what a chunk read already knows, namely the keys that the range select did not return, emitting a…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "Extending DBLog-Based Incremental Snapshots to Handle Orphan Rows in CDC Pipelines",
+    "url": "https://arxiv.org/abs/2611.10810",
+    "publishedAt": "2026-11-10T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches indexes"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-10-firstswap-pre-consensus-trade-approvals-for-109580",
+  "title": "FirstSwap: Pre-Consensus Trade Approvals for Decentralized Market Design",
+  "canonicalUrl": "https://arxiv.org/abs/2611.10254",
+  "category": "research",
+  "publishedAt": "2026-11-10T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "aadbeb2903012278",
+  "excerpt": "arXiv:2611.10254v1 Announce Type: new \nAbstract: Decentralized exchanges typically give traders no execution guarantee until a block is finalized. In the meantime, external prices move, traders strategically delay submission, and block producers can influence inclusion and ordering. We introduce FirstSwap, a DEX built on a constant-function market maker pricing curve that gives traders an early pre-approval before consensus, guaranteeing inclusion and execution within their submitted price limit, with final ordering determined by limit prices rather than by a block producer.\nWe demonstrate the benefits of trade pre-approvals in an economic model combining auction theory with CEX-DEX arbitrage. When the CEX price changes gradually, FirstSwap rewards earlier traders with better prices, discouraging strategic delay and yielding higher social welfare and gains to AMM liquidity providers than a batch auction. When the CEX price jumps abruptly, FirstSwap yields higher welfare and smaller AMM losses than fair ordering.\nThe central challenge is delivering fast trade pre-approvals without consensus. We introduce a decentralized, scaled admissibility protocol under which each validator…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "FirstSwap: Pre-Consensus Trade Approvals for Decentralized Market Design",
+    "url": "https://arxiv.org/abs/2611.10254",
+    "publishedAt": "2026-11-10T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 37,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 3,
+     "reason": "Touches consensus"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-10-heterotask-multi-variant-task-scheduling-and-a9be72",
+  "title": "HeteroTask: Multi-Variant Task Scheduling and Execution on Distributed Heterogeneous Clusters",
+  "canonicalUrl": "https://arxiv.org/abs/2611.10055",
+  "category": "research",
+  "publishedAt": "2026-11-10T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "35093ceb6334c55c",
+  "excerpt": "arXiv:2611.10055v1 Announce Type: new \nAbstract: Heterogeneous systems that combine CPUs and GPUs across multiple servers offer substantial compute capability but complicate scheduling. For DAG-based applications with multiple task implementations, effective execution requires coordinating variant selection, device placement, and data movement. Offline planning can exploit global dependency information, yet plans derived from isolated kernel profiles may diverge from execution because of runtime overheads. We introduce HeteroTask, a framework integrating kernel-wise profiling, PEFT-based multi-variant planning, host-buffer lifetime modeling, and schedule-driven MPI execution. A Bayesian-optimization loop calibrates empirical overhead corrections for repeated, fixed-DAG workflows on exclusively allocated nodes. We evaluate five benchmark and workflow-derived applications on up to six 8-GPU nodes. On two 8-GPU nodes, HeteroTask reduces application-level completion time by 19.7-72.1% relative to the compared StarPU implementations. For Canny Edge Detection, calibration reduces task-window makespan by 25.0% relative to planning without overhead corrections. Combined with CPU/GPU…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "HeteroTask: Multi-Variant Task Scheduling and Execution on Distributed Heterogeneous Clusters",
+    "url": "https://arxiv.org/abs/2611.10055",
+    "publishedAt": "2026-11-10T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches distributed, runtime"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-lostbench-benchmarking-longitudinal-studies-data-a13b05",
+  "title": "LoStBench: Benchmarking Longitudinal Studies Data Integration",
+  "canonicalUrl": "https://arxiv.org/abs/2611.10242",
+  "category": "research",
+  "publishedAt": "2026-11-10T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "6e3ef8cf4980eee9",
+  "excerpt": "arXiv:2611.10242v1 Announce Type: new \nAbstract: A longitudinal study observes the same subjects or variables, repeatedly over an extended period of time, allowing researchers to examine changes, trends, and relationships as they develop. Such studies typically evolve over their life cycles, as improved understanding of the study's domain, or external factors trigger the need for revisions. The resulting heterogeneity among collected data must be resolved before the survey's results may be analyzed. Although this problem is a form of schema matching, it is a form of schema matching that differs significantly from prior workloads explored by the database community. For instance, rather than the short attribute names and data instances that many schema matching tools rely on, a stronger signal in longitudinal studies arises from longer prose questions that these tools are less equipped to handle.\nThis paper documents the joint efforts of a team of computer scientists and domain experts to adapt existing schema matching algorithms to our new use case of longitudinal data integration. We present a case study in the context of a representative workload: The American National Election…",
+  "sources": [
+   {
+    "sourceId": "arxiv-db",
+    "sourceName": "arXiv: Databases",
+    "title": "LoStBench: Benchmarking Longitudinal Studies Data Integration",
+    "url": "https://arxiv.org/abs/2611.10242",
+    "publishedAt": "2026-11-10T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"study\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-10-onereel-efficient-multi-scene-video-generation-b95bdd",
+  "title": "OneReel: Efficient Multi-Scene Video Generation with Scene-Structured Attention",
+  "canonicalUrl": "https://arxiv.org/abs/2611.10594",
+  "category": "research",
+  "publishedAt": "2026-11-10T05:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "ba82c32148184b5f",
+  "excerpt": "arXiv:2611.10594v1 Announce Type: new \nAbstract: Multi-scene video generation must follow scene-specific prompts while preserving consistency across scenes. Dense joint generation enables cross-scene information exchange but incurs quadratic attention cost, whereas separate generation avoids this cost at the expense of cross-scene consistency. We present OneReel, a training-free system that exploits scene structure to enable efficient multi-scene generation. Our key insight is that multi-scene generation can preserve complete intra-scene attention while restricting cross-scene information exchange to a bounded shared memory. OneReel uses scene prompts and durations to establish scene-specific attention scopes and dynamically selects a bounded set of representative latent frames for cross-scene sharing. This reduces video attention complexity from quadratic to linear in the number of scenes. To translate these savings into execution speedups, OneReel packs scene-local and shared K/V into dense variable-length attention and employs work-balanced multi-GPU partitioning with communication-aware selection between K/V gathering and Ulysses-style parallelism. Our evaluations across four…",
+  "sources": [
+   {
+    "sourceId": "arxiv-dc",
+    "sourceName": "arXiv: Distributed Computing",
+    "title": "OneReel: Efficient Multi-Scene Video Generation with Scene-Structured Attention",
+    "url": "https://arxiv.org/abs/2611.10594",
+    "publishedAt": "2026-11-10T05:00:00.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-10-laurenz-albe-don-t-dream-it-be-it-1d002c",
+  "title": "Laurenz Albe: Don't dream it, be it!",
+  "canonicalUrl": "https://postgr.es/p/9Br",
+  "category": "databases",
+  "publishedAt": "2026-11-10T04:00:06.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "26a148bfd5012eef",
+  "excerpt": "No, this is not in commemoration of the late Tim Curry. After repeatedly writing about the Swiss PGDay , I want to share a personal impression from the European PostgreSQL conference 2026 .\nPGConf EU\nPGConf EU is the main European PostgreSQL conference, and one of the biggest (or the biggest?) worldwide. With upwards of 700 attendees, it is a crowd rather than a family reunion. It attracts people not only from all parts of Europe, but from all around the world. The conference is held in a different city every year, and it is the place to go if you want to feel how strong PostgreSQL has grown over the years (the 2010 PG Day — the first I attended — was a cosy little event in comparison). In 2026, there are five parallel tracks of talks, and still I have to count myself lucky that my talk was accepted!\nSlonik\nSlonik (from Slavic “slon”, which means “elephant”) is the name of the elephant logo and mascot of PostgreSQL. Now the PostgreSQL license is pretty liberal, but the project protects its trademarks with teeth and claws. Among them is the Slonik logo (the name “PostgreSQL” is also protected, but its use in blogs is explicitly allowed).\nSlonik isn't only a logo. The elephant…",
+  "sources": [
+   {
+    "sourceId": "planet-postgres",
+    "sourceName": "Planet PostgreSQL",
+    "title": "Laurenz Albe: Don't dream it, be it!",
+    "url": "https://postgr.es/p/9Br",
+    "publishedAt": "2026-11-10T04:00:06.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 6,
+     "reason": "Touches postgresql, go"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-tiny-model-full-provenance-where-apache-982fad",
+  "title": "Tiny model, full provenance — where Apache Sourcelume is, and where it is heading",
+  "canonicalUrl": "https://news.apache.org/foundation/entry/tiny-model-full-provenance-where-apache-sourcelume-is-and-where-it-is-heading",
+  "category": "open-source",
+  "publishedAt": "2026-11-10T02:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "c7642febaa065b2b",
+  "excerpt": "By Achim Nierbeck and Jamie Goodyear \nAsk anyone who ships a language model a simple question: which data was this trained on, and what license comes with it? The honest answer today is a shrug with a bibliography. Training corpora are assembled from dozens or hundreds of sources, licensing information is missing, wrong, or unverifiable — a 2024 audit found license-omission rates above 70% across popular dataset-hosting sites — and what a producer does publish is usually a claim you have to take on faith: a paragraph in a paper, a model card, a PDF. Nothing you can check.\nWhat Sourcelume is\nThat is the gap Apache Sourcelume is built for. It is not a certification authority and it does not decide whether anyone’s licensing claims are true. It is plumbing: a versioned, JSON-LD metadata specification for dataset origin, custody chain, and licensing; a reference registry built on Apache Atlas that stores and serves those records through plain REST APIs; and tooling that turns “documenting your data” from a favor into a build step. The point is narrower and more radical than a licensing database: when a claim is published as a record, in a shared shape, at a stable identifier, then…",
+  "sources": [
+   {
+    "sourceId": "apache",
+    "sourceName": "Apache Software Foundation News",
+    "title": "Tiny model, full provenance — where Apache Sourcelume is, and where it is heading",
+    "url": "https://news.apache.org/foundation/entry/tiny-model-full-provenance-where-apache-sourcelume-is-and-where-it-is-heading",
+    "publishedAt": "2026-11-10T02:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-the-open-ai-native-stack-on-kubernetes-from-open-c440d5",
+  "title": "The open AI-native stack on Kubernetes: From open models to distributed inference and agents",
+  "canonicalUrl": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents",
+  "category": "cloud",
+  "publishedAt": "2026-11-10T01:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "2157c05a56e4a383",
+  "excerpt": "Over the past decade, Kubernetes established itself as the standard for orchestrating microservices and containerized applications. Today, we're witnessing the next major architectural shift in distributed computing: AI workloads moving from isolated research prototypes into large-scale, multi-tenant production fleets . In this post, we'll walk through the open-source stack that powers this shift and show you the sample manifests that you can try on your own Kubernetes clusters. You can also join us at KubeCon + CloudNativeCon North America 2026 to see these projects in action through live demos and technical sessions. \nFor modern engineering teams, production AI is rapidly moving beyond generic calls to closed, black-box APIs. Organizations are realizing that their long-term competitive advantage lies in domain specialization. Platform engineers, ML researchers, and AI builders want the autonomy to run high-performing open-weight models (such as the Gemma family). They want to adapt them to proprietary enterprise datasets by using reinforcement learning (RL) and serve them with predictable latency, high throughput, and maximum hardware efficiency. \nWhether it's scientific…",
+  "sources": [
+   {
+    "sourceId": "gcp-blog",
+    "sourceName": "Google Cloud Blog",
+    "title": "The open AI-native stack on Kubernetes: From open models to distributed inference and agents",
+    "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents",
+    "publishedAt": "2026-11-10T01:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 57,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 12,
+     "reason": "Touches kubernetes, distributed, inference, agents"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-10-ducks-in-a-column-20cea2",
+  "title": "Ducks in a Column",
+  "canonicalUrl": "https://duckdb.org/2026/11/10/ducks-in-a-column.html",
+  "category": "databases",
+  "publishedAt": "2026-11-10T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "746025b5c07d8a77",
+  "excerpt": "DuckDB is fast among other reasons because it stores data by column, so a query reads only the columns it names. This post covers DuckDB features that take advantage of that design choice: querying files in place, column-level SQL, aggregation shortcuts, window functions, ASOF joins, and writing well-organized Parquet.",
+  "sources": [
+   {
+    "sourceId": "duckdb",
+    "sourceName": "DuckDB Blog",
+    "title": "Ducks in a Column",
+    "url": "https://duckdb.org/2026/11/10/ducks-in-a-column.html",
+    "publishedAt": "2026-11-10T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 40,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-09-vanderbilt-university-hit-in-byod-ransomware-d0d785",
+  "title": "Vanderbilt University hit in BYOD ransomware attack, data theft claimed",
+  "canonicalUrl": "https://bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed",
+  "category": "security",
+  "publishedAt": "2026-11-09T23:52:12.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "62f03f1ab99a6956",
+  "excerpt": "Vanderbilt University warns it is responding to a cyberattack claimed by the BYOD ransomware gang, which claims to have encrypted the university's databases and stolen sensitive student, employee, and research data. [...]",
+  "sources": [
+   {
+    "sourceId": "bleepingcomputer",
+    "sourceName": "BleepingComputer",
+    "title": "Vanderbilt University hit in BYOD ransomware attack, data theft claimed",
+    "url": "https://bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed",
+    "publishedAt": "2026-11-09T23:52:12.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 39,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"research\")"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-what-could-china-get-from-jensen-huang-481f88",
+  "title": "What could China get from Jensen Huang?",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1030328/what-could-china-get-from-jensen-huang",
+  "category": "ai-ml",
+  "publishedAt": "2026-11-09T23:51:58.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "610e68b3de53229f",
+  "excerpt": "It's difficult to overstate Nvidia's power in today's AI landscape. The company's chips are the bedrock upon which advanced AI technology in the US is being built, and demand has consistently outpaced supply for years. Nvidia has also been an influential investor in a wide range of up-and-coming AI companies in recent years, with about […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "What could China get from Jensen Huang?",
+    "url": "https://theverge.com/ai-artificial-intelligence/1030328/what-could-china-get-from-jensen-huang",
+    "publishedAt": "2026-11-09T23:51:58.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-here-s-what-trump-said-he-knew-about-jensen-huang-f84c17",
+  "title": "Here’s what Trump said he knew about Jensen Huang",
+  "canonicalUrl": "https://theverge.com/tech/1030446/trump-jensen-huang-press-conference",
+  "category": "hardware",
+  "publishedAt": "2026-11-09T23:47:46.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "1e2f4a9d78431ccb",
+  "excerpt": "President Trump held a White House press briefing earlier today and responded to several questions about his knowledge of Nvidia CEO Jensen Huang's affair with an alleged Chinese spy. Huang said this weekend that he had been \"​​unfaithful\" to his wife, and the company has opened an investigation into Huang. Recent articles from The New […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Here’s what Trump said he knew about Jensen Huang",
+    "url": "https://theverge.com/tech/1030446/trump-jensen-huang-press-conference",
+    "publishedAt": "2026-11-09T23:47:46.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-a-60-billion-fintech-hired-a-14-year-old-its-ceo-61063c",
+  "title": "A $60 billion fintech hired a 14-year-old. Its CEO explains why.",
+  "canonicalUrl": "https://thenewstack.io/ramp-hires-teen-intern",
+  "category": "infrastructure",
+  "publishedAt": "2026-11-09T23:18:34.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "3e0a34cc3c4b51cc",
+  "excerpt": "Ramp hired a 14-year-old intern after discovering an app he had built for fun that attracted attention from roughly a million people on Twitter.\nCo-CEO Eric Glyman discussed the hire during a November 5 interview with founder and editor of Upstairs Media, Alex Konrad , explaining how the $60 billion fintech company evaluates engineering talent beyond traditional qualifications, a recalibration playing out across the industry as AI redraws what a junior role even means .\nA viral app, no assignment\n&ldquo;We had an intern who was 14 years old,&rdquo; Glyman said. &ldquo;Part of how we found him was he had built his own app for fun that was genuinely useful, and a million people saw it on Twitter and interacted with it. There was no one who was telling him, &lsquo;Hey, go build this project.&rsquo; He just was interested in it.&rdquo;\nGlyman did not identify the teenager or specify when he worked at Ramp. \n&ldquo;Part of how we found him was he had built his own app for fun that was genuinely useful, and a million people saw it on Twitter&hellip;&rdquo;\nThe Minecraft server test\nGlyman says Ramp looks for developers who have pursued projects on their own, even when that experience…",
+  "sources": [
+   {
+    "sourceId": "the-new-stack",
+    "sourceName": "The New Stack",
+    "title": "A $60 billion fintech hired a 14-year-old. Its CEO explains why.",
+    "url": "https://thenewstack.io/ramp-hires-teen-intern",
+    "publishedAt": "2026-11-09T23:18:34.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-fable-52-one-shotted-my-nephew-s-dream-game-35a155",
+  "title": "Fable 5.2 one-shotted my nephew's dream game",
+  "canonicalUrl": "https://notesbylex.com/fable-5-2-one-shotted-my-nephews-dream-game",
+  "category": "programming",
+  "publishedAt": "2026-11-09T23:08:13.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "d4c1d6b2688457d2",
+  "excerpt": "Article URL: https://notesbylex.com/fable-5-2-one-shotted-my-nephews-dream-game \nComments URL: https://news.ycombinator.com/item?id=50433659 \nPoints: 368\n# Comments: 248",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Fable 5.2 one-shotted my nephew's dream game",
+    "url": "https://notesbylex.com/fable-5-2-one-shotted-my-nephews-dream-game",
+    "publishedAt": "2026-11-09T23:08:13.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-everything-we-know-so-far-about-the-nvidia-spy-4e0850",
+  "title": "Everything we know so far about the Nvidia spy scandal targeting CEO Jensen Huang",
+  "canonicalUrl": "https://theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
+  "category": "hardware",
+  "publishedAt": "2026-11-09T23:07:59.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "7d026c3ea382e7dd",
+  "excerpt": "The leather-jacketed CEO of Nvidia, Jensen Huang, has acknowledged an affair with Megaspeed exec Alice Huang, spurring an investigation by his company and intense discussions worldwide. Recent reporting noted that since last year, US intelligence reports had identified Alice Huang (no relation) as not only the exec for an AI compute company renting access to […]",
+  "sources": [
+   {
+    "sourceId": "the-verge",
+    "sourceName": "The Verge: Tech",
+    "title": "Everything we know so far about the Nvidia spy scandal targeting CEO Jensen Huang",
+    "url": "https://theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
+    "publishedAt": "2026-11-09T23:07:59.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
   "id": "2026-11-09-sega-newsletter-data-breach-exposes-22-million-2ca0ba",
   "title": "SEGA newsletter data breach exposes 2.2 million email addresses",
   "canonicalUrl": "https://bleepingcomputer.com/news/security/sega-newsletter-data-breach-exposes-22-million-email-addresses",
@@ -7,7 +1131,7 @@
   "publishedAt": "2026-11-09T22:09:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "83ee18a6276d7144",
@@ -163,7 +1287,7 @@
   "publishedAt": "2026-11-09T20:54:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "734da61d35148d22",
@@ -215,7 +1339,7 @@
   "publishedAt": "2026-11-09T20:50:38.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f3ccf984ae2d2f44",
@@ -272,7 +1396,7 @@
   "publishedAt": "2026-11-09T20:34:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5b7259155feac9ab",
@@ -319,7 +1443,7 @@
   "publishedAt": "2026-11-09T20:29:39.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c32cbe41ecc70cbd",
@@ -366,7 +1490,7 @@
   "publishedAt": "2026-11-09T20:17:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6a815765ff3ce2ec",
@@ -423,7 +1547,7 @@
   "publishedAt": "2026-11-09T20:15:09.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "28b429b1c570d334",
@@ -475,11 +1599,17 @@
   "publishedAt": "2026-11-09T19:58:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "f17e1362ba5eb760",
-  "excerpt": "Article URL: https://postalpro.usps.com/zcb \nComments URL: https://news.ycombinator.com/item?id=50431058 \nPoints: 318\n# Comments: 158",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": "2026-11-10T08:40:19.474Z",
+  "revisions": [
+   {
+    "at": "2026-11-10T08:40:19.474Z",
+    "reason": "Source text edited",
+    "contentHash": "a73abc30557c4bd0"
+   }
+  ],
+  "contentHash": "a73abc30557c4bd0",
+  "excerpt": "Article URL: https://postalpro.usps.com/zcb \nComments URL: https://news.ycombinator.com/item?id=50431058 \nPoints: 605\n# Comments: 303",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -522,7 +1652,7 @@
   "publishedAt": "2026-11-09T19:41:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "58c90805a9ea4b4b",
@@ -574,7 +1704,7 @@
   "publishedAt": "2026-11-09T19:35:33.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7bfd44c5d02e8e73",
@@ -621,7 +1751,7 @@
   "publishedAt": "2026-11-09T19:09:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f7f0d18d537a281e",
@@ -673,7 +1803,7 @@
   "publishedAt": "2026-11-09T19:09:32.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6be8bb63885d225f",
@@ -720,7 +1850,7 @@
   "publishedAt": "2026-11-09T19:08:20.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0db371fde594c4ef",
@@ -777,7 +1907,7 @@
   "publishedAt": "2026-11-09T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "75e75b6cc943d6f5",
@@ -876,22 +2006,28 @@
  },
  {
   "id": "2026-11-09-e-means-10x-faster-k-means-at-equal-loss-fca505",
-  "title": "E-means: 10x faster k-means at equal loss",
+  "title": "E-means: Outperforming k-means in one-tenth the epochs",
   "canonicalUrl": "https://e-means.github.io/",
   "category": "developer-tools",
   "publishedAt": "2026-11-09T18:45:43.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "a6baa68183abb797",
-  "excerpt": "Article URL: https://e-means.github.io/ \nComments URL: https://news.ycombinator.com/item?id=50429734 \nPoints: 210\n# Comments: 11",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": "2026-11-10T08:40:19.474Z",
+  "revisions": [
+   {
+    "at": "2026-11-10T08:40:19.474Z",
+    "reason": "Title changed from \"E-means: 10x faster k-means at equal loss\"",
+    "contentHash": "3b3ec571e7b25c84"
+   }
+  ],
+  "contentHash": "3b3ec571e7b25c84",
+  "excerpt": "Article URL: https://e-means.github.io/ \nComments URL: https://news.ycombinator.com/item?id=50429734 \nPoints: 381\n# Comments: 35",
   "sources": [
    {
     "sourceId": "hacker-news",
     "sourceName": "Hacker News (200+ points)",
-    "title": "E-means: 10x faster k-means at equal loss",
+    "title": "E-means: Outperforming k-means in one-tenth the epochs",
     "url": "https://e-means.github.io/",
     "publishedAt": "2026-11-09T18:45:43.000Z",
     "credibility": 2
@@ -899,7 +2035,7 @@
   ],
   "minor": false,
   "score": {
-   "total": 39,
+   "total": 34,
    "parts": [
     {
      "label": "Baseline",
@@ -910,11 +2046,6 @@
      "label": "Source credibility",
      "points": 14,
      "reason": "Established publication or research venue"
-    },
-    {
-     "label": "Significance",
-     "points": 5,
-     "reason": "Incremental development (\"faster\")"
     },
     {
      "label": "Freshness",
@@ -934,7 +2065,7 @@
   "publishedAt": "2026-11-09T18:40:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e0452937f0f393ee",
@@ -991,7 +2122,7 @@
   "publishedAt": "2026-11-09T18:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2b384042e505ab36",
@@ -1048,11 +2179,17 @@
   "publishedAt": "2026-11-09T18:24:38.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "d299ccd5ea21985c",
-  "excerpt": "Article URL: https://github.com/thisisme6598/gemini_files/ \nComments URL: https://news.ycombinator.com/item?id=50429426 \nPoints: 228\n# Comments: 42",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": "2026-11-10T08:40:19.474Z",
+  "revisions": [
+   {
+    "at": "2026-11-10T08:40:19.474Z",
+    "reason": "Source text edited",
+    "contentHash": "9cc5577268b3eb81"
+   }
+  ],
+  "contentHash": "9cc5577268b3eb81",
+  "excerpt": "Article URL: https://github.com/thisisme6598/gemini_files/ \nComments URL: https://news.ycombinator.com/item?id=50429426 \nPoints: 575\n# Comments: 127",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -1095,7 +2232,7 @@
   "publishedAt": "2026-11-09T18:22:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8dd152c71013338d",
@@ -1152,7 +2289,7 @@
   "publishedAt": "2026-11-09T18:07:23.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "83ce5f083cd6030a",
@@ -1245,22 +2382,28 @@
  },
  {
   "id": "2026-11-09-our-smallest-most-efficient-model-muse-ember-867086",
-  "title": "Our Smallest, Most Efficient Model: Muse Ember",
+  "title": "Muse Ember: Our smallest, most efficient model",
   "canonicalUrl": "https://research.meta.ai/blog/muse-ember",
   "category": "ai-ml",
   "publishedAt": "2026-11-09T17:58:46.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "ce8f2b3884d93634",
-  "excerpt": "Article URL: https://research.meta.ai/blog/muse-ember \nComments URL: https://news.ycombinator.com/item?id=50429024 \nPoints: 210\n# Comments: 86",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": "2026-11-10T08:40:19.474Z",
+  "revisions": [
+   {
+    "at": "2026-11-10T08:40:19.474Z",
+    "reason": "Source text edited",
+    "contentHash": "16c9bdb546149dc3"
+   }
+  ],
+  "contentHash": "16c9bdb546149dc3",
+  "excerpt": "Article URL: https://research.meta.ai/blog/muse-ember \nComments URL: https://news.ycombinator.com/item?id=50429024 \nPoints: 294\n# Comments: 118",
   "sources": [
    {
     "sourceId": "hacker-news",
     "sourceName": "Hacker News (200+ points)",
-    "title": "Our Smallest, Most Efficient Model: Muse Ember",
+    "title": "Muse Ember: Our smallest, most efficient model",
     "url": "https://research.meta.ai/blog/muse-ember",
     "publishedAt": "2026-11-09T17:58:46.000Z",
     "credibility": 2
@@ -1303,7 +2446,7 @@
   "publishedAt": "2026-11-09T17:55:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d2274c3a4b4cdb3",
@@ -1346,6 +2489,53 @@
      "label": "Minor update",
      "points": -20,
      "reason": "Patch, maintenance or housekeeping post"
+    }
+   ]
+  },
+  "importance": "routine",
+  "status": "below-threshold"
+ },
+ {
+  "id": "2026-11-09-show-hn-every-satellite-that-passed-over-any-2b99d3",
+  "title": "Show HN: Every satellite that passed over any place this week, and its photos",
+  "canonicalUrl": "https://watched.earth/",
+  "category": "programming",
+  "publishedAt": "2026-11-09T17:51:31.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "9f450c9aa2e953c7",
+  "excerpt": "hey HN, i built this because I'm a satellite nerd who was bored this past weekend. type in any place and it finds every satellite that passed over it in the last 7 days (SGP4 on the CelesTrak catalog, tracking 17k+ objects and runs in your browser in about half a second), then pulls the real Sentinel-2 / Landsat / NASA images from those passes. fun fact: all ~17k objects in orbit are drawn on the GPU, solving Kepler's equation every frame. also cool is that Sentinel-2 timestamps are often 5-10 min off from when the sat actually crosses your spot, so some cool math was involved in making it accurate on the site. it only shows real images taken from those exact satellites, and it never store your location. code: https://github.com/dev-Armaan/satellites would love feedback, contributions, or whatever else you guys can offer!\nComments URL: https://news.ycombinator.com/item?id=50428907 \nPoints: 328\n# Comments: 56",
+  "sources": [
+   {
+    "sourceId": "hacker-news",
+    "sourceName": "Hacker News (200+ points)",
+    "title": "Show HN: Every satellite that passed over any place this week, and its photos",
+    "url": "https://watched.earth/",
+    "publishedAt": "2026-11-09T17:51:31.000Z",
+    "credibility": 2
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 34,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 14,
+     "reason": "Established publication or research venue"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
     }
    ]
   },
@@ -1454,7 +2644,7 @@
   "publishedAt": "2026-11-09T17:05:43.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33abf57675d46725",
@@ -1506,7 +2696,7 @@
   "publishedAt": "2026-11-09T17:01:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4f67094372be98a5",
@@ -1563,7 +2753,7 @@
   "publishedAt": "2026-11-09T17:01:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e2e87cf2c509a0af",
@@ -1610,7 +2800,7 @@
   "publishedAt": "2026-11-09T17:00:12.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ee798cc6c311166c",
@@ -1657,7 +2847,7 @@
   "publishedAt": "2026-11-09T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5218c1e726c41a4b",
@@ -1714,7 +2904,7 @@
   "publishedAt": "2026-11-09T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8ed6e305ace07785",
@@ -1761,7 +2951,7 @@
   "publishedAt": "2026-11-09T16:46:43.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "05470e808f617caf",
@@ -1826,7 +3016,7 @@
   "publishedAt": "2026-11-09T16:30:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eab1d93b870f6171",
@@ -1883,7 +3073,7 @@
   "publishedAt": "2026-11-09T16:25:06.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67f888ac4240cfe7",
@@ -1987,11 +3177,17 @@
   "publishedAt": "2026-11-09T16:00:45.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "9d7dffdd209000ac",
-  "excerpt": "Article URL: https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy \nComments URL: https://news.ycombinator.com/item?id=50427362 \nPoints: 434\n# Comments: 238",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": "2026-11-10T08:40:19.474Z",
+  "revisions": [
+   {
+    "at": "2026-11-10T08:40:19.474Z",
+    "reason": "Source text edited",
+    "contentHash": "7457c5cf36dd49f9"
+   }
+  ],
+  "contentHash": "7457c5cf36dd49f9",
+  "excerpt": "Article URL: https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy \nComments URL: https://news.ycombinator.com/item?id=50427362 \nPoints: 522\n# Comments: 283",
   "sources": [
    {
     "sourceId": "hacker-news",
@@ -2039,11 +3235,17 @@
   "publishedAt": "2026-11-09T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "6642948df791530c",
-  "excerpt": "Welcome to the first Cloud CISO Perspectives for November 2026. Today, Chris Betz shares our security forecast for 2027, with insights from top leaders at Google, Google Cloud, and Mandiant. \nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog . If you’re reading this on the website and you’d like to receive the email version, you can subscribe here . \naside_block \n<ListValue: [StructValue([('title', 'Get vital board insights with Google Cloud'), ('body', <wagtail.rich_text.RichText object at 0x7f4b2d3c1390>), ('btn_text', 'Visit the hub'), ('href', 'https://cloud.google.com/solutions/security/board-of-directors?utm_source=cgc-site&utm_medium=et&utm_campaign=FY26-Q2-GLOBAL-GCP39634-email-dl-dgcsm-CISOP-NL-177159&utm_content=-&utm_term=-'), ('image', None)])]> \nOur security forecast for 2027 \nBy Chris Betz, CISO, Google Cloud \nChris Betz, CISO, Google Cloud\nToday, we’re publishing insights on the cybersecurity trends and challenges we anticipate in 2027, including agentic threats, changing attack tactics, and the new security defense approaches required.\nThis year we’ve witnessed a fundamental change in cybersecurity. When the…",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": "2026-11-10T08:40:19.474Z",
+  "revisions": [
+   {
+    "at": "2026-11-10T08:40:19.474Z",
+    "reason": "Source text edited",
+    "contentHash": "0d2b25edd46cb1ba"
+   }
+  ],
+  "contentHash": "0d2b25edd46cb1ba",
+  "excerpt": "Welcome to the first Cloud CISO Perspectives for November 2026. Today, Chris Betz shares our security forecast for 2027, with insights from top leaders at Google, Google Cloud, and Mandiant. \nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog . If you’re reading this on the website and you’d like to receive the email version, you can subscribe here . \naside_block \n<ListValue: [StructValue([('title', 'Get vital board insights with Google Cloud'), ('body', <wagtail.rich_text.RichText object at 0x7f2cbd633150>), ('btn_text', 'Visit the hub'), ('href', 'https://cloud.google.com/solutions/security/board-of-directors?utm_source=cgc-site&utm_medium=et&utm_campaign=FY26-Q2-GLOBAL-GCP39634-email-dl-dgcsm-CISOP-NL-177159&utm_content=-&utm_term=-'), ('image', None)])]> \nOur security forecast for 2027 \nBy Chris Betz, CISO, Google Cloud \nChris Betz, CISO, Google Cloud\nToday, we’re publishing insights on the cybersecurity trends and challenges we anticipate in 2027, including agentic threats, changing attack tactics, and the new security defense approaches required.\nThis year we’ve witnessed a fundamental change in cybersecurity. When the…",
   "sources": [
    {
     "sourceId": "gcp-blog",
@@ -2086,7 +3288,7 @@
   "publishedAt": "2026-11-09T15:44:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "79cc582f373285bc",
@@ -2190,7 +3392,7 @@
   "publishedAt": "2026-11-09T15:05:57.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3da0592c343701d3",
@@ -2237,7 +3439,7 @@
   "publishedAt": "2026-11-09T15:05:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f6c86b57154515dc",
@@ -2289,7 +3491,7 @@
   "publishedAt": "2026-11-09T14:55:38.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7a600e733e048c5c",
@@ -2351,7 +3553,7 @@
   "publishedAt": "2026-11-09T14:35:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "04eb7fe09f71103f",
@@ -2450,7 +3652,7 @@
   "publishedAt": "2026-11-09T14:09:57.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "abaad81a47ea5c75",
@@ -2502,7 +3704,7 @@
   "publishedAt": "2026-11-09T14:02:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c8116f4275eb1b41",
@@ -2554,7 +3756,7 @@
   "publishedAt": "2026-11-09T14:00:01.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "734159ab23fbb34d",
@@ -2611,7 +3813,7 @@
   "publishedAt": "2026-11-09T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f69b1f0525c0040c",
@@ -2668,7 +3870,7 @@
   "publishedAt": "2026-11-09T13:22:06.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eb86314b90cce24e",
@@ -2725,7 +3927,7 @@
   "publishedAt": "2026-11-09T13:17:29.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d258986a7d3b93cc",
@@ -2782,7 +3984,7 @@
   "publishedAt": "2026-11-09T13:15:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "74ee5c380989ae69",
@@ -2834,7 +4036,7 @@
   "publishedAt": "2026-11-09T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "56e4f85727a74896",
@@ -2886,7 +4088,7 @@
   "publishedAt": "2026-11-09T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7d185fda9229e10e",
@@ -2938,7 +4140,7 @@
   "publishedAt": "2026-11-09T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "29bc241afd461880",
@@ -2995,7 +4197,7 @@
   "publishedAt": "2026-11-09T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "469847e9910fc85f",
@@ -3042,7 +4244,7 @@
   "publishedAt": "2026-11-09T13:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ef38b5b3fdd0e9ff",
@@ -3146,7 +4348,7 @@
   "publishedAt": "2026-11-09T12:34:29.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a30aa1aa5cd2631a",
@@ -3193,7 +4395,7 @@
   "publishedAt": "2026-11-09T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "57459813916e7314",
@@ -3268,7 +4470,7 @@
   "publishedAt": "2026-11-09T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5cac9afb6c628adb",
@@ -3330,7 +4532,7 @@
   "publishedAt": "2026-11-09T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9decb9b0475f02da",
@@ -3392,7 +4594,7 @@
   "publishedAt": "2026-11-09T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "60b173797ea81f5c",
@@ -3444,7 +4646,7 @@
   "publishedAt": "2026-11-09T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb579e8e38baea63",
@@ -3501,7 +4703,7 @@
   "publishedAt": "2026-11-09T11:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb9d9e329c0128fe",
@@ -3610,7 +4812,7 @@
   "publishedAt": "2026-11-09T10:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "eb24343b02ba8232",
@@ -3657,7 +4859,7 @@
   "publishedAt": "2026-11-09T09:01:37.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ee667bc92827503c",
@@ -3709,7 +4911,7 @@
   "publishedAt": "2026-11-09T08:58:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "92ede797e44096fc",
@@ -3761,11 +4963,17 @@
   "publishedAt": "2026-11-09T08:00:53.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T08:25:53.344Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "43e4ad5993acf5e9",
-  "excerpt": "Korea’s Ministry of Science and ICT and NVIDIA hosted the MSIT -NVIDIA AI Startup Partnership Forum at COEX. \nRyu Je-myung, vice minister of science and ICT , joined NVIDIA leaders to meet with over 20 Korean startups across foundation models, physical AI, AI infrastructure and AI semiconductors. \nNVIDIA also announced an investment in Korean startup Point2 , with additional investments planned in Motif Technologies , RLWRLD and Upstage.  \nPoint2 Technology, an AI interconnect company, builds scalable, radio frequency-based interconnects that move data between chips and racks in AI factories, offering an innovative alternative to conventional copper and optical interconnect solutions for AI cluster scale-up, delivering the reach, performance and efficiency needed for next-generation AI infrastructure. \nMotif Technologies , a Seoul-based AI lab, develops foundation models for building AI agents that carry out complex tasks, including Motif-3, a large language model released with open weights. \nRLWRLD, a physical AI startup based in San Francisco, Seoul and Tokyo, develops robotics foundation models that enable humanoid and industrial robots to perform complex real-world tasks that…",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": "2026-11-10T08:40:19.474Z",
+  "revisions": [
+   {
+    "at": "2026-11-10T08:40:19.474Z",
+    "reason": "Source text edited",
+    "contentHash": "dcf8ebe902f4674b"
+   }
+  ],
+  "contentHash": "dcf8ebe902f4674b",
+  "excerpt": "Korea’s Ministry of Science and ICT and NVIDIA hosted the MSIT -NVIDIA AI Startup Partnership Forum at COEX. \nRepresentatives from the Ministry of Science and ICT and NVIDIA met with over 20 Korean startups across foundation models, physical AI, AI infrastructure and AI semiconductors. \nNVIDIA also announced an investment in Korean startup Point2 , with additional investments planned in Motif Technologies , RLWRLD and Upstage.  \nPoint2 Technology, an AI interconnect company, builds scalable, radio frequency-based interconnects that move data between chips and racks in AI factories, offering an innovative alternative to conventional copper and optical interconnect solutions for AI cluster scale-up, delivering the reach, performance and efficiency needed for next-generation AI infrastructure. \nMotif Technologies , a Seoul-based AI lab, develops foundation models for building AI agents that carry out complex tasks, including Motif-3, a large language model released with open weights. \nRLWRLD, a physical AI startup based in San Francisco, Seoul and Tokyo, develops robotics foundation models that enable humanoid and industrial robots to perform complex real-world tasks that require…",
   "sources": [
    {
     "sourceId": "nvidia-blog",
@@ -3813,7 +5021,7 @@
   "publishedAt": "2026-11-09T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "daec013790ab4f9a",
@@ -3860,7 +5068,7 @@
   "publishedAt": "2026-11-09T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fd723fd685bc5668",
@@ -4026,7 +5234,7 @@
   "publishedAt": "2026-11-09T05:00:40.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T08:25:53.344Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "55d55dcd50cadad5",
@@ -4073,7 +5281,7 @@
   "publishedAt": "2026-11-09T05:00:39.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T08:25:53.344Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "70b4d39da4ed971d",
@@ -4697,7 +5905,7 @@
   "publishedAt": "2026-11-09T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T08:25:53.344Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3f92ec86f633bcdd",
@@ -4744,7 +5952,7 @@
   "publishedAt": "2026-11-09T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T08:25:53.344Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ca4c83550acaa9ef",
@@ -4789,6 +5997,64 @@
   "status": "pending"
  },
  {
+  "id": "2026-11-09-give-your-vercel-ai-sdk-agents-memory-with-redis-eedbd0",
+  "title": "Give your Vercel AI SDK agents memory with Redis Agent Memory",
+  "canonicalUrl": "https://redis.io/blog/give-your-vercel-ai-sdk-agents-memory-with-redis-agent-memory",
+  "category": "databases",
+  "publishedAt": "2026-11-09T00:00:00.000Z",
+  "dateEstimated": false,
+  "firstSeenAt": "2026-11-10T08:40:19.474Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": null,
+  "revisions": [],
+  "contentHash": "4290ab25b5057ce4",
+  "excerpt": "We've released @redis/vercel-ai-sdk, an open-source package that adds Redis Agent Memory to agents built with Vercel's AI SDK.\nMost agents start every conversation cold. Users repeat their preferences, and yesterday's context is gone. You can bolt on...",
+  "sources": [
+   {
+    "sourceId": "redis-blog",
+    "sourceName": "Redis Blog",
+    "title": "Give your Vercel AI SDK agents memory with Redis Agent Memory",
+    "url": "https://redis.io/blog/give-your-vercel-ai-sdk-agents-memory-with-redis-agent-memory",
+    "publishedAt": "2026-11-09T00:00:00.000Z",
+    "credibility": 3
+   }
+  ],
+  "minor": false,
+  "score": {
+   "total": 54,
+   "parts": [
+    {
+     "label": "Baseline",
+     "points": 15,
+     "reason": "Every story from a tracked source starts here"
+    },
+    {
+     "label": "Source credibility",
+     "points": 20,
+     "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Significance",
+     "points": 5,
+     "reason": "Incremental development (\"released\")"
+    },
+    {
+     "label": "Engineering relevance",
+     "points": 9,
+     "reason": "Touches agents, redis, agent"
+    },
+    {
+     "label": "Freshness",
+     "points": 5,
+     "reason": "Published in the last 36 hours"
+    }
+   ]
+  },
+  "importance": "notable",
+  "status": "below-threshold",
+  "duplicateOf": "2026-11-05-introducing-the-mongodb-vercel-ai-sdk-integration-12ed51"
+ },
+ {
   "id": "2026-11-09-how-to-design-a-decision-grade-pilot-for-agentic-c814d8",
   "title": "How to design a decision-grade pilot for agentic AI",
   "canonicalUrl": "https://about.gitlab.com/blog/how-to-develop-a-decision-grade-ai-pilot",
@@ -4796,7 +6062,7 @@
   "publishedAt": "2026-11-09T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-09T23:06:03.555Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "feaaaa392268f488",
@@ -5806,7 +7072,7 @@
   "publishedAt": "2026-11-08T12:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "fdc7c14098badc58",
@@ -6318,7 +7584,7 @@
   "publishedAt": "2026-11-08T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-08T18:26:12.535Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ef60ddf58214759b",
@@ -7313,7 +8579,7 @@
   "publishedAt": "2026-11-07T12:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": "2026-11-09T08:25:53.344Z",
   "revisions": [
    {
@@ -7865,11 +9131,17 @@
   "publishedAt": "2026-11-07T02:44:34.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
-  "updatedAt": null,
-  "revisions": [],
-  "contentHash": "ab9dd30204568dfc",
-  "excerpt": "In this article \nMitigation and protection guidance \nMicrosoft Defender detections \nHunting queries \nIndicators of compromise \nIn October 2026, the financially motivated threat actor Storm-3358 began targeting organizations in the financial sector using the agentic AI offensive framework ARTEX. The threat actor that Microsoft Threat Intelligence tracks as Storm-3358 is a Cambodia-based intrusion cluster that primarily targets financial organizations in Southeast Asia, in addition to a smaller number of large financial organizations globally.\nMicrosoft has observed Storm-3358 use ARTEX in combination with conventional automated tools to scan systems connected to the public internet, exploit security flaws including anonymous file upload and server-side request forgery (SSRF), and install open-source remote access trojans (RATs). Storm-3358 has used the WISP, vshell, and AdaptixC2 RATs for persistence and lateral movement. Microsoft has observed ARTEX agents using utilities like netcat and curl to download these RATs to compromised systems, as shown in Figure 1.\nFigure 1. Example commands that ARTEX agents used to download RATs to compromised systems. \nIn recent ARTEX-related…",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
+  "updatedAt": "2026-11-10T08:40:19.474Z",
+  "revisions": [
+   {
+    "at": "2026-11-10T08:40:19.474Z",
+    "reason": "Source text edited",
+    "contentHash": "2b399bdf40df62a8"
+   }
+  ],
+  "contentHash": "2b399bdf40df62a8",
+  "excerpt": "In this article \nMitigation and protection guidance \nMicrosoft Defender detections \nHunting queries \nIndicators of compromise \nIn October 2026, the financially motivated threat actor Storm-3358 began targeting organizations in the financial sector using the agentic AI offensive framework ARTEX. The threat actor that Microsoft Threat Intelligence tracks as Storm-3358 is a Cambodia-based intrusion cluster that primarily targets financial organizations in Southeast Asia, in addition to a smaller number of large financial organizations globally.\nTHREAT ACTORS USING ARTEX \nSearch public GitHub repositories for exposed secrets › \nMicrosoft has observed Storm-3358 use ARTEX in combination with conventional automated tools to scan systems connected to the public internet, exploit security flaws including anonymous file upload and server-side request forgery (SSRF), and install open-source remote access trojans (RATs). Storm-3358 has used the WISP, vshell, and AdaptixC2 RATs for persistence and lateral movement. Microsoft has observed ARTEX agents using utilities like netcat and curl to download these RATs to compromised systems, as shown in Figure 1.\nStorm-0940 ARTEX-driven attacks…",
   "sources": [
    {
     "sourceId": "ms-security",
@@ -7964,7 +9236,7 @@
   "publishedAt": "2026-11-07T00:27:19.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7667fdefc05797d0",
@@ -8078,7 +9350,7 @@
   "publishedAt": "2026-11-07T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5f4d5f7d361d4248",
@@ -8135,7 +9407,7 @@
   "publishedAt": "2026-11-07T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d708e23705d0c2a1",
@@ -8454,7 +9726,7 @@
   "publishedAt": "2026-11-06T22:20:20.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "681dd8262caa262e",
@@ -8558,7 +9830,7 @@
   "publishedAt": "2026-11-06T22:15:59.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4655baf51fe97cf5",
@@ -8667,7 +9939,7 @@
   "publishedAt": "2026-11-06T20:56:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebede6eb8638b74f",
@@ -8923,7 +10195,7 @@
   "publishedAt": "2026-11-06T19:37:09.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5170ef543af30a32",
@@ -9279,7 +10551,7 @@
   "publishedAt": "2026-11-06T18:37:07.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c1024147c65db39a",
@@ -9539,7 +10811,7 @@
   "publishedAt": "2026-11-06T18:03:26.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "14ec240f07a1fc7a",
@@ -10049,7 +11321,7 @@
   "publishedAt": "2026-11-06T16:43:23.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1e326dbead4a454a",
@@ -10423,7 +11695,7 @@
   "publishedAt": "2026-11-06T15:01:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "80c3306d27bd7fac",
@@ -10475,7 +11747,7 @@
   "publishedAt": "2026-11-06T15:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "8752de9318c914b9",
@@ -10632,7 +11904,7 @@
   "publishedAt": "2026-11-06T14:00:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "e507217ce6a54dca",
@@ -10679,7 +11951,7 @@
   "publishedAt": "2026-11-06T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "006451afad2b79a7",
@@ -10778,7 +12050,7 @@
   "publishedAt": "2026-11-06T12:15:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22b4e6b46f6ba5a3",
@@ -10888,7 +12160,7 @@
   "publishedAt": "2026-11-06T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T07:33:15.562Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "19a9abd47728bf88",
@@ -11134,7 +12406,7 @@
   "publishedAt": "2026-11-06T11:32:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "373132fb4e4b8f19",
@@ -11493,7 +12765,7 @@
   "publishedAt": "2026-11-06T08:40:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b28c1a01375b2d75",
@@ -11597,7 +12869,7 @@
   "publishedAt": "2026-11-06T08:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7b44a3f552684aab",
@@ -12232,7 +13504,7 @@
   "publishedAt": "2026-11-06T03:17:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a092cfb216cb4f19",
@@ -12396,7 +13668,7 @@
   "publishedAt": "2026-11-06T00:09:41.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6b87dee3c6708cbc",
@@ -12557,7 +13829,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "dbd45afff744e044",
@@ -12661,7 +13933,7 @@
   "publishedAt": "2026-11-06T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "78cb42929856968e",
@@ -12708,7 +13980,7 @@
   "publishedAt": "2026-11-05T23:46:50.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "b4df4e2c19844532",
@@ -12902,7 +14174,7 @@
   "publishedAt": "2026-11-05T23:09:36.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "daef14854f3945fa",
@@ -13106,7 +14378,7 @@
   "publishedAt": "2026-11-05T22:05:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ec043e7b675a4d19",
@@ -13153,7 +14425,7 @@
   "publishedAt": "2026-11-05T22:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-07T18:09:52.532Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c29baea20e70f6a4",
@@ -13352,7 +14624,7 @@
   "publishedAt": "2026-11-05T20:23:21.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e0bc84fb7004d81",
@@ -14041,7 +15313,7 @@
   "publishedAt": "2026-11-05T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T20:02:38.002Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "674e7c008a50ba01",
@@ -14089,7 +15361,7 @@
   "publishedAt": "2026-11-05T19:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cddffc5174e6bb18",
@@ -14240,7 +15512,7 @@
   "publishedAt": "2026-11-05T18:05:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7fcfd3ded7f42913",
@@ -14611,7 +15883,7 @@
   "publishedAt": "2026-11-05T17:03:04.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "886a42415217b889",
@@ -14819,7 +16091,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a179640616a66edf",
@@ -14871,7 +16143,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": "2026-11-07T18:09:52.532Z",
   "revisions": [
    {
@@ -15070,7 +16342,7 @@
   "publishedAt": "2026-11-05T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f7802919130d5797",
@@ -15487,7 +16759,7 @@
   "publishedAt": "2026-11-05T16:08:03.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T20:46:46.848Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f2a3cf72140c48d7",
@@ -15640,7 +16912,7 @@
   "publishedAt": "2026-11-05T16:01:08.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3d1555930494a48e",
@@ -15744,7 +17016,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3561da51fd1492a0",
@@ -15791,7 +17063,7 @@
   "publishedAt": "2026-11-05T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-06T08:17:37.472Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2eb620ccd082811d",
@@ -16302,7 +17574,7 @@
   "publishedAt": "2026-11-05T15:31:37.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f8e2c20cdc419457",
@@ -16354,7 +17626,7 @@
   "publishedAt": "2026-11-05T15:28:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": "2026-11-05T20:46:46.848Z",
   "revisions": [
    {
@@ -16544,11 +17816,19 @@
     "url": "https://mongodb.com/company/blog/product-release-announcements/introducing-mongodb-vercel-ai-sdk-integration-persistent-memory-applications",
     "publishedAt": "2026-11-05T15:00:01.000Z",
     "credibility": 3
+   },
+   {
+    "sourceId": "redis-blog",
+    "sourceName": "Redis Blog",
+    "title": "Give your Vercel AI SDK agents memory with Redis Agent Memory",
+    "url": "https://redis.io/blog/give-your-vercel-ai-sdk-agents-memory-with-redis-agent-memory",
+    "publishedAt": "2026-11-09T00:00:00.000Z",
+    "credibility": 3
    }
   ],
   "minor": false,
   "score": {
-   "total": 61,
+   "total": 69,
    "parts": [
     {
      "label": "Baseline",
@@ -16559,6 +17839,11 @@
      "label": "Source credibility",
      "points": 20,
      "reason": "Primary source (the vendor or project itself)"
+    },
+    {
+     "label": "Corroboration",
+     "points": 8,
+     "reason": "Reported by 2 independent sources"
     },
     {
      "label": "Significance",
@@ -16577,7 +17862,7 @@
     }
    ]
   },
-  "importance": "notable",
+  "importance": "high",
   "status": "pending"
  },
  {
@@ -16948,7 +18233,7 @@
   "publishedAt": "2026-11-05T14:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "ebc05f146351abe8",
@@ -16995,7 +18280,7 @@
   "publishedAt": "2026-11-05T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7be1f3b408491c7b",
@@ -17407,7 +18692,7 @@
   "publishedAt": "2026-11-05T12:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7e0b1b16d28551a1",
@@ -18538,7 +19823,7 @@
   "publishedAt": "2026-11-05T04:36:17.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "23b0e2464e00d2a9",
@@ -18840,7 +20125,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c7830f630e76dadb",
@@ -18944,7 +20229,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c3687296de93a199",
@@ -18991,7 +20276,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2ab2db9ee7eb5b19",
@@ -19043,7 +20328,7 @@
   "publishedAt": "2026-11-05T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T17:55:07.634Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "22bb623be37e8901",
@@ -19214,7 +20499,7 @@
   "publishedAt": "2026-11-04T23:34:52.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "33ab42b0991a0683",
@@ -19375,7 +20660,7 @@
   "publishedAt": "2026-11-04T22:26:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "43599d165c97ba43",
@@ -19527,7 +20812,7 @@
   "publishedAt": "2026-11-04T21:38:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "d1dff6ff843ce0b7",
@@ -20426,7 +21711,7 @@
   "publishedAt": "2026-11-04T18:07:05.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c4b9d28e7f893788",
@@ -21141,7 +22426,7 @@
   "publishedAt": "2026-11-04T17:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": "2026-11-04T17:00:00.000Z",
   "revisions": [
    {
@@ -21502,7 +22787,7 @@
   "publishedAt": "2026-11-04T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-05T08:13:08.728Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "5844851476aa3b3b",
@@ -21757,7 +23042,7 @@
   "publishedAt": "2026-11-04T15:30:28.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "4e630168c99913a8",
@@ -22283,7 +23568,7 @@
   "publishedAt": "2026-11-04T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "6fe944b2debc623a",
@@ -23840,7 +25125,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": "2026-11-05T17:55:07.634Z",
   "revisions": [
    {
@@ -24132,7 +25417,7 @@
   "publishedAt": "2026-11-04T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "67e9863464c4705d",
@@ -24283,7 +25568,7 @@
   "publishedAt": "2026-11-03T23:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "cfe17be4551f925c",
@@ -25084,7 +26369,7 @@
   "publishedAt": "2026-11-03T20:02:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c46295285fe0bc4f",
@@ -25306,7 +26591,7 @@
   "publishedAt": "2026-11-03T19:00:14.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "0910ed73c99d16b6",
@@ -25363,7 +26648,7 @@
   "publishedAt": "2026-11-03T19:00:02.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "054c2c53d0b5954c",
@@ -25938,7 +27223,7 @@
   "publishedAt": "2026-11-03T17:30:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "2c079f328f4b481e",
@@ -26205,7 +27490,7 @@
   "publishedAt": "2026-11-03T17:01:49.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "3a8157116dcd56dc",
@@ -26252,7 +27537,7 @@
   "publishedAt": "2026-11-03T17:00:35.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "07868382369961d4",
@@ -26725,7 +28010,7 @@
   "publishedAt": "2026-11-03T16:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9d564caf0890182b",
@@ -27571,7 +28856,7 @@
   "publishedAt": "2026-11-03T14:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "f79884325a69aba1",
@@ -28970,7 +30255,7 @@
   "publishedAt": "2026-11-03T02:24:31.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "9522fb183ff0ae80",
@@ -29069,7 +30354,7 @@
   "publishedAt": "2026-11-03T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T20:14:24.410Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "bb003a33939c9f3b",
@@ -29584,7 +30869,7 @@
   "publishedAt": "2026-11-02T22:35:58.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-03T08:18:48.237Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "a0fb772d3e6559fc",
@@ -29954,7 +31239,7 @@
   "publishedAt": "2026-11-02T20:52:22.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-04T20:30:30.575Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "1999d731b87a8967",
@@ -30779,7 +32064,7 @@
   "publishedAt": "2026-11-02T17:45:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "c486f84e210c7873",
@@ -31344,7 +32629,7 @@
   "publishedAt": "2026-11-02T16:45:48.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "63aa632f14f529bd",
@@ -33913,7 +35198,7 @@
   "publishedAt": "2026-11-02T00:00:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-02T22:25:43.270Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "44d408ba6066ef6d",
@@ -34191,7 +35476,7 @@
   "publishedAt": "2026-11-01T21:36:00.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "06106e2516aa318d",
@@ -34825,7 +36110,7 @@
   "publishedAt": "2026-11-01T14:33:11.000Z",
   "dateEstimated": false,
   "firstSeenAt": "2026-11-01T22:57:57.398Z",
-  "lastSeenAt": "2026-11-09T23:06:03.555Z",
+  "lastSeenAt": "2026-11-10T08:40:19.474Z",
   "updatedAt": null,
   "revisions": [],
   "contentHash": "7de07f273e55ade0",
