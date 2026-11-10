@@ -37,10 +37,49 @@ export interface TopicMeta {
   topic: string;
   title: string;
   summary: string;
+  /** Reading time in minutes (words / 200). */
+  minutes?: number;
+}
+
+/** A multiple-choice question inside a lesson step. Engagement only: never stored or scored. */
+export interface QuickCheck {
+  prompt: string;
+  options: string[];
+  /** Index into options. */
+  answer: number;
+  explanation: string;
+}
+
+export type StepBlock = { kind: "html"; html: string } | { kind: "check"; check: QuickCheck };
+
+/** One screen of a lesson: the content under one `## ` heading. */
+export interface LessonStep {
+  title: string;
+  blocks: StepBlock[];
 }
 
 export interface Lesson extends TopicMeta {
   html: string;
+  steps: LessonStep[];
+}
+
+export interface CurriculumStage {
+  id: string;
+  title: string;
+  summary: string;
+  /** Topic slugs in teaching order; only those with a lesson file. */
+  topics: string[];
+}
+
+export interface CurriculumTrack {
+  domain: Domain;
+  title: string;
+  tagline: string;
+  stages: CurriculumStage[];
+}
+
+export interface Curriculum {
+  tracks: CurriculumTrack[];
 }
 
 export type SessionMode = "assessment" | "practice";
