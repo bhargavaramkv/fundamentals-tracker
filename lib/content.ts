@@ -3,8 +3,9 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
+import { parseLessonSteps, readingMinutes } from "./lesson-steps";
 import type { Resource } from "./resources";
-import { DOMAINS, type Domain, type FunFact, type FunStory, type Lesson, type Question, type TopicMeta, type TopicWorkspace } from "./types";
+import { DOMAINS, type Domain, type Curriculum, type FunFact, type FunStory, type Lesson, type Question, type TopicMeta, type TopicWorkspace } from "./types";
 import { validateQuestions } from "./validate";
 
 // Content is read at build time only (static export), so plain sync fs is fine.
@@ -40,12 +41,13 @@ export function getAllTopics(): TopicMeta[] {
       .sort()
       .map((f) => {
         const topic = f.replace(/\.md$/, "");
-        const { data } = matter(fs.readFileSync(path.join(dir, f), "utf8"));
+        const { data, content } = matter(fs.readFileSync(path.join(dir, f), "utf8"));
         return {
           domain,
           topic,
           title: String(data.title ?? topic),
           summary: String(data.summary ?? ""),
+          minutes: readingMinutes(content),
         };
       });
   });
@@ -62,7 +64,22 @@ export function getLesson(domain: Domain, topic: string): Lesson | null {
     topic,
     title: String(data.title ?? topic),
     summary: String(data.summary ?? ""),
+    minutes: readingMinutes(content),
     html,
+    steps: parseLessonSteps(content, `content/lessons/${domain}/${topic}.md`),
+  };
+}
+
+/** The course order from content/curriculum.json. Topics without a lesson file yet are skipped. */
+export function getCurriculum(): Curriculum {
+  const raw = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, "curriculum.json"), "utf8")) as Curriculum;
+  return {
+    tracks: raw.tracks.map((t) => ({
+      ...t,
+      stages: t.stages
+        .map((s) => ({ ...s, topics: s.topics.filter((topic) => fs.existsSync(lessonPath(t.domain, topic))) }))
+        .filter((s) => s.topics.length > 0),
+    })),
   };
 }
 
