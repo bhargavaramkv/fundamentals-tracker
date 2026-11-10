@@ -61,7 +61,8 @@ export function computeRetention(answers: AnswerLog[], now: number = Date.now())
     const prev = lastSeen.get(a.questionId);
     // Every answer moves "last seen", guesses included: you did see the question.
     lastSeen.set(a.questionId, at);
-    if (a.timeMs < GUESS_MS) {
+    // An honest "I don't know" is a real answer however fast it was given.
+    if (a.timeMs < GUESS_MS && !a.unsure) {
       guesses++;
       continue;
     }

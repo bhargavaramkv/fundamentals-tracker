@@ -15,6 +15,12 @@ describe("retention", () => {
     expect(r.firstRecallAt).toBeNull();
   });
 
+  it("counts a fast \"I don't know\" as a real first-sight miss, not a guess", () => {
+    const r = computeRetention([ans("q1", "2026-11-01T10:00:00Z", false, { timeMs: 500, unsure: true, selected: -1 })], NOW);
+    expect(r.guesses).toBe(0);
+    expect(r.firstSight).toMatchObject({ attempts: 1, correct: 0 });
+  });
+
   it("counts a repeat as recall only after 3+ days, and a same-day repeat as neither", () => {
     const r = computeRetention([
       ans("q1", "2026-11-01T10:00:00Z", false),
