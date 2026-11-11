@@ -23,10 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: npm
+      - uses: ./.github/actions/setup
       - uses: actions/configure-pages@v5
       - name: Fetch Tech Radar data
         # Stories live on the radar-data branch (written by radar.yml); absent before the first run.
@@ -39,8 +36,21 @@ jobs:
           else
             echo "::notice title=Tech Radar::no radar-data branch yet; the radar pages will show their empty state"
           fi
-      - run: npm ci
-      - run: npm test
+      - name: Lint, typecheck, test (parallel)
+        run: |
+          npm run lint & p1=$!
+          npm run typecheck & p2=$!
+          npm test & p3=$!
+          fail=0
+          wait $p1 || fail=1
+          wait $p2 || fail=1
+          wait $p3 || fail=1
+          exit $fail
+      - uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx') }}
+          restore-keys: next-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
       - run: npm run build
         env:
           # Project pages are served from /<repo>/. For a custom domain, set this to an empty string.

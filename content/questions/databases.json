@@ -208,5 +208,245 @@
     ],
     "answer": 1,
     "explanation": "readConcern \"majority\" returns only data acknowledged by a majority of members, which survives an election. \"local\" can return writes that are rolled back if the old primary loses its seat. Pair it with writeConcern \"majority\" for durable writes."
+  },
+  {
+    "id": "databases-relational-basics-1",
+    "domain": "databases",
+    "topic": "relational-basics",
+    "difficulty": 1,
+    "prompt": "What does a primary key do in a table?",
+    "options": [
+      "Sorts the rows alphabetically",
+      "Uniquely identifies each row",
+      "Links the table to another table",
+      "Encrypts the row's data"
+    ],
+    "answer": 1,
+    "explanation": "A primary key is unique and never NULL, so each row can be picked out exactly. Linking to another table is the job of a foreign key, which holds another table's primary key."
+  },
+  {
+    "id": "databases-relational-basics-2",
+    "domain": "databases",
+    "topic": "relational-basics",
+    "difficulty": 1,
+    "prompt": "In an orders table, customer_id holds values from customers.id. What is customer_id?",
+    "options": [
+      "A primary key",
+      "An index",
+      "A foreign key",
+      "A constraint that forbids NULL"
+    ],
+    "answer": 2,
+    "explanation": "A foreign key is a column whose values point at the primary key of another table. With the key declared, the database also refuses orders for customers that do not exist."
+  },
+  {
+    "id": "databases-relational-basics-3",
+    "domain": "databases",
+    "topic": "relational-basics",
+    "difficulty": 2,
+    "prompt": "Why is storing a person's email as the primary key usually a poor choice?",
+    "options": [
+      "Emails are too long to store",
+      "Text columns cannot be primary keys",
+      "Primary keys must always be numbers",
+      "Emails can change, and every foreign key pointing at them would need updating"
+    ],
+    "answer": 3,
+    "explanation": "A primary key should be stable, because other tables copy it as a foreign key. Emails change, so a meaningless id that never changes is safer. Text columns can be primary keys, but stability matters more than type."
+  },
+  {
+    "id": "databases-relational-basics-4",
+    "domain": "databases",
+    "topic": "relational-basics",
+    "difficulty": 2,
+    "prompt": "What does referential integrity guarantee?",
+    "options": [
+      "Every foreign key value matches an existing row in the referenced table",
+      "Every column in a table has a value",
+      "Queries on the table always run fast",
+      "No two tables contain the same data"
+    ],
+    "answer": 0,
+    "explanation": "With a foreign key declared, the database rejects an order that points at a non-existent customer, and blocks deleting a customer that orders still need. This prevents orphaned rows that point at nothing."
+  },
+  {
+    "id": "databases-sql-queries-1",
+    "domain": "databases",
+    "topic": "sql-queries",
+    "difficulty": 1,
+    "prompt": "Which clause chooses which rows are kept?",
+    "options": [
+      "SELECT",
+      "FROM",
+      "ORDER BY",
+      "WHERE"
+    ],
+    "answer": 3,
+    "explanation": "WHERE filters rows by a condition. SELECT chooses columns, FROM names the table, and ORDER BY only changes the order of the result."
+  },
+  {
+    "id": "databases-sql-queries-2",
+    "domain": "databases",
+    "topic": "sql-queries",
+    "difficulty": 1,
+    "prompt": "What happens when you run DELETE FROM users; with no WHERE clause?",
+    "options": [
+      "Nothing, a WHERE is required",
+      "Only the first row is deleted",
+      "The database asks you to confirm",
+      "Every row in users is deleted"
+    ],
+    "answer": 3,
+    "explanation": "DELETE and UPDATE act on every row that passes the WHERE, and with no WHERE every row passes. The table itself remains but is empty, so run the condition as a SELECT first."
+  },
+  {
+    "id": "databases-sql-queries-3",
+    "domain": "databases",
+    "topic": "sql-queries",
+    "difficulty": 2,
+    "prompt": "Which query correctly finds rows where discount has no value?",
+    "options": [
+      "WHERE discount = NULL",
+      "WHERE discount IS NULL",
+      "WHERE discount = 0",
+      "WHERE discount == NULL"
+    ],
+    "answer": 1,
+    "explanation": "NULL means unknown, and a comparison with unknown is never true, so = NULL matches nothing. IS NULL is the correct test. Zero is a real value and is not the same as missing."
+  },
+  {
+    "id": "databases-sql-queries-4",
+    "domain": "databases",
+    "topic": "sql-queries",
+    "difficulty": 2,
+    "prompt": "A table has no ORDER BY in your SELECT. What can you rely on about the order of the rows returned?",
+    "options": [
+      "They come back in the order they were inserted",
+      "They come back sorted by the primary key",
+      "Nothing, the order is not guaranteed",
+      "They come back in alphabetical order"
+    ],
+    "answer": 2,
+    "explanation": "SQL tables are unordered sets, so without ORDER BY the database may return rows in any order, and that order can change. It often looks like insertion order by accident. Add ORDER BY whenever order matters."
+  },
+  {
+    "id": "databases-joins-aggregation-1",
+    "domain": "databases",
+    "topic": "joins-aggregation",
+    "difficulty": 1,
+    "prompt": "What does an INNER JOIN between customers and orders return?",
+    "options": [
+      "Only pairs of rows that match on the join condition",
+      "All customers, with NULL where there are no orders",
+      "All orders and all customers separately",
+      "Every possible pair of customer and order"
+    ],
+    "answer": 0,
+    "explanation": "An inner join keeps a row only when the ON condition matches on both sides, so customers with no orders disappear. Keeping unmatched left rows is what LEFT JOIN is for."
+  },
+  {
+    "id": "databases-joins-aggregation-2",
+    "domain": "databases",
+    "topic": "joins-aggregation",
+    "difficulty": 1,
+    "prompt": "What does GROUP BY customer_id with COUNT(*) produce?",
+    "options": [
+      "One row holding the total number of rows",
+      "One row per customer_id holding the number of rows in that group",
+      "The same rows as before, sorted by customer_id",
+      "Only the first row for each customer_id"
+    ],
+    "answer": 1,
+    "explanation": "GROUP BY puts rows with the same value into one bucket, and the aggregate runs once per bucket. You get one output row per customer_id with its count."
+  },
+  {
+    "id": "databases-joins-aggregation-3",
+    "domain": "databases",
+    "topic": "joins-aggregation",
+    "difficulty": 2,
+    "prompt": "You need customers who have placed more than 3 orders. Where does the count condition go?",
+    "options": [
+      "WHERE COUNT(*) > 3, before GROUP BY",
+      "ON COUNT(*) > 3, in the JOIN",
+      "LIMIT COUNT(*) > 3",
+      "HAVING COUNT(*) > 3, after GROUP BY"
+    ],
+    "answer": 3,
+    "explanation": "WHERE runs before grouping, when no counts exist yet. HAVING runs after, on whole groups, so it can test aggregates. This split is a very common interview question."
+  },
+  {
+    "id": "databases-joins-aggregation-4",
+    "domain": "databases",
+    "topic": "joins-aggregation",
+    "difficulty": 2,
+    "prompt": "How do you find customers who have never placed an order?",
+    "options": [
+      "INNER JOIN orders, then WHERE orders.id IS NULL",
+      "LEFT JOIN orders, then WHERE orders.id IS NULL",
+      "LEFT JOIN orders, then WHERE orders.id = 0",
+      "GROUP BY customer_id HAVING COUNT(*) = 1"
+    ],
+    "answer": 1,
+    "explanation": "A LEFT JOIN keeps every customer and fills the order columns with NULL when nothing matches. Filtering for those NULLs leaves exactly the customers with no orders. An inner join would already have dropped them."
+  },
+  {
+    "id": "databases-nosql-basics-1",
+    "domain": "databases",
+    "topic": "nosql-basics",
+    "difficulty": 1,
+    "prompt": "Which family of NoSQL database works like a giant dictionary of key to value?",
+    "options": [
+      "Graph",
+      "Key-value",
+      "Document",
+      "Wide-column"
+    ],
+    "answer": 1,
+    "explanation": "A key-value store returns the value stored under a key and does little else, which makes it very fast. Redis is the best-known example, often used for caches and sessions."
+  },
+  {
+    "id": "databases-nosql-basics-2",
+    "domain": "databases",
+    "topic": "nosql-basics",
+    "difficulty": 1,
+    "prompt": "What does it mean that a document database is schema-flexible?",
+    "options": [
+      "It cannot store numbers",
+      "It never needs indexes",
+      "Documents in one collection can have different fields",
+      "It automatically joins collections"
+    ],
+    "answer": 2,
+    "explanation": "The database does not force every document to share the same fields, so early changes are easy. Your application code still has to cope with the different shapes."
+  },
+  {
+    "id": "databases-nosql-basics-3",
+    "domain": "databases",
+    "topic": "nosql-basics",
+    "difficulty": 2,
+    "prompt": "Many NoSQL databases avoid joins. What is the usual reason?",
+    "options": [
+      "Joins are not possible in any database",
+      "Joins make data less secure",
+      "Joins only work on numbers",
+      "Joins across many machines are slow and hard, so data is stored together instead"
+    ],
+    "answer": 3,
+    "explanation": "When data is spread over many machines, a join must collect rows from several of them, which is slow. So these systems keep related data together in one document and design for the queries up front."
+  },
+  {
+    "id": "databases-nosql-basics-4",
+    "domain": "databases",
+    "topic": "nosql-basics",
+    "difficulty": 2,
+    "prompt": "Which situation points toward a relational database rather than NoSQL?",
+    "options": [
+      "A cache of recently viewed pages",
+      "Items whose fields vary a lot between products",
+      "Highly linked data that needs strict correctness, like payments",
+      "A single lookup by id at huge speed"
+    ],
+    "answer": 2,
+    "explanation": "Relational databases offer joins, constraints and transactions, which suit linked data where mistakes are costly. The other cases lean towards key-value or document stores."
   }
 ]

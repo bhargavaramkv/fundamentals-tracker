@@ -193,5 +193,305 @@
     ],
     "answer": 1,
     "explanation": "The partition is the unit of order and parallelism. Keying by entity keeps one entity's events in order while different entities run in parallel. Watch out: changing the partition count remaps keys, and retries with max.in.flight > 1 need idempotent producers to stay ordered."
+  },
+  {
+    "id": "system-design-scalability-4",
+    "domain": "system-design",
+    "topic": "scalability",
+    "difficulty": 2,
+    "prompt": "A cache cluster of 4 nodes uses hash(key) % 4. A fifth node is added during peak traffic and the database load jumps sharply. Why?",
+    "options": [
+      "Most keys now map to a different node, so most lookups miss until refilled",
+      "The new node starts empty and must receive a full copy of every key",
+      "Modulo hashing sends every key to the newest node for a while after joining",
+      "Existing nodes flush their memory automatically whenever the cluster resizes"
+    ],
+    "answer": 0,
+    "explanation": "With % N, changing N remaps roughly (N-1)/N of keys, so nearly all cached entries become unreachable at once and the database absorbs the misses. Consistent hashing remaps only about 1/N. The new node being empty is true but it affects only its own share, not the whole cluster."
+  },
+  {
+    "id": "system-design-consistency-4",
+    "domain": "system-design",
+    "topic": "consistency",
+    "difficulty": 2,
+    "prompt": "A consumer reads OrderCreated from a broker with at-least-once delivery and charges a card for each message. What must the handler do?",
+    "options": [
+      "Deduplicate by event ID and make the charge idempotent per event",
+      "Acknowledge the message before processing so it is never delivered twice",
+      "Switch the broker to exactly-once and drop the handler-side checks",
+      "Process messages on a single thread so duplicates cannot overlap in time"
+    ],
+    "answer": 0,
+    "explanation": "At-least-once means duplicates will happen (redelivery after a crash or a slow ack). Acking early turns it into at-most-once and loses work on crash. Single-threading doesn't stop redelivery later. End-to-end safety comes from an idempotent handler keyed by event ID."
+  },
+  {
+    "id": "system-design-caching-5",
+    "domain": "system-design",
+    "topic": "caching",
+    "difficulty": 3,
+    "prompt": "A hot key's TTL expires and 2,000 concurrent requests all query the database for the same row. Which fix targets this exact problem?",
+    "options": [
+      "Coalesce requests so one refills the key while the others wait",
+      "Cache the 'not found' result briefly for ids that don't exist",
+      "Switch from cache-aside to a write-through caching strategy",
+      "Add more cache shards so the hot key is spread across them"
+    ],
+    "answer": 0,
+    "explanation": "This is a stampede on one existing key: many misses at the same moment. Per-key locking or request coalescing (plus TTL jitter) fixes it. Caching 'not found' fixes penetration (ids that never exist). More shards don't help, since a single key still lives on one node."
+  },
+  {
+    "id": "system-design-messaging-4",
+    "domain": "system-design",
+    "topic": "messaging",
+    "difficulty": 2,
+    "prompt": "An order service commits the order to its database, then publishes OrderPlaced to the broker. The pod crashes between the two steps. What goes wrong, and what is the standard fix?",
+    "options": [
+      "The event is published twice; turn on the broker's exactly-once delivery mode",
+      "The order exists but no event is ever sent; use a transactional outbox table",
+      "The commit rolls back automatically; wrap both steps in a try/catch with retry",
+      "Consumers read events out of order; key the topic partitions by the orderId"
+    ],
+    "answer": 1,
+    "explanation": "This is the dual-write problem: the database and the broker can't commit atomically, so a crash in between loses the event. Write the event to an outbox table in the same transaction as the order, and have a relay publish it. The relay delivers at least once, so consumers must be idempotent. A broker's exactly-once mode only covers the broker side. It can't recover an event that was never sent."
+  },
+  {
+    "id": "system-design-client-server-1",
+    "domain": "system-design",
+    "topic": "client-server",
+    "difficulty": 1,
+    "prompt": "In a client-server setup, which side starts the conversation?",
+    "options": [
+      "The client sends a request",
+      "The server pushes a request first",
+      "Both start at the same moment",
+      "A third party starts it always"
+    ],
+    "answer": 0,
+    "explanation": "The client asks and the server answers. The server waits for requests and replies to each one. (Some systems let a server push data later, but only after a client has connected.)"
+  },
+  {
+    "id": "system-design-client-server-2",
+    "domain": "system-design",
+    "topic": "client-server",
+    "difficulty": 1,
+    "prompt": "A server replies with status code 404. What does that mean?",
+    "options": [
+      "The request succeeded and data follows",
+      "The server crashed while working",
+      "Nothing was found at that address",
+      "The client must log in again first"
+    ],
+    "answer": 2,
+    "explanation": "404 means 'not found': the server is running and understood the request, but has nothing at that address. A crash would show as a 5xx code, and a login problem as 401."
+  },
+  {
+    "id": "system-design-client-server-3",
+    "domain": "system-design",
+    "topic": "client-server",
+    "difficulty": 2,
+    "prompt": "Why can a server not simply trust the data a client sends it?",
+    "options": [
+      "Clients run on user devices and can be modified",
+      "Networks always change the bytes they carry",
+      "Clients are slower than servers at parsing",
+      "Servers cannot read what clients send them"
+    ],
+    "answer": 0,
+    "explanation": "The client is outside your control, so anyone can edit an app or craft requests by hand. The server must check identity, permissions and input on every request."
+  },
+  {
+    "id": "system-design-client-server-4",
+    "domain": "system-design",
+    "topic": "client-server",
+    "difficulty": 2,
+    "prompt": "HTTP is called stateless. What does that imply for a logged-in user?",
+    "options": [
+      "The server keeps the connection open forever",
+      "Each request must carry proof of who they are",
+      "The user must log in again on every click",
+      "Servers can never store any data at all"
+    ],
+    "answer": 1,
+    "explanation": "Each request stands alone, so the server does not remember earlier ones by itself. Clients attach a token or session id each time. Users do not have to retype passwords because the app resends that proof."
+  },
+  {
+    "id": "system-design-latency-throughput-1",
+    "domain": "system-design",
+    "topic": "latency-throughput",
+    "difficulty": 1,
+    "prompt": "Which best describes latency?",
+    "options": [
+      "Requests handled per second overall",
+      "Time one request takes to complete",
+      "The size of the network connection",
+      "How many servers are in the system"
+    ],
+    "answer": 1,
+    "explanation": "Latency is how long a single request takes from send to answer. Throughput is how many requests are handled per second, and bandwidth is the size of the pipe."
+  },
+  {
+    "id": "system-design-latency-throughput-2",
+    "domain": "system-design",
+    "topic": "latency-throughput",
+    "difficulty": 1,
+    "prompt": "You add a second identical server behind a load balancer. What most likely changes?",
+    "options": [
+      "Each request becomes twice as fast",
+      "Latency and throughput both double",
+      "Nothing changes until traffic exceeds a million",
+      "Throughput rises; one request is about as fast"
+    ],
+    "answer": 3,
+    "explanation": "Extra servers let more requests run in parallel, which raises throughput. A single request still does the same work, so its latency barely changes."
+  },
+  {
+    "id": "system-design-latency-throughput-3",
+    "domain": "system-design",
+    "topic": "latency-throughput",
+    "difficulty": 2,
+    "prompt": "A service has a mean latency of 40 ms but a p99 of 3 s. What is the best reading?",
+    "options": [
+      "Roughly 1% of requests are very slow",
+      "Every request takes about 40 ms",
+      "The p99 value must be a measuring error",
+      "Three seconds is the lowest possible time"
+    ],
+    "answer": 0,
+    "explanation": "The p99 is the time 99% of requests beat, so the slowest 1% take at least that long. Averages hide these slow outliers, which is why teams track percentiles."
+  },
+  {
+    "id": "system-design-latency-throughput-4",
+    "domain": "system-design",
+    "topic": "latency-throughput",
+    "difficulty": 2,
+    "prompt": "Roughly how do a main-memory read and a cross-ocean network round trip compare?",
+    "options": [
+      "They differ by about a factor of ten",
+      "Memory is about a million times faster",
+      "They are almost exactly the same speed",
+      "The network trip is faster on a good day"
+    ],
+    "answer": 1,
+    "explanation": "A memory read takes on the order of 100 nanoseconds and an ocean crossing about 100 milliseconds, a gap near a million times. These are approximate figures, but the orders of magnitude are why we cache and keep data near users."
+  },
+  {
+    "id": "system-design-load-balancing-basics-1",
+    "domain": "system-design",
+    "topic": "load-balancing-basics",
+    "difficulty": 1,
+    "prompt": "What is a load balancer's job?",
+    "options": [
+      "Store copies of the database for backup",
+      "Encrypt all data at rest on disk",
+      "Compress every response before sending it",
+      "Spread requests across several servers"
+    ],
+    "answer": 3,
+    "explanation": "A load balancer sits in front of identical servers and shares requests between them, so none is overloaded and one failure does not stop the service."
+  },
+  {
+    "id": "system-design-load-balancing-basics-2",
+    "domain": "system-design",
+    "topic": "load-balancing-basics",
+    "difficulty": 1,
+    "prompt": "What does a health check let a load balancer do?",
+    "options": [
+      "Stop sending requests to a broken server",
+      "Repair a server that has crashed",
+      "Make every request run faster",
+      "Encrypt traffic between servers"
+    ],
+    "answer": 0,
+    "explanation": "The balancer pings each server regularly and removes any that stop answering. It does not fix them, but users avoid errors, and the server rejoins once checks pass again."
+  },
+  {
+    "id": "system-design-load-balancing-basics-3",
+    "domain": "system-design",
+    "topic": "load-balancing-basics",
+    "difficulty": 2,
+    "prompt": "Requests vary a lot in cost, with some taking 10 ms and some 5 s. Which rule suits this better than round-robin?",
+    "options": [
+      "Alphabetical order of server names",
+      "Always choose the newest server",
+      "Least connections, favouring idle servers",
+      "Send every request to one server"
+    ],
+    "answer": 2,
+    "explanation": "Round-robin ignores how busy each server is, so one can pile up with slow requests. Least connections sends new work to the server with the fewest open requests."
+  },
+  {
+    "id": "system-design-load-balancing-basics-4",
+    "domain": "system-design",
+    "topic": "load-balancing-basics",
+    "difficulty": 2,
+    "prompt": "A user logs in on server A, which keeps the session in its memory. Their next request lands on server B. What is the best fix?",
+    "options": [
+      "Keep sessions in a shared store like Redis",
+      "Make the user log in again each click",
+      "Copy server A's memory to B each second",
+      "Remove the load balancer"
+    ],
+    "answer": 0,
+    "explanation": "If servers are stateless, any of them can serve any user. Sticky routing also works but ties users to one server, which hurts balance and failover."
+  },
+  {
+    "id": "system-design-api-design-1",
+    "domain": "system-design",
+    "topic": "api-design",
+    "difficulty": 1,
+    "prompt": "In a REST API, which request best reads order 42?",
+    "options": [
+      "POST /getOrder with 42 in the body",
+      "GET /orders/42",
+      "DELETE /orders/42",
+      "GET /readTheOrder?id=42"
+    ],
+    "answer": 1,
+    "explanation": "REST puts the noun in the path and the action in the HTTP method. GET reads without changing anything, so /orders/42 with GET is the conventional form."
+  },
+  {
+    "id": "system-design-api-design-2",
+    "domain": "system-design",
+    "topic": "api-design",
+    "difficulty": 1,
+    "prompt": "Which status code should a server return after successfully creating a new order?",
+    "options": [
+      "404 Not Found",
+      "500 Internal Server Error",
+      "201 Created",
+      "401 Unauthorized"
+    ],
+    "answer": 2,
+    "explanation": "201 Created tells the client the new resource exists. 404 and 401 are errors about missing or unauthenticated requests, and 500 means the server failed."
+  },
+  {
+    "id": "system-design-api-design-3",
+    "domain": "system-design",
+    "topic": "api-design",
+    "difficulty": 2,
+    "prompt": "A client retries 'create order' after a timeout. How do you avoid duplicate orders?",
+    "options": [
+      "Use GET so retries are harmless",
+      "Ask clients never to retry a request",
+      "Accept an idempotency key and ignore repeats",
+      "Return 200 for every request sent"
+    ],
+    "answer": 2,
+    "explanation": "The client cannot tell whether the first try worked. With a unique key per attempt, the server detects the repeat and returns the original result instead of creating another order."
+  },
+  {
+    "id": "system-design-api-design-4",
+    "domain": "system-design",
+    "topic": "api-design",
+    "difficulty": 2,
+    "prompt": "Why put a version such as /v1/ in an API path?",
+    "options": [
+      "It makes every request run faster",
+      "It lets you change the API without breaking old clients",
+      "It is required by the HTTP specification",
+      "It hides which server answers each request"
+    ],
+    "answer": 1,
+    "explanation": "Clients depend on field names and behaviour. A new version lets you ship breaking changes at /v2 while existing clients keep working on /v1 until they migrate."
   }
 ]

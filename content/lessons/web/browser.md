@@ -3,6 +3,18 @@ title: "Browser: CORS, preflight & HTTP caching"
 summary: "What CORS really protects, when preflights fire, and how to cache SPAs correctly."
 ---
 
+## The idea
+
+A browser is a careful guest. Every website you open runs its own code on your machine, so the browser keeps each site in its own room. A page from one site is not allowed to peek at what another site sent you. That rule is the **same-origin policy**.
+
+Sometimes sites need to cooperate, for example your page calling a separate API. The API can say "I allow that page" with special headers. This permission system is called **CORS**. The browser also saves copies of files it already downloaded, so the next visit is faster. That is **caching**, and you'll control it with headers.
+
+This builds on the requests and responses lesson (headers are how these rules are written) and the HTTP semantics lesson.
+
+```check
+{"prompt": "What is the same-origin policy for?", "options": ["Stopping a page from reading another site's responses", "Making pages load faster", "Hiding the URL", "Compressing images"], "answer": 0, "explanation": "The browser keeps sites apart so a page you open cannot read data that belongs to another site you are logged in to. CORS is the controlled way to relax this."}
+```
+
 ## CORS is enforced by the browser
 
 The same-origin policy stops page JavaScript from **reading** cross-origin responses. CORS response headers relax that restriction. It is **not** server-side authorization: curl ignores it, and simple requests still reach your server and run.
@@ -33,6 +45,10 @@ In ASP.NET Core, `UseCors()` must run **before** auth and endpoints.
 - `no-store` means never store the response.
 - `private` means browser only, not CDNs or shared proxies.
 - `stale-while-revalidate=60` serves stale content while refreshing in the background.
+
+```check
+{"prompt": "Which Cache-Control value means: you may store this, but check with the server before each use?", "options": ["no-store", "immutable", "no-cache", "max-age=31536000"], "answer": 2, "explanation": "no-cache is badly named: the browser may keep the file but must revalidate it before using it. no-store is the one that forbids saving it at all."}
+```
 
 ## Common SPA deploy bug
 

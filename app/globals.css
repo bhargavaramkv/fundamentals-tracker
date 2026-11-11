@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * The Developer Playground x Skill Quest look: domain colours, a dotted hero, a skill trail and chamfered calls to action.
+ * V3: calm and clean. One blue accent, hairline cards, 10px buttons.
  * tests/design.test.ts checks these tokens against WCAG AA in both themes.
  */
 :root {
@@ -25,7 +25,7 @@
   --warn: #8a5a00;
   --warn-bg: #fdf3dc;
   --accent-2: #6250d6;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 16px rgba(16, 24, 40, 0.06);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
   /* Domain identity colors (validated categorical palette; always paired with an icon + label). */
   --d-dsa: #2a78d6;
   --d-oop: #eb6834;
@@ -56,7 +56,7 @@
     --warn: #f2c063;
     --warn-bg: #33290f;
     --accent-2: #9085e9;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.25);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     --d-dsa: #3b9bff;
     --d-oop: #f07a3c;
     --d-databases: #22b483;
@@ -86,7 +86,7 @@
   --warn: #f2c063;
   --warn-bg: #33290f;
   --accent-2: #9085e9;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.25);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   --d-dsa: #3b9bff;
   --d-oop: #f07a3c;
   --d-databases: #22b483;
@@ -132,6 +132,8 @@ html {
 }
 
 body {
+  font-size: 1rem;
+  line-height: 1.65;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
@@ -165,48 +167,51 @@ button {
   }
 }
 
-/* Headings */
-h1 {
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+/* Headings: tight, semibold, one scale. */
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
 }
 .headline {
   font-weight: 600;
   letter-spacing: -0.01em;
-  line-height: 1.3;
-  transition: color 0.14s ease;
+  line-height: 1.35;
+  transition: color 0.15s ease-out;
 }
 
-/* Page header: one title and one plain sentence. */
+/* Page header: small label, one title, one plain sentence. */
 .page-head h1 {
-  font-size: 1.875rem;
+  font-size: 1.75rem;
 }
-.page-head > p {
-  margin-top: 0.6rem;
-  max-width: 62ch;
+.page-head > p:not(.eyebrow) {
+  margin-top: 0.5rem;
+  max-width: 60ch;
   color: var(--text-2);
+}
+.page-head > .eyebrow + h1 {
+  margin-top: 0.4rem;
 }
 @media (min-width: 640px) {
   .page-head h1 {
-    font-size: 2.125rem;
+    font-size: 2rem;
   }
 }
 
-/* Section heading with a hairline rule, used instead of wrapping sections in cards. */
+/* Section heading: quiet title, no rule. */
 .section-head {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 0.75rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.6rem;
-  margin-bottom: 0.25rem;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .section-head h2 {
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
@@ -218,8 +223,8 @@ h1 {
 
 /* Small uppercase label above a heading. */
 .eyebrow {
-  font-family: var(--font-mono);
   font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-3);
@@ -228,17 +233,17 @@ h1 {
 /* Lesson markdown */
 .prose-lesson {
   max-width: 68ch;
+  font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--text);
 }
 .prose-lesson h2 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin: 1.8rem 0 0.6rem;
+  font-size: 1.25rem;
+  margin: 2rem 0 0.6rem;
 }
 .prose-lesson h3 {
-  font-weight: 600;
-  margin: 1.4rem 0 0.4rem;
+  font-size: 1.0625rem;
+  margin: 1.5rem 0 0.4rem;
 }
 .prose-lesson p,
 .prose-lesson ul,
@@ -246,7 +251,7 @@ h1 {
 .prose-lesson blockquote,
 .prose-lesson pre,
 .prose-lesson table {
-  margin: 0.85rem 0;
+  margin: 1rem 0;
 }
 .prose-lesson ul {
   list-style: disc;
@@ -257,28 +262,37 @@ h1 {
   padding-left: 1.4rem;
 }
 .prose-lesson li {
-  margin: 0.3rem 0;
+  margin: 0.35rem 0;
+}
+.prose-lesson a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .prose-lesson code {
   font-family: var(--font-mono);
-  font-size: 0.86em;
+  font-size: 0.875em;
   background: var(--surface-2);
   padding: 0.1em 0.35em;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .prose-lesson pre {
   background: var(--surface-2);
+  border: 1px solid var(--border);
   padding: 0.9rem 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow-x: auto;
-  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 .prose-lesson pre code {
   background: none;
   padding: 0;
+  font-size: inherit;
 }
 .prose-lesson blockquote {
-  border-left: 2px solid var(--border);
+  border-left: 3px solid var(--border);
   padding-left: 1rem;
   color: var(--text-2);
 }
@@ -286,12 +300,12 @@ h1 {
   display: block;
   overflow-x: auto;
   border-collapse: collapse;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
 .prose-lesson th,
 .prose-lesson td {
   border-bottom: 1px solid var(--border);
-  padding: 0.45rem 0.9rem 0.45rem 0;
+  padding: 0.5rem 1rem 0.5rem 0;
   text-align: left;
   vertical-align: top;
 }
@@ -319,20 +333,19 @@ h1 {
   gap: 0.5rem;
   min-height: 44px;
   padding: 0 1.25rem;
-  border-radius: 0.5rem;
+  border-radius: 10px;
   border: 1px solid transparent;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  transition: color 0.16s ease, background-color 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+  transition: color 0.15s ease-out, background-color 0.15s ease-out, border-color 0.15s ease-out, opacity 0.15s ease-out;
 }
 .btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
-  box-shadow: none;
 }
 .btn-lg {
   min-height: 48px;
@@ -343,110 +356,58 @@ h1 {
   width: 100%;
 }
 @media (min-width: 640px) {
-  .btn-lg {
-    min-height: 44px;
-    padding: 0 1.4rem;
-    font-size: 0.875rem;
-  }
   .btn-block {
     width: auto;
   }
 }
 
-/* Primary call to action: the signature chamfered outline. The shape is drawn by two clipped layers
-   (stroke, then fill) so the button itself is never clipped and its focus outline stays visible.
-   Use for the one dominant action in a region; everything else is secondary or ghost. */
+/* Primary: solid accent. One per region. */
 .btn-primary {
-  --chamfer: 10px;
-  position: relative;
-  isolation: isolate;
-  background: transparent;
-  color: var(--accent-text);
-  border: 0;
-  border-radius: 0;
+  background: var(--accent-text);
+  color: var(--accent-ink);
 }
-.btn-primary::before,
-.btn-primary::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  clip-path: polygon(
-    var(--chamfer) 0,
-    100% 0,
-    100% calc(100% - var(--chamfer)),
-    calc(100% - var(--chamfer)) 100%,
-    0 100%,
-    0 var(--chamfer)
-  );
-  transition: background-color 0.16s ease;
-}
-.btn-primary::before {
-  inset: 0;
-  background: var(--accent);
-}
-.btn-primary::after {
-  inset: 1.5px;
-  background: color-mix(in oklab, var(--accent) 12%, var(--bg));
-}
-/* The fill deepens on hover, so the label moves to the main text colour to stay readable. */
 .btn-primary:hover:not(:disabled),
 .btn-primary:active:not(:disabled) {
-  color: var(--text);
-}
-.btn-primary:hover:not(:disabled)::after {
-  background: color-mix(in oklab, var(--accent) 22%, var(--bg));
-}
-.btn-primary:active:not(:disabled)::after {
-  background: color-mix(in oklab, var(--accent) 30%, var(--bg));
-}
-.btn-primary:focus-visible {
-  border-radius: 0;
+  background: color-mix(in oklab, var(--accent-text) 85%, var(--text));
 }
 .btn-arrow {
   display: inline-block;
-  transition: transform 0.16s ease;
+  transition: transform 0.15s ease-out;
 }
 .btn:hover:not(:disabled) .btn-arrow {
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
 /* Secondary: quiet outline. */
 .btn-secondary {
-  background: transparent;
+  background: var(--surface);
   border-color: var(--border);
   color: var(--text);
 }
 .btn-secondary:hover:not(:disabled) {
-  border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
   background: var(--surface-2);
-}
-.btn-secondary:active:not(:disabled) {
-  background: color-mix(in oklab, var(--accent) 10%, var(--surface-2));
 }
 .btn-secondary.btn-danger {
   color: var(--bad);
 }
 .btn-secondary.btn-danger:hover:not(:disabled) {
-  border-color: color-mix(in oklab, var(--bad) 50%, var(--border));
-  background: color-mix(in oklab, var(--bad) 10%, var(--surface-2));
+  background: var(--bad-bg);
 }
 
-/* Ghost: text-only actions (row links, "End & save"). 44px on phones, compact on larger screens. */
+/* Ghost: text-only actions. */
 .btn-ghost {
-  min-height: 44px;
   padding: 0 0.85rem;
   color: var(--accent-text);
   background: transparent;
 }
 .btn-ghost:hover:not(:disabled) {
-  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  background: var(--surface-2);
 }
 .btn-ghost.btn-muted {
   color: var(--text-2);
 }
 .btn-ghost.btn-muted:hover:not(:disabled) {
   color: var(--text);
-  background: var(--surface-2);
 }
 @media (min-width: 640px) {
   .btn-ghost {
@@ -454,15 +415,15 @@ h1 {
   }
 }
 
-/* Pills: static labels and chips. */
+/* Pills: static labels. */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 6px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   background: transparent;
-  padding: 0.25rem 0.7rem;
+  padding: 0.2rem 0.7rem;
   font-size: 0.8125rem;
   font-weight: 500;
 }
@@ -475,20 +436,20 @@ h1 {
   display: inline-flex;
   align-items: center;
   min-height: 36px;
-  padding: 0 0.7rem;
-  border-radius: 4px;
+  padding: 0 0.75rem;
+  border-radius: 8px;
   font-size: 0.875rem;
   color: var(--text-2);
-  transition: color 0.14s ease, background-color 0.14s ease;
+  transition: color 0.15s ease-out, background-color 0.15s ease-out;
 }
 .filter-btn:hover {
   color: var(--text);
   background: var(--surface-2);
 }
 .filter-btn[aria-pressed="true"] {
-  color: var(--bg);
-  background: var(--text);
-  font-weight: 500;
+  color: var(--text);
+  background: var(--surface-2);
+  font-weight: 600;
 }
 @media (max-width: 639px) {
   .filter-btn {
@@ -500,12 +461,12 @@ h1 {
 .field {
   width: 100%;
   min-height: 44px;
-  border-radius: 0.5rem;
+  border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--surface);
   padding: 0 0.9rem;
   color: var(--text);
-  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
 }
 textarea.field {
   padding: 0.6rem 0.9rem;
@@ -520,27 +481,12 @@ textarea.field {
   color: var(--text-3);
 }
 
-/* Selective grouping only: prefer spacing and section headings over another card. */
+/* Card: surface, hairline border, 12px radius. */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
-}
-
-/* Developer-playground backdrop for page heroes: a faint dot grid that fades out. Decorative only. */
-.hero-grid {
-  position: relative;
-  isolation: isolate;
-}
-.hero-grid::before {
-  content: "";
-  position: absolute;
-  inset: -2rem 0 0;
-  z-index: -1;
-  background-image: radial-gradient(color-mix(in oklab, var(--text-3) 35%, transparent) 1px, transparent 1px);
-  background-size: 20px 20px;
-  mask-image: linear-gradient(to bottom, black, transparent 85%);
-  pointer-events: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
 /* Status tag: always text + color, never color alone. */
@@ -548,40 +494,15 @@ textarea.field {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  border-radius: 4px;
-  padding: 0.05rem 0.4rem;
-  font-size: 0.6875rem;
+  border-radius: 999px;
+  padding: 0.05rem 0.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-/* Skill path: domain nodes connected by a line. Nodes are real links. */
-.skill-node {
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
-}
-.skill-node:hover,
-.skill-node:focus-visible {
-  transform: translateY(-2px);
-}
-.skill-node:hover .skill-dot,
-.skill-node:focus-visible .skill-dot {
-  box-shadow: 0 0 0 4px color-mix(in oklab, var(--node) 25%, transparent);
-}
-.skill-dot {
-  transition: box-shadow 0.16s ease;
-}
-@keyframes path-draw {
-  from { stroke-dashoffset: 1; }
-  to { stroke-dashoffset: 0; }
-}
-.skill-line-progress {
-  stroke-dasharray: 1;
-  animation: path-draw 0.9s ease-out 0.15s both;
 }
 
 /* Marks text written by a model, so it can't be mistaken for an authoritative source. */
 .ai-note {
-  border-left: 2px solid var(--accent-2);
+  border-left: 3px solid var(--border);
   padding: 0.1rem 0 0.1rem 0.85rem;
   font-size: 0.875rem;
   color: var(--text-2);
@@ -591,7 +512,7 @@ textarea.field {
   font-weight: 600;
 }
 
-/* Tabs inside a topic workspace. */
+/* Tabs. */
 .tabs {
   display: flex;
   gap: 1.5rem;
@@ -607,24 +528,24 @@ textarea.field {
   white-space: nowrap;
   color: var(--text-2);
   font-size: 0.9375rem;
-  transition: color 0.14s ease;
+  transition: color 0.15s ease-out;
 }
 .tabs a:hover {
   color: var(--text);
 }
 .tabs a[aria-current="page"] {
   color: var(--text);
-  font-weight: 500;
+  font-weight: 600;
 }
 .tabs a[aria-current="page"]::after {
   content: "";
   position: absolute;
   inset: auto 0 -1px;
   height: 2px;
-  background: var(--text);
+  background: var(--accent);
 }
 
-/* Evidence tracks: four numbers side by side, separate on purpose. */
+/* Evidence tracks: plain grid. */
 .tracks {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -648,7 +569,7 @@ textarea.field {
   }
 }
 .page-enter {
-  animation: page-in 0.22s ease-out;
+  animation: page-in 0.2s ease-out;
 }
 
 @keyframes pop {
@@ -661,18 +582,17 @@ textarea.field {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-enter,
-  .animate-pop,
-  .skill-node,
-  .skill-dot,
-  .skill-line-progress,
-  .btn-primary::after,
-  .btn,
-  .btn-arrow,
-  .headline,
-  .filter-btn,
-  .tabs a {
-    animation: none;
-    transition: none;
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Pages that need more than the 3xl reading column (two-column layouts) break out to 5xl on large screens. */
+@media (min-width: 1088px) {
+  .page-wide {
+    margin-inline: -8rem;
   }
 }

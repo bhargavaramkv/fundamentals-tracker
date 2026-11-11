@@ -70,8 +70,8 @@ function lastSeen(data: ProgressData): Map<string, { at: string; correct: boolea
 }
 
 /**
- * Builds an adaptive practice set: due reviews first, then weak and shaky topics,
- * then topics never tested, then whatever was seen least recently.
+ * Builds an adaptive practice set: due reviews first, then the mentor's focus skills (when it has a current plan),
+ * then weak and shaky topics, then topics never tested, then whatever was seen least recently.
  */
 export function buildPracticeSet(
   data: ProgressData,
@@ -79,6 +79,7 @@ export function buildPracticeSet(
   topics: TopicMeta[],
   size = 10,
   now: number = Date.now(),
+  focusSkills: string[] = [],
 ): Question[] {
   const rec = recommend(data, questions, topics, now);
   const seen = lastSeen(data);
@@ -100,17 +101,23 @@ export function buildPracticeSet(
 
   for (const id of rec.dueQuestionIds.slice(0, Math.ceil(size / 2))) add(byId.get(id));
 
-  const weak = rec.focus.filter((f) => f.reason === "weak" || f.reason === "shaky");
-  // Round-robin across weak topics so one topic doesn't eat the whole session.
-  const pools = weak.map((f) => {
-    const easyFirst = (f.stat?.score ?? 0) < 40;
+  const statOf = new Map(rec.profile.domains.flatMap((d) => d.topics).map((t) => [topicKey(t), t]));
+  const poolOf = (key: string) => {
+    const easyFirst = (statOf.get(key)?.score ?? 0) < 40;
     return questions
-      .filter((q) => q.domain === f.meta.domain && q.topic === f.meta.topic)
+      .filter((q) => topicKey(q) === key)
       .sort((a, b) => freshness(a).localeCompare(freshness(b)) || (easyFirst ? a.difficulty - b.difficulty : b.difficulty - a.difficulty));
-  });
-  for (let round = 0; picked.length < size && pools.some((p) => p.length > round); round++) {
-    for (const pool of pools) add(pool[round]);
-  }
+  };
+  // Round-robin across topics so one topic doesn't eat the whole session.
+  const roundRobin = (keys: string[]) => {
+    const pools = keys.map(poolOf);
+    for (let round = 0; picked.length < size && pools.some((p) => p.length > round); round++) {
+      for (const pool of pools) add(pool[round]);
+    }
+  };
+  const focus = [...new Set(focusSkills)];
+  roundRobin(focus);
+  roundRobin(rec.focus.filter((f) => (f.reason === "weak" || f.reason === "shaky") && !focus.includes(topicKey(f.meta))).map((f) => topicKey(f.meta)));
 
   for (const f of rec.focus.filter((x) => x.reason === "untested")) {
     const q = questions

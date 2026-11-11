@@ -58,11 +58,49 @@ export interface CodingStats {
   quarters: { quarter: string; problems: number; firstTry: number; avgAttempts: number | null }[];
   topics: { tag: string; problems: number; attemptsPerProblem: number; failureRate: number }[];
   difficulty: { difficulty: string; problems: number; failureRate: number }[];
-  hardest: { slug: string; title: string; attempts: number; acceptedOnTry: number | null; failures: { status: string; count: number }[]; minutesToAccept: number | null }[];
+  /** Attempts and failures stop at the first accept; `later` counts submissions after it (re-solves, other languages). */
+  hardest: { slug: string; title: string; attempts: number; acceptedOnTry: number | null; failures: { status: string; count: number }[]; later: number; minutesToAccept: number | null }[];
   errors: { message: string; count: number }[];
   nearMisses: { slug: string; title: string; passed: number; of: number; failedOn: string; at: number }[];
   recent: { count: number; runtimePercentile: number; memoryPercentile: number } | null;
   lastSubmittedAt: number | null;
+  solved: number;
+  /** Problems with no accepted submission, most recently tried first. */
+  unsolved: { slug: string; title: string; attempts: number; lastAt: number }[];
+  /** The last 10 problems you started, against the 10 before them. `previous` is null until there are 20. */
+  form: { last: FormWindow; previous: FormWindow | null };
+  /** The last 12 problems you started, oldest first. */
+  lately: { slug: string; title: string; acceptedOnTry: number | null; attempts: number }[];
+  languages: { lang: string; count: number }[];
+  /** Distinct UTC days with a submission (YYYY-MM-DD), the last 60, oldest first. */
+  activeDates: string[];
+}
+
+export interface FormWindow {
+  problems: number;
+  /** Solved on the first submission. */
+  firstTry: number;
+  /** Mean tries to first accept, over the problems solved. */
+  avgTries: number | null;
+}
+
+/** One problem's whole history, small enough to give the nightly review for every problem you've touched. */
+export interface ProblemSummary {
+  slug: string;
+  title: string;
+  difficulty: string | null;
+  tags: string[];
+  langs: string[];
+  attempts: number;
+  /** One code per submission, oldest first: AC, WA, RE, TLE, CE, MLE, or the raw status. */
+  history: string[];
+  acceptedOnTry: number | null;
+  /** Unix seconds. */
+  firstAt: number;
+  lastAt: number;
+  /** Runs of submits less than 90 minutes apart. Three sittings means you came back twice. */
+  sittings: number;
+  minutesToAccept: number | null;
 }
 
 const failed = (s: LeetCodeSubmission) => s.status !== "Accepted";
@@ -85,15 +123,53 @@ function minutesToAccept(subs: LeetCodeSubmission[]): number | null {
   return null;
 }
 
+/** The try number that first passed, or null if it never did. */
+function tryOf(l: LeetCodeSubmission[]): number | null {
+  const i = l.findIndex((s) => !failed(s));
+  return i < 0 ? null : i + 1;
+}
+
+const STATUS_CODE: Record<string, string> = { Accepted: "AC", "Wrong Answer": "WA", "Runtime Error": "RE", "Time Limit Exceeded": "TLE", "Compile Error": "CE", "Memory Limit Exceeded": "MLE" };
+
+/** Submissions grouped by problem, the problem you started first coming first, each list oldest first. */
+function groupByProblem(input: LeetCodeSubmission[]): LeetCodeSubmission[][] {
+  const byProblem = new Map<string, LeetCodeSubmission[]>();
+  for (const s of [...input].sort((a, b) => a.timestamp - b.timestamp)) byProblem.set(s.slug, [...(byProblem.get(s.slug) ?? []), s]);
+  return [...byProblem.values()];
+}
+
+function summarize(l: LeetCodeSubmission[]): ProblemSummary {
+  return {
+    slug: l[0].slug,
+    title: l[0].title,
+    difficulty: l[0].difficulty,
+    tags: l[0].tags ?? [],
+    langs: [...new Set(l.map((s) => s.lang))],
+    attempts: l.length,
+    history: l.map((s) => STATUS_CODE[s.status] ?? s.status),
+    acceptedOnTry: tryOf(l),
+    firstAt: l[0].timestamp,
+    lastAt: l[l.length - 1].timestamp,
+    sittings: 1 + l.slice(1).filter((s, i) => s.timestamp - l[i].timestamp > SITTING_GAP_SECONDS).length,
+    minutesToAccept: minutesToAccept(l),
+  };
+}
+
+export function summarizeProblems(input: LeetCodeSubmission[]): ProblemSummary[] {
+  return groupByProblem(input).map(summarize);
+}
+
+function formWindow(ls: LeetCodeSubmission[][]): FormWindow {
+  const tries = ls.map(tryOf).filter((t): t is number => t !== null);
+  return { problems: ls.length, firstTry: tries.filter((t) => t === 1).length, avgTries: tries.length ? tries.reduce((a, b) => a + b, 0) / tries.length : null };
+}
+
+const FORM_SIZE = 10;
+const LATELY_SIZE = 12;
+
 export function computeCodingStats(input: LeetCodeSubmission[]): CodingStats {
   const subs = [...input].sort((a, b) => a.timestamp - b.timestamp);
-  const byProblem = new Map<string, LeetCodeSubmission[]>();
-  for (const s of subs) byProblem.set(s.slug, [...(byProblem.get(s.slug) ?? []), s]);
-  const problems = [...byProblem.values()];
-  const tryOf = (l: LeetCodeSubmission[]) => {
-    const i = l.findIndex((s) => !failed(s));
-    return i < 0 ? null : i + 1;
-  };
+  const problems = groupByProblem(subs);
 
   const quarterMap = new Map<string, LeetCodeSubmission[][]>();
   for (const l of problems) {
@@ -129,14 +205,20 @@ export function computeCodingStats(input: LeetCodeSubmission[]): CodingStats {
 
   const hardest = problems
     .filter((l) => l.some(failed))
-    .sort((a, b) => b.filter(failed).length - a.filter(failed).length)
+    .map((l) => {
+      const accepted = tryOf(l);
+      const upToAccept = accepted === null ? l : l.slice(0, accepted);
+      return { l, accepted, upToAccept, fails: upToAccept.filter(failed) };
+    })
+    .sort((a, b) => b.fails.length - a.fails.length)
     .slice(0, 10)
-    .map((l) => ({
+    .map(({ l, accepted, upToAccept, fails }) => ({
       slug: l[0].slug,
       title: l[0].title,
-      attempts: l.length,
-      acceptedOnTry: tryOf(l),
-      failures: countBy(l.filter(failed), (s) => s.status).map((f) => ({ status: f.key, count: f.count })),
+      attempts: upToAccept.length,
+      acceptedOnTry: accepted,
+      failures: countBy(fails, (s) => s.status).map((f) => ({ status: f.key, count: f.count })),
+      later: l.length - upToAccept.length,
       minutesToAccept: minutesToAccept(l),
     }));
 
@@ -145,11 +227,18 @@ export function computeCodingStats(input: LeetCodeSubmission[]): CodingStats {
     return first ? [first.slice(0, 100)] : [];
   });
 
+  const seenMisses = new Set<string>();
   const nearMisses = subs
     .filter((s) => s.status === "Wrong Answer" && s.totalTestcases && (s.totalCorrect ?? 0) / s.totalTestcases >= 0.8)
-    .slice(-8)
     .reverse()
-    .map((s) => ({ slug: s.slug, title: s.title, passed: s.totalCorrect ?? 0, of: s.totalTestcases ?? 0, failedOn: (s.lastTestcase ?? "").replaceAll("\n", " ").slice(0, 80), at: s.timestamp }));
+    .map((s) => ({ slug: s.slug, title: s.title, passed: s.totalCorrect ?? 0, of: s.totalTestcases ?? 0, failedOn: (s.lastTestcase ?? "").replaceAll("\n", " ").slice(0, 80), at: s.timestamp }))
+    .filter((n) => {
+      const key = `${n.slug}|${n.failedOn}`;
+      if (seenMisses.has(key)) return false;
+      seenMisses.add(key);
+      return true;
+    })
+    .slice(0, 8);
 
   const ranked = subs.filter((s) => !failed(s) && typeof s.runtimePercentile === "number").slice(-10);
   const avg = (f: (s: LeetCodeSubmission) => number) => ranked.reduce((a, s) => a + f(s), 0) / ranked.length;
@@ -167,12 +256,29 @@ export function computeCodingStats(input: LeetCodeSubmission[]): CodingStats {
     nearMisses,
     recent: ranked.length ? { count: ranked.length, runtimePercentile: avg((s) => s.runtimePercentile ?? 0), memoryPercentile: avg((s) => s.memoryPercentile ?? 0) } : null,
     lastSubmittedAt: subs.length ? subs[subs.length - 1].timestamp : null,
+    solved: problems.filter((l) => tryOf(l) !== null).length,
+    unsolved: problems
+      .filter((l) => tryOf(l) === null)
+      .map((l) => ({ slug: l[0].slug, title: l[0].title, attempts: l.length, lastAt: l[l.length - 1].timestamp }))
+      .sort((a, b) => b.lastAt - a.lastAt),
+    form: {
+      last: formWindow(problems.slice(-FORM_SIZE)),
+      previous: problems.length >= FORM_SIZE * 2 ? formWindow(problems.slice(-FORM_SIZE * 2, -FORM_SIZE)) : null,
+    },
+    lately: problems.slice(-LATELY_SIZE).map((l) => ({ slug: l[0].slug, title: l[0].title, acceptedOnTry: tryOf(l), attempts: l.length })),
+    languages: countBy(subs, (s) => s.lang).map((l) => ({ lang: l.key, count: l.count })),
+    activeDates: [...new Set(subs.map((s) => new Date(s.timestamp * 1000).toISOString().slice(0, 10)))].slice(-60),
   };
 }
 
 /** What the nightly routine writes after reading your code (mentor/coding.json). */
 export interface CodingReview {
   forDate: string;
+  /** The one sentence the page leads with: where you stand and what matters most now. */
+  headline: string;
+  /** Whether recent work is better or worse than earlier work, and the evidence for saying so. */
+  trend: { direction: "improving" | "steady" | "slipping" | "unclear"; note: string };
+  /** The full reasoning. The page shows it behind a fold. */
   summary: string;
   focus: { title: string; why: string }[];
   mistakes: { pattern: string; detail: string; check: string; problems: string[] }[];
@@ -180,7 +286,8 @@ export interface CodingReview {
   reviews: { slug: string; title: string; verdict: "good" | "improve" | "struggling"; note: string }[];
 }
 
-export interface CodingAnalysis extends CodingReview {
+/** `headline` and `trend` are missing from reviews written before they existed. */
+export interface CodingAnalysis extends Omit<CodingReview, "headline" | "trend">, Partial<Pick<CodingReview, "headline" | "trend">> {
   version: 1;
   generatedAt: string;
   /** Submissions already reviewed, so a night with nothing new does nothing. */
@@ -191,6 +298,10 @@ export interface CodingPacket {
   decision: "analyse" | "no-new";
   forDate: string;
   stats: CodingStats;
+  /** Every problem's attempt history, most recently touched first, so a night's code can be read against the whole record. */
+  problems: ProblemSummary[];
+  /** Older problems left out of `problems` to keep the packet small. */
+  problemsOmitted: number;
   /** The newest unreviewed submissions in full. Any older backlog comes up on later nights. */
   newSubmissions: LeetCodeSubmission[];
   unreviewedCount: number;
@@ -199,14 +310,19 @@ export interface CodingPacket {
 }
 
 const MAX_REVIEWED_PER_NIGHT = 40;
+const MAX_PROBLEMS_IN_PACKET = 150;
+const TRENDS = ["improving", "steady", "slipping", "unclear"];
 
 export function buildCodingPacket(submissions: LeetCodeSubmission[], previous: CodingAnalysis | null, forDate: string): CodingPacket {
   const reviewed = new Set(previous?.reviewedIds ?? []);
   const fresh = submissions.filter((s) => !reviewed.has(s.id)).sort((a, b) => a.timestamp - b.timestamp);
+  const problems = summarizeProblems(submissions).sort((a, b) => b.lastAt - a.lastAt);
   return {
     decision: fresh.length ? "analyse" : "no-new",
     forDate,
     stats: computeCodingStats(submissions),
+    problems: problems.slice(0, MAX_PROBLEMS_IN_PACKET),
+    problemsOmitted: Math.max(0, problems.length - MAX_PROBLEMS_IN_PACKET),
     newSubmissions: fresh.slice(-MAX_REVIEWED_PER_NIGHT),
     unreviewedCount: fresh.length,
     previous,
@@ -225,6 +341,8 @@ export function validateCodingReview(raw: unknown, packet: CodingPacket): string
   const known = new Set(packet.knownSlugs);
   const reviewable = new Set(packet.newSubmissions.map((s) => s.slug));
   if (r.forDate !== packet.forDate) errors.push(`forDate must be ${packet.forDate}`);
+  if (!text(r.headline, 200)) errors.push("headline must be 1-200 characters");
+  if (!r.trend || !TRENDS.includes(r.trend.direction) || !text(r.trend.note, 400)) errors.push(`trend needs a direction (${TRENDS.join(", ")}) and a note of 1-400 characters`);
   if (!text(r.summary, 1500)) errors.push("summary must be 1-1500 characters");
   if (!Array.isArray(r.focus) || r.focus.length < 1 || r.focus.length > 3) errors.push("focus must have 1-3 items");
   else r.focus.forEach((f, i) => { if (!text(f?.title, 120) || !text(f?.why, 500)) errors.push(`focus[${i}] needs title and why`); });
@@ -259,4 +377,28 @@ export function buildCodingAnalysis(review: CodingReview, packet: CodingPacket, 
 export function isCodingAnalysis(raw: unknown): raw is CodingAnalysis {
   const a = raw as Partial<CodingAnalysis> | null;
   return !!a && a.version === 1 && typeof a.summary === "string" && Array.isArray(a.focus) && Array.isArray(a.mistakes) && Array.isArray(a.nextProblems) && Array.isArray(a.reviews);
+}
+
+/** A short account of the LeetCode record for the learner mentor's nightly packet. Context for choosing priorities, not evidence of a skill level. */
+export interface CodingContext {
+  problems: number;
+  solved: number;
+  lastSubmittedAt: string | null;
+  /** The last 10 problems started, as "6 of 10 solved first try". */
+  recentForm: string;
+  neverPassed: string[];
+  review: { headline: string | null; trend: CodingReview["trend"] | null; focus: string[]; mistakes: string[] } | null;
+}
+
+export function codingContextOf(submissions: LeetCodeSubmission[], analysis: CodingAnalysis | null): CodingContext {
+  const stats = computeCodingStats(submissions);
+  const { last } = stats.form;
+  return {
+    problems: stats.problems,
+    solved: stats.solved,
+    lastSubmittedAt: stats.lastSubmittedAt === null ? null : new Date(stats.lastSubmittedAt * 1000).toISOString(),
+    recentForm: `${last.firstTry} of ${last.problems} solved first try`,
+    neverPassed: stats.unsolved.slice(0, 5).map((u) => u.title),
+    review: analysis ? { headline: analysis.headline ?? null, trend: analysis.trend ?? null, focus: analysis.focus.map((f) => f.title), mistakes: analysis.mistakes.map((m) => m.pattern) } : null,
+  };
 }

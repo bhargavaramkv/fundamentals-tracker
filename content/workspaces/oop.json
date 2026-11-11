@@ -1,7 +1,55 @@
 {
-  "composition-encapsulation": {
+  "classes-objects": {
     "order": 1,
     "prerequisites": [],
+    "objectives": ["Explain the difference between a class and an object", "Write a class with fields, a method and a constructor", "Predict what happens when two variables refer to the same object"],
+    "exercises": [
+      { "id": "oop-classes-objects-ex1", "minutes": 4, "prompt": "Write a Book class with Title and Pages fields and a constructor that rejects a page count below 1. Then create two books.", "answer": "class Book { public string Title; public int Pages; public Book(string title, int pages) { if (pages < 1) throw new ArgumentException(\"Pages must be at least 1\"); Title = title; Pages = pages; } } then var a = new Book(\"A\", 100); var b = new Book(\"B\", 250);. The class is written once; a and b are two objects with their own Title and Pages." },
+      { "id": "oop-classes-objects-ex2", "minutes": 4, "prompt": "After `var x = new Book(\"A\", 100); var y = x; y.Pages = 5;` what is x.Pages, and why?", "answer": "5. Book is a class, so it is a reference type: `var y = x` copies the reference, not the object. x and y point to the same Book, so the change through y is visible through x. To get an independent copy you would have to create a new Book explicitly." }
+    ],
+    "practical": [
+      { "id": "oop-classes-objects-lab1", "minutes": 20, "title": "Model a small thing as a class", "task": "Pick something simple from daily life, such as a to-do item or a bank account. Write a class with two fields, one method and a constructor that rejects bad input, then create three objects and print them.", "done": "The code runs, each object has its own values, and invalid input is rejected at creation." }
+    ]
+  },
+  "interfaces-abstraction": {
+    "order": 2,
+    "prerequisites": ["oop/classes-objects"],
+    "objectives": ["Define an interface and implement it in two classes", "Explain why code that depends on an interface is easier to change", "Decide when an interface is not worth adding"],
+    "exercises": [
+      { "id": "oop-interfaces-abstraction-ex1", "minutes": 5, "prompt": "Define an interface IShape with a method double Area(). Implement it in Circle and Square, then write a method that prints the total area of a list of shapes.", "answer": "interface IShape { double Area(); } class Circle : IShape { public double R; public double Area() => Math.PI * R * R; } class Square : IShape { public double Side; public double Area() => Side * Side; } double Total(IEnumerable<IShape> shapes) => shapes.Sum(s => s.Area()). Total never mentions Circle or Square, so a Triangle can be added later without changing it." },
+      { "id": "oop-interfaces-abstraction-ex2", "minutes": 4, "prompt": "A teammate adds IUserRepository for a class that will only ever have one implementation and is never faked in tests. Is that a mistake?", "answer": "Mild over-engineering. An interface pays off when you need to swap implementations or substitute a fake. With neither, it adds a file and an indirection with no benefit. It is cheap to extract an interface later when a second implementation or a test need appears, so waiting is reasonable." }
+    ],
+    "practical": [
+      { "id": "oop-interfaces-abstraction-lab1", "minutes": 20, "title": "Swap an implementation", "task": "Write a small program that logs messages through an ILogger interface. Make a console logger and a fake in-memory logger, and use the fake to check what was logged.", "done": "The same calling code works with both loggers, and you can assert on the in-memory messages." }
+    ]
+  },
+  "inheritance-polymorphism": {
+    "order": 3,
+    "prerequisites": ["oop/classes-objects", "oop/interfaces-abstraction"],
+    "objectives": ["Create a subclass that overrides a virtual method", "Explain how one call can run different code for different objects", "Judge whether a relationship is really is-a-kind-of"],
+    "exercises": [
+      { "id": "oop-inheritance-polymorphism-ex1", "minutes": 5, "prompt": "Create a base class Employee with a virtual method Pay() returning 1000. Make Manager override it to return base pay plus a 500 bonus. What do new Employee().Pay() and Employee e = new Manager(); e.Pay() return?", "answer": "The first returns 1000. The second returns 1500: the variable is typed Employee but the object is a Manager, and because Pay is virtual and overridden, dynamic dispatch runs the Manager version, which can call base.Pay() + 500." },
+      { "id": "oop-inheritance-polymorphism-ex2", "minutes": 5, "prompt": "Stack extends List so it can reuse Add and Remove. What is wrong with that choice?", "answer": "A stack is not a kind of list: it only allows adding and removing at one end. Inheriting exposes every List method, so callers can insert in the middle and break the stack's rule. Better to hold a private list inside (composition) and expose only Push, Pop and Peek." }
+    ],
+    "practical": [
+      { "id": "oop-inheritance-polymorphism-lab1", "minutes": 25, "title": "A small polymorphic program", "task": "Make a base class Shape with a virtual Describe method and three subclasses that override it. Put one of each in a list typed as Shape and loop over it, calling Describe.", "done": "The loop has no type checks, yet each shape prints its own description." }
+    ]
+  },
+  "coupling-cohesion": {
+    "order": 4,
+    "prerequisites": ["oop/interfaces-abstraction"],
+    "objectives": ["Judge whether a class is cohesive using the one-sentence test", "Identify the concrete dependencies that make a class tightly coupled", "Split a class that does too much into focused parts"],
+    "exercises": [
+      { "id": "oop-coupling-cohesion-ex1", "minutes": 5, "prompt": "A class InvoiceManager calculates tax, formats a PDF and writes to the database. Describe it in one sentence, and say how you would split it.", "answer": "\"Calculates tax and formats a PDF and writes to the database\" needs two ands, so cohesion is low. Split into TaxCalculator, InvoicePdfRenderer and IInvoiceStore. A small InvoiceService can then coordinate the three, and each part changes for only one reason." },
+      { "id": "oop-coupling-cohesion-ex2", "minutes": 4, "prompt": "List three signs that two classes are tightly coupled.", "answer": "A change in one forces edits in the other; one class reaches into the other's fields or internals; one class creates the other with new and needs its concrete type; tests of one cannot run without the other. Using an interface and passing the dependency in loosens all of these." }
+    ],
+    "practical": [
+      { "id": "oop-coupling-cohesion-lab1", "minutes": 25, "title": "Untangle a class", "task": "Find a class that does more than one job. Write its one-sentence description, list its concrete dependencies, and split out one part behind an interface.", "done": "Your description has no and, and one dependency is now injected and replaced by a fake in a test." }
+    ]
+  },
+  "composition-encapsulation": {
+    "order": 5,
+    "prerequisites": ["oop/coupling-cohesion"],
     "objectives": ["Say what invariant a class protects", "Choose composition over inheritance and explain the trade-off", "Avoid constructor traps such as calling virtual methods"],
     "exercises": [
       { "id": "oop-composition-encapsulation-ex1", "minutes": 5, "prompt": "A class has private fields, each with a public getter and setter. Is it encapsulated? Explain using an example of an invariant.", "answer": "Not meaningfully. Encapsulation is about protecting invariants, not hiding fields. If an Order exposes SetTotal, callers can make the total disagree with the line items. A better design exposes AddLine and computes the total internally, so the object can never reach an invalid state." },
@@ -11,21 +59,9 @@
       { "id": "oop-composition-encapsulation-lab1", "minutes": 25, "title": "Replace inheritance in real code", "task": "Find a class in a project you work on that inherits mainly to reuse code. Sketch or make the change to composition: inject the collaborator and delegate to it.", "done": "You can name what got easier to test or change, and anything that got worse." }
     ]
   },
-  "solid": {
-    "order": 2,
-    "prerequisites": ["oop/composition-encapsulation"],
-    "objectives": ["Diagnose which principle is violated from a symptom", "Explain Liskov substitution in terms of behaviour", "Avoid over-engineering in the name of open/closed"],
-    "exercises": [
-      { "id": "oop-solid-ex1", "minutes": 5, "prompt": "Square inherits from Rectangle and overrides SetWidth to also set the height. Which principle does this break? Show the calling code that fails.", "answer": "Liskov substitution. Code that uses a Rectangle can reasonably expect: r.SetWidth(5); r.SetHeight(4); then r.Area() == 20. With a Square the area is 16. The subtype compiles, but it breaks the behaviour its base type promised." },
-      { "id": "oop-solid-ex2", "minutes": 5, "prompt": "A switch on payment type appears in five places, and each new payment type means editing all five. Which principle helps, and when would adding an abstraction be premature?", "answer": "Open/closed: put the behaviour behind an interface, with one implementation per payment type, so a new type means a new class. It's premature when there's one switch, two stable cases and no sign of change. A simple conditional is cheaper until real variation appears." }
-    ],
-    "practical": [
-      { "id": "oop-solid-lab1", "minutes": 25, "title": "Audit a class from your codebase", "task": "Take the largest service class in a project you know. List its reasons to change and its dependencies, then name one concrete split that would remove a reason to change.", "done": "You have a short written note naming the principle, the symptom and the split, and you've judged whether it's worth doing now." }
-    ]
-  },
   "dependency-injection": {
-    "order": 3,
-    "prerequisites": ["oop/solid"],
+    "order": 6,
+    "prerequisites": ["oop/interfaces-abstraction", "oop/coupling-cohesion"],
     "objectives": ["Distinguish dependency inversion from dependency injection", "Pick the right service lifetime and spot captive dependencies", "Explain how a hierarchical injector resolves a token"],
     "exercises": [
       { "id": "oop-dependency-injection-ex1", "minutes": 5, "prompt": "In ASP.NET Core, a singleton service takes a scoped DbContext in its constructor. What goes wrong?", "answer": "This is a captive dependency. The singleton holds one DbContext for the application's lifetime, so a context meant for one request is shared across requests, is not thread-safe and accumulates tracked entities. Validation catches this in development by default. The fix is to inject IServiceScopeFactory and create a scope for each unit of work." },
@@ -35,8 +71,20 @@
       { "id": "oop-dependency-injection-lab1", "minutes": 25, "title": "Make a hard-to-test class testable", "task": "Find code that calls the clock, a database or an HTTP client directly. Inject that dependency and write one test using a fake, for example a fixed clock.", "done": "A test that was impossible or flaky before now runs fast and gives the same result each time." }
     ]
   },
+  "solid": {
+    "order": 7,
+    "prerequisites": ["oop/inheritance-polymorphism", "oop/coupling-cohesion"],
+    "objectives": ["Diagnose which principle is violated from a symptom", "Explain Liskov substitution in terms of behaviour", "Avoid over-engineering in the name of open/closed"],
+    "exercises": [
+      { "id": "oop-solid-ex1", "minutes": 5, "prompt": "Square inherits from Rectangle and overrides SetWidth to also set the height. Which principle does this break? Show the calling code that fails.", "answer": "Liskov substitution. Code that uses a Rectangle can reasonably expect: r.SetWidth(5); r.SetHeight(4); then r.Area() == 20. With a Square the area is 16. The subtype compiles, but it breaks the behaviour its base type promised." },
+      { "id": "oop-solid-ex2", "minutes": 5, "prompt": "A switch on payment type appears in five places, and each new payment type means editing all five. Which principle helps, and when would adding an abstraction be premature?", "answer": "Open/closed: put the behaviour behind an interface, with one implementation per payment type, so a new type means a new class. It's premature when there's one switch, two stable cases and no sign of change. A simple conditional is cheaper until real variation appears." }
+    ],
+    "practical": [
+      { "id": "oop-solid-lab1", "minutes": 25, "title": "Audit a class from your codebase", "task": "Take the largest service class in a project you know. List its reasons to change and its dependencies, then name one concrete split that would remove a reason to change.", "done": "You have a short written note naming the principle, the symptom and the split, and you've judged whether it's worth doing now." }
+    ]
+  },
   "design-patterns": {
-    "order": 4,
+    "order": 8,
     "prerequisites": ["oop/solid"],
     "objectives": ["Choose a pattern from the problem, not from its name", "Tell look-alike patterns apart by intent", "Recognise when a pattern adds more than it saves"],
     "exercises": [

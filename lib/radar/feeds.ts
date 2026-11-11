@@ -137,7 +137,11 @@ export function parseKev(json: unknown, source: SourceDef, now: Date): FeedItem[
       ]
         .filter(Boolean)
         .join(" ");
-      const title = `Actively exploited: ${v.vendorProject ?? ""} ${v.product ?? ""} ${v.cveID} (${v.vulnerabilityName ?? "vulnerability"})`;
+      // CISA often repeats the vendor inside the product ("WordPress" / "WordPress Core"), so name it once.
+      const vendor = v.vendorProject ?? "";
+      const product = v.product ?? "";
+      const name = product.toLowerCase().startsWith(vendor.toLowerCase()) ? product : `${vendor} ${product}`.trim();
+      const title = `Actively exploited: ${name} ${v.cveID} (${v.vulnerabilityName ?? "vulnerability"})`;
       // The date CISA added it is when it became known-exploited; noon UTC avoids a timezone shift to the previous day.
       return make(source, title, `https://nvd.nist.gov/vuln/detail/${v.cveID}`, v.dateAdded ? `${v.dateAdded}T12:00:00Z` : null, undefined, body, now);
     })

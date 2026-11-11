@@ -71,21 +71,21 @@ misconception, and very fast answers (under ~5s) suggest guessing.
 
 ### 3. Decide what to improve (keep it small)
 
-Work on at most **3 topics** per run, in this priority order:
+**Lessons and explanations only. Don't add questions:** the nightly mentor writes new practice questions for
+tonight's gaps (`mentor/questions.json`, `docs/mentor-routine.md`), and two writers on the same misses produce
+duplicates. Work on at most **3 topics** per run, in this priority order:
 
 1. **Repeatedly missed questions** (missed 2+ times). Look at the wrong picks:
    they show the misconception. Sharpen the explanation so it addresses that
    misconception directly, and add a short section to the topic's lesson that
    covers it.
-2. **Weak topics.** Add 2–3 new questions per topic that approach the concept
-   from a different angle (a scenario, a code snippet, "what breaks if…"), with
-   mixed difficulty. Improve the lesson where the misses suggest a gap.
+2. **Weak topics.** Improve the lesson where the misses suggest a gap: a
+   scenario, a code snippet, "what breaks if…".
 3. **Lessons read but then still missed.** The lesson isn't landing. Rewrite
    the section that covers the missed concept.
-4. **No new data, or no weak topics.** Add 1–2 questions to the
-   topic with the fewest questions, or deepen a lesson. Stay at interview and
-   real-work level for a full-stack C#/.NET, Angular, TypeScript, MongoDB and
-   Kubernetes engineer.
+4. **No new data, or no weak topics.** Deepen the lesson with the least depth,
+   or make no change. Stay at interview and real-work level for a full-stack
+   C#/.NET, Angular, TypeScript, MongoDB and Kubernetes engineer.
 
 Content conventions:
 
@@ -148,7 +148,7 @@ PR body template:
 
 **What changed:**
 - lessons: …
-- questions: +N (ids …), explanations improved: …
+- explanations improved: … (question ids)
 
 **On the radar:** the top 3 Radar stories from the last day, one line each, with the link
 

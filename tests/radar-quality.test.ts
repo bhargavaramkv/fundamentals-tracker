@@ -198,6 +198,7 @@ describe("why it matters", () => {
   it("gives a rule note labelled as such, and nothing when there's no signal", () => {
     expect(whyItMatters({ title: "Cloudflare services now generally available", excerpt: "", sources: [] })?.kind).toBe("rule");
     expect(whyItMatters({ title: "A quiet story about nothing", excerpt: "", sources: [] })).toBeNull();
+    expect(whyItMatters({ title: "A story that merely mentions mongodb and kubernetes", excerpt: "", sources: [] })).toBeNull();
   });
 
   it("flags CISA's exploited list above everything else", () => {

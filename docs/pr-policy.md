@@ -17,15 +17,18 @@ Applies to `main`, which deploys to GitHub Pages on every push.
 6. Prefer **squash merge** for feature and fix PRs. A regular merge is fine for
    the daily-routine PRs.
 
-## When Claude Code should wait for the owner
+## Claude Code's authority
 
-Merging deploys the site, so Claude Code merges only when the owner asked for
-that PR to be merged (or enabled auto-merge on it). Claude Code does not merge
-on its own initiative.
+The owner has given Claude Code full authority over this project (decision of
+2026-11-05). In an interactive Claude Code session, Claude Code may open and
+merge PRs on its own judgment, including PRs that change `.github/workflows/`,
+`vault/`, `lib/login-vault.json` or the sync/auth code (`lib/auth.ts`,
+`lib/vault.ts`, `lib/storage.ts`). It still goes through a PR, never a direct
+push to `main`.
 
 - Never merge a PR with failing or pending required checks.
-- Never merge a PR that changes `.github/workflows/`, `vault/` or the sync/auth
-  code (`lib/auth.ts`, `lib/storage.ts`) without the owner's explicit go-ahead.
+- The unattended daily routine does **not** inherit this: it opens PRs but does
+  not merge, and does not touch the files listed above.
 
 ## Setup (once, in GitHub)
 

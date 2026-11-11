@@ -1,4 +1,8 @@
+import { activeProgress } from "../progress";
 import { DATA_REPO } from "../storage";
+import type { ProgressData } from "../types";
+import { validateQuestions } from "../validate";
+import { isQuestionBank, type GeneratedQuestion } from "./questions";
 import { daysBetween, forDateOf } from "./time";
 import type { CurrentPointer, LearnerState, MentorActivity, MentorStatus, Submission } from "./types";
 
@@ -40,6 +44,20 @@ export async function loadMentor(token: string | null): Promise<MentorLoad> {
   }
 }
 
+/** Questions the nightly mentor wrote. Any failure means none: the static bank still works. */
+export async function loadGeneratedQuestions(token: string | null): Promise<GeneratedQuestion[]> {
+  if (!token) return [];
+  try {
+    const bank = await readFile<unknown>(token, "mentor/questions.json");
+    if (!isQuestionBank(bank)) return [];
+    const { questions } = validateQuestions(bank.questions);
+    const ok = new Set(questions.map((q) => q.id));
+    return bank.questions.filter((q) => ok.has(q.id));
+  } catch {
+    return [];
+  }
+}
+
 function toBase64(text: string): string {
   const bytes = new TextEncoder().encode(text);
   let binary = "";
@@ -76,10 +94,34 @@ export const OPEN_PROMPT = "Mentor session: I want to discuss something. Follow 
 
 export type Freshness = "fresh" | "carried" | "stale";
 
-/** How much the page can trust the plan. Stale means the mentor has been silent long enough to say so plainly. */
-export function freshnessOf(state: LearnerState, now: Date): { kind: Freshness; ageDays: number } {
-  const ageDays = daysBetween(state.plan.forDate, forDateOf(now));
+/**
+ * How much the page can trust the plan. Stale means the mentor has been silent long enough to say so plainly.
+ * A night with nothing new leaves the plan as it was, so the last successful run counts as well as the plan's own date.
+ */
+export function freshnessOf(state: LearnerState, now: Date, status?: MentorStatus | null): { kind: Freshness; ageDays: number } {
+  const heardFrom = [state.plan.forDate, status?.lastSuccessForDate].filter((d): d is string => !!d).sort().at(-1) as string;
+  const ageDays = daysBetween(heardFrom, forDateOf(now));
   return { kind: ageDays <= 0 ? "fresh" : ageDays <= 3 ? "carried" : "stale", ageDays };
+}
+
+/**
+ * The skills the current plan says to work on, in its order: primary, supporting, then revisions that are due.
+ * Practice puts these first. A stale plan gives none, so the rule-based order takes over rather than old advice.
+ */
+export function planFocus(state: LearnerState, now: Date, status?: MentorStatus | null): string[] {
+  if (freshnessOf(state, now, status).kind === "stale") return [];
+  const today = forDateOf(now);
+  const { primary, supporting, revision } = state.plan;
+  return [...new Set([...primary.skillIds, ...supporting.flatMap((a) => a.skillIds), ...revision.filter((r) => r.due <= today).map((r) => r.skillId)])];
+}
+
+/** Work done since the last analysis that tonight's run hasn't seen. Reading and resource visits aren't evidence, so they don't count. */
+export function workSince(data: ProgressData, since: string): { answers: number; activities: number } {
+  const active = activeProgress(data);
+  return {
+    answers: active.answers.filter((a) => a.answeredAt > since).length,
+    activities: active.activities.filter((a) => a.kind !== "resource" && a.at > since).length,
+  };
 }
 
 /** Today's run didn't report in. A quota limit or outage leaves no session behind, so this is all anyone can know. */

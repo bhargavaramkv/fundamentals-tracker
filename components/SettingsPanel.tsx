@@ -75,8 +75,9 @@ export function SettingsPanel() {
   const vault = `${DATA_REPO.owner}/${DATA_REPO.repo}`;
 
   return (
-    <div className="mx-auto max-w-3xl space-y-10">
+    <div className="max-w-3xl space-y-10">
       <header className="page-head">
+        <p className="eyebrow">More</p>
         <h1>Settings</h1>
       </header>
 
@@ -91,7 +92,8 @@ export function SettingsPanel() {
           Currently:{" "}
           <strong>{storeKind === "github" ? `this browser + ${vault} (private)` : "this browser only"}</strong> ·{" "}
           {data.answers.length} answers, {data.sessions.length} sessions, {Object.keys(data.reviews).length} questions in
-          review, {data.activities.length} exercises and readings, {data.codingAttempts.length} coding attempts.
+          review, {data.activities.length} exercises and readings, {data.codingAttempts.length} in-app coding attempts. Your LeetCode history
+          is stored separately and shown on the Coding page.
         </p>
         {archivedCount > 0 && (
           <p className="mt-2 text-sm text-ink-3">

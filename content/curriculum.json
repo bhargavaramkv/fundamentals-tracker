@@ -1,0 +1,54 @@
+{
+  "tracks": [
+    {
+      "domain": "dsa",
+      "title": "Data structures & algorithms",
+      "tagline": "How programs store data and solve problems fast.",
+      "stages": [
+        { "id": "foundations", "title": "Foundations", "summary": "Start here if the words array, recursion or Big-O feel fuzzy.", "topics": ["big-o-basics", "arrays-strings", "linked-lists", "stacks-queues", "recursion"] },
+        { "id": "core", "title": "Core", "summary": "The tools you reach for every day.", "topics": ["sorting-searching", "hashing", "trees-basics", "graphs-basics"] },
+        { "id": "interview", "title": "Interview depth", "summary": "Sharper analysis and the classic hard patterns.", "topics": ["complexity", "trees-graphs", "dynamic-programming"] }
+      ]
+    },
+    {
+      "domain": "oop",
+      "title": "OOP & design principles",
+      "tagline": "How to shape code so it stays easy to change.",
+      "stages": [
+        { "id": "foundations", "title": "Foundations", "summary": "Classes, objects and the four ideas behind them.", "topics": ["classes-objects", "interfaces-abstraction", "inheritance-polymorphism"] },
+        { "id": "core", "title": "Core", "summary": "Design habits that keep code flexible.", "topics": ["coupling-cohesion", "composition-encapsulation", "dependency-injection"] },
+        { "id": "interview", "title": "Interview depth", "summary": "The principles and patterns interviewers ask about.", "topics": ["solid", "design-patterns"] }
+      ]
+    },
+    {
+      "domain": "databases",
+      "title": "Databases",
+      "tagline": "How data is stored, queried and kept correct.",
+      "stages": [
+        { "id": "foundations", "title": "Foundations", "summary": "Tables, keys and your first queries.", "topics": ["relational-basics", "sql-queries", "joins-aggregation"] },
+        { "id": "core", "title": "Core", "summary": "Designing tables and making queries fast.", "topics": ["data-modeling", "indexing", "nosql-basics"] },
+        { "id": "interview", "title": "Interview depth", "summary": "Correctness under concurrency, and scaling out.", "topics": ["transactions", "replication-sharding"] }
+      ]
+    },
+    {
+      "domain": "system-design",
+      "title": "System design",
+      "tagline": "How big systems are put together and kept running.",
+      "stages": [
+        { "id": "foundations", "title": "Foundations", "summary": "Clients, servers and the numbers that matter.", "topics": ["client-server", "latency-throughput", "load-balancing-basics"] },
+        { "id": "core", "title": "Core", "summary": "The building blocks of every large system.", "topics": ["scalability", "caching", "api-design"] },
+        { "id": "interview", "title": "Interview depth", "summary": "Distributed data and asynchronous work.", "topics": ["consistency", "messaging"] }
+      ]
+    },
+    {
+      "domain": "web",
+      "title": "Web & networking",
+      "tagline": "What really happens between a click and a page.",
+      "stages": [
+        { "id": "foundations", "title": "Foundations", "summary": "How computers find and talk to each other.", "topics": ["internet-basics", "dns-urls", "http-requests"] },
+        { "id": "core", "title": "Core", "summary": "HTTP in depth, browsers and logging in.", "topics": ["http", "browser", "auth-basics"] },
+        { "id": "interview", "title": "Interview depth", "summary": "Transport details and web security.", "topics": ["networking", "security"] }
+      ]
+    }
+  ]
+}

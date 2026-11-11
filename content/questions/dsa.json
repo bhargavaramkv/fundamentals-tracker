@@ -90,6 +90,21 @@
     "explanation": "sum(i..j) = prefix[j] − prefix[i−1], so you need some earlier prefix equal to prefix[j] − k. Seed the set with 0. A sliding window only works when all numbers are non-negative, because the window sum then changes monotonically."
   },
   {
+    "id": "dsa-hashing-4",
+    "domain": "dsa",
+    "topic": "hashing",
+    "difficulty": 2,
+    "prompt": "A C# Point class overrides Equals and GetHashCode using its mutable X and Y. You call dict.Add(p, \"A\"), then set p.X = 5, then call dict.ContainsKey(p) with the same object. What most likely happens?",
+    "options": [
+      "It returns true, because the dictionary compares by reference before hashing",
+      "It throws InvalidOperationException, because the key changed while stored",
+      "It returns false, because the new hash code points at a different bucket",
+      "It returns true, because the dictionary rehashes the key on every lookup call"
+    ],
+    "answer": 2,
+    "explanation": "Dictionary saves the hash code when a key is added and files the entry under it. After the mutation, GetHashCode returns a new value, so the lookup searches the wrong bucket and doesn't find the entry, even though it's the same object. Dictionary only checks equality inside the bucket the hash points to, so a reference check never gets a chance to run. Nothing throws: the entry is just stranded. Use immutable keys (a record or readonly struct) or don't mutate keys while they are stored."
+  },
+  {
     "id": "dsa-trees-graphs-1",
     "domain": "dsa",
     "topic": "trees-graphs",
@@ -178,5 +193,485 @@
     ],
     "answer": 0,
     "explanation": "Keep tails[k] = the smallest tail of any increasing subsequence of length k+1. For each element, binary-search tails and replace (or append). tails stays sorted, so each step is O(log n). The simple DP is O(n²)."
+  },
+  {
+    "id": "dsa-big-o-basics-1",
+    "domain": "dsa",
+    "topic": "big-o-basics",
+    "difficulty": 1,
+    "prompt": "What does Big-O notation describe about an algorithm?",
+    "options": [
+      "How its running time or memory grows as the input gets larger",
+      "The exact number of seconds it takes on your machine",
+      "How many lines of code it contains",
+      "Which programming language it needs"
+    ],
+    "answer": 0,
+    "explanation": "Big-O describes growth, not exact timing. Seconds depend on the hardware, but the way work scales with input size stays the same everywhere."
+  },
+  {
+    "id": "dsa-big-o-basics-2",
+    "domain": "dsa",
+    "topic": "big-o-basics",
+    "difficulty": 1,
+    "prompt": "A function reads the first item of an array and returns it. What is its time complexity?",
+    "options": [
+      "O(n)",
+      "O(1)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "answer": 1,
+    "explanation": "It does one step whatever the array size, so the cost is constant. Constant time is written O(1)."
+  },
+  {
+    "id": "dsa-big-o-basics-3",
+    "domain": "dsa",
+    "topic": "big-o-basics",
+    "difficulty": 2,
+    "prompt": "A loop runs n times and inside it does 3 separate simple operations. What is the Big-O?",
+    "options": [
+      "O(3)",
+      "O(n³)",
+      "O(n)",
+      "O(3n²)"
+    ],
+    "answer": 2,
+    "explanation": "Constants are dropped because they do not change the shape of the growth. Three operations per item is still one pass over n items, so O(n)."
+  },
+  {
+    "id": "dsa-big-o-basics-4",
+    "domain": "dsa",
+    "topic": "big-o-basics",
+    "difficulty": 2,
+    "prompt": "Code does one loop of n steps, followed by two nested loops of n steps each. What is the overall Big-O?",
+    "options": [
+      "O(n)",
+      "O(n³)",
+      "O(n + n)",
+      "O(n²)"
+    ],
+    "answer": 3,
+    "explanation": "Loops one after another add, and nested loops multiply, giving n + n². Only the fastest-growing term matters for large n, so the total is O(n²)."
+  },
+  {
+    "id": "dsa-arrays-strings-1",
+    "domain": "dsa",
+    "topic": "arrays-strings",
+    "difficulty": 1,
+    "prompt": "An array holds 8 items. Which index reads the last one?",
+    "options": [
+      "8",
+      "6",
+      "7",
+      "0"
+    ],
+    "answer": 2,
+    "explanation": "Indexes start at 0, so 8 items occupy indexes 0 to 7. The last index is always the length minus one."
+  },
+  {
+    "id": "dsa-arrays-strings-2",
+    "domain": "dsa",
+    "topic": "arrays-strings",
+    "difficulty": 1,
+    "prompt": "Why can an array read the item at index 500 as fast as the item at index 2?",
+    "options": [
+      "It stores indexes in a sorted list",
+      "Items sit side by side, so the address is start plus index times item size",
+      "It caches the first 500 items",
+      "It checks each item in parallel"
+    ],
+    "answer": 1,
+    "explanation": "Because every box is the same size and they are contiguous, the computer calculates the address in one step. That is why indexed access is O(1)."
+  },
+  {
+    "id": "dsa-arrays-strings-3",
+    "domain": "dsa",
+    "topic": "arrays-strings",
+    "difficulty": 2,
+    "prompt": "What is the cost of inserting an item at the front of an array of n items?",
+    "options": [
+      "O(1)",
+      "O(log n)",
+      "O(n²)",
+      "O(n)"
+    ],
+    "answer": 3,
+    "explanation": "Every existing item must shift one place to the right to make room. That is n moves in the worst case, so O(n)."
+  },
+  {
+    "id": "dsa-arrays-strings-4",
+    "domain": "dsa",
+    "topic": "arrays-strings",
+    "difficulty": 2,
+    "prompt": "Why is building a large string by repeating s += piece in a loop considered slow in C#?",
+    "options": [
+      "Strings can only hold 256 characters",
+      "Each concatenation copies the whole string into a new one, giving O(n²) overall",
+      "The loop counter overflows",
+      "Concatenation uses recursion"
+    ],
+    "answer": 1,
+    "explanation": "Strings are immutable, so every += allocates a new string and copies the old text. Copying grows with each step, totalling O(n²), while StringBuilder appends without the repeated copying."
+  },
+  {
+    "id": "dsa-linked-lists-1",
+    "domain": "dsa",
+    "topic": "linked-lists",
+    "difficulty": 1,
+    "prompt": "What does each node in a singly linked list contain?",
+    "options": [
+      "A value and a pointer to the next node",
+      "Only a value",
+      "A value and its index",
+      "Two values"
+    ],
+    "answer": 0,
+    "explanation": "Each node stores its data plus a reference to the next node. The last node's pointer is null, which marks the end."
+  },
+  {
+    "id": "dsa-linked-lists-2",
+    "domain": "dsa",
+    "topic": "linked-lists",
+    "difficulty": 1,
+    "prompt": "You hold only the head of a linked list. What is the cost of reaching the 500th node?",
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(500²)"
+    ],
+    "answer": 1,
+    "explanation": "There are no indexes to jump with, so you follow Next pointers one at a time. Reaching position k takes k steps, which is O(n) in general."
+  },
+  {
+    "id": "dsa-linked-lists-3",
+    "domain": "dsa",
+    "topic": "linked-lists",
+    "difficulty": 2,
+    "prompt": "Which statement is true about inserting right after a node you already have a reference to?",
+    "options": [
+      "It takes O(n) because items shift",
+      "It needs sorting first",
+      "It is O(1) because only two pointers change",
+      "It is impossible in a linked list"
+    ],
+    "answer": 2,
+    "explanation": "No items move. You point the new node at the old next node and then point the current node at the new one, which is constant work."
+  },
+  {
+    "id": "dsa-linked-lists-4",
+    "domain": "dsa",
+    "topic": "linked-lists",
+    "difficulty": 2,
+    "prompt": "In a linked list you write a.Next = n before setting n.Next = a.Next, to insert n after a. What goes wrong?",
+    "options": [
+      "Nothing, the order does not matter",
+      "The list becomes sorted",
+      "The new node is deleted automatically",
+      "The rest of the list after a is lost"
+    ],
+    "answer": 3,
+    "explanation": "Setting a.Next overwrites the only link to the following nodes. Then n.Next = a.Next just points n at itself, so the remainder of the list is unreachable."
+  },
+  {
+    "id": "dsa-stacks-queues-1",
+    "domain": "dsa",
+    "topic": "stacks-queues",
+    "difficulty": 1,
+    "prompt": "You push A, then B, then C onto a stack, then pop once. What is returned?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "Nothing"
+    ],
+    "answer": 2,
+    "explanation": "A stack is last in, first out. C was pushed last, so it is on top and is popped first."
+  },
+  {
+    "id": "dsa-stacks-queues-2",
+    "domain": "dsa",
+    "topic": "stacks-queues",
+    "difficulty": 1,
+    "prompt": "Which structure serves items in the order they arrived?",
+    "options": [
+      "Queue",
+      "Stack",
+      "Binary tree",
+      "Hash table"
+    ],
+    "answer": 0,
+    "explanation": "A queue is first in, first out, like a line at a shop. The oldest waiting item is removed first."
+  },
+  {
+    "id": "dsa-stacks-queues-3",
+    "domain": "dsa",
+    "topic": "stacks-queues",
+    "difficulty": 2,
+    "prompt": "Why is a stack the natural tool for checking that brackets like ([{}]) are balanced?",
+    "options": [
+      "It sorts the brackets",
+      "It counts the brackets faster",
+      "The most recent opening bracket must be closed first, which is last-in-first-out",
+      "It uses less memory than a loop"
+    ],
+    "answer": 2,
+    "explanation": "Nested brackets close in the reverse order they open. Pushing openers and popping on each closer matches that last-in-first-out pattern exactly."
+  },
+  {
+    "id": "dsa-stacks-queues-4",
+    "domain": "dsa",
+    "topic": "stacks-queues",
+    "difficulty": 2,
+    "prompt": "A developer uses a List and calls RemoveAt(0) to dequeue from a queue of n items. What is the problem?",
+    "options": [
+      "It throws an exception every time",
+      "It returns the wrong item",
+      "It reverses the list",
+      "Each removal shifts all remaining items, costing O(n)"
+    ],
+    "answer": 3,
+    "explanation": "Removing from the front of an array-backed list moves every other item one place left. A real Queue removes from the front in O(1), so large queues become slow with the List approach."
+  },
+  {
+    "id": "dsa-recursion-1",
+    "domain": "dsa",
+    "topic": "recursion",
+    "difficulty": 1,
+    "prompt": "What is a base case in a recursive function?",
+    "options": [
+      "The input that stops the recursion and returns directly",
+      "The first call made by the user",
+      "The most expensive call",
+      "A call that fails"
+    ],
+    "answer": 0,
+    "explanation": "The base case is the smallest problem, answered without any further recursive call. Without it, the function would call itself forever."
+  },
+  {
+    "id": "dsa-recursion-2",
+    "domain": "dsa",
+    "topic": "recursion",
+    "difficulty": 1,
+    "prompt": "What does Factorial(5) return, with Factorial(n) = n * Factorial(n-1) and Factorial(1) = 1?",
+    "options": [
+      "15",
+      "25",
+      "120",
+      "60"
+    ],
+    "answer": 2,
+    "explanation": "It expands to 5 * 4 * 3 * 2 * 1, which equals 120. Each call waits for the smaller call to return before multiplying."
+  },
+  {
+    "id": "dsa-recursion-3",
+    "domain": "dsa",
+    "topic": "recursion",
+    "difficulty": 2,
+    "prompt": "Which problem makes a recursive function crash with a stack overflow?",
+    "options": [
+      "Using a base case",
+      "Returning too early",
+      "Using integers",
+      "Calls nest too deep, for example no base case or a very long input"
+    ],
+    "answer": 3,
+    "explanation": "Every unfinished call keeps a frame on the call stack, and that memory is limited. Infinite or extremely deep recursion fills it up and crashes the program."
+  },
+  {
+    "id": "dsa-recursion-4",
+    "domain": "dsa",
+    "topic": "recursion",
+    "difficulty": 2,
+    "prompt": "A naive recursive Fib(n) = Fib(n-1) + Fib(n-2) takes exponential time. What fixes this most directly?",
+    "options": [
+      "Store each computed result so it is calculated once",
+      "Use a larger stack",
+      "Change the base case to Fib(0) = 0",
+      "Call the function from a loop"
+    ],
+    "answer": 0,
+    "explanation": "Fib(n-1) and Fib(n-2) both recompute many of the same smaller values. Saving results (memoization) means each Fib(k) is computed once, making the total time linear."
+  },
+  {
+    "id": "dsa-sorting-searching-1",
+    "domain": "dsa",
+    "topic": "sorting-searching",
+    "difficulty": 1,
+    "prompt": "Binary search requires which condition on the data?",
+    "options": [
+      "It must be sorted",
+      "It must contain no duplicates",
+      "It must be stored in a linked list",
+      "It must have an even length"
+    ],
+    "answer": 0,
+    "explanation": "Binary search decides which half to discard by comparing with the middle item. That decision is only valid when the data is in order."
+  },
+  {
+    "id": "dsa-sorting-searching-2",
+    "domain": "dsa",
+    "topic": "sorting-searching",
+    "difficulty": 1,
+    "prompt": "Binary search on 1,024 sorted items needs at most about how many comparisons?",
+    "options": [
+      "1,024",
+      "512",
+      "32",
+      "10"
+    ],
+    "answer": 3,
+    "explanation": "Each comparison halves the range, and 1,024 is 2 to the power of 10. So about 10 halvings reach a single item, which is O(log n)."
+  },
+  {
+    "id": "dsa-sorting-searching-3",
+    "domain": "dsa",
+    "topic": "sorting-searching",
+    "difficulty": 2,
+    "prompt": "Selection sort uses a loop inside a loop to find the smallest remaining item each time. What is its time complexity?",
+    "options": [
+      "O(n log n)",
+      "O(n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "answer": 2,
+    "explanation": "For each of n positions it scans up to n items, giving about n * n / 2 comparisons. That is O(n²), too slow for large inputs compared with n log n sorts."
+  },
+  {
+    "id": "dsa-sorting-searching-4",
+    "domain": "dsa",
+    "topic": "sorting-searching",
+    "difficulty": 2,
+    "prompt": "Why is merge sort O(n log n)?",
+    "options": [
+      "It compares every pair of items",
+      "It splits the array in half about log n times, and merging each level costs about n",
+      "It sorts only half of the array",
+      "It uses a hash table"
+    ],
+    "answer": 1,
+    "explanation": "Halving repeatedly gives about log n levels. At every level, merging the sorted pieces touches each of the n items once, so the total is n times log n."
+  },
+  {
+    "id": "dsa-trees-basics-1",
+    "domain": "dsa",
+    "topic": "trees-basics",
+    "difficulty": 1,
+    "prompt": "In a tree, what is a leaf?",
+    "options": [
+      "A node with no children",
+      "The top node",
+      "A node with two children",
+      "A node with no parent"
+    ],
+    "answer": 0,
+    "explanation": "A leaf sits at the bottom of a branch and has nothing below it. The node with no parent is the root."
+  },
+  {
+    "id": "dsa-trees-basics-2",
+    "domain": "dsa",
+    "topic": "trees-basics",
+    "difficulty": 1,
+    "prompt": "In a binary search tree, where do values smaller than a node go?",
+    "options": [
+      "In its right subtree",
+      "In its left subtree",
+      "Anywhere below it",
+      "Above it"
+    ],
+    "answer": 1,
+    "explanation": "The BST rule is that smaller values are on the left and larger on the right, for every node. This is what lets search discard half the tree at each step."
+  },
+  {
+    "id": "dsa-trees-basics-3",
+    "domain": "dsa",
+    "topic": "trees-basics",
+    "difficulty": 2,
+    "prompt": "What does an in-order traversal of a binary search tree return?",
+    "options": [
+      "The leaves only",
+      "The values in insertion order",
+      "The values from the bottom level upward",
+      "The values in ascending order"
+    ],
+    "answer": 3,
+    "explanation": "In-order visits left, node, right. Since the left subtree is smaller and the right is larger, the output comes out sorted."
+  },
+  {
+    "id": "dsa-trees-basics-4",
+    "domain": "dsa",
+    "topic": "trees-basics",
+    "difficulty": 2,
+    "prompt": "You insert 1, 2, 3, 4, 5 in that order into an empty plain BST. What happens to search time?",
+    "options": [
+      "It stays O(log n)",
+      "It becomes O(1)",
+      "It degrades to O(n) because the tree is a chain",
+      "It becomes O(n²)"
+    ],
+    "answer": 2,
+    "explanation": "Each new value is larger than all earlier ones, so it goes to the right every time, producing a long chain. Searching a chain means walking through every node, which is O(n). Balanced trees avoid this."
+  },
+  {
+    "id": "dsa-graphs-basics-1",
+    "domain": "dsa",
+    "topic": "graphs-basics",
+    "difficulty": 1,
+    "prompt": "What are the two parts of a graph?",
+    "options": [
+      "Nodes and edges",
+      "Roots and leaves",
+      "Keys and values",
+      "Stacks and queues"
+    ],
+    "answer": 0,
+    "explanation": "Nodes (vertices) are the items, and edges are the connections between them. Directed edges have a direction, undirected ones do not."
+  },
+  {
+    "id": "dsa-graphs-basics-2",
+    "domain": "dsa",
+    "topic": "graphs-basics",
+    "difficulty": 1,
+    "prompt": "Which data structure does breadth-first search use to decide what to visit next?",
+    "options": [
+      "A stack",
+      "A sorted array",
+      "A queue",
+      "A hash function"
+    ],
+    "answer": 2,
+    "explanation": "A queue serves nodes in the order they were discovered, so nearer nodes are processed before farther ones. That ring-by-ring order is what defines BFS."
+  },
+  {
+    "id": "dsa-graphs-basics-3",
+    "domain": "dsa",
+    "topic": "graphs-basics",
+    "difficulty": 2,
+    "prompt": "Why does BFS find the path with the fewest edges in an unweighted graph?",
+    "options": [
+      "It always picks the smallest node",
+      "It never visits a node twice",
+      "It uses recursion",
+      "It explores nodes in order of increasing distance from the start"
+    ],
+    "answer": 3,
+    "explanation": "All nodes one edge away are processed before any two edges away, and so on. The first time a node is reached therefore uses the fewest possible edges."
+  },
+  {
+    "id": "dsa-graphs-basics-4",
+    "domain": "dsa",
+    "topic": "graphs-basics",
+    "difficulty": 2,
+    "prompt": "What is the time complexity of BFS or DFS on a graph with V nodes and E edges using an adjacency list?",
+    "options": [
+      "O(V * E)",
+      "O(V + E)",
+      "O(V²)",
+      "O(E log V)"
+    ],
+    "answer": 1,
+    "explanation": "Each node is processed once and each edge is examined a constant number of times. Adding those gives O(V + E)."
   }
 ]

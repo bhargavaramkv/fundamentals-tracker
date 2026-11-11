@@ -1,50 +1,272 @@
 {
-  "data-modeling": {
+  "relational-basics": {
     "order": 1,
     "prerequisites": [],
-    "objectives": ["Normalise a schema and say what each normal form prevents", "Choose embedding or referencing in MongoDB from the access pattern", "Plan a schema change that doesn't need downtime"],
+    "objectives": [
+      "Describe a table, a row and a column",
+      "Identify the primary key and foreign key in a pair of tables",
+      "Explain what a foreign key stops the database from allowing"
+    ],
     "exercises": [
-      { "id": "databases-data-modeling-ex1", "minutes": 5, "prompt": "When should you embed a sub-document in MongoDB rather than reference another collection? Give one case for each.", "answer": "Embed when the data is read together, belongs to its parent and stays small and bounded, such as an order's shipping address. Reference when the data grows without bound, is shared by many parents or changes independently, such as a user's activity log or a product used by many orders." },
-      { "id": "databases-data-modeling-ex2", "minutes": 5, "prompt": "You need to rename a column on a busy table with no downtime. Describe the steps.", "answer": "Expand and contract. Add the new column, then deploy code that writes to both columns. Backfill existing rows in batches, switch reads to the new column, stop writing to the old one, and finally drop it. Each step works with both the previous and next code version, so you can roll back at any point." }
+      {
+        "id": "databases-relational-basics-ex1",
+        "minutes": 3,
+        "prompt": "A school keeps students and classes. Name two tables and say which columns link them.",
+        "answer": "Tables: students (id, name, class_id) and classes (id, title). students.class_id is a foreign key to classes.id, and each id is the primary key of its own table. Many students can point at one class, and the class title is stored once."
+      },
+      {
+        "id": "databases-relational-basics-ex2",
+        "minutes": 4,
+        "prompt": "Why store a customer_id in an order instead of the customer's name?",
+        "answer": "The name is a fact about the customer, so it belongs in one row of the customers table. Storing only the id means a rename changes one row, nothing gets out of sync, and the foreign key makes the database reject ids that do not exist."
+      }
     ],
     "practical": [
-      { "id": "databases-data-modeling-lab1", "minutes": 30, "title": "Model the same domain twice", "task": "Model orders, line items and customers once in third normal form and once as MongoDB documents. Write the three most common queries against each.", "done": "You can name one query that's simpler in each model, and what each model costs on update." }
+      {
+        "id": "databases-relational-basics-lab1",
+        "minutes": 20,
+        "title": "Build two linked tables",
+        "task": "Install SQLite or use PostgreSQL locally. Create customers and orders tables with primary keys and a foreign key, insert a few rows, then try inserting an order for a customer id that does not exist.",
+        "done": "You have seen the database refuse the bad insert and can explain why."
+      }
+    ]
+  },
+  "sql-queries": {
+    "order": 2,
+    "prerequisites": [
+      "databases/relational-basics"
+    ],
+    "objectives": [
+      "Write a SELECT with WHERE and ORDER BY",
+      "Test for missing values using IS NULL",
+      "Change data safely with INSERT, UPDATE and DELETE"
+    ],
+    "exercises": [
+      {
+        "id": "databases-sql-queries-ex1",
+        "minutes": 4,
+        "prompt": "Given books(title, author, year, price), write a query for titles by Weir costing under 13, cheapest first.",
+        "answer": "SELECT title FROM books WHERE author = 'Weir' AND price < 13 ORDER BY price ASC; WHERE keeps matching rows, SELECT keeps the column wanted, and ORDER BY sorts the result."
+      },
+      {
+        "id": "databases-sql-queries-ex2",
+        "minutes": 4,
+        "prompt": "You must raise every price in books by 10% but only for books before 2000. Write the statement and say how to check it first.",
+        "answer": "UPDATE books SET price = price * 1.10 WHERE year < 2000; First run SELECT * FROM books WHERE year < 2000; to see exactly which rows the WHERE will hit, because UPDATE changes every row that passes it."
+      }
+    ],
+    "practical": [
+      {
+        "id": "databases-sql-queries-lab1",
+        "minutes": 25,
+        "title": "Query a tiny library",
+        "task": "In SQLite or PostgreSQL, create a books table, insert at least five rows, then write queries that filter by year, sort by price, find a NULL price, and update then delete one row using a WHERE you checked with SELECT first.",
+        "done": "Each query returns what you predicted before you ran it."
+      }
+    ]
+  },
+  "joins-aggregation": {
+    "order": 3,
+    "prerequisites": [
+      "databases/sql-queries"
+    ],
+    "objectives": [
+      "Join two tables on a foreign key",
+      "Choose between INNER JOIN and LEFT JOIN",
+      "Summarize rows with GROUP BY and filter groups with HAVING"
+    ],
+    "exercises": [
+      {
+        "id": "databases-joins-aggregation-ex1",
+        "minutes": 6,
+        "prompt": "With customers(id, name) and orders(id, customer_id, total), list each customer's name and total spent, including customers with no orders.",
+        "answer": "SELECT c.name, SUM(o.total) AS spent FROM customers c LEFT JOIN orders o ON o.customer_id = c.id GROUP BY c.name; LEFT JOIN keeps customers with no orders (their spent is NULL), and GROUP BY gives one row per customer."
+      },
+      {
+        "id": "databases-joins-aggregation-ex2",
+        "minutes": 5,
+        "prompt": "Explain the difference between WHERE and HAVING with an example.",
+        "answer": "WHERE filters individual rows before grouping, for example WHERE total > 10. HAVING filters whole groups after aggregation, for example HAVING COUNT(*) > 3. You cannot use an aggregate like COUNT inside WHERE because the groups do not exist yet."
+      }
+    ],
+    "practical": [
+      {
+        "id": "databases-joins-aggregation-lab1",
+        "minutes": 30,
+        "title": "Find the customers who never ordered",
+        "task": "In your two-table database from the earlier lab, add several customers and orders. Write a LEFT JOIN query that lists customers with no orders, and a GROUP BY query that shows the order count per customer.",
+        "done": "Both queries return the rows you expected, and you can explain why an INNER JOIN would have hidden the customers with no orders."
+      }
+    ]
+  },
+  "data-modeling": {
+    "order": 4,
+    "prerequisites": [
+      "databases/joins-aggregation"
+    ],
+    "objectives": [
+      "Normalise a schema and say what each normal form prevents",
+      "Choose embedding or referencing in MongoDB from the access pattern",
+      "Plan a schema change that doesn't need downtime"
+    ],
+    "exercises": [
+      {
+        "id": "databases-data-modeling-ex1",
+        "minutes": 5,
+        "prompt": "When should you embed a sub-document in MongoDB rather than reference another collection? Give one case for each.",
+        "answer": "Embed when the data is read together, belongs to its parent and stays small and bounded, such as an order's shipping address. Reference when the data grows without bound, is shared by many parents or changes independently, such as a user's activity log or a product used by many orders."
+      },
+      {
+        "id": "databases-data-modeling-ex2",
+        "minutes": 5,
+        "prompt": "You need to rename a column on a busy table with no downtime. Describe the steps.",
+        "answer": "Expand and contract. Add the new column, then deploy code that writes to both columns. Backfill existing rows in batches, switch reads to the new column, stop writing to the old one, and finally drop it. Each step works with both the previous and next code version, so you can roll back at any point."
+      }
+    ],
+    "practical": [
+      {
+        "id": "databases-data-modeling-lab1",
+        "minutes": 30,
+        "title": "Model the same domain twice",
+        "task": "Model orders, line items and customers once in third normal form and once as MongoDB documents. Write the three most common queries against each.",
+        "done": "You can name one query that's simpler in each model, and what each model costs on update."
+      }
     ]
   },
   "indexing": {
-    "order": 2,
-    "prerequisites": ["databases/data-modeling"],
-    "objectives": ["Predict whether a query can use a composite index", "Order compound index fields using equality, sort, range", "Read a query plan and spot a missed index"],
+    "order": 5,
+    "prerequisites": [
+      "databases/data-modeling"
+    ],
+    "objectives": [
+      "Predict whether a query can use a composite index",
+      "Order compound index fields using equality, sort, range",
+      "Read a query plan and spot a missed index"
+    ],
     "exercises": [
-      { "id": "databases-indexing-ex1", "minutes": 5, "prompt": "You have an index on (a, b, c). Which of these can use it well: WHERE b = 1; WHERE a = 1 AND c = 3; WHERE a = 1 ORDER BY b? Explain each.", "answer": "WHERE b = 1 generally can't, because it skips the leftmost column (some engines can do a skip scan). WHERE a = 1 AND c = 3 uses the index for a, and can only filter c among those entries, since b isn't constrained. WHERE a = 1 ORDER BY b is ideal, because it seeks on a and reads b already in sorted order." },
-      { "id": "databases-indexing-ex2", "minutes": 5, "prompt": "Why does WHERE LOWER(email) = 'x' often skip an index on email, and what are two ways to fix it?", "answer": "The index stores email values, not LOWER(email), so the engine can't seek on the computed result and has to scan. This is called non-sargable. Fixes: create an index on the expression (or a computed column), or use a case-insensitive collation or type such as citext in PostgreSQL, so that the plain comparison works." }
+      {
+        "id": "databases-indexing-ex1",
+        "minutes": 5,
+        "prompt": "You have an index on (a, b, c). Which of these can use it well: WHERE b = 1; WHERE a = 1 AND c = 3; WHERE a = 1 ORDER BY b? Explain each.",
+        "answer": "WHERE b = 1 generally can't, because it skips the leftmost column (some engines can do a skip scan). WHERE a = 1 AND c = 3 uses the index for a, and can only filter c among those entries, since b isn't constrained. WHERE a = 1 ORDER BY b is ideal, because it seeks on a and reads b already in sorted order."
+      },
+      {
+        "id": "databases-indexing-ex2",
+        "minutes": 5,
+        "prompt": "Why does WHERE LOWER(email) = 'x' often skip an index on email, and what are two ways to fix it?",
+        "answer": "The index stores email values, not LOWER(email), so the engine can't seek on the computed result and has to scan. This is called non-sargable. Fixes: create an index on the expression (or a computed column), or use a case-insensitive collation or type such as citext in PostgreSQL, so that the plain comparison works."
+      }
     ],
     "practical": [
-      { "id": "databases-indexing-lab1", "minutes": 30, "title": "Read a plan before and after", "task": "Load at least 100,000 rows into a local PostgreSQL or MongoDB. Run a slow filtered and sorted query with EXPLAIN ANALYZE or explain('executionStats'), add a compound index, and run it again.", "done": "You've compared the two plans and can state the change in rows or keys examined, not just the time taken." }
+      {
+        "id": "databases-indexing-lab1",
+        "minutes": 30,
+        "title": "Read a plan before and after",
+        "task": "Load at least 100,000 rows into a local PostgreSQL or MongoDB. Run a slow filtered and sorted query with EXPLAIN ANALYZE or explain('executionStats'), add a compound index, and run it again.",
+        "done": "You've compared the two plans and can state the change in rows or keys examined, not just the time taken."
+      }
+    ]
+  },
+  "nosql-basics": {
+    "order": 6,
+    "prerequisites": [
+      "databases/relational-basics"
+    ],
+    "objectives": [
+      "Name the four main NoSQL families and one job each suits",
+      "Explain the trade-off between embedding data and joining it",
+      "Decide whether a described system suits relational or NoSQL storage"
+    ],
+    "exercises": [
+      {
+        "id": "databases-nosql-basics-ex1",
+        "minutes": 4,
+        "prompt": "Match each to a family: a session store, a social network of friends, a product catalogue with varying fields.",
+        "answer": "A session store suits key-value (lookup by session id). A social network of friends suits a graph database (relationships are the point). A catalogue with varying fields suits a document database (each product is one flexible document)."
+      },
+      {
+        "id": "databases-nosql-basics-ex2",
+        "minutes": 6,
+        "prompt": "A shop is choosing between PostgreSQL and MongoDB for orders and payments. Which would you pick and why?",
+        "answer": "PostgreSQL. Orders and payments are linked, correctness matters, and you need constraints, joins and transactions so money is never lost or double-counted. MongoDB could still suit a product catalogue with varying fields, so using both is also reasonable."
+      }
+    ],
+    "practical": [
+      {
+        "id": "databases-nosql-basics-lab1",
+        "minutes": 25,
+        "title": "Same data, two shapes",
+        "task": "Write a blog post with tags and comments as three relational tables, then as one JSON document. List the query you would run to show the post page in each shape.",
+        "done": "You can say which shape needs fewer lookups and what the document shape costs when an author renames."
+      }
     ]
   },
   "transactions": {
-    "order": 3,
-    "prerequisites": ["databases/indexing"],
-    "objectives": ["Match isolation levels to the anomalies they prevent", "Recognise a lost update and write skew in application code", "Choose between locking and optimistic concurrency"],
+    "order": 7,
+    "prerequisites": [
+      "databases/indexing"
+    ],
+    "objectives": [
+      "Match isolation levels to the anomalies they prevent",
+      "Recognise a lost update and write skew in application code",
+      "Choose between locking and optimistic concurrency"
+    ],
     "exercises": [
-      { "id": "databases-transactions-ex1", "minutes": 8, "prompt": "Two doctors are on call. Each transaction checks that at least two are on call, then takes itself off. Both commit under snapshot isolation. What happens, what is this called, and how do you prevent it?", "answer": "Both read two doctors on call, both remove themselves, and nobody is left on call. This is write skew: the transactions update different rows based on a shared read, so there's no write conflict to detect. Prevent it with serializable isolation or by locking the rows you read, for example SELECT ... FOR UPDATE." },
-      { "id": "databases-transactions-ex2", "minutes": 5, "prompt": "Show how a lost update happens with a read-modify-write of a balance, and give two ways to fix it.", "answer": "Two transactions read balance 100. One writes 110 and the other writes 120, so the first update is lost. Fixes: use an atomic update (SET balance = balance + 10), lock with SELECT FOR UPDATE, or use optimistic concurrency with a version column that retries when the version has changed." }
+      {
+        "id": "databases-transactions-ex1",
+        "minutes": 8,
+        "prompt": "Two doctors are on call. Each transaction checks that at least two are on call, then takes itself off. Both commit under snapshot isolation. What happens, what is this called, and how do you prevent it?",
+        "answer": "Both read two doctors on call, both remove themselves, and nobody is left on call. This is write skew: the transactions update different rows based on a shared read, so there's no write conflict to detect. Prevent it with serializable isolation or by locking the rows you read, for example SELECT ... FOR UPDATE."
+      },
+      {
+        "id": "databases-transactions-ex2",
+        "minutes": 5,
+        "prompt": "Show how a lost update happens with a read-modify-write of a balance, and give two ways to fix it.",
+        "answer": "Two transactions read balance 100. One writes 110 and the other writes 120, so the first update is lost. Fixes: use an atomic update (SET balance = balance + 10), lock with SELECT FOR UPDATE, or use optimistic concurrency with a version column that retries when the version has changed."
+      }
     ],
     "practical": [
-      { "id": "databases-transactions-lab1", "minutes": 30, "title": "Reproduce an anomaly", "task": "Open two sessions on a local PostgreSQL. Reproduce a lost update at READ COMMITTED, then run the same steps at REPEATABLE READ and see the second transaction fail.", "done": "You've seen the wrong balance, seen the serialization error, and know your code would have to retry on that error." }
+      {
+        "id": "databases-transactions-lab1",
+        "minutes": 30,
+        "title": "Reproduce an anomaly",
+        "task": "Open two sessions on a local PostgreSQL. Reproduce a lost update at READ COMMITTED, then run the same steps at REPEATABLE READ and see the second transaction fail.",
+        "done": "You've seen the wrong balance, seen the serialization error, and know your code would have to retry on that error."
+      }
     ]
   },
   "replication-sharding": {
-    "order": 4,
-    "prerequisites": ["databases/transactions"],
-    "objectives": ["Explain the trade-off between synchronous and asynchronous replication", "Choose read and write concerns for a requirement", "Choose a shard key and predict its failure modes"],
+    "order": 8,
+    "prerequisites": [
+      "databases/transactions"
+    ],
+    "objectives": [
+      "Explain the trade-off between synchronous and asynchronous replication",
+      "Choose read and write concerns for a requirement",
+      "Choose a shard key and predict its failure modes"
+    ],
     "exercises": [
-      { "id": "databases-replication-sharding-ex1", "minutes": 5, "prompt": "A user saves their profile, reloads the page, and sees the old value. What's the likely cause, and what are two fixes?", "answer": "Replication lag: the write went to the primary, and the read came from a replica that hadn't caught up. Fixes: read your own writes from the primary for a short window or for that user's data, or wait for the replica to reach the write's position using a session token or causal consistency." },
-      { "id": "databases-replication-sharding-ex2", "minutes": 5, "prompt": "Why is a timestamp a poor shard key, and what's the trade-off of hashing it?", "answer": "Timestamps always increase, so every new write lands on the last shard, creating a hot spot while the others sit idle. Hashing spreads writes evenly, but a range query then has to go to every shard. A common compromise is a compound key: a well-distributed field first, then time." }
+      {
+        "id": "databases-replication-sharding-ex1",
+        "minutes": 5,
+        "prompt": "A user saves their profile, reloads the page, and sees the old value. What's the likely cause, and what are two fixes?",
+        "answer": "Replication lag: the write went to the primary, and the read came from a replica that hadn't caught up. Fixes: read your own writes from the primary for a short window or for that user's data, or wait for the replica to reach the write's position using a session token or causal consistency."
+      },
+      {
+        "id": "databases-replication-sharding-ex2",
+        "minutes": 5,
+        "prompt": "Why is a timestamp a poor shard key, and what's the trade-off of hashing it?",
+        "answer": "Timestamps always increase, so every new write lands on the last shard, creating a hot spot while the others sit idle. Hashing spreads writes evenly, but a range query then has to go to every shard. A common compromise is a compound key: a well-distributed field first, then time."
+      }
     ],
     "practical": [
-      { "id": "databases-replication-sharding-lab1", "minutes": 40, "title": "Watch a failover", "task": "Run a three-node MongoDB replica set locally with Docker. Write in a loop, stop the primary, and watch the election. Repeat with write concern 1 and with majority.", "done": "You've measured how long writes failed, and can say what write concern 1 could lose that majority wouldn't." }
+      {
+        "id": "databases-replication-sharding-lab1",
+        "minutes": 40,
+        "title": "Watch a failover",
+        "task": "Run a three-node MongoDB replica set locally with Docker. Write in a loop, stop the primary, and watch the election. Repeat with write concern 1 and with majority.",
+        "done": "You've measured how long writes failed, and can say what write concern 1 could lose that majority wouldn't."
+      }
     ]
   }
 }
