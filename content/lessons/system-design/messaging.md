@@ -40,6 +40,13 @@ Kafka orders messages **only within a partition**. Use the entity ID as the mess
 - Changing the partition count remaps keys.
 - Retries can reorder messages unless `enable.idempotence=true`, the default in modern clients.
 
+**Consumer groups don't create order.** A group is how consumers share work: each partition is read by exactly one consumer in the group, and every group gets its own full copy of the topic. A group only *preserves* the order the partition already has. If one order's events are spread across partitions (no key, or a random key), no group setting puts them back in sequence.
+
+| Producer keys by | Events for order 42 land in | Consumer sees them |
+|---|---|---|
+| `orderId` | one partition | in the order they were written |
+| nothing (round-robin / sticky) | several partitions | interleaved by whichever partition is read first |
+
 ## Failure handling
 
 - **Retry with backoff**, then send to a **dead-letter queue** after N attempts, with alerting.

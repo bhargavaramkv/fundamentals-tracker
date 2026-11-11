@@ -30,6 +30,24 @@ Browser → CDN → reverse proxy → app in-memory (`IMemoryCache`) → distrib
 
 **Update the DB, then delete the key.** If you *write* the new value to the cache instead, two concurrent writers can interleave so the older value lands last and stays until the TTL expires. A small race remains (a slow reader repopulating the old value). A short TTL or a delayed second delete closes it.
 
+The race, step by step (price starts at 10):
+
+| Time | Writer A (sets 11) | Writer B (sets 12) | DB | Cache |
+|---|---|---|---|---|
+| 1 | update DB → 11 | | 11 | 10 |
+| 2 | | update DB → 12 | 12 | 10 |
+| 3 | | set cache → 12 | 12 | 12 |
+| 4 | set cache → 11 (slow thread) | | 12 | **11, stale until TTL** |
+
+Swap "set cache" for "delete key" and step 4 just deletes again; the next read loads 12. Deleting is safe to repeat in any order; setting is not.
+
+| Write path | What goes wrong |
+|---|---|
+| Set cache, then DB | DB write can fail, leaving a value the DB never had |
+| DB, then set cache | The table above: last cache writer wins, not last DB writer |
+| Delete key, then DB | A read between the two steps reloads the old DB value |
+| **DB, then delete key** | Only a reader that loaded before the commit and writes after the delete; rare and bounded by TTL |
+
 ## Stampede (thundering herd)
 
 When a hot key expires, N requests miss at once and hit the DB together. Mitigations:

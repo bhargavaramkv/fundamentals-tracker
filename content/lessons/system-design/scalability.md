@@ -29,6 +29,8 @@ With `hash % N`, changing N remaps almost every key, so your cache goes cold all
 
 The benefit is **stability under membership change**, not speed and not replication. Hashing costs about the same either way, and you still replicate separately if you need it. Example: 10 cache nodes, one dies. With `% N`, about 90% of keys change owner and the database eats the miss storm. With a ring, only that node's ~10% move.
 
+**It does not give an even split.** A plain ring with one point per node is usually lopsided: node positions are random, so one node can own a much bigger arc than another. **Virtual nodes** (100+ points per node) shrink that imbalance but never make it perfect, and a hot key still overloads whichever node owns it. Even spread is a side benefit you tune; minimal remapping is the reason to use it.
+
 ## Scaling on the right signal
 
 The HPA on CPU works for CPU-bound services. For I/O-bound .NET or Node APIs, latency can climb while CPU stays low. Better signals:
