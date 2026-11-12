@@ -2,9 +2,9 @@
 
 Source of truth for the V2 completion brief (received 2026-11-12, about 23:05 IST). Read this file and `execution-log.md` completely before resuming.
 
-- **Current phase:** P1 (engine and redesign in parallel)
+- **Current phase:** P3 (Journal, worktree ft-journal) and P4 (Mentor/Knowledge UI, main checkout) running in parallel
 - **Current branch:** `v2/complete` (from `main` @ ddf0be1)
-- **Latest verified commit:** ddf0be1 (main, deployed)
+- **Latest verified commit:** 4d9fdab on v2/complete (engine merged into P2; `npm run check` 271/271 green). main ddf0be1 is deployed.
 - **Last test results:** see the Baseline section
 - **Manual recovery command:** `Continue Fundamentals V2 from progress.md. Read execution-log.md, verify the latest checkpoint and continue with the next unfinished task.`
 
@@ -59,24 +59,24 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [x] Review engine: `npm run journal-review` (pending, context, commit, fail), validator (real event ids, exact quotes), idempotent commit, failure log (6ea4c0c). Opus added `verifies`, a validated delayed-check route to Retained (2cb777d, d9a7a56).
 - [x] Weekly: `npm run weekly` with the sufficiency gate (3 weeks × 3 sessions), validator (fe9f644)
 - [x] Knowledge levels and contradictions (04fcc5b)
-- [~] Knowledge migration script (b4be8b0). Dry run: 65 items (38 MCQ answers plus 27 mentor entries, all weak/historical); 27 archived answers skipped; 28 duplicate archive entries; 1 left uncertain. Commit to the data repo still to do, after the merge.
+- [x] Knowledge migration script (b4be8b0), COMMITTED to the data repo as c204ec3 (`knowledge/evidence.json`, 65 items). A re-run reported `unchanged` (idempotency verified). Dry run: 65 items (38 MCQ answers plus 27 mentor entries, all weak/historical); 27 archived answers skipped; 28 duplicate archive entries; 1 left uncertain.
 - [x] Routine docs plus the CLAUDE.md ownership rules (03d6804)
 
-### P2: Design system and shell (Sonnet)
-- [ ] Tokens, typography, motion, reduced motion
-- [ ] Sidebar, mobile nav, headers, buttons, inputs, empty, loading and error states, toasts
-- [ ] Logo preserved exactly (`components/BrandMark.tsx` untouched)
-- [ ] Today rebuilt journal-first (no lesson cards, no quiz coach card)
-- [ ] Coding restyled, with functionality intact
+### P2: Design system and shell (Sonnet; commits 1a82e36, 4707da3, 31676cf; Opus visual check done)
+- [x] Tokens (#070b14 base, #3b9bff accent), Geist/Geist Mono, @layer components, motion with reduced-motion off
+- [x] Shell: sidebar, tab bar, sync dot, empty states, skeleton, toast CSS
+- [x] Logo preserved (BrandMark.tsx and favicon unchanged; verify with `git diff ddf0be1 -- components/BrandMark.tsx app/favicon.ico` at release)
+- [x] Today journal-first: session card, recent activity, this-week bars (lib/today.ts, 6 tests); no streak, quiz or lesson cards
+- [~] Coding inherits the new tokens; a detailed restyle isn't done (functionality untouched)
 
-### P3: Journal completion (Sonnet)
-- [ ] Note editing (edit events)
-- [ ] Session metadata editing (meta event)
-- [ ] Conflict inspection and resolution (backup, then merge)
-- [ ] Better sync status, retry
-- [ ] Subject and source filters, search
-- [ ] Immersive active session, mobile first
-- [ ] Photo attachments (capture, compression, EXIF strip, local persistence; upload off)
+### P3: Journal completion (Sonnet; branch v2/journal-complete db5401c, a8b6d04; Opus reviewed; merge pending until P4 finishes)
+- [~] Note editing (edit events)
+- [~] Session metadata editing (meta event)
+- [~] Conflict inspection and resolution (backup, then merge)
+- [~] Better sync status, retry
+- [~] Subject and source filters, search
+- [~] Immersive active session, mobile first
+- [~] Photo attachments (capture, compression, EXIF strip, local persistence; upload off)
 
 ### P4: Mentor, Knowledge and reviews in the app (Sonnet)
 - [ ] Reviews in session detail and Today, "Review now" and "Discuss" copy prompts
@@ -114,7 +114,9 @@ On main ddf0be1, at 2026-11-12 23:13 IST: 219/219 unit tests, 73/73 e2e tests, a
 - Before `git worktree remove`, ALWAYS `unlink node_modules` first: removing the worktree could follow the junction.
 
 ## Known defects
-- `GitHubStore.fetchRemote` reads the sha and the content separately (P1 fix).
+- (fixed in P1) `GitHubStore.fetchRemote` read the sha and the content separately.
+- Today.tsx reads `session.subject` directly, so it misses meta renames. Fix after the P3 merge using `deriveSession(...).subject`.
+- The IndexedDB v1→v2 upgrade is unit-tested with a fake database only (fake-indexeddb isn't installed); the e2e covers a fresh database only.
 
 ## External blockers
 - `fundamentals-tracker-media` doesn't exist. Creating it, and a fine-grained token for it, needs the owner (see final report).
