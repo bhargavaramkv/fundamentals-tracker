@@ -188,10 +188,10 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
           {answers.length > 0 ? "End & save" : "Exit"}
         </button>
       </div>
-      <div className="h-1 overflow-hidden rounded-full bg-surface-2" aria-hidden>
+      <div className="h-3 overflow-hidden rounded-full bg-surface-2" aria-hidden>
         <div
           className="h-full rounded-full transition-[width] duration-300 motion-reduce:transition-none"
-          style={{ width: `${(100 * index) / questions.length}%`, background: "var(--text)" }}
+          style={{ width: `${Math.max((100 * index) / questions.length, 4)}%`, background: "var(--good)" }}
         />
       </div>
 
@@ -208,19 +208,19 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
           {order.map((optIdx, displayIdx) => {
             const isPicked = picked === displayIdx;
             const isCorrect = displayIdx === correctDisplayIdx;
-            let tone = "border-line bg-surface hover:border-ink-3 hover:bg-surface-2";
-            let badge = "border border-line text-ink-2";
+            let tone = "";
+            let badge = "";
             if (blind && isPicked) {
-              tone = "border-accent bg-accent/10 ring-1 ring-accent";
-              badge = "bg-accent text-accent-ink";
+              tone = "!border-accent !bg-accent-soft";
+              badge = "!border-accent bg-accent text-accent-ink";
             } else if (revealed) {
               if (isCorrect) {
-                tone = "border-good bg-good-bg animate-pop";
-                badge = "bg-good text-white";
+                tone = "!border-good !bg-good-bg";
+                badge = "!border-good bg-good text-surface";
               } else if (isPicked) {
-                tone = "border-bad bg-bad-bg animate-pop";
-                badge = "bg-bad text-white";
-              } else tone = "border-line bg-surface opacity-55";
+                tone = "!border-bad !bg-bad-bg";
+                badge = "!border-bad bg-bad text-surface";
+              } else tone = "opacity-55";
             }
             return (
               <li key={`${question.id}-${optIdx}`}>
@@ -229,10 +229,10 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
                   onClick={() => choose(displayIdx)}
                   disabled={revealed}
                   aria-pressed={blind ? isPicked : undefined}
-                  className={`flex min-h-12 w-full flex-wrap items-start gap-x-3 gap-y-1 rounded-lg border px-4 py-3 text-left text-[15px] transition-colors disabled:cursor-default ${tone}`}
+                  className={`option min-h-12 flex-wrap gap-y-1 ${tone}`}
                 >
                   <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded font-mono text-xs font-bold ${badge}`}
+                    className={`option-key shrink-0 ${badge}`}
                     aria-hidden
                   >
                     {String.fromCharCode(65 + displayIdx)}
@@ -256,8 +256,8 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
           onClick={() => choose(-1)}
           disabled={revealed}
           aria-pressed={blind ? last?.unsure === true : undefined}
-          className={`mt-2 min-h-12 w-full rounded-lg border border-dashed px-4 py-3 text-left text-[15px] transition-colors disabled:cursor-default ${
-            blind && last?.unsure ? "border-accent bg-accent/10 ring-1 ring-accent" : revealed ? "border-line opacity-55" : "border-line text-ink-2 hover:border-ink-3 hover:bg-surface-2"
+          className={`mt-3 min-h-12 w-full rounded-2xl border-2 border-dashed px-4 py-3 text-left text-[15px] transition-colors disabled:cursor-default ${
+            blind && last?.unsure ? "border-accent bg-accent-soft" : revealed ? "border-line opacity-55" : "border-line text-ink-2 hover:border-ink-3 hover:bg-surface-2"
           }`}
         >
           {revealed && last?.unsure ? "● You said: I don't know" : "I don't know this yet"}
@@ -267,7 +267,7 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
         {revealed && last && (
           <div
             role="status"
-            className={`mt-5 rounded-lg border-l-4 p-4 text-sm leading-relaxed ${last.correct ? "border-good bg-good-bg/50" : "border-bad bg-bad-bg/50"}`}
+            className={`mt-5 rounded-2xl border-2 p-4 text-[15px] leading-relaxed ${last.correct ? "border-good bg-good-bg/50" : "border-bad bg-bad-bg/50"}`}
           >
             <p className={`mb-1 font-medium ${last.correct ? "text-good" : "text-bad"}`}>
               {last.unsure ? "Honest answer, now learn it" : last.correct ? "Correct" : "Not quite"} · {(last.timeMs / 1000).toFixed(1)}s

@@ -13,8 +13,8 @@
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
     "report": "tsx scripts/progress-report.ts",
     "set-password": "tsx scripts/set-password.ts",
-    "radar": "tsx scripts/radar.ts",
-    "mentor": "tsx scripts/mentor.ts",
+    "coding-review": "tsx scripts/coding-review.ts",
+    "learner": "tsx scripts/learner-profile.ts",
     "leetcode-sync": "tsx scripts/leetcode-sync.ts",
     "leetcode-history": "tsx scripts/leetcode-history.ts",
     "resources:verify": "tsx scripts/verify-resources.mts"
@@ -28,14 +28,12 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "@anthropic-ai/sdk": "^1.3.0",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
-    "fast-xml-parser": "^5.11.2",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5",

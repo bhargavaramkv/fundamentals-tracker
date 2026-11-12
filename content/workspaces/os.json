@@ -1,0 +1,98 @@
+{
+  "processes-threads": {
+    "order": 1,
+    "prerequisites": [],
+    "objectives": ["Explain the difference between a program, a process and a thread","Name what threads share and what each thread keeps private","Describe what a context switch saves and restores"],
+    "exercises": [
+      {"id":"os-processes-threads-ex1","minutes":4,"prompt":"List three things all threads in a process share and three things each thread owns privately.","answer":"Shared: heap objects, open files and sockets, static (global) variables. Private: its call stack with local variables, its program counter, its CPU registers. Sharing the heap makes cooperation easy and also makes races possible; the private parts let each thread follow its own path."},
+      {"id":"os-processes-threads-ex2","minutes":5,"prompt":"Your team debates running a risky image-conversion library in a separate process rather than in a thread of the main service. Give two reasons for and one cost.","answer":"For: a crash or memory corruption in the library cannot take down the service or touch its memory, and you can kill and restart the process alone. Against: processes cost more to start and switch, and data must be passed between them (pipes, sockets, shared memory) instead of simply sharing objects."}
+    ],
+    "practical": [
+      {"id":"os-processes-threads-lab1","minutes":15,"title":"Meet your threads","task":"Write a C# console app that prints Environment.ProcessId and Environment.CurrentManagedThreadId from the main thread and from three new Threads. Then open Task Manager (Details tab, add the Threads column) and watch the thread count of your app while it sleeps at the end.","done":"You saw one process id with four different thread ids, and the thread count in Task Manager matched what you created plus the runtime's own threads."}
+    ]
+  },
+  "memory-basics": {
+    "order": 2,
+    "prerequisites": ["os/processes-threads"],
+    "objectives": ["Say where locals, objects and references live (stack and heap)","Explain virtual memory and a page fault in plain words","Describe how the .NET GC decides what to free, and how a managed leak happens"],
+    "exercises": [
+      {"id":"os-memory-basics-ex1","minutes":5,"prompt":"For `var p = new Point(1, 2); int n = 5;` inside a method, say what is on the stack and what is on the heap when Point is a class, and again when it is a struct.","answer":"Class: n and the reference p are on the stack; the Point object (with its X and Y) is on the heap. Struct: n and the Point value itself (X and Y) are stored directly in the stack frame, so no heap object exists. If that struct were a field of a heap object, it would sit inside that object instead."},
+      {"id":"os-memory-basics-ex2","minutes":5,"prompt":"A service's memory grows for hours until it is restarted, although it runs on a garbage-collected runtime. Name two likely causes and how you would find them.","answer":"Likely causes: a static collection or cache that is only ever added to, and event handlers or timers that are never unsubscribed so their targets stay reachable. Find them by taking two heap snapshots (dotnet-gcdump or a memory profiler) some time apart, comparing which object types grew, and following the reference path back to a root."}
+    ],
+    "practical": [
+      {"id":"os-memory-basics-lab1","minutes":20,"title":"Watch the GC work","task":"Write a loop that allocates 10 million short-lived small objects and prints GC.CollectionCount(0), (1) and (2) before and after. Then repeat while adding every object to a static List.","done":"You saw many gen 0 collections and almost no gen 2 in the first run, and growing memory with more gen 1 and gen 2 collections in the second, and can explain the difference using reachability."}
+    ]
+  },
+  "cpu-scheduling": {
+    "order": 3,
+    "prerequisites": ["os/processes-threads"],
+    "objectives": ["Describe running, ready and blocked threads","Explain time slices and preemption","Tell CPU-bound from I/O-bound work and pick a sensible thread count for each"],
+    "exercises": [
+      {"id":"os-cpu-scheduling-ex1","minutes":4,"prompt":"Draw the three thread states and label what moves a thread between them: slice ends, I/O requested, I/O completes, core becomes free.","answer":"Running to ready when its slice ends (preempted). Running to blocked when it requests I/O or waits on a lock. Blocked to ready when the I/O completes or the lock is released. Ready to running when the scheduler gives it a free core."},
+      {"id":"os-cpu-scheduling-ex2","minutes":5,"prompt":"A web API on 8 cores has 5% CPU use, but p95 latency is 4 s. A teammate proposes upgrading to 16 cores. Respond.","answer":"More cores will not help: low CPU with high latency means requests are waiting, not computing. Measure what they wait for (database queries, downstream calls, lock contention, thread pool queueing) and fix that first."}
+    ],
+    "practical": [
+      {"id":"os-cpu-scheduling-lab1","minutes":20,"title":"CPU-bound vs I/O-bound","task":"Time 8 tasks run with Parallel.For(0, 8, ...) when each task (a) hashes a 50 MB buffer in a loop and (b) calls Thread.Sleep(500). Set MaxDegreeOfParallelism to 1, 2, 4 and 8 and record total time for each case.","done":"You saw the CPU-bound case stop improving past your core count while the sleeping case kept speeding up, and can explain why."}
+    ]
+  },
+  "race-conditions": {
+    "order": 4,
+    "prerequisites": ["os/processes-threads","os/memory-basics"],
+    "objectives": ["Explain why count++ can lose updates","Recognise check-then-act races","Fix a race with Interlocked or a lock"],
+    "exercises": [
+      {"id":"os-race-conditions-ex1","minutes":5,"prompt":"Write out the interleaving of two threads running count++ once each on count = 5 that ends with count = 6.","answer":"A reads 5. B reads 5. A computes 6. B computes 6. A writes 6. B writes 6. Both increments happened but the second write overwrote the first with the same value, so one update was lost."},
+      {"id":"os-race-conditions-ex2","minutes":6,"prompt":"This code uses a Dictionary from many request threads: `if (!cache.TryGetValue(k, out v)) { v = Load(k); cache[k] = v; }`. List two things that can go wrong and one fix.","answer":"The dictionary is not thread-safe, so concurrent writes can corrupt it or throw. Two threads can also both miss and both call Load, doing duplicate work. Fix: use ConcurrentDictionary with GetOrAdd (accepting that the factory may run twice, or storing a Lazy<T>), or guard the whole check-and-set with a lock."}
+    ],
+    "practical": [
+      {"id":"os-race-conditions-lab1","minutes":15,"title":"Lose some updates, then fix them","task":"Run two threads that each do count++ one million times and print the result five times. Then fix it first with Interlocked.Increment and then with lock, and time both versions.","done":"You saw different wrong totals in the unsafe run, exactly 2,000,000 in both fixed runs, and a measured difference in cost between the two fixes."}
+    ]
+  },
+  "locks-sync": {
+    "order": 5,
+    "prerequisites": ["os/race-conditions"],
+    "objectives": ["Protect a critical section with lock","Choose between a lock and a semaphore","Name the four deadlock conditions and break one with lock ordering"],
+    "exercises": [
+      {"id":"os-locks-sync-ex1","minutes":5,"prompt":"State the four conditions for deadlock, and say which one lock ordering removes.","answer":"Mutual exclusion, hold and wait, no preemption, circular wait. Lock ordering removes circular wait: if every thread takes locks in the same global order, no cycle of threads waiting on each other can form."},
+      {"id":"os-locks-sync-ex2","minutes":6,"prompt":"Write a Transfer(from, to, amount) method for bank accounts that cannot deadlock when two transfers run in opposite directions between the same accounts.","answer":"Order the two accounts by a stable key such as Id, then lock the lower one first and the higher one second: `var (a, b) = from.Id < to.Id ? (from, to) : (to, from); lock (a.Gate) lock (b.Gate) { from.Balance -= amount; to.Balance += amount; }`. Both opposite transfers now take the same lock first."}
+    ],
+    "practical": [
+      {"id":"os-locks-sync-lab1","minutes":20,"title":"Make a deadlock, then cure it","task":"Write two threads that lock objects X and Y in opposite orders, with Thread.Sleep(100) between the two locks. Confirm the program hangs, look at both stacks in the debugger's Threads window, then fix it with a common lock order and again with Monitor.TryEnter and a timeout.","done":"You reproduced the hang, saw each thread waiting on the other's lock in the debugger, and made both fixes complete."}
+    ]
+  },
+  "async-io": {
+    "order": 6,
+    "prerequisites": ["os/cpu-scheduling","os/locks-sync"],
+    "objectives": ["Contrast blocking and non-blocking I/O","Explain the thread pool and thread pool starvation","Describe the Node event loop and why you must not block it"],
+    "exercises": [
+      {"id":"os-async-io-ex1","minutes":5,"prompt":"Explain what happens to the thread when a C# method awaits a slow HTTP call, and what would be different if it called .Result instead.","answer":"With await, the method returns to its caller and the thread goes back to the pool; no thread is tied up while the network replies, and the rest of the method is scheduled when the response arrives. With .Result, the thread blocks for the whole wait, so under load the pool runs out of free threads (starvation)."},
+      {"id":"os-async-io-ex2","minutes":4,"prompt":"A Node handler computes a large report in a for loop that takes 3 seconds. What happens to other requests, and how would you fix it?","answer":"All other requests stall for the 3 seconds because the single event loop thread is busy and cannot take the next callback. Move the computation to a worker thread (worker_threads) or another process or service and respond when it finishes."}
+    ],
+    "practical": [
+      {"id":"os-async-io-lab1","minutes":25,"title":"Starve the pool","task":"Write a small ASP.NET Core minimal API with two endpoints that each simulate a 1 second wait: one with await Task.Delay(1000) and one with Task.Delay(1000).Wait(). Send 200 parallel requests to each (for example with a short script or a load tool) and compare total time.","done":"You measured the awaited endpoint finishing in roughly a second or two and the blocking endpoint taking far longer, and can explain it with the thread pool."}
+    ]
+  },
+  "concurrency-patterns": {
+    "order": 7,
+    "prerequisites": ["os/locks-sync","os/async-io","dsa/stacks-queues"],
+    "objectives": ["Build a producer-consumer pipeline with a bounded queue","Use immutability and concurrent collections to avoid locks","Describe the actor model in two sentences"],
+    "exercises": [
+      {"id":"os-concurrency-patterns-ex1","minutes":5,"prompt":"Why is a bounded queue usually safer than an unbounded one between a fast producer and a slow consumer?","answer":"If the producer is faster, an unbounded queue grows without limit until memory runs out. A bounded queue makes the producer wait when it is full (backpressure), so memory stays flat and the system slows its input to match what it can handle."},
+      {"id":"os-concurrency-patterns-ex2","minutes":6,"prompt":"Ten request threads read application settings, and an admin endpoint rarely changes them. Design this without a lock on the read path.","answer":"Make Settings an immutable class or record. Keep it in one field. The admin endpoint builds a complete new Settings value and assigns it to the field (a reference write is atomic; mark the field volatile or use Volatile.Write for visibility). Readers read the field once into a local and use that snapshot."}
+    ],
+    "practical": [
+      {"id":"os-concurrency-patterns-lab1","minutes":25,"title":"A channel pipeline","task":"Using System.Threading.Channels, build a bounded channel with capacity 5, one producer writing 50 numbers, and three consumers that each wait 100 ms per item. Log when the producer has to wait and which consumer takes each item.","done":"You saw the producer pause when the channel was full, work spread over the three consumers, and the program finish cleanly after Complete()."}
+    ]
+  },
+  "files-io": {
+    "order": 8,
+    "prerequisites": ["os/memory-basics","os/async-io"],
+    "objectives": ["Explain file descriptors and why they must be closed","Trace a write through the app buffer, OS cache and disk","Explain what fsync guarantees and the cost of calling it"],
+    "exercises": [
+      {"id":"os-files-io-ex1","minutes":5,"prompt":"A database says a transaction is committed only after fsync returns. Why not simply report success after write returns?","answer":"After write the data may exist only in memory (a process buffer or the OS page cache). A power loss would erase it, so the database would have acknowledged something it can no longer deliver. fsync returns after the device has the data, which is what makes a commit durable."},
+      {"id":"os-files-io-ex2","minutes":6,"prompt":"Rank reading 1 KB from RAM, an SSD, a spinning disk and a server in another region by speed, and give a rough time for each.","answer":"RAM about 100 nanoseconds; SSD about 100 microseconds; spinning disk about 10 milliseconds; a cross-region network round trip about 50 to 150 milliseconds. Each step down is roughly 100 to 1,000 times slower, which is why caches and batching matter."}
+    ],
+    "practical": [
+      {"id":"os-files-io-lab1","minutes":20,"title":"What does fsync cost?","task":"Write 10,000 short lines to a file three ways: buffered with one flush at the end, Flush() after every line, and Flush(true) after every line. Time each, then also try the write-temp-then-rename approach to replace a small JSON file.","done":"You measured the buffered write as fastest and the flush-to-disk-per-line version as far slower, and replaced a file safely using temp file and rename."}
+    ]
+  }
+}

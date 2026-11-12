@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { activeProblems } from "@/lib/coding";
 import { computeCodingStats, isCodingAnalysis, isLeetCodeStore, type CodingAnalysis, type LeetCodePullStatus, type LeetCodeSubmission } from "@/lib/leetcode-history";
-import { readFile } from "@/lib/mentor/client";
+import { readFile } from "@/lib/storage";
 import { useAuth } from "../AuthGate";
 import { CodingTracker } from "../CodingTracker";
 import { useProgress } from "../ProgressProvider";
@@ -28,7 +28,7 @@ async function loadInsights(token: string): Promise<Load> {
   }
 }
 
-/** The Coding page. It reads the private data repo with the sync token, the same way the Mentor page does. */
+/** The Coding page. It reads the private data repo with the sync token,. */
 export function CodingInsights() {
   const { syncToken } = useAuth();
   const { data } = useProgress();

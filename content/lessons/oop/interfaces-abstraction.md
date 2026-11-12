@@ -9,15 +9,15 @@ A wall socket does not care what you plug in. A lamp, a phone charger, a kettle:
 
 **Abstraction** means hiding the details and showing only what matters to the user. An **interface** is how code states that promise: a list of things an object can do, with no instructions on how. Any class that signs up to the list must provide all of them.
 
-This is useful because you can swap one thing for another, as long as the plug still fits. It builds on [classes and objects](/learn/oop/classes-objects/): an interface describes what a class offers, not how it works.
+This lets you swap one thing for another, as long as the plug still fits. It builds on [classes and objects](/learn/oop/classes-objects/): an interface describes what a class offers, not how it works.
 
 ```check
-{"prompt": "In the socket analogy, what does the interface correspond to?", "options": ["The kettle's internal wiring", "The shape of the socket and plug", "The power station"], "answer": 1, "explanation": "The interface is the agreed shape both sides rely on. Internals on either side can change freely as long as the shape stays the same."}
+{"prompt":"In the socket analogy, what does the interface correspond to?","options":["The kettle's internal wiring","The shape of the socket and plug","The power station"],"answer":1,"explanation":"The interface is the agreed shape both sides rely on. Internals on either side can change freely as long as the shape stays the same."}
 ```
 
 ## See it work
 
-Suppose an app must send messages. We write the promise first:
+Suppose an app must send messages. Write the promise first:
 
 ```csharp
 interface INotifier {
@@ -39,50 +39,47 @@ class SmsNotifier : INotifier {
 Now code that uses the promise, not a specific class:
 
 ```csharp
-void Welcome(INotifier notifier) {
-    notifier.Send("Welcome!");
-}
+void Welcome(INotifier notifier) => notifier.Send("Welcome!");
 ```
 
-Trace it. `Welcome(new EmailNotifier())` prints `Email: Welcome!`. `Welcome(new SmsNotifier())` prints `SMS: Welcome!`. The `Welcome` method never changed and never learned which kind it got.
+```steps
+{"title":"Same method, swapped parts","frames":[{"visual":" Welcome(n) --> INotifier <== EmailNotifier   (in use)\n                              SmsNotifier     (idle)\n prints: Email: Welcome!","caption":"`Welcome` only knows the `INotifier` shape. We hand it an `EmailNotifier`."},{"visual":" Welcome(n) --> INotifier <== SmsNotifier     (in use)\n                              EmailNotifier   (idle)\n prints: SMS: Welcome!","caption":"Same `Welcome`, now handed an `SmsNotifier`. Nothing in `Welcome` changed."},{"visual":" Welcome(n) --> INotifier <== PushNotifier    (new)\n                              EmailNotifier\n                              SmsNotifier\n prints: Push: Welcome!","caption":"Next month: add `PushNotifier : INotifier`. Still no edit to `Welcome`."}]}
+```
 
 ## How it works
 
 An interface holds **signatures**: a method name, its parameters and its return type, with no body. A class that writes `: INotifier` must supply every method on the list or the code will not compile. That is the compiler enforcing the promise.
 
-```
-   Welcome(...)  -- uses -->  INotifier  <-- implemented by -- EmailNotifier
-                                                          \-- SmsNotifier
-```
-
-The method that uses the interface depends only on the top box. You can add `PushNotifier` next month without touching `Welcome`.
-
 Two terms to know:
 
-- **Implement**: a class implements an interface when it provides all its methods.
-- **Abstract class**: a half-built class that cannot be created with `new`. It can hold some real code and some methods left blank for subclasses. An interface is the lighter tool: a pure list of promises, and a class can implement many of them.
+- **Implement**: a class implements an interface when it provides all its methods. A class can implement many interfaces.
+- **Abstract class**: a half-built class that cannot be created with `new`. It can hold real code and methods left blank for subclasses. An interface is the lighter tool: a pure list of promises.
 
 Abstraction is also a skill, not only a keyword. `List<T>.Sort()` hides which sorting algorithm runs. You trust the promise "this ends up in order".
 
 ```check
-{"prompt": "You add a new class PushNotifier that implements INotifier. Which existing code must change for Welcome(...) to work with it?", "options": ["Welcome must get a new overload", "EmailNotifier must be edited", "Nothing, because Welcome only depends on INotifier"], "answer": 2, "explanation": "Welcome was written against the promise, not a concrete class. Any new class that keeps the promise plugs in without edits elsewhere."}
+{"prompt":"You add a new class PushNotifier that implements INotifier. Which existing code must change for Welcome(...) to work with it?","options":["Welcome must get a new overload","EmailNotifier must be edited","Nothing, because Welcome only depends on INotifier"],"answer":2,"explanation":"Welcome was written against the promise, not a concrete class. Any new class that keeps the promise plugs in without edits elsewhere."}
 ```
 
 ## Where you'll meet it
 
-.NET is full of interfaces: `IEnumerable<T>` lets `foreach` loop over arrays, lists and database results alike. `IDisposable` promises "I can clean up". `ILogger` lets your code log without knowing where logs go. In tests, you replace a real email sender with a fake one that implements the same interface, so no email is sent.
+.NET is full of interfaces: `IEnumerable<T>` lets `foreach` loop over arrays, lists and database results alike. `IDisposable` promises "I can clean up", which is what `using` relies on. `ILogger` lets your code log without knowing where logs go. In ASP.NET Core you register `IEmailSender` in the DI container and swap the real one for a fake in tests.
 
-Interview questions like "how would you support several payment providers?" are asking for exactly this: define `IPaymentProvider`, write one class per provider.
+Interview questions like "how would you support several payment providers?" ask for exactly this: define `IPaymentProvider`, write one class per provider.
+
+```reveal
+{"prompt":"Which design survives a new requirement better? (A) `Welcome(EmailNotifier n)`. (B) `Welcome(INotifier n)`. The requirement: also send a push notification.","answer":"**B.** With A, you must change `Welcome`'s signature and every caller, or add a near-copy. With B, you write a `PushNotifier : INotifier` class and pass it in; nothing existing is edited."}
+```
 
 ## Common mistakes
 
-- **An interface for everything.** If there is one class and no sign of a second, an interface is just extra typing. Add it when a second version appears or you need a fake for tests.
+- **An interface for everything.** One class and no sign of a second means an interface is just extra typing. Add it when a second version appears or you need a fake for tests.
 - **Fat interfaces.** A 15-method interface forces every class to implement things it does not need. Prefer small ones.
 - **Leaking details.** `Send(SmtpClient client, string message)` bakes email into the promise. SMS cannot implement it honestly.
-- **Confusing the promise with the guarantee.** The interface only lists signatures. Behaviour, such as "never throws for an empty message", must be documented and tested.
+- **Confusing the promise with the guarantee.** The interface lists signatures only. Behaviour, such as "never throws for an empty message", must be documented and tested.
 
 ```check
-{"prompt": "When is it best to introduce an interface?", "options": ["For every class, to be safe", "When there are, or soon will be, several interchangeable implementations or you need a fake for tests", "Only when a class has more than ten methods"], "answer": 1, "explanation": "An interface earns its place by letting things be swapped. With no variation and no need for a fake, it only adds indirection."}
+{"prompt":"When is it best to introduce an interface?","options":["For every class, to be safe","Only when a class has more than ten methods","When there are, or soon will be, several interchangeable implementations, or you need a fake for tests"],"answer":2,"explanation":"An interface earns its place by letting things be swapped. With no variation and no need for a fake, it only adds indirection."}
 ```
 
 ## Recap

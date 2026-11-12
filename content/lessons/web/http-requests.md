@@ -37,6 +37,16 @@ Read the request line by line. The first line says **what to do** (`GET`), **on 
 
 The response starts with a **status line**: version, a numeric code (`200`) and a short reason (`OK`). Then headers describing the answer. A blank line separates the headers from the **body**, the actual content.
 
+```steps
+{"title": "One request and its response", "frames": [
+  {"visual": "Browser                        Server\n  |                              |\n  |                              |", "caption": "You click a link to /docs/intro."},
+  {"visual": "Browser                        Server\n  | GET /docs/intro HTTP/1.1     |\n  | Host: www.example.com        |\n  |----------------------------->|", "caption": "The **request**: method, path, version, then headers."},
+  {"visual": "Browser                        Server\n  | GET /docs/intro HTTP/1.1     |\n  |----------------------------->|\n  |            finds the page    |", "caption": "The server finds the page. This is its own work, invisible to the browser."},
+  {"visual": "Browser                        Server\n  |<-----------------------------|\n  | HTTP/1.1 200 OK              |\n  | Content-Type: text/html      |\n  |                              |\n  | <html>Welcome...</html>      |", "caption": "The **response**: status line, headers, a blank line, then the body."},
+  {"visual": "Browser                        Server\n  |   shows the page             |\n  |                              |", "caption": "The exchange is over. The next click starts a fresh request."}
+]}
+```
+
 In C# you can make this call in a few lines:
 
 ```csharp
@@ -65,6 +75,10 @@ Console.WriteLine((int)response.StatusCode); // 200
 | 3xx | Go somewhere else | 301 Moved Permanently |
 | 4xx | You made a mistake | 400 Bad Request, 404 Not Found |
 | 5xx | The server failed | 500 Internal Server Error |
+
+```reveal
+{"prompt": "Before you look: a browser requests /missing-page, which does not exist, and then /old-page, which moved permanently to /new-page. What status codes come back, and what does the browser do next in each case?", "answer": "**404 Not Found** for the first: nothing more happens, the browser shows an error page. **301 Moved Permanently** for the second, with a `Location: /new-page` header, so the browser automatically sends a *new* request to /new-page."}
+```
 
 A request that sends data, such as `POST`, carries a body too:
 

@@ -6,12 +6,9 @@ import { useEffect, useState } from "react";
 import { scoreHistory } from "@/lib/activity";
 import { buildPracticeSet, recommend } from "@/lib/recommend";
 import type { Question, TopicMeta } from "@/lib/types";
-import { planFocus } from "@/lib/mentor/client";
-import { useMentor } from "./mentor/useMentor";
 import { useProgress } from "./ProgressProvider";
 import { useNow } from "./useNow";
 import { Quiz } from "./Quiz";
-import { useQuestionPool } from "./useQuestionPool";
 
 const SESSION_SIZE = 10;
 
@@ -19,8 +16,7 @@ const SESSION_SIZE = 10;
  * Mixed rounds across topics: the daily review from Today, and the low-pressure warm-up. Practising one topic lives in
  * its workspace, and the old topic links are forwarded there.
  */
-export function PracticeRunner({ questions: bank, topics }: { questions: Question[]; topics: TopicMeta[] }) {
-  const questions = useQuestionPool(bank);
+export function PracticeRunner({ questions, topics }: { questions: Question[]; topics: TopicMeta[] }) {
   const { data, ready } = useProgress();
   const params = useSearchParams();
   const router = useRouter();
@@ -28,7 +24,6 @@ export function PracticeRunner({ questions: bank, topics }: { questions: Questio
   const warmup = params.get("mode") === "warmup";
   const [running, setRunning] = useState<Question[] | null>(null);
   const [round, setRound] = useState(0);
-  const mentor = useMentor();
   const now = useNow();
   const forwardTo = topicParam && topics.some((t) => `${t.domain}/${t.topic}` === topicParam) ? `/learn/${topicParam}/?tab=practice` : null;
 
@@ -36,11 +31,8 @@ export function PracticeRunner({ questions: bank, topics }: { questions: Questio
     if (forwardTo) router.replace(forwardTo);
   }, [forwardTo, router]);
 
-  // Wait for the mentor's plan too, so a round started straight away gets the same order the preview shows.
-  if (!ready || forwardTo || !mentor || now === null) return <p className="text-ink-2">Loading your progress…</p>;
+  if (!ready || forwardTo || now === null) return <p className="text-ink-2">Loading your progress…</p>;
 
-  const topicKeys = new Set(topics.map((t) => `${t.domain}/${t.topic}`));
-  const focus = mentor.kind === "ready" ? planFocus(mentor.state, new Date(now), mentor.status).filter((k) => topicKeys.has(k)) : [];
   const titleOf = (key: string) => topics.find((x) => `${x.domain}/${x.topic}` === key)?.title ?? key;
 
   const build = (): Question[] => {
@@ -53,7 +45,7 @@ export function PracticeRunner({ questions: bank, topics }: { questions: Questio
         .sort((a, b) => Number(seen.has(a.id)) - Number(seen.has(b.id)) || a.id.localeCompare(b.id))
         .slice(0, 5);
     }
-    return buildPracticeSet(data, questions, topics, SESSION_SIZE, now, focus);
+    return buildPracticeSet(data, questions, topics, SESSION_SIZE, now);
   };
 
   const start = () => {
@@ -82,9 +74,7 @@ export function PracticeRunner({ questions: bank, topics }: { questions: Questio
         <p>
           {warmup
             ? "Five core-level questions you haven't answered correctly yet. No pressure: just get moving."
-            : focus.length > 0
-              ? `${SESSION_SIZE} questions: reviews that are due first, then what your mentor's plan is working on (${focus.map(titleOf).join(", ")}), then your other weak topics.`
-              : `${SESSION_SIZE} questions chosen from your history: reviews that are due first, then your weakest topics, then topics you haven't tried.`}
+            : `${SESSION_SIZE} questions chosen from your history: reviews that are due first, then your weakest topics, then topics you haven't tried.`}
         </p>
       </header>
 
@@ -94,16 +84,12 @@ export function PracticeRunner({ questions: bank, topics }: { questions: Questio
           {rec.focus.filter((f) => f.reason === "untested").length} untested. Low on energy?{" "}
           <Link href="/practice/?mode=warmup" className="text-accent-text hover:underline">
             Try the warm-up
-          </Link>{" "}
-          or the{" "}
-          <Link href="/fun/" className="text-accent-text hover:underline">
-            fun corner
           </Link>
           .
         </p>
       )}
 
-      <div className="grid gap-9 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-14">
+      <div className="grid gap-9 xl:grid-cols-[minmax(0,1fr)_21rem] xl:gap-14">
         <div className="min-w-0 space-y-9">
         <section aria-labelledby="covers-h">
           <div className="section-head">

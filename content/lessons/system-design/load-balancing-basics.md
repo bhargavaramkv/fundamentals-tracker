@@ -17,24 +17,18 @@ A **load balancer** is that person. It sits in front of several identical server
 
 ## See it work
 
-Three identical servers, A, B and C, sit behind one load balancer. Six requests arrive.
+Three identical servers, A, B and C, sit behind one load balancer (LB). Requests 1 to 6 arrive.
 
+```steps
+{"title": "Round-robin, then a server dies", "frames": [
+  {"visual": "req 1 -> LB -> [A]        A: 1\n                  [B]        B:\n                  [C]        C:\n", "caption": "Request 1 goes to A, the first server on the list."},
+  {"visual": "req 2 -> LB -> [A]        A: 1\n                  [B]        B: 2\n                  [C]        C:\n", "caption": "Request 2 goes to B. This take-turns rule is **round-robin**."},
+  {"visual": "req 3 -> LB -> [A]        A: 1\n                  [B]        B: 2\n                  [C]        C: 3\n", "caption": "Request 3 goes to C. The list is finished, so the next one starts again at A."},
+  {"visual": "req 4 -> LB -> [A]        A: 1 4\n                  [B]  X     B: 2   <- no health reply\n                  [C]        C: 3\n", "caption": "B crashes. The LB's **health check** (a regular ping) gets no answer, so B is marked down."},
+  {"visual": "req 5 -> LB -> [A]        A: 1 4\n                  [B]  X     B: 2\n                  [C]        C: 3 5\n", "caption": "Requests skip B. Request 5 goes to C."},
+  {"visual": "req 6 -> LB -> [A]        A: 1 4 6\n                  [B]  X     B: 2\n                  [C]        C: 3 5\n", "caption": "Request 6 goes to A. Users saw no error page. That is the point."}
+]}
 ```
-Clients --> [ Load balancer ] --> Server A   (requests 1, 4)
-                              --> Server B   (requests 2, 5)
-                              --> Server C   (requests 3, 6)
-```
-
-This simple rule is **round-robin**: go down the list in turn, then start again. Each server gets two requests.
-
-Now server B crashes. The load balancer notices (more on that next) and stops sending to it:
-
-```
-Clients --> [ Load balancer ] --> Server A   (requests 7, 9)
-                              --> Server C   (requests 8, 10)
-```
-
-Users never see an error page. They may not even notice. That is the point.
 
 ## How it works
 
@@ -48,6 +42,10 @@ Users never see an error page. They may not even notice. That is the point.
 **Sticky sessions.** Sometimes a server remembers something about you, like a login held in its own memory. If your next request lands on a different server, it will not know you. Fix 1: send you to the same server each time ("sticky"). Fix 2, usually better: keep that memory outside the servers, in a shared database, so any server can answer anyone. A server that keeps nothing about you is called **stateless**.
 
 **Layers.** A load balancer can work at two levels. **Layer 4** looks only at network connections and is very fast. **Layer 7** reads the HTTP request itself, so it can send `/images` to one group of servers and `/api` to another.
+
+```reveal
+{"prompt": "Before you look: all three servers show 'OK' on /health, but server C cannot reach the database, so every real request to C fails. What goes wrong and how do you fix it?", "answer": "The load balancer keeps sending a third of the traffic to C, so one in three users gets errors. Make the health check **deep**: have `/health` really try the database, or use a readiness check, so C is taken out of rotation."}
+```
 
 A catch: the load balancer is now a single door. If it dies, everything dies. So real systems run two or more of them.
 

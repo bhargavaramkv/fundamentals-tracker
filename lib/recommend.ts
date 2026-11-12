@@ -70,8 +70,7 @@ function lastSeen(data: ProgressData): Map<string, { at: string; correct: boolea
 }
 
 /**
- * Builds an adaptive practice set: due reviews first, then the mentor's focus skills (when it has a current plan),
- * then weak and shaky topics, then topics never tested, then whatever was seen least recently.
+ * Builds an adaptive practice set: due reviews first, then weak and shaky topics, then topics never tested, then whatever was seen least recently.
  */
 export function buildPracticeSet(
   data: ProgressData,
@@ -79,7 +78,6 @@ export function buildPracticeSet(
   topics: TopicMeta[],
   size = 10,
   now: number = Date.now(),
-  focusSkills: string[] = [],
 ): Question[] {
   const rec = recommend(data, questions, topics, now);
   const seen = lastSeen(data);
@@ -115,9 +113,7 @@ export function buildPracticeSet(
       for (const pool of pools) add(pool[round]);
     }
   };
-  const focus = [...new Set(focusSkills)];
-  roundRobin(focus);
-  roundRobin(rec.focus.filter((f) => (f.reason === "weak" || f.reason === "shaky") && !focus.includes(topicKey(f.meta))).map((f) => topicKey(f.meta)));
+  roundRobin(rec.focus.filter((f) => f.reason === "weak" || f.reason === "shaky").map((f) => topicKey(f.meta)));
 
   for (const f of rec.focus.filter((x) => x.reason === "untested")) {
     const q = questions

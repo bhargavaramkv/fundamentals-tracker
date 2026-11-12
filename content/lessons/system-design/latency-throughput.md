@@ -26,7 +26,23 @@ Throughput = 30 coffees per hour  (60 min / 2 min)
 
 Hire a second barista working in parallel. Each coffee still takes 2 minutes, so latency is unchanged. But throughput doubles to 60 coffees per hour.
 
-Now the queue. If customers arrive faster than 30 per hour, a line forms. The later customers wait in line plus 2 minutes, so what *they* experience gets much worse. A busy system slows down not because each task got slower, but because requests wait their turn.
+Now the queue. One barista, 2 minutes per coffee, and customers arriving faster than one per 2 minutes:
+
+```steps
+{"title": "A line forms at one barista", "frames": [
+  {"visual": "min 0   line: [A]          barista: idle\n", "caption": "Customer A arrives. No wait."},
+  {"visual": "min 0   line: [B C]        barista: making A\n", "caption": "B and C arrive while A's coffee is being made. They queue."},
+  {"visual": "min 2   line: [C D]        barista: making B\n", "caption": "A is served after 2 minutes. D arrives. B starts."},
+  {"visual": "min 4   line: [D E]        barista: making C\n", "caption": "C started at minute 4, so C waited 2 minutes in line plus 2 making: 4 minutes."},
+  {"visual": "min 6   line: [E F G]      barista: making D\n", "caption": "Arrivals keep outpacing the barista. The line grows, so each new customer waits longer."}
+]}
+```
+
+Nothing got slower at making coffee. Waiting in line is what the later customers feel. A busy system slows down because requests wait their turn.
+
+```reveal
+{"prompt": "Before you look: you hire a second barista. What happens to the 2-minute latency of one coffee, and what happens to throughput?", "answer": "Latency stays at **2 minutes** (one coffee still takes that long). Throughput **doubles**, from 30 to 60 coffees per hour, so the line shrinks."}
+```
 
 ## How it works
 
@@ -56,9 +72,9 @@ A handy conversion: a day has about 86,400 seconds, so 1 million requests per da
 
 ## Where you'll meet it
 
-- **Interviews:** "How would you handle 10,000 requests per second?" is a throughput question. "Keep it under 200 ms" is a latency goal.
-- **Service goals:** teams promise things like "p99 under 300 ms". This kind of promise is often called an SLO (service level objective).
-- **Choosing where to put things:** that is why companies place servers near users, and keep popular data in memory.
+- **Interviews:** "How would you handle 10,000 requests per second?" is throughput. "Keep it under 200 ms" is latency.
+- **Service goals:** teams promise "p99 under 300 ms", often called an SLO (service level objective). Azure Monitor and Application Insights report these percentiles.
+- **Placement:** this is why companies put servers near users and keep popular data in memory.
 
 ## Common mistakes
 

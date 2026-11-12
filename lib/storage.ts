@@ -51,6 +51,18 @@ export const DATA_REPO: Omit<SyncConfig, "token"> = {
   path: "progress.json",
 };
 
+/** Reads a JSON file from the data repo with the sync token; null when it doesn't exist. */
+export async function readFile<T>(token: string, p: string): Promise<T | null> {
+  const url = `https://api.github.com/repos/${DATA_REPO.owner}/${DATA_REPO.repo}/contents/${p}?ref=${encodeURIComponent(DATA_REPO.branch)}`;
+  const res = await fetch(url, {
+    headers: { Accept: "application/vnd.github.raw+json", Authorization: `Bearer ${token}`, "X-GitHub-Api-Version": "2022-11-28" },
+    cache: "no-store",
+  });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`GitHub returned ${res.status}`);
+  return (await res.json()) as T;
+}
+
 function toBase64(text: string): string {
   const bytes = new TextEncoder().encode(text);
   let binary = "";
