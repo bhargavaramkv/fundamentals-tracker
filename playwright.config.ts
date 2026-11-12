@@ -12,5 +12,6 @@ export default defineConfig({
   webServer: { command: "node e2e/serve.mjs", url: `http://127.0.0.1:${port}/`, reuseExistingServer: !process.env.CI },
   projects: [
     { name: "layout", testMatch: /layout\.spec\.ts/ },
+    { name: "journal", testMatch: /journal\.spec\.ts/ },
   ],
 });
