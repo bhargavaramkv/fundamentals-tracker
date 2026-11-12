@@ -2,14 +2,14 @@
 
 import { useMemo } from "react";
 import { allKeys, doneTopics, nextLesson } from "@/lib/curriculum";
-import type { Curriculum, TopicMeta, TopicWorkspace } from "@/lib/types";
+import type { Curriculum, TopicMeta, WorkspaceSummary } from "@/lib/types";
 import { useProgress } from "./ProgressProvider";
 import { useNow } from "./useNow";
 
 export interface CourseContext {
   curriculum: Curriculum;
   topics: TopicMeta[];
-  workspaces: Record<string, TopicWorkspace>;
+  workspaces: Record<string, WorkspaceSummary>;
 }
 
 /** What's done and what's next, from the learner's progress. Before it loads, nothing is done. */

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { allKeys, doneTopics, streak, trackKeys } from "@/lib/curriculum";
-import type { Curriculum, TopicWorkspace } from "@/lib/types";
+import type { Curriculum, WorkspaceSummary } from "@/lib/types";
 import { BrandMark } from "./BrandMark";
 import { DomainIcon, domainColor } from "./DomainIcon";
 import { Icon, PRIMARY, isActive } from "./Nav";
@@ -12,7 +12,7 @@ import { useProgress } from "./ProgressProvider";
 import { useNow } from "./useNow";
 
 /** Left sidebar from lg up: the three destinations, every track with its progress, streak and settings. */
-export function Sidebar({ curriculum, workspaces }: { curriculum: Curriculum; workspaces: Record<string, TopicWorkspace> }) {
+export function Sidebar({ curriculum, workspaces }: { curriculum: Curriculum; workspaces: Record<string, WorkspaceSummary> }) {
   const pathname = usePathname();
   const { data, ready, syncState } = useProgress();
   const now = useNow();

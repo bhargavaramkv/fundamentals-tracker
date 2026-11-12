@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { isQuickMiss, READ_LOCK_MS } from "@/lib/answer-pace";
 import { summarizeSession } from "@/lib/progress";
 import { GUESS_MS } from "@/lib/retention";
 import { DOMAIN_LABELS, type AnswerLog, type Question, type SessionMode, type SessionRecord } from "@/lib/types";
@@ -63,9 +64,22 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
     shownAt.current = performance.now();
   }, [index]);
 
+  // Practice: a new question is read-only for READ_LOCK_MS. State holds the index whose lock has ended.
+  const [readIndex, setReadIndex] = useState(-1);
+  const locked = !blind && readIndex !== index;
+  const lockBar = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (blind) return;
+    const t = setTimeout(() => setReadIndex(index), READ_LOCK_MS);
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      lockBar.current?.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: READ_LOCK_MS, easing: "linear" });
+    }
+    return () => clearTimeout(t);
+  }, [blind, index]);
+
   const choose = useCallback(
     (displayIdx: number) => {
-      if (!question || saving || (!blind && log)) return;
+      if (!question || saving || locked || (!blind && log)) return;
       const unsure = displayIdx < 0;
       const selected = unsure ? -1 : order[displayIdx];
       const at = index;
@@ -90,7 +104,7 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
         return nextLogs;
       });
     },
-    [blind, index, log, mode, order, question, saving, sessionId],
+    [blind, index, locked, log, mode, order, question, saving, sessionId],
   );
 
   const finish = useCallback(
@@ -204,7 +218,12 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
           <pre className="mt-4 overflow-x-auto rounded-lg border border-line bg-surface p-3 font-mono text-sm">{question.code}</pre>
         )}
 
-        <ol className="mt-5 space-y-2">
+        {!blind && (
+          <div className="mt-5 h-0.5 overflow-hidden rounded-full bg-surface-2" aria-hidden>
+            <div ref={lockBar} className={`h-full origin-left bg-ink-3 transition-opacity ${locked ? "" : "opacity-0"}`} />
+          </div>
+        )}
+        <ol className={`${blind ? "mt-5" : "mt-3"} space-y-2 transition-opacity ${locked ? "opacity-70" : ""}`}>
           {order.map((optIdx, displayIdx) => {
             const isPicked = picked === displayIdx;
             const isCorrect = displayIdx === correctDisplayIdx;
@@ -227,7 +246,7 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
                 <button
                   type="button"
                   onClick={() => choose(displayIdx)}
-                  disabled={revealed}
+                  disabled={revealed || locked}
                   aria-pressed={blind ? isPicked : undefined}
                   className={`option min-h-12 flex-wrap gap-y-1 ${tone}`}
                 >
@@ -254,7 +273,7 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
         <button
           type="button"
           onClick={() => choose(-1)}
-          disabled={revealed}
+          disabled={revealed || locked}
           aria-pressed={blind ? last?.unsure === true : undefined}
           className={`mt-3 min-h-12 w-full rounded-2xl border-2 border-dashed px-4 py-3 text-left text-[15px] transition-colors disabled:cursor-default ${
             blind && last?.unsure ? "border-accent bg-accent-soft" : revealed ? "border-line opacity-55" : "border-line text-ink-2 hover:border-ink-3 hover:bg-surface-2"
@@ -282,6 +301,9 @@ export function Quiz({ questions, mode, onExit, onRestart, onBack, backLabel }: 
               <p className="mb-1 font-medium text-ink">
                 Under {GUESS_MS / 1000} seconds, so this counts as a likely guess and is left out of your retention numbers. Read every option before you pick.
               </p>
+            )}
+            {!last.unsure && isQuickMiss(last.timeMs, last.correct) && (
+              <p className="mb-1 font-medium text-ink">That was quick. Next time, read every option before choosing.</p>
             )}
             <p className="text-ink-2">{question.explanation}</p>
             <p className="meta mt-1">AI-generated explanation. The topic&apos;s sources are the authority.</p>

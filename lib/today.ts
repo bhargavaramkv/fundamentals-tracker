@@ -2,12 +2,12 @@ import { dueProblems, PATTERN_TOPICS } from "./coding";
 import { codingSolvesByTopic, evidenceFor, nextStep, STEP_LABEL, STEP_MINUTES, STEP_TAB, topicProficiency, topicRevision, type TopicRevision } from "./proficiency";
 import { recommend, type FocusTopic } from "./recommend";
 import { applyAnswers, dueReviews } from "./srs";
-import type { ProgressData, Question, TopicMeta, TopicWorkspace } from "./types";
+import type { ProgressData, Question, TopicMeta, WorkspaceSummary } from "./types";
 
 export interface PlanContext {
   questions: Question[];
   topics: TopicMeta[];
-  workspaces: Record<string, TopicWorkspace>;
+  workspaces: Record<string, WorkspaceSummary>;
 }
 
 export type PlanKind = "baseline" | "reviews" | "revise" | "learn" | "coding";

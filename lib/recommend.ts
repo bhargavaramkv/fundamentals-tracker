@@ -70,7 +70,8 @@ function lastSeen(data: ProgressData): Map<string, { at: string; correct: boolea
 }
 
 /**
- * Builds an adaptive practice set: due reviews first, then weak and shaky topics, then topics never tested, then whatever was seen least recently.
+ * Builds an adaptive practice set: due reviews first, then the learner's focus topics (lesson keys, in priority order), then weak and shaky topics, then topics never tested, then whatever was seen least recently.
+ * Untested topics are drawn from the focus tracks when a focus is given.
  */
 export function buildPracticeSet(
   data: ProgressData,
@@ -78,6 +79,7 @@ export function buildPracticeSet(
   topics: TopicMeta[],
   size = 10,
   now: number = Date.now(),
+  focus: string[] = [],
 ): Question[] {
   const rec = recommend(data, questions, topics, now);
   const seen = lastSeen(data);
@@ -113,9 +115,12 @@ export function buildPracticeSet(
       for (const pool of pools) add(pool[round]);
     }
   };
+  roundRobin(focus);
   roundRobin(rec.focus.filter((f) => f.reason === "weak" || f.reason === "shaky").map((f) => topicKey(f.meta)));
 
-  for (const f of rec.focus.filter((x) => x.reason === "untested")) {
+  const focusDomains = new Set(focus.map((k) => k.split("/")[0]));
+  const untested = rec.focus.filter((x) => x.reason === "untested" && (focusDomains.size === 0 || focusDomains.has(x.meta.domain)));
+  for (const f of untested) {
     const q = questions
       .filter((x) => x.domain === f.meta.domain && x.topic === f.meta.topic)
       .sort((a, b) => a.difficulty - b.difficulty)[0];

@@ -266,6 +266,13 @@ export interface TopicWorkspace {
   practical: PracticalTask[];
 }
 
+/** What progress needs from a workspace: the ids to count and the suggested order. Keeps client payloads small. */
+export interface WorkspaceSummary {
+  order: number;
+  exercises: { id: string }[];
+  practical: { id: string }[];
+}
+
 export interface FunStory {
   id: string;
   title: string;

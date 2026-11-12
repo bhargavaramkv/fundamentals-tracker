@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { TrackPath } from "@/components/TrackPath";
-import { getAllTopics, getCurriculum, getWorkspaces } from "@/lib/content";
+import { getAllTopics, getCurriculum, getWorkspaceSummaries } from "@/lib/content";
 import { DOMAIN_LABELS, DOMAINS, type Domain } from "@/lib/types";
 
 export const dynamicParams = false;
@@ -18,5 +18,5 @@ export async function generateMetadata(props: PageProps<"/learn/[domain]">): Pro
 export default async function TrackPage(props: PageProps<"/learn/[domain]">) {
   const { domain } = await props.params;
   if (!(DOMAINS as readonly string[]).includes(domain)) notFound();
-  return <TrackPath domain={domain as Domain} curriculum={getCurriculum()} topics={getAllTopics()} workspaces={getWorkspaces()} />;
+  return <TrackPath domain={domain as Domain} curriculum={getCurriculum()} topics={getAllTopics()} workspaces={getWorkspaceSummaries()} />;
 }
