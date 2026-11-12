@@ -9,7 +9,7 @@ One scheduled chat (the **daily run**, Opus, 06:47 IST). It has both this repo a
 the private data repo attached, so it reads `progress.json` directly from
 `../fundamentals-tracker-data/progress.json`. It is the only Claude routine: it
 also does the LeetCode coding review (step 0), after the data repo's LeetCode pull
-(a GitHub Action scheduled at midnight IST, often hours late) has landed.
+(a GitHub Action scheduled at 19:37 and 23:37 IST, often hours late) has landed.
 
 Each run covers everything since the previous analysis: quiz answers **and**
 lesson reads (a lesson open and visible for 20+ seconds).
