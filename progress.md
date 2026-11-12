@@ -54,13 +54,13 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [x] Baseline on main (ddf0be1): `npm run check` passes (219/219 unit tests, lint, typecheck, build). `npx playwright test` with the throwaway vault: 73/73 pass.
 - [x] Audit: one active Opus daily routine (06:47 IST: coding review plus lesson tailoring); a disabled Sonnet trigger trig_018R59EQ9LLo3Ujh7sH5R42Y (app and data repos attached) to repurpose; the media repo doesn't exist; the logo is the `BrandMark.tsx` text wordmark plus `app/favicon.ico`.
 
-### P1: Engine (Sonnet, worktree)
-- [ ] `progress.json` sync race fix plus regression test
-- [ ] Review engine scripts (pending, context, commit), validator, idempotency, failure log, tests
-- [ ] Weekly coaching script with the sufficiency gate, plus tests
-- [ ] Knowledge evidence model, level calculation and contradiction handling, plus tests
-- [ ] Idempotent knowledge migration (dry run, then commit to the data repo), plus tests
-- [ ] Routine docs (`docs/review-routine.md`, `docs/weekly-routine.md`)
+### P1: Engine (Sonnet, worktree `ft-engine`, branch v2/engine; Opus reviewed)
+- [x] `progress.json` sync race fix plus regression test (8e71bf7; 4 tests, 2 of them failed before the fix)
+- [x] Review engine: `npm run journal-review` (pending, context, commit, fail), validator (real event ids, exact quotes), idempotent commit, failure log (6ea4c0c). Opus added `verifies`, a validated delayed-check route to Retained (2cb777d, d9a7a56).
+- [x] Weekly: `npm run weekly` with the sufficiency gate (3 weeks × 3 sessions), validator (fe9f644)
+- [x] Knowledge levels and contradictions (04fcc5b)
+- [~] Knowledge migration script (b4be8b0). Dry run: 65 items (38 MCQ answers plus 27 mentor entries, all weak/historical); 27 archived answers skipped; 28 duplicate archive entries; 1 left uncertain. Commit to the data repo still to do, after the merge.
+- [x] Routine docs plus the CLAUDE.md ownership rules (03d6804)
 
 ### P2: Design system and shell (Sonnet)
 - [ ] Tokens, typography, motion, reduced motion
@@ -108,6 +108,10 @@ On main ddf0be1, at 2026-11-12 23:13 IST: 219/219 unit tests, 73/73 e2e tests, a
 ## Assumptions
 - `progress.md` and `execution-log.md` live in the public app repo. They hold no secrets or personal learning content.
 - "Root of the application workspace" means the root of the app repo.
+
+## Notes
+- Turbopack `next build` fails inside worktrees that use a node_modules junction (it resolves outside the root). Build verification is done in the main checkout only.
+- Before `git worktree remove`, ALWAYS `unlink node_modules` first: removing the worktree could follow the junction.
 
 ## Known defects
 - `GitHubStore.fetchRemote` reads the sha and the content separately (P1 fix).

@@ -21,3 +21,11 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
   - Engine: Sonnet, worktree `ft-engine` on v2/engine. It was relaunched after the first launch got a data-repo worktree by mistake and did no work.
   - Branch audit: Haiku, read-only.
 - **Wake-up scheduled:** 23:44 IST (ScheduleWakeup accepted; the harness confirmed "Next wakeup scheduled for 23:44:00"). Execution not yet observed.
+- **Milestone, 23:15 IST:**
+  - Baseline verified: 219/219 unit tests, 73/73 e2e tests.
+  - Branch audit: Haiku, then Opus re-verified it, and 7 merged branches were deleted (listed in progress.md).
+  - Commit b36ffad on v2/complete holds the execution files.
+  - Agents launched:
+    - P2 design system, shell and Today: Sonnet, in the main checkout on v2/complete.
+    - P3 Journal completion: Sonnet, in the `ft-journal` worktree on v2/journal-complete.
+    - P1 engine: Sonnet, in `ft-engine` on v2/engine. Already running.
