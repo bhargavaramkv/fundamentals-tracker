@@ -42,6 +42,7 @@ describe.each([
 
   it("primary button text is readable, including on hover", () => {
     expect(contrast(t["accent-ink"], t["accent-text"])).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(t["accent-ink"], t.btn)).toBeGreaterThanOrEqual(4.5);
   });
 
   it("the focus outline stands out from the page", () => {
@@ -55,8 +56,17 @@ describe("design rules", () => {
     expect(dark.accent).toBe("#3b9bff");
   });
 
-  it("has no gradients or backdrop blur", () => {
-    expect(css).not.toMatch(/backdrop-filter|linear-gradient|radial-gradient/);
+  it("has no linear gradients or backdrop blur (only the faint radial glow)", () => {
+    expect(css).not.toMatch(/backdrop-filter|linear-gradient/);
+  });
+
+  it("never uses purple", () => {
+    const hexes = [...css.matchAll(/#[0-9a-f]{6}/gi)].map((m) => m[0]);
+    for (const hex of hexes) {
+      const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+      const purple = b > g + 40 && r > g + 40 && Math.abs(r - b) < 90;
+      expect(purple, `${hex} reads as purple`).toBe(false);
+    }
   });
 
   it("the dark definitions agree between the media query and data-theme", () => {
