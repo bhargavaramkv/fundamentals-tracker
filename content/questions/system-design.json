@@ -147,7 +147,7 @@
       "Retry the Kafka publish three times in a loop before giving up"
     ],
     "answer": 1,
-    "explanation": "This is the dual-write problem. The outbox makes state change and event atomic, and the relay gives at-least-once delivery, so consumers must be idempotent. 2PC is rarely available or desirable with brokers."
+    "explanation": "This is the dual-write problem. The outbox makes state change and event atomic, and the relay gives at-least-once delivery, so consumers must be idempotent. Publishing first only flips the failure: if the save then fails, consumers act on an order that never existed. 2PC is tempting but Kafka can't join a distributed transaction with your database, and retrying in a loop dies with the process."
   },
   {
     "id": "system-design-messaging-1",

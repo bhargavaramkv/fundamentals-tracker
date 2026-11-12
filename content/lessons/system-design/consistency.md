@@ -37,7 +37,15 @@ save(order)        ✔ committed
 publish(event)     ✘ broker down → downstream never learns
 ```
 
-Reversing the order is no better. **Transactional outbox**: insert the event into an `outbox` table *in the same transaction* as the state change. A relay (poller, or CDC with Debezium or MongoDB change streams) publishes it and marks it sent. That gives at-least-once delivery, so consumers deduplicate by event ID.
+Why the two tempting fixes fail:
+
+| Fix | What breaks |
+|---|---|
+| Publish first, then save | The DB insert fails (constraint, deadlock, crash) after the event is out. Downstream now acts on an order that doesn't exist: the same dual write, failing the other way. |
+| Two-phase commit (DB + Kafka) | Kafka doesn't join XA/distributed transactions with your database. Its own transactions cover only Kafka writes, and 2PC blocks everyone when the coordinator dies. |
+| Retry the publish in a loop | The process can crash between commit and publish, and the retries die with it. |
+
+**Transactional outbox**: insert the event into an `outbox` table *in the same transaction* as the state change. A relay (poller, or CDC with Debezium or MongoDB change streams) publishes it and marks it sent. That gives at-least-once delivery, so consumers deduplicate by event ID.
 
 ```check
 {"prompt": "A client retries 'charge card' with the same idempotency key after a timeout. What should the server do?", "options": ["Charge again, to be safe", "Return the stored result of the first attempt without charging again", "Reject all retries"], "answer": 1, "explanation": "The key lets the server recognise a repeat. It replays the saved response, so the customer is charged once even if the first reply was lost."}
