@@ -249,8 +249,12 @@ The V1 nightly mentor (removed in #35) left `mentor/{states,runs,reports,evidenc
 - Copies are kept under `archive/mentor-v1/` with a README. The originals are untouched. The Mentor page shows the archived reports.
 - `mentor/coding.json` is live and still used by Coding.
 
+## Routines (claude.ai, owner's subscription; no API billing)
+
+- **Fundamentals session reviews** (Sonnet): daily at 06:15 IST, follows `docs/review-routine.md`.
+- **Fundamentals tracker · daily run** (Opus): daily at 06:47 IST. Coding review (`docs/coding-routine.md`), plus weekly coaching on Mondays (`docs/weekly-routine.md`). Lesson tailoring, learner-profile updates and lesson PRs are retired.
+
 ## Not built
 
 - Photo upload and the media repo (gated; see Photos).
 - An in-app mentor chat. Discussion happens in Claude Code.
-- Scheduling of the review and weekly routines. They are documented, and the owner sets them up.

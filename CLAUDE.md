@@ -8,8 +8,9 @@ Read `AGENTS.md` (Next.js version notes) before changing code.
   the owner's Claude subscription. It writes to the data repo only through `npm run coding-review`, only `mentor/coding.json`.
 - **LeetCode history:** the data repo's `leetcode-pull.yml` is the only other automation that may write there, only under `leetcode/`
   (`scripts/leetcode-history.ts`). It holds the owner's code, so it must never reach this public repo or its branches.
-- **Daily run:** follow `docs/daily-routine.md` exactly. It's the source of truth for
-  analysis, PRs and the `routine-state` marker.
+- **Daily run (V2):** coding review (`docs/coding-routine.md`), plus weekly coaching on Mondays (`docs/weekly-routine.md`).
+  Session reviews run as a separate routine (`docs/review-routine.md`). The lesson-tailoring steps of `docs/daily-routine.md`
+  (learner profile, lesson PRs, `routine-state` marker) are retired.
 - **Progress data:** the daily run has the private data repo attached and reads
   `../fundamentals-tracker-data/progress.json` directly.
   The daily routine never touches `progress.json`; it writes only `learner/profile.json`, via `npm run learner`.
