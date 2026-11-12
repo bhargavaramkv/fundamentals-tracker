@@ -7,8 +7,9 @@ sources first, tracks reading separately from real practice, and keeps up with
 technology news. A daily Claude routine also improves the lessons and questions based
 on where you keep failing.
 
-V2 is in progress on the `rewrite/v2` branch; the V1 app is tagged `v1-legacy`. Design: docs/v2/ARCHITECTURE.md.
+V2 is a journal-first app. It is complete on the `v2/complete` branch, pending merge to `main`. The V1 app is tagged `v1-legacy`.
 
+**V2 docs:** [architecture](docs/v2/ARCHITECTURE.md) · [data contracts](docs/v2/data-contracts.md) · [recovery](docs/v2/recovery.md) · [review routine](docs/review-routine.md) · [weekly routine](docs/weekly-routine.md) · [handwriting spike](docs/v2/handwriting-spike.md).
 V1 design and reasoning: [docs/design/REDESIGN.md](docs/design/REDESIGN.md) (history).
 
 **Live site:** https://bhargavaramkv.github.io/fundamentals-tracker/
@@ -23,9 +24,9 @@ rather than being a string compared in JavaScript:
   marker. Signing in derives a key from `username + password` with PBKDF2-SHA256
   (600,000 iterations), and only the right pair decrypts the marker. The password
   is never stored anywhere.
-- You stay signed in for 30 days per device. The saved session is the derived
-  key, and it's re-checked against the vault on every load, so a forged session
-  doesn't unlock anything.
+- You stay signed in for 30 days per device. Each device holds its own
+  non-extractable key in IndexedDB, and the saved session is re-checked against the vault on every load,
+  so a forged session doesn't unlock anything. The password-derived key is never stored.
 - The GitHub sync token is stored **encrypted with that key**, both in the browser
   and as one account-wide copy in `vault/sync-token.json`. Without the password
   it's an opaque blob, and after **Settings → Sign out** nothing usable is left
@@ -43,19 +44,17 @@ this public repo and ships in the static bundle, so treat content as public.
 
 ## Features
 
-On `rewrite/v2` the site has four tabs, **Today · Journal · Knowledge · Coding**
-(see [docs/v2/ARCHITECTURE.md](docs/v2/ARCHITECTURE.md)). Today is the overview, Journal
-sessions record what you studied from any source, and lessons and practice remain as
-optional resources reached from Knowledge. On `main` (V1) the tabs are
-**Today · Learn · Coding**, and review rounds start from Today.
+The V2 site has four tabs, **Today · Journal · Knowledge · Coding**, plus **Settings**.
 
-- **Today:** a daily plan that stays stable through the day, revision reminders,
-  proficient topics and recent activity.
-- **Learn** (Knowledge on V2): 52 topics in six tracks (DSA, OOP, databases, system design, web, and
-  operating systems & concurrency), in suggested order. Each has a workspace with sources,
-  an explanation, practice, exercises, practical work and a check.
+- **Today:** journal-first. The current or last session, recent activity, this week, and a mentor slot with the latest review.
+- **Journal:** timed study sessions from any source. Events are append-only, with notes, topics, difficulty, bookmarks, edits and local photos. Sessions sync to the data repo per file, and ending one asks for a review.
+- **Knowledge:** concepts with a level (Exposed, Understood, Applied, Retained), the evidence behind it and what is due for verification. Lessons and practice are optional resources reached from here.
+- **Mentor** (`/mentor/`, linked from Today and Knowledge): a read-only view of session reviews, pending reviews, weekly reports and the V1 archive. It can copy prompts for Claude Code. It has no chat.
 - **Coding:** LeetCode history, notes, retry dates and weak patterns. Entry is manual;
   [the design doc explains why](docs/design/REDESIGN.md#coding-why-tracking-is-manual).
+- **Settings:** sync token, sign-out.
+
+The lesson and quiz features below still exist as resources. On `main` (V1) the tabs are **Today · Learn · Coding**.
 
 What drives them:
 
@@ -111,6 +110,11 @@ lib/recommend.ts     Focus topics + adaptive practice set
 lib/progress.ts      Append-only merge, session recording
 scripts/progress-report.ts   Analysis used by the daily routine
 scripts/learner-profile.ts   Writes the learner profile (npm run learner)
+lib/journal/         Journal events, local store, sync (V2)
+lib/review/          Review and weekly validators (V2)
+lib/knowledge/       Evidence, levels, migration (V2)
+lib/mentor/          Read-only mentor data layer (V2)
+scripts/journal-review.ts, weekly.ts, knowledge-migrate.ts   Routine scripts (V2)
 docs/daily-routine.md        Playbook the scheduled task follows
 ```
 
@@ -151,6 +155,8 @@ npm run dev          # http://localhost:3000
 | `npm run check` | All of the above; run before every commit |
 | `npm run report -- --data <progress.json>` | Markdown progress report (`--json` for JSON) |
 | `npm run resources:verify` | Fetch every registry link (`-- --write` stamps the ones that loaded) |
+| `npm run e2e` | Playwright end-to-end tests |
+| `npm run journal-review`, `weekly`, `knowledge-migrate` | Routine scripts; need `--data <data repo>` (see docs/review-routine.md, docs/weekly-routine.md, docs/v2/recovery.md) |
 | `npm run set-password` | Regenerate `lib/login-vault.json` (see Access control) |
 
 ## Environment variables
