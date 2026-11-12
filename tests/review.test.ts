@@ -229,3 +229,27 @@ describe("buildReviewContext", () => {
     expect(JSON.stringify(ctx.priorKnowledge.earlierReviews[0])).toContain("moderate");
   });
 });
+
+describe("verifies (delayed-check evidence)", () => {
+  it("accepts an understood finding that answers an earlier review's question, and rejects anything else", async () => {
+    const first = fixture(T0);
+    const firstRequest = await install(first.session);
+    const earlier = await reviewFor(first.session, firstRequest);
+    writeJson(path.join(dir, reviewPath(earlier)), earlier);
+
+    const later = fixture(T0 + 10 * 86_400_000, "d2");
+    const request = await install(later.session, T0 + 10 * 86_400_000 + 700_000);
+    const answer = { concept: "ttl jitter", text: "Explains jitter unaided.", evidence: [{ eventId: later.note.id }] };
+
+    const ok = await reviewFor(later.session, request, { id: request.id, inputHash: request.inputHash, createdAt: "2026-11-13T05:00:00.000Z", understood: [{ ...answer, verifies: { requestId: earlier.id, question: "Why add jitter to TTLs?" } }] });
+    expect((await commitReview(dir, request.id, ok)).status).toBe("written");
+
+    const wrongQuestion = { ...ok, understood: [{ ...answer, verifies: { requestId: earlier.id, question: "Something else?" } }] };
+    const unknown = { ...ok, understood: [{ ...answer, verifies: { requestId: "nope", question: "Why add jitter to TTLs?" } }] };
+    const ctx = { request, session: later.session, currentHash: request.inputHash, priorReviews: new Map([[earlier.id, earlier]]) };
+    expect(validateReview(wrongQuestion, ctx).errors.join()).toMatch(/not one of review/);
+    expect(validateReview(unknown, ctx).errors.join()).toMatch(/no earlier review/);
+    const misplaced = { ...ok, understood: [answer], incomplete: [{ ...answer, verifies: { requestId: earlier.id, question: "Why add jitter to TTLs?" } }] };
+    expect(validateReview(misplaced, ctx).errors.join()).toMatch(/only understood findings may set verifies/);
+  });
+});

@@ -89,6 +89,23 @@ export function findPending(dataDir: string): PendingResult {
 
 export type CommitResult = { status: "exists"; path: string } | { status: "written"; path: string; review: SessionReview } | { status: "rejected"; errors: string[] };
 
+/** Earlier reviews named by `understood[].verifies.requestId`, found under journal/reviews/<sessionId>/<requestId>.json. */
+function referencedReviews(dataDir: string, raw: unknown): Map<string, SessionReview> {
+  const out = new Map<string, SessionReview>();
+  const understood = (raw as { understood?: unknown })?.understood;
+  if (!Array.isArray(understood)) return out;
+  const ids = new Set(understood.map((f) => (f as { verifies?: { requestId?: unknown } })?.verifies?.requestId).filter((id): id is string => typeof id === "string"));
+  const root = path.join(dataDir, "journal", "reviews");
+  if (ids.size === 0 || !fs.existsSync(root)) return out;
+  for (const sessionDir of fs.readdirSync(root)) {
+    for (const id of ids) {
+      const review = readJsonIf<SessionReview>(path.join(root, sessionDir, `${id}.json`));
+      if (review) out.set(id, review);
+    }
+  }
+  return out;
+}
+
 /** Validates and writes the review. A valid review that already exists is left untouched. */
 export async function commitReview(dataDir: string, requestId: string, raw: unknown): Promise<CommitResult> {
   const request = loadRequest(dataDir, requestId);
@@ -96,7 +113,7 @@ export async function commitReview(dataDir: string, requestId: string, raw: unkn
   const rel = reviewPath(request);
   const session = loadSession(dataDir, request.sessionId);
   if (!session) return { status: "rejected", errors: [`session ${request.sessionId} not found or unreadable`] };
-  const ctx = { request, session, currentHash: await sessionHash(session) };
+  const ctx = { request, session, currentHash: await sessionHash(session), priorReviews: referencedReviews(dataDir, raw) };
   const existing = readJsonIf<unknown>(path.join(dataDir, rel));
   if (existing && validateReview(existing, ctx).errors.length === 0) return { status: "exists", path: rel };
   if (deriveSession(session, Date.parse(request.requestedAt)).status === "discarded") return { status: "rejected", errors: [`session ${request.sessionId} is discarded`] };

@@ -68,7 +68,10 @@ export function reviewEvidence(review: SessionReview, session: JournalSession): 
   const fromFindings = (list: Finding[], signal: Evidence["signal"], strength: Evidence["strength"]) => {
     for (const f of list) add(f.concept, "review-finding", signal, strength, review.createdAt, f.text);
   };
-  fromFindings(review.understood, "correct", "moderate");
+  for (const f of review.understood) {
+    if (f.verifies) add(f.concept, "delayed-check", "correct", "moderate", review.createdAt, `answers a verification question from review ${f.verifies.requestId}: ${f.verifies.question}`);
+    else add(f.concept, "review-finding", "correct", "moderate", review.createdAt, f.text);
+  }
   fromFindings(review.misunderstandings, "misconception", "moderate");
   fromFindings(review.incomplete, "exposed", "weak");
   for (const item of deriveSession(session, Date.parse(review.createdAt)).timeline) {

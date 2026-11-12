@@ -15,6 +15,12 @@ export interface Finding {
   concept: string;
   text: string;
   evidence: EvidenceRef[];
+  /**
+   * Only on `understood`: this session answers, unaided, a verification question from an earlier review. The commit
+   * script checks the earlier review exists and asked exactly this question. It is the only source of delayed-check
+   * evidence (needed for Retained).
+   */
+  verifies?: { requestId: string; question: string };
 }
 
 /** Absence is not proof, so evidence may be empty; the question is how the owner can show the concept. */

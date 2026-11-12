@@ -18,6 +18,8 @@ export interface ReviewContext {
   session: JournalSession;
   /** sessionHash of the session as stored now. */
   currentHash: string;
+  /** Earlier reviews by request id, for checking `verifies`. */
+  priorReviews?: Map<string, SessionReview>;
 }
 
 const isObj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === "object" && !Array.isArray(v);
@@ -77,6 +79,22 @@ export function validateReview(raw: unknown, ctx: ReviewContext): { errors: stri
   str(raw.model, "model", 100);
   str(raw.summary, "summary", 2000);
   for (const k of REVIEW_FINDING_LISTS) findings(raw[k], k);
+  if (Array.isArray(raw.understood)) {
+    raw.understood.forEach((f, i) => {
+      if (!isObj(f) || f.verifies === undefined) return;
+      const p = `understood[${i}].verifies`;
+      const v = f.verifies;
+      if (!isObj(v) || typeof v.requestId !== "string" || typeof v.question !== "string") return err(p, "must be {requestId, question}");
+      const prior = ctx.priorReviews?.get(v.requestId);
+      if (!prior || v.requestId === ctx.request.id) return err(p, `no earlier review ${v.requestId}`);
+      if (Date.parse(prior.createdAt) >= Date.parse(ctx.request.requestedAt)) return err(p, "the earlier review must predate this session's request");
+      if (!prior.verificationQuestions.some((q) => q.question === v.question)) err(p, `question is not one of review ${v.requestId}'s verification questions`);
+    });
+  }
+  for (const k of REVIEW_FINDING_LISTS.filter((k) => k !== "understood")) {
+    const list = raw[k];
+    if (Array.isArray(list) && list.some((f) => isObj(f) && f.verifies !== undefined)) err(k, "only understood findings may set verifies");
+  }
   findings(raw.missingConcepts, "missingConcepts", true);
 
   const q = raw.explanationQuality;

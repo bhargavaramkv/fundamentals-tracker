@@ -162,3 +162,18 @@ describe("migration", () => {
     expect(JSON.stringify(mergeEvidence(again, [...first, ...run([ans({ id: "a0" })], []).items]))).toBe(JSON.stringify(again));
   });
 });
+
+describe("delayed checks from reviews", () => {
+  it("an understood finding that verifies an earlier question becomes delayed-check evidence and can reach Retained", () => {
+    const t0 = Date.UTC(2026, 10, 1);
+    const s = createSession({ subject: "HLD", source: { kind: "docs" }, device: "d" }, t0);
+    const note = makeEvent({ kind: "note", text: "jitter spreads expiry" }, "d", t0 + 1000);
+    const session = { ...s, events: [...s.events, note] };
+    const base = { v: 1 as const, sessionId: session.id, inputHash: "h", model: "m", summary: "s", misunderstandings: [], incomplete: [], unsupportedClaims: [], missingConcepts: [], explanationQuality: { level: "clear" as const, note: "n", evidence: [] }, learningBehaviour: { observations: [], improvements: [] }, nextSteps: ["x"], verificationQuestions: [{ concept: "ttl jitter", question: "q?" }], insufficientEvidence: false };
+    const first = reviewEvidence({ ...base, id: "r1", createdAt: "2026-11-01T10:00:00Z", understood: [{ concept: "TTL jitter", text: "ok", evidence: [{ eventId: note.id }] }] }, session);
+    const second = reviewEvidence({ ...base, id: "r2", createdAt: "2026-11-09T10:00:00Z", understood: [{ concept: "TTL jitter", text: "ok", evidence: [{ eventId: note.id }], verifies: { requestId: "r1", question: "q?" } }] }, session);
+    expect(second.find((e) => e.concept === "ttl jitter")?.kind).toBe("delayed-check");
+    const items = [...first, ...second].filter((e) => e.concept === "ttl jitter");
+    expect(levelOf(items, Date.UTC(2026, 10, 10)).level).toBe("retained");
+  });
+});

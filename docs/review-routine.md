@@ -25,3 +25,6 @@ An unattended Claude Code session (Sonnet) that reviews pending journal sessions
       - Exit code 2 prints validation errors and writes nothing. Fix the file and retry, at most 2 times.
       - If it still fails, run `npm run --silent journal-review -- fail <requestId> "<short reason>" --data <data>` and move on.
 4. **Summary.** Print one line per request: reviewed, already reviewed, or failed (with the reason), and the skipped ones.
+
+## Answers to earlier verification questions (Retained)
+If this session clearly answers, unaided, a verification question that an earlier review asked (the context lists earlier reviews for overlapping topics), add `"verifies": {"requestId": "<earlier review id>", "question": "<exact question text>"}` to that `understood` finding. The commit script rejects it unless that earlier review exists, predates this request and asked exactly that question. This is the only route to Retained, so never set it on a guess: when the answer is partial or prompted, leave `verifies` out and use `incomplete` instead.
