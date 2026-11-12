@@ -87,7 +87,7 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 ### P5: Routines (Opus)
 - [x] Repurposed the Sonnet trigger trig_018R59EQ9LLo3Ujh7sH5R42Y as "Fundamentals session reviews", 06:15 IST, enabled (the update response confirms the stored config)
 - [x] Opus daily trig_01Nh3VTuUaKUPrwv3qmzcJ7G: coding review plus Monday weekly; lesson tailoring, learner profile and PR steps retired
-- [~] Config verified. A manual run of the review routine (cse_018WzAxEUfnNfHEwDKxpgwEj) is in progress; the result will be recorded in the log
+- [x] Config verified. Manual run cse_018WzAxEUfnNfHEwDKxpgwEj succeeded (pending: [], nothing written)
 
 ### P6: Docs and cleanup
 - [x] README, CLAUDE.md, ARCHITECTURE, data contracts, recovery docs (Sonnet, a3288ff)
@@ -97,7 +97,7 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [x] Full unit (323/323), e2e (125/125) and build; 54 screenshots at 375/390/768/1280/1600/1920 captured, key ones inspected (in `../fundamentals-v2-screenshots/final/`, outside the repo). Fix: Today's button reads "Open session" while running.
 - [x] Security review of the diff: no dangerouslySetInnerHTML, the markdown renderer emits no links, CSP unchanged (self + GitHub API), no secrets, mentor remote GET-only, logo unchanged since ddf0be1
 - [x] PR #53: CI green (check, layout), merged e4d9a34, Pages deploy 43281085732 succeeded. Smoke test: 6 routes return 200, CSP present, new bundle live. Rollback: `git revert -m 1 e4d9a34` on main (v1-legacy tag intact)
-- [ ] `fundamentals-v2-final-report.md`
+- [x] `fundamentals-v2-final-report.md`
 
 ## Baseline
 On main ddf0be1, at 2026-11-12 23:13 IST: 219/219 unit tests, 73/73 e2e tests, and the build all pass.
