@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { scoreHistory } from "@/lib/activity";
 import { buildPracticeSet, recommend } from "@/lib/recommend";
 import type { Question, TopicMeta } from "@/lib/types";
+import { useLearnerProfile } from "./useLearnerProfile";
 import { useProgress } from "./ProgressProvider";
 import { useNow } from "./useNow";
 import { Quiz } from "./Quiz";
@@ -25,6 +26,8 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
   const [running, setRunning] = useState<Question[] | null>(null);
   const [round, setRound] = useState(0);
   const now = useNow();
+  const profile = useLearnerProfile();
+  const focus = [...new Set([...(profile?.struggles ?? []).map((s) => s.topic), ...(profile?.nextUp ?? []).map((n) => n.topic)])];
   const forwardTo = topicParam && topics.some((t) => `${t.domain}/${t.topic}` === topicParam) ? `/learn/${topicParam}/?tab=practice` : null;
 
   useEffect(() => {
@@ -45,7 +48,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         .sort((a, b) => Number(seen.has(a.id)) - Number(seen.has(b.id)) || a.id.localeCompare(b.id))
         .slice(0, 5);
     }
-    return buildPracticeSet(data, questions, topics, SESSION_SIZE, now);
+    return buildPracticeSet(data, questions, topics, SESSION_SIZE, now, focus);
   };
 
   const start = () => {
@@ -65,6 +68,11 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
     title: titleOf(key),
     n: preview.filter((q) => `${q.domain}/${q.topic}` === key).length,
   }));
+  const untested = new Set(rec.focus.filter((f) => f.reason === "untested").map((f) => `${f.meta.domain}/${f.meta.topic}`));
+  const unread = covers
+    .filter((c) => (focus.includes(c.key) || untested.has(c.key)) && !data.reads.some((r) => `${r.domain}/${r.topic}` === c.key))
+    .slice(0, 2)
+    .map((c) => ({ ...c, minutes: topics.find((t) => `${t.domain}/${t.topic}` === c.key)?.minutes }));
 
   return (
     <div className="space-y-9">
@@ -105,6 +113,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
                     {c.title}
                   </Link>
                   <span className="meta shrink-0">
+                    {focus.includes(c.key) && <>your focus · </>}
                     {c.n} question{c.n === 1 ? "" : "s"}
                   </span>
                 </li>
@@ -112,6 +121,15 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
             </ul>
           )}
         </section>
+
+        {unread.map((u) => (
+          <p key={u.key} className="text-[15px] text-ink-2">
+            New to {u.title}?{" "}
+            <Link href={`/learn/${u.key}/`} className="text-accent-text hover:underline">
+              Read the {u.minutes ? `${Math.max(1, Math.round(u.minutes))}-minute ` : ""}lesson first →
+            </Link>
+          </p>
+        ))}
 
         <button type="button" onClick={start} disabled={preview.length === 0} className="btn btn-primary">
           Start · {preview.length} questions <span className="btn-arrow" aria-hidden>→</span>

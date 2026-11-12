@@ -1,7 +1,7 @@
 import { dayKey } from "./activity";
 import { PATTERN_TOPICS } from "./coding";
 import { codingSolvesByTopic, levelRank, topicProficiency } from "./proficiency";
-import type { Curriculum, CurriculumTrack, ProgressData, TopicWorkspace } from "./types";
+import type { Curriculum, CurriculumTrack, ProgressData, WorkspaceSummary } from "./types";
 
 export const GOAL_ANSWERS = 10;
 const DAY_MS = 86_400_000;
@@ -12,7 +12,7 @@ export const trackKeys = (track: CurriculumTrack): string[] => track.stages.flat
 export const allKeys = (c: Curriculum): string[] => c.tracks.flatMap(trackKeys);
 
 /** The topic keys finished: proficiency has reached "practising" (a lesson checkpoint or any quiz answer). */
-export function doneTopics(keys: string[], data: ProgressData, workspaces: Record<string, TopicWorkspace>, now: number): Set<string> {
+export function doneTopics(keys: string[], data: ProgressData, workspaces: Record<string, WorkspaceSummary>, now: number): Set<string> {
   const solves = codingSolvesByTopic(data, PATTERN_TOPICS);
   const bar = levelRank("practising");
   return new Set(keys.filter((k) => levelRank(topicProficiency(k, data, workspaces[k], solves, now).level) >= bar));

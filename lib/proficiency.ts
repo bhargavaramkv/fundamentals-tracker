@@ -1,5 +1,5 @@
 import { weightedScore } from "./profile";
-import type { AnswerLog, Domain, ExerciseRating, LearningActivity, ProgressData, TopicWorkspace } from "./types";
+import type { AnswerLog, Domain, ExerciseRating, LearningActivity, ProgressData, WorkspaceSummary } from "./types";
 
 /**
  * Topic proficiency, built from evidence. Reading, quizzes, exercises and practical work are tracked separately, and
@@ -61,7 +61,7 @@ export interface TopicEvidence {
   codingSolves: string[];
 }
 
-export function computeTracks(evidence: TopicEvidence, workspace: TopicWorkspace | undefined, now: number): TopicTracks {
+export function computeTracks(evidence: TopicEvidence, workspace: WorkspaceSummary | undefined, now: number): TopicTracks {
   const { answers, reads, activities, codingSolves } = evidence;
   const resourceIds = new Set(activities.filter((a) => a.kind === "resource").map((a) => a.refId));
   const ratings = latestRatings(activities);
@@ -166,7 +166,7 @@ export function evidenceFor(key: string, data: ProgressData, codingSolves: Map<s
 export function topicProficiency(
   key: string,
   data: ProgressData,
-  workspace: TopicWorkspace | undefined,
+  workspace: WorkspaceSummary | undefined,
   codingSolves: Map<string, string[]>,
   now: number = Date.now(),
 ): TopicProficiency {

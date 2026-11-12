@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import { parseLessonSteps, readingMinutes } from "./lesson-steps";
 import type { Resource } from "./resources";
-import { DOMAINS, type Domain, type Curriculum, type FunFact, type FunStory, type Lesson, type Question, type TopicMeta, type TopicWorkspace } from "./types";
+import { DOMAINS, type Domain, type Curriculum, type FunFact, type FunStory, type Lesson, type Question, type TopicMeta, type TopicWorkspace, type WorkspaceSummary } from "./types";
 import { validateQuestions } from "./validate";
 
 // Content is read at build time only (static export), so plain sync fs is fine.
@@ -98,6 +98,16 @@ export function getWorkspaces(): Record<string, TopicWorkspace> {
     for (const [topic, w] of Object.entries(raw)) out[`${domain}/${topic}`] = w;
   }
   return out;
+}
+
+/** Just what progress needs per topic, so client components do not carry every prompt and answer. */
+export function getWorkspaceSummaries(): Record<string, WorkspaceSummary> {
+  return Object.fromEntries(
+    Object.entries(getWorkspaces()).map(([key, w]) => [
+      key,
+      { order: w.order, exercises: w.exercises.map((e) => ({ id: e.id })), practical: w.practical.map((p) => ({ id: p.id })) },
+    ]),
+  );
 }
 
 export function getFunStories(): FunStory[] {

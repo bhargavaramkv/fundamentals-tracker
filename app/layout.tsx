@@ -4,7 +4,7 @@ import { AuthGate } from "@/components/AuthGate";
 import { Nav } from "@/components/Nav";
 import { ProgressProvider } from "@/components/ProgressProvider";
 import { Sidebar } from "@/components/Sidebar";
-import { getCurriculum, getWorkspaces } from "@/lib/content";
+import { getCurriculum, getWorkspaceSummaries } from "@/lib/content";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -47,7 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ProgressProvider>
             <Nav />
             <div className="flex-1 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)]">
-              <Sidebar curriculum={getCurriculum()} workspaces={getWorkspaces()} />
+              <Sidebar curriculum={getCurriculum()} workspaces={getWorkspaceSummaries()} />
               <div className="flex min-w-0 flex-col">
                 <main className="mx-auto w-full max-w-3xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-8 sm:py-12 lg:max-w-[68rem] lg:px-10">{children}</main>
                 <footer className="mx-auto w-full max-w-3xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8 lg:max-w-[68rem] lg:px-10">
