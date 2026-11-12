@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AuthGate } from "@/components/AuthGate";
 import { JournalProvider } from "@/components/JournalProvider";
+import { MentorProvider } from "@/components/MentorProvider";
 import { Nav } from "@/components/Nav";
 import { ProgressProvider } from "@/components/ProgressProvider";
 import { Sidebar } from "@/components/Sidebar";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AuthGate>
           <ProgressProvider>
             <JournalProvider>
+            <MentorProvider>
             <Nav />
             <div className="flex-1 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)]">
               <Sidebar />
@@ -71,6 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 </footer>
               </div>
             </div>
+            </MentorProvider>
             </JournalProvider>
           </ProgressProvider>
         </AuthGate>

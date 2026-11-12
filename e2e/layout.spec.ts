@@ -2,7 +2,7 @@ import type { Page } from "@playwright/test";
 import { expect, test } from "./auth";
 import { FIXED_NOW, PROGRESS_KEY, seededProgress } from "./fixture";
 
-const PAGES = ["/", "/journal/", "/knowledge/", "/learn/", "/practice/", "/learn/dsa/big-o-basics/", "/coding/", "/settings/"];
+const PAGES = ["/", "/journal/", "/knowledge/", "/mentor/", "/learn/", "/practice/", "/learn/dsa/big-o-basics/", "/coding/", "/settings/"];
 const DESKTOP_WIDTHS = [1280, 1600, 1920];
 const PHONE = { width: 375, height: 812 };
 // Phone 390 and tablet 768 check overflow only (below lg there is no sidebar to centre against).
