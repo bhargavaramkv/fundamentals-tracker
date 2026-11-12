@@ -14,6 +14,9 @@ Read `AGENTS.md` (Next.js version notes) before changing code.
   `../fundamentals-tracker-data/progress.json` directly.
   The daily routine never touches `progress.json`; it writes only `learner/profile.json`, via `npm run learner`.
 - **Journal (V2):** the browser writes `journal/**` in the data repo; the daily routine must never write there.
+  The review routines (`docs/review-routine.md`, `docs/weekly-routine.md`) may write only `journal/reviews/**`, `journal/review-failures/**`,
+  `journal/weekly/**` and `knowledge/**`, only through `npm run journal-review`, `weekly` and `knowledge-migrate`. They never write
+  `journal/sessions/**` or `journal/requests/**`.
 - **Sources:** never add a link to `content/resources/registry.json` without fetching it (`npm run resources:verify`).
 - **Checks:** `npm run check` (lint, typecheck, tests, build) before every commit.
 - **Never:** push to `main` from the routine, delete question or exercise IDs, or (from the

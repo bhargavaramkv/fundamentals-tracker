@@ -16,6 +16,9 @@
     "set-password": "tsx scripts/set-password.ts",
     "coding-review": "tsx scripts/coding-review.ts",
     "learner": "tsx scripts/learner-profile.ts",
+    "journal-review": "tsx scripts/journal-review.ts",
+    "weekly": "tsx scripts/weekly.ts",
+    "knowledge-migrate": "tsx scripts/knowledge-migrate.ts",
     "leetcode-sync": "tsx scripts/leetcode-sync.ts",
     "leetcode-history": "tsx scripts/leetcode-history.ts",
     "resources:verify": "tsx scripts/verify-resources.mts"

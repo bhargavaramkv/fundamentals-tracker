@@ -78,6 +78,13 @@ function toBase64(text: string): string {
   return btoa(binary);
 }
 
+function fromBase64(b64: string): string {
+  const binary = atob(b64.replace(/\s/g, ""));
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
 interface RemoteFile {
   data: ProgressData;
   sha: string | null;
@@ -120,11 +127,13 @@ export class GitHubStore implements ProgressStore {
     const meta = await fetch(this.url() + ref, { headers: this.headers(), cache: "no-store" });
     if (meta.status === 404) return { data: emptyProgress(), sha: null };
     if (!meta.ok) throw new GitHubSyncError(`GitHub read failed (${meta.status})`, meta.status);
-    const { sha } = (await meta.json()) as { sha: string };
-    // The raw media type works for files above the 1 MB inline-content limit.
-    const raw = await fetch(this.url() + ref, { headers: this.headers("application/vnd.github.raw+json"), cache: "no-store" });
-    if (!raw.ok) throw new GitHubSyncError(`GitHub read failed (${raw.status})`, raw.status);
-    return { data: normalizeProgress(await raw.json()), sha };
+    const { sha, content, encoding } = (await meta.json()) as { sha: string; content?: string; encoding?: string };
+    // Content must belong to exactly this sha: pairing a newer sha with older content would overwrite newer data.
+    // The contents response carries both together up to 1 MB; above that, fetch the blob by its sha.
+    if (encoding === "base64" && content) return { data: normalizeProgress(JSON.parse(fromBase64(content))), sha };
+    const blob = await fetch(`https://api.github.com/repos/${this.config.owner}/${this.config.repo}/git/blobs/${sha}`, { headers: this.headers(), cache: "no-store" });
+    if (!blob.ok) throw new GitHubSyncError(`GitHub read failed (${blob.status})`, blob.status);
+    return { data: normalizeProgress(JSON.parse(fromBase64(((await blob.json()) as { content: string }).content))), sha };
   }
 
   private async putRemote(data: ProgressData, sha: string | null): Promise<Response> {
