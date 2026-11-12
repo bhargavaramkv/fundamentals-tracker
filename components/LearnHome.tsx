@@ -36,7 +36,7 @@ export function LearnHome(ctx: CourseContext) {
 
   return (
     <PageShell right={rail}>
-    <div className="max-w-3xl space-y-8">
+    <div className="max-w-3xl space-y-8 xl:max-w-none">
       <header>
         <h1 className="text-3xl sm:text-4xl">Learn</h1>
         <p className="mt-1 text-[17px] text-ink-2">{n} tracks. Each one starts from zero. Follow the path, or jump anywhere: nothing is locked.</p>

@@ -49,8 +49,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <div className="flex-1 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)]">
               <Sidebar curriculum={getCurriculum()} workspaces={getWorkspaces()} />
               <div className="flex min-w-0 flex-col">
-                <main className="mx-auto w-full max-w-3xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-8 sm:py-12 lg:max-w-[80rem] lg:px-10 xl:px-12">{children}</main>
-                <footer className="mx-auto w-full max-w-3xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8 lg:max-w-[80rem] lg:px-10 xl:px-12">
+                <main className="mx-auto w-full max-w-3xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-8 sm:py-12 lg:max-w-[68rem] lg:px-10">{children}</main>
+                <footer className="mx-auto w-full max-w-3xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8 lg:max-w-[68rem] lg:px-10">
                   Progress stays in your browser unless you enable sync in Settings.
                 </footer>
               </div>
