@@ -1,7 +1,8 @@
-import { expect, test, type Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
+import { expect, test } from "./auth";
 import { FIXED_NOW, PROGRESS_KEY, seededProgress } from "./fixture";
 
-const PAGES = ["/", "/learn/", "/practice/", "/learn/dsa/big-o-basics/", "/coding/", "/settings/"];
+const PAGES = ["/", "/journal/", "/knowledge/", "/learn/", "/practice/", "/learn/dsa/big-o-basics/", "/coding/", "/settings/"];
 const DESKTOP_WIDTHS = [1280, 1600, 1920];
 const PHONE = { width: 375, height: 812 };
 // Measured on the good layout the gaps differ by under 1px (subpixel rounding); 2px allows for that

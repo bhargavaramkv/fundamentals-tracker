@@ -1,61 +1,16 @@
-import loginVault from "./login-vault.json";
+import vaultJson from "./login-vault.json";
 import { DATA_REPO } from "./storage";
-import { exportKey, importKey, keyMatches, login, seal, unseal, type LoginVault, type Sealed } from "./vault";
+import { login, seal, unseal, type LoginVault, type Sealed } from "./vault";
 
 /**
- * Username/password login for the static site. A successful login yields an
- * AES key derived from the credentials. The key is kept for 30 days so you
- * stay signed in, and the GitHub sync token is stored encrypted under it, so
- * signing out leaves nothing usable behind.
+ * Username/password login for the static site. A successful login yields an AES key derived from the credentials.
+ * That key is never stored: it unseals the account-wide sync token, then this device enrolls with its own
+ * non-extractable key (lib/device-session.ts). It stays in memory for the tab, for re-sealing a new token.
  */
-const vault = loginVault as LoginVault;
-const SESSION_KEY = "ft.session.v1";
-const TOKEN_KEY = "ft.syncToken.v1";
-const SESSION_DAYS = 30;
-
-interface StoredSession {
-  key: string;
-  expiresAt: number;
-}
+export const vault = vaultJson as LoginVault;
 
 export async function signInWithPassword(username: string, password: string): Promise<CryptoKey | null> {
-  const key = await login(vault, username, password);
-  if (!key) return null;
-  const session: StoredSession = { key: await exportKey(key), expiresAt: Date.now() + SESSION_DAYS * 86_400_000 };
-  window.localStorage.setItem(SESSION_KEY, JSON.stringify(session));
-  return key;
-}
-
-/** Restores a still-valid session; the stored key must still match the current vault. */
-export async function restoreSession(): Promise<CryptoKey | null> {
-  try {
-    const raw = window.localStorage.getItem(SESSION_KEY);
-    if (!raw) return null;
-    const session = JSON.parse(raw) as StoredSession;
-    if (Date.now() > session.expiresAt) return null;
-    const key = await importKey(session.key);
-    return (await keyMatches(vault, key)) ? key : null;
-  } catch {
-    return null;
-  }
-}
-
-export function endSession(): void {
-  window.localStorage.removeItem(SESSION_KEY);
-}
-
-export async function loadSyncToken(key: CryptoKey): Promise<string | null> {
-  try {
-    const raw = window.localStorage.getItem(TOKEN_KEY);
-    return raw ? await unseal(key, JSON.parse(raw) as Sealed) : null;
-  } catch {
-    return null;
-  }
-}
-
-export async function saveSyncToken(key: CryptoKey, token: string | null): Promise<void> {
-  if (token) window.localStorage.setItem(TOKEN_KEY, JSON.stringify(await seal(key, token)));
-  else window.localStorage.removeItem(TOKEN_KEY);
+  return login(vault, username, password);
 }
 
 /**

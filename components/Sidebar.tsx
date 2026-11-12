@@ -2,22 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { allKeys, doneTopics, streak, trackKeys } from "@/lib/curriculum";
-import type { Curriculum, WorkspaceSummary } from "@/lib/types";
+import { streak } from "@/lib/curriculum";
 import { BrandMark } from "./BrandMark";
-import { DomainIcon, domainColor } from "./DomainIcon";
 import { Icon, PRIMARY, isActive } from "./Nav";
 import { Flame } from "./ProgressRing";
 import { useProgress } from "./ProgressProvider";
 import { useNow } from "./useNow";
 
-/** Left sidebar from lg up: the three destinations, every track with its progress, streak and settings. */
-export function Sidebar({ curriculum, workspaces }: { curriculum: Curriculum; workspaces: Record<string, WorkspaceSummary> }) {
+/** Left sidebar from lg up: the four destinations, streak and settings. */
+export function Sidebar() {
   const pathname = usePathname();
   const { data, ready, syncState } = useProgress();
   const now = useNow();
   const loaded = ready && now !== null;
-  const done = loaded ? doneTopics(allKeys(curriculum), data, workspaces, now) : new Set<string>();
   const days = loaded ? streak(data, now) : null;
   const settingsActive = pathname.startsWith("/settings");
   const syncError = syncState === "error";
@@ -43,36 +40,6 @@ export function Sidebar({ curriculum, workspaces }: { curriculum: Curriculum; wo
               </Link>
             );
           })}
-        </nav>
-        <nav aria-label="Tracks">
-          <p className="eyebrow px-3 pb-2">Tracks</p>
-          <ul className="space-y-0.5">
-            {curriculum.tracks.map((t) => {
-              const keys = trackKeys(t);
-              const k = keys.filter((x) => done.has(x)).length;
-              const active = pathname.startsWith(`/learn/${t.domain}`);
-              return (
-                <li key={t.domain}>
-                  <Link
-                    href={`/learn/${t.domain}/`}
-                    aria-current={active ? "page" : undefined}
-                    className={`block rounded-xl px-3 py-2 transition-colors ${active ? "bg-surface-2" : "hover:bg-surface-2"}`}
-                  >
-                    <span className="flex items-center gap-2.5">
-                      <DomainIcon domain={t.domain} size={24} />
-                      <span className={`min-w-0 flex-1 text-[13px] font-bold leading-tight ${active ? "text-ink" : "text-ink-2"}`}>{t.title}</span>
-                      <span className="meta tabular-nums">
-                        {k}/{keys.length}
-                      </span>
-                    </span>
-                    <span aria-hidden className="mt-1.5 block h-1 overflow-hidden rounded-full bg-surface-2">
-                      <span className="block h-full rounded-full" style={{ width: `${keys.length ? (k / keys.length) * 100 : 0}%`, background: domainColor(t.domain) }} />
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
         </nav>
       </div>
       <div className="flex items-center justify-between border-t border-line px-4 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">

@@ -7,7 +7,9 @@ sources first, tracks reading separately from real practice, and keeps up with
 technology news. A daily Claude routine also improves the lessons and questions based
 on where you keep failing.
 
-The design and its reasoning: [docs/design/REDESIGN.md](docs/design/REDESIGN.md).
+V2 is in progress on the `rewrite/v2` branch; the V1 app is tagged `v1-legacy`. Design: docs/v2/ARCHITECTURE.md.
+
+V1 design and reasoning: [docs/design/REDESIGN.md](docs/design/REDESIGN.md) (history).
 
 **Live site:** https://bhargavaramkv.github.io/fundamentals-tracker/
 
@@ -41,11 +43,15 @@ this public repo and ships in the static bundle, so treat content as public.
 
 ## Features
 
-The site has three areas, **Today · Learn · Practice**:
+On `rewrite/v2` the site has four tabs, **Today · Journal · Knowledge · Coding**
+(see [docs/v2/ARCHITECTURE.md](docs/v2/ARCHITECTURE.md)). Today is the overview, Journal
+sessions record what you studied from any source, and lessons and practice remain as
+optional resources reached from Knowledge. On `main` (V1) the tabs are
+**Today · Learn · Coding**, and review rounds start from Today.
 
 - **Today:** a daily plan that stays stable through the day, revision reminders,
   proficient topics and recent activity.
-- **Learn:** 52 topics in six tracks (DSA, OOP, databases, system design, web, and
+- **Learn** (Knowledge on V2): 52 topics in six tracks (DSA, OOP, databases, system design, web, and
   operating systems & concurrency), in suggested order. Each has a workspace with sources,
   an explanation, practice, exercises, practical work and a check.
 - **Coding:** LeetCode history, notes, retry dates and weak patterns. Entry is manual;
@@ -212,7 +218,8 @@ content, following `docs/daily-routine.md`, in a single chat:
 4. Moves the "analysed up to" marker on the `routine-state` branch so nothing
    is analysed twice.
 
-It never pushes to `main`, never writes to the data repo, and never deletes
+It never pushes to `main`, writes to the data repo only `mentor/coding.json` and
+`learner/profile.json` (through its scripts, never `journal/`), and never deletes
 question IDs that your history references. Answers from before the 2026-10-28
 question rewrite are archived: kept in the file, but not counted.
 

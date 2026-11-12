@@ -1,26 +1,26 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { describeTokenError, fetchSharedToken, publishSharedToken, removeSharedToken, SHARED_TOKEN, signInWithPassword, vault, verifyToken } from "@/lib/auth";
 import {
-  describeTokenError,
-  endSession,
-  fetchSharedToken,
-  loadSyncToken,
-  publishSharedToken,
-  removeSharedToken,
-  restoreSession,
-  saveSyncToken,
-  SHARED_TOKEN,
-  signInWithPassword,
-  verifyToken,
-} from "@/lib/auth";
+  clearLegacySession,
+  enrollDevice,
+  forgetDevice,
+  openDeviceStore,
+  restoreDevice,
+  updateDeviceToken,
+  upgradeLegacySession,
+  type DeviceStore,
+} from "@/lib/device-session";
 import { DATA_REPO, GitHubStore } from "@/lib/storage";
+import { login } from "@/lib/vault";
 import { BrandMark } from "./BrandMark";
 
 type GateState =
   | { phase: "checking" }
   | { phase: "locked" }
-  | { phase: "unlocked"; key: CryptoKey; syncToken: string | null; shared: boolean };
+  /** passwordKey is set only after a password sign-in in this tab; it is never stored. */
+  | { phase: "unlocked"; passwordKey: CryptoKey | null; syncToken: string | null; shared: boolean };
 
 export interface ConnectResult {
   error: string | null;
@@ -32,8 +32,12 @@ interface AuthContextValue {
   syncToken: string | null;
   /** True when the token comes from (or was saved to) the account-wide encrypted copy. */
   sharedAcrossDevices: boolean;
-  /** Verifies a GitHub token, does a first sync, and saves it encrypted for this account. */
-  connectSync: (token: string) => Promise<ConnectResult>;
+  /** False after a restored session: saving a token for every device then needs the password again. */
+  canShareToken: boolean;
+  /** Whether this browser keeps the sign-in (IndexedDB available). */
+  remembered: boolean;
+  /** Verifies a GitHub token, does a first sync, and saves it for this device and (with the password) the account. */
+  connectSync: (token: string, password?: string) => Promise<ConnectResult>;
   disconnectSync: () => Promise<void>;
   signOut: () => void;
 }
@@ -48,39 +52,42 @@ export function useAuth(): AuthContextValue {
 
 export function AuthGate({ children }: { children: ReactNode }) {
   const [state, setState] = useState<GateState>({ phase: "checking" });
-
-  const unlock = useCallback(async (key: CryptoKey) => {
-    // The account-wide copy wins, so a token replaced on one device reaches every other device.
-    const [shared, local] = await Promise.all([fetchSharedToken(key), loadSyncToken(key)]);
-    if (shared && shared !== local) await saveSyncToken(key, shared);
-    setState({ phase: "unlocked", key, syncToken: shared ?? local, shared: shared !== null });
-  }, []);
+  const storeRef = useRef<DeviceStore | null>(null);
+  const [remembered, setRemembered] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
-    void restoreSession().then((key) => {
+    void (async () => {
+      const store = await openDeviceStore().catch(() => null);
+      storeRef.current = store;
+      setRemembered(store !== null);
+      if (!store) clearLegacySession();
+      const session = store ? ((await restoreDevice(store, vault)) ?? (await upgradeLegacySession(store, vault))) : null;
       if (cancelled) return;
-      if (key) void unlock(key);
-      else setState({ phase: "locked" });
-    });
+      setState(session ? { phase: "unlocked", passwordKey: null, syncToken: session.token, shared: session.shared } : { phase: "locked" });
+    })();
     return () => {
       cancelled = true;
     };
-  }, [unlock]);
+  }, []);
 
-  const signIn = useCallback(
-    async (username: string, password: string) => {
-      const key = await signInWithPassword(username, password);
-      if (!key) return false;
-      await unlock(key);
-      return true;
-    },
-    [unlock],
-  );
+  const signIn = useCallback(async (username: string, password: string) => {
+    const key = await signInWithPassword(username, password);
+    if (!key) return false;
+    const store = storeRef.current;
+    // The account-wide copy wins, so a token replaced on one device reaches this one; else keep this device's own.
+    const [shared, own] = await Promise.all([fetchSharedToken(key), store ? restoreDevice(store, vault) : null]);
+    const token = shared ?? own?.token ?? null;
+    if (store) await enrollDevice(store, vault, token, shared !== null).catch(() => undefined);
+    setState({ phase: "unlocked", passwordKey: key, syncToken: token, shared: shared !== null });
+    return true;
+  }, []);
 
   const connectSync = useCallback(
-    async (raw: string): Promise<ConnectResult> => {
+    async (raw: string, password?: string): Promise<ConnectResult> => {
       if (state.phase !== "unlocked") return { error: "Sign in first.", warning: null };
+      const passwordKey = state.passwordKey ?? (password ? await login(vault, vault.username, password) : null);
+      if (password && !passwordKey) return { error: "That password is incorrect.", warning: null };
       const token = raw.trim();
       const check = await verifyToken(token);
       if (!check.ok) return { error: describeTokenError(check), warning: null };
@@ -97,15 +104,18 @@ export function AuthGate({ children }: { children: ReactNode }) {
           warning: null,
         };
       }
-      await saveSyncToken(state.key, token);
-      const published = await publishSharedToken(state.key, token);
-      setState({ ...state, syncToken: token, shared: published.ok });
+      const published = passwordKey ? await publishSharedToken(passwordKey, token) : null;
+      const shared = published?.ok ?? false;
+      if (storeRef.current) await updateDeviceToken(storeRef.current, token, shared);
+      setState({ ...state, passwordKey: passwordKey ?? state.passwordKey, syncToken: token, shared });
       return {
         error: null,
-        warning: published.ok
-          ? null
-          : `Sync works on this device, but couldn't be saved for your other devices (HTTP ${published.status ?? "?"}). ` +
-            `Give the token access to ${SHARED_TOKEN.repo} as well (Contents: Read and write) and save it again.`,
+        warning: !published
+          ? "Sync works on this device. Enter your password with the token to save it for your other devices too."
+          : published.ok
+            ? null
+            : `Sync works on this device, but couldn't be saved for your other devices (HTTP ${published.status ?? "?"}). ` +
+              `Give the token access to ${SHARED_TOKEN.repo} as well (Contents: Read and write) and save it again.`,
       };
     },
     [state],
@@ -114,12 +124,13 @@ export function AuthGate({ children }: { children: ReactNode }) {
   const disconnectSync = useCallback(async () => {
     if (state.phase !== "unlocked") return;
     if (state.syncToken) await removeSharedToken(state.syncToken);
-    await saveSyncToken(state.key, null);
+    if (storeRef.current) await updateDeviceToken(storeRef.current, null, false);
     setState({ ...state, syncToken: null, shared: false });
   }, [state]);
 
   const signOut = useCallback(() => {
-    endSession();
+    clearLegacySession();
+    if (storeRef.current) void forgetDevice(storeRef.current);
     setState({ phase: "locked" });
   }, []);
 
@@ -130,7 +141,15 @@ export function AuthGate({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ syncToken: state.syncToken, sharedAcrossDevices: state.shared, connectSync, disconnectSync, signOut }}
+      value={{
+        syncToken: state.syncToken,
+        sharedAcrossDevices: state.shared,
+        canShareToken: state.passwordKey !== null,
+        remembered,
+        connectSync,
+        disconnectSync,
+        signOut,
+      }}
     >
       {children}
     </AuthContext.Provider>

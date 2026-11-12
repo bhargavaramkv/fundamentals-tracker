@@ -1,4 +1,4 @@
-**Current direction: [MENTOR.md](MENTOR.md).** It takes precedence over [REDESIGN.md](REDESIGN.md), which takes precedence over the v2 documents below. Those are kept for history.
+**Current design: [docs/v2/ARCHITECTURE.md](../v2/ARCHITECTURE.md).** V4.md, V3.md, REDESIGN.md and the v2 docs in this folder are history.
 
 # Fundamentals Tracker redesign handoff
 
@@ -11,8 +11,6 @@ This branch contains the updated design specifications for the **Developer Playg
 4. Implement the shared design system first, then dashboard and learning flows in phases.
 5. Read [IMPLEMENTATION-NOTES](./IMPLEMENTATION-NOTES.md): decisions where the spec conflicted with the code.
 
-#**Current design: [REDESIGN.md](REDESIGN.md).** The v2 documents below are kept for history; where they conflict, REDESIGN.md wins.
-
 # Key visual requirements
 - Preserve the exact existing Fundamentals. logo/wordmark and broadly retain the current header.
 - Use a cinematic connected skill path with real interactive nodes.
@@ -20,17 +18,11 @@ This branch contains the updated design specifications for the **Developer Playg
 - Use whitespace and typography instead of nested card grids.
 - Keep motion subtle, purposeful, and reduced-motion aware.
 
-#**Current design: [REDESIGN.md](REDESIGN.md).** The v2 documents below are kept for history; where they conflict, REDESIGN.md wins.
-
 # Non-negotiable compatibility
 Do not silently change scoring, recommendations, spaced repetition, progress schema, authentication, backup/restore semantics, lesson tracking, or sync. Preserve GitHub Pages static export. Never replace real values with mock data to imitate a screenshot.
 
-#**Current design: [REDESIGN.md](REDESIGN.md).** The v2 documents below are kept for history; where they conflict, REDESIGN.md wins.
-
 # Visual references
 The generated dashboard and all-pages reference images were provided in the conversation package. Treat them as art direction, not pixel-perfect UI or a source of real copy/data. The written LLD and HLD are authoritative.
-
-#**Current design: [REDESIGN.md](REDESIGN.md).** The v2 documents below are kept for history; where they conflict, REDESIGN.md wins.
 
 # Implementation workflow
 - Inspect current file contracts and run the existing checks first.
