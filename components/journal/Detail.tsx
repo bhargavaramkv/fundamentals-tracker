@@ -7,6 +7,7 @@ import { formatSpan } from "@/lib/journal/format";
 import type { ConflictInspection, EventBrief } from "@/lib/journal/sync";
 import { SOURCE_KINDS, SOURCE_LABELS, type SourceKind } from "@/lib/journal/types";
 import { useJournal } from "../JournalProvider";
+import { SessionReviewPanel } from "../mentor/SessionReviewPanel";
 import { PhotoButtons } from "./Photos";
 import { ErrorLine, SyncBadge, dateOf, timeOf } from "./shared";
 import { Timeline } from "./Timeline";
@@ -70,6 +71,7 @@ export function Detail({ id }: { id: string }) {
         </section>
       )}
       <Timeline derived={d} sessionId={id} order="oldest" editable={d.status !== "discarded"} />
+      {d.status === "ended" && <SessionReviewPanel sessionId={id} />}
       {d.status !== "discarded" && (
         <div className="flex flex-wrap items-center gap-3">
           {confirming ? (

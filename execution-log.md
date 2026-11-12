@@ -40,3 +40,13 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
   - P3 Journal (Sonnet) finished on v2/journal-complete (db5401c, a8b6d04). It reported `npm run check` passing with 260 tests and 77/77 e2e.
   - Opus reviewed the conflict repair (backup is create-only, writes are sha-guarded) and the IndexedDB v2 upgrade (every ft-journal store opens with DB_VERSION).
   - The merge is waiting for P4 to commit in the main checkout. Agent tokens: 194,493; 71 tool uses; 17.8 min.
+- **Milestone, 23:39 IST:**
+  - P4 Mentor/Knowledge (Sonnet) committed cbbabb5 and 6120b0b. It reported `npm run check` with 282 tests and 121/121 e2e. Agent tokens: 163,393; 54 tool uses; 11.1 min.
+  - P3 merged into v2/complete (501ab7b) with no conflicts.
+  - Opus integration: SessionReviewPanel mounted in the ended-session detail, and Today now uses the derived subject. Full check and e2e are running.
+  - Worktrees ft-engine and ft-journal removed; both were clean and had no junctions.
+- **Correction, 23:51 IST:**
+  - The first e2e run after the merge (bl5g86jos: 125 failed) was invalid. I invoked `set-password` with positional arguments, it exited with an error, and the build used the real vault, so the sign-in step failed in every test.
+  - The earlier "layout fail" (bcxp83aq3) most likely had the same cause.
+  - Re-running in CI order (set-password through env, then build, then e2e): bc48racwb.
+  - P6 docs launched: Sonnet, docs only, explicit-path commits.

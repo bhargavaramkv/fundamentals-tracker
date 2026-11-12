@@ -64,7 +64,7 @@ export function Today() {
               <div className="card flex flex-wrap items-center gap-x-6 gap-y-4 p-5 sm:p-6">
                 <div className="min-w-0 flex-1">
                   <p className="eyebrow">{liveStatus === "paused" ? "Paused session" : "Session running"}</p>
-                  <p className="headline mt-1.5 break-words text-2xl">{live.session.subject}</p>
+                  <p className="headline mt-1.5 break-words text-2xl">{deriveSession(live.session).subject}</p>
                   <p className="mono mt-2 text-3xl text-accent-text" aria-label="Active time">
                     {elapsed === null ? "0:00:00" : formatClock(elapsed)}
                   </p>
@@ -105,7 +105,7 @@ export function Today() {
                 {recent.map(({ r, d }) => (
                   <li key={r.session.id}>
                     <Link href={`/journal/?s=${encodeURIComponent(r.session.id)}`} className="-mx-3 flex min-h-12 items-center justify-between gap-4 rounded-lg px-3 py-3 transition-colors hover:bg-surface-2">
-                      <span className="min-w-0 break-words font-medium">{r.session.subject}</span>
+                      <span className="min-w-0 break-words font-medium">{deriveSession(r.session).subject}</span>
                       <span className="meta flex shrink-0 items-center gap-3">
                         {dateOf(d.startedAt)}
                         <span className="mono w-14 text-right text-ink-2">{formatSpan(d.activeMs)}</span>
