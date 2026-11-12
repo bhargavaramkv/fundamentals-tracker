@@ -72,6 +72,8 @@ export async function buildReviewContext(dataDir: string, requestId: string) {
       understood: pick(r.understood),
       misunderstandings: pick(r.misunderstandings),
       incomplete: pick(r.incomplete),
+      requestId: r.id,
+      verificationQuestions: r.verificationQuestions,
     });
     if (earlier.length >= 5) break;
   }
