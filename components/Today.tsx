@@ -1,118 +1,159 @@
 "use client";
 
 import Link from "next/link";
-import { trackKeys } from "@/lib/curriculum";
+import { useEffect, useMemo, useState } from "react";
 import { deriveSession } from "@/lib/journal/events";
-import { formatSpan } from "@/lib/journal/format";
-import { dueReviews } from "@/lib/srs";
-import { DomainIcon, domainColor } from "./DomainIcon";
-import { CoachPanel } from "./CoachPanel";
+import { formatClock, formatSpan } from "@/lib/journal/format";
+import { weekActivity } from "@/lib/today";
 import { useJournal } from "./JournalProvider";
-import { PageShell } from "./PageShell";
-import { useCourse, type CourseContext } from "./useCourse";
-import { useLearnerProfile } from "./useLearnerProfile";
+import { TodayMentor } from "./MentorSlot";
+import { useNow } from "./useNow";
 
-function greeting(now: number | null): string {
-  if (now === null) return "Hello";
-  const h = new Date(now).getHours();
-  return h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening";
+const RECENT = 5;
+const BAR_PX = 96;
+
+const dateOf = (iso: string) => new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+
+/** Ticks every second while `on`, so a running session's clock moves. Null before the first client render. */
+function useTick(on: boolean): number | null {
+  const [t, setT] = useState<number | null>(null);
+  useEffect(() => {
+    const tick = () => setT(Date.now());
+    tick();
+    if (!on) return;
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [on]);
+  return t;
 }
 
-export function Today(ctx: CourseContext) {
-  const { data, now, ready, done, next: pathNext, meta } = useCourse(ctx);
-  const { ready: journalReady, records } = useJournal();
-  const current = records.find((r) => ["active", "paused"].includes(deriveSession(r.session).status));
-  const recent = records.filter((r) => deriveSession(r.session).status === "ended").slice(0, 3);
-  const profile = useLearnerProfile();
-  const pick = profile?.nextUp.find((n) => !done.has(n.topic) && meta(n.topic)) ?? null;
-  const next = pick?.topic ?? pathNext;
-  const nextMeta = next ? meta(next) : null;
-  const track = next ? ctx.curriculum.tracks.find((t) => t.domain === next.split("/")[0]) : null;
-  const keys = track ? trackKeys(track) : [];
-  const doneInTrack = keys.filter((k) => done.has(k)).length;
-  const started = data.answers.length + data.reads.length + data.activities.length > 0;
-  const due = ready && now !== null ? dueReviews(data.reviews, now).length : 0;
+export function Today() {
+  const { ready, records } = useJournal();
+  const minute = useNow();
+  const live = records.find((r) => ["active", "paused"].includes(deriveSession(r.session).status));
+  const liveStatus = live ? deriveSession(live.session).status : null;
+  const tick = useTick(liveStatus === "active");
+
+  const recent = useMemo(
+    () =>
+      records
+        .map((r) => ({ r, d: deriveSession(r.session) }))
+        .filter((x) => x.d.status === "ended")
+        .sort((a, b) => (b.d.endedAt ?? "").localeCompare(a.d.endedAt ?? ""))
+        .slice(0, RECENT),
+    [records],
+  );
+  const week = useMemo(() => (minute === null ? null : weekActivity(records.map((r) => r.session), minute)), [records, minute]);
+  const weekTotal = week?.reduce((n, d) => n + d.activeMs, 0) ?? 0;
+  const max = week ? Math.max(...week.map((d) => d.activeMs), 1) : 1;
+  const elapsed = live && tick !== null ? deriveSession(live.session, tick).activeMs : null;
 
   return (
-    <PageShell right={<CoachPanel {...ctx} />}>
-    <div className="max-w-2xl space-y-6 xl:max-w-none">
-      <header>
-        <h1 className="text-3xl sm:text-4xl">{started ? `${greeting(now)}!` : "Let's begin"}</h1>
-        <p className="mt-1 text-[17px] text-ink-2">{started ? "Pick up where you left off." : "Short lessons, one idea at a time. Start from zero."}</p>
+    <div className="space-y-10">
+      <header className="page-head">
+        <p className="eyebrow">{minute === null ? "\u00a0" : new Date(minute).toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" })}</p>
+        <h1>Today</h1>
       </header>
 
-      {journalReady && (
-        <section className="card p-5 sm:p-6" aria-label="Journal">
-          {current ? (
-            <div className="flex items-center gap-4">
-              <div className="min-w-0 flex-1">
-                <p className="eyebrow">{deriveSession(current.session).status === "paused" ? "Paused session" : "Session running"}</p>
-                <p className="headline mt-1 break-words text-xl">{current.session.subject}</p>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-start">
+        <div className="min-w-0 space-y-10">
+          <section aria-label="Session">
+            {!ready ? (
+              <div className="skeleton h-32 w-full" aria-hidden />
+            ) : live ? (
+              <div className="card flex flex-wrap items-center gap-x-6 gap-y-4 p-5 sm:p-6">
+                <div className="min-w-0 flex-1">
+                  <p className="eyebrow">{liveStatus === "paused" ? "Paused session" : "Session running"}</p>
+                  <p className="headline mt-1.5 break-words text-2xl">{live.session.subject}</p>
+                  <p className="mono mt-2 text-3xl text-accent-text" aria-label="Active time">
+                    {elapsed === null ? "0:00:00" : formatClock(elapsed)}
+                  </p>
+                </div>
+                <Link href="/journal/" className="btn btn-primary btn-lg w-full shrink-0 sm:w-auto">
+                  Resume
+                </Link>
               </div>
-              <Link href="/journal/" className="btn btn-primary btn-lg shrink-0">
-                Resume
-              </Link>
+            ) : (
+              <div className="card flex flex-wrap items-center gap-x-6 gap-y-4 p-5 sm:p-6">
+                <div className="min-w-0 flex-1">
+                  <p className="headline text-xl">Ready when you are</p>
+                  <p className="mt-1 text-ink-2">Time what you study and note what you learn.</p>
+                </div>
+                <Link href="/journal/" className="btn btn-primary btn-lg w-full shrink-0 sm:w-auto">
+                  Start a session
+                </Link>
+              </div>
+            )}
+          </section>
+
+          <section aria-label="Recent learning activity">
+            <div className="section-head">
+              <h2>Recent activity</h2>
+            </div>
+            {!ready ? (
+              <div className="space-y-2" aria-hidden>
+                <div className="skeleton h-12 w-full" />
+                <div className="skeleton h-12 w-full" />
+              </div>
+            ) : recent.length === 0 ? (
+              <div className="empty-state">
+                <strong>No finished sessions yet</strong>
+                <span className="text-[15px]">Sessions you end show up here.</span>
+              </div>
+            ) : (
+              <ul className="divide-y divide-line border-y border-line">
+                {recent.map(({ r, d }) => (
+                  <li key={r.session.id}>
+                    <Link href={`/journal/?s=${encodeURIComponent(r.session.id)}`} className="-mx-3 flex min-h-12 items-center justify-between gap-4 rounded-lg px-3 py-3 transition-colors hover:bg-surface-2">
+                      <span className="min-w-0 break-words font-medium">{r.session.subject}</span>
+                      <span className="meta flex shrink-0 items-center gap-3">
+                        {dateOf(d.startedAt)}
+                        <span className="mono w-14 text-right text-ink-2">{formatSpan(d.activeMs)}</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+
+          <TodayMentor />
+        </div>
+
+        <section aria-label="This week" className="min-w-0">
+          <div className="section-head">
+            <h2>This week</h2>
+            {week && weekTotal > 0 && <span className="meta mono">{formatSpan(weekTotal)} active</span>}
+          </div>
+          {!ready || week === null ? (
+            <div className="skeleton h-36 w-full" aria-hidden />
+          ) : weekTotal === 0 ? (
+            <div className="empty-state">
+              <strong>No time recorded this week</strong>
+              <span className="text-[15px]">Active minutes appear here once you run a session.</span>
             </div>
           ) : (
-            <Link href="/journal/" className="btn btn-primary btn-lg w-full">
-              Start a session
-            </Link>
-          )}
-          {recent.length > 0 && (
-            <ul className="mt-4 space-y-1 text-[15px]">
-              {recent.map((r) => (
-                <li key={r.session.id}>
-                  <Link href={`/journal/?s=${encodeURIComponent(r.session.id)}`} className="flex justify-between gap-3 hover:underline">
-                    <span className="min-w-0 break-words">{r.session.subject}</span>
-                    <span className="meta shrink-0">{formatSpan(deriveSession(r.session).activeMs)}</span>
-                  </Link>
-                </li>
-              ))}
+            <ul className="card flex items-end gap-2 p-4" aria-label="Active time per day">
+              {week.map((d, i) => {
+                const label = new Date(d.dayStart).toLocaleDateString(undefined, { weekday: "short" });
+                return (
+                  <li key={d.dayStart} className="flex min-w-0 flex-1 flex-col items-center gap-2" title={`${label}: ${formatSpan(d.activeMs)}`}>
+                    <span className="flex w-full items-end" style={{ height: BAR_PX }}>
+                      <span
+                        className="day-bar"
+                        data-on={d.activeMs > 0}
+                        style={{ height: d.activeMs > 0 ? Math.max(6, (d.activeMs / max) * BAR_PX) : 3, animationDelay: `${i * 40}ms` }}
+                      />
+                    </span>
+                    <span className={`meta ${i === week.length - 1 ? "font-semibold text-ink" : ""}`}>{label}</span>
+                    <span className="sr-only">{formatSpan(d.activeMs)}</span>
+                  </li>
+                );
+              })}
             </ul>
           )}
         </section>
-      )}
-
-      {nextMeta && next && track ? (
-        <Link href={`/learn/${next}/`} className="card block overflow-hidden" style={{ borderColor: domainColor(track.domain) }}>
-          <div className="flex items-center gap-3 px-5 py-3 text-white sm:px-6" style={{ background: `color-mix(in oklab, ${domainColor(track.domain)} 62%, black)` }}>
-            <DomainIcon domain={track.domain} size={32} />
-            <span className="text-sm font-extrabold">{track.title}</span>
-            <span className="ml-auto text-sm font-bold tabular-nums opacity-90">
-              {doneInTrack}/{keys.length}
-            </span>
-          </div>
-          <div className="p-5 sm:p-6">
-            <p className="eyebrow">{pick ? "Picked for you" : started ? "Up next" : "Start here"}</p>
-            <p className="headline mt-1 text-2xl sm:text-[1.7rem]">{nextMeta.title}</p>
-            <p className="mt-1 text-[16px] text-ink-2">{nextMeta.summary}</p>
-            {pick && <p className="mt-2 text-[15px] text-ink-2">{pick.why}</p>}
-            <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-surface-2" aria-hidden>
-              <div className="h-full rounded-full" style={{ width: `${keys.length ? (doneInTrack / keys.length) * 100 : 0}%`, background: domainColor(track.domain) }} />
-            </div>
-            <span className="btn btn-primary btn-lg mt-5 w-full sm:w-auto">
-              {started ? "Continue" : "Start"} <span aria-hidden>→</span>
-            </span>
-          </div>
-        </Link>
-      ) : (
-        <div className="card p-6">
-          <p className="headline text-xl">You have finished every lesson. 🎉</p>
-          <p className="mt-1 text-[15px] text-ink-2">Keep it fresh with practice.</p>
-        </div>
-      )}
-
-      <Link href="/practice/" className="card flex items-center gap-4 p-5 sm:p-6">
-        <div className="min-w-0 flex-1">
-          <p className="eyebrow">Review</p>
-          <p className="headline mt-1 text-xl">{due > 0 ? `${due} ${due === 1 ? "review" : "reviews"} due` : "Mixed review"}</p>
-          <p className="mt-1 text-[15px] text-ink-2">10 questions from what you&apos;ve learned, weakest first.</p>
-        </div>
-        <span className="btn btn-secondary btn-lg shrink-0">
-          Start <span aria-hidden>→</span>
-        </span>
-      </Link>
+      </div>
     </div>
-    </PageShell>
   );
 }

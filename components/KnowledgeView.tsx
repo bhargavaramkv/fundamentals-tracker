@@ -13,22 +13,31 @@ export function KnowledgeView() {
 
   return (
     <div className="space-y-8">
-      <header>
-        <h1 className="text-3xl sm:text-4xl">Knowledge</h1>
-        <p className="mt-1 text-[17px] text-ink-2">What you have studied, from your journal.</p>
+      <header className="page-head">
+        <p className="eyebrow">Library</p>
+        <h1>Knowledge</h1>
+        <p>What you have studied, from your journal.</p>
       </header>
 
       <section aria-label="Topics studied">
-        <h2 className="headline text-xl">Topics you have studied</h2>
+        <div className="section-head">
+          <h2>Topics you have studied</h2>
+        </div>
         {!ready ? (
-          <p className="mt-2 text-ink-2">Loading…</p>
+          <div className="space-y-2" aria-hidden>
+            <div className="skeleton h-12 w-full" />
+            <div className="skeleton h-12 w-full" />
+          </div>
         ) : topics.length === 0 ? (
-          <p className="mt-2 text-[15px] text-ink-2">Nothing yet. Topics appear here after you record a journal session.</p>
+          <div className="empty-state">
+            <strong>Nothing yet</strong>
+            <span className="text-[15px]">Topics appear here after you record a journal session.</span>
+          </div>
         ) : (
-          <ul className="mt-3 space-y-2">
+          <ul className="space-y-2">
             {topics.map((t) => (
               <li key={t.topic.toLowerCase()} className="card flex items-baseline justify-between gap-3 px-4 py-3">
-                <span className="min-w-0 break-words font-bold">{t.topic}</span>
+                <span className="min-w-0 break-words font-medium">{t.topic}</span>
                 <span className="meta shrink-0">
                   {t.sessions} {t.sessions === 1 ? "session" : "sessions"} · last {dateOf(t.lastStudied)}
                 </span>
@@ -40,7 +49,7 @@ export function KnowledgeView() {
 
       <p className="text-[15px] text-ink-2">
         Looking for practice material?{" "}
-        <Link href="/learn/" className="font-bold text-accent-text hover:underline">
+        <Link href="/learn/" className="font-medium text-accent-text hover:underline">
           Browse the optional lessons
         </Link>
       </p>
