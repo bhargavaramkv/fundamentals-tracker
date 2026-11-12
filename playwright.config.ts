@@ -14,5 +14,6 @@ export default defineConfig({
   projects: [
     { name: "setup", testMatch: /auth\.setup\.ts/ },
     { name: "layout", testMatch: /layout\.spec\.ts/, dependencies: ["setup"], use: { storageState: authFile } },
+    { name: "journal", testMatch: /journal\.spec\.ts/ },
   ],
 });

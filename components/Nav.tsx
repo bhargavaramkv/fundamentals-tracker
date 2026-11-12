@@ -19,7 +19,7 @@ export function Icon({ children }: { children: ReactNode }) {
 
 export type NavLink = { href: string; label: string; icon: ReactNode; match?: string[] };
 
-/** The three destinations; Settings is the gear in the top bar. */
+/** The four destinations; Settings is the gear in the top bar. */
 export const PRIMARY: NavLink[] = [
   {
     href: "/",
@@ -33,13 +33,23 @@ export const PRIMARY: NavLink[] = [
     ),
   },
   {
-    href: "/learn/",
-    label: "Learn",
-    match: ["/learn", "/lessons"],
+    href: "/journal/",
+    label: "Journal",
     icon: (
       <Icon>
         <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
-        <path d="M4 21V5M8 7h7" />
+        <path d="M4 21V5M8 7h7M8 11h7" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/knowledge/",
+    label: "Knowledge",
+    // Lessons are optional resources reached from Knowledge.
+    match: ["/knowledge", "/learn", "/lessons"],
+    icon: (
+      <Icon>
+        <path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.4 1 2.5h6c0-1.1.3-1.8 1-2.5A6 6 0 0 0 12 3z" />
       </Icon>
     ),
   },
