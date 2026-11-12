@@ -2,16 +2,14 @@
 
 import Link from "next/link";
 import { GOAL_ANSWERS, streak, todayGoal } from "@/lib/curriculum";
-import { dueReviews } from "@/lib/srs";
 import { Flame, ProgressRing } from "./ProgressRing";
 import { useCourse, type CourseContext } from "./useCourse";
 import { useLearnerProfile } from "./useLearnerProfile";
 
-/** Daily goal, streak, reviews and what the coach has learned about you. Fits a narrow rail and a full-width stack. */
+/** Daily goal, streak and what the coach has learned about you. Fits a narrow rail and a full-width stack. */
 export function CoachPanel(ctx: CourseContext) {
   const { data, now, ready, meta } = useCourse(ctx);
   const profile = useLearnerProfile();
-  const due = ready && now !== null ? dueReviews(data.reviews, now).length : 0;
   const days = ready && now !== null ? streak(data, now) : 0;
   const goal = ready && now !== null ? todayGoal(data, now) : null;
   const goalValue = goal ? (goal.met ? 1 : goal.answers / GOAL_ANSWERS) : 0;
@@ -38,11 +36,6 @@ export function CoachPanel(ctx: CourseContext) {
             <p className="text-sm text-ink-2">{days > 0 ? "Streak. Keep it alive!" : "Learn today to start a streak"}</p>
           </div>
         </div>
-        {due > 0 && (
-          <Link href="/practice/" className="tap block text-[15px] font-bold text-accent-text hover:underline">
-            {due} {due === 1 ? "review is" : "reviews are"} due. Practise →
-          </Link>
-        )}
       </div>
 
       <div className="card space-y-4 p-4">

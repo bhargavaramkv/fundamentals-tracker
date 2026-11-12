@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { trackKeys } from "@/lib/curriculum";
+import { dueReviews } from "@/lib/srs";
 import { DomainIcon, domainColor } from "./DomainIcon";
 import { CoachPanel } from "./CoachPanel";
 import { PageShell } from "./PageShell";
@@ -15,7 +16,7 @@ function greeting(now: number | null): string {
 }
 
 export function Today(ctx: CourseContext) {
-  const { data, now, done, next: pathNext, meta } = useCourse(ctx);
+  const { data, now, ready, done, next: pathNext, meta } = useCourse(ctx);
   const profile = useLearnerProfile();
   const pick = profile?.nextUp.find((n) => !done.has(n.topic) && meta(n.topic)) ?? null;
   const next = pick?.topic ?? pathNext;
@@ -24,6 +25,7 @@ export function Today(ctx: CourseContext) {
   const keys = track ? trackKeys(track) : [];
   const doneInTrack = keys.filter((k) => done.has(k)).length;
   const started = data.answers.length + data.reads.length + data.activities.length > 0;
+  const due = ready && now !== null ? dueReviews(data.reviews, now).length : 0;
 
   return (
     <PageShell right={<CoachPanel {...ctx} />}>
@@ -62,11 +64,16 @@ export function Today(ctx: CourseContext) {
         </div>
       )}
 
-      <p className="meta">
-        <Link href="/coding/" className="tap inline-flex items-center font-bold text-ink-2 hover:text-ink">
-          Coding review →
-        </Link>
-      </p>
+      <Link href="/practice/" className="card flex items-center gap-4 p-5 sm:p-6">
+        <div className="min-w-0 flex-1">
+          <p className="eyebrow">Review</p>
+          <p className="headline mt-1 text-xl">{due > 0 ? `${due} ${due === 1 ? "review" : "reviews"} due` : "Mixed review"}</p>
+          <p className="mt-1 text-[15px] text-ink-2">10 questions from what you&apos;ve learned, weakest first.</p>
+        </div>
+        <span className="btn btn-secondary btn-lg shrink-0">
+          Start <span aria-hidden>→</span>
+        </span>
+      </Link>
     </div>
     </PageShell>
   );

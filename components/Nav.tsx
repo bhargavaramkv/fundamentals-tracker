@@ -24,6 +24,8 @@ export const PRIMARY: NavLink[] = [
   {
     href: "/",
     label: "Today",
+    // Review rounds and the baseline assessment start from Today, so they keep it lit.
+    match: ["/practice", "/assess"],
     icon: (
       <Icon>
         <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" />
@@ -42,20 +44,18 @@ export const PRIMARY: NavLink[] = [
     ),
   },
   {
-    href: "/practice/",
-    label: "Practice",
-    // The baseline assessment is reached from Practice, so it keeps it lit.
-    match: ["/practice", "/assess"],
+    href: "/coding/",
+    label: "Coding",
     icon: (
       <Icon>
-        <path d="M13 2 4 14h7l-1 8 9-12h-7z" />
+        <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
       </Icon>
     ),
   },
 ];
 
 export function isActive(pathname: string, link: NavLink): boolean {
-  if (link.href === "/") return pathname === "/";
+  if (link.href === "/") return pathname === "/" || (link.match ?? []).some((m) => pathname.startsWith(m));
   return (link.match ?? [link.href.replace(/\/$/, "")]).some((m) => pathname.startsWith(m));
 }
 
