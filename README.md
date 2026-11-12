@@ -49,7 +49,6 @@ The site has four sections:
   an explanation, practice, exercises, practical work and a check.
 - **Coding:** LeetCode history, notes, retry dates and weak patterns. Entry is manual;
   [the design doc explains why](docs/design/REDESIGN.md#coding-why-tracking-is-manual).
-- **Tech Radar:** technology news from official sources, refreshed four times a day.
 
 What drives them:
 
@@ -77,15 +76,6 @@ What drives them:
 - **Spaced repetition:** every missed question enters a Leitner deck
   (4h → 1d → 3d → 7d → 14d → 30d), and a miss resets it to the first box. Topics you've
   practised also come back for revision at 1 to 60 days, based on how recall has gone.
-- **Tech Radar detail:** 63 official blogs, release feeds, advisories and publications
-  across AI, developer tools, programming, cloud, databases, infrastructure, open source,
-  security, hardware and research. Stories are deduplicated by event, ranked (with the
-  reasons shown) and, when an API key is set, explained by Claude with source facts,
-  company claims and AI analysis kept apart. Includes a briefing, filters, search,
-  bookmarks, read tracking, a weekly roundup and a monthly archive. See
-  [docs/tech-radar.md](docs/tech-radar.md).
-- **Fun corner:** for low-motivation days: real bug stories (Knight Capital,
-  Cloudflare's regex outage, left-pad…), quick facts, and a 5-question warm-up.
 - **Lessons:** short markdown guides in `content/lessons/<domain>/<topic>.md`,
   shown in each topic's workspace.
 - **Answer log:** every answer is stored with its timestamp, question, topic,
@@ -161,7 +151,6 @@ See `.env.example`. There are **no secrets**:
 |---|---|---|
 | `NEXT_PUBLIC_BASE_PATH` | set by the deploy workflow | `/fundamentals-tracker` on Pages; empty locally |
 | `NEXT_PUBLIC_DATA_OWNER` / `NEXT_PUBLIC_DATA_REPO` | optional build-time override | private repo that stores progress (defaults: `bhargavaramkv` / `fundamentals-tracker-data`) |
-| `NEXT_PUBLIC_RADAR_FEED_URL` | optional build-time override | where the site reads the public live feed (default: `feed.json` on the `radar-data` branch) |
 
 Neither the password nor the sync token is an environment variable. The password
 exists only as the PBKDF2 vault in `lib/login-vault.json`. The sync token is

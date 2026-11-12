@@ -3,12 +3,10 @@
 import Link from "next/link";
 import { GOAL_ANSWERS, streak, todayGoal, trackKeys } from "@/lib/curriculum";
 import { dueReviews } from "@/lib/srs";
-import { useMentor } from "./mentor/useMentor";
 import { useCourse, type CourseContext } from "./useCourse";
 
 export function Today(ctx: CourseContext) {
   const { data, now, ready, done, next, meta } = useCourse(ctx);
-  const mentor = useMentor();
   const nextMeta = next ? meta(next) : null;
   const track = next ? ctx.curriculum.tracks.find((t) => t.domain === next.split("/")[0]) : null;
   const keys = track ? trackKeys(track) : [];
@@ -74,26 +72,8 @@ export function Today(ctx: CourseContext) {
       </p>
 
       <p className="meta">
-        <Link href="/mentor/" className="tap inline-flex items-center gap-1 text-ink-2 hover:text-ink">
-          Mentor
-          {mentor?.kind === "ready" && (
-            <>
-              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <span className="sr-only">new note</span>
-            </>
-          )}
-        </Link>
-        {" · "}
         <Link href="/coding/" className="tap inline-flex items-center text-ink-2 hover:text-ink">
-          Coding
-        </Link>
-        {" · "}
-        <Link href="/radar/" className="tap inline-flex items-center text-ink-2 hover:text-ink">
-          Tech radar
-        </Link>
-        {" · "}
-        <Link href="/fun/" className="tap inline-flex items-center text-ink-2 hover:text-ink">
-          Fun corner
+          Coding review
         </Link>
       </p>
     </div>

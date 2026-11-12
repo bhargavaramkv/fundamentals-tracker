@@ -83,24 +83,3 @@ describe("content", () => {
     expect(ratio, "mean correct-option length relative to its question's mean").toBeLessThanOrEqual(1.1);
   });
 });
-
-describe("fun content", () => {
-  const lessonSet = new Set(lessonKeys());
-  it("fun stories and facts are well-formed and link to real lessons", () => {
-    const stories = JSON.parse(fs.readFileSync(path.join(root, "fun", "stories.json"), "utf8")) as {
-      id: string;
-      relatesTo: string;
-      hook: string;
-      story: string;
-      lesson: string;
-    }[];
-    const facts = JSON.parse(fs.readFileSync(path.join(root, "fun", "facts.json"), "utf8")) as { id: string; fact: string }[];
-    expect(new Set(stories.map((s) => s.id)).size).toBe(stories.length);
-    expect(new Set(facts.map((s) => s.id)).size).toBe(facts.length);
-    for (const s of stories) {
-      expect(lessonSet.has(s.relatesTo), `${s.id}: unknown lesson ${s.relatesTo}`).toBe(true);
-      expect(s.hook && s.story && s.lesson, s.id).toBeTruthy();
-    }
-    for (const f of facts) expect(f.fact.length, f.id).toBeGreaterThan(20);
-  });
-});

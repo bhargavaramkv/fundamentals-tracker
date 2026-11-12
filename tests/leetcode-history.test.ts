@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildCodingAnalysis, buildCodingPacket, codingContextOf, computeCodingStats, isLeetCodeStore, summarizeProblems, validateCodingReview, type CodingReview, type LeetCodeSubmission } from "@/lib/leetcode-history";
+import { buildCodingAnalysis, buildCodingPacket, computeCodingStats, isLeetCodeStore, summarizeProblems, validateCodingReview, type CodingReview, type LeetCodeSubmission } from "@/lib/leetcode-history";
 
 let n = 0;
 const sub = (p: Partial<LeetCodeSubmission>): LeetCodeSubmission => ({ id: String(++n), title: "Two Sum", slug: "two-sum", number: "1", difficulty: "Easy", tags: ["array"], status: "Accepted", lang: "cpp", timestamp: 1_780_000_000, code: "x", ...p });
@@ -145,21 +145,5 @@ describe("coding review", () => {
     expect(isLeetCodeStore({ version: 1, username: "u", submissions: subs })).toBe(true);
     expect(isLeetCodeStore({ version: 2, submissions: [] })).toBe(false);
     expect(isLeetCodeStore({ version: 1, submissions: [{ id: 1 }] })).toBe(false);
-  });
-});
-
-describe("coding context for the mentor", () => {
-  it("summarises the record without any code", () => {
-    const subs = [sub({ slug: "a", title: "A", timestamp: 100 }), sub({ slug: "b", title: "B", status: "Wrong Answer", timestamp: 200 })];
-    const ctx = codingContextOf(subs, buildCodingAnalysis(review(), buildCodingPacket(subs, null, "2026-11-02"), "2026-11-02T00:00:00Z"));
-    expect([ctx.problems, ctx.solved]).toEqual([2, 1]);
-    expect(ctx.neverPassed).toEqual(["B"]);
-    expect(ctx.review?.headline).toBe("Guards are missing on empty input.");
-    expect(ctx.review?.focus).toEqual(["Edge cases"]);
-    expect(JSON.stringify(ctx)).not.toContain('"code"');
-  });
-
-  it("works with no review yet", () => {
-    expect(codingContextOf([sub({})], null).review).toBeNull();
   });
 });
