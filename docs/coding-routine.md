@@ -1,6 +1,6 @@
 # Nightly coding review
 
-The playbook for the nightly Claude Code routine. It runs at 1:00 AM India time on the owner's Claude subscription, with both repos attached. It reads the owner's LeetCode history and writes one review that the Coding page shows.
+The playbook for the coding review. The daily run (`docs/daily-routine.md`, step 0) follows it first thing each morning at 06:47 India time, on the owner's Claude subscription, with both repos attached. It reads the owner's LeetCode history and writes one review that the Coding page shows.
 
 ## Hard rules
 

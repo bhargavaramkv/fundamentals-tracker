@@ -4,7 +4,7 @@ Static Next.js app (GitHub Pages) for the owner's engineering-fundamentals pract
 Design and reasoning: `docs/design/V4.md` (current), `docs/design/V3.md` and `docs/design/REDESIGN.md` (history). Course order: `content/curriculum.json`.
 Read `AGENTS.md` (Next.js version notes) before changing code.
 
-- **Coding review:** the nightly routine follows `docs/coding-routine.md`. No API keys, API billing or gateways: it runs only on
+- **Coding review:** the daily run follows `docs/coding-routine.md` first (step 0 of `docs/daily-routine.md`). No API keys, API billing or gateways: it runs only on
   the owner's Claude subscription. It writes to the data repo only through `npm run coding-review`, only `mentor/coding.json`.
 - **LeetCode history:** the data repo's `leetcode-pull.yml` is the only other automation that may write there, only under `leetcode/`
   (`scripts/leetcode-history.ts`). It holds the owner's code, so it must never reach this public repo or its branches.

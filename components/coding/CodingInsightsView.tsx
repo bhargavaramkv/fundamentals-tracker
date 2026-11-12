@@ -302,7 +302,7 @@ export function CodingInsightsView({ stats, analysis, status }: { stats: CodingS
               )}
             </>
           ) : (
-            <p className="text-ink-2">Claude reviews your code at the next nightly run, around 1:00 AM India time. Until then, these are your numbers.</p>
+            <p className="text-ink-2">Claude reviews your code at the next daily run, around 7:00 AM India time. Until then, these are your numbers.</p>
           )}
         </div>
 
