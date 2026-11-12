@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { trackKeys } from "@/lib/curriculum";
 import { DomainIcon, domainColor } from "./DomainIcon";
+import { PageShell } from "./PageShell";
 import { ProgressRing } from "./ProgressRing";
 import { useCourse, type CourseContext } from "./useCourse";
 
@@ -12,7 +13,29 @@ export function LearnHome(ctx: CourseContext) {
   const started = data.answers.length + data.reads.length + data.activities.length > 0;
   const n = ctx.curriculum.tracks.length;
 
+  const totalKeys = ctx.curriculum.tracks.flatMap(trackKeys);
+  const totalDone = totalKeys.filter((x) => done.has(x)).length;
+  const rail = (
+    <div className="card space-y-4 p-5">
+      <p className="eyebrow">Overall progress</p>
+      <div className="flex items-center gap-4">
+        <ProgressRing value={totalKeys.length ? totalDone / totalKeys.length : 0} size={72} stroke={7}>
+          <span className="text-xs">{totalKeys.length ? Math.round((totalDone / totalKeys.length) * 100) : 0}%</span>
+        </ProgressRing>
+        <p className="text-[15px] text-ink-2">
+          <span className="font-extrabold text-ink">{totalDone}</span> of {totalKeys.length} lessons done
+        </p>
+      </div>
+      {nextMeta && next && (
+        <Link href={`/learn/${next}/`} className="btn btn-primary w-full">
+          {started ? "Continue" : "Start"}: {nextMeta.title}
+        </Link>
+      )}
+    </div>
+  );
+
   return (
+    <PageShell right={rail}>
     <div className="max-w-3xl space-y-8">
       <header>
         <h1 className="text-3xl sm:text-4xl">Learn</h1>
@@ -30,7 +53,7 @@ export function LearnHome(ctx: CourseContext) {
         </Link>
       )}
 
-      <ul className="grid gap-4 sm:grid-cols-2">
+      <ul className="grid gap-4 sm:grid-cols-2 xl:max-w-none">
         {ctx.curriculum.tracks.map((t) => {
           const keys = trackKeys(t);
           const k = keys.filter((x) => done.has(x)).length;
@@ -56,5 +79,6 @@ export function LearnHome(ctx: CourseContext) {
         })}
       </ul>
     </div>
+    </PageShell>
   );
 }

@@ -5,23 +5,20 @@ it can be reviewed and changed like code.
 
 ## When it runs
 
-Two small chats, so no run carries a long history:
-
-| Chat | Model | When | Job |
-|---|---|---|---|
-| **Daily reader** | Haiku | 06:40 IST | Has the private data repo attached. Sends `progress.json` to the writer as `PROGRESS <part>/<total> <base64 gzip>`. Runs no other code. |
-| **Daily writer** | Opus | 06:50 IST | Has this repo attached. Decodes the reader's message, then does steps 1–5 below. |
+One scheduled chat (the **daily run**, Opus, 06:50 IST). It has both this repo and
+the private data repo attached, so it reads `progress.json` directly from
+`../fundamentals-tracker-data/progress.json`.
 
 Each run covers everything since the previous analysis: quiz answers **and**
-lesson reads (a lesson open and visible for 20+ seconds). Content only reaches
-the site when the owner merges the PR, so a daily cadence loses nothing.
+lesson reads (a lesson open and visible for 20+ seconds).
 
 ## Hard rules
 
 1. **Never push to `main`.** All content changes go through a pull request.
-2. **Never modify or delete progress data.** The data repo
-   (`bhargavaramkv/fundamentals-tracker-data`) is read-only for this routine.
-   Don't push to it, open PRs against it, or rewrite it.
+2. **Never modify or delete progress data.** Never touch `progress.json` in the data repo
+   (`bhargavaramkv/fundamentals-tracker-data`). The only thing the routine may write there is
+   `learner/profile.json`, and only via `npm run --silent learner -- commit --data ... --proposal ...`
+   (never git directly).
 3. **Never delete or renumber existing question IDs.** Answers in the progress
    file reference them. To fix a broken question, edit its wording or
    explanation. If the change alters what the question tests, add a new question
@@ -32,7 +29,7 @@ the site when the owner merges the PR, so a daily cadence loses nothing.
    `lib/auth.ts` / `lib/vault.ts`. The login and sync credentials are the owner's to change.
 6. `npm run check` (lint, typecheck, tests, build) must pass before every commit.
 7. The only branch the routine may push outside PR branches is `routine-state`
-   (step 5).
+   (step 6).
 
 ## Steps
 
@@ -40,17 +37,14 @@ the site when the owner merges the PR, so a daily cadence loses nothing.
 
 ```bash
 cd /home/user/fundamentals-tracker && git fetch -q origin main routine-state && git checkout -q main && git reset -q --hard origin/main
-# Rebuild the data file from today's reader message(s), in part order:
-#   mkdir -p /home/user/fundamentals-tracker-data
-#   join the base64 payloads of today's PROGRESS parts | base64 -d | gunzip > /home/user/fundamentals-tracker-data/progress.json
-# If no PROGRESS message arrived today, skip the progress analysis and say so in the summary.
+# progress.json is read straight from the attached data repo (../fundamentals-tracker-data/progress.json).
 cd /home/user/fundamentals-tracker
 SINCE=$(git show origin/routine-state:state.json 2>/dev/null | node -pe 'JSON.parse(require("fs").readFileSync(0)).analyzedThrough' 2>/dev/null || echo 1970-01-01T00:00:00Z)
 npm run --silent report -- --data ../fundamentals-tracker-data/progress.json --since "$SINCE" --check
 ```
 
 - `newActivity: false` and fewer than 2 days since the last activity: move the
-  marker (step 5) and finish with one line.
+  marker (step 6) and finish with one line.
 - `newActivity: false` and 2+ days inactive: make one small improvement and open
   a PR whose summary leads with a nudge.
 - Otherwise continue. Run `npm ci` only if `node_modules` is missing or
@@ -69,7 +63,30 @@ were picked), untested topics, reviews due, and exactly what's new since the
 last analysis. Look closely at the new answers: wrong picks reveal the
 misconception, and very fast answers (under ~5s) suggest guessing.
 
-### 3. Decide what to improve (keep it small)
+### 3. Update the learner profile
+
+The app keeps what it has learned about the owner in `learner/profile.json` (schema: `lib/learner.ts`).
+Read the previous one, then write a full updated profile:
+
+```bash
+npm run --silent learner -- show --data ../fundamentals-tracker-data
+# write the full updated profile to /tmp/profile.json, then:
+npm run --silent learner -- commit --data ../fundamentals-tracker-data --proposal /tmp/profile.json
+```
+
+- Combine the previous profile with the report: answer times, reads vs answers, which tracks and topics the
+  owner picks voluntarily, time of day of activity, accuracy after reading, quick guesses, "I don't know" use,
+  and LeetCode tags from `mentor/coding.json` for interests.
+- Keep what still holds. Be evidence-based and never flatter.
+- `nextUp` is the 1-3 lessons that best fit right now: struggles first, then interests, then path order.
+- Exit code 2 means the profile was rejected; fix the listed errors and retry.
+
+### 4. Decide what to improve (keep it small)
+
+Use the profile: prioritise its `struggles`; frame examples around its `interests` and the owner's stack (C#/.NET,
+Angular, TypeScript, MongoDB, Kubernetes); favour the formats its `patterns` say work (` ```steps ` visuals,
+` ```reveal `, ` ```check ` blocks, see existing lessons). Every lesson change gets an `adaptations` entry
+(newest first) in the profile, so commit the profile again after the lesson work.
 
 Improve lessons, explanations and questions. Work on at most **3 topics** per run, in this priority order:
 
@@ -105,7 +122,7 @@ Content conventions:
   raw `selected` indexes.
 - Verify technical claims. Don't add a question you aren't certain about.
 
-### 4. Branch, commit, PR
+### 5. Branch, commit, PR
 
 - If an open PR with the `daily-routine` label exists, add commits to its
   branch and update its description instead of opening another.
@@ -140,10 +157,13 @@ PR body template:
 
 - If there is truly nothing meaningful to change, don't open a PR. End the
   run with the report summary instead.
+- **Merging:** when the PR changes only `content/**` and the CI `check` is green, the routine merges it itself
+  (regular merge) so lessons reach the owner without them doing anything. Otherwise leave it open and say why in
+  the summary.
 - **Always end the run with a short chat summary for the owner**: practice
   status and the PR link. That message is how the owner is kept posted.
 
-### 5. Record what was analysed
+### 6. Record what was analysed
 
 Always, even when no PR was needed, move the marker on the `routine-state`
 branch so the same activity isn't analysed twice:

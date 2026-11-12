@@ -14,6 +14,7 @@
     "report": "tsx scripts/progress-report.ts",
     "set-password": "tsx scripts/set-password.ts",
     "coding-review": "tsx scripts/coding-review.ts",
+    "learner": "tsx scripts/learner-profile.ts",
     "leetcode-sync": "tsx scripts/leetcode-sync.ts",
     "leetcode-history": "tsx scripts/leetcode-history.ts",
     "resources:verify": "tsx scripts/verify-resources.mts"
