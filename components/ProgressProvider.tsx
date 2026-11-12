@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { activeProgress, archivedAnswerCount, emptyProgress, recordActivity, recordCodingAttempt, recordCodingProblem, recordRead, recordSession } from "@/lib/progress";
-import { createStore, type ProgressStore } from "@/lib/storage";
+import { LocalStore, createStore, type ProgressStore } from "@/lib/storage";
 import { useAuth } from "./AuthGate";
 import type { AnswerLog, CodingAttempt, CodingProblem, LearningActivity, ProgressData, ReadLog, SessionRecord } from "@/lib/types";
 
@@ -38,15 +38,30 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [syncState, setSyncState] = useState<SyncState>("idle");
   const [syncError, setSyncError] = useState<string | null>(null);
 
-  const reload = useCallback(async () => {
+  // Commits build on this browser's copy (the UI's source of truth); the remote is only fetched on load and merged when pushing.
+  const localRef = useRef(new LocalStore());
+
+  // Background pushes report their progress through the store.
+  const openStore = useCallback(() => {
     const store = createStore(syncToken);
+    store.onStatus = (state, message) => {
+      setSyncState(state);
+      setSyncError(state === "error" ? (message ?? "Sync failed") : null);
+    };
+    return store;
+  }, [syncToken]);
+
+  const reload = useCallback(async () => {
+    if (storeRef.current) storeRef.current.onStatus = undefined;
+    const store = openStore();
     storeRef.current = store;
     setStoreKind(store.kind);
     setSyncState(store.kind === "github" ? "syncing" : "idle");
     setData(await store.load());
-    setSyncState("idle");
+    // A push started by load() reports its own result; keep an error it reported.
+    setSyncState((s) => (s === "error" ? s : "idle"));
     setReady(true);
-  }, [syncToken]);
+  }, [openStore]);
 
   useEffect(() => {
     // Loading from localStorage/GitHub is an external-system sync, which is what effects are for.
@@ -54,45 +69,60 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     void reload();
   }, [reload]);
 
-  const persist = useCallback(async (next: ProgressData) => {
+  // GitHub pushes are debounced inside the store; `now` pushes immediately (import).
+  const persist = useCallback(async (next: ProgressData, now = false) => {
     setData(next);
-    const store = storeRef.current ?? createStore(syncToken);
+    const store = storeRef.current ?? openStore();
     setSyncState(store.kind === "github" ? "syncing" : "idle");
     setSyncError(null);
     try {
       await store.save(next);
-      setSyncState("idle");
+      if (now) await store.flush?.();
+      if (store.kind === "local") setSyncState("idle");
     } catch (err) {
       setSyncState("error");
       setSyncError(err instanceof Error ? err.message : "Sync failed");
     }
-  }, [syncToken]);
+  }, [openStore]);
+
+  // Push pending changes before the page goes away or is backgrounded.
+  useEffect(() => {
+    const flush = () => void storeRef.current?.flush?.().catch(() => undefined);
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") flush();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pagehide", flush);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pagehide", flush);
+    };
+  }, []);
+
+  const replaceAll = useCallback((d: ProgressData) => persist(d, true), [persist]);
 
   const commitSession = useCallback(
     async (session: SessionRecord, answers: AnswerLog[]) => {
       // Read the latest committed state rather than a possibly stale closure.
-      const base = storeRef.current ? await storeRef.current.load() : data;
-      await persist(recordSession(base, session, answers));
+      await persist(recordSession(await localRef.current.load(), session, answers));
     },
-    [data, persist],
+    [persist],
   );
 
   const commitRead = useCallback(
     async (read: ReadLog) => {
-      const base = storeRef.current ? await storeRef.current.load() : data;
-      await persist(recordRead(base, read));
+      await persist(recordRead(await localRef.current.load(), read));
     },
-    [data, persist],
+    [persist],
   );
 
   // Quick actions (ticking an exercise, logging an attempt) show immediately, then persist like everything else.
   const applyNow = useCallback(
     async (change: (d: ProgressData) => ProgressData) => {
       setData(change);
-      const base = storeRef.current ? await storeRef.current.load() : data;
-      await persist(change(base));
+      await persist(change(await localRef.current.load()));
     },
-    [data, persist],
+    [persist],
   );
   const commitActivity = useCallback((a: LearningActivity) => applyNow((d) => recordActivity(d, a)), [applyNow]);
   const saveCodingProblem = useCallback((p: CodingProblem) => applyNow((d) => recordCodingProblem(d, p)), [applyNow]);
@@ -115,10 +145,10 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       commitActivity,
       saveCodingProblem,
       commitCodingAttempt,
-      replaceAll: persist,
+      replaceAll,
       reload,
     }),
-    [active, data, archivedCount, ready, storeKind, syncState, syncError, commitSession, commitRead, commitActivity, saveCodingProblem, commitCodingAttempt, persist, reload],
+    [active, data, archivedCount, ready, storeKind, syncState, syncError, commitSession, commitRead, commitActivity, saveCodingProblem, commitCodingAttempt, replaceAll, reload],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

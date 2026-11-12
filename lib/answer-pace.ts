@@ -1,3 +1,5 @@
+/** Answers faster than this are likely guesses, not recall. */
+export const GUESS_MS = 2000;
 /** A new practice question stays read-only this long, so options get read before they are picked. */
 export const READ_LOCK_MS = 2000;
 /** A wrong answer given faster than this earns a gentle "read every option" nudge. */

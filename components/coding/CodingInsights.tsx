@@ -49,7 +49,7 @@ export function CodingInsights() {
   const logged = activeProblems(data).length;
 
   return (
-    <div className="page-wide space-y-12">
+    <div className="space-y-12">
       <header className="page-head">
         <p className="eyebrow">Coding</p>
         <h1>Your LeetCode review</h1>
