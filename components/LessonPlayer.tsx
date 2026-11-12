@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { Lesson, LessonStep, Question, QuickCheck } from "@/lib/types";
+import type { Lesson, LessonStep, Question, QuickCheck, Reveal, StepThrough } from "@/lib/types";
 import { domainColor } from "./DomainIcon";
 import { Quiz } from "./Quiz";
 
@@ -216,10 +216,56 @@ function StepBlocks({ step, index, picks, onPick }: { step: LessonStep; index: n
     <div className="space-y-6">
       {step.blocks.map((b, i) => {
         if (b.kind === "html") return <div key={i} className="prose-lesson" dangerouslySetInnerHTML={{ __html: b.html }} />;
+        if (b.kind === "steps") return <StepThroughCard key={i} data={b.steps} />;
+        if (b.kind === "reveal") return <RevealCard key={i} data={b.reveal} />;
         ci++;
         const key = `${index}:${ci}`;
         return <CheckCard key={i} check={b.check} rot={rotation(Math.max(index, 0), ci, b.check.options.length)} picked={picks[key]} onPick={(n) => onPick(key, n)} />;
       })}
+    </div>
+  );
+}
+
+function StepThroughCard({ data }: { data: StepThrough }) {
+  const [i, setI] = useState(0);
+  const last = i === data.frames.length - 1;
+  const frame = data.frames[i];
+  return (
+    <div role="group" aria-label={data.title} className="rounded-2xl border-2 border-line bg-surface-2 p-4">
+      <p className="eyebrow">Watch it run</p>
+      <p className="mt-1 text-[17px] font-bold">{data.title}</p>
+      <pre key={i} aria-live="polite" className="animate-step mt-3 overflow-x-auto rounded-xl bg-surface p-3 font-mono text-[13px] leading-snug sm:text-sm">
+        {frame.visual}
+      </pre>
+      <p key={`c${i}`} className="animate-step mt-3 text-[15px]" dangerouslySetInnerHTML={{ __html: frame.caption }} />
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <button type="button" onClick={() => setI(i - 1)} disabled={i === 0} className="btn btn-secondary disabled:opacity-50">
+          Back
+        </button>
+        <span className="meta font-bold tabular-nums" aria-label={`Frame ${i + 1} of ${data.frames.length}`}>
+          {i + 1} / {data.frames.length}
+        </span>
+        <button type="button" onClick={() => setI(last ? 0 : i + 1)} className="btn btn-secondary">
+          {last ? "Replay" : "Next"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function RevealCard({ data }: { data: Reveal }) {
+  const [shown, setShown] = useState(false);
+  return (
+    <div role="group" aria-label="Predict, then reveal" className="rounded-2xl border-2 border-line bg-surface-2 p-4">
+      <p className="eyebrow">Predict, then reveal</p>
+      <p className="mt-1 text-[17px] font-bold">{data.prompt}</p>
+      {shown ? (
+        <div className="prose-lesson animate-step mt-3" dangerouslySetInnerHTML={{ __html: data.answer }} />
+      ) : (
+        <button type="button" onClick={() => setShown(true)} className="btn btn-secondary mt-3">
+          Show answer
+        </button>
+      )}
     </div>
   );
 }
@@ -266,7 +312,7 @@ function CheckCard({ check, rot, picked, onPick }: { check: QuickCheck; rot: num
 
 /** A one-off burst of coloured pieces from the centre of the card. Only rendered when motion is allowed. */
 function Confetti() {
-  const colors = ["var(--d-dsa)", "var(--d-oop)", "var(--d-databases)", "var(--d-system-design)", "var(--d-web)", "var(--accent)"];
+  const colors = ["var(--d-dsa)", "var(--d-oop)", "var(--d-databases)", "var(--d-system-design)", "var(--d-web)", "var(--d-os)", "var(--accent)"];
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0">
       {Array.from({ length: 36 }, (_, i) => {

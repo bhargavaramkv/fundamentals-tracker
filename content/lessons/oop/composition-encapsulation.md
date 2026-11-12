@@ -1,78 +1,92 @@
 ---
 title: "Composition & encapsulation"
-summary: "Protecting invariants, fragile base classes, and constructor-time traps in C#."
+summary: "Protect an object's rules by hiding its data, and build big objects out of small ones instead of inheriting from them."
 ---
 
 ## The idea
 
-Think of a car. You steer, press the pedals and turn a key. You cannot reach in and squirt fuel straight into a cylinder, and that is a good thing, because one wrong squirt would wreck the engine. The car offers a few safe controls and keeps the dangerous parts inside.
+Think of a car. You steer, press the pedals and turn a key. You cannot reach in and squirt fuel straight into a cylinder, and that is good, because one wrong squirt would wreck the engine. The car offers a few safe controls and keeps the dangerous parts inside.
 
-That is **encapsulation**: an object keeps its data private and offers only methods that keep it valid. The rule that must always hold, such as "an order's total equals the sum of its lines", is called an **invariant**. Building on [classes and objects](/learn/oop/classes-objects/), this lesson is about making a class that cannot be broken from outside.
+That is **encapsulation**: an object keeps its data private and offers only methods that keep it valid. A rule that must always hold, such as "an order's total equals the sum of its lines", is an **invariant**.
 
-**Composition** means building a bigger object out of smaller ones, the way a car has an engine. It is often a better choice than [inheritance](/learn/oop/inheritance-polymorphism/), because you depend only on what the engine offers, not on how it is built. It also keeps [coupling](/learn/oop/coupling-cohesion/) low.
+**Composition** means building a bigger object out of smaller ones, the way a car *has an* engine. The car uses the engine through its controls and does not care how it is built. Compare [inheritance](/learn/oop/inheritance-polymorphism/), where a subclass *is a* kind of its parent and inherits everything. This lesson builds on [classes and objects](/learn/oop/classes-objects/).
 
 ```check
-{"prompt": "What is an invariant?", "options": ["A method that never changes", "A rule about an object's data that must always be true", "A private field"], "answer": 1, "explanation": "An invariant is a condition that must hold whenever the object is used, such as total = sum of lines. Encapsulation exists to protect it."}
+{"prompt":"What is an invariant?","options":["A method that never changes","A private field","A rule about an object's data that must always be true"],"answer":2,"explanation":"An invariant is a condition that must hold whenever the object is used, such as total = sum of lines. Encapsulation exists to protect it."}
 ```
 
-## Encapsulation means protecting invariants
+## See it work: a leak in the wall
 
-Hiding fields is not enough. The question is whether a caller can put the object into an invalid state.
+Here is an order that tries to protect its total:
 
 ```csharp
 public class Order {
-    private readonly List<OrderLine> _lines = new();
-    public IReadOnlyList<OrderLine> Lines => _lines;
+    public List<OrderLine> Lines { get; } = new();
+    public decimal Total { get; private set; }
     public void AddLine(Product p, int qty) {
-        if (qty <= 0) throw new ArgumentOutOfRangeException(nameof(qty));
-        _lines.Add(new OrderLine(p, qty));
+        Lines.Add(new OrderLine(p, qty));
         Total += p.Price * qty;
     }
-    public decimal Total { get; private set; }
 }
 ```
 
-A `public List<OrderLine> Lines { get; }` with only a getter still lets callers mutate the list and skip the `Total` update. A getter-only property protects the **reference**, not the **contents**. Whether it's a field or a property doesn't matter; a public field would be worse.
+`Total` has a private setter, so it looks safe. But `Lines` is a getter-only property: that stops anyone replacing the list, not changing what is in it.
 
-Exposing `IReadOnlyList<T>` that is really your `List<T>` is only a hint: `((List<OrderLine>)order.Lines).Add(...)` compiles and works. Return a wrapper instead:
+```steps
+{"title":"A caller bypasses AddLine","frames":[{"visual":" Lines:  (empty)\n Total:  0.00          rule holds: 0.00 = 0.00","caption":"Start: an empty order. The rule holds: Total equals the sum of lines."},{"visual":" Lines:  pen x2 = 4.00\n Total:  4.00          rule holds: 4.00 = 4.00","caption":"`order.AddLine(pen, 2)` goes through the method, which updates both."},{"visual":" Lines:  pen x2 = 4.00\n         book x1 = 12.00\n Total:  4.00          RULE BROKEN: 16.00 vs 4.00","caption":"`order.Lines.Add(new OrderLine(book, 1))` compiles, because the list is public. Total is not touched."}]}
+```
+
+## How it works: close the wall
+
+Hide the list and show a read-only view:
 
 ```csharp
 private readonly List<OrderLine> _lines = new();
-private ReadOnlyCollection<OrderLine>? _view;
-public IReadOnlyList<OrderLine> Lines => _view ??= _lines.AsReadOnly();
-// cast to List<T> → InvalidCastException; cast to IList<T>.Add → NotSupportedException
+public IReadOnlyList<OrderLine> Lines => _lines.AsReadOnly();
 ```
 
-In **TypeScript**, `readonly items: Item[]` only stops reassigning `items`; `cart.items.push(x)` still compiles. Type it as `readonly Item[]` (or `ReadonlyArray<Item>`) and mutate through methods.
+`AsReadOnly()` returns a wrapper that refuses `Add`. Merely typing the property as `IReadOnlyList<T>` while returning the real `List<T>` is only a hint: a caller can cast it back and mutate it. Now all changes go through `AddLine`, which can also reject bad input such as `qty <= 0`. That is encapsulation: hide the data, expose behaviour.
+
+```check
+{"prompt":"A class exposes `public List<OrderLine> Lines { get; }` and keeps a Total updated in AddLine. What can go wrong?","options":["Nothing, the getter has no setter","The list will be null","A caller can call Lines.Add(...) and the Total no longer matches"],"answer":2,"explanation":"A getter-only property protects the reference, not the contents. Callers can still mutate the list and skip the Total update, breaking the invariant."}
+```
 
 ## Composition over inheritance
 
-Inheritance couples a subclass to **how** the parent works internally (the fragile base class problem). Composition depends only on a collaborator's public contract and can be swapped at runtime. Use inheritance for true *is-a* relationships with stable base classes, and prefer `sealed` by default.
+Suppose you want a stack (last in, first out). The tempting way is to inherit from a list. Watch what follows.
 
-The classic example is Java's `Stack extends Vector`. Every `Vector` method comes along, so callers can `insertElementAt` into the middle of a stack and break LIFO. A stack that *wraps* a private list exposes only `Push`/`Pop`/`Peek`, so its invariant can't be bypassed.
-
-```check
-{"prompt": "A class exposes `public List<OrderLine> Lines { get; }` and keeps a Total field updated in AddLine. What can go wrong?", "options": ["Nothing, the getter has no setter", "A caller can call Lines.Add(...) and the Total no longer matches", "The list will be null"], "answer": 1, "explanation": "A getter-only property protects the reference, not the contents. Callers can still mutate the list and skip the Total update, breaking the invariant."}
+```steps
+{"title":"Refactor: inherit to compose","frames":[{"visual":" Stack<T> : List<T>\n   Push, Pop           <- what you wanted\n   Insert(0, x)        <- inherited, breaks the order\n   RemoveAt(2)         <- inherited\n   Clear, Sort ...     <- inherited","caption":"Inheritance: `class Stack<T> : List<T>`. Every List method comes along."},{"visual":" stack.Push(1); stack.Push(2); stack.Push(3);\n stack.Insert(0, 99);      // compiles\n stack.Pop()  -> 3         // fine\n stack.Pop()  -> 2\n stack.Pop()  -> 1         // 99 is stuck at the bottom","caption":"Problem: callers can use any inherited method, so the stack's rule can be broken from outside."},{"visual":" class Stack<T> {\n   private readonly List<T> _items = new();\n   public void Push(T x) => _items.Add(x);\n   public T Pop() { ... remove last ... }\n   public T Peek() => _items[^1];\n }","caption":"Composition: the stack *has a* private list and shows only three methods."},{"visual":" stack.Push(1);\n stack.Insert(0, 99);   // compile error: no such method","caption":"Now `Insert` does not exist on a Stack. The rule cannot be bypassed."}]}
 ```
 
-## Constructor traps
+Composition depends only on the other object's public contract, so you can swap the inner list for something else later. Inheritance ties you to how the parent works inside (the **fragile base class** problem). Default to composition; use inheritance for true "is a kind of" with stable parents, and mark classes `sealed` when you do not intend them to be subclassed.
 
-- In **C#**, a virtual call from a base constructor dispatches to the **derived override** before the derived constructor body runs. Derived field initializers *have* run, but constructor-assigned fields are still default.
-- In **C++**, the same call dispatches to the base version.
-- In **TypeScript**, the same issue exists, and class fields declared in the subclass aren't initialized until after `super()` returns.
+## Where you'll meet it
 
-The rule: don't call overridable members from constructors. Nothing throws: the code compiles and runs, and the bug is silent wrong state (analyzer CA2214 flags it).
+- EF Core entities that expose `IReadOnlyCollection<OrderLine>` and change state only through methods, a core idea in domain-driven design.
+- **Value objects** such as `Money`, `Email`, `DateRange`: small immutable types, validated in the constructor, so an invalid one cannot exist. C# `record` types make these short.
+- ASP.NET Core: a controller *has* services injected rather than inheriting behaviour.
+- Interviews: "why prefer composition over inheritance?" and "how would you stop callers corrupting this class?"
 
-## Common misconceptions
+```reveal
+{"prompt":"Spot the bug: a base constructor calls a `virtual` method, `Init()`. A subclass overrides `Init()` and uses a field it sets in its own constructor. What does the override see?","answer":"The field is still **its default value** (null or 0). In C#, the base constructor runs first, but the call goes to the subclass override anyway. Nothing throws, so the bug is silent. Do not call overridable members from constructors."}
+```
 
-| Belief | Reality |
-|---|---|
-| "Composition over inheritance" is about performance | It's about **coupling**. Virtual dispatch and an extra object reference cost about the same either way. |
-| A getter-only collection property is encapsulated | The caller can't swap the list, but can still `Add`/`Remove`/`Clear` it. |
-| Returning `IReadOnlyList<T>` makes it read-only | Only at compile time. A cast back to `List<T>` mutates it; return `AsReadOnly()` or a copy. |
-| A virtual call in a base constructor throws | It runs the **derived override** against half-initialized state, silently. |
-| TypeScript `readonly arr: T[]` freezes the array | It only freezes the property binding; use `readonly T[]`. |
+## Common mistakes
 
-## Value objects
+- **Hiding the field but returning the live collection.** The leak shown above.
+- **Inheriting to reuse code.** A `Stack` that extends `List` inherits methods that break it. Wrap instead.
+- **Setters on everything.** Public setters let callers set any state in any order. Prefer methods named for what happens (`Ship()`, `Cancel()`).
+- **Believing composition is about speed.** It is about coupling. The runtime cost is about the same.
 
-Make small concepts (Money, Email, DateRange) immutable types with validation in the constructor. That eliminates whole classes of invalid states.
+```check
+{"prompt":"Why did wrapping a List inside Stack beat inheriting from List?","options":["Wrapping makes pushes run faster","Only the three methods the Stack exposes can be called, so its rule is safe","C# does not allow inheriting from List","Inheritance cannot call base methods"],"answer":1,"explanation":"Composition lets the class choose exactly which operations exist. Inheritance exposes everything the parent has, including operations that break the new type's rules."}
+```
+
+## Recap
+
+- Encapsulation: hide data and expose methods that keep invariants true.
+- A getter-only collection property protects the reference, not the contents; return `AsReadOnly()` or a copy.
+- Composition means "has a"; inheritance means "is a kind of". Prefer composition by default.
+- Never call overridable members from a constructor.
+- Small immutable value objects remove whole classes of invalid states.

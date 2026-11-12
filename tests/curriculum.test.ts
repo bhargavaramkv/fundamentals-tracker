@@ -145,6 +145,51 @@ describe("lesson step parser", () => {
     expect(() => parseLessonSteps(wrap('{"prompt":"q","options":["a","b"],"answer":2,"explanation":"e"}'), f)).toThrow(/x\.md.*answer/);
     expect(() => parseLessonSteps(wrap('{"prompt":"q","options":["a"],"answer":0,"explanation":"e"}'), f)).toThrow(/x\.md.*options/);
   });
+
+  it("parses steps and reveal blocks in position, with multi-line JSON", () => {
+    const md = [
+      "## One",
+      "Before",
+      "```steps",
+      "{",
+      '  "title": "T",',
+      '  "frames": [',
+      '    {"visual": "a\\nb", "caption": "first **bold**"},',
+      '    {"visual": "c", "caption": "second"}',
+      "  ]",
+      "}",
+      "```",
+      "```reveal",
+      '{"prompt": "P", "answer": "It is **3**"}',
+      "```",
+      "```js",
+      "const x = 1;",
+      "```",
+    ].join("\n");
+    const [step] = parseLessonSteps(md, f);
+    expect(step.blocks.map((b) => b.kind)).toEqual(["html", "steps", "reveal", "html"]);
+    expect(step.blocks[1]).toMatchObject({ steps: { title: "T", frames: [{ visual: "a\nb", caption: "first <strong>bold</strong>" }, { visual: "c" }] } });
+    expect(step.blocks[2]).toMatchObject({ reveal: { prompt: "P", answer: expect.stringContaining("<strong>3</strong>") } });
+    expect(JSON.stringify(step.blocks[3])).toContain("const x = 1;");
+  });
+
+  it("throws naming the file on invalid steps and reveal blocks", () => {
+    const wrap = (lang: string, json: string) => `## One\n\`\`\`${lang}\n${json}\n\`\`\``;
+    const frame = (visual: string) => `{"visual": ${JSON.stringify(visual)}, "caption": "c"}`;
+    const steps = (...frames: string[]) => wrap("steps", `{"title": "T", "frames": [${frames.join(",")}]}`);
+    expect(() => parseLessonSteps(wrap("steps", "{nope"), f)).toThrow(/x\.md.*JSON/);
+    expect(() => parseLessonSteps(wrap("steps", '{"frames": []}'), f)).toThrow(/x\.md.*title/);
+    expect(() => parseLessonSteps(steps(frame("a")), f)).toThrow(/x\.md.*frames/);
+    expect(() => parseLessonSteps(steps(...Array(9).fill(frame("a"))), f)).toThrow(/x\.md.*frames/);
+    expect(() => parseLessonSteps(steps(frame("a"), '{"visual": "a"}'), f)).toThrow(/x\.md.*caption/);
+    expect(() => parseLessonSteps(steps(frame("a"), '{"caption": "a"}'), f)).toThrow(/x\.md.*visual/);
+    expect(() => parseLessonSteps(steps(frame("a"), frame(Array(13).fill("x").join("\n"))), f)).toThrow(/x\.md.*lines/);
+    expect(() => parseLessonSteps(steps(frame("a"), frame("x".repeat(57))), f)).toThrow(/x\.md.*chars/);
+    expect(() => parseLessonSteps(steps(frame("a"), frame("x".repeat(56))), f)).not.toThrow();
+    expect(() => parseLessonSteps(wrap("reveal", "{nope"), f)).toThrow(/x\.md.*JSON/);
+    expect(() => parseLessonSteps(wrap("reveal", '{"answer": "a"}'), f)).toThrow(/x\.md.*prompt/);
+    expect(() => parseLessonSteps(wrap("reveal", '{"prompt": "p"}'), f)).toThrow(/x\.md.*answer/);
+  });
 });
 
 describe("curriculum file", () => {

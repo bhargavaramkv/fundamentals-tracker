@@ -51,15 +51,23 @@ Console.WriteLine(uri.Fragment);     // #setup
 
 A name like `www.example.com` is read from right to left. The last piece, `com`, is the **top-level domain (TLD)**. `example` sits inside it, and `www` is a **subdomain** of example.com.
 
-No single computer knows every name. DNS is a tree of servers, each knowing a part. Here is a lookup when nothing is cached:
+No single computer knows every name. DNS is a tree of servers, each knowing a part. A **recursive resolver** (run by your internet provider or a public service) does the legwork for you. A **root server** knows who handles each TLD, a **TLD server** knows who handles each domain, and the domain's own **authoritative server** has the final answer.
 
-1. Your computer asks a **recursive resolver** (usually run by your internet provider or a public service). It does the legwork for you.
-2. The resolver asks a **root server**: "Who handles `.com`?" The root points to the `.com` servers.
-3. The resolver asks a `.com` server: "Who handles `example.com`?" It points to example.com's own **authoritative server**.
-4. The resolver asks that authoritative server: "What is `www.example.com`?" It answers `93.184.216.34`.
-5. The resolver returns the answer to you and **caches** it, meaning it remembers it for a while.
+```steps
+{"title": "Looking up www.example.com (nothing cached)", "frames": [
+  {"visual": "You --> Resolver\n  'where is www.example.com?'\n\nRoot   .com servers   example.com's server", "caption": "Your computer asks its resolver. The resolver has no cached answer."},
+  {"visual": "You     Resolver --> Root\n          'who handles .com?'\n\n.com servers   example.com's server", "caption": "The resolver asks a root server which servers handle `.com`."},
+  {"visual": "You     Resolver --> .com servers\n          'who handles example.com?'\n  (root said: ask the .com servers)\n\nexample.com's server", "caption": "The root points to the `.com` servers. The resolver asks them about `example.com`."},
+  {"visual": "You     Resolver --> example.com's server\n          'what is www.example.com?'\n  (.com said: ask example.com's server)\n", "caption": "They point to example.com's authoritative server. The resolver asks it for the name."},
+  {"visual": "You <-- Resolver <-- 93.184.216.34\n  answer cached for the TTL, e.g. 300 s\n", "caption": "The answer comes back, the resolver caches it, and your browser can now connect to that IP address."}
+]}
+```
 
 How long it remembers is the record's **TTL** (time to live), in seconds. Your browser and operating system cache the answer too, so most lookups never leave your machine.
+
+```reveal
+{"prompt": "Before you look: you move your site to a new server and change the A record. Some visitors still reach the old server for the next hour. Why?", "answer": "Resolvers, operating systems and browsers have **cached** the old answer, and they keep it until the record's **TTL** runs out. Lower the TTL a day before a planned move."}
+```
 
 Common record types: **A** (name to IPv4 address), **AAAA** (name to IPv6), **CNAME** (this name is an alias of another name).
 

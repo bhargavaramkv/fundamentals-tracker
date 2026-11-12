@@ -1,0 +1,602 @@
+[
+  {
+    "id": "os-processes-threads-1",
+    "domain": "os",
+    "topic": "processes-threads",
+    "difficulty": 1,
+    "prompt": "What is the main difference between a process and a thread?",
+    "options": [
+      "A thread owns its own private memory; processes started from one program share it",
+      "A process can run on one core only; a thread is allowed to use every core",
+      "A process owns its own memory; threads inside one process share that memory",
+      "A process is a program file on disk; a thread is that file loaded into RAM"
+    ],
+    "answer": 2,
+    "explanation": "A process is a running program with a private address space. Threads are lines of execution inside it and share its heap. The last option describes a program, not a process: the file on disk is only the recipe, and running it creates the process."
+  },
+  {
+    "id": "os-processes-threads-2",
+    "domain": "os",
+    "topic": "processes-threads",
+    "difficulty": 1,
+    "prompt": "Which of these does every thread in a process have its own copy of?",
+    "options": [
+      "The objects it allocates on the managed heap",
+      "Its call stack with local variables",
+      "The table of files that the process has opened",
+      "The static fields of the classes that are loaded"
+    ],
+    "answer": 1,
+    "explanation": "Each thread needs its own stack to track the functions it is inside. Heap objects, open files and static fields belong to the process and are visible to all its threads, which is exactly why sharing them needs care."
+  },
+  {
+    "id": "os-processes-threads-3",
+    "domain": "os",
+    "topic": "processes-threads",
+    "difficulty": 2,
+    "prompt": "An OS performs a context switch from thread A to thread B on one core. What must it do?",
+    "options": [
+      "Copy all of A's heap objects into a separate area for B",
+      "Restart B from its first instruction with empty registers",
+      "Save A's registers and program counter, then restore B's",
+      "Delete A's stack so there is room to build B's own stack"
+    ],
+    "answer": 2,
+    "explanation": "Resuming B means putting it back exactly where it stopped, so the OS restores B's saved registers and program counter, after saving A's the same way. Heap data is shared and never copied, and stacks must survive so A can resume later."
+  },
+  {
+    "id": "os-processes-threads-4",
+    "domain": "os",
+    "topic": "processes-threads",
+    "difficulty": 2,
+    "prompt": "Why does a browser such as Chrome run each site in a separate process instead of a separate thread?",
+    "options": [
+      "Separate processes always run JavaScript faster than threads can",
+      "Threads are unable to run pages that are written in JavaScript",
+      "The OS allows only one thread for each window that is open",
+      "A crash or attack in one site cannot reach another site's memory"
+    ],
+    "answer": 3,
+    "explanation": "Processes have separate address spaces, so a crashed or compromised page cannot read or corrupt another page. Processes are not faster; they are more expensive to create and switch. Isolation is the point."
+  },
+  {
+    "id": "os-processes-threads-5",
+    "domain": "os",
+    "topic": "processes-threads",
+    "difficulty": 3,
+    "prompt": "A .NET service has 8 worker threads. One of them throws an exception that no code catches. What happens by default?",
+    "options": [
+      "Only that one thread ends; the other 7 threads carry on",
+      "The OS starts a replacement thread to take its place",
+      "The whole process exits, ending all 8 threads",
+      "The exception waits until the main thread can catch it"
+    ],
+    "answer": 2,
+    "explanation": "Threads share one process, so an unhandled exception on any thread terminates the whole process. The tempting second option is how it would work with separate processes. That is why worker loops usually wrap their body in try/catch."
+  },
+  {
+    "id": "os-memory-basics-1",
+    "domain": "os",
+    "topic": "memory-basics",
+    "difficulty": 1,
+    "prompt": "In C#, you write var names = new List<string>(); inside a method. Where do the list object and the variable names live?",
+    "options": [
+      "Both are on the stack until the method returns to its caller",
+      "Both are on the heap next to all of the other objects",
+      "The object is on the heap; the stack variable holds its address",
+      "The object is on the stack; the variable lives on the heap"
+    ],
+    "answer": 2,
+    "explanation": "Class instances are allocated on the heap. The local variable is a reference, a small address stored in the method's stack frame. The object outlives the frame only if some other reference to it remains."
+  },
+  {
+    "id": "os-memory-basics-2",
+    "domain": "os",
+    "topic": "memory-basics",
+    "difficulty": 1,
+    "prompt": "What usually causes a StackOverflowException in .NET?",
+    "options": [
+      "Allocating too many small objects with the new keyword",
+      "Starting more threads than the machine has CPU cores",
+      "Reading a file that is larger than the RAM available",
+      "A recursive method that never reaches its stopping case"
+    ],
+    "answer": 3,
+    "explanation": "Every call pushes a frame onto the thread's limited stack, and runaway recursion never pops them. Too many objects fills the heap, which causes OutOfMemoryException instead."
+  },
+  {
+    "id": "os-memory-basics-3",
+    "domain": "os",
+    "topic": "memory-basics",
+    "difficulty": 2,
+    "prompt": "Two processes each use the virtual address 0x5000. What makes this safe?",
+    "options": [
+      "The OS refuses to start a second process using that same address",
+      "The CPU keeps one single copy and both of the processes read it",
+      "Virtual addresses are shared, but all of the writes are queued",
+      "Each process has its own page table from virtual to physical memory"
+    ],
+    "answer": 3,
+    "explanation": "Virtual addresses are translated through a per-process mapping, so the same number can point at different physical RAM, or at nothing. That is how processes are isolated. Sharing happens only when the OS deliberately maps the same page into both."
+  },
+  {
+    "id": "os-memory-basics-4",
+    "domain": "os",
+    "topic": "memory-basics",
+    "difficulty": 2,
+    "prompt": "A static Dictionary<int, byte[]> grows on every request and entries are never removed. Memory climbs forever. Why can't the GC help?",
+    "options": [
+      "Static fields are roots, so everything inside stays reachable",
+      "The GC only runs when the whole process has been idle for a while",
+      "Byte arrays are always too large to be collected by the GC",
+      "The GC is unable to look inside generic collection types"
+    ],
+    "answer": 0,
+    "explanation": "The GC frees only unreachable objects. A static field is a root, so the dictionary and every array it points to count as live. Removing entries, or using a size-limited cache, is the fix. It does collect byte[] and generics normally."
+  },
+  {
+    "id": "os-memory-basics-5",
+    "domain": "os",
+    "topic": "memory-basics",
+    "difficulty": 3,
+    "prompt": "Why does the .NET GC divide objects into generations?",
+    "options": [
+      "Older objects need more memory than younger ones do, so they are kept apart",
+      "Each generation is stored on the stack of a different thread",
+      "It lets the GC skip finalizers on the oldest of the objects",
+      "Most objects die young, so collecting only the newest region is cheap"
+    ],
+    "answer": 3,
+    "explanation": "The generational hypothesis says that most objects become garbage soon after creation. Collecting gen 0 alone reclaims most space while scanning very little. Survivors are promoted to older generations that are collected rarely. It has nothing to do with thread stacks or finalizers."
+  },
+  {
+    "id": "os-cpu-scheduling-1",
+    "domain": "os",
+    "topic": "cpu-scheduling",
+    "difficulty": 1,
+    "prompt": "A thread calls Thread.Sleep(2000). In what state is it during those two seconds?",
+    "options": [
+      "Blocked, using no CPU time",
+      "Running, but only spinning without doing useful work",
+      "Ready, waiting at the back of the scheduler's queue",
+      "Terminated, then restarted by the OS after the delay"
+    ],
+    "answer": 0,
+    "explanation": "Sleep tells the OS not to schedule the thread until the timer expires, so it is blocked and uses no CPU. A ready thread would be competing for a core. A thread that spins in a loop is the one that wastes CPU."
+  },
+  {
+    "id": "os-cpu-scheduling-2",
+    "domain": "os",
+    "topic": "cpu-scheduling",
+    "difficulty": 1,
+    "prompt": "What is a time slice?",
+    "options": [
+      "The short span a thread may run before the scheduler can preempt it",
+      "The total time a program takes from its start to its finish",
+      "The delay between sending a request and the first reply byte",
+      "The part of RAM that is reserved for one thread's stack"
+    ],
+    "answer": 0,
+    "explanation": "A time slice (quantum) is the turn a thread gets on a core, usually some milliseconds. When a timer interrupt ends it, the scheduler can pick another thread. Total runtime and latency are different measurements."
+  },
+  {
+    "id": "os-cpu-scheduling-3",
+    "domain": "os",
+    "topic": "cpu-scheduling",
+    "difficulty": 2,
+    "prompt": "Which workload is I/O-bound?",
+    "options": [
+      "A loop that computes SHA-256 hashes of a big buffer",
+      "A routine that compresses the frames of a video file",
+      "A function that sorts a very large array in memory",
+      "A handler that mostly waits for a database to reply"
+    ],
+    "answer": 3,
+    "explanation": "I/O-bound work spends most of its elapsed time waiting for something outside the CPU. The other three keep a core busy computing, so a faster CPU helps them, while a faster database helps the first."
+  },
+  {
+    "id": "os-cpu-scheduling-4",
+    "domain": "os",
+    "topic": "cpu-scheduling",
+    "difficulty": 2,
+    "prompt": "A 4-core server shows 5% CPU use, yet requests take 3 seconds. What is the most likely explanation?",
+    "options": [
+      "Threads are mostly blocked waiting on a database, API or lock",
+      "The scheduler's time slices are set too short for the cores",
+      "The CPU is overheating and is running at a lower clock speed",
+      "The worker threads are all running at too high a priority"
+    ],
+    "answer": 0,
+    "explanation": "Low CPU with high latency means the threads are waiting, not computing. Look at what they wait for. Adding cores or changing priorities would not shorten that wait."
+  },
+  {
+    "id": "os-cpu-scheduling-5",
+    "domain": "os",
+    "topic": "cpu-scheduling",
+    "difficulty": 3,
+    "prompt": "Why do many schedulers favour threads that block often, such as interactive ones, over threads that always use their full slice?",
+    "options": [
+      "They are guaranteed to be holding the most important locks",
+      "They use little CPU and usually have a user waiting on them",
+      "Threads that use full slices are always broken and are punished",
+      "It makes later context switches cheaper for the blocked threads"
+    ],
+    "answer": 1,
+    "explanation": "A thread that runs briefly then blocks is probably waiting for user input or I/O, so running it quickly keeps the system responsive and barely delays the CPU hogs. This is the idea behind multi-level feedback queues. The risk is starving low-priority threads, which schedulers counter with periodic boosts."
+  },
+  {
+    "id": "os-race-conditions-1",
+    "domain": "os",
+    "topic": "race-conditions",
+    "difficulty": 1,
+    "prompt": "Why is count++ on a shared int not thread-safe?",
+    "options": [
+      "It is a read, an add and a write, and threads can interleave between them",
+      "It allocates a brand new integer on the heap for every single call",
+      "The compiler may refuse to run it on more than one of the threads",
+      "It takes a lock on the variable but then never releases that lock"
+    ],
+    "answer": 0,
+    "explanation": "The increment is three machine-level steps. Two threads can both read the same value and both write back value + 1, losing one update. It involves no heap allocation and no hidden lock."
+  },
+  {
+    "id": "os-race-conditions-2",
+    "domain": "os",
+    "topic": "race-conditions",
+    "difficulty": 1,
+    "prompt": "Which situation can never produce a data race?",
+    "options": [
+      "Many threads only reading an object that nobody modifies",
+      "Two threads incrementing the same static counter variable",
+      "Two requests updating the same entry in a shared cache",
+      "Several threads adding items to one shared List object"
+    ],
+    "answer": 0,
+    "explanation": "A race needs shared data that is changed. If nobody modifies the object, readers see the same thing no matter how they interleave. That is why immutable data needs no locks."
+  },
+  {
+    "id": "os-race-conditions-3",
+    "domain": "os",
+    "topic": "race-conditions",
+    "difficulty": 2,
+    "prompt": "A shared long total is updated by many threads with total += x. Which fix makes it correct?",
+    "options": [
+      "Marking the total field as volatile and changing nothing else",
+      "Calling Thread.Sleep(1) before each of the additions",
+      "Interlocked.Add(ref total, x)",
+      "Wrapping every addition in its own try/catch block"
+    ],
+    "answer": 2,
+    "explanation": "Interlocked.Add performs the read-add-write as one atomic step. volatile only controls visibility of reads and writes and does not make the compound operation atomic. Sleeping merely changes timing and hides the bug until load rises."
+  },
+  {
+    "id": "os-race-conditions-4",
+    "domain": "os",
+    "topic": "race-conditions",
+    "difficulty": 2,
+    "prompt": "What is wrong with if (!users.ContainsKey(id)) users.Add(id, u); when two threads run it on a ConcurrentDictionary?",
+    "options": [
+      "ConcurrentDictionary has no method that is named ContainsKey",
+      "The check always returns true whenever two threads are running",
+      "The Add silently overwrites the old item with no error at all",
+      "Another thread may add id between the check and the Add"
+    ],
+    "answer": 3,
+    "explanation": "This is a check-then-act race. Each call is atomic, but the pair is not, so the answer from the check can be stale by the time Add runs. A single atomic call such as TryAdd closes the gap."
+  },
+  {
+    "id": "os-race-conditions-5",
+    "domain": "os",
+    "topic": "race-conditions",
+    "difficulty": 3,
+    "prompt": "Thread A runs data = 42; ready = true;. Thread B runs while (!ready) {} then reads data. With no synchronization at all, why might B read 0?",
+    "options": [
+      "Thread B always gets scheduled before thread A on the same core",
+      "The value 42 is too large to be stored in one atomic write",
+      "A thread is never able to read a variable another thread wrote",
+      "Writes can be reordered or cached, so B may see ready before data"
+    ],
+    "answer": 3,
+    "explanation": "Without synchronization there is no guarantee that B sees A's writes in program order, or at all, because compilers and CPUs reorder and cache. Locks, Volatile or Interlocked add the needed ordering guarantees. Atomicity of 42 is not the issue."
+  },
+  {
+    "id": "os-locks-sync-1",
+    "domain": "os",
+    "topic": "locks-sync",
+    "difficulty": 1,
+    "prompt": "What does the C# lock statement guarantee about the code block it wraps?",
+    "options": [
+      "Every thread runs it in the same order that the threads started",
+      "The code inside will run faster than the same code without a lock",
+      "Only one thread at a time can run it for the same lock object",
+      "The code inside always runs on a separate dedicated thread"
+    ],
+    "answer": 2,
+    "explanation": "lock gives mutual exclusion per lock object: others wait until the holder leaves. It says nothing about order, never speeds code up (it costs a little), and runs the block on the calling thread."
+  },
+  {
+    "id": "os-locks-sync-2",
+    "domain": "os",
+    "topic": "locks-sync",
+    "difficulty": 1,
+    "prompt": "Which object is the best choice to pass to lock in a class?",
+    "options": [
+      "A private readonly object field made just for locking",
+      "The this reference of the instance that is running the code",
+      "A string literal such as \"lock\" that is written in the file",
+      "The Type object returned by typeof for the class itself"
+    ],
+    "answer": 0,
+    "explanation": "A private object cannot be locked by outside code, so only your class controls it. Locking on this, a string (interned and shared across the app) or a Type is visible to others, and they can create stalls or deadlocks by accident."
+  },
+  {
+    "id": "os-locks-sync-3",
+    "domain": "os",
+    "topic": "locks-sync",
+    "difficulty": 2,
+    "prompt": "Which set lists all four conditions needed for a deadlock?",
+    "options": [
+      "Mutual exclusion, starvation, priority inversion, a timeout",
+      "Hold and wait, busy spinning, context switching, circular wait",
+      "Mutual exclusion, hold and wait, no preemption, circular wait",
+      "Preemption, atomicity, circular wait, an exclusive cache"
+    ],
+    "answer": 2,
+    "explanation": "A deadlock needs all four Coffman conditions together: exclusive resources, holding one while waiting for another, no forced release, and a cycle of waiters. Removing any one prevents it. The other lists mix in real concepts that are not deadlock conditions."
+  },
+  {
+    "id": "os-locks-sync-4",
+    "domain": "os",
+    "topic": "locks-sync",
+    "difficulty": 2,
+    "prompt": "Two methods lock accounts A and B in opposite orders and sometimes hang forever. What is the simplest robust fix?",
+    "options": [
+      "Add Thread.Sleep calls so the threads rarely collide with each other",
+      "Always acquire the locks in one agreed global order",
+      "Use a larger number of threads to process all of the requests",
+      "Catch the exception that is thrown when the deadlock occurs"
+    ],
+    "answer": 1,
+    "explanation": "A global order, such as lowest id first, removes circular wait, so no cycle can form. Sleeping only lowers the odds, more threads make it worse, and a deadlock throws no exception: the threads just wait."
+  },
+  {
+    "id": "os-locks-sync-5",
+    "domain": "os",
+    "topic": "locks-sync",
+    "difficulty": 3,
+    "prompt": "You need to limit calls to a rate-sensitive API to 5 at once inside async code. Which is the best tool in .NET?",
+    "options": [
+      "SemaphoreSlim(5) with await WaitAsync()",
+      "lock (gate) with an await placed inside of the block",
+      "A static int counter that is checked with an if statement",
+      "Thread.Sleep(200) called before each of the API calls"
+    ],
+    "answer": 0,
+    "explanation": "SemaphoreSlim counts permits and supports WaitAsync, so waiting does not block a thread. C# does not allow await inside a lock block, and a lock admits only one thread anyway. A bare counter check is itself a race."
+  },
+  {
+    "id": "os-async-io-1",
+    "domain": "os",
+    "topic": "async-io",
+    "difficulty": 1,
+    "prompt": "What is the main benefit of async/await for a web server handling I/O-bound requests?",
+    "options": [
+      "Each individual request finishes faster than it would have before",
+      "The CPU performs the calculations in parallel on every one of its cores",
+      "Memory is no longer needed to keep track of the requests",
+      "Threads are not held while waiting, so few threads serve many requests"
+    ],
+    "answer": 3,
+    "explanation": "While a request awaits a database or HTTP reply, its thread goes back to the pool to serve others. A single request is not faster; its wait is the same. Async improves capacity, not the speed of one call."
+  },
+  {
+    "id": "os-async-io-2",
+    "domain": "os",
+    "topic": "async-io",
+    "difficulty": 1,
+    "prompt": "In Node.js, what happens when a callback runs a long synchronous loop for five seconds?",
+    "options": [
+      "Nothing else can run, including other requests, until it finishes",
+      "Other requests continue on threads that Node creates automatically",
+      "The event loop pauses the loop and interleaves the other requests",
+      "Node stops the callback once the default timeout has passed"
+    ],
+    "answer": 0,
+    "explanation": "JavaScript callbacks run to completion on a single thread, so a long loop blocks the event loop and every other request waits. Node does not interrupt it. CPU-heavy work belongs in worker threads or another process."
+  },
+  {
+    "id": "os-async-io-3",
+    "domain": "os",
+    "topic": "async-io",
+    "difficulty": 2,
+    "prompt": "An ASP.NET Core action calls someTask.Result on a task that does a slow HTTP call. Under heavy load the app becomes unresponsive. Why?",
+    "options": [
+      "The HTTP call is cancelled as soon as .Result is first accessed",
+      "The task is run twice, once for every access of the .Result",
+      "Using Result switches the whole server into single-threaded mode",
+      "Each .Result holds a pool thread, so the pool runs out of workers"
+    ],
+    "answer": 3,
+    "explanation": "Blocking on a task parks a pool thread for the whole wait. With many requests, all the workers are parked, new work queues up and the pool adds threads only slowly: thread pool starvation. Use await to free the thread."
+  },
+  {
+    "id": "os-async-io-4",
+    "domain": "os",
+    "topic": "async-io",
+    "difficulty": 2,
+    "prompt": "Which statement about Task.Run and async is correct?",
+    "options": [
+      "Task.Run suits CPU-bound work; await suits waiting on I/O",
+      "Marking a method async makes CPU-bound code run in parallel",
+      "The await keyword creates a new thread for every awaited call",
+      "Task.Run is the right way to wait for a network reply"
+    ],
+    "answer": 0,
+    "explanation": "Async waiting on I/O needs no thread at all. CPU work needs a thread, so Task.Run moves it off the caller. Marking a computation async does not parallelize it, and await by itself does not create threads."
+  },
+  {
+    "id": "os-async-io-5",
+    "domain": "os",
+    "topic": "async-io",
+    "difficulty": 3,
+    "prompt": "In JavaScript: console.log(1); setTimeout(() => console.log(2), 0); Promise.resolve().then(() => console.log(3)); console.log(4). What is the printed order?",
+    "options": [
+      "1, 4, 3, 2",
+      "1, 2, 3, 4",
+      "1, 4, 2, 3",
+      "1, 3, 4, 2"
+    ],
+    "answer": 0,
+    "explanation": "Synchronous code prints 1 and 4 first. Then the engine runs promise callbacks (the microtask queue) before it takes the next timer task, so 3 comes before 2. The zero-delay timer never runs ahead of code that is already on the stack."
+  },
+  {
+    "id": "os-concurrency-patterns-1",
+    "domain": "os",
+    "topic": "concurrency-patterns",
+    "difficulty": 1,
+    "prompt": "In the producer-consumer pattern, what is the role of the queue between the two sides?",
+    "options": [
+      "It makes the consumer run faster than the producer is able to",
+      "It guarantees that every item is processed by exactly two consumers",
+      "It decouples them so neither waits for the other on every item",
+      "It removes the need for any memory to hold the pending items"
+    ],
+    "answer": 2,
+    "explanation": "The queue buffers work so the producer can carry on while the consumer is busy, and it handles the thread-safe handoff. It does not speed up the consumer, and it uses memory to hold the pending items."
+  },
+  {
+    "id": "os-concurrency-patterns-2",
+    "domain": "os",
+    "topic": "concurrency-patterns",
+    "difficulty": 1,
+    "prompt": "Why should a work queue between threads usually be bounded?",
+    "options": [
+      "So that the items are always processed in a random order",
+      "So consumers can never try to read from an empty queue",
+      "So a fast producer waits instead of exhausting memory",
+      "So that only one consumer thread is ever allowed to run"
+    ],
+    "answer": 2,
+    "explanation": "A bounded queue creates backpressure: when full, the producer waits, so the backlog and memory stay limited. Order and the number of consumers are unaffected. Consumers wait on an empty queue regardless."
+  },
+  {
+    "id": "os-concurrency-patterns-3",
+    "domain": "os",
+    "topic": "concurrency-patterns",
+    "difficulty": 2,
+    "prompt": "Why do immutable objects simplify multi-threaded code?",
+    "options": [
+      "Immutable objects are copied for each thread by the runtime",
+      "They are stored on the stack, where other threads never look",
+      "The runtime quietly adds a lock to each immutable object",
+      "With no mutation, concurrent readers cannot interfere with each other"
+    ],
+    "answer": 3,
+    "explanation": "A race needs a write. If an object never changes after construction, any number of threads can read it with no coordination. Updates are done by building a new object and swapping the reference. No hidden locks or copies are involved."
+  },
+  {
+    "id": "os-concurrency-patterns-4",
+    "domain": "os",
+    "topic": "concurrency-patterns",
+    "difficulty": 2,
+    "prompt": "Which statement about ConcurrentDictionary<K,V>.GetOrAdd(key, valueFactory) is true?",
+    "options": [
+      "The factory is always run inside a lock on the whole dictionary",
+      "The factory runs exactly once, on whichever thread arrives first",
+      "The factory is skipped whenever the dictionary holds over 100 keys",
+      "The factory may run more than once if threads race on one key"
+    ],
+    "answer": 3,
+    "explanation": "GetOrAdd does not hold a lock while it calls your factory, so two racing threads can both run it, and only one result is stored. Keep the factory cheap and free of side effects, or store a Lazy<T> in the dictionary."
+  },
+  {
+    "id": "os-concurrency-patterns-5",
+    "domain": "os",
+    "topic": "concurrency-patterns",
+    "difficulty": 3,
+    "prompt": "How does the actor model avoid locks on an actor's internal state?",
+    "options": [
+      "Each message is run by a different thread that has its own lock",
+      "The actor's state is copied to every sender before it is used",
+      "Actors are single-use objects that are discarded after each message",
+      "The actor handles one message at a time and nobody else touches its state"
+    ],
+    "answer": 3,
+    "explanation": "An actor owns its state privately and handles its mailbox serially, so the state is only ever touched by one logical thread at a time. Other code interacts only by sending messages. Nothing is copied to senders, and actors persist between messages."
+  },
+  {
+    "id": "os-files-io-1",
+    "domain": "os",
+    "topic": "files-io",
+    "difficulty": 1,
+    "prompt": "What is a file descriptor (or handle)?",
+    "options": [
+      "The full text path of the file, such as C:\\data\\log.txt",
+      "A copy of the file's contents that is stored in the process's memory",
+      "A number the OS gives a process to refer to an open file or socket",
+      "A lock that stops all of the other programs from reading the file"
+    ],
+    "answer": 2,
+    "explanation": "When a process opens a file, the OS returns a small handle that the process passes back on each read or write. It is neither the path nor a copy of the data, and by itself it is not a lock. Handles are limited, so close them."
+  },
+  {
+    "id": "os-files-io-2",
+    "domain": "os",
+    "topic": "files-io",
+    "difficulty": 1,
+    "prompt": "Roughly how much slower is reading from a spinning hard disk than from RAM?",
+    "options": [
+      "About 100,000 times slower",
+      "About 2 times slower, because both are just memory",
+      "About 10 times slower, even when the disk is warmed up",
+      "About the same speed once the data is cached on the disk"
+    ],
+    "answer": 0,
+    "explanation": "RAM access takes around 100 nanoseconds while a spinning disk seek takes around 10 milliseconds, a ratio of about 100,000. An SSD sits in between at roughly 1,000 times slower than RAM. Caching helps because it avoids the disk."
+  },
+  {
+    "id": "os-files-io-3",
+    "domain": "os",
+    "topic": "files-io",
+    "difficulty": 2,
+    "prompt": "What does fsync (Flush(true) on a .NET FileStream) add that a plain write does not?",
+    "options": [
+      "It encrypts the data before the data is written to the file",
+      "It waits until the data has been pushed to the storage device",
+      "It writes the same data to every one of the disks in the machine",
+      "It closes the file and then releases its descriptor to the OS"
+    ],
+    "answer": 1,
+    "explanation": "A plain write may only reach the OS page cache in RAM. fsync asks the OS to send the cached data to the device and wait, so a power loss afterwards does not lose it. It does not encrypt, replicate or close anything."
+  },
+  {
+    "id": "os-files-io-4",
+    "domain": "os",
+    "topic": "files-io",
+    "difficulty": 2,
+    "prompt": "A program overwrites config.json in place and crashes midway. What is the safest way to update the file?",
+    "options": [
+      "Write a temp file, flush it, then rename it over config.json",
+      "Delete config.json first, then write the new copy to disk slowly",
+      "Write the new text twice in a row so that it is extra safe",
+      "Open config.json from two threads at once and write from both"
+    ],
+    "answer": 0,
+    "explanation": "A rename on one volume is atomic, so readers see the whole old file or the whole new one. Deleting first leaves a window with no file at all, and repeating writes or using two threads does not remove the half-written state."
+  },
+  {
+    "id": "os-files-io-5",
+    "domain": "os",
+    "topic": "files-io",
+    "difficulty": 3,
+    "prompt": "Why is appending to a log file sequentially generally faster than updating many random locations in a large file?",
+    "options": [
+      "Sequential writes skip the OS page cache entirely and go straight to the disk",
+      "Random locations each need a separate file descriptor opened beforehand",
+      "Sequential access avoids seeks and benefits from OS read-ahead and buffering",
+      "Appended data is automatically compressed by the file system as it is written"
+    ],
+    "answer": 2,
+    "explanation": "Hard disks must move a head for each random access, and even SSDs perform best with large sequential requests. The OS can also batch and prefetch sequential access. Both kinds of write go through the page cache and use a single descriptor."
+  }
+]
