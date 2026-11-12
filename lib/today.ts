@@ -1,3 +1,5 @@
+import { deriveSession, unionMs, type Interval } from "./journal/events";
+import type { JournalSession } from "./journal/types";
 import { dueProblems, PATTERN_TOPICS } from "./coding";
 import { codingSolvesByTopic, evidenceFor, nextStep, STEP_LABEL, STEP_MINUTES, STEP_TAB, topicProficiency, topicRevision, type TopicRevision } from "./proficiency";
 import { recommend, type FocusTopic } from "./recommend";
@@ -200,4 +202,36 @@ export function buildTodayPlan(data: ProgressData, ctx: PlanContext, now: number
   }
 
   return tasks.slice(0, MAX_TASKS);
+}
+
+export interface DayActivity {
+  /** Local midnight of the day, as ms since the epoch. */
+  dayStart: number;
+  activeMs: number;
+}
+
+/**
+ * Active journal time for each of the last `days` local days, oldest first, ending with the day of `now`.
+ * Each session's run intervals (from deriveSession) are split at local midnight, and intervals that overlap, such as
+ * two devices running the timer together, are counted once. Discarded sessions are ignored.
+ */
+export function weekActivity(sessions: JournalSession[], now: number, days = 7): DayActivity[] {
+  const nextDay = (t: number) => {
+    const d = new Date(t);
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1).getTime();
+  };
+  const today = new Date(now);
+  const starts = Array.from({ length: days }, (_, i) => new Date(today.getFullYear(), today.getMonth(), today.getDate() - (days - 1 - i)).getTime());
+  const intervals: Interval[] = [];
+  for (const session of sessions) {
+    const d = deriveSession(session, now);
+    if (d.status !== "discarded") intervals.push(...d.intervals);
+  }
+  return starts.map((dayStart) => {
+    const dayEnd = nextDay(dayStart);
+    const clipped = intervals
+      .map((i) => ({ start: Math.max(i.start, dayStart), end: Math.min(i.end, dayEnd) }))
+      .filter((i) => i.end > i.start);
+    return { dayStart, activeMs: unionMs(clipped) };
+  });
 }

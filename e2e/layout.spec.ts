@@ -2,9 +2,15 @@ import type { Page } from "@playwright/test";
 import { expect, test } from "./auth";
 import { FIXED_NOW, PROGRESS_KEY, seededProgress } from "./fixture";
 
-const PAGES = ["/", "/journal/", "/knowledge/", "/learn/", "/practice/", "/learn/dsa/big-o-basics/", "/coding/", "/settings/"];
+const PAGES = ["/", "/journal/", "/knowledge/", "/mentor/", "/learn/", "/practice/", "/learn/dsa/big-o-basics/", "/coding/", "/settings/"];
 const DESKTOP_WIDTHS = [1280, 1600, 1920];
 const PHONE = { width: 375, height: 812 };
+// Phone 390 and tablet 768 check overflow only (below lg there is no sidebar to centre against).
+const SMALL_VIEWPORTS = [
+  { name: "phone", ...PHONE },
+  { name: "phone", width: 390, height: 844 },
+  { name: "tablet", width: 768, height: 1024 },
+];
 // Measured on the good layout the gaps differ by under 1px (subpixel rounding); 2px allows for that
 // while any real lopsidedness (e.g. a missing mx-auto, hundreds of px) fails by a wide margin.
 const TOLERANCE_PX = 2;
@@ -81,21 +87,23 @@ for (const state of DATA_STATES) {
     });
   }
 
-  // Phone: no sidebar, so only horizontal overflow is checked.
-  for (const route of PAGES) {
-    test(`${state}: ${route} at phone width has no horizontal overflow`, async ({ page }, info) => {
+  // Phone and tablet: no sidebar, so only horizontal overflow is checked.
+  for (const vp of SMALL_VIEWPORTS) {
+    for (const route of PAGES) {
+      test(`${state}: ${route} at ${vp.name} width ${vp.width} has no horizontal overflow`, async ({ page }, info) => {
+        await prepare(page, state);
+        await page.setViewportSize({ width: vp.width, height: vp.height });
+        await settle(page, route);
+        await check(page, info, `${state}${route}`, vp.width, false);
+      });
+    }
+    test(`${state}: quiz in progress at ${vp.name} width ${vp.width} has no horizontal overflow`, async ({ page }, info) => {
       await prepare(page, state);
-      await page.setViewportSize(PHONE);
-      await settle(page, route);
-      await check(page, info, `${state}${route}`, PHONE.width, false);
+      await page.setViewportSize({ width: vp.width, height: vp.height });
+      await settle(page, "/practice/");
+      await page.getByRole("button", { name: /^Start/ }).click();
+      await expect(page.locator("main ol button.option").first()).toBeVisible();
+      await check(page, info, `${state}-quiz`, vp.width, false);
     });
   }
-  test(`${state}: quiz in progress at phone width has no horizontal overflow`, async ({ page }, info) => {
-    await prepare(page, state);
-    await page.setViewportSize(PHONE);
-    await settle(page, "/practice/");
-    await page.getByRole("button", { name: /^Start/ }).click();
-    await expect(page.locator("main ol button.option").first()).toBeVisible();
-    await check(page, info, `${state}-quiz`, PHONE.width, false);
-  });
 }

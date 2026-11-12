@@ -1,11 +1,11 @@
-import { JOURNAL_VERSION, SOURCE_KINDS, type JournalSession, type ReviewRequest, type SessionEvent, type SessionStatus, type StoredEvent } from "./types";
+import { JOURNAL_VERSION, SOURCE_KINDS, type AttachmentInfo, type JournalSession, type ReviewRequest, type SessionEvent, type SessionSource, type SessionStatus, type StoredEvent } from "./types";
 
 /**
  * Pure functions over a session's event log: ids, validation, merging and everything derived from the log.
  * No I/O, so they behave the same in the browser, in Node scripts and in tests.
  */
 
-const KNOWN = new Set(["start", "pause", "resume", "topic", "note", "difficulty", "bookmark", "end", "edit", "discard"]);
+const KNOWN = new Set(["start", "pause", "resume", "topic", "note", "difficulty", "bookmark", "end", "edit", "discard", "meta", "attach"]);
 const CONTROL = new Set(["start", "pause", "resume", "end"]);
 
 /** Time-sortable unique id: 9 chars of base-36 milliseconds, then 12 random base-36 chars. */
@@ -147,7 +147,7 @@ export interface TimelineItem {
   id: string;
   at: string;
   device: string;
-  kind: "start" | "pause" | "resume" | "topic" | "note" | "difficulty" | "bookmark" | "end";
+  kind: "start" | "pause" | "resume" | "topic" | "note" | "difficulty" | "bookmark" | "end" | "attach";
   /** Current text after edits (empty = hidden by an edit). */
   text: string;
   /** Text before any edit, kept so nothing is lost. */
@@ -155,6 +155,7 @@ export interface TimelineItem {
   edited: boolean;
   activeMs?: number;
   reflection?: Reflection;
+  attachment?: AttachmentInfo;
 }
 
 export interface Reflection {
@@ -165,6 +166,10 @@ export interface Reflection {
 }
 
 export interface DerivedSession {
+  /** Effective header after `meta` events (the latest one that sets a field wins). Always read these, not the raw session fields. */
+  subject: string;
+  objective: string | undefined;
+  source: SessionSource;
   status: SessionStatus;
   startedAt: string;
   endedAt: string | null;
@@ -219,17 +224,34 @@ export function deriveSession(session: JournalSession, now: number = Date.now())
   const edits = new Map<string, string>();
   for (const e of known) if (e.kind === "edit") edits.set(e.target, e.text);
 
+  // Latest meta per field wins. An empty subject is ignored (it is required); an empty objective clears it.
+  let subject = session.subject;
+  let objective = session.objective;
+  let source = session.source;
+  for (const e of known) {
+    if (e.kind !== "meta") continue;
+    if (isStr(e.subject) && e.subject.trim()) subject = e.subject.trim();
+    if (isStr(e.objective)) objective = e.objective.trim() || undefined;
+    if (e.source && (SOURCE_KINDS as readonly unknown[]).includes(e.source.kind)) {
+      const title = isStr(e.source.title) ? e.source.title.trim() : "";
+      source = { kind: e.source.kind, ...(title ? { title } : {}) };
+    }
+  }
+
   const timeline: TimelineItem[] = [];
   const reflections: Reflection[] = [];
   const topics = new Map<string, string>();
   for (const e of known) {
-    if (e.kind === "edit" || e.kind === "discard") continue;
+    if (e.kind === "edit" || e.kind === "discard" || e.kind === "meta") continue;
     const base = { id: e.id, at: e.at, device: e.device };
     if (e.kind === "topic" || e.kind === "note" || e.kind === "difficulty" || e.kind === "bookmark") {
       const original = e.kind === "bookmark" ? e.label : e.text;
       const text = edits.get(e.id) ?? original;
       timeline.push({ ...base, kind: e.kind, text, original, edited: edits.has(e.id), ...(e.kind === "bookmark" ? { activeMs: e.activeMs } : {}) });
       if (e.kind === "topic" && text.trim() && !topics.has(text.trim().toLowerCase())) topics.set(text.trim().toLowerCase(), text.trim());
+    } else if (e.kind === "attach") {
+      const attachment: AttachmentInfo = { attachmentId: e.attachmentId, mime: e.mime, width: e.width, height: e.height, bytes: e.bytes, sha256: e.sha256, ...(e.name ? { name: e.name } : {}) };
+      timeline.push({ ...base, kind: "attach", text: "", original: "", edited: false, attachment });
     } else if (e.kind === "end") {
       const reflection: Reflection = { at: e.at };
       for (const k of ["learned", "difficult", "unclear"] as const) if (e[k]?.trim()) reflection[k] = e[k]!.trim();
@@ -242,6 +264,9 @@ export function deriveSession(session: JournalSession, now: number = Date.now())
 
   const start = known.find((e) => e.kind === "start");
   return {
+    subject,
+    objective,
+    source,
     status,
     startedAt: start?.at ?? session.createdAt,
     endedAt: lastEnd?.at ?? null,

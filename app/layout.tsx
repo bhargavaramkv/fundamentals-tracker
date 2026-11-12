@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Nunito } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { AuthGate } from "@/components/AuthGate";
 import { JournalProvider } from "@/components/JournalProvider";
+import { MentorProvider } from "@/components/MentorProvider";
 import { Nav } from "@/components/Nav";
 import { ProgressProvider } from "@/components/ProgressProvider";
 import { Sidebar } from "@/components/Sidebar";
@@ -9,11 +10,6 @@ import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const nunito = Nunito({
-  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
@@ -51,12 +47,12 @@ export const viewport: Viewport = {
   // Draw under the notch / Dynamic Island and home indicator; safe-area insets keep content clear.
   viewportFit: "cover",
   // Dark-first (V2): the navy theme is the default everywhere.
-  themeColor: "#0a1220",
+  themeColor: "#070b14",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" data-theme="dark" className={`${geistSans.variable} ${nunito.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" data-theme="dark" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       {process.env.NODE_ENV === "production" && (
         <head>
           <meta httpEquiv="Content-Security-Policy" content={CSP} />
@@ -66,6 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AuthGate>
           <ProgressProvider>
             <JournalProvider>
+            <MentorProvider>
             <Nav />
             <div className="flex-1 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)]">
               <Sidebar />
@@ -76,6 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 </footer>
               </div>
             </div>
+            </MentorProvider>
             </JournalProvider>
           </ProgressProvider>
         </AuthGate>
