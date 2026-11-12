@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Lesson, LessonStep, Question, QuickCheck } from "@/lib/types";
 import { Quiz } from "./Quiz";
-import { useQuestionPool } from "./useQuestionPool";
 
 type View = "steps" | "checkpoint" | "done";
 
@@ -32,7 +31,7 @@ function savedStep(l: Lesson, max: number): number {
 const rotation = (step: number, check: number, n: number) => (step * 3 + check) % n;
 
 export function LessonPlayer({ lesson, questions: bank, start, next, pathHref }: Props) {
-  const questions = useQuestionPool(bank, (q) => q.domain === lesson.domain && q.topic === lesson.topic);
+  const questions = useMemo(() => bank.filter((q) => q.domain === lesson.domain && q.topic === lesson.topic), [bank, lesson.domain, lesson.topic]);
   const steps = lesson.steps;
   const [view, setView] = useState<View>(start === "checkpoint" && bank.length > 0 ? "checkpoint" : "steps");
   const [index, setIndex] = useState(0);

@@ -71,9 +71,7 @@ misconception, and very fast answers (under ~5s) suggest guessing.
 
 ### 3. Decide what to improve (keep it small)
 
-**Lessons and explanations only. Don't add questions:** the nightly mentor writes new practice questions for
-tonight's gaps (`mentor/questions.json`, `docs/mentor-routine.md`), and two writers on the same misses produce
-duplicates. Work on at most **3 topics** per run, in this priority order:
+Improve lessons, explanations and questions. Work on at most **3 topics** per run, in this priority order:
 
 1. **Repeatedly missed questions** (missed 2+ times). Look at the wrong picks:
    they show the misconception. Sharpen the explanation so it addresses that
@@ -107,19 +105,6 @@ Content conventions:
   raw `selected` indexes.
 - Verify technical claims. Don't add a question you aren't certain about.
 
-### 3b. Tech news (handled by Tech Radar)
-
-The routine no longer writes news. The Tech Radar workflow (`.github/workflows/radar.yml`, 07:00 IST) discovers,
-ranks and analyses stories automatically; see `docs/tech-radar.md`. For the chat summary, list the top 3 stories it
-found in the last day:
-
-```bash
-git fetch -q origin radar-data && rm -rf /tmp/radar && mkdir -p /tmp/radar && git archive origin/radar-data | tar -x -C /tmp/radar
-npm run --silent radar -- top --data /tmp/radar --days 1 --limit 3
-```
-
-If the radar's last success is more than a day old, say so in the summary.
-
 ### 4. Branch, commit, PR
 
 - If an open PR with the `daily-routine` label exists, add commits to its
@@ -150,16 +135,13 @@ PR body template:
 - lessons: …
 - explanations improved: … (question ids)
 
-**On the radar:** the top 3 Radar stories from the last day, one line each, with the link
-
 **Next focus:** …
 ```
 
 - If there is truly nothing meaningful to change, don't open a PR. End the
   run with the report summary instead.
 - **Always end the run with a short chat summary for the owner**: practice
-  status, the top Radar stories (one line each, with why they matter), and
-  the PR link. That message is how the owner is kept posted.
+  status and the PR link. That message is how the owner is kept posted.
 
 ### 5. Record what was analysed
 
