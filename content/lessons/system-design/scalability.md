@@ -32,6 +32,10 @@ Sometimes data, not just traffic, is split across machines (a cache cluster, a s
 
 Virtual nodes (each machine placed on the ring many times) even out the load.
 
+**Why use it: stability, not speed or replication.** Hashing costs about the same either way, and you still replicate separately if you need copies. Example: 10 cache nodes, one dies. With `% N`, about 90% of keys change owner and the database eats the miss storm. With a ring, only that node's ~10% move.
+
+**It does not give an even split.** A plain ring with one point per node is usually lopsided: positions are random, so one node can own a much bigger arc than another. Virtual nodes (100+ points per node) shrink the imbalance but never remove it, and a hot key still overloads whichever node owns it. Even spread is a side effect you tune; minimal remapping is the reason to use it.
+
 ```check
 {"prompt": "You grow a cache from 4 nodes to 5 using hash(key) % N. Roughly what share of keys end up on a different node?", "options": ["About 20%", "About 50%", "About 80%"], "answer": 2, "explanation": "With mod N, about (N-1)/N of keys move when N changes, here around four fifths. Consistent hashing would move only about one fifth, the share the new node takes over."}
 ```
@@ -45,6 +49,12 @@ In Kubernetes the Horizontal Pod Autoscaler (HPA) adds or removes pods (copies o
 ```
 
 Better signals: in-flight requests or concurrency per pod, and queue depth. Keep p95 latency as a guardrail, not the scaling input. Also, in Kubernetes **readiness** controls whether a pod gets traffic and **liveness** controls restarts; never make liveness depend on a downstream database, or one database blip restarts every pod.
+
+**Worked case:** p99 triples, CPU sits at 30%, pods wait on the DB. The CPU-based HPA never fires, and a fixed 50 replicas (or a bigger HPA max) just opens more connections against the same saturated database, so latency gets worse. Fix the bottleneck first (query or index, pool size, a cache, backpressure), then scale on concurrency or queue depth.
+
+```check
+{"prompt": "Ten cache nodes sit on a consistent-hash ring with no virtual nodes. One node dies. What is true?", "options": ["Only the dead node's keys move, but the remaining nodes may still own very uneven shares", "Every node now owns exactly one ninth of the keys", "Almost every key moves, just as with hash(key) % N"], "answer": 0, "explanation": "The ring hands the dead node's arc to its neighbour, so only about a tenth of keys move. It never promised an even split: with one point per node the arcs are random and lopsided, and the neighbour may now hold a double share. Virtual nodes reduce that imbalance."}
+```
 
 ## Where you'll meet it
 

@@ -60,6 +60,13 @@ A flash sale sends 6 orders in one second, but the consumer can process 2 per se
 
 **Ordering.** With the key trick, different orders still run in parallel. Changing the partition count remaps keys, and retries can reorder messages unless idempotent production (`enable.idempotence=true`, default in modern clients) is on.
 
+**Consumer groups don't create order.** A group is how consumers share work: each partition is read by exactly one consumer in the group, and every group gets its own full copy of the topic. A group only *preserves* the order the partition already has. If one order's events are spread across partitions (no key, or a random key), no group setting puts them back in sequence.
+
+| Producer keys by | Events for order 42 land in | Consumer sees them |
+|---|---|---|
+| `orderId` | one partition | in the order they were written |
+| nothing (round-robin / sticky) | several partitions | interleaved by whichever partition is read first |
+
 ## Where you'll meet it
 
 - Azure Service Bus and Storage Queues, AWS SQS, RabbitMQ (queues), Kafka and Azure Event Hubs (streams of events).

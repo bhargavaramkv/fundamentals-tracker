@@ -38,6 +38,24 @@ The most common recipe is **cache-aside**: the app checks the cache first, and o
 
 **Writes: invalidate, don't update.** When data changes, update the database, then **delete** the cache key. The next read refills it. If you write the new value into the cache instead, two concurrent writers can interleave so the older value lands last and stays until the TTL. A small race remains (a slow reader repopulating the old value); a short TTL closes it.
 
+The race, step by step (price starts at 10):
+
+| Time | Writer A (sets 11) | Writer B (sets 12) | DB | Cache |
+|---|---|---|---|---|
+| 1 | update DB → 11 | | 11 | 10 |
+| 2 | | update DB → 12 | 12 | 10 |
+| 3 | | set cache → 12 | 12 | 12 |
+| 4 | set cache → 11 (slow thread) | | 12 | **11, stale until TTL** |
+
+Swap "set cache" for "delete key" and step 4 just deletes again; the next read loads 12. Deleting is safe to repeat in any order; setting is not.
+
+| Write path | What goes wrong |
+|---|---|
+| Set cache, then DB | DB write can fail, leaving a value the DB never had |
+| DB, then set cache | The table above: last cache writer wins, not last DB writer |
+| Delete key, then DB | A read between the two steps reloads the old DB value |
+| **DB, then delete key** | Only a reader that loaded before the commit and writes after the delete; rare and bounded by TTL |
+
 ```reveal
 {"prompt": "Before you look: a writer deletes the cache key first and updates the database second. A reader arrives between those two steps. What does the cache hold afterwards?", "answer": "The reader misses, reads the **old** value from the database, and puts it in the cache. Then the write finishes, so the cache holds stale data until the TTL. That is why the order is: **update the DB, then delete the key.**"}
 ```
@@ -74,6 +92,13 @@ When a hot key expires, thousands of requests can miss at once and hit the datab
 ```
 
 Another failure is **penetration**: requests for keys that never exist always miss, so each reaches the database. Cache the not-found result briefly, or use a Bloom filter (a compact structure that says "definitely not present"). Check whether the missing keys *exist*: random non-existent ids mean penetration, not a stampede.
+
+| Symptom | Keys involved | Fix |
+|---|---|---|
+| Stampede | One real hot key just expired; many requests want the same value | Single-flight lock, stale-while-revalidate |
+| Penetration | Many different keys that don't exist, so nothing is ever cached | Short-TTL "not found" marker, Bloom filter of valid ids |
+
+A per-key lock can't help penetration: each random id is requested once and there is no value to refill.
 
 ## Common mistakes
 

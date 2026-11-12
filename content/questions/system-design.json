@@ -42,7 +42,7 @@
       "Delete the key from the cache, then update the database"
     ],
     "answer": 2,
-    "explanation": "If two writers both set the cache, they can interleave so the older value is written last and stays there until the TTL expires. Deleting after the DB commit leaves only a narrow race (a read that started before the commit repopulating the old value). A short TTL or a delayed second delete covers that."
+    "explanation": "If two writers both set the cache, writer A can update the DB first but set the cache last, so the cache holds A's older value while the DB holds B's, until the TTL expires. Deleting after the DB commit is safe in any order: the next read reloads the current row. Deleting before the DB write is the tempting wrong answer: a read between the delete and the commit reloads the old value. What remains with DB-then-delete is a narrow race (a read that started before the commit repopulating the old value); a short TTL or a delayed second delete covers it."
   },
   {
     "id": "system-design-caching-4",
@@ -87,7 +87,7 @@
       "It removes the need to replicate cached data between the nodes"
     ],
     "answer": 0,
-    "explanation": "With modulo, changing N changes almost every key's bucket, which means a cold-cache storm. On a hash ring, a key moves only when its neighboring node changes. Virtual nodes smooth out the uneven load a plain ring produces."
+    "explanation": "With modulo, changing N changes almost every key's bucket, which means a cold-cache storm. On a hash ring, a key moves only when its neighboring node changes, so about 1/N of keys move. It does not guarantee an even split: a plain ring is often lopsided, and virtual nodes only reduce the imbalance. It costs about the same to compute, and replication is a separate decision."
   },
   {
     "id": "system-design-scalability-3",
@@ -147,7 +147,7 @@
       "Retry the Kafka publish three times in a loop before giving up"
     ],
     "answer": 1,
-    "explanation": "This is the dual-write problem. The outbox makes state change and event atomic, and the relay gives at-least-once delivery, so consumers must be idempotent. 2PC is rarely available or desirable with brokers."
+    "explanation": "This is the dual-write problem. The outbox makes state change and event atomic, and the relay gives at-least-once delivery, so consumers must be idempotent. Publishing first only flips the failure: if the save then fails, consumers act on an order that never existed. 2PC is tempting but Kafka can't join a distributed transaction with your database, and retrying in a loop dies with the process."
   },
   {
     "id": "system-design-messaging-1",
@@ -192,7 +192,7 @@
       "Order per consumer group, regardless of how messages are keyed"
     ],
     "answer": 1,
-    "explanation": "The partition is the unit of order and parallelism. Keying by entity keeps one entity's events in order while different entities run in parallel. Watch out: changing the partition count remaps keys, and retries with max.in.flight > 1 need idempotent producers to stay ordered."
+    "explanation": "The partition is the unit of order and parallelism. Keying by orderId sends all of one order's events to the same partition, so they stay in sequence while different orders run in parallel. A consumer group doesn't create order: it only assigns each partition to one consumer, so if the events were spread across partitions, no group setting can restore their sequence. Watch out: changing the partition count remaps keys, and retries with max.in.flight > 1 need idempotent producers to stay ordered."
   },
   {
     "id": "system-design-scalability-4",

@@ -38,6 +38,8 @@ A database has a **primary** (takes writes) and a **replica** (a copy that serve
 
 **Idempotency.** Networks lose replies, so clients retry. An operation is **idempotent** if repeating it equals doing it once. `PUT` sets state and is naturally idempotent; "charge the card" is not. The fix is an **idempotency key**: the client sends a unique key, and the server stores `(key, response)` under a unique constraint and replays the stored response for a repeat.
 
+**Common trap:** switching `POST /payments` to `PUT` doesn't make a charge safe. `PUT` is idempotent only when the URL names the resource and the body fully sets its state. A payment the server creates is still a new charge on every retry unless the client sends an `Idempotency-Key` (or a client-generated payment id used as the resource id) that the server de-duplicates.
+
 ```csharp
 // Unique index on IdempotencyKey makes the second insert fail
 var done = await db.Payments.FirstOrDefaultAsync(p => p.Key == key);
@@ -60,6 +62,14 @@ Saving an order and publishing an "order created" event are two writes to two sy
   {"visual": "OUTBOX\nrelay reads outbox rows\n  -> publishes to broker\n  -> marks them sent\n", "caption": "A separate **relay** publishes the rows. If it crashes it resends, so consumers must tolerate duplicates."}
 ]}
 ```
+
+Why the tempting fixes fail:
+
+| Fix | What breaks |
+|---|---|
+| Publish first, then save | The DB insert fails (constraint, deadlock, crash) after the event is out. Downstream now acts on an order that doesn't exist: the same dual write, failing the other way. |
+| Two-phase commit (DB + Kafka) | Kafka doesn't join XA/distributed transactions with your database. Its own transactions cover only Kafka writes, and 2PC blocks everyone when the coordinator dies. |
+| Retry the publish in a loop | The process can crash between commit and publish, and the retries die with it. |
 
 The outbox gives **at-least-once** delivery, so consumers deduplicate by event id. A relay can be a poller or change-data-capture (CDC, reading the database log, for example with Debezium or MongoDB change streams).
 
