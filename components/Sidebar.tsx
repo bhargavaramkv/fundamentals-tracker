@@ -60,7 +60,7 @@ export function Sidebar({ curriculum, workspaces }: { curriculum: Curriculum; wo
                   >
                     <span className="flex items-center gap-2.5">
                       <DomainIcon domain={t.domain} size={24} />
-                      <span className={`min-w-0 flex-1 truncate text-[13px] font-bold ${active ? "text-ink" : "text-ink-2"}`}>{t.title}</span>
+                      <span className={`min-w-0 flex-1 text-[13px] font-bold leading-tight ${active ? "text-ink" : "text-ink-2"}`}>{t.title}</span>
                       <span className="meta tabular-nums">
                         {k}/{keys.length}
                       </span>

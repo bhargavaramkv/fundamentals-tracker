@@ -33,7 +33,7 @@ export function AssessRunner({ questions }: { questions: Question[] }) {
   const count = scope === "all" ? questions.length : questions.filter((q) => q.domain === scope).length;
 
   return (
-    <div className="max-w-3xl space-y-9">
+    <div className="mx-auto max-w-3xl space-y-9">
       <header className="page-head">
         <nav aria-label="Breadcrumb" className="meta mb-3">
           <Link href="/learn/" className="tap hover:text-ink">
