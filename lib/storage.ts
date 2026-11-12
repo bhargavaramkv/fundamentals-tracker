@@ -9,9 +9,17 @@ export interface ProgressStore {
   readonly kind: "local" | "github";
   load(): Promise<ProgressData>;
   save(data: ProgressData): Promise<void>;
+  /** Pushes any pending changes to the remote now. Local-only stores have nothing to push. */
+  flush?(): Promise<void>;
+  /** Called as a background push starts, succeeds or fails. */
+  onStatus?: (state: "idle" | "syncing" | "error", message?: string) => void;
 }
 
 const PROGRESS_KEY = "ft.progress.v1";
+/** Set while local changes haven't reached the remote yet; survives a closed tab. */
+const DIRTY_KEY = "ft.progress.dirty";
+/** Quiet period before a burst of saves is pushed as one commit. */
+const PUSH_DELAY_MS = 3000;
 
 /** Always-available store: this browser's localStorage. */
 export class LocalStore implements ProgressStore {
@@ -132,12 +140,36 @@ export class GitHubStore implements ProgressStore {
     });
   }
 
+  onStatus?: ProgressStore["onStatus"];
+  private timer: ReturnType<typeof setTimeout> | null = null;
+  private inFlight: Promise<void> | null = null;
+  /** Bumped on every save so a finished push knows whether newer changes arrived meanwhile. */
+  private generation = 0;
+
+  private isDirty(): boolean {
+    try {
+      return window.localStorage.getItem(DIRTY_KEY) === "1";
+    } catch {
+      return false;
+    }
+  }
+
+  private setDirty(dirty: boolean): void {
+    try {
+      if (dirty) window.localStorage.setItem(DIRTY_KEY, "1");
+      else window.localStorage.removeItem(DIRTY_KEY);
+    } catch {
+      // Storage unavailable: the in-memory generation still drives this session.
+    }
+  }
+
   async load(): Promise<ProgressData> {
     const local = await this.local.load();
     try {
       const remote = await this.fetchRemote();
       const merged = mergeProgress(local, remote.data);
       await this.local.save(merged);
+      if (this.isDirty()) await this.flush().catch(() => undefined);
       return merged;
     } catch {
       // Offline or bad token: keep working from this browser's copy.
@@ -147,13 +179,59 @@ export class GitHubStore implements ProgressStore {
 
   async save(data: ProgressData): Promise<void> {
     await this.local.save(data);
+    this.generation++;
+    this.setDirty(true);
+    this.onStatus?.("syncing");
+    if (this.timer) clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      this.timer = null;
+      this.flush().catch(() => undefined); // failures are reported through onStatus
+    }, PUSH_DELAY_MS);
+  }
+
+  async flush(): Promise<void> {
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
+    if (this.inFlight) {
+      // Don't double-push; if more changes landed during it, push those afterwards.
+      await this.inFlight;
+      if (this.isDirty()) await this.flush();
+      return;
+    }
+    if (!this.isDirty()) return;
+    this.onStatus?.("syncing");
+    this.inFlight = this.push().finally(() => {
+      this.inFlight = null;
+    });
+    await this.inFlight;
+  }
+
+  private async push(): Promise<void> {
+    const startGeneration = this.generation;
+    try {
+      await this.pushOnce();
+      if (this.generation === startGeneration) {
+        this.setDirty(false);
+        this.onStatus?.("idle");
+      }
+    } catch (err) {
+      this.onStatus?.("error", err instanceof Error ? err.message : "Sync failed");
+      throw err;
+    }
+  }
+
+  private async pushOnce(): Promise<void> {
+    const data = await this.local.load();
     // Retry once on a sha conflict (another device pushed in between).
     for (let attempt = 0; attempt < 2; attempt++) {
       const remote = await this.fetchRemote();
       const merged = mergeProgress(data, remote.data);
       const res = await this.putRemote(merged, remote.sha);
       if (res.ok) {
-        await this.local.save(merged);
+        // Merge with the current local copy so changes saved during the push aren't overwritten.
+        await this.local.save(mergeProgress(await this.local.load(), merged));
         return;
       }
       if (res.status !== 409 && res.status !== 422) {

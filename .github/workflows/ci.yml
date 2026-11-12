@@ -49,3 +49,33 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /fundamentals-tracker
+
+  # Desktop layout guard: builds with a throwaway login vault (never committed) and checks balance/overflow in Chromium.
+  layout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+      - id: scope
+        run: |
+          files=$(git diff --name-only HEAD^1 HEAD)
+          if [ -n "$files" ] && ! echo "$files" | grep -qvE '^(docs/|[^/]+\.md$)'; then
+            echo "docs_only=true" >> "$GITHUB_OUTPUT"; echo "Docs-only change: skipping layout check"
+          fi
+      - if: steps.scope.outputs.docs_only != 'true'
+        uses: ./.github/actions/setup
+      - if: steps.scope.outputs.docs_only != 'true'
+        run: LOGIN_USERNAME=e2e-user LOGIN_PASSWORD=e2e-test-password-123 npm run set-password
+      - if: steps.scope.outputs.docs_only != 'true'
+        run: npm run build
+      - if: steps.scope.outputs.docs_only != 'true'
+        run: npx playwright install --with-deps chromium
+      - if: steps.scope.outputs.docs_only != 'true'
+        run: npm run e2e
+      - if: always() && steps.scope.outputs.docs_only != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: layout-screenshots
+          path: test-results/
+          if-no-files-found: ignore

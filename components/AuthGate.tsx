@@ -88,6 +88,7 @@ export function AuthGate({ children }: { children: ReactNode }) {
       try {
         // Merge this browser's copy with the remote file and write it back (creates it on first connect).
         await store.save(await store.load());
+        await store.flush(); // push now, so a token without write access is reported here
       } catch (err) {
         return {
           error: `The token can read ${DATA_REPO.repo} but can't write to it. Set Contents to "Read and write". (${

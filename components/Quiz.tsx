@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { isQuickMiss, READ_LOCK_MS } from "@/lib/answer-pace";
+import { GUESS_MS, isQuickMiss, READ_LOCK_MS } from "@/lib/answer-pace";
 import { summarizeSession } from "@/lib/progress";
-import { GUESS_MS } from "@/lib/retention";
 import { DOMAIN_LABELS, type AnswerLog, type Question, type SessionMode, type SessionRecord } from "@/lib/types";
 import { useProgress } from "./ProgressProvider";
 

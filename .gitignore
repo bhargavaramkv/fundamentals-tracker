@@ -44,3 +44,8 @@ next-env.d.ts
 
 # LeetCode sync data lives on the leetcode-data branch; the workflow checks it out here.
 /content/leetcode/
+
+# playwright
+/test-results/
+/playwright-report/
+/e2e/.auth/

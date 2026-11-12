@@ -694,10 +694,3 @@ a.card:hover {
     transition: none !important;
   }
 }
-
-/* Pages that need more than the 3xl reading column (two-column layouts) break out to 5xl on large screens. */
-@media (min-width: 1088px) {
-  .page-wide {
-    margin-inline: -8rem;
-  }
-}
