@@ -2,7 +2,7 @@
 
 Source of truth for the V2 completion brief (received 2026-11-12, about 23:05 IST). Read this file and `execution-log.md` completely before resuming.
 
-- **Current phase:** P3 (Journal, worktree ft-journal) and P4 (Mentor/Knowledge UI, main checkout) running in parallel
+- **Current phase:** P7 release (PR v2/complete → main), then P5 routines
 - **Current branch:** `v2/complete` (from `main` @ ddf0be1)
 - **Latest verified commit:** 4d9fdab on v2/complete (engine merged into P2; `npm run check` 271/271 green). main ddf0be1 is deployed.
 - **Last test results:** see the Baseline section
@@ -69,20 +69,20 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [x] Today journal-first: session card, recent activity, this-week bars (lib/today.ts, 6 tests); no streak, quiz or lesson cards
 - [~] Coding inherits the new tokens; a detailed restyle isn't done (functionality untouched)
 
-### P3: Journal completion (Sonnet; branch v2/journal-complete db5401c, a8b6d04; Opus reviewed; merge pending until P4 finishes)
-- [~] Note editing (edit events)
-- [~] Session metadata editing (meta event)
-- [~] Conflict inspection and resolution (backup, then merge)
-- [~] Better sync status, retry
-- [~] Subject and source filters, search
-- [~] Immersive active session, mobile first
-- [~] Photo attachments (capture, compression, EXIF strip, local persistence; upload off)
+### P3: Journal completion (Sonnet; db5401c, a8b6d04; merged 501ab7b)
+- [x] Note editing (edit events)
+- [x] Session metadata editing (meta event)
+- [x] Conflict inspection and resolution (backup, then merge)
+- [x] Better sync status, retry
+- [x] Subject and source filters, search
+- [x] Immersive active session, mobile first
+- [x] Photo attachments (capture, compression, EXIF strip, local persistence; upload off)
 
-### P4: Mentor, Knowledge and reviews in the app (Sonnet)
-- [ ] Reviews in session detail and Today, "Review now" and "Discuss" copy prompts
-- [ ] Weekly report view
-- [ ] Knowledge page: search, filters, levels, evidence, why, due for verification
-- [ ] Mentor V1 archive history view
+### P4: Mentor, Knowledge and reviews in the app (Sonnet; cbbabb5, 6120b0b; panel mounted by Opus 6b8ca57)
+- [x] Reviews in session detail and Today, "Review now" and "Discuss" copy prompts
+- [x] Weekly report view
+- [x] Knowledge page: search, filters, levels, evidence, why, due for verification
+- [x] Mentor V1 archive history view
 
 ### P5: Routines (Opus)
 - [ ] Repurpose the Sonnet trigger for session reviews
@@ -90,12 +90,12 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [ ] Verify with `get`
 
 ### P6: Docs and cleanup
-- [ ] README, CLAUDE.md, ARCHITECTURE, data contracts, recovery docs
+- [x] README, CLAUDE.md, ARCHITECTURE, data contracts, recovery docs (Sonnet, a3288ff)
 - [x] Remote branch audit (Haiku), re-verified by Opus. Deleted 7 branches with 0 unique patches and no open PR: chore/remove-news, chore/reset-password, claude/cool-ramanujan-0fb8ks, fix/radar-sources, revamp-ui, routine/2026-10-29, routine/2026-11-07. Kept: claude/nice-faraday-hhxp4b, design/ux-hld-lld-revamp, feature/tech-radar (unique patches), claude/reset-login-password, claude/youthful-mendel-m471i0 (unique work), leetcode-data and radar-data (automation data branches), main, routine-state, rewrite/v2, v2/*. The v1-legacy tag is intact.
 
 ### P7: QA and release
-- [ ] Full unit, e2e and build; widths 375, 390, 768, 1280, 1600, 1920; screenshots inspected
-- [ ] Security review of the diff
+- [x] Full unit (323/323), e2e (125/125) and build; 54 screenshots at 375/390/768/1280/1600/1920 captured, key ones inspected (in `../fundamentals-v2-screenshots/final/`, outside the repo). Fix: Today's button reads "Open session" while running.
+- [x] Security review of the diff: no dangerouslySetInnerHTML, the markdown renderer emits no links, CSP unchanged (self + GitHub API), no secrets, mentor remote GET-only, logo unchanged since ddf0be1
 - [ ] PR, CI, merge, deploy, smoke test, rollback path
 - [ ] `fundamentals-v2-final-report.md`
 
@@ -115,7 +115,10 @@ On main ddf0be1, at 2026-11-12 23:13 IST: 219/219 unit tests, 73/73 e2e tests, a
 
 ## Known defects
 - (fixed in P1) `GitHubStore.fetchRemote` read the sha and the content separately.
-- Today.tsx reads `session.subject` directly, so it misses meta renames. Fix after the P3 merge using `deriveSession(...).subject`.
+- (fixed in 6b8ca57) Today.tsx missed meta renames.
+- Decision 4 correction: the browser also writes `journal/conflicts/**` (create-only backups before a repair), and `progress.json`.
+- Settings "Storage" counts V1 practice sessions, not journal sessions (the wording is ambiguous; left as is).
+- The populated mentor/review UI states are covered only by unit tests (no real reviews exist yet).
 - The IndexedDB v1→v2 upgrade is unit-tested with a fake database only (fake-indexeddb isn't installed); the e2e covers a fresh database only.
 
 ## External blockers

@@ -50,3 +50,9 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
   - The earlier "layout fail" (bcxp83aq3) most likely had the same cause.
   - Re-running in CI order (set-password through env, then build, then e2e): bc48racwb.
   - P6 docs launched: Sonnet, docs only, explicit-path commits.
+- **Milestone, 23:59 IST:**
+  - Valid e2e rerun: 125/125. Check passed: 323/323.
+  - 54 screenshots captured; key ones inspected by Opus.
+  - Today label fix applied. Security review done. Logo unchanged (verified by git diff).
+  - P6 docs by Sonnet (a3288ff). Agent tokens: 141,601; 28 tool uses; 3.6 min.
+  - Next: PR to main.

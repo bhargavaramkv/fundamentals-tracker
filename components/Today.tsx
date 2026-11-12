@@ -70,7 +70,7 @@ export function Today() {
                   </p>
                 </div>
                 <Link href="/journal/" className="btn btn-primary btn-lg w-full shrink-0 sm:w-auto">
-                  Resume
+                  {liveStatus === "paused" ? "Resume" : "Open session"}
                 </Link>
               </div>
             ) : (
