@@ -242,7 +242,7 @@ export function CodingInsightsView({ stats, analysis, status }: { stats: CodingS
     return (
       <div className="space-y-4">
         {alert}
-        <p className="max-w-2xl text-[17px] leading-relaxed text-ink-2">Your first LeetCode pull hasn&apos;t arrived yet. It runs every night around midnight India time.</p>
+        <p className="max-w-2xl text-[17px] leading-relaxed text-ink-2">Your first LeetCode pull hasn&apos;t arrived yet. It runs every evening, around 7:30 PM and 11:30 PM India time.</p>
       </div>
     );
   }
