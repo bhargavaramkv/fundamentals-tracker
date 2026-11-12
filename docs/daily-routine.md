@@ -5,9 +5,11 @@ it can be reviewed and changed like code.
 
 ## When it runs
 
-One scheduled chat (the **daily run**, Opus, 06:50 IST). It has both this repo and
+One scheduled chat (the **daily run**, Opus, 06:47 IST). It has both this repo and
 the private data repo attached, so it reads `progress.json` directly from
-`../fundamentals-tracker-data/progress.json`.
+`../fundamentals-tracker-data/progress.json`. It is the only Claude routine: it
+also does the LeetCode coding review (step 0), after the data repo's LeetCode pull
+(a GitHub Action scheduled at midnight IST, often hours late) has landed.
 
 Each run covers everything since the previous analysis: quiz answers **and**
 lesson reads (a lesson open and visible for 20+ seconds).
@@ -32,6 +34,14 @@ lesson reads (a lesson open and visible for 20+ seconds).
    (step 6).
 
 ## Steps
+
+### 0. Coding review
+
+Before anything else, follow `docs/coding-routine.md` from its Steps to its
+Finish (collect, review the code, commit). Its "never change the app repo" rule
+holds for that step: do it before you touch any branch here. If it reports
+`no-new` or fails, note it and carry on. The fresh `mentor/coding.json` then
+feeds the learner profile (step 3).
 
 ### 1. Sync and check
 
