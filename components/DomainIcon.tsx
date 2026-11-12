@@ -52,17 +52,17 @@ export function DomainIcon({ domain, size = 36, round = false }: { domain: Domai
     width: size,
     height: size,
     color,
-    background: `color-mix(in oklab, ${color} 14%, transparent)`,
+    background: `color-mix(in oklab, ${color} 18%, var(--surface))`,
   };
   return (
-    <span className={`inline-flex shrink-0 items-center justify-center ${round ? "rounded-full" : "rounded-lg"}`} style={style} aria-hidden>
+    <span className={`inline-flex shrink-0 items-center justify-center ${round ? "rounded-full" : size >= 40 ? "rounded-2xl" : "rounded-lg"}`} style={style} aria-hidden>
       <svg
         viewBox="0 0 24 24"
         width={size * 0.58}
         height={size * 0.58}
         fill="none"
         stroke="currentColor"
-        strokeWidth={1.8}
+        strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
       >

@@ -1,97 +1,108 @@
 @import "tailwindcss";
 
 /*
- * V3: calm and clean. One blue accent, hairline cards, 10px buttons.
+ * V4: bright and playful. Cool light / navy dark surfaces, one blue accent, track colours, chunky pressable buttons.
  * tests/design.test.ts checks these tokens against WCAG AA in both themes.
  */
 :root {
   color-scheme: light;
-  --bg: #f7f7f5;
-  --surface: #fcfcfb;
-  --surface-2: #f0efec;
-  --border: #e2e1dc;
-  --grid: #e9e8e4;
-  --text: #0b0b0b;
-  --text-2: #52514e;
-  --text-3: #6b6a65;
+  --bg: #f5f8fc;
+  --surface: #ffffff;
+  --surface-2: #eaf0f7;
+  --border: #dbe4ef;
+  --grid: #e6edf5;
+  --text: #0f1722;
+  --text-2: #4a5566;
+  --text-3: #5f6b7c;
   --accent: #2a78d6;
   --accent-text: #1f66bd;
   --accent-ink: #ffffff;
+  --accent-shade: #174f94;
+  --accent-soft: #e3eefc;
   --series-1: #2a78d6;
-  --good: #1f7a3a;
-  --good-bg: #e6f4ea;
-  --bad: #b42318;
-  --bad-bg: #fdecea;
+  --good: #1a7a43;
+  --good-bg: #e2f5e8;
+  --good-shade: #12592f;
+  --bad: #be2a2a;
+  --bad-bg: #fde8e6;
   --warn: #8a5a00;
-  --warn-bg: #fdf3dc;
-  --accent-2: #6250d6;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
-  /* Domain identity colors (validated categorical palette; always paired with an icon + label). */
-  --d-dsa: #2a78d6;
-  --d-oop: #eb6834;
-  --d-databases: #1baf7a;
-  --d-system-design: #eda100;
-  --d-web: #e87ba4;
+  --warn-bg: #fdf1d6;
+  --accent-2: #c2410c;
+  --shadow: 0 2px 0 rgba(28, 25, 23, 0.06);
+  --d-dsa: #3d7bff;
+  --d-oop: #ff7a3d;
+  --d-databases: #12b07e;
+  --d-system-design: #f2a100;
+  --d-web: #ec5f9e;
+  --d-os: #10b3c4;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0a1016;
-    --surface: #0e171f;
-    --surface-2: #142029;
-    --border: #1f2c38;
-    --grid: #18242f;
-    --text: #e8edf2;
-    --text-2: #a9b5c1;
-    --text-3: #808d9a;
+    --bg: #0a1220;
+    --surface: #101a2c;
+    --surface-2: #17233a;
+    --border: #243250;
+    --grid: #142036;
+    --text: #eaf0f8;
+    --text-2: #aab7c9;
+    --text-3: #8a99ae;
     --accent: #3b9bff;
     --accent-text: #6cb4ff;
     --accent-ink: #04111f;
+    --accent-shade: #1f5fae;
+    --accent-soft: #13284a;
     --series-1: #3b9bff;
-    --good: #6fcf8a;
-    --good-bg: #12291b;
-    --bad: #f28b82;
-    --bad-bg: #331a19;
-    --warn: #f2c063;
+    --good: #62d690;
+    --good-bg: #10291c;
+    --good-shade: #2f8f57;
+    --bad: #ff8b85;
+    --bad-bg: #3a1a20;
+    --warn: #f5c35a;
     --warn-bg: #33290f;
-    --accent-2: #9085e9;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --d-dsa: #3b9bff;
-    --d-oop: #f07a3c;
-    --d-databases: #22b483;
-    --d-system-design: #e0a21a;
-    --d-web: #e06c9f;
+    --accent-2: #ff9a5c;
+    --shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+    --d-dsa: #6b9bff;
+    --d-oop: #ff8f5c;
+    --d-databases: #2cc993;
+    --d-system-design: #f5b631;
+    --d-web: #f27cb0;
+    --d-os: #3cc9d8;
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0a1016;
-  --surface: #0e171f;
-  --surface-2: #142029;
-  --border: #1f2c38;
-  --grid: #18242f;
-  --text: #e8edf2;
-  --text-2: #a9b5c1;
-  --text-3: #808d9a;
+  --bg: #0a1220;
+  --surface: #101a2c;
+  --surface-2: #17233a;
+  --border: #243250;
+  --grid: #142036;
+  --text: #eaf0f8;
+  --text-2: #aab7c9;
+  --text-3: #8a99ae;
   --accent: #3b9bff;
   --accent-text: #6cb4ff;
   --accent-ink: #04111f;
+  --accent-shade: #1f5fae;
+  --accent-soft: #13284a;
   --series-1: #3b9bff;
-  --good: #6fcf8a;
-  --good-bg: #12291b;
-  --bad: #f28b82;
-  --bad-bg: #331a19;
-  --warn: #f2c063;
+  --good: #62d690;
+  --good-bg: #10291c;
+  --good-shade: #2f8f57;
+  --bad: #ff8b85;
+  --bad-bg: #3a1a20;
+  --warn: #f5c35a;
   --warn-bg: #33290f;
-  --accent-2: #9085e9;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --d-dsa: #3b9bff;
-  --d-oop: #f07a3c;
-  --d-databases: #22b483;
-  --d-system-design: #e0a21a;
-  --d-web: #e06c9f;
+  --accent-2: #ff9a5c;
+  --shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+  --d-dsa: #6b9bff;
+  --d-oop: #ff8f5c;
+  --d-databases: #2cc993;
+  --d-system-design: #f5b631;
+  --d-web: #f27cb0;
+  --d-os: #3cc9d8;
 }
 
 @theme inline {
@@ -112,8 +123,10 @@
   --color-warn: var(--warn);
   --color-warn-bg: var(--warn-bg);
   --color-accent-2: var(--accent-2);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-shade: var(--accent-shade);
   --shadow-card: var(--shadow);
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-nunito), ui-rounded, ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
@@ -171,12 +184,12 @@ button {
 h1,
 h2,
 h3 {
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   line-height: 1.25;
 }
 .headline {
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: -0.01em;
   line-height: 1.35;
   transition: color 0.15s ease-out;
@@ -325,32 +338,33 @@ h3 {
   }
 }
 
-/* Buttons: one shared shape and size; variants only change color. */
+/* Buttons: chunky and pressable. A solid bottom edge sinks on press. */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 44px;
-  padding: 0 1.25rem;
-  border-radius: 10px;
-  border: 1px solid transparent;
+  min-height: 46px;
+  padding: 0 1.35rem;
+  border-radius: 14px;
+  border: 2px solid transparent;
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1.2;
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  transition: color 0.15s ease-out, background-color 0.15s ease-out, border-color 0.15s ease-out, opacity 0.15s ease-out;
+  transition: color 0.12s ease-out, background-color 0.12s ease-out, border-color 0.12s ease-out, opacity 0.12s ease-out,
+    transform 0.08s ease-out, box-shadow 0.08s ease-out;
 }
 .btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 .btn-lg {
-  min-height: 48px;
-  padding: 0 1.75rem;
-  font-size: 1rem;
+  min-height: 52px;
+  padding: 0 1.9rem;
+  font-size: 1.0625rem;
 }
 .btn-block {
   width: 100%;
@@ -361,14 +375,24 @@ h3 {
   }
 }
 
-/* Primary: solid accent. One per region. */
+/* Primary: solid accent with a darker edge. One per region. */
 .btn-primary {
   background: var(--accent-text);
   color: var(--accent-ink);
+  box-shadow: 0 4px 0 var(--accent-shade);
 }
-.btn-primary:hover:not(:disabled),
-.btn-primary:active:not(:disabled) {
-  background: color-mix(in oklab, var(--accent-text) 85%, var(--text));
+.btn-primary:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--accent-text) 90%, var(--surface));
+}
+.btn-primary:active:not(:disabled),
+.btn-secondary:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--accent-shade);
+}
+.btn-good {
+  background: var(--good);
+  color: var(--surface);
+  box-shadow: 0 4px 0 var(--good-shade);
 }
 .btn-arrow {
   display: inline-block;
@@ -383,6 +407,10 @@ h3 {
   background: var(--surface);
   border-color: var(--border);
   color: var(--text);
+  box-shadow: 0 3px 0 var(--border);
+}
+.btn-secondary:active:not(:disabled) {
+  box-shadow: 0 0 0 var(--border);
 }
 .btn-secondary:hover:not(:disabled) {
   background: var(--surface-2);
@@ -484,9 +512,53 @@ textarea.field {
 /* Card: surface, hairline border, 12px radius. */
 .card {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 3px 0 var(--border);
+}
+a.card {
+  transition: transform 0.12s ease-out, border-color 0.12s ease-out;
+}
+a.card:hover {
+  transform: translateY(-2px);
+}
+
+/* A tappable answer tile (quick checks and quiz options). */
+.option {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 3px 0 var(--border);
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.975rem;
+  transition: border-color 0.12s ease-out, background-color 0.12s ease-out, transform 0.08s ease-out;
+}
+.option:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.option:active:not(:disabled) {
+  transform: translateY(2px);
+}
+.option:disabled {
+  cursor: default;
+}
+.option-key {
+  display: inline-flex;
+  height: 1.6rem;
+  min-width: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-3);
 }
 
 /* Status tag: always text + color, never color alone. */
@@ -573,12 +645,45 @@ textarea.field {
 }
 
 @keyframes pop {
-  0% { transform: scale(1); }
-  40% { transform: scale(1.02); }
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.12); opacity: 1; }
   100% { transform: scale(1); }
 }
 .animate-pop {
-  animation: pop 0.25s ease-out;
+  animation: pop 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+/* The current lesson on a path breathes gently so the eye finds it. */
+@keyframes halo {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--node) 45%, transparent); }
+  100% { box-shadow: 0 0 0 14px color-mix(in oklab, var(--node) 0%, transparent); }
+}
+.animate-halo {
+  animation: halo 1.8s ease-out infinite;
+}
+
+/* Lesson-complete confetti: a short burst of small pieces, once. */
+@keyframes confetti {
+  0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); opacity: 0; }
+}
+.confetti-piece {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  animation: confetti 1.1s cubic-bezier(0.15, 0.7, 0.4, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes step-in {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-step {
+  animation: step-in 0.22s ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
