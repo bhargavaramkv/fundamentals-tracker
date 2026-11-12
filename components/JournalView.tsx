@@ -198,10 +198,16 @@ function ActiveSession({ record, onEnded }: { record: SessionRecord; onEnded: ()
 
   const addItem = async (e: FormEvent) => {
     e.preventDefault();
-    if (text.trim() && (await add(session.id, { kind, text: text.trim() }))) setText("");
+    const value = text.trim();
+    if (!value) return;
+    // Clear now so typing during the save isn't wiped; put the text back if the save fails.
+    setText("");
+    if (!(await add(session.id, { kind, text: value }))) setText((t) => t || value);
   };
   const bookmark = async () => {
-    if (await add(session.id, { kind: "bookmark", label: label.trim(), activeMs: deriveSession(session).activeMs })) setLabel("");
+    const value = label.trim();
+    setLabel("");
+    if (!(await add(session.id, { kind: "bookmark", label: value, activeMs: deriveSession(session).activeMs }))) setLabel((l) => l || value);
   };
 
   return (
@@ -235,7 +241,7 @@ function ActiveSession({ record, onEnded }: { record: SessionRecord; onEnded: ()
       ) : (
         <section className="card space-y-3 p-5 sm:p-6">
           <form onSubmit={addItem} className="flex flex-col gap-2 sm:flex-row">
-            <select aria-label="Kind" value={kind} onChange={(e) => setKind(e.target.value as typeof kind)} className="field sm:w-36">
+            <select aria-label="Kind" value={kind} onChange={(e) => setKind(e.target.value as typeof kind)} className="field sm:max-w-36">
               <option value="note">Note</option>
               <option value="topic">Topic</option>
               <option value="difficulty">Difficulty</option>
