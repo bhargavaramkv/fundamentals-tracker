@@ -9,14 +9,20 @@ import type { AnswerLog, CodingAttempt, CodingProblem, Domain, LearningActivity,
  */
 export const CONTENT_EPOCH = "2026-10-28T04:55:06Z";
 
-/** The progress that counts: answers and sessions since the content epoch, with reviews rebuilt from them. */
-export function activeProgress(data: ProgressData, epoch: string = CONTENT_EPOCH): ProgressData {
+/**
+ * Review schedules restart here: earlier answers still count for scores, but only answers from this moment on
+ * put questions in the review deck. Set by the owner on 2026-11-12 to clear the backlog (midnight IST, 13 Nov).
+ */
+export const REVIEW_EPOCH = "2026-11-12T18:30:00Z";
+
+/** The progress that counts: answers and sessions since the content epoch, with reviews rebuilt from answers since the review epoch. */
+export function activeProgress(data: ProgressData, epoch: string = CONTENT_EPOCH, reviewEpoch: string = REVIEW_EPOCH): ProgressData {
   const answers = data.answers.filter((a) => a.answeredAt >= epoch);
   return {
     ...data,
     answers,
     sessions: data.sessions.filter((s) => s.finishedAt >= epoch),
-    reviews: applyAnswers({}, answers),
+    reviews: applyAnswers({}, answers.filter((a) => a.answeredAt >= reviewEpoch)),
   };
 }
 
