@@ -27,8 +27,8 @@ merge PRs on its own judgment, including PRs that change `.github/workflows/`,
 push to `main`.
 
 - Never merge a PR with failing or pending required checks.
-- The unattended daily routine does **not** inherit this: it opens PRs but does
-  not merge, and does not touch the files listed above.
+- The unattended daily routine does **not** inherit this: it may merge only its own PRs that change
+  nothing but `content/**`, and only once CI is green. It never touches the files listed above.
 
 ## Setup (once, in GitHub)
 

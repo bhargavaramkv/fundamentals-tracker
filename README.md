@@ -104,6 +104,7 @@ lib/srs.ts           Question-level spaced repetition
 lib/recommend.ts     Focus topics + adaptive practice set
 lib/progress.ts      Append-only merge, session recording
 scripts/progress-report.ts   Analysis used by the daily routine
+scripts/learner-profile.ts   Writes the learner profile (npm run learner)
 docs/daily-routine.md        Playbook the scheduled task follows
 ```
 

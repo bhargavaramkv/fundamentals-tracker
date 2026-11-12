@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Lesson, LessonStep, Question, QuickCheck, Reveal, StepThrough } from "@/lib/types";
 import { domainColor } from "./DomainIcon";
+import { PageShell } from "./PageShell";
 import { Quiz } from "./Quiz";
 
 type View = "steps" | "checkpoint" | "done";
@@ -169,7 +170,41 @@ export function LessonPlayer({ lesson, questions: bank, start, next, pathHref }:
   if (!step) return null;
   const percent = Math.round((index / steps.length) * 100);
 
+  const outline = (
+    <nav aria-label="Lesson outline" className="card p-4">
+      <p className="eyebrow">In this lesson</p>
+      <ol className="mt-3 space-y-0.5">
+        {steps.map((s, i) => {
+          const isDone = i < index;
+          const current = i === index;
+          const cls = `flex w-full items-start gap-2.5 rounded-lg px-2 py-1.5 text-left text-[14px] ${current ? "bg-accent-soft font-bold text-accent-text" : isDone ? "text-ink hover:bg-surface-2" : "text-ink-3"}`;
+          const mark = (
+            <span aria-hidden className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold text-white" style={{ background: isDone || current ? color : "var(--surface-2)" }}>
+              {isDone ? "✓" : ""}
+            </span>
+          );
+          return (
+            <li key={i}>
+              {isDone ? (
+                <button type="button" onClick={() => go(i)} className={cls}>
+                  {mark}
+                  <span className="min-w-0">{s.title}</span>
+                </button>
+              ) : (
+                <span aria-current={current ? "step" : undefined} className={cls}>
+                  {mark}
+                  <span className="min-w-0">{s.title}</span>
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+
   return (
+    <PageShell right={outline}>
     <section aria-label="Lesson" className="space-y-5">
       <div className="flex items-center gap-3">
         <div
@@ -207,6 +242,7 @@ export function LessonPlayer({ lesson, questions: bank, start, next, pathHref }:
       </div>
       {!canContinue && <p className="meta text-right">Answer the question to continue.</p>}
     </section>
+    </PageShell>
   );
 }
 

@@ -5,6 +5,7 @@ import type { CSSProperties } from "react";
 import { currentTopic, trackKeys } from "@/lib/curriculum";
 import type { Domain } from "@/lib/types";
 import { DomainIcon, domainColor } from "./DomainIcon";
+import { PageShell } from "./PageShell";
 import { useCourse, type CourseContext } from "./useCourse";
 
 /** Horizontal offsets (px) that make the path wind gently left and right. */
@@ -21,7 +22,35 @@ export function TrackPath({ domain, ...ctx }: CourseContext & { domain: Domain }
   const color = domainColor(domain);
   let position = 0;
 
+  const rail = (
+    <div className="card p-5">
+      <p className="eyebrow">Units</p>
+      <ol className="mt-3 space-y-3">
+        {track.stages.map((stage, si) => {
+          const sk = stage.topics.map((t) => `${domain}/${t}`);
+          const sd = sk.filter((k) => done.has(k)).length;
+          return (
+            <li key={stage.id}>
+              <div className="flex items-baseline justify-between gap-3 text-[15px]">
+                <span className="min-w-0 font-bold">
+                  {si + 1}. {stage.title}
+                </span>
+                <span className="meta shrink-0 tabular-nums">
+                  {sd}/{sk.length}
+                </span>
+              </div>
+              <div aria-hidden className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-surface-2">
+                <div className="h-full rounded-full" style={{ width: `${sk.length ? (sd / sk.length) * 100 : 0}%`, background: color }} />
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+
   return (
+    <PageShell right={rail}>
     <div className="mx-auto max-w-xl space-y-10">
       <header>
         <Link href="/learn/" className="meta tap font-bold hover:text-ink">
@@ -90,6 +119,7 @@ export function TrackPath({ domain, ...ctx }: CourseContext & { domain: Domain }
         </section>
       ))}
     </div>
+    </PageShell>
   );
 }
 

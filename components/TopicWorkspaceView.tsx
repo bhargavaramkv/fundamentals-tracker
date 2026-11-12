@@ -53,8 +53,8 @@ export function TopicWorkspaceView({ lesson, workspace, questions, resources, pr
   const revision = loaded ? topicRevision(key, evidenceFor(key, data, solves), now) : null;
 
   return (
-    <article className="mx-auto max-w-2xl space-y-6">
-      <header>
+    <article className="mx-auto max-w-2xl space-y-6 xl:mx-0 xl:max-w-5xl">
+      <header className="max-w-2xl">
         <Link href={`/learn/${lesson.domain}/`} className="tap inline-flex items-center gap-2 text-sm font-bold text-ink-2 hover:text-ink">
           <span aria-hidden>←</span>
           <DomainIcon domain={lesson.domain} size={24} />
@@ -95,7 +95,7 @@ export function TopicWorkspaceView({ lesson, workspace, questions, resources, pr
         pathHref={`/learn/${lesson.domain}/`}
       />
 
-      <div className="space-y-3">
+      <div className="space-y-3 xl:grid xl:max-w-5xl xl:grid-cols-2 xl:items-start xl:gap-4 xl:space-y-0">
         <Section title="Exercises and practical work" open={requested === "exercises"}>
           <ExercisesTab lesson={lesson} workspace={workspace} topicKey={key} codingSolves={proficiency?.tracks.practical.codingSolves ?? 0} />
         </Section>

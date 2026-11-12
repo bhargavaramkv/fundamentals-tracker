@@ -10,9 +10,9 @@ Read `AGENTS.md` (Next.js version notes) before changing code.
   (`scripts/leetcode-history.ts`). It holds the owner's code, so it must never reach this public repo or its branches.
 - **Daily run:** follow `docs/daily-routine.md` exactly. It's the source of truth for
   analysis, PRs and the `routine-state` marker.
-- **Progress data:** the daily reader chat (which has the private data repo) sends
-  `progress.json` as a `PROGRESS` message; decode it to `../fundamentals-tracker-data/progress.json`.
-  The daily routine never writes to the data repo.
+- **Progress data:** the daily run has the private data repo attached and reads
+  `../fundamentals-tracker-data/progress.json` directly.
+  The daily routine never touches `progress.json`; it writes only `learner/profile.json`, via `npm run learner`.
 - **Sources:** never add a link to `content/resources/registry.json` without fetching it (`npm run resources:verify`).
 - **Checks:** `npm run check` (lint, typecheck, tests, build) before every commit.
 - **Never:** push to `main` from the routine, delete question or exercise IDs, or (from the

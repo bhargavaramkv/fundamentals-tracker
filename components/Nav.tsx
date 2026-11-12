@@ -9,7 +9,7 @@ import { Flame } from "./ProgressRing";
 import { useProgress } from "./ProgressProvider";
 import { useNow } from "./useNow";
 
-function Icon({ children }: { children: ReactNode }) {
+export function Icon({ children }: { children: ReactNode }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden>
       {children}
@@ -17,10 +17,10 @@ function Icon({ children }: { children: ReactNode }) {
   );
 }
 
-type NavLink = { href: string; label: string; icon: ReactNode; match?: string[] };
+export type NavLink = { href: string; label: string; icon: ReactNode; match?: string[] };
 
 /** The three destinations; Settings is the gear in the top bar. */
-const PRIMARY: NavLink[] = [
+export const PRIMARY: NavLink[] = [
   {
     href: "/",
     label: "Today",
@@ -54,12 +54,12 @@ const PRIMARY: NavLink[] = [
   },
 ];
 
-function isActive(pathname: string, link: NavLink): boolean {
+export function isActive(pathname: string, link: NavLink): boolean {
   if (link.href === "/") return pathname === "/";
   return (link.match ?? [link.href.replace(/\/$/, "")]).some((m) => pathname.startsWith(m));
 }
 
-/** Top bar everywhere; on phones the links move to a bottom tab bar within thumb reach. */
+/** Top bar below lg (the sidebar takes over from lg up); on phones the links move to a bottom tab bar within thumb reach. */
 export function Nav() {
   const pathname = usePathname();
   const { syncState, data, ready } = useProgress();
@@ -71,7 +71,7 @@ export function Nav() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-line bg-bg pt-[env(safe-area-inset-top)]">
+      <header className="sticky top-0 z-30 lg:hidden border-b border-line bg-bg pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-6 px-[max(1rem,env(safe-area-inset-left))] sm:pr-[max(1rem,env(safe-area-inset-right))]">
           <Link href="/" className="tap -ml-1 px-1 font-semibold tracking-tight sm:ml-0 sm:px-0 sm:py-3" aria-label="Fundamentals, go to the home page">
             <BrandMark />

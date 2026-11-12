@@ -89,7 +89,7 @@ export function PracticeRunner({ questions, topics }: { questions: Question[]; t
         </p>
       )}
 
-      <div className="grid gap-9 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-14">
+      <div className="grid gap-9 xl:grid-cols-[minmax(0,1fr)_21rem] xl:gap-14">
         <div className="min-w-0 space-y-9">
         <section aria-labelledby="covers-h">
           <div className="section-head">
