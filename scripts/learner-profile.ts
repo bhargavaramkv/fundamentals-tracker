@@ -39,7 +39,7 @@ function git(cwd: string, ...args: string[]): string {
 function publish(dataDir: string, message: string) {
   const app = git(root, "status", "--porcelain").trim();
   if (app) throw new Error(`The app repo was modified, which the routine must never do:\n${app}`);
-  const outside = git(dataDir, "status", "--porcelain").split("\n").filter(Boolean).filter((l) => l.slice(3).replaceAll('"', "") !== OUTPUT);
+  const outside = git(dataDir, "status", "--porcelain", "--untracked-files=all").split("\n").filter(Boolean).filter((l) => l.slice(3).replaceAll('"', "") !== OUTPUT);
   if (outside.length > 0) throw new Error(`Changes outside ${OUTPUT} in the data repo:\n${outside.join("\n")}`);
   git(dataDir, "add", "--", OUTPUT);
   git(dataDir, "commit", "-qm", message);
