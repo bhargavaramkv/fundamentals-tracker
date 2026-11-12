@@ -5,6 +5,7 @@ import {
   createReviewRequest,
   createSession,
   deriveSession,
+  isKnownEvent,
   makeEvent,
   mergeSessions,
   newId,
@@ -203,5 +204,64 @@ describe("ids, paths, hashes, requests", () => {
   });
   it("makeEvent stamps id, time and device", () => {
     expect(makeEvent({ kind: "note", text: "hi" }, "d1", T0)).toMatchObject({ kind: "note", text: "hi", device: "d1", at: new Date(T0).toISOString() });
+  });
+});
+
+describe("meta and attach events", () => {
+  it("knows meta and attach, and still treats other kinds as unknown", () => {
+    expect(isKnownEvent(ev("meta", 1, { subject: "x" }))).toBe(true);
+    expect(isKnownEvent(ev("attach", 1, {}))).toBe(true);
+    expect(isKnownEvent(ev("hologram", 1))).toBe(false);
+  });
+
+  it("derives the effective subject, objective and source: latest per field wins", () => {
+    expect(deriveSession(session([ev("start", 0)]), T0 + MIN)).toMatchObject({ subject: "HLD", objective: undefined, source: { kind: "atlas" } });
+    const d = deriveSession(
+      session([
+        ev("start", 0),
+        ev("meta", 1, { subject: "System design", objective: "caching" }),
+        ev("meta", 2, { source: { kind: "book", title: " DDIA " } }),
+        ev("meta", 3, { subject: "Distributed systems" }),
+      ]),
+      T0 + 9 * MIN,
+    );
+    expect(d.subject).toBe("Distributed systems");
+    expect(d.objective).toBe("caching");
+    expect(d.source).toEqual({ kind: "book", title: "DDIA" });
+  });
+
+  it("ignores an empty subject, clears the objective with empty text, and ignores an invalid source", () => {
+    const s = { ...session([ev("start", 0), ev("meta", 1, { subject: "  ", objective: "" }), ev("meta", 2, { source: { kind: "nonsense" } })]), objective: "old" };
+    const d = deriveSession(s, T0 + 5 * MIN);
+    expect(d.subject).toBe("HLD");
+    expect(d.objective).toBeUndefined();
+    expect(d.source).toEqual({ kind: "atlas" });
+  });
+
+  it("applies meta in time order even when stored out of order, and leaves the raw header untouched", () => {
+    const s = session([ev("start", 0), ev("meta", 5, { subject: "later" }), ev("meta", 2, { subject: "earlier" })]);
+    expect(deriveSession(s, T0 + 9 * MIN).subject).toBe("later");
+    expect(s.subject).toBe("HLD");
+  });
+
+  it("meta events merge by id like any other, and do not appear in the timeline", () => {
+    const m = ev("meta", 1, { subject: "X" });
+    const a = session([ev("start", 0), m]);
+    const b = session([m, ev("note", 2, { text: "n" })]);
+    expect(mergeSessions(a, b).events).toHaveLength(3);
+    expect(deriveSession(a, T0 + 5 * MIN).timeline.map((t) => t.kind)).toEqual(["start"]);
+  });
+
+  it("attach events appear in the timeline with their info", () => {
+    const a = { attachmentId: "att1", mime: "image/webp", width: 10, height: 5, bytes: 123, sha256: "abc", name: "board.jpg" };
+    const d = deriveSession(session([ev("start", 0), ev("attach", 1, a)]), T0 + 5 * MIN);
+    expect(d.timeline[1]).toMatchObject({ kind: "attach", attachment: a });
+    expect(d.unknownEvents).toBe(0);
+  });
+
+  it("edits apply to bookmark labels, with the original kept", () => {
+    const b = ev("bookmark", 1, { label: "start of part 2", activeMs: 1000 });
+    const d = deriveSession(session([ev("start", 0), b, ev("edit", 2, { target: b.id, text: "start of part 3" })]), T0 + 5 * MIN);
+    expect(d.timeline[1]).toMatchObject({ text: "start of part 3", original: "start of part 2", edited: true });
   });
 });

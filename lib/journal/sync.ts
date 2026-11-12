@@ -1,7 +1,8 @@
 import { canonicalJson, covers, createReviewRequest, createSession, mergeSessions, parseSession, requestPath, sessionPath } from "./events";
 import type { JournalLocal, OutboxEntry, SessionRecord } from "./local";
 import { JournalSyncError, type JournalRemote } from "./remote";
-import type { JournalSession, ReviewRequest, SessionEvent } from "./types";
+import type { QueueInfo } from "./status";
+import type { JournalSession, ReviewRequest, SessionEvent, StoredEvent } from "./types";
 
 export type RecordStatus = "local" | "pending" | "syncing" | "synced" | "retrying" | "conflict";
 export interface SyncState {
@@ -9,6 +10,26 @@ export interface SyncState {
   message?: string;
   lastSyncedAt?: string;
 }
+
+export interface EventBrief {
+  id: string;
+  kind: string;
+  at: string;
+}
+
+/** What a human needs to decide about a session whose GitHub copy could not be merged. Read-only. */
+export interface ConflictInspection {
+  reason: string;
+  local: { events: number; lastEvent: EventBrief | null };
+  remote:
+    | { state: "missing" }
+    | { state: "unreadable"; sha: string; text: string }
+    /** Parsed, but some events had no usable id, time or device (`rejected`), so it was not overwritten. */
+    | { state: "readable"; sha: string; text: string; events: number; rejected: number; onlyLocal: EventBrief[]; onlyRemote: EventBrief[] };
+}
+
+const brief = (e: StoredEvent): EventBrief => ({ id: e.id, kind: e.kind, at: e.at });
+export const conflictBackupPath = (sessionId: string, sha: string) => `journal/conflicts/${sessionId}/${sha}.json`;
 
 const MAX_WRITE_TRIES = 3;
 const TOKEN_MESSAGE = "GitHub rejected the sync token";
@@ -124,6 +145,85 @@ export class JournalSync {
     return { state: this.running ? "syncing" : "idle", lastSyncedAt };
   }
 
+  /** Queue size and the earliest retry time, for the sync indicator. */
+  async queueInfo(): Promise<QueueInfo> {
+    const entries = (await this.local.outbox.entries()).map(([, e]) => e);
+    const retries = entries.filter((e) => !e.conflict && e.lastError).map((e) => e.nextAttemptAt);
+    return { queued: entries.filter((e) => !e.conflict).length, nextAttemptAt: retries.length ? Math.min(...retries) : null, conflicts: entries.filter((e) => e.conflict).length };
+  }
+
+  /** Reads both copies of a session in conflict. Writes nothing. */
+  async inspectConflict(sessionId: string): Promise<ConflictInspection> {
+    const remote = this.remote;
+    const entry = await this.local.outbox.get(`session:${sessionId}`);
+    const rec = await this.local.sessions.get(sessionId);
+    if (!remote || !rec) throw new Error("There is nothing to inspect for this session");
+    const last = rec.session.events[rec.session.events.length - 1];
+    const local = { events: rec.session.events.length, lastEvent: last ? brief(last) : null };
+    const reason = entry?.conflict ?? "No conflict is recorded for this session";
+    const file = await remote.read(rec.path);
+    if (!file) return { reason, local, remote: { state: "missing" } };
+    const parsed = parseText(file.text);
+    if (!parsed || parsed.session.id !== sessionId) return { reason, local, remote: { state: "unreadable", sha: file.sha, text: file.text } };
+    const localIds = new Set(rec.session.events.map((e) => e.id));
+    const remoteIds = new Set(parsed.session.events.map((e) => e.id));
+    return {
+      reason,
+      local,
+      remote: {
+        state: "readable",
+        sha: file.sha,
+        text: file.text,
+        events: parsed.session.events.length,
+        rejected: parsed.rejected,
+        onlyLocal: rec.session.events.filter((e) => !remoteIds.has(e.id)).map(brief),
+        onlyRemote: parsed.session.events.filter((e) => !localIds.has(e.id)).map(brief),
+      },
+    };
+  }
+
+  /** Clears the conflict flag and re-reads and re-merges. If the remote copy still can't be merged, the conflict comes back. */
+  async retryConflict(sessionId: string): Promise<void> {
+    const key = `session:${sessionId}`;
+    const entry = await this.local.outbox.get(key);
+    if (entry?.conflict) await this.local.outbox.put(key, { ...entry, conflict: undefined, lastError: undefined, attempts: 0, nextAttemptAt: 0 });
+    this.notify();
+    await this.sync();
+  }
+
+  /**
+   * "Keep both and repair". Order matters and is never changed:
+   *  1. Copy the current GitHub file, byte for byte, to journal/conflicts/<id>/<remoteSha>.json (create-only).
+   *  2. Only once that exists, overwrite the original with local + every parseable remote event, guarded by the sha
+   *     we read, so a file that changed in the meantime is not overwritten.
+   * If step 1 fails nothing else is written. If step 2 fails the backup remains and the conflict stays flagged.
+   */
+  async resolveConflict(sessionId: string): Promise<void> {
+    const remote = this.remote;
+    const key = `session:${sessionId}`;
+    const entry = await this.local.outbox.get(key);
+    const rec = await this.local.sessions.get(sessionId);
+    if (!remote || !rec || !entry) throw new Error("There is nothing to repair for this session");
+
+    const file = await remote.read(rec.path);
+    let merged = rec.session;
+    if (file) {
+      const backup = conflictBackupPath(sessionId, file.sha);
+      const w = await remote.write(backup, file.text, null);
+      if (!w.ok) {
+        // Already there is fine only if it holds exactly what we are about to overwrite.
+        const existing = await remote.read(backup);
+        if (existing?.text !== file.text) throw new JournalSyncError("Could not back up the GitHub copy, so nothing was changed", w.status);
+      }
+      const parsed = parseText(file.text);
+      if (parsed && parsed.session.id === sessionId) merged = mergeSessions(merged, parsed.session);
+    }
+    const w = await remote.write(rec.path, JSON.stringify(merged, null, 2) + "\n", file?.sha ?? null);
+    if (!w.ok) throw new JournalSyncError("The GitHub copy changed while repairing. The backup is kept; try again.", w.status);
+    await this.finishPush(entry, rec, merged, w.sha);
+    this.notify();
+  }
+
   scheduleSync(delayMs = 1500) {
     if (this.timer) clearTimeout(this.timer);
     this.timer = setTimeout(() => {
@@ -234,13 +334,17 @@ export class JournalSync {
         break;
       }
     }
-    // Events may have been appended during the push: keep them, and keep the entry queued if `merged` lacks them.
+    await this.finishPush(entry, rec, merged, sha);
+  }
+
+  /** Events may have been appended during the push: keep them, and keep the entry queued if `merged` lacks them. */
+  private async finishPush(entry: OutboxEntry, rec: SessionRecord, merged: JournalSession, sha: string) {
     await this.locked(async () => {
       const cur = (await this.local.sessions.get(entry.refId)) ?? rec;
       await this.local.sessions.put(entry.refId, { ...cur, session: mergeSessions(merged, cur.session), remoteSha: sha });
       if (covers(merged, cur.session)) await this.local.outbox.delete(entry.key);
       else {
-        await this.local.outbox.put(entry.key, { ...entry, attempts: 0, nextAttemptAt: 0, lastError: undefined });
+        await this.local.outbox.put(entry.key, { ...entry, attempts: 0, nextAttemptAt: 0, lastError: undefined, conflict: undefined });
         this.again = true;
       }
     });

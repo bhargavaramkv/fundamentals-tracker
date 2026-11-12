@@ -42,3 +42,13 @@ describe("duration formats", () => {
     expect(formatSpan(65 * 60_000)).toBe("1h 05m");
   });
 });
+
+describe("journal summaries with meta events", () => {
+  it("uses the subject and source from meta events", () => {
+    const r = rec("HLD", "video", T + 5000, ["Caching"]);
+    r.session.events.push(makeEvent({ kind: "meta", subject: "Databases", source: { kind: "book" } }, "d", T + 6000));
+    expect(recentSubjects([r])).toEqual(["Databases"]);
+    expect(lastSource([r])).toBe("book");
+    expect(topicSummary([r]).map((t) => t.topic).sort()).toEqual(["Caching", "Databases"]);
+  });
+});
