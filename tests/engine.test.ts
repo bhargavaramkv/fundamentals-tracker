@@ -165,10 +165,19 @@ describe("content epoch", () => {
     const old = answer({ questionId: "o1", correct: false, answeredAt: "2026-10-28T04:19:00.000Z" });
     const fresh = answer({ questionId: "n1", correct: false, answeredAt: "2026-10-28T06:00:00.000Z" });
     const data = { ...emptyProgress(), answers: [old, fresh], reviews: applyAnswers({}, [old, fresh]) };
-    const active = activeProgress(data, "2026-10-28T04:55:06Z");
+    const active = activeProgress(data, "2026-10-28T04:55:06Z", "2026-10-28T04:55:06Z");
     expect(active.answers.map((a) => a.questionId)).toEqual(["n1"]);
     expect(Object.keys(active.reviews)).toEqual(["n1"]);
     expect(data.answers).toHaveLength(2);
     expect(archivedAnswerCount(data, "2026-10-28T04:55:06Z")).toBe(1);
+  });
+
+  it("starts the review deck fresh at the review epoch while answers still count", async () => {
+    const { activeProgress } = await import("@/lib/progress");
+    const before = answer({ questionId: "b1", correct: false, answeredAt: "2026-11-10T10:00:00.000Z" });
+    const after = answer({ questionId: "a1", correct: false, answeredAt: "2026-11-13T04:00:00.000Z" });
+    const active = activeProgress({ ...emptyProgress(), answers: [before, after] }, "2026-10-28T04:55:06Z", "2026-11-12T18:30:00Z");
+    expect(active.answers).toHaveLength(2);
+    expect(Object.keys(active.reviews)).toEqual(["a1"]);
   });
 });
