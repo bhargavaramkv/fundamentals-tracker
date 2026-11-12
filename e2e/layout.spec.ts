@@ -1,4 +1,5 @@
-import { expect, test, type Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
+import { expect, test } from "./auth";
 import { FIXED_NOW, PROGRESS_KEY, seededProgress } from "./fixture";
 
 const PAGES = ["/", "/journal/", "/knowledge/", "/learn/", "/practice/", "/learn/dsa/big-o-basics/", "/coding/", "/settings/"];
