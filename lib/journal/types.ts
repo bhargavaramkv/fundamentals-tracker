@@ -52,7 +52,13 @@ export type SessionEvent = EventBase &
     | { kind: "edit"; target: string; text: string }
     /** Soft delete of the whole session. */
     | { kind: "discard" }
+    /** Edits the session header. Per field, the latest event that sets it wins; the header itself is never rewritten. */
+    | { kind: "meta"; subject?: string; objective?: string; source?: SessionSource }
+    /** A photo kept on this device (IndexedDB `attachments`, keyed by attachmentId). Upload is not enabled yet. */
+    | { kind: "attach"; attachmentId: string; mime: string; width: number; height: number; bytes: number; sha256: string; name?: string }
   );
+
+export type AttachmentInfo = Omit<Extract<SessionEvent, { kind: "attach" }>, keyof EventBase | "kind">;
 
 export type EventKind = SessionEvent["kind"];
 

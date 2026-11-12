@@ -30,16 +30,33 @@ export class MemoryStore<T> implements KeyValueStore<T> {
 
 const dbs = new Map<string, Promise<IDBDatabase>>();
 
-function openDb(name: string, stores: string[]): Promise<IDBDatabase> {
+/** Creates the stores that don't exist yet and leaves existing ones (and their data) untouched. */
+export function createMissingStores(db: Pick<IDBDatabase, "objectStoreNames" | "createObjectStore">, stores: string[]): string[] {
+  const created: string[] = [];
+  for (const s of stores) {
+    if (db.objectStoreNames.contains(s)) continue;
+    db.createObjectStore(s);
+    created.push(s);
+  }
+  return created;
+}
+
+function openDb(name: string, stores: string[], version = 1): Promise<IDBDatabase> {
   const cached = dbs.get(name);
   if (cached) return cached;
   const p = new Promise<IDBDatabase>((resolve, reject) => {
-    // Version 1 creates every store up front; adding a store later needs a version bump here.
-    const req = indexedDB.open(name, 1);
-    req.onupgradeneeded = () => {
-      for (const s of stores) if (!req.result.objectStoreNames.contains(s)) req.result.createObjectStore(s);
+    // Adding a store to an existing database means raising `version` for that database, so onupgradeneeded runs once
+    // for browsers still on the older version. createMissingStores keeps the stores they already have.
+    const req = indexedDB.open(name, version);
+    req.onupgradeneeded = () => void createMissingStores(req.result, stores);
+    req.onsuccess = () => {
+      // Let a newer tab upgrade the database instead of being blocked by this one.
+      req.result.onversionchange = () => {
+        req.result.close();
+        dbs.delete(name);
+      };
+      resolve(req.result);
     };
-    req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
     req.onblocked = () => reject(new Error(`IndexedDB ${name} is blocked by another tab`));
   });
@@ -61,10 +78,11 @@ export class IdbStore<T> implements KeyValueStore<T> {
     private readonly db: string,
     private readonly store: string,
     private readonly stores: string[],
+    private readonly version = 1,
   ) {}
 
   private async tx(mode: IDBTransactionMode): Promise<IDBObjectStore> {
-    return (await openDb(this.db, this.stores)).transaction(this.store, mode).objectStore(this.store);
+    return (await openDb(this.db, this.stores, this.version)).transaction(this.store, mode).objectStore(this.store);
   }
 
   async get(key: string): Promise<T | undefined> {

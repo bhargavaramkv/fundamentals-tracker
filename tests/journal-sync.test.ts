@@ -327,3 +327,152 @@ describe("GitHubJournalRemote", () => {
     await expect(r.write("journal/n.json", "x", null)).rejects.toMatchObject({ status: 500 });
   });
 });
+
+describe("conflict inspection and repair", () => {
+  /** Device A has pushed a session, then added a local note while the remote file is replaced by `remoteText`. */
+  async function conflicted(remoteText: (current: string) => string) {
+    const remote = new FakeRemote();
+    const a = device(remote, "A");
+    const s = await a.sync.createSession({ subject: "HLD", source: src });
+    await a.sync.sync();
+    const path = (await a.local.sessions.get(s.id))!.path;
+    await a.sync.append(s.id, [note(a, "local note")]);
+    remote.put(path, remoteText(remote.files.get(path)!.text));
+    await a.sync.sync();
+    return { remote, a, s, path };
+  }
+  /** A remote copy with an extra event from device B plus one invalid event, so it parses but must not be overwritten. */
+  const remoteWithBadEvent = (text: string) => {
+    const o = JSON.parse(text);
+    o.events.push(makeEvent({ kind: "note", text: "remote note" }, "B", (clock += 10)), { junk: true });
+    return JSON.stringify(o, null, 2);
+  };
+
+  it("flags an unreadable remote copy and inspects both sides without writing", async () => {
+    const { remote, a, s } = await conflicted(() => "{ not json");
+    expect(await a.sync.status(s.id)).toBe("conflict");
+    const before = remote.writes.length;
+    const info = await a.sync.inspectConflict(s.id);
+    expect(remote.writes.length).toBe(before);
+    expect(info.reason).toMatch(/unreadable/);
+    expect(info.local.events).toBe(2);
+    expect(info.local.lastEvent?.kind).toBe("note");
+    expect(info.remote).toMatchObject({ state: "unreadable", text: "{ not json" });
+  });
+
+  it("lists which events are only local or only remote when the remote parses", async () => {
+    const { a, s } = await conflicted(remoteWithBadEvent);
+    const info = await a.sync.inspectConflict(s.id);
+    if (info.remote.state !== "readable") throw new Error("expected readable");
+    expect(info.remote.rejected).toBe(1);
+    expect(info.remote.onlyLocal.map((e) => e.kind)).toEqual(["note"]);
+    expect(info.remote.onlyRemote.map((e) => e.kind)).toEqual(["note"]);
+  });
+
+  it("repair backs up the GitHub copy verbatim before overwriting, and loses no event", async () => {
+    const { remote, a, s, path } = await conflicted(remoteWithBadEvent);
+    const original = remote.files.get(path)!;
+    const writesBefore = remote.writes.length;
+    await a.sync.resolveConflict(s.id);
+
+    const backupPath = `journal/conflicts/${s.id}/${original.sha}.json`;
+    expect(remote.files.get(backupPath)?.text).toBe(original.text);
+    // The backup is written strictly before the overwrite.
+    expect(remote.writes.slice(writesBefore)).toEqual([backupPath, path]);
+    const repaired = parseSession(JSON.parse(remote.files.get(path)!.text))!;
+    expect(repaired.rejected).toBe(0);
+    const texts = repaired.session.events.filter((e) => e.kind === "note").map((e) => (e as { text: string }).text).sort();
+    expect(texts).toEqual(["local note", "remote note"]);
+    expect(ids((await a.local.sessions.get(s.id))!.session)).toEqual(ids(repaired.session));
+    expect(await a.sync.status(s.id)).toBe("synced");
+  });
+
+  it("repairs an unreadable remote with the local copy, keeping the garbage in the backup", async () => {
+    const { remote, a, s, path } = await conflicted(() => "<<<< merge garbage >>>>");
+    const sha = remote.files.get(path)!.sha;
+    await a.sync.resolveConflict(s.id);
+    expect(remote.files.get(`journal/conflicts/${s.id}/${sha}.json`)?.text).toBe("<<<< merge garbage >>>>");
+    expect(parseSession(JSON.parse(remote.files.get(path)!.text))!.session.events).toHaveLength(2);
+    expect(await a.sync.status(s.id)).toBe("synced");
+  });
+
+  it("a failed backup aborts: the GitHub copy is untouched and the conflict stays", async () => {
+    const { remote, a, s, path } = await conflicted(() => "<<<< garbage >>>>");
+    const before = remote.files.get(path)!;
+    remote.failWrites = 1;
+    await expect(a.sync.resolveConflict(s.id)).rejects.toThrow();
+    expect(remote.files.get(path)).toEqual(before);
+    expect([...remote.files.keys()].some((p) => p.startsWith("journal/conflicts/"))).toBe(false);
+    expect(await a.sync.status(s.id)).toBe("conflict");
+    expect((await a.local.sessions.get(s.id))!.session.events).toHaveLength(2);
+  });
+
+  it("a backup path that already holds different content aborts instead of overwriting", async () => {
+    const { remote, a, s, path } = await conflicted(() => "<<<< garbage >>>>");
+    remote.put(`journal/conflicts/${s.id}/${remote.files.get(path)!.sha}.json`, "something else");
+    const before = remote.files.get(path)!;
+    await expect(a.sync.resolveConflict(s.id)).rejects.toThrow(/back up/);
+    expect(remote.files.get(path)).toEqual(before);
+  });
+
+  it("if the remote changes while repairing, the overwrite is refused and the backup remains", async () => {
+    const { remote, a, s, path } = await conflicted(() => "<<<< garbage >>>>");
+    const write = remote.write.bind(remote);
+    let n = 0;
+    remote.write = async (p, text, sha) => {
+      if (++n === 2) remote.put(path, "<<<< changed again >>>>");
+      return write(p, text, sha);
+    };
+    await expect(a.sync.resolveConflict(s.id)).rejects.toThrow(/changed/);
+    expect(remote.files.get(path)!.text).toBe("<<<< changed again >>>>");
+    expect([...remote.files.keys()].filter((p) => p.startsWith("journal/conflicts/"))).toHaveLength(1);
+    expect(await a.sync.status(s.id)).toBe("conflict");
+  });
+
+  it("retry keeps the conflict while the remote is unreadable and clears it once it merges", async () => {
+    const { remote, a, s, path } = await conflicted(() => "<<<< garbage >>>>");
+    await a.sync.retryConflict(s.id);
+    expect(await a.sync.status(s.id)).toBe("conflict");
+    expect(remote.files.get(path)!.text).toBe("<<<< garbage >>>>");
+    const good = (await a.local.sessions.get(s.id))!.session;
+    remote.put(path, JSON.stringify({ ...good, events: good.events.slice(0, 1) }, null, 2));
+    await a.sync.retryConflict(s.id);
+    expect(await a.sync.status(s.id)).toBe("synced");
+    expect(parseSession(JSON.parse(remote.files.get(path)!.text))!.session.events).toHaveLength(2);
+  });
+
+  it("two devices converge through the remote with no lost events (cross-device merging, which e2e cannot run without a token)", async () => {
+    const remote = new FakeRemote();
+    const a = device(remote, "A");
+    const b = device(remote, "B");
+    const s = await a.sync.createSession({ subject: "HLD", source: src });
+    await a.sync.sync();
+    await b.sync.sync();
+    await a.sync.append(s.id, [note(a, "from A"), makeEvent({ kind: "meta", subject: "System design" }, "A", (clock += 10))]);
+    await b.sync.append(s.id, [note(b, "from B"), makeEvent({ kind: "edit", target: s.events[0].id, text: "x" }, "B", (clock += 10))]);
+    await a.sync.sync();
+    await b.sync.sync();
+    await a.sync.sync();
+    const sa = (await a.local.sessions.get(s.id))!.session;
+    const sb = (await b.local.sessions.get(s.id))!.session;
+    expect(ids(sa)).toEqual(ids(sb));
+    expect(sa.events).toHaveLength(5);
+  });
+
+  it("queueInfo counts queued entries, the next retry and conflicts", async () => {
+    const remote = new FakeRemote();
+    const a = device(remote);
+    const s = await a.sync.createSession({ subject: "HLD", source: src });
+    expect(await a.sync.queueInfo()).toEqual({ queued: 1, nextAttemptAt: null, conflicts: 0 });
+    remote.offline = true;
+    await a.sync.sync();
+    const q = await a.sync.queueInfo();
+    expect(q.queued).toBe(1);
+    expect(q.nextAttemptAt).toBe(clock + 10_000);
+    remote.offline = false;
+    clock = q.nextAttemptAt!;
+    remote.put((await a.local.sessions.get(s.id))!.path, "garbage");
+    await a.sync.sync();
+    expect(await a.sync.queueInfo()).toEqual({ queued: 0, nextAttemptAt: null, conflicts: 1 });
+  });
+});
