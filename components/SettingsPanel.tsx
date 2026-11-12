@@ -25,8 +25,9 @@ function NoticeLine({ notice }: { notice: Notice | null }) {
 
 export function SettingsPanel() {
   const { data, raw, archivedCount, storeKind, syncState, syncError, replaceAll } = useProgress();
-  const { syncToken, sharedAcrossDevices, connectSync, disconnectSync, signOut } = useAuth();
+  const { syncToken, sharedAcrossDevices, canShareToken, remembered, connectSync, disconnectSync, signOut } = useAuth();
   const [token, setToken] = useState("");
+  const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
   const [syncNotice, setSyncNotice] = useState<Notice | null>(null);
   const [backupNotice, setBackupNotice] = useState<Notice | null>(null);
@@ -34,7 +35,8 @@ export function SettingsPanel() {
   const connect = async () => {
     setBusy(true);
     setSyncNotice(null);
-    const { error, warning } = await connectSync(token);
+    const { error, warning } = await connectSync(token, password || undefined);
+    setPassword("");
     setBusy(false);
     if (error) {
       setSyncNotice({ tone: "error", text: `Couldn't enable sync. ${error}` });
@@ -146,6 +148,18 @@ export function SettingsPanel() {
             className="field mt-1 font-mono text-sm"
           />
         </label>
+        {!canShareToken && (
+          <label className="mt-3 block text-sm">
+            <span className="text-ink-2">Password (to save the token for your other devices too; optional)</span>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+              className="field mt-1 text-sm"
+            />
+          </label>
+        )}
         <div className="mt-4 flex flex-wrap gap-3">
           <button
             type="button"
@@ -194,7 +208,11 @@ export function SettingsPanel() {
         <div className="section-head">
           <h2>Account</h2>
         </div>
-        <p className="mt-3 text-sm text-ink-2">You stay signed in on this device for 30 days.</p>
+        <p className="mt-3 text-sm text-ink-2">
+          {remembered
+            ? "You stay signed in on this device for 30 days. The sign-in uses a key that only this browser holds; your password isn't stored."
+            : "This browser can't keep a sign-in (private mode or storage blocked), so you'll sign in on each visit."}
+        </p>
         <button type="button" onClick={signOut} className="btn btn-secondary btn-danger mt-4">
           Sign out
         </button>
