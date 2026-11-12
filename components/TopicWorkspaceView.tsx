@@ -7,6 +7,7 @@ import { PATTERN_TOPICS, CODING_PATTERNS } from "@/lib/coding";
 import { codingSolvesByTopic, CODING_SOLVES_FOR_PRACTICAL, hasPracticalEvidence, LEVEL_LABEL, latestRatings, topicProficiency, topicRevision, evidenceFor, type TopicProficiency } from "@/lib/proficiency";
 import { isVerificationStale, SOURCE_LABEL, TIER_LABEL, type Resource } from "@/lib/resources";
 import { DOMAIN_LABELS, type Exercise, type ExerciseRating, type Lesson, type LearningActivity, type PracticalTask, type Question, type TopicWorkspace } from "@/lib/types";
+import { DomainIcon } from "./DomainIcon";
 import { LessonPlayer } from "./LessonPlayer";
 import { LessonReadTracker } from "./LessonReadTracker";
 import { useProgress } from "./ProgressProvider";
@@ -52,31 +53,19 @@ export function TopicWorkspaceView({ lesson, workspace, questions, resources, pr
   const revision = loaded ? topicRevision(key, evidenceFor(key, data, solves), now) : null;
 
   return (
-    <article className="space-y-8">
+    <article className="mx-auto max-w-2xl space-y-6">
       <header>
-        <nav aria-label="Breadcrumb" className="meta">
-          <Link href="/learn/" className="tap hover:text-ink">
-            Learn
-          </Link>
-          <span aria-hidden> › </span>
-          <Link href={`/learn/${lesson.domain}/`} className="tap hover:text-ink">
-            {nav?.trackTitle ?? DOMAIN_LABELS[lesson.domain]}
-          </Link>
-          {nav && (
-            <>
-              <span aria-hidden> › </span>
-              <span>{nav.stageTitle}</span>
-            </>
-          )}
-        </nav>
-        <div className="page-head mt-3">
-          <h1>{lesson.title}</h1>
-          <p>{lesson.summary}</p>
-        </div>
-        <p className="meta mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <Link href={`/learn/${lesson.domain}/`} className="tap inline-flex items-center gap-2 text-sm font-bold text-ink-2 hover:text-ink">
+          <span aria-hidden>←</span>
+          <DomainIcon domain={lesson.domain} size={24} />
+          {nav?.trackTitle ?? DOMAIN_LABELS[lesson.domain]}
+          {nav && <span className="font-normal text-ink-3">· {nav.stageTitle}</span>}
+        </Link>
+        <h1 className="mt-3 text-2xl sm:text-3xl">{lesson.title}</h1>
+        <p className="meta mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
           {nav && (
             <span>
-              Lesson {nav.position} of {nav.count} in {nav.stageTitle}
+              Lesson {nav.position} of {nav.count}
             </span>
           )}
           {lesson.minutes && <span>About {lesson.minutes} min</span>}

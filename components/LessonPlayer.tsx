@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Lesson, LessonStep, Question, QuickCheck } from "@/lib/types";
+import { domainColor } from "./DomainIcon";
 import { Quiz } from "./Quiz";
 
 type View = "steps" | "checkpoint" | "done";
@@ -118,20 +119,32 @@ export function LessonPlayer({ lesson, questions: bank, start, next, pathHref }:
     return <Quiz key={round} questions={ordered} mode="practice" onExit={finish} onBack={finish} backLabel="Finish lesson" onRestart={() => setRound((r) => r + 1)} />;
   }
 
+  const color = domainColor(lesson.domain);
+  const allChecks = Object.entries(picks);
+  const totalChecks = allChecks.length;
+  const rightChecks = allChecks.filter(([k, v]) => {
+    const [si, ci] = k.split(":").map(Number);
+    return steps[si]?.blocks.flatMap((b) => (b.kind === "check" ? [b.check] : []))[ci]?.answer === v;
+  }).length;
+
   if (view === "done") {
     const recap = steps.find((s) => /^recap$/i.test(s.title));
     return (
-      <section aria-label="Lesson complete" className="card space-y-6 p-6 sm:p-8">
-        <div className="flex items-center gap-4">
-          <span aria-hidden className={`flex h-12 w-12 items-center justify-center rounded-full bg-accent text-2xl text-accent-ink ${celebrate ? "animate-pop" : ""}`}>
-            ✓
+      <section aria-label="Lesson complete" className="card relative space-y-6 overflow-hidden p-6 sm:p-8">
+        {celebrate && <Confetti />}
+        <div className="flex flex-col items-center gap-3 text-center">
+          <span aria-hidden className="animate-pop flex h-20 w-20 items-center justify-center rounded-full text-4xl text-white" style={{ background: color, boxShadow: `0 6px 0 color-mix(in oklab, ${color} 70%, black)` }}>
+            ★
           </span>
-          <div>
-            <p className="eyebrow">Lesson complete</p>
-            <h2 ref={heading} tabIndex={-1} className="headline text-2xl outline-none">
-              {lesson.title}
-            </h2>
-          </div>
+          <p className="eyebrow">Lesson complete</p>
+          <h2 ref={heading} tabIndex={-1} className="headline text-2xl outline-none sm:text-3xl">
+            {lesson.title}
+          </h2>
+          {totalChecks > 0 && (
+            <p className="text-[15px] font-bold text-ink-2">
+              Quick checks: {rightChecks} of {totalChecks} right
+            </p>
+          )}
         </div>
         {recap && (
           <div>
@@ -166,20 +179,20 @@ export function LessonPlayer({ lesson, questions: bank, start, next, pathHref }:
           aria-valuemax={100}
           aria-valuenow={percent}
           aria-valuetext={`Step ${index + 1} of ${steps.length}`}
-          className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface-2"
+          className="h-3.5 flex-1 overflow-hidden rounded-full bg-surface-2"
         >
-          <div className="h-full rounded-full bg-accent transition-[width] duration-200 ease-out" style={{ width: `${percent}%` }} />
+          <div className="h-full rounded-full transition-[width] duration-300 ease-out" style={{ width: `${Math.max(percent, 4)}%`, background: color }} />
         </div>
-        <span className="meta tabular-nums">
+        <span className="meta font-bold tabular-nums">
           {index + 1} / {steps.length}
         </span>
       </div>
 
-      <div className="rounded-xl border border-line bg-surface p-5 sm:p-8">
+      <div key={index} className="card animate-step p-5 sm:p-8">
         <h2 ref={heading} tabIndex={-1} className="headline text-2xl outline-none">
           {step.title}
         </h2>
-        <div key={index} className="mt-4">
+        <div className="mt-4">
           <StepBlocks step={step} index={index} picks={picks} onPick={(key, n) => setPicks((p) => ({ ...p, [key]: n }))} />
         </div>
       </div>
@@ -216,23 +229,23 @@ function CheckCard({ check, rot, picked, onPick }: { check: QuickCheck; rot: num
   const order = Array.from({ length: n }, (_, i) => (i + rot) % n);
   const answered = picked !== undefined;
   return (
-    <div role="group" aria-label="Quick check" className="rounded-xl border border-line bg-surface-2 p-4">
-      <p className="meta">Quick check · press 1-{Math.min(n, 4)}</p>
-      <p className="mt-1 font-medium">{check.prompt}</p>
+    <div role="group" aria-label="Quick check" className="rounded-2xl border-2 border-accent bg-accent-soft p-4 sm:p-5">
+      <p className="eyebrow text-accent-text">Your turn · press 1-{Math.min(n, 4)}</p>
+      <p className="mt-1 text-[17px] font-bold">{check.prompt}</p>
       <ul className="mt-3 space-y-2">
         {order.map((opt, pos) => {
           const isPicked = picked === opt;
           const isRight = opt === check.answer;
-          const tone = !answered ? "border-line bg-surface hover:border-accent" : isRight ? "border-good bg-good-bg" : isPicked ? "border-bad bg-bad-bg" : "border-line bg-surface opacity-70";
+          const tone = !answered ? "" : isRight ? "!border-good !bg-good-bg" : isPicked ? "!border-bad !bg-bad-bg" : "opacity-60";
           return (
             <li key={opt}>
               <button
                 type="button"
                 disabled={answered}
                 onClick={() => onPick(opt)}
-                className={`flex w-full items-start gap-3 rounded-lg border px-3 py-2.5 text-left text-[15px] ${tone}`}
+                className={`option ${tone}`}
               >
-                <span className="meta tabular-nums">{pos + 1}</span>
+                <span className="option-key tabular-nums">{pos + 1}</span>
                 <span className="min-w-0 flex-1">{check.options[opt]}</span>
                 {answered && isRight && <span className="text-good">Correct</span>}
                 {answered && isPicked && !isRight && <span className="text-bad">Not quite</span>}
@@ -242,11 +255,32 @@ function CheckCard({ check, rot, picked, onPick }: { check: QuickCheck; rot: num
         })}
       </ul>
       {answered && (
-        <p role="status" className="mt-3 text-[15px] text-ink-2">
-          <span className={`font-medium ${picked === check.answer ? "text-good" : "text-bad"}`}>{picked === check.answer ? "Right. " : "Not quite. "}</span>
+        <p role="status" className={`mt-3 rounded-xl p-3 text-[15px] ${picked === check.answer ? "bg-good-bg" : "bg-bad-bg"}`}>
+          <span className={`font-extrabold ${picked === check.answer ? "text-good" : "text-bad"}`}>{picked === check.answer ? "Right. " : "Not quite. "}</span>
           {check.explanation}
         </p>
       )}
+    </div>
+  );
+}
+
+/** A one-off burst of coloured pieces from the centre of the card. Only rendered when motion is allowed. */
+function Confetti() {
+  const colors = ["var(--d-dsa)", "var(--d-oop)", "var(--d-databases)", "var(--d-system-design)", "var(--d-web)", "var(--accent)"];
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      {Array.from({ length: 36 }, (_, i) => {
+        const angle = (i / 36) * Math.PI * 2;
+        const dist = 120 + ((i * 37) % 90);
+        const style = {
+          background: colors[i % colors.length],
+          "--dx": `${Math.cos(angle) * dist}px`,
+          "--dy": `${Math.sin(angle) * dist + 60}px`,
+          "--rot": `${(i * 47) % 360}deg`,
+          animationDelay: `${(i % 6) * 20}ms`,
+        } as React.CSSProperties;
+        return <span key={i} className="confetti-piece" style={style} />;
+      })}
     </div>
   );
 }

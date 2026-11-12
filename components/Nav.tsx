@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { streak } from "@/lib/curriculum";
 import { BrandMark } from "./BrandMark";
+import { Flame } from "./ProgressRing";
 import { useProgress } from "./ProgressProvider";
+import { useNow } from "./useNow";
 
 function Icon({ children }: { children: ReactNode }) {
   return (
@@ -59,7 +62,9 @@ function isActive(pathname: string, link: NavLink): boolean {
 /** Top bar everywhere; on phones the links move to a bottom tab bar within thumb reach. */
 export function Nav() {
   const pathname = usePathname();
-  const { syncState } = useProgress();
+  const { syncState, data, ready } = useProgress();
+  const now = useNow();
+  const days = ready && now !== null ? streak(data, now) : null;
   const syncError = syncState === "error";
   const settingsActive = pathname.startsWith("/settings");
 
@@ -80,7 +85,7 @@ export function Nav() {
                     key={l.href}
                     href={l.href}
                     aria-current={active ? "page" : undefined}
-                    className={`whitespace-nowrap rounded-lg px-3 py-1.5 transition-colors ${active ? "font-semibold text-ink" : "text-ink-2 hover:text-ink"}`}
+                    className={`whitespace-nowrap rounded-xl px-3.5 py-1.5 font-bold transition-colors ${active ? "bg-accent-soft text-accent-text" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}
                   >
                     {l.label}
                   </Link>
@@ -89,6 +94,13 @@ export function Nav() {
             </nav>
           </div>
           <div className="flex items-center gap-1">
+            {days !== null && (
+              <span className="flex items-center gap-1 rounded-xl px-2 py-1 text-sm font-extrabold tabular-nums" title={`${days}-day streak`}>
+                <Flame lit={days > 0} />
+                <span className={days > 0 ? "text-accent-2" : "text-ink-3"}>{days}</span>
+                <span className="sr-only">day streak</span>
+              </span>
+            )}
             <Link
               href="/settings/"
               aria-label={syncError ? "Settings (sync error)" : "Settings"}
@@ -113,7 +125,7 @@ export function Nav() {
                 <Link
                   href={l.href}
                   aria-current={active ? "page" : undefined}
-                  className={`flex h-full flex-col items-center justify-center gap-0.5 text-[11px] ${active ? "font-semibold text-accent-text" : "text-ink-3"}`}
+                  className={`flex h-full flex-col items-center justify-center gap-0.5 text-[11px] font-bold ${active ? "text-accent-text" : "text-ink-3"}`}
                 >
                   {l.icon}
                   {l.label}
