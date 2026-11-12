@@ -22,6 +22,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/**
+ * Content Security Policy for the production build (GitHub Pages can't send headers, so it's a meta tag). The static
+ * export needs inline scripts and styles; the protection that matters is connect-src: injected code can't send the sync
+ * token or data anywhere but GitHub's API. Dev builds skip it (hot reload needs eval and websockets).
+ */
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "connect-src 'self' https://api.github.com https://raw.githubusercontent.com",
+  "img-src 'self' data: blob:",
+  "font-src 'self' data:",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join("; ");
+
 export const metadata: Metadata = {
   title: "Fundamentals",
   description: "Refresh your software-engineering fundamentals, one short interactive lesson at a time.",
@@ -33,15 +50,18 @@ export const viewport: Viewport = {
   initialScale: 1,
   // Draw under the notch / Dynamic Island and home indicator; safe-area insets keep content clear.
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f8fc" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a1220" },
-  ],
+  // Dark-first (V2): the navy theme is the default everywhere.
+  themeColor: "#0a1220",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${nunito.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" data-theme="dark" className={`${geistSans.variable} ${nunito.variable} ${geistMono.variable} h-full antialiased`}>
+      {process.env.NODE_ENV === "production" && (
+        <head>
+          <meta httpEquiv="Content-Security-Policy" content={CSP} />
+        </head>
+      )}
       <body className="flex min-h-dvh flex-col">
         <AuthGate>
           <ProgressProvider>
