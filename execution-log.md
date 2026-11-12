@@ -56,3 +56,9 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
   - Today label fix applied. Security review done. Logo unchanged (verified by git diff).
   - P6 docs by Sonnet (a3288ff). Agent tokens: 141,601; 28 tool uses; 3.6 min.
   - Next: PR to main.
+
+### Loop iteration 2 (session 1)
+- **Wake-up observed executing:** 2026-11-13 00:00 IST. This was the fallback scheduled for 00:00 IST, so it counts as executed.
+- The 23:44 IST wake-up was never observed as a separate firing. Agent notifications re-invoked the session continuously, so it is recorded as unverified.
+- **State:** PR #53 (v2/complete → main) open, CI in progress.
+- **Wake-up scheduled:** 2026-11-13 00:31 IST (fallback, accepted; not yet observed). Primary signal: the CI watcher bshvpj94a.
