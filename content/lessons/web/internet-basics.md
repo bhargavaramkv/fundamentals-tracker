@@ -19,12 +19,14 @@ You don't need to know the route. You only need the address.
 
 Say your laptop wants a web page from a computer far away. Here is the trip, step by step.
 
-```
-You (laptop)                                   Server
-     |                                            |
-     |-- packet 1 --> [router] -> [router] ------>|
-     |-- packet 2 --> [router] -> [router] ------>|
-     |<-- reply ----- [router] <- [router] <------|
+```steps
+{"title": "A page request travelling as packets", "frames": [
+  {"visual": "Laptop              routers            Server\n[request: GET /page]                       .", "caption": "The laptop has one request to send. It first cuts the message into small **packets**."},
+  {"visual": "Laptop              routers            Server\n[p1][p2][p3]                               .", "caption": "Each packet gets the server's address, your address and a number."},
+  {"visual": "Laptop              routers            Server\n   .      [p1] -> router -> router         .\n          [p2] -> router -> router\n          [p3] -> router -> X lost", "caption": "Each router reads the destination and forwards the packet one step closer. Packet 3 gets lost on the way."},
+  {"visual": "Laptop              routers            Server\n   .                                  [p1][p2]\n                                      p3 missing!", "caption": "The server gets 1 and 2 and sees by the numbers that 3 is missing. It asks for it again (this is what TCP does)."},
+  {"visual": "Laptop              routers            Server\n   .      [p3] resent -------------->  [p1][p2][p3]", "caption": "Only packet 3 is resent. The server puts the pieces in order, reads the request, and replies the same way."}
+]}
 ```
 
 1. Your laptop cuts the request into small pieces called **packets**.
@@ -32,6 +34,10 @@ You (laptop)                                   Server
 3. Your router sends the packets towards the internet. Each router on the way looks at the address and picks the next hop.
 4. The server collects the packets, puts them back in order, and reads the request.
 5. The server sends its reply back the same way, also as packets.
+
+```reveal
+{"prompt": "Before you look: your app connects to a server's IP on port 8080 and gets 'connection refused'. A colleague's call to the same IP gets 'timed out'. What does each result suggest?", "answer": "**Refused**: the machine was reached, but nothing is listening on that port. **Timed out**: packets never got an answer, often a firewall dropping them, a wrong address or a machine that is down."}
+```
 
 ## How it works
 

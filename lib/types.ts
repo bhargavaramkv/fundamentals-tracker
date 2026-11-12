@@ -4,6 +4,7 @@ export const DOMAINS = [
   "databases",
   "system-design",
   "web",
+  "os",
 ] as const;
 
 export type Domain = (typeof DOMAINS)[number];
@@ -14,6 +15,7 @@ export const DOMAIN_LABELS: Record<Domain, string> = {
   databases: "Databases",
   "system-design": "System design",
   web: "Web & networking",
+  os: "Operating systems & concurrency",
 };
 
 export type Difficulty = 1 | 2 | 3;
@@ -50,7 +52,21 @@ export interface QuickCheck {
   explanation: string;
 }
 
-export type StepBlock = { kind: "html"; html: string } | { kind: "check"; check: QuickCheck };
+export interface StepThrough {
+  title: string;
+  frames: { visual: string; caption: string }[];
+}
+
+export interface Reveal {
+  prompt: string;
+  answer: string;
+}
+
+export type StepBlock =
+  | { kind: "html"; html: string }
+  | { kind: "check"; check: QuickCheck }
+  | { kind: "steps"; steps: StepThrough }
+  | { kind: "reveal"; reveal: Reveal };
 
 /** One screen of a lesson: the content under one `## ` heading. */
 export interface LessonStep {

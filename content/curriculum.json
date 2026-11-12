@@ -49,6 +49,16 @@
         { "id": "core", "title": "Core", "summary": "HTTP in depth, browsers and logging in.", "topics": ["http", "browser", "auth-basics"] },
         { "id": "interview", "title": "Interview depth", "summary": "Transport details and web security.", "topics": ["networking", "security"] }
       ]
+    },
+    {
+      "domain": "os",
+      "title": "Operating systems & concurrency",
+      "tagline": "What your code really runs on: processes, memory and threads.",
+      "stages": [
+        { "id": "foundations", "title": "Foundations", "summary": "What a running program is, where its data lives and how the CPU is shared.", "topics": ["processes-threads", "memory-basics", "cpu-scheduling"] },
+        { "id": "core", "title": "Core", "summary": "Shared state, locks and waiting without wasting threads.", "topics": ["race-conditions", "locks-sync", "async-io"] },
+        { "id": "interview", "title": "Interview depth", "summary": "Safer concurrent designs, and what really happens when you write to a file.", "topics": ["concurrency-patterns", "files-io"] }
+      ]
     }
   ]
 }

@@ -1,8 +1,8 @@
 # Fundamentals
 
 A private learning platform for software-engineering fundamentals at interview and
-real-work level: DSA, OOP and design principles, databases, system design, and
-web/networking. It builds a daily plan from your own evidence, points you at reliable
+real-work level: DSA, OOP and design principles, databases, system design,
+web/networking, and operating systems & concurrency. It builds a daily plan from your own evidence, points you at reliable
 sources first, tracks reading separately from real practice, and keeps up with
 technology news. A daily Claude routine also improves the lessons and questions based
 on where you keep failing.
@@ -41,11 +41,12 @@ this public repo and ships in the static bundle, so treat content as public.
 
 ## Features
 
-The site has four sections:
+The site has three areas, **Today · Learn · Practice**:
 
 - **Today:** a daily plan that stays stable through the day, revision reminders,
   proficient topics and recent activity.
-- **Learning Path:** 20 topics in suggested order. Each has a workspace with sources,
+- **Learn:** 52 topics in six tracks (DSA, OOP, databases, system design, web, and
+  operating systems & concurrency), in suggested order. Each has a workspace with sources,
   an explanation, practice, exercises, practical work and a check.
 - **Coding:** LeetCode history, notes, retry dates and weak patterns. Entry is manual;
   [the design doc explains why](docs/design/REDESIGN.md#coding-why-tracking-is-manual).
@@ -77,7 +78,9 @@ What drives them:
   (4h → 1d → 3d → 7d → 14d → 30d), and a miss resets it to the first box. Topics you've
   practised also come back for revision at 1 to 60 days, based on how recall has gone.
 - **Lessons:** short markdown guides in `content/lessons/<domain>/<topic>.md`,
-  shown in each topic's workspace.
+  shown in each topic's workspace. Besides `check` questions, lessons can include
+  `steps` blocks (a visual you click through frame by frame) and `reveal` blocks
+  (predict first, then tap to see the answer). Both are parsed in `lib/lesson-steps.ts`.
 - **Answer log:** every answer is stored with its timestamp, question, topic,
   difficulty, correctness, the option picked, and time taken. Lesson reads
   (20+ seconds visible) are logged too.

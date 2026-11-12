@@ -41,6 +41,20 @@ Cookie: sid=9f8a7c
 
 The server looks up `9f8a7c` in its list of sessions, finds "asha", and answers with her profile.
 
+```steps
+{"title": "Login, then a request with the cookie", "frames": [
+  {"visual": "Browser                       Server\n  |  POST /login  asha + password  |\n  |------------------------------->|\n  |                      checks password", "caption": "You submit the login form. The server checks the password against its stored hash."},
+  {"visual": "Browser                       Server\n  |                    creates session\n  |                    9f8a7c -> asha\n  |                                  |", "caption": "It is correct, so the server stores a **session**: the random id 9f8a7c maps to asha."},
+  {"visual": "Browser                       Server\n  |<-------------------------------|\n  |  200 OK  Set-Cookie: sid=9f8a7c  |\n  |  browser saves the cookie        |", "caption": "The reply carries a `Set-Cookie` header. The browser stores it."},
+  {"visual": "Browser                       Server\n  |  GET /profile  Cookie: sid=9f8a7c|\n  |------------------------------->|\n  |                    9f8a7c = asha", "caption": "Every later request includes the cookie automatically. The server looks the id up and knows it is asha."},
+  {"visual": "Browser                       Server\n  |<-------------------------------|\n  |  200 OK  asha's profile          |\n  |                                  |", "caption": "The profile comes back. The password was only sent once."}
+]}
+```
+
+```reveal
+{"prompt": "Before you look: an admin deletes the session record 9f8a7c on the server. Asha's browser still has the cookie. What happens on her next click?", "answer": "The cookie is sent, but the server finds **no matching session**, so it treats her as logged out and replies **401** or redirects to the login page. This is why sessions are easy to revoke."}
+```
+
 ## How it works
 
 - **Authentication** means proving who you are. **Authorization** means deciding what you may do once the server knows. Logging in is the first; "only admins can delete" is the second.
