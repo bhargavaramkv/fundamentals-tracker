@@ -62,3 +62,8 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
 - The 23:44 IST wake-up was never observed as a separate firing. Agent notifications re-invoked the session continuously, so it is recorded as unverified.
 - **State:** PR #53 (v2/complete → main) open, CI in progress.
 - **Wake-up scheduled:** 2026-11-13 00:31 IST (fallback, accepted; not yet observed). Primary signal: the CI watcher bshvpj94a.
+- **Milestone, 00:05 IST:**
+  - PR #53 CI green (check 42s, layout 2m57s). Merged as e4d9a34. The last commit before the merge was log-only and was merged without waiting for its own CI; the code commit before it was green.
+  - Pages deploy 43281085732 succeeded. Smoke test passed. Local clone synced to main.
+  - P5 routines updated: Sonnet session reviews at 06:15 IST, enabled; Opus daily changed to coding review plus Monday weekly. Configs confirmed by the API responses.
+  - Manual verification run started: cse_018WzAxEUfnNfHEwDKxpgwEj.

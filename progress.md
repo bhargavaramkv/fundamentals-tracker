@@ -2,8 +2,8 @@
 
 Source of truth for the V2 completion brief (received 2026-11-12, about 23:05 IST). Read this file and `execution-log.md` completely before resuming.
 
-- **Current phase:** P7 release (PR v2/complete → main), then P5 routines
-- **Current branch:** `v2/complete` (from `main` @ ddf0be1)
+- **Current phase:** release done (main e4d9a34 deployed); routine verification run and final report remaining
+- **Current branch:** `docs/routines` (docs follow-up); main e4d9a34
 - **Latest verified commit:** 4d9fdab on v2/complete (engine merged into P2; `npm run check` 271/271 green). main ddf0be1 is deployed.
 - **Last test results:** see the Baseline section
 - **Manual recovery command:** `Continue Fundamentals V2 from progress.md. Read execution-log.md, verify the latest checkpoint and continue with the next unfinished task.`
@@ -85,9 +85,9 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [x] Mentor V1 archive history view
 
 ### P5: Routines (Opus)
-- [ ] Repurpose the Sonnet trigger for session reviews
-- [ ] Update the Opus daily routine: coding review plus weekly; remove lesson generation
-- [ ] Verify with `get`
+- [x] Repurposed the Sonnet trigger trig_018R59EQ9LLo3Ujh7sH5R42Y as "Fundamentals session reviews", 06:15 IST, enabled (the update response confirms the stored config)
+- [x] Opus daily trig_01Nh3VTuUaKUPrwv3qmzcJ7G: coding review plus Monday weekly; lesson tailoring, learner profile and PR steps retired
+- [~] Config verified. A manual run of the review routine (cse_018WzAxEUfnNfHEwDKxpgwEj) is in progress; the result will be recorded in the log
 
 ### P6: Docs and cleanup
 - [x] README, CLAUDE.md, ARCHITECTURE, data contracts, recovery docs (Sonnet, a3288ff)
@@ -96,7 +96,7 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 ### P7: QA and release
 - [x] Full unit (323/323), e2e (125/125) and build; 54 screenshots at 375/390/768/1280/1600/1920 captured, key ones inspected (in `../fundamentals-v2-screenshots/final/`, outside the repo). Fix: Today's button reads "Open session" while running.
 - [x] Security review of the diff: no dangerouslySetInnerHTML, the markdown renderer emits no links, CSP unchanged (self + GitHub API), no secrets, mentor remote GET-only, logo unchanged since ddf0be1
-- [ ] PR, CI, merge, deploy, smoke test, rollback path
+- [x] PR #53: CI green (check, layout), merged e4d9a34, Pages deploy 43281085732 succeeded. Smoke test: 6 routes return 200, CSP present, new bundle live. Rollback: `git revert -m 1 e4d9a34` on main (v1-legacy tag intact)
 - [ ] `fundamentals-v2-final-report.md`
 
 ## Baseline
