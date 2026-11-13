@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Today · Fundamentals (Concept A)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body class=""><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+<symbol id="i-chevl" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
+<symbol id="i-stop" viewBox="0 0 24 24"><rect width="14" height="14" x="5" y="5" rx="2"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></symbol>
+<symbol id="i-msg" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+</defs></svg>
+<div class="app"><aside class="side">
+  <a class="brand" href="today.html">Fundamentals<span>.</span></a>
+  <nav class="nav" aria-label="Primary"><a href="today.html" class="on"><svg class="i "><use href="#i-home"/></svg><span>Today</span></a><a href="journal.html" class=""><svg class="i "><use href="#i-book"/></svg><span>Journal</span></a><a href="#" class=""><svg class="i "><use href="#i-layers"/></svg><span>Knowledge</span></a><a href="#" class=""><svg class="i "><use href="#i-code"/></svg><span>Coding</span></a></nav>
+  <div class="util">
+    <a href="#" class="nav-u"><svg class="i "><use href="#i-sparkles"/></svg><span>Mentor</span></a>
+    <a href="#" class="nav-u"><svg class="i "><use href="#i-gear"/></svg><span>Settings</span></a>
+    <div class="sync"><div class="cl"><svg class="i "><use href="#i-cloud"/></svg></div><div><b>Synced</b><small>2 min ago</small></div></div>
+  </div>
+</aside><main class="main"><svg class="atmos" viewBox="0 0 1000 560" preserveAspectRatio="xMaxYMin slice" aria-hidden="true">
+<defs>
+<radialGradient id="ag" cx="935" cy="1150" r="1100" gradientUnits="userSpaceOnUse"><stop offset=".86" stop-color="#0b1f45" stop-opacity="0"/><stop offset=".93" stop-color="#0d2a5c" stop-opacity=".55"/><stop offset="1" stop-color="#1b5fb8" stop-opacity=".75"/></radialGradient>
+<linearGradient id="as" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3b9bff" stop-opacity="0"/><stop offset=".55" stop-color="#5fb5ff" stop-opacity=".55"/><stop offset="1" stop-color="#bfe6ff" stop-opacity=".95"/></linearGradient>
+<radialGradient id="ah" cx="1000" cy="40" r="520" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3b9bff" stop-opacity=".22"/><stop offset="1" stop-color="#3b9bff" stop-opacity="0"/></radialGradient>
+<filter id="ab" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="9"/></filter>
+<mask id="am"><rect width="1000" height="560" fill="#fff"/><rect width="1000" height="560" fill="url(#af)"/></mask>
+<linearGradient id="af" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity="1"/><stop offset=".35" stop-color="#000" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="1000" height="560" fill="url(#ah)"/>
+<g mask="url(#am)">
+<circle cx="935" cy="1150" r="1100" fill="url(#ag)"/>
+<circle cx="935" cy="1150" r="1100" fill="none" stroke="#3b9bff" stroke-opacity=".5" stroke-width="10" filter="url(#ab)"/>
+<circle cx="935" cy="1150" r="1100" fill="none" stroke="url(#as)" stroke-width="1.5"/>
+<circle cx="935" cy="1150" r="1170" fill="none" stroke="#3b9bff" stroke-opacity=".08" stroke-width="1"/>
+<circle cx="935" cy="1150" r="1250" fill="none" stroke="#3b9bff" stroke-opacity=".05" stroke-width="1"/>
+</g>
+</svg><div class="mtop"><a class="brand" href="today.html">Fundamentals<span>.</span></a><div class="ic"><a href="#" aria-label="Mentor"><svg class="i "><use href="#i-sparkles"/></svg></a><a href="#" aria-label="Settings"><svg class="i "><use href="#i-gear"/></svg></a></div></div>
+<div class="page">
+  <header class="today-head">
+    <div>
+      <div class="eyebrow">Today</div>
+      <h1>Ready when <em>you are.</em></h1>
+      <div class="sub">Learn<i></i>Build<i></i>Reflect<i></i>Grow</div>
+    </div>
+    <div class="datechip"><svg class="i sm"><use href="#i-cal"/></svg>Fri, 13 Nov</div>
+  </header>
+
+  <section class="grid">
+    <div class="panel hero c8">
+      <div class="hd">
+        <div class="eyebrow">Continue where you left off</div>
+        <h2>HLD: Consistent hashing</h2>
+        <p class="obj">Explain how virtual nodes keep a cache ring balanced when a node joins or leaves.</p>
+      </div>
+      <div class="meta"><span><svg class="i sm"><use href="#i-book"/></svg>Book</span><span><svg class="i sm"><use href="#i-tag"/></svg>4 topics</span><span><svg class="i sm"><use href="#i-clock"/></svg>52 min active</span></div>
+      <div class="actions"><button class="btn primary"><svg class="i sm"><use href="#i-play"/></svg>Resume</button><button class="btn"><svg class="i sm"><use href="#i-pencil"/></svg>Edit objective</button></div>
+      <div class="ringwrap">
+        <svg viewBox="0 0 232 232"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#3b9bff"/></linearGradient></defs>
+        <circle class="ring-track" cx="116" cy="116" r="104"/><circle class="ring-prog" cx="116" cy="116" r="104" stroke-dasharray="280 654"/></svg>
+        <div class="ring-in"><span class="label">This week</span><span class="big">131<small>min</small></span><span class="cap"><b>3 of 7</b> days</span></div>
+      </div>
+    </div>
+    <div class="col c4">
+      <div class="panel week">
+        <div class="card-h"><h3>This week</h3><span class="r"><b>131</b> min</span></div>
+        <div class="bars"><div class="bar"><i class=" " style="height:79%"></i></div><div class="bar"><i class="zero " style="height:0%"></i></div><div class="bar"><i class=" " style="height:73%"></i></div><div class="bar"><i class="zero " style="height:0%"></i></div><div class="bar"><i class=" today" style="height:100%"></i></div><div class="bar"><i class="zero " style="height:0%"></i></div><div class="bar"><i class="zero " style="height:0%"></i></div></div><div class="days"><span class="">Mon</span><span class="">Tue</span><span class="">Wed</span><span class="">Thu</span><span class="t">Fri</span><span class="">Sat</span><span class="">Sun</span></div>
+      </div>
+      <div class="panel know">
+        <div class="card-h"><h3>Knowledge</h3><a href="#" class="r" style="display:flex;align-items:center;gap:6px">100 concepts <svg class="i sm"><use href="#i-chev"/></svg></a></div>
+        <div class="stack"><i class="c-ret" style="flex:12"></i><i class="c-app" style="flex:28"></i><i class="c-und" style="flex:41"></i><i class="c-exp" style="flex:19"></i></div>
+        <div class="legend"><div><i class="c-ret"></i>Retained<b>12</b></div><div><i class="c-app"></i>Applied<b>28</b></div><div><i class="c-und"></i>Understood<b>41</b></div><div><i class="c-exp"></i>Exposed<b>19</b></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="panel mentor c7">
+      <svg class="arcs" viewBox="0 0 280 280" fill="none"><g stroke="#3b9bff" stroke-opacity=".16"><circle cx="280" cy="280" r="90"/><circle cx="280" cy="280" r="150"/><circle cx="280" cy="280" r="210"/></g><circle cx="280" cy="280" r="150" stroke="url(#rg)" stroke-opacity=".5" stroke-dasharray="120 900" stroke-dashoffset="-60"/></svg>
+      <div class="eyebrow"><svg class="i sm"><use href="#i-sparkles"/></svg>Mentor insight</div>
+      <h3>Your cache reasoning is sound. Next, <em>test it against failure modes.</em></h3>
+      <p>Mon's review found strong notes on eviction policies, but nothing on what happens when a node dies mid-rebalance. Try writing that case down.</p>
+      <div class="actions"><button class="btn"><svg class="i sm"><use href="#i-copy"/></svg>Discuss in Claude</button><a class="btn ghost" href="journal.html">View review <svg class="i sm"><use href="#i-arrow"/></svg></a></div>
+    </div>
+    <div class="panel steps c5">
+      <h3>Next up</h3>
+      <ol style="list-style:none">
+        <li class="step now"><span class="node"></span><div><b>Finish today's session</b><small>HLD: Consistent hashing · paused</small></div></li>
+        <li class="step"><span class="node"></span><div><b>Review</b><small>Tomorrow, 06:15</small></div></li>
+        <li class="step"><span class="node"></span><div><b>Weekly coaching</b><small>Mon 16 Nov</small></div></li>
+        <li class="step due"><span class="node"></span><div><b>Verify: consistent hashing</b><small>Due</small></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="panel list c7">
+      <div class="card-h"><h3>Recent activity</h3><a class="link" href="journal.html">View journal <svg class="i sm"><use href="#i-arrow"/></svg></a></div>
+      <div class="row act"><div class="ico"><svg class="i sm"><use href="#i-book"/></svg></div><div><b>HLD: Consistent hashing</b><small>Book · <span class="dm">Today · </span>52&nbsp;min</small></div><div class="m">Today</div><div class="end"><span class="pill slate"><svg class="i xs"><use href="#i-laptop"/></svg>On this device</span></div></div>
+      <div class="row act"><div class="ico"><svg class="i sm"><use href="#i-book"/></svg></div><div><b>LLD: Rate limiter</b><small>Video · <span class="dm">Wed 11 Nov · </span>38&nbsp;min</small></div><div class="m">Wed 11 Nov</div><div class="end"><span class="pill amber"><span class="d"></span>Review queued</span></div></div>
+      <div class="row act"><div class="ico"><svg class="i sm"><use href="#i-book"/></svg></div><div><b>DSA: Graph traversal</b><small>Practice · <span class="dm">Mon 9 Nov · </span>41&nbsp;min</small></div><div class="m">Mon 9 Nov</div><div class="end"><span class="pill green"><svg class="i xs"><use href="#i-check"/></svg>Reviewed</span></div></div>
+      <div class="row act"><div class="ico"><svg class="i sm"><use href="#i-book"/></svg></div><div><b>OS: Scheduling</b><small>Course · <span class="dm">Fri 6 Nov · </span>47&nbsp;min</small></div><div class="m">Fri 6 Nov</div><div class="end"><span class="pill green"><svg class="i xs"><use href="#i-check"/></svg>Reviewed</span></div></div>
+    </div>
+    <div class="panel list c5">
+      <div class="card-h"><h3>Due for verification</h3><a class="link" href="#">Knowledge <svg class="i sm"><use href="#i-arrow"/></svg></a></div>
+      <div class="row due"><div><b>Consistent hashing</b><small>HLD · Understood</small></div><span class="pill amber">Due</span></div>
+      <div class="row due"><div><b>Token bucket</b><small>LLD · Applied</small></div><span class="pill slate">Tomorrow</span></div>
+      <div class="row due"><div><b>B-tree indexes</b><small>DB · Understood</small></div><span class="pill amber">Needs reassessment</span></div>
+    </div>
+  </section>
+</div></main></div>
+<div class="tag-concept">Concept mockup · A</div>
+</body></html>
