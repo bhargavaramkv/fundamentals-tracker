@@ -7,6 +7,8 @@ import { computeCodingStats, isCodingAnalysis, isLeetCodeStore, type CodingAnaly
 import { readFile } from "@/lib/storage";
 import { useAuth } from "../AuthGate";
 import { CodingTracker } from "../CodingTracker";
+import { PageHeader } from "../ui/PageHeader";
+import { Panel } from "../ui/Panel";
 import { useProgress } from "../ProgressProvider";
 import { CodingInsightsView } from "./CodingInsightsView";
 
@@ -49,21 +51,19 @@ export function CodingInsights() {
   const logged = activeProblems(data).length;
 
   return (
-    <div className="space-y-12">
-      <header className="page-head">
-        <p className="eyebrow">Coding</p>
-        <h1>Your LeetCode review</h1>
-        <p>Read from your LeetCode account every night and reviewed by Claude. There&apos;s nothing to log.</p>
-      </header>
+    <div className="space-y-6">
+      <PageHeader eyebrow="Coding" title="Your LeetCode review" subtitle="Read from your LeetCode account every night and reviewed by Claude. There's nothing to log." horizon />
 
       {!syncToken ? (
-        <p className="max-w-2xl text-[17px] leading-relaxed text-ink-2">
-          Your LeetCode history is in your private data repo, so this page needs sync to read it. Turn it on in{" "}
-          <Link href="/settings/" className="text-accent-text hover:underline">
-            Settings
-          </Link>
-          .
-        </p>
+        <Panel className="max-w-2xl p-6">
+          <p className="text-[17px] leading-relaxed text-ink-2">
+            Your LeetCode history is in your private data repo, so this page needs sync to read it. Turn it on in{" "}
+            <Link href="/settings/" className="text-accent-text hover:underline">
+              Settings
+            </Link>
+            .
+          </p>
+        </Panel>
       ) : load.kind === "loading" ? (
         <p className="text-ink-2">Loading your LeetCode history…</p>
       ) : load.kind === "error" ? (
@@ -73,9 +73,9 @@ export function CodingInsights() {
       )}
 
       {logged > 0 && (
-        <details className="border-t border-line pt-6">
-          <summary className="cursor-pointer text-sm text-ink-2">Problems you logged by hand ({logged})</summary>
-          <div className="mt-6">
+        <details className="panel">
+          <summary className="cursor-pointer px-5 py-4 text-sm text-ink-2 sm:px-6">Problems you logged by hand ({logged})</summary>
+          <div className="border-t border-line p-5 sm:p-6">
             <CodingTracker embedded />
           </div>
         </details>
