@@ -102,10 +102,10 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 
 ### P-R: Genuine UI/UX redesign (brief 2026-11-13). INCOMPLETE
 Owner finding (verified by Opus): production serves the latest build, but the UI looks like the previous version. Root cause: P2 changed tokens and fonts within the existing structure, and the final report overstated it as a "full UI/UX redesign".
-- [ ] Docs corrected (this section, final report correction appended)
+- [x] Docs corrected (this section, final report correction appended; e1 commit on v2/redesign)
 - [ ] Visual audit: ddf0be1 vs a7ecac3 at 375/768/1280/1600 for Today, Journal, Knowledge, Coding, Mentor, Settings
-- [ ] Stage A: two structurally different concepts, rendered mockups of Today and Journal
-- [ ] Stage B: selection and design system
+- [x] Stage A: concept A Mission Control and concept B Horizon, both rendered by Sonnet and reviewed by Opus at 1440 and 390 (`docs/v2/redesign/concepts/`)
+- [x] Stage B: A chosen, with three of B's strengths (`docs/v2/redesign/selection.md`, `design-system.md`)
 - [ ] Stage C: implementation, all six screens: Today [ ], Journal [ ], Knowledge [ ], Coding [ ], Mentor [ ], Settings [ ]
 - [ ] Stage D: before/after screenshots, side by side, every screen passes Opus visual review
 - [ ] Stage E: lint, typecheck, unit, build, e2e, responsive

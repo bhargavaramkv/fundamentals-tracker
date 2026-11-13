@@ -75,3 +75,14 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
 - **Received:** 2026-11-13 09:15 IST. A genuine UI/UX redesign brief, with 2 reference images. A third (Journal workspace) was mentioned but not attached.
 - **Correction:** the earlier final report overstated P2 as a full redesign. A correction was appended to the report, and progress.md now marks the redesign, Coding and Settings as incomplete.
 - **Model:** Opus 5.5, supervising session.
+- **09:17 IST:**
+  - Old build (ddf0be1) completed in the full checkout `../ft-old` with the e2e vault, for the audit screenshots.
+  - Agents launched:
+    - Fixture: Sonnet, building a synthetic GitHub data-repo mock for populated screenshots.
+    - Concept A, Mission Control: Sonnet.
+    - Concept B, Horizon: Sonnet.
+- **09:25 IST:**
+  - Concept B (Sonnet): 102,376 tokens, 27 tool uses, 4.2 min.
+  - Concept A (Sonnet): 123,427 tokens, 30 tool uses, 6.6 min.
+  - Opus reviewed both and chose A plus three of B's strengths. Committed 9b59862.
+  - Stage C waits for the fixture agent, which is using the shared checkout for e2e.
