@@ -102,3 +102,21 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
   - Journal: `rd/journal`, port 4175.
   - Knowledge, Coding, Settings: `rd/kcs`, port 4176.
   - All three are Sonnet.
+- **Screen agents (all Sonnet):**
+
+  | Agent | Tokens | Tool uses | Time | Commit |
+  |---|---|---|---|---|
+  | Knowledge/Coding/Settings | 169,141 | 63 | 11.3 min | dab09de |
+  | Journal | 189,029 | 51 | 15.0 min | 14e63fa |
+  | Today/Mentor | 139,624 | 31 | 16.8 min | 4235c78 |
+
+  All three merged into v2/redesign without conflicts.
+- **Stage D/E (Opus):**
+  - On the merged build: `npm run check` passed, then full e2e 127/127 (126 plus the capture spec), vault_ok.
+  - Visual review against concept A and the old shots found and fixed:
+    - "2 reviews queued" vs "1 queued · 1 failed": the stepper now notes retries.
+    - An empty cell in the Settings facts grid.
+    - The Settings eyebrow read "More".
+  - A first attempt reworded the stepper and broke the fixture smoke test (`/reviews? queued/`), giving 126/127. The "queued" wording was restored.
+  - Final: check passed, e2e 126/126, vault_ok.
+  - Side-by-side comparisons are in `../fundamentals-v2-screenshots/compare/`.

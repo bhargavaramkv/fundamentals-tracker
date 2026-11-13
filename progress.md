@@ -106,9 +106,9 @@ Owner finding (verified by Opus): production serves the latest build, but the UI
 - [x] Visual audit (`docs/v2/redesign/audit.md`): ddf0be1 vs a7ecac3 at 375/768/1280/1600 for Today, Journal, Knowledge, Coding, Mentor, Settings
 - [x] Stage A: concept A Mission Control and concept B Horizon, both rendered by Sonnet and reviewed by Opus at 1440 and 390 (`docs/v2/redesign/concepts/`)
 - [x] Stage B: A chosen, with three of B's strengths (`docs/v2/redesign/selection.md`, `design-system.md`)
-- [ ] Stage C: implementation, all six screens: Today [ ], Journal [ ], Knowledge [ ], Coding [ ], Mentor [ ], Settings [ ]
-- [ ] Stage D: before/after screenshots, side by side, every screen passes Opus visual review
-- [ ] Stage E: lint, typecheck, unit, build, e2e, responsive
+- [x] Stage C: implementation, all six screens: Today [x], Journal [x], Knowledge [x], Coding [x], Mentor [x], Settings [x] (foundation 07b5bf6; screens merged from rd/today, rd/journal, rd/kcs)
+- [x] Stage D: before/after screenshots, side by side (`../fundamentals-v2-screenshots/compare/`, 6 screens at 1280 and 375; new build also at 768/1600/1920 in `redesign/final/`). Opus inspected them: all six screens are structurally different. Fixed during review: the truncated "F." on the tablet rail, the queued-count wording, the Settings grid gap and the "More" eyebrow
+- [x] Stage E: `npm run check` (0 lint errors, 323/323 unit, typecheck, build) and full Playwright 126/126 including the layout and responsive specs, on the final commit, run by Opus
 - [ ] Release and final report update
 Reference images received: Today dashboard and V2 design board. The Journal workspace reference mentioned in the brief was NOT attached; the design board's Journal panel is used instead.
 
