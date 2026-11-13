@@ -49,11 +49,24 @@ function Section({ id, title, description, status, children }: { id: string; tit
   );
 }
 
+const SM_SPAN = ["", "sm:col-span-1", "sm:col-span-2", "sm:col-span-3"];
+
+/** The last plain cell stretches to fill its row, so the hairline grid never shows an empty cell. */
+function lastSpan(items: { wide?: boolean }[]): string {
+  let n = 0;
+  for (const i of items) n = i.wide ? 0 : n + 1;
+  if (n === 0) return "";
+  const two = n % 2 === 1 ? "col-span-2" : "";
+  const r3 = n % 3;
+  return `${two} ${SM_SPAN[r3 === 0 ? 1 : 4 - r3]}`;
+}
+
 function Facts({ items }: { items: { label: string; value: ReactNode; wide?: boolean }[] }) {
+  const fill = lastSpan(items);
   return (
     <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
-      {items.map((i) => (
-        <div key={i.label} className={`min-w-0 bg-surface px-4 py-3 ${i.wide ? "col-span-2 sm:col-span-3" : ""}`}>
+      {items.map((i, k) => (
+        <div key={i.label} className={`min-w-0 bg-surface px-4 py-3 ${i.wide ? "col-span-2 sm:col-span-3" : k === items.length - 1 ? fill : ""}`}>
           <dt className="text-xs text-ink-3">{i.label}</dt>
           <dd className="mono mt-0.5 break-words text-sm text-ink">{i.value}</dd>
         </div>
@@ -133,7 +146,7 @@ export function SettingsPanel() {
 
   return (
     <div className="mx-auto max-w-5xl">
-      <PageHeader eyebrow="More" title="Settings" subtitle="Where your progress is stored, how it syncs, and your account." horizon />
+      <PageHeader eyebrow="Account and data" title="Settings" subtitle="Where your progress is stored, how it syncs, and your account." horizon />
 
       <div className="lg:grid lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-10">
         <nav aria-label="Settings sections" className="mb-6 lg:sticky lg:top-8 lg:mb-0 lg:self-start">

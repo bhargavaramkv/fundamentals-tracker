@@ -93,7 +93,13 @@ export function NextUp({ live, className = "" }: { live: { subject: string; paus
   const due = concepts.filter((c) => c.result.dueForVerification);
   const steps: Step[] = [];
   if (live) steps.push({ title: "Finish the running session", detail: `${live.subject} · ${live.paused ? "paused" : "running"}`, state: "now" });
-  if (hasToken && loaded && pending.length > 0) steps.push({ title: `${pending.length} ${pending.length === 1 ? "review" : "reviews"} queued for 06:15`, detail: "Written by the morning run" });
+  if (hasToken && loaded && pending.length > 0) {
+    const retries = pending.filter((p) => p.failures.length > 0).length;
+    steps.push({
+      title: `${pending.length} ${pending.length === 1 ? "review" : "reviews"} queued for 06:15`,
+      detail: retries > 0 ? `Written by the morning run · ${retries} ${retries === 1 ? "is a retry" : "are retries"}` : "Written by the morning run",
+    });
+  }
   if (hasToken && now !== null) {
     const d = new Date(now);
     const next = new Date(d.getFullYear(), d.getMonth(), d.getDate() + ((8 - d.getDay()) % 7 || 7));
