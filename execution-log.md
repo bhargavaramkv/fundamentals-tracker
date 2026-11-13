@@ -86,3 +86,7 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
   - Concept A (Sonnet): 123,427 tokens, 30 tool uses, 6.6 min.
   - Opus reviewed both and chose A plus three of B's strengths. Committed 9b59862.
   - Stage C waits for the fixture agent, which is using the shared checkout for e2e.
+- **Visual audit (Opus):**
+  - Captured ddf0be1 and the current build with the synthetic fixture at 375/768/1280/1600 × 6 screens (48 shots, outside the repo).
+  - Wrote `docs/v2/redesign/audit.md`. The temporary capture spec is kept outside the repo for Stage D.
+  - Next: Stage C foundation (Sonnet).
