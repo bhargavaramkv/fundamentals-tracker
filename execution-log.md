@@ -70,3 +70,53 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
 - **Milestone, 00:06 IST:**
   - Review routine verification run cse_018WzAxEUfnNfHEwDKxpgwEj succeeded in 25 s: "pending: []", nothing written.
   - Final report written. Docs PR opened.
+
+### Session 1, continued: redesign brief (P-R)
+- **Received:** 2026-11-13 09:15 IST. A genuine UI/UX redesign brief, with 2 reference images. A third (Journal workspace) was mentioned but not attached.
+- **Correction:** the earlier final report overstated P2 as a full redesign. A correction was appended to the report, and progress.md now marks the redesign, Coding and Settings as incomplete.
+- **Model:** Opus 5.5, supervising session.
+- **09:17 IST:**
+  - Old build (ddf0be1) completed in the full checkout `../ft-old` with the e2e vault, for the audit screenshots.
+  - Agents launched:
+    - Fixture: Sonnet, building a synthetic GitHub data-repo mock for populated screenshots.
+    - Concept A, Mission Control: Sonnet.
+    - Concept B, Horizon: Sonnet.
+- **09:25 IST:**
+  - Concept B (Sonnet): 102,376 tokens, 27 tool uses, 4.2 min.
+  - Concept A (Sonnet): 123,427 tokens, 30 tool uses, 6.6 min.
+  - Opus reviewed both and chose A plus three of B's strengths. Committed 9b59862.
+  - Stage C waits for the fixture agent, which is using the shared checkout for e2e.
+- **Visual audit (Opus):**
+  - Captured ddf0be1 and the current build with the synthetic fixture at 375/768/1280/1600 × 6 screens (48 shots, outside the repo).
+  - Wrote `docs/v2/redesign/audit.md`. The temporary capture spec is kept outside the repo for Stage D.
+  - Next: Stage C foundation (Sonnet).
+- **Stage C foundation (Sonnet, 142,600 tokens / 54 tool uses / 10.5 min):**
+  - Committed 07b5bf6: tokens, `components/ui/*`, new shell.
+  - The agent reported `npm run check` passing, e2e 126 passed and vault_ok.
+  - The agent relaxed `tests/design.test.ts` to allow `linear-gradient`; Opus accepted this, since concept A needs gradients.
+- **Opus review of the foundation shots:**
+  - The tablet rail showed a truncated "F." glyph, which breaks the logo rule.
+  - Fixed in 6a0ebed: the full BrandMark now sits above the content at 768–1023, and the rail has no mark. `npm run check` passed.
+- **Screen work launched in three worktrees** (each with its own `npm ci` and e2e port):
+  - Today + Mentor: `rd/today`, port 4174.
+  - Journal: `rd/journal`, port 4175.
+  - Knowledge, Coding, Settings: `rd/kcs`, port 4176.
+  - All three are Sonnet.
+- **Screen agents (all Sonnet):**
+
+  | Agent | Tokens | Tool uses | Time | Commit |
+  |---|---|---|---|---|
+  | Knowledge/Coding/Settings | 169,141 | 63 | 11.3 min | dab09de |
+  | Journal | 189,029 | 51 | 15.0 min | 14e63fa |
+  | Today/Mentor | 139,624 | 31 | 16.8 min | 4235c78 |
+
+  All three merged into v2/redesign without conflicts.
+- **Stage D/E (Opus):**
+  - On the merged build: `npm run check` passed, then full e2e 127/127 (126 plus the capture spec), vault_ok.
+  - Visual review against concept A and the old shots found and fixed:
+    - "2 reviews queued" vs "1 queued · 1 failed": the stepper now notes retries.
+    - An empty cell in the Settings facts grid.
+    - The Settings eyebrow read "More".
+  - A first attempt reworded the stepper and broke the fixture smoke test (`/reviews? queued/`), giving 126/127. The "queued" wording was restored.
+  - Final: check passed, e2e 126/126, vault_ok.
+  - Side-by-side comparisons are in `../fundamentals-v2-screenshots/compare/`.

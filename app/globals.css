@@ -54,14 +54,20 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #070b14;
-    --surface: #0d1424;
-    --surface-2: #141d32;
-    --border: #1f2b45;
-    --grid: #101829;
-    --text: #e6edf7;
-    --text-2: #a9b6ca;
-    --text-3: #8190a8;
+    --bg: #05080f;
+    --surface: #0b1220;
+    --surface-2: #0e1628;
+    --bg-2: #070b14;
+    --surface-3: #131d33;
+    --line-2: rgba(120, 170, 255, 0.18);
+    --muted: #7f90ae;
+    --dim: #55627c;
+    --hl: inset 0 1px 0 rgba(170, 210, 255, 0.07);
+    --border: rgba(120, 170, 255, 0.1);
+    --grid: #0e1628;
+    --text: #e9f0ff;
+    --text-2: #b4c2dc;
+    --text-3: #7f90ae;
     --accent: #3b9bff;
     --accent-text: #6cb4ff;
     --accent-ink: #04111f;
@@ -70,15 +76,15 @@
     --accent-soft: #10213f;
     --cyan: #22d3ee;
     --series-1: #3b9bff;
-    --good: #62d690;
-    --good-bg: #0e2619;
+    --good: #34d399;
+    --good-bg: #0b2a22;
     --good-shade: #2f8f57;
-    --bad: #ff8b85;
-    --bad-bg: #381820;
-    --warn: #f5c35a;
-    --warn-bg: #30270e;
+    --bad: #f87171;
+    --bad-bg: #33161c;
+    --warn: #fbbf24;
+    --warn-bg: #2b220c;
     --accent-2: #ff9a5c;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow: inset 0 1px 0 rgba(170, 210, 255, 0.07);
     --glow: rgba(59, 155, 255, 0.13);
     --d-dsa: #6b9bff;
     --d-oop: #ff8f5c;
@@ -91,14 +97,20 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #070b14;
-  --surface: #0d1424;
-  --surface-2: #141d32;
-  --border: #1f2b45;
-  --grid: #101829;
-  --text: #e6edf7;
-  --text-2: #a9b6ca;
-  --text-3: #8190a8;
+  --bg: #05080f;
+  --surface: #0b1220;
+  --surface-2: #0e1628;
+  --bg-2: #070b14;
+  --surface-3: #131d33;
+  --line-2: rgba(120, 170, 255, 0.18);
+  --muted: #7f90ae;
+  --dim: #55627c;
+  --hl: inset 0 1px 0 rgba(170, 210, 255, 0.07);
+  --border: rgba(120, 170, 255, 0.1);
+  --grid: #0e1628;
+  --text: #e9f0ff;
+  --text-2: #b4c2dc;
+  --text-3: #7f90ae;
   --accent: #3b9bff;
   --accent-text: #6cb4ff;
   --accent-ink: #04111f;
@@ -107,15 +119,15 @@
   --accent-soft: #10213f;
   --cyan: #22d3ee;
   --series-1: #3b9bff;
-  --good: #62d690;
-  --good-bg: #0e2619;
+  --good: #34d399;
+  --good-bg: #0b2a22;
   --good-shade: #2f8f57;
-  --bad: #ff8b85;
-  --bad-bg: #381820;
-  --warn: #f5c35a;
-  --warn-bg: #30270e;
+  --bad: #f87171;
+  --bad-bg: #33161c;
+  --warn: #fbbf24;
+  --warn-bg: #2b220c;
   --accent-2: #ff9a5c;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: inset 0 1px 0 rgba(170, 210, 255, 0.07);
   --glow: rgba(59, 155, 255, 0.13);
   --d-dsa: #6b9bff;
   --d-oop: #ff8f5c;
@@ -130,6 +142,11 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-line: var(--border);
+  --color-line-2: var(--line-2);
+  --color-bg-2: var(--bg-2);
+  --color-surface-3: var(--surface-3);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
   --color-ink: var(--text);
   --color-ink-2: var(--text-2);
   --color-ink-3: var(--text-3);
@@ -155,7 +172,7 @@
 :root {
   --tabbar-h: 3.75rem;
 }
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   :root {
     --tabbar-h: 0rem;
   }
@@ -174,14 +191,32 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Atmosphere: one faint blue glow at the top of the page, fixed behind everything. */
-body::before {
+/* Atmosphere: soft blue light top-right, a faint cyan one low-left and a barely-there grid that fades out; fixed behind everything. */
+body::before,
+body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(70rem 26rem at 50% -10rem, var(--glow), transparent 70%);
+}
+body::before {
+  background: radial-gradient(60rem 34rem at 88% -8rem, rgba(59, 155, 255, 0.13), transparent 70%),
+    radial-gradient(48rem 30rem at 4% 108%, rgba(34, 211, 238, 0.06), transparent 70%);
+}
+body::after {
+  background-image: linear-gradient(rgba(120, 170, 255, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(120, 170, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(70rem 36rem at 70% 0, #000, transparent 75%);
+  -webkit-mask-image: radial-gradient(70rem 36rem at 70% 0, #000, transparent 75%);
+}
+
+/* Thin luminous rule under a page header (Knowledge, Coding, Mentor, Settings). */
+.horizon-rule {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, rgba(95, 181, 255, 0.55) 22%, rgba(34, 211, 238, 0.4) 62%, transparent);
+  box-shadow: 0 0 14px rgba(59, 155, 255, 0.22);
 }
 
 a,
@@ -420,12 +455,12 @@ button {
 
   /* Primary: solid electric blue. One per region. */
   .btn-primary {
-    background: var(--btn);
+    background: linear-gradient(180deg, #5ab0ff 0%, #3b9bff 100%);
     color: var(--accent-ink);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 10px 30px -8px rgba(59, 155, 255, 0.6), 0 0 0 1px rgba(59, 155, 255, 0.5);
   }
   .btn-primary:hover:not(:disabled) {
-    background: color-mix(in oklab, var(--btn) 88%, white);
-    box-shadow: 0 6px 22px -8px color-mix(in oklab, var(--btn) 80%, transparent);
+    background: linear-gradient(180deg, #74bcff 0%, #4fa6ff 100%);
   }
   .btn-good {
     background: var(--good);
@@ -444,13 +479,14 @@ button {
 
   /* Secondary: quiet outline. */
   .btn-secondary {
-    background: var(--surface-2);
-    border-color: var(--border);
+    background: rgba(120, 170, 255, 0.04);
+    border-color: var(--line-2);
+    box-shadow: var(--hl);
     color: var(--text);
   }
   .btn-secondary:hover:not(:disabled) {
-    border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
-    background: color-mix(in oklab, var(--accent) 8%, var(--surface-2));
+    border-color: rgba(120, 170, 255, 0.3);
+    background: rgba(120, 170, 255, 0.09);
   }
 
   /* Danger: red text on a faint red tint (also usable together with btn-secondary). */
@@ -560,11 +596,39 @@ button {
   }
 
   /* Card: flat surface, hairline border. */
-  .card {
-    background: var(--surface);
+  .card,
+  .panel {
+    position: relative;
+    background: linear-gradient(180deg, rgba(17, 27, 48, 0.92), rgba(10, 17, 32, 0.94));
     border: 1px solid var(--border);
     border-radius: var(--r-lg);
-    box-shadow: var(--shadow);
+    box-shadow: var(--hl), 0 24px 48px -28px rgba(0, 0, 0, 0.7);
+  }
+  /* Hero panel: the Today focal point, with the horizon arc rising from the lower right. */
+  .panel-hero {
+    overflow: hidden;
+    border-color: rgba(120, 170, 255, 0.16);
+    background: radial-gradient(520px 320px at 92% 100%, rgba(34, 211, 238, 0.12), transparent 70%),
+      radial-gradient(600px 300px at 100% 0%, rgba(59, 155, 255, 0.12), transparent 70%),
+      linear-gradient(180deg, rgba(17, 29, 52, 0.95), rgba(9, 16, 31, 0.96));
+  }
+  .panel-hero::after {
+    content: "";
+    position: absolute;
+    right: -30%;
+    bottom: -150%;
+    width: 120%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    pointer-events: none;
+    border-top: 2px solid rgba(95, 181, 255, 0.55);
+    background: radial-gradient(closest-side, transparent 92%, rgba(27, 95, 184, 0.28));
+    mask-image: linear-gradient(190deg, #000 10%, transparent 55%);
+    -webkit-mask-image: linear-gradient(190deg, #000 10%, transparent 55%);
+  }
+  .panel-hero > * {
+    position: relative;
+    z-index: 1;
   }
   a.card {
     transition: transform var(--t-base) var(--ease), border-color var(--t-base) var(--ease), background-color var(--t-base) var(--ease);
@@ -697,41 +761,42 @@ button {
     }
   }
 
-  /* Navigation: sidebar rows and phone tabs share one blue active indicator. */
+  /* Navigation: sidebar rows, rail icons and phone tabs share one blue active indicator. */
   .nav-link {
     position: relative;
     display: flex;
     align-items: center;
     gap: 0.75rem;
     min-height: var(--h-control);
-    padding: 0 0.75rem;
+    padding: 0 0.875rem;
     border-radius: var(--r-md);
     font-size: 0.9375rem;
     font-weight: 500;
-    color: var(--text-2);
+    color: var(--muted);
     transition: color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
   }
   .nav-link:hover {
     color: var(--text);
-    background: var(--surface-2);
+    background: rgba(120, 170, 255, 0.05);
   }
   .nav-link[aria-current="page"] {
-    color: var(--text);
-    background: var(--accent-soft);
+    color: #fff;
+    background: linear-gradient(90deg, rgba(40, 100, 200, 0.34), rgba(22, 50, 100, 0.34));
+    box-shadow: var(--hl), 0 0 28px -6px rgba(59, 155, 255, 0.3);
   }
   .nav-link[aria-current="page"]::before {
     content: "";
     position: absolute;
-    left: -0.75rem;
-    top: 10px;
-    bottom: 10px;
-    width: 3px;
-    border-radius: 0 3px 3px 0;
+    left: 0;
+    top: 11px;
+    bottom: 11px;
+    width: 2px;
+    border-radius: 2px;
     background: var(--accent);
-    box-shadow: 0 0 12px var(--accent);
+    box-shadow: 0 0 10px 1px rgba(59, 155, 255, 0.8);
   }
   .nav-link[aria-current="page"] svg {
-    color: var(--accent-text);
+    color: #7cc0ff;
   }
   .tab-link {
     position: relative;
@@ -747,13 +812,16 @@ button {
     transition: color var(--t-fast) var(--ease);
   }
   .tab-link[aria-current="page"] {
-    color: var(--accent-text);
+    color: #fff;
+  }
+  .tab-link[aria-current="page"] svg {
+    color: #7cc0ff;
   }
   .tab-link[aria-current="page"]::before {
     content: "";
     position: absolute;
     top: 0;
-    width: 28px;
+    width: 24px;
     height: 2px;
     border-radius: 0 0 2px 2px;
     background: var(--accent);
@@ -881,6 +949,15 @@ button {
 }
 .animate-step {
   animation: step-in 0.22s ease-out;
+}
+
+/* Active Ring: a slow ambient sweep; it shows activity, not a goal. */
+@keyframes ring-sweep {
+  to { transform: rotate(360deg); }
+}
+.ring-sweep {
+  transform-origin: center;
+  animation: ring-sweep 8s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

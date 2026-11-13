@@ -112,3 +112,69 @@ See `progress.md`, "Architecture decisions", and `docs/v2/ARCHITECTURE.md`. Corr
 | P6 docs | sonnet | Architecture, data contracts, recovery, README | 141,601 / 28 / 3.6 min |
 | Branch audit | haiku | Read-only remote branch audit | Unavailable |
 | Review routine (manual run) | sonnet | Verification run of the review routine | 25 s, 3 turns |
+
+---
+
+## Correction (appended 2026-11-13; the sections above are kept as originally written)
+Sections A and B above call the release a "redesign" and describe a full UI/UX transformation. That is **inaccurate**.
+
+- **What the release actually delivered:**
+  - All the functional improvements in section B: journal completion, review engine, weekly coaching, knowledge levels, mentor UI, docs and routines.
+  - Minor visual refinements:
+    - Background `#0a1220` to `#070b14`, surfaces slightly darker. The accent `#3b9bff` is unchanged.
+    - Geist instead of Nunito for headings.
+    - Flat buttons.
+    - A rebuilt Today content list.
+- **What it did not deliver:** the intended full UI/UX redesign.
+  - The shell, navigation, card-based composition, information hierarchy and palette are essentially those of `ddf0be1`.
+  - Coding and Settings were not restyled at all.
+- **Why:** the design brief given to the implementing agent asked for a token, typography and motion pass inside the existing structure. The Opus visual review checked screenshots for layout defects but never compared them against the previous version.
+- **Deployment:** it was correct. Production serves the latest build, which was verified by checking the live CSS and JS and the response headers.
+- **Status:** the genuine redesign is now tracked as **P-R (INCOMPLETE)** in `progress.md`.
+
+---
+
+## P-R: Genuine UI/UX redesign (appended 2026-11-13)
+
+### What is what
+- **Previous functional work** (PR #53, sections A–M above): journal completion, review engine, weekly coaching, knowledge levels, mentor data and UI, routines.
+  - None of it was rewritten in P-R.
+  - Data, schemas, sync, auth and storage are untouched; `lib/**` has no changes.
+- **New visual redesign** (P-R, branch `v2/redesign`): a structural redesign of the shell and all six screens, following concept A "Mission Control" plus three of concept B's strengths.
+  - Docs: `docs/v2/redesign/`, which holds the audit, concepts, selection and design system.
+
+### What changed structurally
+| Screen | Before (ddf0be1 / a7ecac3) | After |
+|---|---|---|
+| Shell | 240 px sidebar, footer with a sync dot, plain mobile top bar | Sidebar with an active glow pill and a utility zone (Mentor, Settings, sync card); 72 px tablet rail with the full wordmark above the content; mobile top bar with Mentor and Settings icons plus a tab bar |
+| Today | List strip, plain table, text block | Command centre: hero (running or last session, ACTIVE TIME), Mentor insight, Next up stepper, week chart, recent activity with review pills, knowledge LevelBar, due list |
+| Journal | Start form plus a stacked history card rail; detail on a separate page | Three-pane workspace (list, document with mono time gutter and prose, context pane with the review); compact composer; mobile full-screen focus mode for the active session |
+| Knowledge | Flat list of identical rows | Summary hero (4-level distribution, needs-attention filters, per-subject bars); concepts grouped by subject; detail side panel with evidence |
+| Coding | Two-column text document | Claude's-read hero with mono stat strip, last-12 strip, pattern map, numbered Do next and Work on cards, habit callouts, accordions |
+| Mentor | Single long text box | Priorities hero, two-column finding groups, follow-up checklist, review timeline, collapsed V1 archive |
+| Settings | Text-only column | Section index, panels with status pills, facts grids, right-aligned actions, "Learn more" details |
+
+### Logo
+`components/BrandMark.tsx` and `app/favicon.ico` have no diff. The foundation briefly showed a truncated "F." on the tablet rail. Opus caught it in review and removed it (6a0ebed). The full wordmark now shows at every width.
+
+### Tests actually run (on the final commit, by Opus)
+- **`npm run check`:** 0 lint errors (5 warnings in `components/ui/Button.tsx`), typecheck, 323/323 unit tests, build.
+- **Playwright:** 126/126, including the layout, responsive, journal and fixture smoke specs. Run with the throwaway vault, which was then restored (`vault_ok`).
+- **E2E edits:**
+  - One deliberate edit in `e2e/journal.spec.ts`: two "← Journal" back clicks were removed, because at 1280 the list stays visible beside the document.
+  - `tests/design.test.ts` now allows `linear-gradient`; concept A needs it, and `backdrop-filter` is still banned.
+
+### Visual validation actually performed
+- Old and new builds were captured with the same synthetic fixture.
+  - Old: 375, 768, 1280 and 1600.
+  - New: 375, 768, 1280, 1600 and 1920.
+- Side-by-side comparisons for all six screens at 1280 and 375 are in `../fundamentals-v2-screenshots/compare/`.
+- Opus inspected Today, Journal, Knowledge, Coding, Mentor and Settings, finding every one structurally different. Review fixes are listed in `execution-log.md`.
+
+### Limitations
+- **Not viewed by Opus:**
+  - The active-session Today hero (the fixture has no running session).
+  - The no-sync and fresh-user states of the redesigned screens. They are covered functionally by e2e only.
+  - The Journal tablet layout (768–1279) is list → detail, not split.
+- **The Journal centre document is about 480 px wide at 1280.** It widens at larger widths.
+- **Not done:** no real-device or real-GitHub two-device test (unchanged from section E above), and no light theme (the app is dark only).

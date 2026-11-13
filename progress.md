@@ -2,9 +2,9 @@
 
 Source of truth for the V2 completion brief (received 2026-11-12, about 23:05 IST). Read this file and `execution-log.md` completely before resuming.
 
-- **Current phase:** release done (main e4d9a34 deployed); routine verification run and final report remaining
-- **Current branch:** `docs/routines` (docs follow-up); main e4d9a34
-- **Latest verified commit:** 4d9fdab on v2/complete (engine merged into P2; `npm run check` 271/271 green). main ddf0be1 is deployed.
+- **Current phase:** R (genuine UI/UX redesign), brief received 2026-11-13. Stage A: visual audit and concepts
+- **Current branch:** `v2/redesign` (from main a7ecac3)
+- **Latest verified commit:** main a7ecac3 (deployed, functional V2 complete). `npm run check` 323/323; e2e 125/125.
 - **Last test results:** see the Baseline section
 - **Manual recovery command:** `Continue Fundamentals V2 from progress.md. Read execution-log.md, verify the latest checkpoint and continue with the next unfinished task.`
 
@@ -62,12 +62,13 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [x] Knowledge migration script (b4be8b0), COMMITTED to the data repo as c204ec3 (`knowledge/evidence.json`, 65 items). A re-run reported `unchanged` (idempotency verified). Dry run: 65 items (38 MCQ answers plus 27 mentor entries, all weak/historical); 27 archived answers skipped; 28 duplicate archive entries; 1 left uncertain.
 - [x] Routine docs plus the CLAUDE.md ownership rules (03d6804)
 
-### P2: Design system and shell (Sonnet; commits 1a82e36, 4707da3, 31676cf; Opus visual check done)
-- [x] Tokens (#070b14 base, #3b9bff accent), Geist/Geist Mono, @layer components, motion with reduced-motion off
-- [x] Shell: sidebar, tab bar, sync dot, empty states, skeleton, toast CSS
+### P2: Design system and shell (Sonnet; commits 1a82e36, 4707da3, 31676cf). CORRECTED 2026-11-13: this was a token-level refresh, NOT a redesign; see P-R
+- [x] Token refresh only (#0a1220 to #070b14 base; accent unchanged #3b9bff), Geist instead of Nunito, flat buttons, reduced-motion. Visually near-identical to ddf0be1
+- [x] Shell restyled minimally (same sidebar, same tab bar, same composition); sync dot, empty states, skeleton, toast CSS
 - [x] Logo preserved (BrandMark.tsx and favicon unchanged; verify with `git diff ddf0be1 -- components/BrandMark.tsx app/favicon.ico` at release)
 - [x] Today journal-first: session card, recent activity, this-week bars (lib/today.ts, 6 tests); no streak, quiz or lesson cards
-- [~] Coding inherits the new tokens; a detailed restyle isn't done (functionality untouched)
+- [!] Coding: NOT redesigned (inherits tokens only)
+- [!] Settings: NOT redesigned (inherits tokens only)
 
 ### P3: Journal completion (Sonnet; db5401c, a8b6d04; merged 501ab7b)
 - [x] Note editing (edit events)
@@ -99,6 +100,18 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [x] PR #53: CI green (check, layout), merged e4d9a34, Pages deploy 43281085732 succeeded. Smoke test: 6 routes return 200, CSP present, new bundle live. Rollback: `git revert -m 1 e4d9a34` on main (v1-legacy tag intact)
 - [x] `fundamentals-v2-final-report.md`
 
+### P-R: Genuine UI/UX redesign (brief 2026-11-13). INCOMPLETE
+Owner finding (verified by Opus): production serves the latest build, but the UI looks like the previous version. Root cause: P2 changed tokens and fonts within the existing structure, and the final report overstated it as a "full UI/UX redesign".
+- [x] Docs corrected (this section, final report correction appended; e1 commit on v2/redesign)
+- [x] Visual audit (`docs/v2/redesign/audit.md`): ddf0be1 vs a7ecac3 at 375/768/1280/1600 for Today, Journal, Knowledge, Coding, Mentor, Settings
+- [x] Stage A: concept A Mission Control and concept B Horizon, both rendered by Sonnet and reviewed by Opus at 1440 and 390 (`docs/v2/redesign/concepts/`)
+- [x] Stage B: A chosen, with three of B's strengths (`docs/v2/redesign/selection.md`, `design-system.md`)
+- [x] Stage C: implementation, all six screens: Today [x], Journal [x], Knowledge [x], Coding [x], Mentor [x], Settings [x] (foundation 07b5bf6; screens merged from rd/today, rd/journal, rd/kcs)
+- [x] Stage D: before/after screenshots, side by side (`../fundamentals-v2-screenshots/compare/`, 6 screens at 1280 and 375; new build also at 768/1600/1920 in `redesign/final/`). Opus inspected them: all six screens are structurally different. Fixed during review: the truncated "F." on the tablet rail, the queued-count wording, the Settings grid gap and the "More" eyebrow
+- [x] Stage E: `npm run check` (0 lint errors, 323/323 unit, typecheck, build) and full Playwright 126/126 including the layout and responsive specs, on the final commit, run by Opus
+- [ ] Release and final report update
+Reference images received: Today dashboard and V2 design board. The Journal workspace reference mentioned in the brief was NOT attached; the design board's Journal panel is used instead.
+
 ## Baseline
 On main ddf0be1, at 2026-11-12 23:13 IST: 219/219 unit tests, 73/73 e2e tests, and the build all pass.
 
@@ -127,4 +140,4 @@ On main ddf0be1, at 2026-11-12 23:13 IST: 219/219 unit tests, 73/73 e2e tests, a
 - Token narrowing and rotation need owner approval.
 
 ## Next action
-Finish the baseline, then launch the P1 engine agent (worktree) and the P2 design agent.
+P-R Stage A: capture the audit screenshots (old build ddf0be1 vs current), write `docs/v2/redesign/audit.md`, then build two concept mockups.

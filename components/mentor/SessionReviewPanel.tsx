@@ -8,6 +8,7 @@ import { eventTexts } from "@/lib/review/validate";
 import type { EvidenceRef, Finding, SessionReview } from "@/lib/review/types";
 import { useJournal } from "../JournalProvider";
 import { useMentor } from "../MentorProvider";
+import { StatusPill } from "../ui/StatusPill";
 import { useCopy } from "./useCopy";
 
 const dateOf = (iso: string) => new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
@@ -20,6 +21,8 @@ const QUALITY: Record<SessionReview["explanationQuality"]["level"], string> = {
 
 type Texts = Map<string, string[]> | null;
 
+const TONES = { good: "text-good", warn: "text-warn", bad: "text-bad", info: "text-accent-text", neutral: "text-ink-2" } as const;
+
 /** One evidence reference: the quote is looked up in the session's own event, never invented. */
 function Evidence({ r, texts }: { r: EvidenceRef; texts: Texts }) {
   const found = texts?.get(r.eventId);
@@ -31,21 +34,21 @@ function Evidence({ r, texts }: { r: EvidenceRef; texts: Texts }) {
     else note = "quote not found in the event";
   } else body = found[0] ?? null;
   return (
-    <blockquote className="border-l border-line pl-3 text-[13px] text-ink-3">
+    <blockquote className="border-l-2 border-cyan/40 pl-3 text-[13px] leading-relaxed text-ink-3">
       {body ? <span className="break-words italic">&ldquo;{body}&rdquo;</span> : <span>{note || "event has no text"}</span>}
     </blockquote>
   );
 }
 
-function Findings({ title, items, texts, withQuestion }: { title: string; items: (Finding & { question?: string })[]; texts: Texts; withQuestion?: boolean }) {
+function Findings({ title, items, texts, withQuestion, tone = "neutral" }: { title: string; items: (Finding & { question?: string })[]; texts: Texts; withQuestion?: boolean; tone?: keyof typeof TONES }) {
   if (items.length === 0) return null;
   return (
     <section className="space-y-2">
-      <h4 className="eyebrow">{title}</h4>
+      <h4 className={`eyebrow ${TONES[tone]}`}>{title}</h4>
       <ul className="space-y-3">
         {items.map((f, i) => (
           <li key={i} className="space-y-1">
-            <p className="break-words text-[15px]">
+            <p className="break-words text-[15px] leading-snug">
               <span className="font-semibold">{f.concept}.</span> <span className="text-ink-2">{f.text}</span>
             </p>
             {withQuestion && f.question && <p className="break-words text-[14px] text-accent-text">Try: {f.question}</p>}
@@ -84,10 +87,13 @@ function CopyButton({ text, label, primary }: { text: string; label: string; pri
   );
 }
 
-function Frame({ children }: { children: ReactNode }) {
+function Frame({ children, pill }: { children: ReactNode; pill?: ReactNode }) {
   return (
-    <section aria-label="Mentor review" className="space-y-5 border-l-2 border-accent pl-4 sm:pl-5">
-      <p className="eyebrow text-accent-text">Mentor · Review</p>
+    <section aria-label="Mentor review" className="space-y-5 rounded-2xl border border-line-2 bg-surface/70 p-4">
+      <div className="flex items-center justify-between gap-2">
+        <p className="eyebrow text-cyan">Mentor · Review</p>
+        {pill}
+      </div>
       {children}
     </section>
   );
@@ -119,7 +125,7 @@ export function SessionReviewPanel({ sessionId }: { sessionId: string }) {
 
   if (!review) {
     return (
-      <Frame>
+      <Frame pill={queued ? <StatusPill tone={queued.failures.length > 0 ? "warn" : "info"}>{queued.failures.length > 0 ? "Retrying" : "Queued"}</StatusPill> : <StatusPill>Not reviewed</StatusPill>}>
         {queued ? (
           <>
             <p className="text-ink-2">Review queued — the morning routine reviews it.</p>
@@ -139,9 +145,9 @@ export function SessionReviewPanel({ sessionId }: { sessionId: string }) {
   }
 
   return (
-    <Frame>
-      <div className="space-y-2">
-        <p className="break-words text-[17px] leading-relaxed">{review.summary}</p>
+    <Frame pill={queued ? <StatusPill tone="info">Newer queued</StatusPill> : <StatusPill tone="good">Reviewed</StatusPill>}>
+      <div className="space-y-2 rounded-xl border border-accent/25 bg-accent/10 p-3.5">
+        <p className="break-words text-[15px] leading-relaxed">{review.summary}</p>
         <p className="meta">
           {review.model} · {dateOf(review.createdAt)}
           {review.sessionChangedSinceRequest && <span className="text-warn"> · session changed after the request</span>}
@@ -149,11 +155,11 @@ export function SessionReviewPanel({ sessionId }: { sessionId: string }) {
         </p>
         {queued && <p className="meta">A newer review is queued.</p>}
       </div>
-      <Findings title="Understood" items={review.understood} texts={texts} />
-      <Findings title="Misunderstandings" items={review.misunderstandings} texts={texts} />
-      <Findings title="Incomplete" items={review.incomplete} texts={texts} />
+      <Findings title="Understood" items={review.understood} texts={texts} tone="good" />
+      <Findings title="Misunderstandings" items={review.misunderstandings} texts={texts} tone="bad" />
+      <Findings title="Incomplete" items={review.incomplete} texts={texts} tone="warn" />
       <Findings title="Claims without evidence" items={review.unsupportedClaims} texts={texts} />
-      <Findings title="Worth checking" items={review.missingConcepts} texts={texts} withQuestion />
+      <Findings title="Worth checking" items={review.missingConcepts} texts={texts} withQuestion tone="info" />
       <section className="space-y-2">
         <h4 className="eyebrow">Explanation quality</h4>
         <p className="text-[15px]">
@@ -167,8 +173,8 @@ export function SessionReviewPanel({ sessionId }: { sessionId: string }) {
       <Bullets title="To improve" items={review.learningBehaviour.improvements} />
       <Bullets title="Next steps" items={review.nextSteps} />
       <section className="space-y-2">
-        <h4 className="eyebrow">Verification questions</h4>
-        <ol className="list-decimal space-y-1.5 pl-5 text-[15px] text-ink-2">
+        <h4 className="eyebrow text-cyan">Verification questions</h4>
+        <ol className="list-decimal space-y-1.5 rounded-xl border border-line bg-surface-2/60 py-3 pl-8 pr-3 text-[15px] text-ink-2">
           {review.verificationQuestions.map((q, i) => (
             <li key={i} className="break-words">
               <span className="text-ink">{q.concept}:</span> {q.question}
@@ -176,7 +182,7 @@ export function SessionReviewPanel({ sessionId }: { sessionId: string }) {
           ))}
         </ol>
       </section>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-col gap-2">
         <CopyButton text={discussPrompt(review, { subject: session?.subject ?? "(session not on this device)", topics })} label="Discuss this review" />
         {queued && <CopyButton text={reviewNowPrompt(queued.request.id)} label="Review now" />}
       </div>

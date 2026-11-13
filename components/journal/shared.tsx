@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { deriveSession, type TimelineItem } from "@/lib/journal/events";
 import type { SessionRecord } from "@/lib/journal/local";
 import type { RecordStatus } from "@/lib/journal/sync";
+import { StatusPill } from "../ui/StatusPill";
 
 export const SYNC_LABEL: Record<RecordStatus, string> = {
   local: "On this device",
@@ -48,8 +49,24 @@ export function ErrorLine({ message }: { message: string | null }) {
   ) : null;
 }
 
-/** Per-session sync state as a small pill; the conflict state stands out. */
+/** Elapsed wall time since the session began, for the mono time gutter ("0:04", "1:02:03"). */
+export function gutterOf(startIso: string, atIso: string): string {
+  const s = Math.max(0, Math.floor((Date.parse(atIso) - Date.parse(startIso)) / 1000));
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const h = Math.floor(s / 3600);
+  return h > 0 ? `${h}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}` : `${Math.floor(s / 60)}:${pad(s % 60)}`;
+}
+
+const SYNC_TONE: Record<RecordStatus, "good" | "warn" | "bad" | "info" | "neutral"> = {
+  local: "neutral",
+  pending: "neutral",
+  syncing: "info",
+  synced: "good",
+  retrying: "warn",
+  conflict: "bad",
+};
+
+/** Per-session sync state as a status pill; the conflict state stands out. */
 export function SyncBadge({ status }: { status: RecordStatus }) {
-  const tone = status === "conflict" ? "border-bad text-bad font-bold" : status === "synced" ? "text-good" : status === "retrying" ? "text-warn" : "text-ink-2";
-  return <span className={`chip !min-h-0 !px-2.5 !py-0.5 text-xs ${tone}`}>{SYNC_LABEL[status]}</span>;
+  return <StatusPill tone={SYNC_TONE[status]}>{SYNC_LABEL[status]}</StatusPill>;
 }
