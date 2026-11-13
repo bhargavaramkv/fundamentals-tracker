@@ -5,6 +5,10 @@ import { useJournal } from "../JournalProvider";
 import { useMentor } from "../MentorProvider";
 import type { WeeklyCite, WeeklyFinding, WeeklyReport } from "@/lib/review/weekly";
 import { Markdown } from "./Markdown";
+import { Eyebrow } from "../ui/Eyebrow";
+import { PageHeader } from "../ui/PageHeader";
+import { Panel } from "../ui/Panel";
+import { StatusPill } from "../ui/StatusPill";
 
 const dateOf = (iso: string) => new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
 
@@ -25,13 +29,15 @@ function Cites({ cites }: { cites: WeeklyCite[] }) {
 }
 
 function FindingList({ title, items }: { title: string; items: WeeklyFinding[] }) {
-  if (items.length === 0) return null;
   return (
-    <section className="space-y-2">
-      <h4 className="eyebrow">{title}</h4>
-      <ul className="space-y-2">
+    <section className="min-w-0 space-y-3">
+      <h4 className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-cyan">
+        {title}
+        <span className="mono text-muted">{items.length}</span>
+      </h4>
+      <ul className="space-y-3">
         {items.map((f, i) => (
-          <li key={i} className="break-words text-[15px]">
+          <li key={i} className="break-words border-l border-line-2 pl-3 text-[15px]">
             <span className="font-semibold">{f.concept}.</span> <span className="text-ink-2">{f.text}</span>
             <Cites cites={f.evidence} />
           </li>
@@ -41,49 +47,81 @@ function FindingList({ title, items }: { title: string; items: WeeklyFinding[] }
   );
 }
 
+const FOLLOWED = {
+  yes: { tone: "good", label: "Followed" },
+  no: { tone: "bad", label: "Not followed" },
+  unclear: { tone: "neutral", label: "Unclear" },
+} as const;
+
 function Report({ r }: { r: WeeklyReport }) {
   const limited = r.sufficiency === "activity-only";
   const a = r.activity;
+  const groups = [
+    { title: "Improved", items: r.improved },
+    { title: "Weak", items: r.weak },
+    { title: "Repeated misunderstandings", items: r.repeatedMisunderstandings },
+    { title: "Revisit", items: r.revisit },
+    { title: "Learn next", items: r.learnNext },
+  ].filter((g) => g.items.length > 0);
   return (
     <article className="space-y-5">
-      <div className="flex flex-wrap items-center gap-2">
-        <h3 className="headline text-xl">{r.week}</h3>
-        <span className={`tag ${limited ? "bg-warn-bg text-warn" : "bg-accent-soft text-accent-text"}`}>{limited ? "Limited data: activity summary only" : "Coaching"}</span>
+      <div className="flex flex-wrap items-center gap-3">
+        <h3 className="text-xl font-semibold">{r.week}</h3>
+        <StatusPill tone={limited ? "warn" : "info"}>{limited ? "Activity only" : "Coaching"}</StatusPill>
       </div>
-      <p className="meta">
+      <p className="text-[13px] text-muted">
         {r.model} · {dateOf(r.createdAt)} · {a.sessions} {a.sessions === 1 ? "session" : "sessions"} ({a.endedSessions} ended) · {a.activeMinutes} active min · {a.reviews}{" "}
         {a.reviews === 1 ? "review" : "reviews"}
       </p>
-      {a.topics.length > 0 && <p className="break-words text-[15px] text-ink-2">Topics: {a.topics.join(", ")}</p>}
-      {r.priorities.length > 0 && (
-        <section className="space-y-2">
-          <h4 className="eyebrow">Priorities</h4>
-          <ul className="list-disc space-y-1 pl-5 text-[15px]">
-            {r.priorities.map((p, i) => (
-              <li key={i} className="break-words">
-                {p}
-              </li>
-            ))}
-          </ul>
-        </section>
+      {limited && <p className="text-[14px] text-ink-2">Not enough history for coaching yet: this week is an activity summary only.</p>}
+      {a.topics.length > 0 && (
+        <ul className="flex flex-wrap gap-2" aria-label="Topics">
+          {a.topics.map((t) => (
+            <li key={t} className="rounded-full border border-line-2 px-2.5 py-0.5 text-xs text-ink-2">
+              {t}
+            </li>
+          ))}
+        </ul>
       )}
-      <FindingList title="Improved" items={r.improved} />
-      <FindingList title="Weak" items={r.weak} />
-      <FindingList title="Repeated misunderstandings" items={r.repeatedMisunderstandings} />
-      <FindingList title="Revisit" items={r.revisit} />
-      <FindingList title="Learn next" items={r.learnNext} />
+      {r.priorities.length > 0 && (
+        <Panel variant="hero" className="p-6 sm:p-8">
+          <Eyebrow>Priorities</Eyebrow>
+          <ol className="mt-4 space-y-4">
+            {r.priorities.map((p, i) => (
+              <li key={i} className="flex gap-4">
+                <span className="mono mt-1 text-sm text-cyan">{String(i + 1).padStart(2, "0")}</span>
+                <p className="break-words text-[1.25rem] font-semibold leading-snug tracking-[-0.01em] sm:text-[1.5rem]">{p}</p>
+              </li>
+            ))}
+          </ol>
+        </Panel>
+      )}
+      {groups.length > 0 && (
+        <Panel className="p-6">
+          <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
+            {groups.map((g) => (
+              <FindingList key={g.title} title={g.title} items={g.items} />
+            ))}
+          </div>
+        </Panel>
+      )}
       {r.previousRecommendations.length > 0 && (
-        <section className="space-y-2">
-          <h4 className="eyebrow">Last week&apos;s recommendations</h4>
-          <ul className="space-y-1.5">
+        <Panel className="p-6">
+          <Eyebrow>Last week&apos;s recommendations</Eyebrow>
+          <ul className="mt-4 divide-y divide-line">
             {r.previousRecommendations.map((p, i) => (
-              <li key={i} className="break-words text-[15px] text-ink-2">
-                {p.text} <span className="meta">· followed: {p.followed}</span>
-                <Cites cites={p.evidence} />
+              <li key={i} className="flex items-start justify-between gap-4 py-3 first:pt-0 last:pb-0">
+                <span className="min-w-0 break-words text-[15px] text-ink-2">
+                  {p.text}
+                  <Cites cites={p.evidence} />
+                </span>
+                <span className="shrink-0">
+                  <StatusPill tone={FOLLOWED[p.followed].tone}>{FOLLOWED[p.followed].label}</StatusPill>
+                </span>
               </li>
             ))}
           </ul>
-        </section>
+        </Panel>
       )}
     </article>
   );
@@ -96,16 +134,19 @@ export function MentorView() {
 
   return (
     <div className="space-y-10">
-      <header className="page-head">
-        <p className="eyebrow">Mentor</p>
-        <h1>Reviews and reports</h1>
-        <p>
-          What the mentor noticed in your sessions.{" "}
-          <Link href="/knowledge/" className="font-medium text-accent-text hover:underline">
-            See Knowledge
-          </Link>
-        </p>
-      </header>
+      <PageHeader
+        eyebrow="Mentor"
+        title="Reviews and reports"
+        subtitle={
+          <>
+            What the mentor noticed in your sessions.{" "}
+            <Link href="/knowledge/" className="font-medium text-accent-text hover:underline">
+              See Knowledge
+            </Link>
+          </>
+        }
+        horizon
+      />
 
       {error && <p className="meta text-warn">{error}</p>}
       {invalid > 0 && <p className="meta">{invalid} {invalid === 1 ? "file" : "files"} could not be read and {invalid === 1 ? "was" : "were"} skipped.</p>}
@@ -120,9 +161,7 @@ export function MentorView() {
       ) : (
         <>
           <section aria-label="Weekly reports" className="space-y-4">
-            <div className="section-head">
-              <h2>Weekly reports</h2>
-            </div>
+            <h2 className="text-lg font-semibold">Weekly reports</h2>
             {weekly.length === 0 ? (
               <div className="empty-state">
                 <strong>No weekly report yet</strong>
@@ -131,13 +170,11 @@ export function MentorView() {
             ) : (
               weekly.map((r, i) =>
                 i === 0 ? (
-                  <div key={r.week} className="card p-5">
-                    <Report r={r} />
-                  </div>
+                  <Report key={r.week} r={r} />
                 ) : (
-                  <details key={r.week} className="card group p-5">
+                  <details key={r.week} className="panel group p-5">
                     <summary className="cursor-pointer font-medium">
-                      {r.week} <span className="meta">· {r.sufficiency === "activity-only" ? "limited data" : "coaching"}</span>
+                      {r.week} <span className="text-[13px] text-muted">· {r.sufficiency === "activity-only" ? "activity only" : "coaching"}</span>
                     </summary>
                     <div className="mt-4">
                       <Report r={r} />
@@ -148,58 +185,66 @@ export function MentorView() {
             )}
           </section>
 
-          <section aria-label="Recent session reviews" className="space-y-3">
-            <div className="section-head">
-              <h2>Recent session reviews</h2>
-            </div>
+          <section aria-label="Recent session reviews" className="space-y-4">
+            <h2 className="text-lg font-semibold">Recent session reviews</h2>
             {reviews.length === 0 ? (
               <div className="empty-state">
                 <strong>No reviews yet</strong>
                 <span className="text-[15px]">Ending a session queues one.</span>
               </div>
             ) : (
-              <ul className="divide-y divide-line border-y border-line">
-                {reviews.slice(0, 20).map((r) => (
-                  <li key={r.id}>
-                    <Link href={`/journal/?s=${encodeURIComponent(r.sessionId)}`} className="-mx-3 block rounded-lg px-3 py-3 transition-colors hover:bg-surface-2">
-                      <span className="meta">
-                        {subjectOf(r.sessionId) ?? "Session"} · {dateOf(r.createdAt)}
+              <ol className="relative">
+                {reviews.slice(0, 20).map((r, i, all) => (
+                  <li key={r.id} className="relative pl-8">
+                    {i < all.length - 1 && <span aria-hidden className="absolute bottom-0 left-[7px] top-4 w-px bg-line-2" />}
+                    <span aria-hidden className="absolute left-0 top-[1.15rem] h-[15px] w-[15px] rounded-full border-[1.5px] border-accent bg-surface" />
+                    <Link href={`/journal/?s=${encodeURIComponent(r.sessionId)}`} className="mb-3 block rounded-xl px-4 py-3 transition-colors hover:bg-surface-2">
+                      <span className="flex flex-wrap items-center gap-2">
+                        <span className="rounded-full border border-line-2 px-2.5 py-0.5 text-xs text-cyan">{subjectOf(r.sessionId) ?? "Session"}</span>
+                        <span className="text-[13px] text-muted">{dateOf(r.createdAt)}</span>
                       </span>
-                      <span className="line-clamp-2 block break-words text-[15px]">{r.summary}</span>
+                      <span className="mt-1.5 line-clamp-2 block break-words text-[15px]">{r.summary}</span>
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ol>
             )}
           </section>
 
-          <section aria-label="Earlier Mentor" className="space-y-3">
-            <div className="section-head">
-              <h2>Earlier Mentor (V1, archived)</h2>
-            </div>
-            <p className="meta">Historical, from the V1 quiz Mentor; not counted as evidence. Read-only.</p>
-            {archive.length === 0 ? (
-              <p className="text-[15px] text-ink-2">No archived reports found.</p>
-            ) : (
-              <div className="space-y-2">
-                {archiveReadme && (
-                  <details className="card p-4">
-                    <summary className="cursor-pointer font-medium">About this archive</summary>
-                    <div className="mt-3">
-                      <Markdown source={archiveReadme} />
-                    </div>
-                  </details>
+          <section aria-label="Earlier Mentor">
+            <details className="panel p-5">
+              <summary className="cursor-pointer font-medium">
+                Earlier Mentor (V1, archived){" "}
+                <span className="text-[13px] font-normal text-muted">
+                  · {archive.length} {archive.length === 1 ? "report" : "reports"}
+                </span>
+              </summary>
+              <div className="mt-4 space-y-3">
+                <p className="text-[13px] text-muted">Historical, from the V1 quiz Mentor; not counted as evidence. Read-only.</p>
+                {archive.length === 0 ? (
+                  <p className="text-[15px] text-ink-2">No archived reports found.</p>
+                ) : (
+                  <div className="space-y-2">
+                    {archiveReadme && (
+                      <details className="rounded-xl border border-line p-4">
+                        <summary className="cursor-pointer font-medium">About this archive</summary>
+                        <div className="mt-3">
+                          <Markdown source={archiveReadme} />
+                        </div>
+                      </details>
+                    )}
+                    {archive.map((a) => (
+                      <details key={a.name} className="rounded-xl border border-line p-4">
+                        <summary className="cursor-pointer font-medium">{a.name}</summary>
+                        <div className="mt-3">
+                          <Markdown source={a.text} />
+                        </div>
+                      </details>
+                    ))}
+                  </div>
                 )}
-                {archive.map((a) => (
-                  <details key={a.name} className="card p-4">
-                    <summary className="cursor-pointer font-medium">{a.name}</summary>
-                    <div className="mt-3">
-                      <Markdown source={a.text} />
-                    </div>
-                  </details>
-                ))}
               </div>
-            )}
+            </details>
           </section>
         </>
       )}
