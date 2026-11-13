@@ -56,8 +56,8 @@ describe("design rules", () => {
     expect(dark.accent).toBe("#3b9bff");
   });
 
-  it("has no linear gradients or backdrop blur (only the faint radial glow)", () => {
-    expect(css).not.toMatch(/backdrop-filter|linear-gradient/);
+  it("has no backdrop blur (gradients are allowed: the redesign panels and CTA use them)", () => {
+    expect(css).not.toMatch(/backdrop-filter/);
   });
 
   it("never uses purple", () => {

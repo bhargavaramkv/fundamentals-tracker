@@ -2,50 +2,89 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
+import { describeSync, type SyncKind } from "@/lib/journal/status";
 import { BrandMark } from "./BrandMark";
-import { Icon, PRIMARY, isActive } from "./Nav";
+import { useJournal } from "./JournalProvider";
+import { PRIMARY, isActive } from "./Nav";
 import { useProgress } from "./ProgressProvider";
+import { CloudIcon, SlidersIcon, SparklesIcon } from "./ui/icons";
 
-/** Left sidebar from lg up: the four destinations, sync status and settings. */
+const TITLE: Record<SyncKind, string> = {
+  local: "Local only",
+  synced: "Synced",
+  saving: "Saving…",
+  offline: "Offline",
+  retrying: "Retrying",
+  error: "Sync problem",
+  conflict: "Needs attention",
+};
+const TONE: Record<SyncKind, string> = {
+  local: "text-ink-3",
+  synced: "text-good",
+  saving: "text-accent",
+  offline: "text-warn",
+  retrying: "text-warn",
+  error: "text-bad",
+  conflict: "text-bad",
+};
+
+/** Desktop: a 240 px sidebar. Tablet: a 72 px icon rail (labels move to aria-label and title). Hidden on phones, where Nav takes over. */
 export function Sidebar() {
   const pathname = usePathname();
-  const { syncState, storeKind } = useProgress();
-  const settingsActive = pathname.startsWith("/settings");
-  const syncError = syncState === "error";
-  const label = storeKind === "local" ? "Local only" : syncState === "syncing" ? "Syncing…" : syncError ? "Sync error" : "Synced";
-  const dot = storeKind === "local" ? "bg-ink-3" : syncError ? "bg-bad" : syncState === "syncing" ? "bg-accent" : "bg-good";
+  const { syncState: progressSync } = useProgress();
+  const { hasToken, syncState, online, queue } = useJournal();
+  const summary = describeSync({ hasToken, online, state: syncState, queue });
+  const syncError = progressSync === "error";
+  const detail = summary.kind === "local" ? "On this device only" : summary.label;
+
+  const item = (href: string, label: string, icon: ReactNode, active: boolean, small = false) => (
+    <Link
+      href={href}
+      title={label}
+      aria-label={label}
+      aria-current={active ? "page" : undefined}
+      className={`nav-link justify-center lg:justify-start ${small ? "min-h-10 text-sm" : ""}`}
+    >
+      {icon}
+      <span className="hidden lg:inline">{label}</span>
+    </Link>
+  );
 
   return (
-    <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-bg pt-[env(safe-area-inset-top)] lg:flex">
-      <Link href="/" className="px-6 pb-5 pt-7 text-lg font-semibold tracking-tight" aria-label="Fundamentals, go to the home page">
-        <BrandMark />
-      </Link>
-      <div className="min-h-0 flex-1 space-y-6 overflow-y-auto px-3 pb-4">
-        <nav aria-label="Main" className="space-y-1">
-          {PRIMARY.map((l) => (
-            <Link key={l.href} href={l.href} aria-current={isActive(pathname, l) ? "page" : undefined} className="nav-link">
-              {l.icon}
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-      <div className="flex items-center justify-between border-t border-line px-4 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
-        <span className="meta flex items-center gap-2" role="status">
-          <span aria-hidden className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-          {label}
+    <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-bg-2 px-3 pb-4 pt-7 md:flex lg:px-4">
+      <Link href="/" className="mb-9 block text-center text-lg font-semibold tracking-tight lg:px-3 lg:text-left lg:text-[22px]" aria-label="Fundamentals, go to the home page">
+        <span className="lg:hidden" aria-hidden>
+          F<span className="text-accent">.</span>
         </span>
-        <Link
-          href="/settings/"
-          aria-label={syncError ? "Settings (sync error)" : "Settings"}
-          aria-current={settingsActive ? "page" : undefined}
-          className={`relative flex h-11 w-11 items-center justify-center rounded-lg transition-colors ${settingsActive ? "text-accent-text" : "text-ink-3 hover:text-ink"}`}
+        <span className="hidden lg:inline">
+          <BrandMark />
+        </span>
+      </Link>
+      <nav aria-label="Main" className="flex flex-col gap-1">
+        {PRIMARY.map((l) => (
+          <span key={l.href} className="contents">
+            {item(l.href, l.label, l.icon, isActive(pathname, l))}
+          </span>
+        ))}
+      </nav>
+      <div className="mt-auto flex flex-col gap-1 border-t border-line pt-3">
+        {item("/mentor/", "Mentor", <SparklesIcon />, pathname.startsWith("/mentor"), true)}
+        {item("/settings/", syncError ? "Settings (sync error)" : "Settings", <SlidersIcon />, pathname.startsWith("/settings"), true)}
+        <div
+          role="status"
+          title={summary.label}
+          className="mt-3 flex items-center justify-center gap-3 rounded-xl border border-line bg-surface p-3 shadow-[var(--hl)] lg:justify-start"
         >
-          <Icon>
-            <path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4" />
-          </Icon>
-          {syncError && <span aria-hidden className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-bad" />}
-        </Link>
+          <span className={`relative grid place-items-center ${TONE[summary.kind]}`}>
+            <CloudIcon />
+            <span aria-hidden className="absolute -right-0.5 -top-0.5 h-[7px] w-[7px] rounded-full border-[1.5px] border-surface bg-current" />
+          </span>
+          <span className="hidden min-w-0 lg:block">
+            <b className="block text-[13px] font-medium leading-snug">{TITLE[summary.kind]}</b>
+            <small className="block text-xs leading-snug text-muted">{detail}</small>
+          </span>
+        </div>
       </div>
     </aside>
   );

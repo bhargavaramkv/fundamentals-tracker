@@ -64,11 +64,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <JournalProvider>
             <MentorProvider>
             <Nav />
-            <div className="flex-1 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)]">
+            <div className="flex-1 md:grid md:grid-cols-[4.5rem_minmax(0,1fr)] lg:grid-cols-[15rem_minmax(0,1fr)]">
               <Sidebar />
               <div className="flex min-w-0 flex-col">
-                <main className="mx-auto w-full max-w-3xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-8 sm:py-12 lg:max-w-[68rem] lg:px-10">{children}</main>
-                <footer className="mx-auto w-full max-w-3xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 sm:pb-8 lg:max-w-[68rem] lg:px-10">
+                <main className="mx-auto w-full max-w-3xl flex-1 px-[max(1rem,env(safe-area-inset-left))] py-8 md:max-w-[80rem] md:px-8 md:py-10 lg:px-10 lg:py-12 2xl:max-w-[88rem]">{children}</main>
+                <footer className="mx-auto w-full max-w-3xl px-[max(1rem,env(safe-area-inset-left))] pb-[calc(var(--tabbar-h)+env(safe-area-inset-bottom)+2rem)] text-xs text-ink-3 md:max-w-[80rem] md:px-8 md:pb-8 lg:px-10 2xl:max-w-[88rem]">
                   Progress stays in your browser unless you enable sync in Settings.
                 </footer>
               </div>
