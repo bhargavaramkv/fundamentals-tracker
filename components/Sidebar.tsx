@@ -53,14 +53,11 @@ export function Sidebar() {
 
   return (
     <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-bg-2 px-3 pb-4 pt-7 md:flex lg:px-4">
-      <Link href="/" className="mb-9 block text-center text-lg font-semibold tracking-tight lg:px-3 lg:text-left lg:text-[22px]" aria-label="Fundamentals, go to the home page">
-        <span className="lg:hidden" aria-hidden>
-          F<span className="text-accent">.</span>
-        </span>
-        <span className="hidden lg:inline">
-          <BrandMark />
-        </span>
+      {/* The wordmark doesn't fit the tablet rail; the layout shows it above the content there instead. */}
+      <Link href="/" className="mb-9 hidden px-3 text-[22px] font-semibold tracking-tight lg:block" aria-label="Fundamentals, go to the home page">
+        <BrandMark />
       </Link>
+      <div className="h-4 lg:hidden" aria-hidden />
       <nav aria-label="Main" className="flex flex-col gap-1">
         {PRIMARY.map((l) => (
           <span key={l.href} className="contents">
