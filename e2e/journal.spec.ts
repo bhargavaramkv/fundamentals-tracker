@@ -130,7 +130,6 @@ test("journal: edit a note and the session details, keeping the original", async
   await page.reload();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Computer networks");
   await expect(timeline(page).getByText("TCP is connection-oriented")).toBeVisible();
-  await page.getByRole("link", { name: "← Journal" }).click();
   await expect(page.getByRole("region", { name: "History" }).getByRole("link", { name: /Computer networks/ })).toBeVisible();
 });
 
@@ -163,7 +162,6 @@ test("journal: history filters, search and discarded sessions", async ({ page })
   await links.filter({ hasText: "Alpha" }).click();
   await page.getByRole("button", { name: "Discard session" }).click();
   await page.getByRole("button", { name: "Confirm discard" }).click();
-  await page.getByRole("link", { name: "← Journal" }).click();
   await expect(links).toHaveCount(1);
   await history.getByLabel(/Show discarded/).check();
   await expect(links).toHaveCount(2);
