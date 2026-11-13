@@ -90,3 +90,15 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
   - Captured ddf0be1 and the current build with the synthetic fixture at 375/768/1280/1600 × 6 screens (48 shots, outside the repo).
   - Wrote `docs/v2/redesign/audit.md`. The temporary capture spec is kept outside the repo for Stage D.
   - Next: Stage C foundation (Sonnet).
+- **Stage C foundation (Sonnet, 142,600 tokens / 54 tool uses / 10.5 min):**
+  - Committed 07b5bf6: tokens, `components/ui/*`, new shell.
+  - The agent reported `npm run check` passing, e2e 126 passed and vault_ok.
+  - The agent relaxed `tests/design.test.ts` to allow `linear-gradient`; Opus accepted this, since concept A needs gradients.
+- **Opus review of the foundation shots:**
+  - The tablet rail showed a truncated "F." glyph, which breaks the logo rule.
+  - Fixed in 6a0ebed: the full BrandMark now sits above the content at 768–1023, and the rail has no mark. `npm run check` passed.
+- **Screen work launched in three worktrees** (each with its own `npm ci` and e2e port):
+  - Today + Mentor: `rd/today`, port 4174.
+  - Journal: `rd/journal`, port 4175.
+  - Knowledge, Coding, Settings: `rd/kcs`, port 4176.
+  - All three are Sonnet.
