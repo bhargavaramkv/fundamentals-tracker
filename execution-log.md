@@ -120,3 +120,8 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
   - A first attempt reworded the stepper and broke the fixture smoke test (`/reviews? queued/`), giving 126/127. The "queued" wording was restored.
   - Final: check passed, e2e 126/126, vault_ok.
   - Side-by-side comparisons are in `../fundamentals-v2-screenshots/compare/`.
+- **Release (Opus):**
+  - PR #55 merged as 2d2417c after CI passed (check, layout). Pages run 43369254768 succeeded.
+  - Live smoke: `/` and the five routes return 200, and the live CSS contains `#05080f` and `horizon-rule`.
+  - Local main synced.
+  - Cleanup: the worktrees (ft-old, ft-rd-*) and the local rd/* branches are removed (never pushed). The port 4180 server is stopped.

@@ -100,7 +100,7 @@ Markers: `[ ]` not started, `[~]` in progress, `[x]` implemented **and verified*
 - [x] PR #53: CI green (check, layout), merged e4d9a34, Pages deploy 43281085732 succeeded. Smoke test: 6 routes return 200, CSP present, new bundle live. Rollback: `git revert -m 1 e4d9a34` on main (v1-legacy tag intact)
 - [x] `fundamentals-v2-final-report.md`
 
-### P-R: Genuine UI/UX redesign (brief 2026-11-13). INCOMPLETE
+### P-R: Genuine UI/UX redesign (brief 2026-11-13). COMPLETE
 Owner finding (verified by Opus): production serves the latest build, but the UI looks like the previous version. Root cause: P2 changed tokens and fonts within the existing structure, and the final report overstated it as a "full UI/UX redesign".
 - [x] Docs corrected (this section, final report correction appended; e1 commit on v2/redesign)
 - [x] Visual audit (`docs/v2/redesign/audit.md`): ddf0be1 vs a7ecac3 at 375/768/1280/1600 for Today, Journal, Knowledge, Coding, Mentor, Settings
@@ -109,7 +109,7 @@ Owner finding (verified by Opus): production serves the latest build, but the UI
 - [x] Stage C: implementation, all six screens: Today [x], Journal [x], Knowledge [x], Coding [x], Mentor [x], Settings [x] (foundation 07b5bf6; screens merged from rd/today, rd/journal, rd/kcs)
 - [x] Stage D: before/after screenshots, side by side (`../fundamentals-v2-screenshots/compare/`, 6 screens at 1280 and 375; new build also at 768/1600/1920 in `redesign/final/`). Opus inspected them: all six screens are structurally different. Fixed during review: the truncated "F." on the tablet rail, the queued-count wording, the Settings grid gap and the "More" eyebrow
 - [x] Stage E: `npm run check` (0 lint errors, 323/323 unit, typecheck, build) and full Playwright 126/126 including the layout and responsive specs, on the final commit, run by Opus
-- [ ] Release and final report update
+- [x] Release and final report update: PR #55 merged as 2d2417c, CI green (check and layout), Pages deploy run 43369254768 succeeded, and the live CSS serves the new tokens
 Reference images received: Today dashboard and V2 design board. The Journal workspace reference mentioned in the brief was NOT attached; the design board's Journal panel is used instead.
 
 ## Baseline
