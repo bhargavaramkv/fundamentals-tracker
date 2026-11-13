@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { MEDIA_UPLOAD_ENABLED, UPLOAD_STATUS_TEXT } from "@/lib/journal/attachments";
 import type { AttachmentInfo } from "@/lib/journal/types";
 import { useJournal } from "../JournalProvider";
+import { CameraIcon, ImageIcon } from "./icons";
 
 /** Camera and gallery pickers. Photos are compressed and kept on this device only. */
 export function PhotoButtons({ sessionId }: { sessionId: string }) {
@@ -30,10 +31,12 @@ export function PhotoButtons({ sessionId }: { sessionId: string }) {
   return (
     <div className="space-y-2">
       <div className="flex flex-wrap gap-2">
-        <button type="button" disabled={busy} onClick={() => camera.current?.click()} className="chip hover:bg-surface-2">
+        <button type="button" disabled={busy} onClick={() => camera.current?.click()} className="chip gap-1.5 !px-3 !py-1.5 hover:bg-surface-2">
+          <CameraIcon />
           Take photo
         </button>
-        <button type="button" disabled={busy} onClick={() => gallery.current?.click()} className="chip hover:bg-surface-2">
+        <button type="button" disabled={busy} onClick={() => gallery.current?.click()} className="chip gap-1.5 !px-3 !py-1.5 hover:bg-surface-2">
+          <ImageIcon />
           Choose from gallery
         </button>
         <input ref={camera} type="file" accept="image/*" capture="environment" hidden aria-label="Photo from camera" onChange={onChange} />
@@ -80,7 +83,7 @@ export function PhotoThumb({ info }: { info: AttachmentInfo }) {
     <div className="mt-1">
       <button type="button" onClick={() => setOpen(true)} className="block overflow-hidden rounded-md border border-line" aria-label={`Open ${alt}`}>
         {/* eslint-disable-next-line @next/next/no-img-element -- a local blob URL, not a remote image */}
-        <img src={url} alt={alt} width={info.width} height={info.height} className="h-24 w-auto max-w-full object-cover sm:h-28" />
+        <img src={url} alt={alt} width={info.width} height={info.height} className="max-h-44 w-auto max-w-full object-cover sm:max-h-52" />
       </button>
       <p className="meta mt-1">
         {info.width}×{info.height} · {kb(info.bytes)} · on this device
