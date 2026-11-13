@@ -112,3 +112,22 @@ See `progress.md`, "Architecture decisions", and `docs/v2/ARCHITECTURE.md`. Corr
 | P6 docs | sonnet | Architecture, data contracts, recovery, README | 141,601 / 28 / 3.6 min |
 | Branch audit | haiku | Read-only remote branch audit | Unavailable |
 | Review routine (manual run) | sonnet | Verification run of the review routine | 25 s, 3 turns |
+
+---
+
+## Correction (appended 2026-11-13; the sections above are kept as originally written)
+Sections A and B above call the release a "redesign" and describe a full UI/UX transformation. That is **inaccurate**.
+
+- **What the release actually delivered:**
+  - All the functional improvements in section B: journal completion, review engine, weekly coaching, knowledge levels, mentor UI, docs and routines.
+  - Minor visual refinements:
+    - Background `#0a1220` to `#070b14`, surfaces slightly darker. The accent `#3b9bff` is unchanged.
+    - Geist instead of Nunito for headings.
+    - Flat buttons.
+    - A rebuilt Today content list.
+- **What it did not deliver:** the intended full UI/UX redesign.
+  - The shell, navigation, card-based composition, information hierarchy and palette are essentially those of `ddf0be1`.
+  - Coding and Settings were not restyled at all.
+- **Why:** the design brief given to the implementing agent asked for a token, typography and motion pass inside the existing structure. The Opus visual review checked screenshots for layout defects but never compared them against the previous version.
+- **Deployment:** it was correct. Production serves the latest build, which was verified by checking the live CSS and JS and the response headers.
+- **Status:** the genuine redesign is now tracked as **P-R (INCOMPLETE)** in `progress.md`.

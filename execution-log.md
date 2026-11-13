@@ -70,3 +70,8 @@ Never edit earlier entries. Correct them by appending a correction entry. Times 
 - **Milestone, 00:06 IST:**
   - Review routine verification run cse_018WzAxEUfnNfHEwDKxpgwEj succeeded in 25 s: "pending: []", nothing written.
   - Final report written. Docs PR opened.
+
+### Session 1, continued: redesign brief (P-R)
+- **Received:** 2026-11-13 09:15 IST. A genuine UI/UX redesign brief, with 2 reference images. A third (Journal workspace) was mentioned but not attached.
+- **Correction:** the earlier final report overstated P2 as a full redesign. A correction was appended to the report, and progress.md now marks the redesign, Coding and Settings as incomplete.
+- **Model:** Opus 5.5, supervising session.
