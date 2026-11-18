@@ -5,7 +5,7 @@ it can be reviewed and changed like code.
 
 ## When it runs
 
-One scheduled chat (the **daily run**, Opus, 06:47 IST). It has both this repo and
+One scheduled chat (the **daily run**, Sonnet, 06:47 IST). It has both this repo and
 the private data repo attached, so it reads `progress.json` directly from
 `../fundamentals-tracker-data/progress.json`. It is the only Claude routine: it
 also does the LeetCode coding review (step 0), after the data repo's LeetCode pull

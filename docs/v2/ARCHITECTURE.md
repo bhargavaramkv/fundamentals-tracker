@@ -252,7 +252,7 @@ The V1 nightly mentor (removed in #35) left `mentor/{states,runs,reports,evidenc
 ## Routines (claude.ai, owner's subscription; no API billing)
 
 - **Fundamentals session reviews** (Sonnet): daily at 06:15 IST, follows `docs/review-routine.md`.
-- **Fundamentals tracker · daily run** (Opus): daily at 06:47 IST. Coding review (`docs/coding-routine.md`), plus weekly coaching on Mondays (`docs/weekly-routine.md`). Lesson tailoring, learner-profile updates and lesson PRs are retired.
+- **Fundamentals tracker · daily run** (Sonnet): daily at 06:47 IST. Coding review (`docs/coding-routine.md`), plus weekly coaching on Mondays (`docs/weekly-routine.md`). Lesson tailoring, learner-profile updates and lesson PRs are retired.
 
 ## Not built
 
