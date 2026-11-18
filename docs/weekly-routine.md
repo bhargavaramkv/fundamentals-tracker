@@ -1,6 +1,6 @@
 # Weekly coaching routine
 
-An unattended Claude Code session (Sonnet) that runs on Mondays for the previous ISO week (Asia/Kolkata). No API keys. It writes JSON itself; the script validates and publishes. It writes only `journal/weekly/<YYYY>-W<ww>.json`, through `npm run weekly`.
+An unattended Claude Code session (a Sonnet subagent of the daily run) that runs on Mondays for the previous ISO week (Asia/Kolkata). No API keys. It writes JSON itself; the script validates and publishes. It writes only `journal/weekly/<YYYY>-W<ww>.json`, through `npm run weekly`.
 
 `<data>` below is the data repo checkout (`../fundamentals-tracker-data`).
 
